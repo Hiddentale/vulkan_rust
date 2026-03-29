@@ -1,4 +1,6 @@
 //! Parses vk.xml into categorized intermediate types for code generation.
+//!
+//! Fields that appear unused are consumed by emitters in later phases.
 
 use std::collections::{HashMap, HashSet};
 use vk_parse::{
@@ -1298,7 +1300,10 @@ mod tests {
 
     #[test]
     fn registry_has_extensions() {
-        assert!(registry().extensions.len() > 400, "expected 400+ extensions");
+        assert!(
+            registry().extensions.len() > 400,
+            "expected 400+ extensions"
+        );
     }
 
     #[test]
@@ -1368,7 +1373,10 @@ mod tests {
             .find(|s| s.name == "BufferCreateInfo")
             .unwrap();
         let s_type = s.members.iter().find(|m| m.name == "sType");
-        assert!(s_type.is_some(), "BufferCreateInfo should have sType member");
+        assert!(
+            s_type.is_some(),
+            "BufferCreateInfo should have sType member"
+        );
     }
 
     #[test]
@@ -1401,7 +1409,10 @@ mod tests {
             .structs
             .iter()
             .filter(|s| s.extends.contains(&"PhysicalDeviceFeatures2".to_string()));
-        assert!(extending.count() > 10, "expected many structs extending PhysicalDeviceFeatures2");
+        assert!(
+            extending.count() > 10,
+            "expected many structs extending PhysicalDeviceFeatures2"
+        );
     }
 
     // -----------------------------------------------------------------------
@@ -1498,9 +1509,7 @@ mod tests {
         for bit in &b.bits {
             match &bit.value {
                 BitmaskValue::Bitpos(pos) => assert!(*pos < 64, "bitpos too large: {pos}"),
-                BitmaskValue::Value(v) => {
-                    // Value 0 is valid (NONE flags), but non-zero should be meaningful.
-                }
+                BitmaskValue::Value(_) => {}
                 BitmaskValue::Alias(_) => {}
             }
         }
@@ -1658,10 +1667,7 @@ mod tests {
             .iter()
             .find(|s| s.name == "SwapchainCreateInfoKHR");
         assert!(s.is_some());
-        assert_eq!(
-            s.unwrap().provided_by.as_deref(),
-            Some("VK_KHR_swapchain")
-        );
+        assert_eq!(s.unwrap().provided_by.as_deref(), Some("VK_KHR_swapchain"));
     }
 
     // -----------------------------------------------------------------------

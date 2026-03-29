@@ -2,7 +2,9 @@ mod emit_bitmasks;
 mod emit_constants;
 mod emit_enums;
 mod emit_handles;
+#[allow(dead_code)]
 mod parse;
+#[allow(dead_code)]
 mod type_map;
 
 use std::fs;
@@ -16,7 +18,11 @@ fn main() {
 
     let out_dir = Path::new(env!("CARGO_MANIFEST_DIR")).join("../vk-sys/src");
 
-    write_module(&out_dir, "handles.rs", emit_handles::emit_handles(&registry));
+    write_module(
+        &out_dir,
+        "handles.rs",
+        emit_handles::emit_handles(&registry),
+    );
     write_module(&out_dir, "enums.rs", emit_enums::emit_enums(&registry));
     write_module(
         &out_dir,

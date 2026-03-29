@@ -98,7 +98,7 @@ fn emit_debug_arm(variant: &EnumVariant, prefix: &str) -> Option<TokenStream> {
     let rust_name = strip_variant_prefix(&variant.name, prefix)?;
     match &variant.value {
         EnumValue::I32(val) => {
-            let label = format!("{rust_name}");
+            let label = rust_name.to_string();
             Some(quote! { #val => f.write_str(#label), })
         }
         EnumValue::Alias(_) => None, // skip aliases in debug to avoid duplicate arms
@@ -126,8 +126,8 @@ fn enum_variant_prefix(rust_type_name: &str) -> String {
 ///
 /// Also strips trailing extension suffixes from the result if present.
 fn strip_variant_prefix(c_name: &str, prefix: &str) -> Option<String> {
-    let stripped = if c_name.starts_with(prefix) {
-        &c_name[prefix.len()..]
+    let stripped = if let Some(s) = c_name.strip_prefix(prefix) {
+        s
     } else {
         // Some variants don't match the expected prefix (e.g. VK_RESULT_MAX_ENUM).
         // Skip sentinel values.
@@ -159,8 +159,8 @@ fn strip_variant_prefix(c_name: &str, prefix: &str) -> Option<String> {
 
 pub const EXTENSION_SUFFIXES: &[&str] = &[
     "KHR", "EXT", "NV", "AMD", "INTEL", "ARM", "QCOM", "HUAWEI", "MESA", "VALVE", "GOOGLE",
-    "FUCHSIA", "GGP", "MVK", "NN", "NVX", "AMDX", "SEC", "MSFT", "IMG", "LUNARG", "QNX",
-    "ANDROID", "KDAB",
+    "FUCHSIA", "GGP", "MVK", "NN", "NVX", "AMDX", "SEC", "MSFT", "IMG", "LUNARG", "QNX", "ANDROID",
+    "KDAB",
 ];
 
 pub fn strip_extension_suffix(name: &str) -> String {
@@ -215,10 +215,7 @@ mod tests {
     fn enum_emits_valid_rust() {
         let def = make_enum(
             "Format",
-            vec![
-                ("VK_FORMAT_UNDEFINED", 0),
-                ("VK_FORMAT_R8G8B8A8_SRGB", 43),
-            ],
+            vec![("VK_FORMAT_UNDEFINED", 0), ("VK_FORMAT_R8G8B8A8_SRGB", 43)],
         );
         let tokens = emit_enum(&def);
         assert_valid_rust(&tokens);
@@ -228,14 +225,14 @@ mod tests {
     fn enum_has_expected_constants() {
         let def = make_enum(
             "Format",
-            vec![
-                ("VK_FORMAT_UNDEFINED", 0),
-                ("VK_FORMAT_R8G8B8A8_SRGB", 43),
-            ],
+            vec![("VK_FORMAT_UNDEFINED", 0), ("VK_FORMAT_R8G8B8A8_SRGB", 43)],
         );
         let code = emit_enum(&def).to_string();
         assert!(code.contains("pub const UNDEFINED"), "missing UNDEFINED");
-        assert!(code.contains("pub const R8G8B8A8_SRGB"), "missing R8G8B8A8_SRGB");
+        assert!(
+            code.contains("pub const R8G8B8A8_SRGB"),
+            "missing R8G8B8A8_SRGB"
+        );
     }
 
     #[test]
@@ -292,9 +289,7 @@ mod tests {
                 },
                 EnumVariant {
                     name: "VK_PRESENT_MODE_FIFO_LATEST_READY_EXT".to_string(),
-                    value: EnumValue::Alias(
-                        "VK_PRESENT_MODE_FIFO_LATEST_READY_KHR".to_string(),
-                    ),
+                    value: EnumValue::Alias("VK_PRESENT_MODE_FIFO_LATEST_READY_KHR".to_string()),
                 },
             ],
         };
@@ -306,7 +301,10 @@ mod tests {
     fn enum_has_doc_alias() {
         let def = make_enum("Format", vec![("VK_FORMAT_UNDEFINED", 0)]);
         let code = emit_enum(&def).to_string();
-        assert!(code.contains("VkFormat"), "expected doc(alias) with VkFormat");
+        assert!(
+            code.contains("VkFormat"),
+            "expected doc(alias) with VkFormat"
+        );
     }
 
     #[test]

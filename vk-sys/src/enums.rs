@@ -50,7 +50,10 @@ impl std::fmt::Debug for RayTracingLssPrimitiveEndCapsModeNV {
             1i32 => f.write_str("CHAINED"),
             other => {
                 write!(
-                    f, "{}({})", stringify!(RayTracingLssPrimitiveEndCapsModeNV), other
+                    f,
+                    "{}({})",
+                    stringify!(RayTracingLssPrimitiveEndCapsModeNV),
+                    other
                 )
             }
         }
@@ -169,7 +172,12 @@ impl std::fmt::Debug for CooperativeVectorMatrixLayoutNV {
             2i32 => f.write_str("INFERENCING_OPTIMAL"),
             3i32 => f.write_str("TRAINING_OPTIMAL"),
             other => {
-                write!(f, "{}({})", stringify!(CooperativeVectorMatrixLayoutNV), other)
+                write!(
+                    f,
+                    "{}({})",
+                    stringify!(CooperativeVectorMatrixLayoutNV),
+                    other
+                )
             }
         }
     }
@@ -233,7 +241,12 @@ impl std::fmt::Debug for DeviceMemoryReportEventTypeEXT {
             3i32 => f.write_str("UNIMPORT"),
             4i32 => f.write_str("ALLOCATION_FAILED"),
             other => {
-                write!(f, "{}({})", stringify!(DeviceMemoryReportEventTypeEXT), other)
+                write!(
+                    f,
+                    "{}({})",
+                    stringify!(DeviceMemoryReportEventTypeEXT),
+                    other
+                )
             }
         }
     }
@@ -497,7 +510,12 @@ impl std::fmt::Debug for OpticalFlowPerformanceLevelNV {
             2i32 => f.write_str("MEDIUM"),
             3i32 => f.write_str("FAST"),
             other => {
-                write!(f, "{}({})", stringify!(OpticalFlowPerformanceLevelNV), other)
+                write!(
+                    f,
+                    "{}({})",
+                    stringify!(OpticalFlowPerformanceLevelNV),
+                    other
+                )
             }
         }
     }
@@ -676,7 +694,12 @@ impl std::fmt::Debug for VideoEncodeAV1PredictionModeKHR {
             2i32 => f.write_str("UNIDIRECTIONAL_COMPOUND"),
             3i32 => f.write_str("BIDIRECTIONAL_COMPOUND"),
             other => {
-                write!(f, "{}({})", stringify!(VideoEncodeAV1PredictionModeKHR), other)
+                write!(
+                    f,
+                    "{}({})",
+                    stringify!(VideoEncodeAV1PredictionModeKHR),
+                    other
+                )
             }
         }
     }
@@ -972,7 +995,12 @@ impl std::fmt::Debug for ConservativeRasterizationModeEXT {
             1i32 => f.write_str("OVERESTIMATE"),
             2i32 => f.write_str("UNDERESTIMATE"),
             other => {
-                write!(f, "{}({})", stringify!(ConservativeRasterizationModeEXT), other)
+                write!(
+                    f,
+                    "{}({})",
+                    stringify!(ConservativeRasterizationModeEXT),
+                    other
+                )
             }
         }
     }
@@ -1003,7 +1031,12 @@ impl std::fmt::Debug for PipelineRobustnessImageBehavior {
             2i32 => f.write_str("ROBUST_IMAGE_ACCESS"),
             3i32 => f.write_str("ROBUST_IMAGE_ACCESS_2"),
             other => {
-                write!(f, "{}({})", stringify!(PipelineRobustnessImageBehavior), other)
+                write!(
+                    f,
+                    "{}({})",
+                    stringify!(PipelineRobustnessImageBehavior),
+                    other
+                )
             }
         }
     }
@@ -1085,7 +1118,10 @@ impl std::fmt::Debug for DataGraphPipelineSessionBindPointARM {
             0i32 => f.write_str("TRANSIENT"),
             other => {
                 write!(
-                    f, "{}({})", stringify!(DataGraphPipelineSessionBindPointARM), other
+                    f,
+                    "{}({})",
+                    stringify!(DataGraphPipelineSessionBindPointARM),
+                    other
                 )
             }
         }
@@ -1138,7 +1174,12 @@ impl std::fmt::Debug for DirectDriverLoadingModeLUNARG {
             0i32 => f.write_str("EXCLUSIVE"),
             1i32 => f.write_str("INCLUSIVE"),
             other => {
-                write!(f, "{}({})", stringify!(DirectDriverLoadingModeLUNARG), other)
+                write!(
+                    f,
+                    "{}({})",
+                    stringify!(DirectDriverLoadingModeLUNARG),
+                    other
+                )
             }
         }
     }
@@ -1165,7 +1206,12 @@ impl std::fmt::Debug for PerformanceParameterTypeINTEL {
             0i32 => f.write_str("HW_COUNTERS_SUPPORTED"),
             1i32 => f.write_str("STREAM_MARKER_VALID_BITS"),
             other => {
-                write!(f, "{}({})", stringify!(PerformanceParameterTypeINTEL), other)
+                write!(
+                    f,
+                    "{}({})",
+                    stringify!(PerformanceParameterTypeINTEL),
+                    other
+                )
             }
         }
     }
@@ -1268,7 +1314,12 @@ impl std::fmt::Debug for OpticalFlowSessionBindingPointNV {
             7i32 => f.write_str("BACKWARD_COST"),
             8i32 => f.write_str("GLOBAL_FLOW"),
             other => {
-                write!(f, "{}({})", stringify!(OpticalFlowSessionBindingPointNV), other)
+                write!(
+                    f,
+                    "{}({})",
+                    stringify!(OpticalFlowSessionBindingPointNV),
+                    other
+                )
             }
         }
     }
@@ -1357,7 +1408,12 @@ impl std::fmt::Debug for CopyAccelerationStructureModeKHR {
             2i32 => f.write_str("SERIALIZE"),
             3i32 => f.write_str("DESERIALIZE"),
             other => {
-                write!(f, "{}({})", stringify!(CopyAccelerationStructureModeKHR), other)
+                write!(
+                    f,
+                    "{}({})",
+                    stringify!(CopyAccelerationStructureModeKHR),
+                    other
+                )
             }
         }
     }
@@ -1388,7 +1444,12 @@ impl std::fmt::Debug for PipelineRobustnessBufferBehavior {
             2i32 => f.write_str("ROBUST_BUFFER_ACCESS"),
             3i32 => f.write_str("ROBUST_BUFFER_ACCESS_2"),
             other => {
-                write!(f, "{}({})", stringify!(PipelineRobustnessBufferBehavior), other)
+                write!(
+                    f,
+                    "{}({})",
+                    stringify!(PipelineRobustnessBufferBehavior),
+                    other
+                )
             }
         }
     }
@@ -1555,9 +1616,7 @@ impl std::fmt::Debug for Result {
             1000023003i32 => f.write_str("ERROR_VIDEO_PROFILE_FORMAT_NOT_SUPPORTED"),
             1000023004i32 => f.write_str("ERROR_VIDEO_PROFILE_CODEC_NOT_SUPPORTED"),
             1000023005i32 => f.write_str("ERROR_VIDEO_STD_VERSION_NOT_SUPPORTED"),
-            1000158000i32 => {
-                f.write_str("ERROR_INVALID_DRM_FORMAT_MODIFIER_PLANE_LAYOUT")
-            }
+            1000158000i32 => f.write_str("ERROR_INVALID_DRM_FORMAT_MODIFIER_PLANE_LAYOUT"),
             1000208000i32 => f.write_str("ERROR_PRESENT_TIMING_QUEUE_FULL"),
             1000255000i32 => f.write_str("ERROR_FULL_SCREEN_EXCLUSIVE_MODE_LOST"),
             -1000268000i32 => f.write_str("THREAD_IDLE"),
@@ -1837,7 +1896,12 @@ impl std::fmt::Debug for AccelerationStructureBuildTypeKHR {
             1i32 => f.write_str("DEVICE"),
             2i32 => f.write_str("HOST_OR_DEVICE"),
             other => {
-                write!(f, "{}({})", stringify!(AccelerationStructureBuildTypeKHR), other)
+                write!(
+                    f,
+                    "{}({})",
+                    stringify!(AccelerationStructureBuildTypeKHR),
+                    other
+                )
             }
         }
     }
@@ -1919,7 +1983,12 @@ impl std::fmt::Debug for ShaderFloatControlsIndependence {
             1i32 => f.write_str("ALL"),
             2i32 => f.write_str("NONE"),
             other => {
-                write!(f, "{}({})", stringify!(ShaderFloatControlsIndependence), other)
+                write!(
+                    f,
+                    "{}({})",
+                    stringify!(ShaderFloatControlsIndependence),
+                    other
+                )
             }
         }
     }
@@ -1989,7 +2058,12 @@ impl std::fmt::Debug for ValidationCacheHeaderVersionEXT {
         match self.0 {
             1i32 => f.write_str("ONE"),
             other => {
-                write!(f, "{}({})", stringify!(ValidationCacheHeaderVersionEXT), other)
+                write!(
+                    f,
+                    "{}({})",
+                    stringify!(ValidationCacheHeaderVersionEXT),
+                    other
+                )
             }
         }
     }
@@ -2204,7 +2278,12 @@ impl std::fmt::Debug for VideoEncodeAV1RateControlGroupKHR {
             1i32 => f.write_str("PREDICTIVE"),
             2i32 => f.write_str("BIPREDICTIVE"),
             other => {
-                write!(f, "{}({})", stringify!(VideoEncodeAV1RateControlGroupKHR), other)
+                write!(
+                    f,
+                    "{}({})",
+                    stringify!(VideoEncodeAV1RateControlGroupKHR),
+                    other
+                )
             }
         }
     }
@@ -2465,7 +2544,9 @@ impl std::fmt::Debug for DataGraphPipelineSessionBindPointTypeARM {
             0i32 => f.write_str("MEMORY"),
             other => {
                 write!(
-                    f, "{}({})", stringify!(DataGraphPipelineSessionBindPointTypeARM),
+                    f,
+                    "{}({})",
+                    stringify!(DataGraphPipelineSessionBindPointTypeARM),
                     other
                 )
             }
@@ -2525,9 +2606,8 @@ impl QueryType {
     pub const VIDEO_ENCODE_FEEDBACK: Self = Self(-1000299000i32);
     pub const MESH_PRIMITIVES_GENERATED: Self = Self(-1000328000i32);
     pub const PRIMITIVES_GENERATED: Self = Self(-1000382000i32);
-    pub const ACCELERATION_STRUCTURE_SERIALIZATION_BOTTOM_LEVEL_POINTERS: Self = Self(
-        -1000386000i32,
-    );
+    pub const ACCELERATION_STRUCTURE_SERIALIZATION_BOTTOM_LEVEL_POINTERS: Self =
+        Self(-1000386000i32);
     pub const ACCELERATION_STRUCTURE_SIZE: Self = Self(-1000386001i32);
     pub const MICROMAP_SERIALIZATION_SIZE: Self = Self(-1000396000i32);
     pub const MICROMAP_COMPACTED_SIZE: Self = Self(-1000396001i32);
@@ -2587,7 +2667,10 @@ impl std::fmt::Debug for AccelerationStructureCompatibilityKHR {
             1i32 => f.write_str("INCOMPATIBLE"),
             other => {
                 write!(
-                    f, "{}({})", stringify!(AccelerationStructureCompatibilityKHR), other
+                    f,
+                    "{}({})",
+                    stringify!(AccelerationStructureCompatibilityKHR),
+                    other
                 )
             }
         }
@@ -2621,7 +2704,12 @@ impl std::fmt::Debug for FragmentShadingRateCombinerOpKHR {
             3i32 => f.write_str("MAX"),
             4i32 => f.write_str("MUL"),
             other => {
-                write!(f, "{}({})", stringify!(FragmentShadingRateCombinerOpKHR), other)
+                write!(
+                    f,
+                    "{}({})",
+                    stringify!(FragmentShadingRateCombinerOpKHR),
+                    other
+                )
             }
         }
     }
@@ -3123,7 +3211,12 @@ impl std::fmt::Debug for PipelineCacheValidationVersion {
         match self.0 {
             1i32 => f.write_str("SAFETY_CRITICAL_ONE"),
             other => {
-                write!(f, "{}({})", stringify!(PipelineCacheValidationVersion), other)
+                write!(
+                    f,
+                    "{}({})",
+                    stringify!(PipelineCacheValidationVersion),
+                    other
+                )
             }
         }
     }
@@ -3255,7 +3348,10 @@ impl std::fmt::Debug for ClusterAccelerationStructureTypeNV {
             2i32 => f.write_str("TRIANGLE_CLUSTER_TEMPLATE"),
             other => {
                 write!(
-                    f, "{}({})", stringify!(ClusterAccelerationStructureTypeNV), other
+                    f,
+                    "{}({})",
+                    stringify!(ClusterAccelerationStructureTypeNV),
+                    other
                 )
             }
         }
@@ -3308,7 +3404,12 @@ impl std::fmt::Debug for PerformanceConfigurationTypeINTEL {
         match self.0 {
             0i32 => f.write_str("COMMAND_QUEUE_METRICS_DISCOVERY_ACTIVATED"),
             other => {
-                write!(f, "{}({})", stringify!(PerformanceConfigurationTypeINTEL), other)
+                write!(
+                    f,
+                    "{}({})",
+                    stringify!(PerformanceConfigurationTypeINTEL),
+                    other
+                )
             }
         }
     }
@@ -3536,7 +3637,9 @@ impl std::fmt::Debug for PartitionedAccelerationStructureOpTypeNV {
             2i32 => f.write_str("WRITE_PARTITION_TRANSLATION"),
             other => {
                 write!(
-                    f, "{}({})", stringify!(PartitionedAccelerationStructureOpTypeNV),
+                    f,
+                    "{}({})",
+                    stringify!(PartitionedAccelerationStructureOpTypeNV),
                     other
                 )
             }
@@ -3600,7 +3703,12 @@ impl std::fmt::Debug for IndirectExecutionSetInfoTypeEXT {
             0i32 => f.write_str("PIPELINES"),
             1i32 => f.write_str("SHADER_OBJECTS"),
             other => {
-                write!(f, "{}({})", stringify!(IndirectExecutionSetInfoTypeEXT), other)
+                write!(
+                    f,
+                    "{}({})",
+                    stringify!(IndirectExecutionSetInfoTypeEXT),
+                    other
+                )
             }
         }
     }
@@ -3961,7 +4069,12 @@ impl std::fmt::Debug for BuildAccelerationStructureModeKHR {
             0i32 => f.write_str("BUILD"),
             1i32 => f.write_str("UPDATE"),
             other => {
-                write!(f, "{}({})", stringify!(BuildAccelerationStructureModeKHR), other)
+                write!(
+                    f,
+                    "{}({})",
+                    stringify!(BuildAccelerationStructureModeKHR),
+                    other
+                )
             }
         }
     }
@@ -4019,7 +4132,12 @@ impl std::fmt::Debug for OpacityMicromapSpecialIndexEXT {
             -4i32 => f.write_str("FULLY_UNKNOWN_OPAQUE"),
             -5i32 => f.write_str("CLUSTER_GEOMETRY_DISABLE_OPACITY_MICROMAP"),
             other => {
-                write!(f, "{}({})", stringify!(OpacityMicromapSpecialIndexEXT), other)
+                write!(
+                    f,
+                    "{}({})",
+                    stringify!(OpacityMicromapSpecialIndexEXT),
+                    other
+                )
             }
         }
     }
@@ -4055,7 +4173,10 @@ impl std::fmt::Debug for ClusterAccelerationStructureOpTypeNV {
             5i32 => f.write_str("GET_CLUSTER_TEMPLATE_INDICES"),
             other => {
                 write!(
-                    f, "{}({})", stringify!(ClusterAccelerationStructureOpTypeNV), other
+                    f,
+                    "{}({})",
+                    stringify!(ClusterAccelerationStructureOpTypeNV),
+                    other
                 )
             }
         }
@@ -4139,7 +4260,12 @@ impl std::fmt::Debug for MemoryOverallocationBehaviorAMD {
             1i32 => f.write_str("ALLOWED"),
             2i32 => f.write_str("DISALLOWED"),
             other => {
-                write!(f, "{}({})", stringify!(MemoryOverallocationBehaviorAMD), other)
+                write!(
+                    f,
+                    "{}({})",
+                    stringify!(MemoryOverallocationBehaviorAMD),
+                    other
+                )
             }
         }
     }
@@ -4202,7 +4328,9 @@ impl std::fmt::Debug for DeviceFaultVendorBinaryHeaderVersionKHR {
             1i32 => f.write_str("ONE"),
             other => {
                 write!(
-                    f, "{}({})", stringify!(DeviceFaultVendorBinaryHeaderVersionKHR),
+                    f,
+                    "{}({})",
+                    stringify!(DeviceFaultVendorBinaryHeaderVersionKHR),
                     other
                 )
             }
@@ -4313,7 +4441,12 @@ impl std::fmt::Debug for BlockMatchWindowCompareModeQCOM {
             0i32 => f.write_str("MIN"),
             1i32 => f.write_str("MAX"),
             other => {
-                write!(f, "{}({})", stringify!(BlockMatchWindowCompareModeQCOM), other)
+                write!(
+                    f,
+                    "{}({})",
+                    stringify!(BlockMatchWindowCompareModeQCOM),
+                    other
+                )
             }
         }
     }
@@ -4340,7 +4473,12 @@ impl std::fmt::Debug for DefaultVertexAttributeValueKHR {
             0i32 => f.write_str("ZERO_ZERO_ZERO_ZERO"),
             1i32 => f.write_str("ZERO_ZERO_ZERO_ONE"),
             other => {
-                write!(f, "{}({})", stringify!(DefaultVertexAttributeValueKHR), other)
+                write!(
+                    f,
+                    "{}({})",
+                    stringify!(DefaultVertexAttributeValueKHR),
+                    other
+                )
             }
         }
     }
@@ -4522,7 +4660,9 @@ impl std::fmt::Debug for AccelerationStructureMotionInstanceTypeNV {
             2i32 => f.write_str("SRT_MOTION"),
             other => {
                 write!(
-                    f, "{}({})", stringify!(AccelerationStructureMotionInstanceTypeNV),
+                    f,
+                    "{}({})",
+                    stringify!(AccelerationStructureMotionInstanceTypeNV),
                     other
                 )
             }
@@ -4551,7 +4691,12 @@ impl std::fmt::Debug for LayeredDriverUnderlyingApiMSFT {
             0i32 => f.write_str("NONE"),
             1i32 => f.write_str("D3D12"),
             other => {
-                write!(f, "{}({})", stringify!(LayeredDriverUnderlyingApiMSFT), other)
+                write!(
+                    f,
+                    "{}({})",
+                    stringify!(LayeredDriverUnderlyingApiMSFT),
+                    other
+                )
             }
         }
     }
@@ -4618,8 +4763,10 @@ impl std::fmt::Debug for AccelerationStructureMemoryRequirementsTypeNV {
             2i32 => f.write_str("UPDATE_SCRATCH"),
             other => {
                 write!(
-                    f, "{}({})",
-                    stringify!(AccelerationStructureMemoryRequirementsTypeNV), other
+                    f,
+                    "{}({})",
+                    stringify!(AccelerationStructureMemoryRequirementsTypeNV),
+                    other
                 )
             }
         }
@@ -4679,7 +4826,10 @@ impl std::fmt::Debug for ClusterAccelerationStructureOpModeNV {
             2i32 => f.write_str("COMPUTE_SIZES"),
             other => {
                 write!(
-                    f, "{}({})", stringify!(ClusterAccelerationStructureOpModeNV), other
+                    f,
+                    "{}({})",
+                    stringify!(ClusterAccelerationStructureOpModeNV),
+                    other
                 )
             }
         }
@@ -4986,7 +5136,9 @@ impl std::fmt::Debug for PhysicalDeviceDataGraphOperationTypeARM {
             -1000629001i32 => f.write_str("BUILTIN_MODEL"),
             other => {
                 write!(
-                    f, "{}({})", stringify!(PhysicalDeviceDataGraphOperationTypeARM),
+                    f,
+                    "{}({})",
+                    stringify!(PhysicalDeviceDataGraphOperationTypeARM),
                     other
                 )
             }
@@ -5871,8 +6023,10 @@ impl std::fmt::Debug for PhysicalDeviceDataGraphProcessingEngineTypeARM {
             -1000629001i32 => f.write_str("COMPUTE"),
             other => {
                 write!(
-                    f, "{}({})",
-                    stringify!(PhysicalDeviceDataGraphProcessingEngineTypeARM), other
+                    f,
+                    "{}({})",
+                    stringify!(PhysicalDeviceDataGraphProcessingEngineTypeARM),
+                    other
                 )
             }
         }
@@ -6032,7 +6186,8 @@ impl StructureType {
     pub const PHYSICAL_DEVICE_SUBGROUP_PROPERTIES: Self = Self(-1000094000i32);
     pub const PHYSICAL_DEVICE_16BIT_STORAGE_FEATURES: Self = Self(-1000083000i32);
     pub const PHYSICAL_DEVICE_VARIABLE_POINTERS_FEATURES: Self = Self(-1000120000i32);
-    pub const PHYSICAL_DEVICE_VARIABLE_POINTER_FEATURES: Self = Self::PHYSICAL_DEVICE_VARIABLE_POINTERS_FEATURES;
+    pub const PHYSICAL_DEVICE_VARIABLE_POINTER_FEATURES: Self =
+        Self::PHYSICAL_DEVICE_VARIABLE_POINTERS_FEATURES;
     pub const DESCRIPTOR_UPDATE_TEMPLATE_CREATE_INFO: Self = Self(-1000085000i32);
     pub const PHYSICAL_DEVICE_MAINTENANCE_3_PROPERTIES: Self = Self(-1000168000i32);
     pub const DESCRIPTOR_SET_LAYOUT_SUPPORT: Self = Self(-1000168001i32);
@@ -6040,27 +6195,18 @@ impl StructureType {
     pub const SAMPLER_YCBCR_CONVERSION_INFO: Self = Self(-1000156001i32);
     pub const BIND_IMAGE_PLANE_MEMORY_INFO: Self = Self(-1000156002i32);
     pub const IMAGE_PLANE_MEMORY_REQUIREMENTS_INFO: Self = Self(-1000156003i32);
-    pub const PHYSICAL_DEVICE_SAMPLER_YCBCR_CONVERSION_FEATURES: Self = Self(
-        -1000156004i32,
-    );
-    pub const SAMPLER_YCBCR_CONVERSION_IMAGE_FORMAT_PROPERTIES: Self = Self(
-        -1000156005i32,
-    );
+    pub const PHYSICAL_DEVICE_SAMPLER_YCBCR_CONVERSION_FEATURES: Self = Self(-1000156004i32);
+    pub const SAMPLER_YCBCR_CONVERSION_IMAGE_FORMAT_PROPERTIES: Self = Self(-1000156005i32);
     pub const DEVICE_GROUP_RENDER_PASS_BEGIN_INFO: Self = Self(-1000060003i32);
     pub const PHYSICAL_DEVICE_POINT_CLIPPING_PROPERTIES: Self = Self(-1000117000i32);
-    pub const RENDER_PASS_INPUT_ATTACHMENT_ASPECT_CREATE_INFO: Self = Self(
-        -1000117001i32,
-    );
-    pub const PIPELINE_TESSELLATION_DOMAIN_ORIGIN_STATE_CREATE_INFO: Self = Self(
-        -1000117003i32,
-    );
+    pub const RENDER_PASS_INPUT_ATTACHMENT_ASPECT_CREATE_INFO: Self = Self(-1000117001i32);
+    pub const PIPELINE_TESSELLATION_DOMAIN_ORIGIN_STATE_CREATE_INFO: Self = Self(-1000117003i32);
     pub const RENDER_PASS_MULTIVIEW_CREATE_INFO: Self = Self(-1000053000i32);
     pub const PHYSICAL_DEVICE_MULTIVIEW_FEATURES: Self = Self(-1000053001i32);
     pub const PHYSICAL_DEVICE_MULTIVIEW_PROPERTIES: Self = Self(-1000053002i32);
-    pub const PHYSICAL_DEVICE_SHADER_DRAW_PARAMETERS_FEATURES: Self = Self(
-        -1000063000i32,
-    );
-    pub const PHYSICAL_DEVICE_SHADER_DRAW_PARAMETER_FEATURES: Self = Self::PHYSICAL_DEVICE_SHADER_DRAW_PARAMETERS_FEATURES;
+    pub const PHYSICAL_DEVICE_SHADER_DRAW_PARAMETERS_FEATURES: Self = Self(-1000063000i32);
+    pub const PHYSICAL_DEVICE_SHADER_DRAW_PARAMETER_FEATURES: Self =
+        Self::PHYSICAL_DEVICE_SHADER_DRAW_PARAMETERS_FEATURES;
     pub const PHYSICAL_DEVICE_DRIVER_PROPERTIES: Self = Self(-1000196000i32);
     pub const PHYSICAL_DEVICE_VULKAN_1_1_FEATURES: Self = Self(49i32);
     pub const PHYSICAL_DEVICE_VULKAN_1_1_PROPERTIES: Self = Self(50i32);
@@ -6075,9 +6221,7 @@ impl StructureType {
     pub const TIMELINE_SEMAPHORE_SUBMIT_INFO: Self = Self(-1000207003i32);
     pub const SEMAPHORE_WAIT_INFO: Self = Self(-1000207004i32);
     pub const SEMAPHORE_SIGNAL_INFO: Self = Self(-1000207005i32);
-    pub const PHYSICAL_DEVICE_BUFFER_DEVICE_ADDRESS_FEATURES: Self = Self(
-        -1000257000i32,
-    );
+    pub const PHYSICAL_DEVICE_BUFFER_DEVICE_ADDRESS_FEATURES: Self = Self(-1000257000i32);
     pub const BUFFER_DEVICE_ADDRESS_INFO: Self = Self(-1000244001i32);
     pub const BUFFER_OPAQUE_CAPTURE_ADDRESS_CREATE_INFO: Self = Self(-1000257002i32);
     pub const MEMORY_OPAQUE_CAPTURE_ADDRESS_ALLOCATE_INFO: Self = Self(-1000257003i32);
@@ -6086,30 +6230,16 @@ impl StructureType {
     pub const PHYSICAL_DEVICE_SHADER_ATOMIC_INT64_FEATURES: Self = Self(-1000180000i32);
     pub const PHYSICAL_DEVICE_SHADER_FLOAT16_INT8_FEATURES: Self = Self(-1000082000i32);
     pub const PHYSICAL_DEVICE_FLOAT_CONTROLS_PROPERTIES: Self = Self(-1000197000i32);
-    pub const DESCRIPTOR_SET_LAYOUT_BINDING_FLAGS_CREATE_INFO: Self = Self(
-        -1000161000i32,
-    );
+    pub const DESCRIPTOR_SET_LAYOUT_BINDING_FLAGS_CREATE_INFO: Self = Self(-1000161000i32);
     pub const PHYSICAL_DEVICE_DESCRIPTOR_INDEXING_FEATURES: Self = Self(-1000161001i32);
-    pub const PHYSICAL_DEVICE_DESCRIPTOR_INDEXING_PROPERTIES: Self = Self(
-        -1000161002i32,
-    );
-    pub const DESCRIPTOR_SET_VARIABLE_DESCRIPTOR_COUNT_ALLOCATE_INFO: Self = Self(
-        -1000161003i32,
-    );
-    pub const DESCRIPTOR_SET_VARIABLE_DESCRIPTOR_COUNT_LAYOUT_SUPPORT: Self = Self(
-        -1000161004i32,
-    );
+    pub const PHYSICAL_DEVICE_DESCRIPTOR_INDEXING_PROPERTIES: Self = Self(-1000161002i32);
+    pub const DESCRIPTOR_SET_VARIABLE_DESCRIPTOR_COUNT_ALLOCATE_INFO: Self = Self(-1000161003i32);
+    pub const DESCRIPTOR_SET_VARIABLE_DESCRIPTOR_COUNT_LAYOUT_SUPPORT: Self = Self(-1000161004i32);
     pub const PHYSICAL_DEVICE_SCALAR_BLOCK_LAYOUT_FEATURES: Self = Self(-1000221000i32);
-    pub const PHYSICAL_DEVICE_SAMPLER_FILTER_MINMAX_PROPERTIES: Self = Self(
-        -1000130000i32,
-    );
+    pub const PHYSICAL_DEVICE_SAMPLER_FILTER_MINMAX_PROPERTIES: Self = Self(-1000130000i32);
     pub const SAMPLER_REDUCTION_MODE_CREATE_INFO: Self = Self(-1000130001i32);
-    pub const PHYSICAL_DEVICE_UNIFORM_BUFFER_STANDARD_LAYOUT_FEATURES: Self = Self(
-        -1000253000i32,
-    );
-    pub const PHYSICAL_DEVICE_SHADER_SUBGROUP_EXTENDED_TYPES_FEATURES: Self = Self(
-        -1000175000i32,
-    );
+    pub const PHYSICAL_DEVICE_UNIFORM_BUFFER_STANDARD_LAYOUT_FEATURES: Self = Self(-1000253000i32);
+    pub const PHYSICAL_DEVICE_SHADER_SUBGROUP_EXTENDED_TYPES_FEATURES: Self = Self(-1000175000i32);
     pub const ATTACHMENT_DESCRIPTION_2: Self = Self(-1000109000i32);
     pub const ATTACHMENT_REFERENCE_2: Self = Self(-1000109001i32);
     pub const SUBPASS_DESCRIPTION_2: Self = Self(-1000109002i32);
@@ -6117,20 +6247,14 @@ impl StructureType {
     pub const RENDER_PASS_CREATE_INFO_2: Self = Self(-1000109004i32);
     pub const SUBPASS_BEGIN_INFO: Self = Self(-1000109005i32);
     pub const SUBPASS_END_INFO: Self = Self(-1000109006i32);
-    pub const PHYSICAL_DEVICE_DEPTH_STENCIL_RESOLVE_PROPERTIES: Self = Self(
-        -1000199000i32,
-    );
+    pub const PHYSICAL_DEVICE_DEPTH_STENCIL_RESOLVE_PROPERTIES: Self = Self(-1000199000i32);
     pub const SUBPASS_DESCRIPTION_DEPTH_STENCIL_RESOLVE: Self = Self(-1000199001i32);
     pub const IMAGE_STENCIL_USAGE_CREATE_INFO: Self = Self(-1000246000i32);
-    pub const PHYSICAL_DEVICE_IMAGELESS_FRAMEBUFFER_FEATURES: Self = Self(
-        -1000108000i32,
-    );
+    pub const PHYSICAL_DEVICE_IMAGELESS_FRAMEBUFFER_FEATURES: Self = Self(-1000108000i32);
     pub const FRAMEBUFFER_ATTACHMENTS_CREATE_INFO: Self = Self(-1000108001i32);
     pub const FRAMEBUFFER_ATTACHMENT_IMAGE_INFO: Self = Self(-1000108002i32);
     pub const RENDER_PASS_ATTACHMENT_BEGIN_INFO: Self = Self(-1000108003i32);
-    pub const PHYSICAL_DEVICE_SEPARATE_DEPTH_STENCIL_LAYOUTS_FEATURES: Self = Self(
-        -1000241000i32,
-    );
+    pub const PHYSICAL_DEVICE_SEPARATE_DEPTH_STENCIL_LAYOUTS_FEATURES: Self = Self(-1000241000i32);
     pub const ATTACHMENT_REFERENCE_STENCIL_LAYOUT: Self = Self(-1000241001i32);
     pub const ATTACHMENT_DESCRIPTION_STENCIL_LAYOUT: Self = Self(-1000241002i32);
     pub const PHYSICAL_DEVICE_VULKAN_1_3_FEATURES: Self = Self(53i32);
@@ -6154,54 +6278,30 @@ impl StructureType {
     pub const BUFFER_COPY_2: Self = Self(-1000337006i32);
     pub const IMAGE_COPY_2: Self = Self(-1000337007i32);
     pub const BUFFER_IMAGE_COPY_2: Self = Self(-1000337009i32);
-    pub const PHYSICAL_DEVICE_TEXTURE_COMPRESSION_ASTC_HDR_FEATURES: Self = Self(
-        -1000066000i32,
-    );
+    pub const PHYSICAL_DEVICE_TEXTURE_COMPRESSION_ASTC_HDR_FEATURES: Self = Self(-1000066000i32);
     pub const FORMAT_PROPERTIES_3: Self = Self(-1000360000i32);
     pub const PHYSICAL_DEVICE_MAINTENANCE_4_FEATURES: Self = Self(-1000413000i32);
     pub const PHYSICAL_DEVICE_MAINTENANCE_4_PROPERTIES: Self = Self(-1000413001i32);
     pub const DEVICE_BUFFER_MEMORY_REQUIREMENTS: Self = Self(-1000413002i32);
     pub const DEVICE_IMAGE_MEMORY_REQUIREMENTS: Self = Self(-1000413003i32);
     pub const PIPELINE_CREATION_FEEDBACK_CREATE_INFO: Self = Self(-1000192000i32);
-    pub const PHYSICAL_DEVICE_SHADER_TERMINATE_INVOCATION_FEATURES: Self = Self(
-        -1000215000i32,
-    );
-    pub const PHYSICAL_DEVICE_SHADER_DEMOTE_TO_HELPER_INVOCATION_FEATURES: Self = Self(
-        -1000276000i32,
-    );
-    pub const PHYSICAL_DEVICE_PIPELINE_CREATION_CACHE_CONTROL_FEATURES: Self = Self(
-        -1000297000i32,
-    );
-    pub const PHYSICAL_DEVICE_ZERO_INITIALIZE_WORKGROUP_MEMORY_FEATURES: Self = Self(
-        -1000325000i32,
-    );
+    pub const PHYSICAL_DEVICE_SHADER_TERMINATE_INVOCATION_FEATURES: Self = Self(-1000215000i32);
+    pub const PHYSICAL_DEVICE_SHADER_DEMOTE_TO_HELPER_INVOCATION_FEATURES: Self =
+        Self(-1000276000i32);
+    pub const PHYSICAL_DEVICE_PIPELINE_CREATION_CACHE_CONTROL_FEATURES: Self = Self(-1000297000i32);
+    pub const PHYSICAL_DEVICE_ZERO_INITIALIZE_WORKGROUP_MEMORY_FEATURES: Self =
+        Self(-1000325000i32);
     pub const PHYSICAL_DEVICE_IMAGE_ROBUSTNESS_FEATURES: Self = Self(-1000335000i32);
-    pub const PHYSICAL_DEVICE_SUBGROUP_SIZE_CONTROL_PROPERTIES: Self = Self(
-        -1000225000i32,
-    );
-    pub const PIPELINE_SHADER_STAGE_REQUIRED_SUBGROUP_SIZE_CREATE_INFO: Self = Self(
-        -1000225001i32,
-    );
-    pub const PHYSICAL_DEVICE_SUBGROUP_SIZE_CONTROL_FEATURES: Self = Self(
-        -1000225002i32,
-    );
+    pub const PHYSICAL_DEVICE_SUBGROUP_SIZE_CONTROL_PROPERTIES: Self = Self(-1000225000i32);
+    pub const PIPELINE_SHADER_STAGE_REQUIRED_SUBGROUP_SIZE_CREATE_INFO: Self = Self(-1000225001i32);
+    pub const PHYSICAL_DEVICE_SUBGROUP_SIZE_CONTROL_FEATURES: Self = Self(-1000225002i32);
     pub const PHYSICAL_DEVICE_INLINE_UNIFORM_BLOCK_FEATURES: Self = Self(-1000138000i32);
-    pub const PHYSICAL_DEVICE_INLINE_UNIFORM_BLOCK_PROPERTIES: Self = Self(
-        -1000138001i32,
-    );
+    pub const PHYSICAL_DEVICE_INLINE_UNIFORM_BLOCK_PROPERTIES: Self = Self(-1000138001i32);
     pub const WRITE_DESCRIPTOR_SET_INLINE_UNIFORM_BLOCK: Self = Self(-1000138002i32);
-    pub const DESCRIPTOR_POOL_INLINE_UNIFORM_BLOCK_CREATE_INFO: Self = Self(
-        -1000138003i32,
-    );
-    pub const PHYSICAL_DEVICE_SHADER_INTEGER_DOT_PRODUCT_FEATURES: Self = Self(
-        -1000280000i32,
-    );
-    pub const PHYSICAL_DEVICE_SHADER_INTEGER_DOT_PRODUCT_PROPERTIES: Self = Self(
-        -1000280001i32,
-    );
-    pub const PHYSICAL_DEVICE_TEXEL_BUFFER_ALIGNMENT_PROPERTIES: Self = Self(
-        -1000281001i32,
-    );
+    pub const DESCRIPTOR_POOL_INLINE_UNIFORM_BLOCK_CREATE_INFO: Self = Self(-1000138003i32);
+    pub const PHYSICAL_DEVICE_SHADER_INTEGER_DOT_PRODUCT_FEATURES: Self = Self(-1000280000i32);
+    pub const PHYSICAL_DEVICE_SHADER_INTEGER_DOT_PRODUCT_PROPERTIES: Self = Self(-1000280001i32);
+    pub const PHYSICAL_DEVICE_TEXEL_BUFFER_ALIGNMENT_PROPERTIES: Self = Self(-1000281001i32);
     pub const BLIT_IMAGE_INFO_2: Self = Self(-1000337004i32);
     pub const RESOLVE_IMAGE_INFO_2: Self = Self(-1000337005i32);
     pub const IMAGE_BLIT_2: Self = Self(-1000337008i32);
@@ -6214,9 +6314,7 @@ impl StructureType {
     pub const PHYSICAL_DEVICE_VULKAN_1_4_FEATURES: Self = Self(55i32);
     pub const PHYSICAL_DEVICE_VULKAN_1_4_PROPERTIES: Self = Self(56i32);
     pub const DEVICE_QUEUE_GLOBAL_PRIORITY_CREATE_INFO: Self = Self(-1000174000i32);
-    pub const PHYSICAL_DEVICE_GLOBAL_PRIORITY_QUERY_FEATURES: Self = Self(
-        -1000388000i32,
-    );
+    pub const PHYSICAL_DEVICE_GLOBAL_PRIORITY_QUERY_FEATURES: Self = Self(-1000388000i32);
     pub const QUEUE_FAMILY_GLOBAL_PRIORITY_PROPERTIES: Self = Self(-1000388001i32);
     pub const PHYSICAL_DEVICE_INDEX_TYPE_UINT8_FEATURES: Self = Self(-1000265000i32);
     pub const MEMORY_MAP_INFO: Self = Self(-1000271000i32);
@@ -6240,12 +6338,8 @@ impl StructureType {
     pub const COPY_IMAGE_TO_IMAGE_INFO: Self = Self(-1000270007i32);
     pub const SUBRESOURCE_HOST_MEMCPY_SIZE: Self = Self(-1000270008i32);
     pub const HOST_IMAGE_COPY_DEVICE_PERFORMANCE_QUERY: Self = Self(-1000270009i32);
-    pub const PHYSICAL_DEVICE_SHADER_SUBGROUP_ROTATE_FEATURES: Self = Self(
-        -1000416000i32,
-    );
-    pub const PHYSICAL_DEVICE_SHADER_FLOAT_CONTROLS_2_FEATURES: Self = Self(
-        -1000528000i32,
-    );
+    pub const PHYSICAL_DEVICE_SHADER_SUBGROUP_ROTATE_FEATURES: Self = Self(-1000416000i32);
+    pub const PHYSICAL_DEVICE_SHADER_FLOAT_CONTROLS_2_FEATURES: Self = Self(-1000528000i32);
     pub const PHYSICAL_DEVICE_SHADER_EXPECT_ASSUME_FEATURES: Self = Self(-1000544000i32);
     pub const PIPELINE_CREATE_FLAGS_2_CREATE_INFO: Self = Self(-1000470005i32);
     pub const PHYSICAL_DEVICE_PUSH_DESCRIPTOR_PROPERTIES: Self = Self(-1000080000i32);
@@ -6253,30 +6347,18 @@ impl StructureType {
     pub const PUSH_CONSTANTS_INFO: Self = Self(-1000545004i32);
     pub const PUSH_DESCRIPTOR_SET_INFO: Self = Self(-1000545005i32);
     pub const PUSH_DESCRIPTOR_SET_WITH_TEMPLATE_INFO: Self = Self(-1000545006i32);
-    pub const PHYSICAL_DEVICE_PIPELINE_PROTECTED_ACCESS_FEATURES: Self = Self(
-        -1000466000i32,
-    );
+    pub const PHYSICAL_DEVICE_PIPELINE_PROTECTED_ACCESS_FEATURES: Self = Self(-1000466000i32);
     pub const PIPELINE_ROBUSTNESS_CREATE_INFO: Self = Self(-1000068000i32);
     pub const PHYSICAL_DEVICE_PIPELINE_ROBUSTNESS_FEATURES: Self = Self(-1000068001i32);
-    pub const PHYSICAL_DEVICE_PIPELINE_ROBUSTNESS_PROPERTIES: Self = Self(
-        -1000068002i32,
-    );
+    pub const PHYSICAL_DEVICE_PIPELINE_ROBUSTNESS_PROPERTIES: Self = Self(-1000068002i32);
     pub const PHYSICAL_DEVICE_LINE_RASTERIZATION_FEATURES: Self = Self(-1000259000i32);
     pub const PIPELINE_RASTERIZATION_LINE_STATE_CREATE_INFO: Self = Self(-1000259001i32);
     pub const PHYSICAL_DEVICE_LINE_RASTERIZATION_PROPERTIES: Self = Self(-1000259002i32);
-    pub const PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_PROPERTIES: Self = Self(
-        -1000525000i32,
-    );
-    pub const PIPELINE_VERTEX_INPUT_DIVISOR_STATE_CREATE_INFO: Self = Self(
-        -1000190001i32,
-    );
-    pub const PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_FEATURES: Self = Self(
-        -1000190002i32,
-    );
+    pub const PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_PROPERTIES: Self = Self(-1000525000i32);
+    pub const PIPELINE_VERTEX_INPUT_DIVISOR_STATE_CREATE_INFO: Self = Self(-1000190001i32);
+    pub const PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_FEATURES: Self = Self(-1000190002i32);
     pub const RENDERING_AREA_INFO: Self = Self(-1000470003i32);
-    pub const PHYSICAL_DEVICE_DYNAMIC_RENDERING_LOCAL_READ_FEATURES: Self = Self(
-        -1000232000i32,
-    );
+    pub const PHYSICAL_DEVICE_DYNAMIC_RENDERING_LOCAL_READ_FEATURES: Self = Self(-1000232000i32);
     pub const RENDERING_ATTACHMENT_LOCATION_INFO: Self = Self(-1000232001i32);
     pub const RENDERING_INPUT_ATTACHMENT_INDEX_INFO: Self = Self(-1000232002i32);
     pub const PHYSICAL_DEVICE_VULKAN_SC_1_0_FEATURES: Self = Self(-1000298000i32);
@@ -6306,9 +6388,7 @@ impl StructureType {
     pub const WIN32_SURFACE_CREATE_INFO: Self = Self(-1000009000i32);
     pub const DEBUG_REPORT_CALLBACK_CREATE_INFO: Self = Self(-1000011000i32);
     pub const DEBUG_REPORT_CREATE_INFO: Self = Self::DEBUG_REPORT_CALLBACK_CREATE_INFO;
-    pub const PIPELINE_RASTERIZATION_STATE_RASTERIZATION_ORDER: Self = Self(
-        -1000018000i32,
-    );
+    pub const PIPELINE_RASTERIZATION_STATE_RASTERIZATION_ORDER: Self = Self(-1000018000i32);
     pub const DEBUG_MARKER_OBJECT_NAME_INFO: Self = Self(-1000022000i32);
     pub const DEBUG_MARKER_OBJECT_TAG_INFO: Self = Self(-1000022001i32);
     pub const DEBUG_MARKER_MARKER_INFO: Self = Self(-1000022002i32);
@@ -6337,9 +6417,7 @@ impl StructureType {
     pub const DEDICATED_ALLOCATION_MEMORY_ALLOCATE_INFO: Self = Self(-1000026002i32);
     pub const PHYSICAL_DEVICE_TRANSFORM_FEEDBACK_FEATURES: Self = Self(-1000028000i32);
     pub const PHYSICAL_DEVICE_TRANSFORM_FEEDBACK_PROPERTIES: Self = Self(-1000028001i32);
-    pub const PIPELINE_RASTERIZATION_STATE_STREAM_CREATE_INFO: Self = Self(
-        -1000028002i32,
-    );
+    pub const PIPELINE_RASTERIZATION_STATE_STREAM_CREATE_INFO: Self = Self(-1000028002i32);
     pub const CU_MODULE_CREATE_INFO: Self = Self(-1000029000i32);
     pub const CU_FUNCTION_CREATE_INFO: Self = Self(-1000029001i32);
     pub const CU_LAUNCH_INFO: Self = Self(-1000029002i32);
@@ -6347,9 +6425,7 @@ impl StructureType {
     pub const IMAGE_VIEW_HANDLE_INFO: Self = Self(-1000030000i32);
     pub const IMAGE_VIEW_ADDRESS_PROPERTIES: Self = Self(-1000030001i32);
     pub const VIDEO_ENCODE_H264_CAPABILITIES: Self = Self(-1000038000i32);
-    pub const VIDEO_ENCODE_H264_SESSION_PARAMETERS_CREATE_INFO: Self = Self(
-        -1000038001i32,
-    );
+    pub const VIDEO_ENCODE_H264_SESSION_PARAMETERS_CREATE_INFO: Self = Self(-1000038001i32);
     pub const VIDEO_ENCODE_H264_SESSION_PARAMETERS_ADD_INFO: Self = Self(-1000038002i32);
     pub const VIDEO_ENCODE_H264_PICTURE_INFO: Self = Self(-1000038003i32);
     pub const VIDEO_ENCODE_H264_DPB_SLOT_INFO: Self = Self(-1000038004i32);
@@ -6361,13 +6437,9 @@ impl StructureType {
     pub const VIDEO_ENCODE_H264_SESSION_CREATE_INFO: Self = Self(-1000038010i32);
     pub const VIDEO_ENCODE_H264_QUALITY_LEVEL_PROPERTIES: Self = Self(-1000038011i32);
     pub const VIDEO_ENCODE_H264_SESSION_PARAMETERS_GET_INFO: Self = Self(-1000038012i32);
-    pub const VIDEO_ENCODE_H264_SESSION_PARAMETERS_FEEDBACK_INFO: Self = Self(
-        -1000038013i32,
-    );
+    pub const VIDEO_ENCODE_H264_SESSION_PARAMETERS_FEEDBACK_INFO: Self = Self(-1000038013i32);
     pub const VIDEO_ENCODE_H265_CAPABILITIES: Self = Self(-1000039000i32);
-    pub const VIDEO_ENCODE_H265_SESSION_PARAMETERS_CREATE_INFO: Self = Self(
-        -1000039001i32,
-    );
+    pub const VIDEO_ENCODE_H265_SESSION_PARAMETERS_CREATE_INFO: Self = Self(-1000039001i32);
     pub const VIDEO_ENCODE_H265_SESSION_PARAMETERS_ADD_INFO: Self = Self(-1000039002i32);
     pub const VIDEO_ENCODE_H265_PICTURE_INFO: Self = Self(-1000039003i32);
     pub const VIDEO_ENCODE_H265_DPB_SLOT_INFO: Self = Self(-1000039004i32);
@@ -6379,15 +6451,11 @@ impl StructureType {
     pub const VIDEO_ENCODE_H265_SESSION_CREATE_INFO: Self = Self(-1000039011i32);
     pub const VIDEO_ENCODE_H265_QUALITY_LEVEL_PROPERTIES: Self = Self(-1000039012i32);
     pub const VIDEO_ENCODE_H265_SESSION_PARAMETERS_GET_INFO: Self = Self(-1000039013i32);
-    pub const VIDEO_ENCODE_H265_SESSION_PARAMETERS_FEEDBACK_INFO: Self = Self(
-        -1000039014i32,
-    );
+    pub const VIDEO_ENCODE_H265_SESSION_PARAMETERS_FEEDBACK_INFO: Self = Self(-1000039014i32);
     pub const VIDEO_DECODE_H264_CAPABILITIES: Self = Self(-1000040000i32);
     pub const VIDEO_DECODE_H264_PICTURE_INFO: Self = Self(-1000040001i32);
     pub const VIDEO_DECODE_H264_PROFILE_INFO: Self = Self(-1000040003i32);
-    pub const VIDEO_DECODE_H264_SESSION_PARAMETERS_CREATE_INFO: Self = Self(
-        -1000040004i32,
-    );
+    pub const VIDEO_DECODE_H264_SESSION_PARAMETERS_CREATE_INFO: Self = Self(-1000040004i32);
     pub const VIDEO_DECODE_H264_SESSION_PARAMETERS_ADD_INFO: Self = Self(-1000040005i32);
     pub const VIDEO_DECODE_H264_DPB_SLOT_INFO: Self = Self(-1000040006i32);
     pub const TEXTURE_LOD_GATHER_FORMAT_PROPERTIES: Self = Self(-1000041000i32);
@@ -6412,14 +6480,11 @@ impl StructureType {
     pub const SEMAPHORE_GET_WIN32_HANDLE_INFO: Self = Self(-1000078003i32);
     pub const IMPORT_SEMAPHORE_FD_INFO: Self = Self(-1000079000i32);
     pub const SEMAPHORE_GET_FD_INFO: Self = Self(-1000079001i32);
-    pub const COMMAND_BUFFER_INHERITANCE_CONDITIONAL_RENDERING_INFO: Self = Self(
-        -1000081000i32,
-    );
-    pub const PHYSICAL_DEVICE_CONDITIONAL_RENDERING_FEATURES: Self = Self(
-        -1000081001i32,
-    );
+    pub const COMMAND_BUFFER_INHERITANCE_CONDITIONAL_RENDERING_INFO: Self = Self(-1000081000i32);
+    pub const PHYSICAL_DEVICE_CONDITIONAL_RENDERING_FEATURES: Self = Self(-1000081001i32);
     pub const CONDITIONAL_RENDERING_BEGIN_INFO: Self = Self(-1000081002i32);
-    pub const PHYSICAL_DEVICE_FLOAT16_INT8_FEATURES: Self = Self::PHYSICAL_DEVICE_SHADER_FLOAT16_INT8_FEATURES;
+    pub const PHYSICAL_DEVICE_FLOAT16_INT8_FEATURES: Self =
+        Self::PHYSICAL_DEVICE_SHADER_FLOAT16_INT8_FEATURES;
     pub const PRESENT_REGIONS: Self = Self(-1000084000i32);
     pub const PIPELINE_VIEWPORT_W_SCALING_STATE_CREATE_INFO: Self = Self(-1000087000i32);
     pub const SURFACE_CAPABILITIES_2: Self = Self(-1000090000i32);
@@ -6429,27 +6494,17 @@ impl StructureType {
     pub const DISPLAY_EVENT_INFO: Self = Self(-1000091002i32);
     pub const SWAPCHAIN_COUNTER_CREATE_INFO: Self = Self(-1000091003i32);
     pub const PRESENT_TIMES_INFO: Self = Self(-1000092000i32);
-    pub const PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_ATTRIBUTES_PROPERTIES: Self = Self(
-        -1000097000i32,
-    );
+    pub const PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_ATTRIBUTES_PROPERTIES: Self = Self(-1000097000i32);
     pub const MULTIVIEW_PER_VIEW_ATTRIBUTES_INFO: Self = Self(-1000044009i32);
     pub const PIPELINE_VIEWPORT_SWIZZLE_STATE_CREATE_INFO: Self = Self(-1000098000i32);
     pub const PHYSICAL_DEVICE_DISCARD_RECTANGLE_PROPERTIES: Self = Self(-1000099000i32);
     pub const PIPELINE_DISCARD_RECTANGLE_STATE_CREATE_INFO: Self = Self(-1000099001i32);
-    pub const PHYSICAL_DEVICE_CONSERVATIVE_RASTERIZATION_PROPERTIES: Self = Self(
-        -1000101000i32,
-    );
-    pub const PIPELINE_RASTERIZATION_CONSERVATIVE_STATE_CREATE_INFO: Self = Self(
-        -1000101001i32,
-    );
+    pub const PHYSICAL_DEVICE_CONSERVATIVE_RASTERIZATION_PROPERTIES: Self = Self(-1000101000i32);
+    pub const PIPELINE_RASTERIZATION_CONSERVATIVE_STATE_CREATE_INFO: Self = Self(-1000101001i32);
     pub const PHYSICAL_DEVICE_DEPTH_CLIP_ENABLE_FEATURES: Self = Self(-1000102000i32);
-    pub const PIPELINE_RASTERIZATION_DEPTH_CLIP_STATE_CREATE_INFO: Self = Self(
-        -1000102001i32,
-    );
+    pub const PIPELINE_RASTERIZATION_DEPTH_CLIP_STATE_CREATE_INFO: Self = Self(-1000102001i32);
     pub const HDR_METADATA: Self = Self(-1000105000i32);
-    pub const PHYSICAL_DEVICE_RELAXED_LINE_RASTERIZATION_FEATURES: Self = Self(
-        -1000110000i32,
-    );
+    pub const PHYSICAL_DEVICE_RELAXED_LINE_RASTERIZATION_FEATURES: Self = Self(-1000110000i32);
     pub const SHARED_PRESENT_SURFACE_CAPABILITIES: Self = Self(-1000111000i32);
     pub const IMPORT_FENCE_WIN32_HANDLE_INFO: Self = Self(-1000114000i32);
     pub const EXPORT_FENCE_WIN32_HANDLE_INFO: Self = Self(-1000114001i32);
@@ -6496,21 +6551,15 @@ impl StructureType {
     pub const BIND_HEAP_INFO: Self = Self(-1000135003i32);
     pub const PUSH_DATA_INFO: Self = Self(-1000135004i32);
     pub const DESCRIPTOR_SET_AND_BINDING_MAPPING: Self = Self(-1000135005i32);
-    pub const SHADER_DESCRIPTOR_SET_AND_BINDING_MAPPING_INFO: Self = Self(
-        -1000135006i32,
-    );
+    pub const SHADER_DESCRIPTOR_SET_AND_BINDING_MAPPING_INFO: Self = Self(-1000135006i32);
     pub const OPAQUE_CAPTURE_DATA_CREATE_INFO: Self = Self(-1000135007i32);
     pub const PHYSICAL_DEVICE_DESCRIPTOR_HEAP_PROPERTIES: Self = Self(-1000135008i32);
     pub const PHYSICAL_DEVICE_DESCRIPTOR_HEAP_FEATURES: Self = Self(-1000135009i32);
-    pub const COMMAND_BUFFER_INHERITANCE_DESCRIPTOR_HEAP_INFO: Self = Self(
-        -1000135010i32,
-    );
+    pub const COMMAND_BUFFER_INHERITANCE_DESCRIPTOR_HEAP_INFO: Self = Self(-1000135010i32);
     pub const SAMPLER_CUSTOM_BORDER_COLOR_INDEX_CREATE_INFO: Self = Self(-1000135011i32);
     pub const INDIRECT_COMMANDS_LAYOUT_PUSH_DATA_TOKEN: Self = Self(-1000135012i32);
     pub const SUBSAMPLED_IMAGE_FORMAT_PROPERTIES: Self = Self(-1000135013i32);
-    pub const PHYSICAL_DEVICE_DESCRIPTOR_HEAP_TENSOR_PROPERTIES: Self = Self(
-        -1000135014i32,
-    );
+    pub const PHYSICAL_DEVICE_DESCRIPTOR_HEAP_TENSOR_PROPERTIES: Self = Self(-1000135014i32);
     pub const ATTACHMENT_SAMPLE_COUNT_INFO: Self = Self(-1000044008i32);
     pub const PHYSICAL_DEVICE_SHADER_BFLOAT16_FEATURES: Self = Self(-1000141000i32);
     pub const SAMPLE_LOCATIONS_INFO: Self = Self(-1000143000i32);
@@ -6518,108 +6567,68 @@ impl StructureType {
     pub const PIPELINE_SAMPLE_LOCATIONS_STATE_CREATE_INFO: Self = Self(-1000143002i32);
     pub const PHYSICAL_DEVICE_SAMPLE_LOCATIONS_PROPERTIES: Self = Self(-1000143003i32);
     pub const MULTISAMPLE_PROPERTIES: Self = Self(-1000143004i32);
-    pub const PHYSICAL_DEVICE_BLEND_OPERATION_ADVANCED_FEATURES: Self = Self(
-        -1000148000i32,
-    );
-    pub const PHYSICAL_DEVICE_BLEND_OPERATION_ADVANCED_PROPERTIES: Self = Self(
-        -1000148001i32,
-    );
-    pub const PIPELINE_COLOR_BLEND_ADVANCED_STATE_CREATE_INFO: Self = Self(
-        -1000148002i32,
-    );
+    pub const PHYSICAL_DEVICE_BLEND_OPERATION_ADVANCED_FEATURES: Self = Self(-1000148000i32);
+    pub const PHYSICAL_DEVICE_BLEND_OPERATION_ADVANCED_PROPERTIES: Self = Self(-1000148001i32);
+    pub const PIPELINE_COLOR_BLEND_ADVANCED_STATE_CREATE_INFO: Self = Self(-1000148002i32);
     pub const PIPELINE_COVERAGE_TO_COLOR_STATE_CREATE_INFO: Self = Self(-1000149000i32);
     pub const WRITE_DESCRIPTOR_SET_ACCELERATION_STRUCTURE: Self = Self(-1000150007i32);
     pub const ACCELERATION_STRUCTURE_BUILD_GEOMETRY_INFO: Self = Self(-1000150000i32);
     pub const ACCELERATION_STRUCTURE_DEVICE_ADDRESS_INFO: Self = Self(-1000150002i32);
     pub const ACCELERATION_STRUCTURE_GEOMETRY_AABBS_DATA: Self = Self(-1000150003i32);
-    pub const ACCELERATION_STRUCTURE_GEOMETRY_INSTANCES_DATA: Self = Self(
-        -1000150004i32,
-    );
-    pub const ACCELERATION_STRUCTURE_GEOMETRY_TRIANGLES_DATA: Self = Self(
-        -1000150005i32,
-    );
+    pub const ACCELERATION_STRUCTURE_GEOMETRY_INSTANCES_DATA: Self = Self(-1000150004i32);
+    pub const ACCELERATION_STRUCTURE_GEOMETRY_TRIANGLES_DATA: Self = Self(-1000150005i32);
     pub const ACCELERATION_STRUCTURE_GEOMETRY: Self = Self(-1000150006i32);
     pub const ACCELERATION_STRUCTURE_VERSION_INFO: Self = Self(-1000150009i32);
     pub const COPY_ACCELERATION_STRUCTURE_INFO: Self = Self(-1000150010i32);
     pub const COPY_ACCELERATION_STRUCTURE_TO_MEMORY_INFO: Self = Self(-1000150011i32);
     pub const COPY_MEMORY_TO_ACCELERATION_STRUCTURE_INFO: Self = Self(-1000150012i32);
-    pub const PHYSICAL_DEVICE_ACCELERATION_STRUCTURE_FEATURES: Self = Self(
-        -1000150013i32,
-    );
-    pub const PHYSICAL_DEVICE_ACCELERATION_STRUCTURE_PROPERTIES: Self = Self(
-        -1000150014i32,
-    );
+    pub const PHYSICAL_DEVICE_ACCELERATION_STRUCTURE_FEATURES: Self = Self(-1000150013i32);
+    pub const PHYSICAL_DEVICE_ACCELERATION_STRUCTURE_PROPERTIES: Self = Self(-1000150014i32);
     pub const ACCELERATION_STRUCTURE_CREATE_INFO: Self = Self(-1000150017i32);
     pub const ACCELERATION_STRUCTURE_BUILD_SIZES_INFO: Self = Self(-1000150020i32);
     pub const PHYSICAL_DEVICE_RAY_TRACING_PIPELINE_FEATURES: Self = Self(-1000347000i32);
-    pub const PHYSICAL_DEVICE_RAY_TRACING_PIPELINE_PROPERTIES: Self = Self(
-        -1000347001i32,
-    );
+    pub const PHYSICAL_DEVICE_RAY_TRACING_PIPELINE_PROPERTIES: Self = Self(-1000347001i32);
     pub const RAY_TRACING_PIPELINE_CREATE_INFO: Self = Self(-1000150015i32);
     pub const RAY_TRACING_SHADER_GROUP_CREATE_INFO: Self = Self(-1000150016i32);
     pub const RAY_TRACING_PIPELINE_INTERFACE_CREATE_INFO: Self = Self(-1000150018i32);
     pub const PHYSICAL_DEVICE_RAY_QUERY_FEATURES: Self = Self(-1000348013i32);
-    pub const PIPELINE_COVERAGE_MODULATION_STATE_CREATE_INFO: Self = Self(
-        -1000152000i32,
-    );
+    pub const PIPELINE_COVERAGE_MODULATION_STATE_CREATE_INFO: Self = Self(-1000152000i32);
     pub const PHYSICAL_DEVICE_SHADER_SM_BUILTINS_FEATURES: Self = Self(-1000154000i32);
     pub const PHYSICAL_DEVICE_SHADER_SM_BUILTINS_PROPERTIES: Self = Self(-1000154001i32);
     pub const DRM_FORMAT_MODIFIER_PROPERTIES_LIST: Self = Self(-1000158000i32);
-    pub const PHYSICAL_DEVICE_IMAGE_DRM_FORMAT_MODIFIER_INFO: Self = Self(
-        -1000158002i32,
-    );
+    pub const PHYSICAL_DEVICE_IMAGE_DRM_FORMAT_MODIFIER_INFO: Self = Self(-1000158002i32);
     pub const IMAGE_DRM_FORMAT_MODIFIER_LIST_CREATE_INFO: Self = Self(-1000158003i32);
-    pub const IMAGE_DRM_FORMAT_MODIFIER_EXPLICIT_CREATE_INFO: Self = Self(
-        -1000158004i32,
-    );
+    pub const IMAGE_DRM_FORMAT_MODIFIER_EXPLICIT_CREATE_INFO: Self = Self(-1000158004i32);
     pub const IMAGE_DRM_FORMAT_MODIFIER_PROPERTIES: Self = Self(-1000158005i32);
     pub const DRM_FORMAT_MODIFIER_PROPERTIES_LIST_2: Self = Self(-1000158006i32);
     pub const VALIDATION_CACHE_CREATE_INFO: Self = Self(-1000160000i32);
     pub const SHADER_MODULE_VALIDATION_CACHE_CREATE_INFO: Self = Self(-1000160001i32);
     pub const PHYSICAL_DEVICE_PORTABILITY_SUBSET_FEATURES: Self = Self(-1000163000i32);
     pub const PHYSICAL_DEVICE_PORTABILITY_SUBSET_PROPERTIES: Self = Self(-1000163001i32);
-    pub const PIPELINE_VIEWPORT_SHADING_RATE_IMAGE_STATE_CREATE_INFO: Self = Self(
-        -1000164000i32,
-    );
+    pub const PIPELINE_VIEWPORT_SHADING_RATE_IMAGE_STATE_CREATE_INFO: Self = Self(-1000164000i32);
     pub const PHYSICAL_DEVICE_SHADING_RATE_IMAGE_FEATURES: Self = Self(-1000164001i32);
     pub const PHYSICAL_DEVICE_SHADING_RATE_IMAGE_PROPERTIES: Self = Self(-1000164002i32);
-    pub const PIPELINE_VIEWPORT_COARSE_SAMPLE_ORDER_STATE_CREATE_INFO: Self = Self(
-        -1000164005i32,
-    );
+    pub const PIPELINE_VIEWPORT_COARSE_SAMPLE_ORDER_STATE_CREATE_INFO: Self = Self(-1000164005i32);
     pub const GEOMETRY: Self = Self(-1000165003i32);
     pub const GEOMETRY_TRIANGLES: Self = Self(-1000165004i32);
     pub const GEOMETRY_AABB: Self = Self(-1000165005i32);
     pub const BIND_ACCELERATION_STRUCTURE_MEMORY_INFO: Self = Self(-1000165006i32);
-    pub const ACCELERATION_STRUCTURE_MEMORY_REQUIREMENTS_INFO: Self = Self(
-        -1000165008i32,
-    );
+    pub const ACCELERATION_STRUCTURE_MEMORY_REQUIREMENTS_INFO: Self = Self(-1000165008i32);
     pub const PHYSICAL_DEVICE_RAY_TRACING_PROPERTIES: Self = Self(-1000165009i32);
     pub const ACCELERATION_STRUCTURE_INFO: Self = Self(-1000165012i32);
-    pub const PHYSICAL_DEVICE_REPRESENTATIVE_FRAGMENT_TEST_FEATURES: Self = Self(
-        -1000166000i32,
-    );
-    pub const PIPELINE_REPRESENTATIVE_FRAGMENT_TEST_STATE_CREATE_INFO: Self = Self(
-        -1000166001i32,
-    );
+    pub const PHYSICAL_DEVICE_REPRESENTATIVE_FRAGMENT_TEST_FEATURES: Self = Self(-1000166000i32);
+    pub const PIPELINE_REPRESENTATIVE_FRAGMENT_TEST_STATE_CREATE_INFO: Self = Self(-1000166001i32);
     pub const PHYSICAL_DEVICE_IMAGE_VIEW_IMAGE_FORMAT_INFO: Self = Self(-1000170000i32);
-    pub const FILTER_CUBIC_IMAGE_VIEW_IMAGE_FORMAT_PROPERTIES: Self = Self(
-        -1000170001i32,
-    );
-    pub const PHYSICAL_DEVICE_COOPERATIVE_MATRIX_CONVERSION_FEATURES: Self = Self(
-        -1000172000i32,
-    );
+    pub const FILTER_CUBIC_IMAGE_VIEW_IMAGE_FORMAT_PROPERTIES: Self = Self(-1000170001i32);
+    pub const PHYSICAL_DEVICE_COOPERATIVE_MATRIX_CONVERSION_FEATURES: Self = Self(-1000172000i32);
     pub const IMPORT_MEMORY_HOST_POINTER_INFO: Self = Self(-1000178000i32);
     pub const MEMORY_HOST_POINTER_PROPERTIES: Self = Self(-1000178001i32);
-    pub const PHYSICAL_DEVICE_EXTERNAL_MEMORY_HOST_PROPERTIES: Self = Self(
-        -1000178002i32,
-    );
+    pub const PHYSICAL_DEVICE_EXTERNAL_MEMORY_HOST_PROPERTIES: Self = Self(-1000178002i32);
     pub const PHYSICAL_DEVICE_SHADER_CLOCK_FEATURES: Self = Self(-1000181000i32);
     pub const PIPELINE_COMPILER_CONTROL_CREATE_INFO: Self = Self(-1000183000i32);
     pub const PHYSICAL_DEVICE_SHADER_CORE_PROPERTIES: Self = Self(-1000185000i32);
     pub const VIDEO_DECODE_H265_CAPABILITIES: Self = Self(-1000187000i32);
-    pub const VIDEO_DECODE_H265_SESSION_PARAMETERS_CREATE_INFO: Self = Self(
-        -1000187001i32,
-    );
+    pub const VIDEO_DECODE_H265_SESSION_PARAMETERS_CREATE_INFO: Self = Self(-1000187001i32);
     pub const VIDEO_DECODE_H265_SESSION_PARAMETERS_ADD_INFO: Self = Self(-1000187002i32);
     pub const VIDEO_DECODE_H265_PROFILE_INFO: Self = Self(-1000187003i32);
     pub const VIDEO_DECODE_H265_PICTURE_INFO: Self = Self(-1000187004i32);
@@ -6628,12 +6637,8 @@ impl StructureType {
     pub const PRESENT_FRAME_TOKEN: Self = Self(-1000191000i32);
     pub const PHYSICAL_DEVICE_MESH_SHADER_FEATURES: Self = Self(-1000202000i32);
     pub const PHYSICAL_DEVICE_MESH_SHADER_PROPERTIES: Self = Self(-1000202001i32);
-    pub const PHYSICAL_DEVICE_SHADER_IMAGE_FOOTPRINT_FEATURES: Self = Self(
-        -1000204000i32,
-    );
-    pub const PIPELINE_VIEWPORT_EXCLUSIVE_SCISSOR_STATE_CREATE_INFO: Self = Self(
-        -1000205000i32,
-    );
+    pub const PHYSICAL_DEVICE_SHADER_IMAGE_FOOTPRINT_FEATURES: Self = Self(-1000204000i32);
+    pub const PIPELINE_VIEWPORT_EXCLUSIVE_SCISSOR_STATE_CREATE_INFO: Self = Self(-1000205000i32);
     pub const PHYSICAL_DEVICE_EXCLUSIVE_SCISSOR_FEATURES: Self = Self(-1000205002i32);
     pub const CHECKPOINT_DATA: Self = Self(-1000206000i32);
     pub const QUEUE_FAMILY_CHECKPOINT_PROPERTIES: Self = Self(-1000206001i32);
@@ -6649,9 +6654,7 @@ impl StructureType {
     pub const PAST_PRESENTATION_TIMING: Self = Self(-1000208007i32);
     pub const PRESENT_TIMING_SURFACE_CAPABILITIES: Self = Self(-1000208008i32);
     pub const SWAPCHAIN_CALIBRATED_TIMESTAMP_INFO: Self = Self(-1000208009i32);
-    pub const PHYSICAL_DEVICE_SHADER_INTEGER_FUNCTIONS_2_FEATURES: Self = Self(
-        -1000209000i32,
-    );
+    pub const PHYSICAL_DEVICE_SHADER_INTEGER_FUNCTIONS_2_FEATURES: Self = Self(-1000209000i32);
     pub const QUERY_POOL_PERFORMANCE_QUERY_CREATE_INFO: Self = Self(-1000210000i32);
     pub const INITIALIZE_PERFORMANCE_API_INFO: Self = Self(-1000210001i32);
     pub const PERFORMANCE_MARKER_INFO: Self = Self(-1000210002i32);
@@ -6664,76 +6667,53 @@ impl StructureType {
     pub const IMAGEPIPE_SURFACE_CREATE_INFO: Self = Self(-1000214000i32);
     pub const METAL_SURFACE_CREATE_INFO: Self = Self(-1000217000i32);
     pub const PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_FEATURES: Self = Self(-1000218000i32);
-    pub const PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_PROPERTIES: Self = Self(
-        -1000218001i32,
-    );
+    pub const PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_PROPERTIES: Self = Self(-1000218001i32);
     pub const RENDER_PASS_FRAGMENT_DENSITY_MAP_CREATE_INFO: Self = Self(-1000218002i32);
-    pub const RENDERING_FRAGMENT_DENSITY_MAP_ATTACHMENT_INFO: Self = Self(
-        -1000044007i32,
-    );
+    pub const RENDERING_FRAGMENT_DENSITY_MAP_ATTACHMENT_INFO: Self = Self(-1000044007i32);
     pub const FRAGMENT_SHADING_RATE_ATTACHMENT_INFO: Self = Self(-1000226000i32);
-    pub const PIPELINE_FRAGMENT_SHADING_RATE_STATE_CREATE_INFO: Self = Self(
-        -1000226001i32,
-    );
-    pub const PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_PROPERTIES: Self = Self(
-        -1000226002i32,
-    );
-    pub const PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_FEATURES: Self = Self(
-        -1000226003i32,
-    );
+    pub const PIPELINE_FRAGMENT_SHADING_RATE_STATE_CREATE_INFO: Self = Self(-1000226001i32);
+    pub const PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_PROPERTIES: Self = Self(-1000226002i32);
+    pub const PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_FEATURES: Self = Self(-1000226003i32);
     pub const PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE: Self = Self(-1000226004i32);
-    pub const RENDERING_FRAGMENT_SHADING_RATE_ATTACHMENT_INFO: Self = Self(
-        -1000044006i32,
-    );
+    pub const RENDERING_FRAGMENT_SHADING_RATE_ATTACHMENT_INFO: Self = Self(-1000044006i32);
     pub const PHYSICAL_DEVICE_SHADER_CORE_PROPERTIES_2: Self = Self(-1000227000i32);
     pub const PHYSICAL_DEVICE_COHERENT_MEMORY_FEATURES: Self = Self(-1000229000i32);
     pub const PHYSICAL_DEVICE_SHADER_CONSTANT_DATA_FEATURES: Self = Self(-1000231000i32);
     pub const PHYSICAL_DEVICE_SHADER_ABORT_FEATURES: Self = Self(-1000233000i32);
     pub const DEVICE_FAULT_SHADER_ABORT_MESSAGE_INFO: Self = Self(-1000233001i32);
     pub const PHYSICAL_DEVICE_SHADER_ABORT_PROPERTIES: Self = Self(-1000233002i32);
-    pub const PHYSICAL_DEVICE_SHADER_IMAGE_ATOMIC_INT64_FEATURES: Self = Self(
-        -1000234000i32,
-    );
+    pub const PHYSICAL_DEVICE_SHADER_IMAGE_ATOMIC_INT64_FEATURES: Self = Self(-1000234000i32);
     pub const PHYSICAL_DEVICE_SHADER_QUAD_CONTROL_FEATURES: Self = Self(-1000235000i32);
     pub const PHYSICAL_DEVICE_MEMORY_BUDGET_PROPERTIES: Self = Self(-1000237000i32);
     pub const PHYSICAL_DEVICE_MEMORY_PRIORITY_FEATURES: Self = Self(-1000238000i32);
     pub const MEMORY_PRIORITY_ALLOCATE_INFO: Self = Self(-1000238001i32);
     pub const SURFACE_PROTECTED_CAPABILITIES: Self = Self(-1000239000i32);
-    pub const PHYSICAL_DEVICE_DEDICATED_ALLOCATION_IMAGE_ALIASING_FEATURES: Self = Self(
-        -1000240000i32,
-    );
-    pub const PHYSICAL_DEVICE_BUFFER_ADDRESS_FEATURES: Self = Self::PHYSICAL_DEVICE_BUFFER_DEVICE_ADDRESS_FEATURES;
+    pub const PHYSICAL_DEVICE_DEDICATED_ALLOCATION_IMAGE_ALIASING_FEATURES: Self =
+        Self(-1000240000i32);
+    pub const PHYSICAL_DEVICE_BUFFER_ADDRESS_FEATURES: Self =
+        Self::PHYSICAL_DEVICE_BUFFER_DEVICE_ADDRESS_FEATURES;
     pub const BUFFER_DEVICE_ADDRESS_CREATE_INFO: Self = Self(-1000244002i32);
     pub const VALIDATION_FEATURES: Self = Self(-1000247000i32);
     pub const PHYSICAL_DEVICE_PRESENT_WAIT_FEATURES: Self = Self(-1000248000i32);
     pub const PHYSICAL_DEVICE_COOPERATIVE_MATRIX_FEATURES: Self = Self(-1000249000i32);
     pub const COOPERATIVE_MATRIX_PROPERTIES: Self = Self(-1000249001i32);
     pub const PHYSICAL_DEVICE_COOPERATIVE_MATRIX_PROPERTIES: Self = Self(-1000249002i32);
-    pub const PHYSICAL_DEVICE_COVERAGE_REDUCTION_MODE_FEATURES: Self = Self(
-        -1000250000i32,
-    );
+    pub const PHYSICAL_DEVICE_COVERAGE_REDUCTION_MODE_FEATURES: Self = Self(-1000250000i32);
     pub const PIPELINE_COVERAGE_REDUCTION_STATE_CREATE_INFO: Self = Self(-1000250001i32);
     pub const FRAMEBUFFER_MIXED_SAMPLES_COMBINATION: Self = Self(-1000250002i32);
-    pub const PHYSICAL_DEVICE_FRAGMENT_SHADER_INTERLOCK_FEATURES: Self = Self(
-        -1000251000i32,
-    );
+    pub const PHYSICAL_DEVICE_FRAGMENT_SHADER_INTERLOCK_FEATURES: Self = Self(-1000251000i32);
     pub const PHYSICAL_DEVICE_YCBCR_IMAGE_ARRAYS_FEATURES: Self = Self(-1000252000i32);
     pub const PHYSICAL_DEVICE_PROVOKING_VERTEX_FEATURES: Self = Self(-1000254000i32);
-    pub const PIPELINE_RASTERIZATION_PROVOKING_VERTEX_STATE_CREATE_INFO: Self = Self(
-        -1000254001i32,
-    );
+    pub const PIPELINE_RASTERIZATION_PROVOKING_VERTEX_STATE_CREATE_INFO: Self =
+        Self(-1000254001i32);
     pub const PHYSICAL_DEVICE_PROVOKING_VERTEX_PROPERTIES: Self = Self(-1000254002i32);
     pub const SURFACE_FULL_SCREEN_EXCLUSIVE_INFO: Self = Self(-1000255000i32);
     pub const SURFACE_CAPABILITIES_FULL_SCREEN_EXCLUSIVE: Self = Self(-1000255002i32);
     pub const SURFACE_FULL_SCREEN_EXCLUSIVE_WIN32_INFO: Self = Self(-1000255001i32);
     pub const HEADLESS_SURFACE_CREATE_INFO: Self = Self(-1000256000i32);
     pub const PHYSICAL_DEVICE_SHADER_ATOMIC_FLOAT_FEATURES: Self = Self(-1000260000i32);
-    pub const PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_FEATURES: Self = Self(
-        -1000267000i32,
-    );
-    pub const PHYSICAL_DEVICE_PIPELINE_EXECUTABLE_PROPERTIES_FEATURES: Self = Self(
-        -1000269000i32,
-    );
+    pub const PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_FEATURES: Self = Self(-1000267000i32);
+    pub const PHYSICAL_DEVICE_PIPELINE_EXECUTABLE_PROPERTIES_FEATURES: Self = Self(-1000269000i32);
     pub const PIPELINE_INFO: Self = Self(-1000269001i32);
     pub const PIPELINE_EXECUTABLE_PROPERTIES: Self = Self(-1000269002i32);
     pub const PIPELINE_EXECUTABLE_INFO: Self = Self(-1000269003i32);
@@ -6742,33 +6722,19 @@ impl StructureType {
     pub const PHYSICAL_DEVICE_MAP_MEMORY_PLACED_FEATURES: Self = Self(-1000272000i32);
     pub const PHYSICAL_DEVICE_MAP_MEMORY_PLACED_PROPERTIES: Self = Self(-1000272001i32);
     pub const MEMORY_MAP_PLACED_INFO: Self = Self(-1000272002i32);
-    pub const PHYSICAL_DEVICE_SHADER_ATOMIC_FLOAT_2_FEATURES: Self = Self(
-        -1000273000i32,
-    );
-    pub const PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_PROPERTIES: Self = Self(
-        -1000277000i32,
-    );
+    pub const PHYSICAL_DEVICE_SHADER_ATOMIC_FLOAT_2_FEATURES: Self = Self(-1000273000i32);
+    pub const PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_PROPERTIES: Self = Self(-1000277000i32);
     pub const GRAPHICS_SHADER_GROUP_CREATE_INFO: Self = Self(-1000277001i32);
     pub const GRAPHICS_PIPELINE_SHADER_GROUPS_CREATE_INFO: Self = Self(-1000277002i32);
     pub const INDIRECT_COMMANDS_LAYOUT_TOKEN: Self = Self(-1000277003i32);
     pub const INDIRECT_COMMANDS_LAYOUT_CREATE_INFO: Self = Self(-1000277004i32);
     pub const GENERATED_COMMANDS_INFO: Self = Self(-1000277005i32);
     pub const GENERATED_COMMANDS_MEMORY_REQUIREMENTS_INFO: Self = Self(-1000277006i32);
-    pub const PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_FEATURES: Self = Self(
-        -1000277007i32,
-    );
-    pub const PHYSICAL_DEVICE_INHERITED_VIEWPORT_SCISSOR_FEATURES: Self = Self(
-        -1000278000i32,
-    );
-    pub const COMMAND_BUFFER_INHERITANCE_VIEWPORT_SCISSOR_INFO: Self = Self(
-        -1000278001i32,
-    );
-    pub const PHYSICAL_DEVICE_TEXEL_BUFFER_ALIGNMENT_FEATURES: Self = Self(
-        -1000281000i32,
-    );
-    pub const COMMAND_BUFFER_INHERITANCE_RENDER_PASS_TRANSFORM_INFO: Self = Self(
-        -1000282000i32,
-    );
+    pub const PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_FEATURES: Self = Self(-1000277007i32);
+    pub const PHYSICAL_DEVICE_INHERITED_VIEWPORT_SCISSOR_FEATURES: Self = Self(-1000278000i32);
+    pub const COMMAND_BUFFER_INHERITANCE_VIEWPORT_SCISSOR_INFO: Self = Self(-1000278001i32);
+    pub const PHYSICAL_DEVICE_TEXEL_BUFFER_ALIGNMENT_FEATURES: Self = Self(-1000281000i32);
+    pub const COMMAND_BUFFER_INHERITANCE_RENDER_PASS_TRANSFORM_INFO: Self = Self(-1000282000i32);
     pub const RENDER_PASS_TRANSFORM_BEGIN_INFO: Self = Self(-1000282001i32);
     pub const PHYSICAL_DEVICE_DEPTH_BIAS_CONTROL_FEATURES: Self = Self(-1000283000i32);
     pub const DEPTH_BIAS_INFO: Self = Self(-1000283001i32);
@@ -6777,13 +6743,9 @@ impl StructureType {
     pub const DEVICE_DEVICE_MEMORY_REPORT_CREATE_INFO: Self = Self(-1000284001i32);
     pub const DEVICE_MEMORY_REPORT_CALLBACK_DATA: Self = Self(-1000284002i32);
     pub const SAMPLER_CUSTOM_BORDER_COLOR_CREATE_INFO: Self = Self(-1000287000i32);
-    pub const PHYSICAL_DEVICE_CUSTOM_BORDER_COLOR_PROPERTIES: Self = Self(
-        -1000287001i32,
-    );
+    pub const PHYSICAL_DEVICE_CUSTOM_BORDER_COLOR_PROPERTIES: Self = Self(-1000287001i32);
     pub const PHYSICAL_DEVICE_CUSTOM_BORDER_COLOR_FEATURES: Self = Self(-1000287002i32);
-    pub const PHYSICAL_DEVICE_TEXTURE_COMPRESSION_ASTC_3D_FEATURES: Self = Self(
-        -1000288000i32,
-    );
+    pub const PHYSICAL_DEVICE_TEXTURE_COMPRESSION_ASTC_3D_FEATURES: Self = Self(-1000288000i32);
     pub const PIPELINE_LIBRARY_CREATE_INFO: Self = Self(-1000290000i32);
     pub const PHYSICAL_DEVICE_PRESENT_BARRIER_FEATURES: Self = Self(-1000292000i32);
     pub const SURFACE_CAPABILITIES_PRESENT_BARRIER: Self = Self(-1000292001i32);
@@ -6796,9 +6758,7 @@ impl StructureType {
     pub const VIDEO_ENCODE_CAPABILITIES: Self = Self(-1000299003i32);
     pub const VIDEO_ENCODE_USAGE_INFO: Self = Self(-1000299004i32);
     pub const QUERY_POOL_VIDEO_ENCODE_FEEDBACK_CREATE_INFO: Self = Self(-1000299005i32);
-    pub const PHYSICAL_DEVICE_VIDEO_ENCODE_QUALITY_LEVEL_INFO: Self = Self(
-        -1000299006i32,
-    );
+    pub const PHYSICAL_DEVICE_VIDEO_ENCODE_QUALITY_LEVEL_INFO: Self = Self(-1000299006i32);
     pub const VIDEO_ENCODE_QUALITY_LEVEL_PROPERTIES: Self = Self(-1000299007i32);
     pub const VIDEO_ENCODE_QUALITY_LEVEL_INFO: Self = Self(-1000299008i32);
     pub const VIDEO_ENCODE_SESSION_PARAMETERS_GET_INFO: Self = Self(-1000299009i32);
@@ -6831,9 +6791,7 @@ impl StructureType {
     pub const EXPORT_METAL_SHARED_EVENT_INFO: Self = Self(-1000311010i32);
     pub const IMPORT_METAL_SHARED_EVENT_INFO: Self = Self(-1000311011i32);
     pub const PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_PROPERTIES: Self = Self(-1000316000i32);
-    pub const PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_DENSITY_MAP_PROPERTIES: Self = Self(
-        -1000316001i32,
-    );
+    pub const PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_DENSITY_MAP_PROPERTIES: Self = Self(-1000316001i32);
     pub const PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_FEATURES: Self = Self(-1000316002i32);
     pub const DESCRIPTOR_ADDRESS_INFO: Self = Self(-1000316003i32);
     pub const DESCRIPTOR_GET_INFO: Self = Self(-1000316004i32);
@@ -6843,21 +6801,15 @@ impl StructureType {
     pub const SAMPLER_CAPTURE_DESCRIPTOR_DATA_INFO: Self = Self(-1000316008i32);
     pub const OPAQUE_CAPTURE_DESCRIPTOR_DATA_CREATE_INFO: Self = Self(-1000316010i32);
     pub const DESCRIPTOR_BUFFER_BINDING_INFO: Self = Self(-1000316011i32);
-    pub const DESCRIPTOR_BUFFER_BINDING_PUSH_DESCRIPTOR_BUFFER_HANDLE: Self = Self(
-        -1000316012i32,
-    );
-    pub const ACCELERATION_STRUCTURE_CAPTURE_DESCRIPTOR_DATA_INFO: Self = Self(
-        -1000316009i32,
-    );
+    pub const DESCRIPTOR_BUFFER_BINDING_PUSH_DESCRIPTOR_BUFFER_HANDLE: Self = Self(-1000316012i32);
+    pub const ACCELERATION_STRUCTURE_CAPTURE_DESCRIPTOR_DATA_INFO: Self = Self(-1000316009i32);
     pub const DEVICE_MEMORY_COPY: Self = Self(-1000318000i32);
     pub const COPY_DEVICE_MEMORY_INFO: Self = Self(-1000318001i32);
     pub const DEVICE_MEMORY_IMAGE_COPY: Self = Self(-1000318002i32);
     pub const COPY_DEVICE_MEMORY_IMAGE_INFO: Self = Self(-1000318003i32);
     pub const MEMORY_RANGE_BARRIERS_INFO: Self = Self(-1000318004i32);
     pub const MEMORY_RANGE_BARRIER: Self = Self(-1000318005i32);
-    pub const PHYSICAL_DEVICE_DEVICE_ADDRESS_COMMANDS_FEATURES: Self = Self(
-        -1000318006i32,
-    );
+    pub const PHYSICAL_DEVICE_DEVICE_ADDRESS_COMMANDS_FEATURES: Self = Self(-1000318006i32);
     pub const BIND_INDEX_BUFFER_3_INFO: Self = Self(-1000318007i32);
     pub const BIND_VERTEX_BUFFER_3_INFO: Self = Self(-1000318008i32);
     pub const DRAW_INDIRECT_2_INFO: Self = Self(-1000318009i32);
@@ -6867,82 +6819,45 @@ impl StructureType {
     pub const BIND_TRANSFORM_FEEDBACK_BUFFER_2_INFO: Self = Self(-1000318013i32);
     pub const MEMORY_MARKER_INFO: Self = Self(-1000318014i32);
     pub const ACCELERATION_STRUCTURE_CREATE_INFO_2: Self = Self(-1000318015i32);
-    pub const PHYSICAL_DEVICE_GRAPHICS_PIPELINE_LIBRARY_FEATURES: Self = Self(
-        -1000320000i32,
-    );
-    pub const PHYSICAL_DEVICE_GRAPHICS_PIPELINE_LIBRARY_PROPERTIES: Self = Self(
-        -1000320001i32,
-    );
+    pub const PHYSICAL_DEVICE_GRAPHICS_PIPELINE_LIBRARY_FEATURES: Self = Self(-1000320000i32);
+    pub const PHYSICAL_DEVICE_GRAPHICS_PIPELINE_LIBRARY_PROPERTIES: Self = Self(-1000320001i32);
     pub const GRAPHICS_PIPELINE_LIBRARY_CREATE_INFO: Self = Self(-1000320002i32);
-    pub const PHYSICAL_DEVICE_SHADER_EARLY_AND_LATE_FRAGMENT_TESTS_FEATURES: Self = Self(
-        -1000321000i32,
-    );
-    pub const PHYSICAL_DEVICE_FRAGMENT_SHADER_BARYCENTRIC_PROPERTIES: Self = Self(
-        -1000322000i32,
-    );
-    pub const PHYSICAL_DEVICE_SHADER_SUBGROUP_UNIFORM_CONTROL_FLOW_FEATURES: Self = Self(
-        -1000323000i32,
-    );
-    pub const PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_ENUMS_PROPERTIES: Self = Self(
-        -1000326000i32,
-    );
-    pub const PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_ENUMS_FEATURES: Self = Self(
-        -1000326001i32,
-    );
-    pub const PIPELINE_FRAGMENT_SHADING_RATE_ENUM_STATE_CREATE_INFO: Self = Self(
-        -1000326002i32,
-    );
-    pub const ACCELERATION_STRUCTURE_GEOMETRY_MOTION_TRIANGLES_DATA: Self = Self(
-        -1000327000i32,
-    );
-    pub const PHYSICAL_DEVICE_RAY_TRACING_MOTION_BLUR_FEATURES: Self = Self(
-        -1000327001i32,
-    );
+    pub const PHYSICAL_DEVICE_SHADER_EARLY_AND_LATE_FRAGMENT_TESTS_FEATURES: Self =
+        Self(-1000321000i32);
+    pub const PHYSICAL_DEVICE_FRAGMENT_SHADER_BARYCENTRIC_PROPERTIES: Self = Self(-1000322000i32);
+    pub const PHYSICAL_DEVICE_SHADER_SUBGROUP_UNIFORM_CONTROL_FLOW_FEATURES: Self =
+        Self(-1000323000i32);
+    pub const PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_ENUMS_PROPERTIES: Self = Self(-1000326000i32);
+    pub const PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_ENUMS_FEATURES: Self = Self(-1000326001i32);
+    pub const PIPELINE_FRAGMENT_SHADING_RATE_ENUM_STATE_CREATE_INFO: Self = Self(-1000326002i32);
+    pub const ACCELERATION_STRUCTURE_GEOMETRY_MOTION_TRIANGLES_DATA: Self = Self(-1000327000i32);
+    pub const PHYSICAL_DEVICE_RAY_TRACING_MOTION_BLUR_FEATURES: Self = Self(-1000327001i32);
     pub const ACCELERATION_STRUCTURE_MOTION_INFO: Self = Self(-1000327002i32);
-    pub const PHYSICAL_DEVICE_YCBCR_2_PLANE_444_FORMATS_FEATURES: Self = Self(
-        -1000330000i32,
-    );
-    pub const PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_2_FEATURES: Self = Self(
-        -1000332000i32,
-    );
-    pub const PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_2_PROPERTIES: Self = Self(
-        -1000332001i32,
-    );
+    pub const PHYSICAL_DEVICE_YCBCR_2_PLANE_444_FORMATS_FEATURES: Self = Self(-1000330000i32);
+    pub const PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_2_FEATURES: Self = Self(-1000332000i32);
+    pub const PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_2_PROPERTIES: Self = Self(-1000332001i32);
     pub const COPY_COMMAND_TRANSFORM_INFO: Self = Self(-1000333000i32);
-    pub const PHYSICAL_DEVICE_WORKGROUP_MEMORY_EXPLICIT_LAYOUT_FEATURES: Self = Self(
-        -1000336000i32,
-    );
-    pub const PHYSICAL_DEVICE_IMAGE_COMPRESSION_CONTROL_FEATURES: Self = Self(
-        -1000338000i32,
-    );
+    pub const PHYSICAL_DEVICE_WORKGROUP_MEMORY_EXPLICIT_LAYOUT_FEATURES: Self =
+        Self(-1000336000i32);
+    pub const PHYSICAL_DEVICE_IMAGE_COMPRESSION_CONTROL_FEATURES: Self = Self(-1000338000i32);
     pub const IMAGE_COMPRESSION_CONTROL: Self = Self(-1000338001i32);
     pub const IMAGE_COMPRESSION_PROPERTIES: Self = Self(-1000338004i32);
-    pub const PHYSICAL_DEVICE_ATTACHMENT_FEEDBACK_LOOP_LAYOUT_FEATURES: Self = Self(
-        -1000339000i32,
-    );
+    pub const PHYSICAL_DEVICE_ATTACHMENT_FEEDBACK_LOOP_LAYOUT_FEATURES: Self = Self(-1000339000i32);
     pub const PHYSICAL_DEVICE_4444_FORMATS_FEATURES: Self = Self(-1000340000i32);
     pub const PHYSICAL_DEVICE_FAULT_FEATURES: Self = Self(-1000341000i32);
     pub const DEVICE_FAULT_COUNTS: Self = Self(-1000341001i32);
     pub const DEVICE_FAULT_INFO: Self = Self(-1000341002i32);
     pub const PHYSICAL_DEVICE_RGBA10X6_FORMATS_FEATURES: Self = Self(-1000344000i32);
     pub const DIRECTFB_SURFACE_CREATE_INFO: Self = Self(-1000346000i32);
-    pub const PHYSICAL_DEVICE_VERTEX_INPUT_DYNAMIC_STATE_FEATURES: Self = Self(
-        -1000352000i32,
-    );
+    pub const PHYSICAL_DEVICE_VERTEX_INPUT_DYNAMIC_STATE_FEATURES: Self = Self(-1000352000i32);
     pub const VERTEX_INPUT_BINDING_DESCRIPTION_2: Self = Self(-1000352001i32);
     pub const VERTEX_INPUT_ATTRIBUTE_DESCRIPTION_2: Self = Self(-1000352002i32);
     pub const PHYSICAL_DEVICE_DRM_PROPERTIES: Self = Self(-1000353000i32);
-    pub const PHYSICAL_DEVICE_ADDRESS_BINDING_REPORT_FEATURES: Self = Self(
-        -1000354000i32,
-    );
+    pub const PHYSICAL_DEVICE_ADDRESS_BINDING_REPORT_FEATURES: Self = Self(-1000354000i32);
     pub const DEVICE_ADDRESS_BINDING_CALLBACK_DATA: Self = Self(-1000354001i32);
     pub const PHYSICAL_DEVICE_DEPTH_CLIP_CONTROL_FEATURES: Self = Self(-1000355000i32);
-    pub const PIPELINE_VIEWPORT_DEPTH_CLIP_CONTROL_CREATE_INFO: Self = Self(
-        -1000355001i32,
-    );
-    pub const PHYSICAL_DEVICE_PRIMITIVE_TOPOLOGY_LIST_RESTART_FEATURES: Self = Self(
-        -1000356000i32,
-    );
+    pub const PIPELINE_VIEWPORT_DEPTH_CLIP_CONTROL_CREATE_INFO: Self = Self(-1000355001i32);
+    pub const PHYSICAL_DEVICE_PRIMITIVE_TOPOLOGY_LIST_RESTART_FEATURES: Self = Self(-1000356000i32);
     pub const IMPORT_MEMORY_ZIRCON_HANDLE_INFO: Self = Self(-1000364000i32);
     pub const MEMORY_ZIRCON_HANDLE_PROPERTIES: Self = Self(-1000364001i32);
     pub const MEMORY_GET_ZIRCON_HANDLE_INFO: Self = Self(-1000364002i32);
@@ -6978,40 +6893,26 @@ impl StructureType {
     pub const EXPORT_MEMORY_SCI_BUF_INFO: Self = Self(-1000374001i32);
     pub const MEMORY_GET_SCI_BUF_INFO: Self = Self(-1000374002i32);
     pub const MEMORY_SCI_BUF_PROPERTIES: Self = Self(-1000374003i32);
-    pub const PHYSICAL_DEVICE_EXTERNAL_MEMORY_SCI_BUF_FEATURES: Self = Self(
-        -1000374004i32,
-    );
-    pub const PHYSICAL_DEVICE_EXTERNAL_SCI_BUF_FEATURES: Self = Self::PHYSICAL_DEVICE_EXTERNAL_MEMORY_SCI_BUF_FEATURES;
+    pub const PHYSICAL_DEVICE_EXTERNAL_MEMORY_SCI_BUF_FEATURES: Self = Self(-1000374004i32);
+    pub const PHYSICAL_DEVICE_EXTERNAL_SCI_BUF_FEATURES: Self =
+        Self::PHYSICAL_DEVICE_EXTERNAL_MEMORY_SCI_BUF_FEATURES;
     pub const PHYSICAL_DEVICE_FRAME_BOUNDARY_FEATURES: Self = Self(-1000375000i32);
     pub const FRAME_BOUNDARY: Self = Self(-1000375001i32);
-    pub const PHYSICAL_DEVICE_MULTISAMPLED_RENDER_TO_SINGLE_SAMPLED_FEATURES: Self = Self(
-        -1000376000i32,
-    );
+    pub const PHYSICAL_DEVICE_MULTISAMPLED_RENDER_TO_SINGLE_SAMPLED_FEATURES: Self =
+        Self(-1000376000i32);
     pub const SUBPASS_RESOLVE_PERFORMANCE_QUERY: Self = Self(-1000376001i32);
     pub const MULTISAMPLED_RENDER_TO_SINGLE_SAMPLED_INFO: Self = Self(-1000376002i32);
-    pub const PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_2_FEATURES: Self = Self(
-        -1000377000i32,
-    );
+    pub const PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_2_FEATURES: Self = Self(-1000377000i32);
     pub const SCREEN_SURFACE_CREATE_INFO: Self = Self(-1000378000i32);
     pub const PHYSICAL_DEVICE_COLOR_WRITE_ENABLE_FEATURES: Self = Self(-1000381000i32);
     pub const PIPELINE_COLOR_WRITE_CREATE_INFO: Self = Self(-1000381001i32);
-    pub const PHYSICAL_DEVICE_PRIMITIVES_GENERATED_QUERY_FEATURES: Self = Self(
-        -1000382000i32,
-    );
-    pub const PHYSICAL_DEVICE_RAY_TRACING_MAINTENANCE_1_FEATURES: Self = Self(
-        -1000386000i32,
-    );
-    pub const PHYSICAL_DEVICE_SHADER_UNTYPED_POINTERS_FEATURES: Self = Self(
-        -1000387000i32,
-    );
-    pub const PHYSICAL_DEVICE_VIDEO_ENCODE_RGB_CONVERSION_FEATURES: Self = Self(
-        -1000390000i32,
-    );
+    pub const PHYSICAL_DEVICE_PRIMITIVES_GENERATED_QUERY_FEATURES: Self = Self(-1000382000i32);
+    pub const PHYSICAL_DEVICE_RAY_TRACING_MAINTENANCE_1_FEATURES: Self = Self(-1000386000i32);
+    pub const PHYSICAL_DEVICE_SHADER_UNTYPED_POINTERS_FEATURES: Self = Self(-1000387000i32);
+    pub const PHYSICAL_DEVICE_VIDEO_ENCODE_RGB_CONVERSION_FEATURES: Self = Self(-1000390000i32);
     pub const VIDEO_ENCODE_RGB_CONVERSION_CAPABILITIES: Self = Self(-1000390001i32);
     pub const VIDEO_ENCODE_PROFILE_RGB_CONVERSION_INFO: Self = Self(-1000390002i32);
-    pub const VIDEO_ENCODE_SESSION_RGB_CONVERSION_CREATE_INFO: Self = Self(
-        -1000390003i32,
-    );
+    pub const VIDEO_ENCODE_SESSION_RGB_CONVERSION_CREATE_INFO: Self = Self(-1000390003i32);
     pub const PHYSICAL_DEVICE_IMAGE_VIEW_MIN_LOD_FEATURES: Self = Self(-1000391000i32);
     pub const IMAGE_VIEW_MIN_LOD_CREATE_INFO: Self = Self(-1000391001i32);
     pub const PHYSICAL_DEVICE_MULTI_DRAW_FEATURES: Self = Self(-1000392000i32);
@@ -7028,91 +6929,52 @@ impl StructureType {
     pub const PHYSICAL_DEVICE_OPACITY_MICROMAP_PROPERTIES: Self = Self(-1000396006i32);
     pub const MICROMAP_CREATE_INFO: Self = Self(-1000396007i32);
     pub const MICROMAP_BUILD_SIZES_INFO: Self = Self(-1000396008i32);
-    pub const ACCELERATION_STRUCTURE_TRIANGLES_OPACITY_MICROMAP: Self = Self(
-        -1000396009i32,
-    );
-    pub const PHYSICAL_DEVICE_DISPLACEMENT_MICROMAP_FEATURES: Self = Self(
-        -1000397000i32,
-    );
-    pub const PHYSICAL_DEVICE_DISPLACEMENT_MICROMAP_PROPERTIES: Self = Self(
-        -1000397001i32,
-    );
-    pub const ACCELERATION_STRUCTURE_TRIANGLES_DISPLACEMENT_MICROMAP: Self = Self(
-        -1000397002i32,
-    );
-    pub const PHYSICAL_DEVICE_CLUSTER_CULLING_SHADER_FEATURES: Self = Self(
-        -1000404000i32,
-    );
-    pub const PHYSICAL_DEVICE_CLUSTER_CULLING_SHADER_PROPERTIES: Self = Self(
-        -1000404001i32,
-    );
-    pub const PHYSICAL_DEVICE_CLUSTER_CULLING_SHADER_VRS_FEATURES: Self = Self(
-        -1000404002i32,
-    );
+    pub const ACCELERATION_STRUCTURE_TRIANGLES_OPACITY_MICROMAP: Self = Self(-1000396009i32);
+    pub const PHYSICAL_DEVICE_DISPLACEMENT_MICROMAP_FEATURES: Self = Self(-1000397000i32);
+    pub const PHYSICAL_DEVICE_DISPLACEMENT_MICROMAP_PROPERTIES: Self = Self(-1000397001i32);
+    pub const ACCELERATION_STRUCTURE_TRIANGLES_DISPLACEMENT_MICROMAP: Self = Self(-1000397002i32);
+    pub const PHYSICAL_DEVICE_CLUSTER_CULLING_SHADER_FEATURES: Self = Self(-1000404000i32);
+    pub const PHYSICAL_DEVICE_CLUSTER_CULLING_SHADER_PROPERTIES: Self = Self(-1000404001i32);
+    pub const PHYSICAL_DEVICE_CLUSTER_CULLING_SHADER_VRS_FEATURES: Self = Self(-1000404002i32);
     pub const PHYSICAL_DEVICE_BORDER_COLOR_SWIZZLE_FEATURES: Self = Self(-1000411000i32);
-    pub const SAMPLER_BORDER_COLOR_COMPONENT_MAPPING_CREATE_INFO: Self = Self(
-        -1000411001i32,
-    );
-    pub const PHYSICAL_DEVICE_PAGEABLE_DEVICE_LOCAL_MEMORY_FEATURES: Self = Self(
-        -1000412000i32,
-    );
+    pub const SAMPLER_BORDER_COLOR_COMPONENT_MAPPING_CREATE_INFO: Self = Self(-1000411001i32);
+    pub const PHYSICAL_DEVICE_PAGEABLE_DEVICE_LOCAL_MEMORY_FEATURES: Self = Self(-1000412000i32);
     pub const DEVICE_QUEUE_SHADER_CORE_CONTROL_CREATE_INFO: Self = Self(-1000417000i32);
     pub const PHYSICAL_DEVICE_SCHEDULING_CONTROLS_FEATURES: Self = Self(-1000417001i32);
-    pub const PHYSICAL_DEVICE_SCHEDULING_CONTROLS_PROPERTIES: Self = Self(
-        -1000417002i32,
-    );
-    pub const PHYSICAL_DEVICE_IMAGE_SLICED_VIEW_OF_3D_FEATURES: Self = Self(
-        -1000418000i32,
-    );
+    pub const PHYSICAL_DEVICE_SCHEDULING_CONTROLS_PROPERTIES: Self = Self(-1000417002i32);
+    pub const PHYSICAL_DEVICE_IMAGE_SLICED_VIEW_OF_3D_FEATURES: Self = Self(-1000418000i32);
     pub const IMAGE_VIEW_SLICED_CREATE_INFO: Self = Self(-1000418001i32);
-    pub const PHYSICAL_DEVICE_DESCRIPTOR_SET_HOST_MAPPING_FEATURES: Self = Self(
-        -1000420000i32,
-    );
+    pub const PHYSICAL_DEVICE_DESCRIPTOR_SET_HOST_MAPPING_FEATURES: Self = Self(-1000420000i32);
     pub const DESCRIPTOR_SET_BINDING_REFERENCE: Self = Self(-1000420001i32);
     pub const DESCRIPTOR_SET_LAYOUT_HOST_MAPPING_INFO: Self = Self(-1000420002i32);
-    pub const PHYSICAL_DEVICE_NON_SEAMLESS_CUBE_MAP_FEATURES: Self = Self(
-        -1000422000i32,
-    );
+    pub const PHYSICAL_DEVICE_NON_SEAMLESS_CUBE_MAP_FEATURES: Self = Self(-1000422000i32);
     pub const PHYSICAL_DEVICE_RENDER_PASS_STRIPED_FEATURES: Self = Self(-1000424000i32);
-    pub const PHYSICAL_DEVICE_RENDER_PASS_STRIPED_PROPERTIES: Self = Self(
-        -1000424001i32,
-    );
+    pub const PHYSICAL_DEVICE_RENDER_PASS_STRIPED_PROPERTIES: Self = Self(-1000424001i32);
     pub const RENDER_PASS_STRIPE_BEGIN_INFO: Self = Self(-1000424002i32);
     pub const RENDER_PASS_STRIPE_INFO: Self = Self(-1000424003i32);
     pub const RENDER_PASS_STRIPE_SUBMIT_INFO: Self = Self(-1000424004i32);
-    pub const SUBPASS_FRAGMENT_DENSITY_MAP_OFFSET_END_INFO: Self = Self::RENDER_PASS_FRAGMENT_DENSITY_MAP_OFFSET_END_INFO;
+    pub const SUBPASS_FRAGMENT_DENSITY_MAP_OFFSET_END_INFO: Self =
+        Self::RENDER_PASS_FRAGMENT_DENSITY_MAP_OFFSET_END_INFO;
     pub const PHYSICAL_DEVICE_COPY_MEMORY_INDIRECT_FEATURES: Self = Self(-1000426000i32);
-    pub const PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_COMPUTE_FEATURES: Self = Self(
-        -1000428000i32,
-    );
+    pub const PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_COMPUTE_FEATURES: Self =
+        Self(-1000428000i32);
     pub const COMPUTE_PIPELINE_INDIRECT_BUFFER_INFO: Self = Self(-1000428001i32);
     pub const PIPELINE_INDIRECT_DEVICE_ADDRESS_INFO: Self = Self(-1000428002i32);
-    pub const PHYSICAL_DEVICE_RAY_TRACING_LINEAR_SWEPT_SPHERES_FEATURES: Self = Self(
-        -1000429008i32,
-    );
-    pub const ACCELERATION_STRUCTURE_GEOMETRY_LINEAR_SWEPT_SPHERES_DATA: Self = Self(
-        -1000429009i32,
-    );
+    pub const PHYSICAL_DEVICE_RAY_TRACING_LINEAR_SWEPT_SPHERES_FEATURES: Self =
+        Self(-1000429008i32);
+    pub const ACCELERATION_STRUCTURE_GEOMETRY_LINEAR_SWEPT_SPHERES_DATA: Self =
+        Self(-1000429009i32);
     pub const ACCELERATION_STRUCTURE_GEOMETRY_SPHERES_DATA: Self = Self(-1000429010i32);
-    pub const PHYSICAL_DEVICE_LINEAR_COLOR_ATTACHMENT_FEATURES: Self = Self(
-        -1000430000i32,
-    );
-    pub const PHYSICAL_DEVICE_SHADER_MAXIMAL_RECONVERGENCE_FEATURES: Self = Self(
-        -1000434000i32,
-    );
+    pub const PHYSICAL_DEVICE_LINEAR_COLOR_ATTACHMENT_FEATURES: Self = Self(-1000430000i32);
+    pub const PHYSICAL_DEVICE_SHADER_MAXIMAL_RECONVERGENCE_FEATURES: Self = Self(-1000434000i32);
     pub const APPLICATION_PARAMETERS: Self = Self(-1000435000i32);
-    pub const PHYSICAL_DEVICE_IMAGE_COMPRESSION_CONTROL_SWAPCHAIN_FEATURES: Self = Self(
-        -1000437000i32,
-    );
+    pub const PHYSICAL_DEVICE_IMAGE_COMPRESSION_CONTROL_SWAPCHAIN_FEATURES: Self =
+        Self(-1000437000i32);
     pub const PHYSICAL_DEVICE_IMAGE_PROCESSING_FEATURES: Self = Self(-1000440000i32);
     pub const PHYSICAL_DEVICE_IMAGE_PROCESSING_PROPERTIES: Self = Self(-1000440001i32);
     pub const IMAGE_VIEW_SAMPLE_WEIGHT_CREATE_INFO: Self = Self(-1000440002i32);
-    pub const PHYSICAL_DEVICE_NESTED_COMMAND_BUFFER_FEATURES: Self = Self(
-        -1000451000i32,
-    );
-    pub const PHYSICAL_DEVICE_NESTED_COMMAND_BUFFER_PROPERTIES: Self = Self(
-        -1000451001i32,
-    );
+    pub const PHYSICAL_DEVICE_NESTED_COMMAND_BUFFER_FEATURES: Self = Self(-1000451000i32);
+    pub const PHYSICAL_DEVICE_NESTED_COMMAND_BUFFER_PROPERTIES: Self = Self(-1000451001i32);
     pub const NATIVE_BUFFER_USAGE_OHOS: Self = Self(-1000452000i32);
     pub const NATIVE_BUFFER_PROPERTIES_OHOS: Self = Self(-1000452001i32);
     pub const NATIVE_BUFFER_FORMAT_PROPERTIES_OHOS: Self = Self(-1000452002i32);
@@ -7120,15 +6982,9 @@ impl StructureType {
     pub const MEMORY_GET_NATIVE_BUFFER_INFO_OHOS: Self = Self(-1000452004i32);
     pub const EXTERNAL_FORMAT_OHOS: Self = Self(-1000452005i32);
     pub const EXTERNAL_MEMORY_ACQUIRE_UNMODIFIED: Self = Self(-1000453000i32);
-    pub const PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_3_FEATURES: Self = Self(
-        -1000455000i32,
-    );
-    pub const PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_3_PROPERTIES: Self = Self(
-        -1000455001i32,
-    );
-    pub const PHYSICAL_DEVICE_SUBPASS_MERGE_FEEDBACK_FEATURES: Self = Self(
-        -1000458000i32,
-    );
+    pub const PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_3_FEATURES: Self = Self(-1000455000i32);
+    pub const PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_3_PROPERTIES: Self = Self(-1000455001i32);
+    pub const PHYSICAL_DEVICE_SUBPASS_MERGE_FEEDBACK_FEATURES: Self = Self(-1000458000i32);
     pub const RENDER_PASS_CREATION_CONTROL: Self = Self(-1000458001i32);
     pub const RENDER_PASS_CREATION_FEEDBACK_CREATE_INFO: Self = Self(-1000458002i32);
     pub const RENDER_PASS_SUBPASS_FEEDBACK_CREATE_INFO: Self = Self(-1000458003i32);
@@ -7152,25 +7008,15 @@ impl StructureType {
     pub const PHYSICAL_DEVICE_EXTERNAL_TENSOR_INFO: Self = Self(-1000460015i32);
     pub const EXTERNAL_TENSOR_PROPERTIES: Self = Self(-1000460016i32);
     pub const EXTERNAL_MEMORY_TENSOR_CREATE_INFO: Self = Self(-1000460017i32);
-    pub const PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_TENSOR_FEATURES: Self = Self(
-        -1000460018i32,
-    );
-    pub const PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_TENSOR_PROPERTIES: Self = Self(
-        -1000460019i32,
-    );
+    pub const PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_TENSOR_FEATURES: Self = Self(-1000460018i32);
+    pub const PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_TENSOR_PROPERTIES: Self = Self(-1000460019i32);
     pub const DESCRIPTOR_GET_TENSOR_INFO: Self = Self(-1000460020i32);
     pub const TENSOR_CAPTURE_DESCRIPTOR_DATA_INFO: Self = Self(-1000460021i32);
     pub const TENSOR_VIEW_CAPTURE_DESCRIPTOR_DATA_INFO: Self = Self(-1000460022i32);
     pub const FRAME_BOUNDARY_TENSORS: Self = Self(-1000460023i32);
-    pub const PHYSICAL_DEVICE_SHADER_MODULE_IDENTIFIER_FEATURES: Self = Self(
-        -1000462000i32,
-    );
-    pub const PHYSICAL_DEVICE_SHADER_MODULE_IDENTIFIER_PROPERTIES: Self = Self(
-        -1000462001i32,
-    );
-    pub const PIPELINE_SHADER_STAGE_MODULE_IDENTIFIER_CREATE_INFO: Self = Self(
-        -1000462002i32,
-    );
+    pub const PHYSICAL_DEVICE_SHADER_MODULE_IDENTIFIER_FEATURES: Self = Self(-1000462000i32);
+    pub const PHYSICAL_DEVICE_SHADER_MODULE_IDENTIFIER_PROPERTIES: Self = Self(-1000462001i32);
+    pub const PIPELINE_SHADER_STAGE_MODULE_IDENTIFIER_CREATE_INFO: Self = Self(-1000462002i32);
     pub const SHADER_MODULE_IDENTIFIER: Self = Self(-1000462003i32);
     pub const PHYSICAL_DEVICE_OPTICAL_FLOW_FEATURES: Self = Self(-1000464000i32);
     pub const PHYSICAL_DEVICE_OPTICAL_FLOW_PROPERTIES: Self = Self(-1000464001i32);
@@ -7180,37 +7026,27 @@ impl StructureType {
     pub const OPTICAL_FLOW_EXECUTE_INFO: Self = Self(-1000464005i32);
     pub const OPTICAL_FLOW_SESSION_CREATE_PRIVATE_DATA_INFO: Self = Self(-1000464010i32);
     pub const PHYSICAL_DEVICE_LEGACY_DITHERING_FEATURES: Self = Self(-1000465000i32);
-    pub const PHYSICAL_DEVICE_EXTERNAL_FORMAT_RESOLVE_FEATURES: Self = Self(
-        -1000468000i32,
-    );
-    pub const PHYSICAL_DEVICE_EXTERNAL_FORMAT_RESOLVE_PROPERTIES: Self = Self(
-        -1000468001i32,
-    );
-    pub const ANDROID_HARDWARE_BUFFER_FORMAT_RESOLVE_PROPERTIES: Self = Self(
-        -1000468002i32,
-    );
+    pub const PHYSICAL_DEVICE_EXTERNAL_FORMAT_RESOLVE_FEATURES: Self = Self(-1000468000i32);
+    pub const PHYSICAL_DEVICE_EXTERNAL_FORMAT_RESOLVE_PROPERTIES: Self = Self(-1000468001i32);
+    pub const ANDROID_HARDWARE_BUFFER_FORMAT_RESOLVE_PROPERTIES: Self = Self(-1000468002i32);
     pub const PHYSICAL_DEVICE_ANTI_LAG_FEATURES: Self = Self(-1000476000i32);
     pub const ANTI_LAG_DATA: Self = Self(-1000476001i32);
     pub const ANTI_LAG_PRESENTATION_INFO: Self = Self(-1000476002i32);
-    pub const PHYSICAL_DEVICE_DENSE_GEOMETRY_FORMAT_FEATURES: Self = Self(
-        -1000478000i32,
-    );
-    pub const ACCELERATION_STRUCTURE_DENSE_GEOMETRY_FORMAT_TRIANGLES_DATA: Self = Self(
-        -1000478001i32,
-    );
+    pub const PHYSICAL_DEVICE_DENSE_GEOMETRY_FORMAT_FEATURES: Self = Self(-1000478000i32);
+    pub const ACCELERATION_STRUCTURE_DENSE_GEOMETRY_FORMAT_TRIANGLES_DATA: Self =
+        Self(-1000478001i32);
     pub const SURFACE_CAPABILITIES_PRESENT_ID_2: Self = Self(-1000479000i32);
     pub const PRESENT_ID_2: Self = Self(-1000479001i32);
     pub const PHYSICAL_DEVICE_PRESENT_ID_2_FEATURES: Self = Self(-1000479002i32);
     pub const SURFACE_CAPABILITIES_PRESENT_WAIT_2: Self = Self(-1000480000i32);
     pub const PHYSICAL_DEVICE_PRESENT_WAIT_2_FEATURES: Self = Self(-1000480001i32);
     pub const PRESENT_WAIT_2_INFO: Self = Self(-1000480002i32);
-    pub const PHYSICAL_DEVICE_RAY_TRACING_POSITION_FETCH_FEATURES: Self = Self(
-        -1000481000i32,
-    );
+    pub const PHYSICAL_DEVICE_RAY_TRACING_POSITION_FETCH_FEATURES: Self = Self(-1000481000i32);
     pub const PHYSICAL_DEVICE_SHADER_OBJECT_FEATURES: Self = Self(-1000482000i32);
     pub const PHYSICAL_DEVICE_SHADER_OBJECT_PROPERTIES: Self = Self(-1000482001i32);
     pub const SHADER_CREATE_INFO: Self = Self(-1000482002i32);
-    pub const SHADER_REQUIRED_SUBGROUP_SIZE_CREATE_INFO: Self = Self::PIPELINE_SHADER_STAGE_REQUIRED_SUBGROUP_SIZE_CREATE_INFO;
+    pub const SHADER_REQUIRED_SUBGROUP_SIZE_CREATE_INFO: Self =
+        Self::PIPELINE_SHADER_STAGE_REQUIRED_SUBGROUP_SIZE_CREATE_INFO;
     pub const PHYSICAL_DEVICE_PIPELINE_BINARY_FEATURES: Self = Self(-1000483000i32);
     pub const PIPELINE_BINARY_CREATE_INFO: Self = Self(-1000483001i32);
     pub const PIPELINE_BINARY_INFO: Self = Self(-1000483002i32);
@@ -7225,51 +7061,29 @@ impl StructureType {
     pub const TILE_PROPERTIES: Self = Self(-1000484001i32);
     pub const PHYSICAL_DEVICE_AMIGO_PROFILING_FEATURES: Self = Self(-1000485000i32);
     pub const AMIGO_PROFILING_SUBMIT_INFO: Self = Self(-1000485001i32);
-    pub const PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_VIEWPORTS_FEATURES: Self = Self(
-        -1000488000i32,
-    );
+    pub const PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_VIEWPORTS_FEATURES: Self = Self(-1000488000i32);
     pub const SEMAPHORE_SCI_SYNC_POOL_CREATE_INFO: Self = Self(-1000489000i32);
     pub const SEMAPHORE_SCI_SYNC_CREATE_INFO: Self = Self(-1000489001i32);
     pub const PHYSICAL_DEVICE_EXTERNAL_SCI_SYNC_2_FEATURES: Self = Self(-1000489002i32);
-    pub const DEVICE_SEMAPHORE_SCI_SYNC_POOL_RESERVATION_CREATE_INFO: Self = Self(
-        -1000489003i32,
-    );
-    pub const PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_FEATURES: Self = Self(
-        -1000490000i32,
-    );
-    pub const PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_PROPERTIES: Self = Self(
-        -1000490001i32,
-    );
+    pub const DEVICE_SEMAPHORE_SCI_SYNC_POOL_RESERVATION_CREATE_INFO: Self = Self(-1000489003i32);
+    pub const PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_FEATURES: Self = Self(-1000490000i32);
+    pub const PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_PROPERTIES: Self =
+        Self(-1000490001i32);
     pub const PHYSICAL_DEVICE_COOPERATIVE_VECTOR_FEATURES: Self = Self(-1000491000i32);
     pub const PHYSICAL_DEVICE_COOPERATIVE_VECTOR_PROPERTIES: Self = Self(-1000491001i32);
     pub const COOPERATIVE_VECTOR_PROPERTIES: Self = Self(-1000491002i32);
     pub const CONVERT_COOPERATIVE_VECTOR_MATRIX_INFO: Self = Self(-1000491004i32);
-    pub const PHYSICAL_DEVICE_EXTENDED_SPARSE_ADDRESS_SPACE_FEATURES: Self = Self(
-        -1000492000i32,
-    );
-    pub const PHYSICAL_DEVICE_EXTENDED_SPARSE_ADDRESS_SPACE_PROPERTIES: Self = Self(
-        -1000492001i32,
-    );
-    pub const PHYSICAL_DEVICE_LEGACY_VERTEX_ATTRIBUTES_FEATURES: Self = Self(
-        -1000495000i32,
-    );
-    pub const PHYSICAL_DEVICE_LEGACY_VERTEX_ATTRIBUTES_PROPERTIES: Self = Self(
-        -1000495001i32,
-    );
+    pub const PHYSICAL_DEVICE_EXTENDED_SPARSE_ADDRESS_SPACE_FEATURES: Self = Self(-1000492000i32);
+    pub const PHYSICAL_DEVICE_EXTENDED_SPARSE_ADDRESS_SPACE_PROPERTIES: Self = Self(-1000492001i32);
+    pub const PHYSICAL_DEVICE_LEGACY_VERTEX_ATTRIBUTES_FEATURES: Self = Self(-1000495000i32);
+    pub const PHYSICAL_DEVICE_LEGACY_VERTEX_ATTRIBUTES_PROPERTIES: Self = Self(-1000495001i32);
     pub const LAYER_SETTINGS_CREATE_INFO: Self = Self(-1000496000i32);
     pub const PHYSICAL_DEVICE_SHADER_CORE_BUILTINS_FEATURES: Self = Self(-1000497000i32);
-    pub const PHYSICAL_DEVICE_SHADER_CORE_BUILTINS_PROPERTIES: Self = Self(
-        -1000497001i32,
-    );
-    pub const PHYSICAL_DEVICE_PIPELINE_LIBRARY_GROUP_HANDLES_FEATURES: Self = Self(
-        -1000498000i32,
-    );
-    pub const PHYSICAL_DEVICE_DYNAMIC_RENDERING_UNUSED_ATTACHMENTS_FEATURES: Self = Self(
-        -1000499000i32,
-    );
-    pub const PHYSICAL_DEVICE_INTERNALLY_SYNCHRONIZED_QUEUES_FEATURES: Self = Self(
-        -1000504000i32,
-    );
+    pub const PHYSICAL_DEVICE_SHADER_CORE_BUILTINS_PROPERTIES: Self = Self(-1000497001i32);
+    pub const PHYSICAL_DEVICE_PIPELINE_LIBRARY_GROUP_HANDLES_FEATURES: Self = Self(-1000498000i32);
+    pub const PHYSICAL_DEVICE_DYNAMIC_RENDERING_UNUSED_ATTACHMENTS_FEATURES: Self =
+        Self(-1000499000i32);
+    pub const PHYSICAL_DEVICE_INTERNALLY_SYNCHRONIZED_QUEUES_FEATURES: Self = Self(-1000504000i32);
     pub const LATENCY_SLEEP_MODE_INFO: Self = Self(-1000505000i32);
     pub const LATENCY_SLEEP_INFO: Self = Self(-1000505001i32);
     pub const SET_LATENCY_MARKER_INFO: Self = Self(-1000505002i32);
@@ -7283,56 +7097,34 @@ impl StructureType {
     pub const DATA_GRAPH_PIPELINE_SESSION_CREATE_INFO: Self = Self(-1000507001i32);
     pub const DATA_GRAPH_PIPELINE_RESOURCE_INFO: Self = Self(-1000507002i32);
     pub const DATA_GRAPH_PIPELINE_CONSTANT: Self = Self(-1000507003i32);
-    pub const DATA_GRAPH_PIPELINE_SESSION_MEMORY_REQUIREMENTS_INFO: Self = Self(
-        -1000507004i32,
-    );
+    pub const DATA_GRAPH_PIPELINE_SESSION_MEMORY_REQUIREMENTS_INFO: Self = Self(-1000507004i32);
     pub const BIND_DATA_GRAPH_PIPELINE_SESSION_MEMORY_INFO: Self = Self(-1000507005i32);
     pub const PHYSICAL_DEVICE_DATA_GRAPH_FEATURES: Self = Self(-1000507006i32);
     pub const DATA_GRAPH_PIPELINE_SHADER_MODULE_CREATE_INFO: Self = Self(-1000507007i32);
     pub const DATA_GRAPH_PIPELINE_PROPERTY_QUERY_RESULT: Self = Self(-1000507008i32);
     pub const DATA_GRAPH_PIPELINE_INFO: Self = Self(-1000507009i32);
-    pub const DATA_GRAPH_PIPELINE_COMPILER_CONTROL_CREATE_INFO: Self = Self(
-        -1000507010i32,
-    );
-    pub const DATA_GRAPH_PIPELINE_SESSION_BIND_POINT_REQUIREMENTS_INFO: Self = Self(
-        -1000507011i32,
-    );
-    pub const DATA_GRAPH_PIPELINE_SESSION_BIND_POINT_REQUIREMENT: Self = Self(
-        -1000507012i32,
-    );
+    pub const DATA_GRAPH_PIPELINE_COMPILER_CONTROL_CREATE_INFO: Self = Self(-1000507010i32);
+    pub const DATA_GRAPH_PIPELINE_SESSION_BIND_POINT_REQUIREMENTS_INFO: Self = Self(-1000507011i32);
+    pub const DATA_GRAPH_PIPELINE_SESSION_BIND_POINT_REQUIREMENT: Self = Self(-1000507012i32);
     pub const DATA_GRAPH_PIPELINE_IDENTIFIER_CREATE_INFO: Self = Self(-1000507013i32);
     pub const DATA_GRAPH_PIPELINE_DISPATCH_INFO: Self = Self(-1000507014i32);
     pub const DATA_GRAPH_PROCESSING_ENGINE_CREATE_INFO: Self = Self(-1000507016i32);
-    pub const QUEUE_FAMILY_DATA_GRAPH_PROCESSING_ENGINE_PROPERTIES: Self = Self(
-        -1000507017i32,
-    );
+    pub const QUEUE_FAMILY_DATA_GRAPH_PROCESSING_ENGINE_PROPERTIES: Self = Self(-1000507017i32);
     pub const QUEUE_FAMILY_DATA_GRAPH_PROPERTIES: Self = Self(-1000507018i32);
-    pub const PHYSICAL_DEVICE_QUEUE_FAMILY_DATA_GRAPH_PROCESSING_ENGINE_INFO: Self = Self(
-        -1000507019i32,
-    );
-    pub const DATA_GRAPH_PIPELINE_CONSTANT_TENSOR_SEMI_STRUCTURED_SPARSITY_INFO: Self = Self(
-        -1000507015i32,
-    );
-    pub const PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_RENDER_AREAS_FEATURES: Self = Self(
-        -1000510000i32,
-    );
-    pub const MULTIVIEW_PER_VIEW_RENDER_AREAS_RENDER_PASS_BEGIN_INFO: Self = Self(
-        -1000510001i32,
-    );
-    pub const PHYSICAL_DEVICE_COMPUTE_SHADER_DERIVATIVES_PROPERTIES: Self = Self(
-        -1000511000i32,
-    );
+    pub const PHYSICAL_DEVICE_QUEUE_FAMILY_DATA_GRAPH_PROCESSING_ENGINE_INFO: Self =
+        Self(-1000507019i32);
+    pub const DATA_GRAPH_PIPELINE_CONSTANT_TENSOR_SEMI_STRUCTURED_SPARSITY_INFO: Self =
+        Self(-1000507015i32);
+    pub const PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_RENDER_AREAS_FEATURES: Self = Self(-1000510000i32);
+    pub const MULTIVIEW_PER_VIEW_RENDER_AREAS_RENDER_PASS_BEGIN_INFO: Self = Self(-1000510001i32);
+    pub const PHYSICAL_DEVICE_COMPUTE_SHADER_DERIVATIVES_PROPERTIES: Self = Self(-1000511000i32);
     pub const VIDEO_DECODE_AV1_CAPABILITIES: Self = Self(-1000512000i32);
     pub const VIDEO_DECODE_AV1_PICTURE_INFO: Self = Self(-1000512001i32);
     pub const VIDEO_DECODE_AV1_PROFILE_INFO: Self = Self(-1000512003i32);
-    pub const VIDEO_DECODE_AV1_SESSION_PARAMETERS_CREATE_INFO: Self = Self(
-        -1000512004i32,
-    );
+    pub const VIDEO_DECODE_AV1_SESSION_PARAMETERS_CREATE_INFO: Self = Self(-1000512004i32);
     pub const VIDEO_DECODE_AV1_DPB_SLOT_INFO: Self = Self(-1000512005i32);
     pub const VIDEO_ENCODE_AV1_CAPABILITIES: Self = Self(-1000513000i32);
-    pub const VIDEO_ENCODE_AV1_SESSION_PARAMETERS_CREATE_INFO: Self = Self(
-        -1000513001i32,
-    );
+    pub const VIDEO_ENCODE_AV1_SESSION_PARAMETERS_CREATE_INFO: Self = Self(-1000513001i32);
     pub const VIDEO_ENCODE_AV1_PICTURE_INFO: Self = Self(-1000513002i32);
     pub const VIDEO_ENCODE_AV1_DPB_SLOT_INFO: Self = Self(-1000513003i32);
     pub const PHYSICAL_DEVICE_VIDEO_ENCODE_AV1_FEATURES: Self = Self(-1000513004i32);
@@ -7348,9 +7140,7 @@ impl StructureType {
     pub const VIDEO_DECODE_VP9_PROFILE_INFO: Self = Self(-1000514003i32);
     pub const PHYSICAL_DEVICE_VIDEO_MAINTENANCE_1_FEATURES: Self = Self(-1000515000i32);
     pub const VIDEO_INLINE_QUERY_INFO: Self = Self(-1000515001i32);
-    pub const PHYSICAL_DEVICE_PER_STAGE_DESCRIPTOR_SET_FEATURES: Self = Self(
-        -1000516000i32,
-    );
+    pub const PHYSICAL_DEVICE_PER_STAGE_DESCRIPTOR_SET_FEATURES: Self = Self(-1000516000i32);
     pub const PHYSICAL_DEVICE_IMAGE_PROCESSING_2_FEATURES: Self = Self(-1000518000i32);
     pub const PHYSICAL_DEVICE_IMAGE_PROCESSING_2_PROPERTIES: Self = Self(-1000518001i32);
     pub const SAMPLER_BLOCK_MATCH_WINDOW_CREATE_INFO: Self = Self(-1000518002i32);
@@ -7358,29 +7148,20 @@ impl StructureType {
     pub const PHYSICAL_DEVICE_CUBIC_WEIGHTS_FEATURES: Self = Self(-1000519001i32);
     pub const BLIT_IMAGE_CUBIC_WEIGHTS_INFO: Self = Self(-1000519002i32);
     pub const PHYSICAL_DEVICE_YCBCR_DEGAMMA_FEATURES: Self = Self(-1000520000i32);
-    pub const SAMPLER_YCBCR_CONVERSION_YCBCR_DEGAMMA_CREATE_INFO: Self = Self(
-        -1000520001i32,
-    );
+    pub const SAMPLER_YCBCR_CONVERSION_YCBCR_DEGAMMA_CREATE_INFO: Self = Self(-1000520001i32);
     pub const PHYSICAL_DEVICE_CUBIC_CLAMP_FEATURES: Self = Self(-1000521000i32);
-    pub const PHYSICAL_DEVICE_ATTACHMENT_FEEDBACK_LOOP_DYNAMIC_STATE_FEATURES: Self = Self(
-        -1000524000i32,
-    );
-    pub const PHYSICAL_DEVICE_UNIFIED_IMAGE_LAYOUTS_FEATURES: Self = Self(
-        -1000527000i32,
-    );
+    pub const PHYSICAL_DEVICE_ATTACHMENT_FEEDBACK_LOOP_DYNAMIC_STATE_FEATURES: Self =
+        Self(-1000524000i32);
+    pub const PHYSICAL_DEVICE_UNIFIED_IMAGE_LAYOUTS_FEATURES: Self = Self(-1000527000i32);
     pub const ATTACHMENT_FEEDBACK_LOOP_INFO: Self = Self(-1000527001i32);
     pub const SCREEN_BUFFER_PROPERTIES: Self = Self(-1000529000i32);
     pub const SCREEN_BUFFER_FORMAT_PROPERTIES: Self = Self(-1000529001i32);
     pub const IMPORT_SCREEN_BUFFER_INFO: Self = Self(-1000529002i32);
-    pub const PHYSICAL_DEVICE_EXTERNAL_MEMORY_SCREEN_BUFFER_FEATURES: Self = Self(
-        -1000529004i32,
-    );
+    pub const PHYSICAL_DEVICE_EXTERNAL_MEMORY_SCREEN_BUFFER_FEATURES: Self = Self(-1000529004i32);
     pub const PHYSICAL_DEVICE_LAYERED_DRIVER_PROPERTIES: Self = Self(-1000530000i32);
     pub const SET_DESCRIPTOR_BUFFER_OFFSETS_INFO: Self = Self(-1000545007i32);
     pub const BIND_DESCRIPTOR_BUFFER_EMBEDDED_SAMPLERS_INFO: Self = Self(-1000545008i32);
-    pub const PHYSICAL_DEVICE_DESCRIPTOR_POOL_OVERALLOCATION_FEATURES: Self = Self(
-        -1000546000i32,
-    );
+    pub const PHYSICAL_DEVICE_DESCRIPTOR_POOL_OVERALLOCATION_FEATURES: Self = Self(-1000546000i32);
     pub const PHYSICAL_DEVICE_TILE_MEMORY_HEAP_FEATURES: Self = Self(-1000547000i32);
     pub const PHYSICAL_DEVICE_TILE_MEMORY_HEAP_PROPERTIES: Self = Self(-1000547001i32);
     pub const TILE_MEMORY_REQUIREMENTS: Self = Self(-1000547002i32);
@@ -7392,94 +7173,55 @@ impl StructureType {
     pub const DISPLAY_SURFACE_STEREO_CREATE_INFO: Self = Self(-1000551000i32);
     pub const DISPLAY_MODE_STEREO_PROPERTIES: Self = Self(-1000551001i32);
     pub const VIDEO_ENCODE_INTRA_REFRESH_CAPABILITIES: Self = Self(-1000552000i32);
-    pub const VIDEO_ENCODE_SESSION_INTRA_REFRESH_CREATE_INFO: Self = Self(
-        -1000552001i32,
-    );
+    pub const VIDEO_ENCODE_SESSION_INTRA_REFRESH_CREATE_INFO: Self = Self(-1000552001i32);
     pub const VIDEO_ENCODE_INTRA_REFRESH_INFO: Self = Self(-1000552002i32);
     pub const VIDEO_REFERENCE_INTRA_REFRESH_INFO: Self = Self(-1000552003i32);
-    pub const PHYSICAL_DEVICE_VIDEO_ENCODE_INTRA_REFRESH_FEATURES: Self = Self(
-        -1000552004i32,
-    );
+    pub const PHYSICAL_DEVICE_VIDEO_ENCODE_INTRA_REFRESH_FEATURES: Self = Self(-1000552004i32);
     pub const VIDEO_ENCODE_QUANTIZATION_MAP_CAPABILITIES: Self = Self(-1000553000i32);
     pub const VIDEO_FORMAT_QUANTIZATION_MAP_PROPERTIES: Self = Self(-1000553001i32);
     pub const VIDEO_ENCODE_QUANTIZATION_MAP_INFO: Self = Self(-1000553002i32);
-    pub const VIDEO_ENCODE_QUANTIZATION_MAP_SESSION_PARAMETERS_CREATE_INFO: Self = Self(
-        -1000553005i32,
-    );
-    pub const PHYSICAL_DEVICE_VIDEO_ENCODE_QUANTIZATION_MAP_FEATURES: Self = Self(
-        -1000553009i32,
-    );
-    pub const VIDEO_ENCODE_H264_QUANTIZATION_MAP_CAPABILITIES: Self = Self(
-        -1000553003i32,
-    );
-    pub const VIDEO_ENCODE_H265_QUANTIZATION_MAP_CAPABILITIES: Self = Self(
-        -1000553004i32,
-    );
+    pub const VIDEO_ENCODE_QUANTIZATION_MAP_SESSION_PARAMETERS_CREATE_INFO: Self =
+        Self(-1000553005i32);
+    pub const PHYSICAL_DEVICE_VIDEO_ENCODE_QUANTIZATION_MAP_FEATURES: Self = Self(-1000553009i32);
+    pub const VIDEO_ENCODE_H264_QUANTIZATION_MAP_CAPABILITIES: Self = Self(-1000553003i32);
+    pub const VIDEO_ENCODE_H265_QUANTIZATION_MAP_CAPABILITIES: Self = Self(-1000553004i32);
     pub const VIDEO_FORMAT_H265_QUANTIZATION_MAP_PROPERTIES: Self = Self(-1000553006i32);
-    pub const VIDEO_ENCODE_AV1_QUANTIZATION_MAP_CAPABILITIES: Self = Self(
-        -1000553007i32,
-    );
+    pub const VIDEO_ENCODE_AV1_QUANTIZATION_MAP_CAPABILITIES: Self = Self(-1000553007i32);
     pub const VIDEO_FORMAT_AV1_QUANTIZATION_MAP_PROPERTIES: Self = Self(-1000553008i32);
     pub const PHYSICAL_DEVICE_RAW_ACCESS_CHAINS_FEATURES: Self = Self(-1000555000i32);
     pub const EXTERNAL_COMPUTE_QUEUE_DEVICE_CREATE_INFO: Self = Self(-1000556000i32);
     pub const EXTERNAL_COMPUTE_QUEUE_CREATE_INFO: Self = Self(-1000556001i32);
     pub const EXTERNAL_COMPUTE_QUEUE_DATA_PARAMS: Self = Self(-1000556002i32);
-    pub const PHYSICAL_DEVICE_EXTERNAL_COMPUTE_QUEUE_PROPERTIES: Self = Self(
-        -1000556003i32,
-    );
-    pub const PHYSICAL_DEVICE_SHADER_RELAXED_EXTENDED_INSTRUCTION_FEATURES: Self = Self(
-        -1000558000i32,
-    );
-    pub const PHYSICAL_DEVICE_COMMAND_BUFFER_INHERITANCE_FEATURES: Self = Self(
-        -1000559000i32,
-    );
+    pub const PHYSICAL_DEVICE_EXTERNAL_COMPUTE_QUEUE_PROPERTIES: Self = Self(-1000556003i32);
+    pub const PHYSICAL_DEVICE_SHADER_RELAXED_EXTENDED_INSTRUCTION_FEATURES: Self =
+        Self(-1000558000i32);
+    pub const PHYSICAL_DEVICE_COMMAND_BUFFER_INHERITANCE_FEATURES: Self = Self(-1000559000i32);
     pub const PHYSICAL_DEVICE_MAINTENANCE_7_FEATURES: Self = Self(-1000562000i32);
     pub const PHYSICAL_DEVICE_MAINTENANCE_7_PROPERTIES: Self = Self(-1000562001i32);
     pub const PHYSICAL_DEVICE_LAYERED_API_PROPERTIES_LIST: Self = Self(-1000562002i32);
     pub const PHYSICAL_DEVICE_LAYERED_API_PROPERTIES: Self = Self(-1000562003i32);
     pub const PHYSICAL_DEVICE_LAYERED_API_VULKAN_PROPERTIES: Self = Self(-1000562004i32);
-    pub const PHYSICAL_DEVICE_SHADER_ATOMIC_FLOAT16_VECTOR_FEATURES: Self = Self(
-        -1000563000i32,
-    );
-    pub const PHYSICAL_DEVICE_SHADER_REPLICATED_COMPOSITES_FEATURES: Self = Self(
-        -1000564000i32,
-    );
+    pub const PHYSICAL_DEVICE_SHADER_ATOMIC_FLOAT16_VECTOR_FEATURES: Self = Self(-1000563000i32);
+    pub const PHYSICAL_DEVICE_SHADER_REPLICATED_COMPOSITES_FEATURES: Self = Self(-1000564000i32);
     pub const PHYSICAL_DEVICE_SHADER_FLOAT8_FEATURES: Self = Self(-1000567000i32);
-    pub const PHYSICAL_DEVICE_RAY_TRACING_VALIDATION_FEATURES: Self = Self(
-        -1000568000i32,
-    );
-    pub const PHYSICAL_DEVICE_CLUSTER_ACCELERATION_STRUCTURE_FEATURES: Self = Self(
-        -1000569000i32,
-    );
-    pub const PHYSICAL_DEVICE_CLUSTER_ACCELERATION_STRUCTURE_PROPERTIES: Self = Self(
-        -1000569001i32,
-    );
-    pub const CLUSTER_ACCELERATION_STRUCTURE_CLUSTERS_BOTTOM_LEVEL_INPUT: Self = Self(
-        -1000569002i32,
-    );
-    pub const CLUSTER_ACCELERATION_STRUCTURE_TRIANGLE_CLUSTER_INPUT: Self = Self(
-        -1000569003i32,
-    );
-    pub const CLUSTER_ACCELERATION_STRUCTURE_MOVE_OBJECTS_INPUT: Self = Self(
-        -1000569004i32,
-    );
+    pub const PHYSICAL_DEVICE_RAY_TRACING_VALIDATION_FEATURES: Self = Self(-1000568000i32);
+    pub const PHYSICAL_DEVICE_CLUSTER_ACCELERATION_STRUCTURE_FEATURES: Self = Self(-1000569000i32);
+    pub const PHYSICAL_DEVICE_CLUSTER_ACCELERATION_STRUCTURE_PROPERTIES: Self =
+        Self(-1000569001i32);
+    pub const CLUSTER_ACCELERATION_STRUCTURE_CLUSTERS_BOTTOM_LEVEL_INPUT: Self =
+        Self(-1000569002i32);
+    pub const CLUSTER_ACCELERATION_STRUCTURE_TRIANGLE_CLUSTER_INPUT: Self = Self(-1000569003i32);
+    pub const CLUSTER_ACCELERATION_STRUCTURE_MOVE_OBJECTS_INPUT: Self = Self(-1000569004i32);
     pub const CLUSTER_ACCELERATION_STRUCTURE_INPUT_INFO: Self = Self(-1000569005i32);
     pub const CLUSTER_ACCELERATION_STRUCTURE_COMMANDS_INFO: Self = Self(-1000569006i32);
-    pub const RAY_TRACING_PIPELINE_CLUSTER_ACCELERATION_STRUCTURE_CREATE_INFO: Self = Self(
-        -1000569007i32,
-    );
-    pub const PHYSICAL_DEVICE_PARTITIONED_ACCELERATION_STRUCTURE_FEATURES: Self = Self(
-        -1000570000i32,
-    );
-    pub const PHYSICAL_DEVICE_PARTITIONED_ACCELERATION_STRUCTURE_PROPERTIES: Self = Self(
-        -1000570001i32,
-    );
-    pub const WRITE_DESCRIPTOR_SET_PARTITIONED_ACCELERATION_STRUCTURE: Self = Self(
-        -1000570002i32,
-    );
-    pub const PARTITIONED_ACCELERATION_STRUCTURE_INSTANCES_INPUT: Self = Self(
-        -1000570003i32,
-    );
+    pub const RAY_TRACING_PIPELINE_CLUSTER_ACCELERATION_STRUCTURE_CREATE_INFO: Self =
+        Self(-1000569007i32);
+    pub const PHYSICAL_DEVICE_PARTITIONED_ACCELERATION_STRUCTURE_FEATURES: Self =
+        Self(-1000570000i32);
+    pub const PHYSICAL_DEVICE_PARTITIONED_ACCELERATION_STRUCTURE_PROPERTIES: Self =
+        Self(-1000570001i32);
+    pub const WRITE_DESCRIPTOR_SET_PARTITIONED_ACCELERATION_STRUCTURE: Self = Self(-1000570002i32);
+    pub const PARTITIONED_ACCELERATION_STRUCTURE_INSTANCES_INPUT: Self = Self(-1000570003i32);
     pub const BUILD_PARTITIONED_ACCELERATION_STRUCTURE_INFO: Self = Self(-1000570004i32);
     pub const PARTITIONED_ACCELERATION_STRUCTURE_FLAGS: Self = Self(-1000570005i32);
     pub const INDIRECT_EXECUTION_SET_CREATE_INFO: Self = Self(-1000572003i32);
@@ -7494,91 +7236,50 @@ impl StructureType {
     pub const DEVICE_FAULT_DEBUG_INFO: Self = Self(-1000573003i32);
     pub const PHYSICAL_DEVICE_MAINTENANCE_8_FEATURES: Self = Self(-1000574000i32);
     pub const MEMORY_BARRIER_ACCESS_FLAGS_3: Self = Self(-1000574002i32);
-    pub const PHYSICAL_DEVICE_IMAGE_ALIGNMENT_CONTROL_FEATURES: Self = Self(
-        -1000575000i32,
-    );
-    pub const PHYSICAL_DEVICE_IMAGE_ALIGNMENT_CONTROL_PROPERTIES: Self = Self(
-        -1000575001i32,
-    );
+    pub const PHYSICAL_DEVICE_IMAGE_ALIGNMENT_CONTROL_FEATURES: Self = Self(-1000575000i32);
+    pub const PHYSICAL_DEVICE_IMAGE_ALIGNMENT_CONTROL_PROPERTIES: Self = Self(-1000575001i32);
     pub const IMAGE_ALIGNMENT_CONTROL_CREATE_INFO: Self = Self(-1000575002i32);
     pub const PHYSICAL_DEVICE_SHADER_FMA_FEATURES: Self = Self(-1000579000i32);
     pub const PUSH_CONSTANT_BANK_INFO: Self = Self(-1000580000i32);
     pub const PHYSICAL_DEVICE_PUSH_CONSTANT_BANK_FEATURES: Self = Self(-1000580001i32);
     pub const PHYSICAL_DEVICE_PUSH_CONSTANT_BANK_PROPERTIES: Self = Self(-1000580002i32);
     pub const PHYSICAL_DEVICE_DEPTH_CLAMP_CONTROL_FEATURES: Self = Self(-1000582000i32);
-    pub const PIPELINE_VIEWPORT_DEPTH_CLAMP_CONTROL_CREATE_INFO: Self = Self(
-        -1000582001i32,
-    );
+    pub const PIPELINE_VIEWPORT_DEPTH_CLAMP_CONTROL_CREATE_INFO: Self = Self(-1000582001i32);
     pub const PHYSICAL_DEVICE_MAINTENANCE_9_FEATURES: Self = Self(-1000584000i32);
     pub const PHYSICAL_DEVICE_MAINTENANCE_9_PROPERTIES: Self = Self(-1000584001i32);
     pub const QUEUE_FAMILY_OWNERSHIP_TRANSFER_PROPERTIES: Self = Self(-1000584002i32);
     pub const PHYSICAL_DEVICE_VIDEO_MAINTENANCE_2_FEATURES: Self = Self(-1000586000i32);
-    pub const VIDEO_DECODE_H264_INLINE_SESSION_PARAMETERS_INFO: Self = Self(
-        -1000586001i32,
-    );
-    pub const VIDEO_DECODE_H265_INLINE_SESSION_PARAMETERS_INFO: Self = Self(
-        -1000586002i32,
-    );
-    pub const VIDEO_DECODE_AV1_INLINE_SESSION_PARAMETERS_INFO: Self = Self(
-        -1000586003i32,
-    );
+    pub const VIDEO_DECODE_H264_INLINE_SESSION_PARAMETERS_INFO: Self = Self(-1000586001i32);
+    pub const VIDEO_DECODE_H265_INLINE_SESSION_PARAMETERS_INFO: Self = Self(-1000586002i32);
+    pub const VIDEO_DECODE_AV1_INLINE_SESSION_PARAMETERS_INFO: Self = Self(-1000586003i32);
     pub const SURFACE_CREATE_INFO_OHOS: Self = Self(1000685000i32);
     pub const PHYSICAL_DEVICE_HDR_VIVID_FEATURES: Self = Self(-1000590000i32);
     pub const HDR_VIVID_DYNAMIC_METADATA: Self = Self(-1000590001i32);
     pub const PHYSICAL_DEVICE_COOPERATIVE_MATRIX_2_FEATURES: Self = Self(-1000593000i32);
-    pub const COOPERATIVE_MATRIX_FLEXIBLE_DIMENSIONS_PROPERTIES: Self = Self(
-        -1000593001i32,
-    );
-    pub const PHYSICAL_DEVICE_COOPERATIVE_MATRIX_2_PROPERTIES: Self = Self(
-        -1000593002i32,
-    );
-    pub const PHYSICAL_DEVICE_PIPELINE_OPACITY_MICROMAP_FEATURES: Self = Self(
-        -1000596000i32,
-    );
+    pub const COOPERATIVE_MATRIX_FLEXIBLE_DIMENSIONS_PROPERTIES: Self = Self(-1000593001i32);
+    pub const PHYSICAL_DEVICE_COOPERATIVE_MATRIX_2_PROPERTIES: Self = Self(-1000593002i32);
+    pub const PHYSICAL_DEVICE_PIPELINE_OPACITY_MICROMAP_FEATURES: Self = Self(-1000596000i32);
     pub const IMPORT_MEMORY_METAL_HANDLE_INFO: Self = Self(-1000602000i32);
     pub const MEMORY_METAL_HANDLE_PROPERTIES: Self = Self(-1000602001i32);
     pub const MEMORY_GET_METAL_HANDLE_INFO: Self = Self(-1000602002i32);
-    pub const PHYSICAL_DEVICE_PERFORMANCE_COUNTERS_BY_REGION_FEATURES: Self = Self(
-        -1000605000i32,
-    );
-    pub const PHYSICAL_DEVICE_PERFORMANCE_COUNTERS_BY_REGION_PROPERTIES: Self = Self(
-        -1000605001i32,
-    );
-    pub const RENDER_PASS_PERFORMANCE_COUNTERS_BY_REGION_BEGIN_INFO: Self = Self(
-        -1000605004i32,
-    );
-    pub const PHYSICAL_DEVICE_SHADER_INSTRUMENTATION_FEATURES: Self = Self(
-        -1000607000i32,
-    );
-    pub const PHYSICAL_DEVICE_SHADER_INSTRUMENTATION_PROPERTIES: Self = Self(
-        -1000607001i32,
-    );
+    pub const PHYSICAL_DEVICE_PERFORMANCE_COUNTERS_BY_REGION_FEATURES: Self = Self(-1000605000i32);
+    pub const PHYSICAL_DEVICE_PERFORMANCE_COUNTERS_BY_REGION_PROPERTIES: Self =
+        Self(-1000605001i32);
+    pub const RENDER_PASS_PERFORMANCE_COUNTERS_BY_REGION_BEGIN_INFO: Self = Self(-1000605004i32);
+    pub const PHYSICAL_DEVICE_SHADER_INSTRUMENTATION_FEATURES: Self = Self(-1000607000i32);
+    pub const PHYSICAL_DEVICE_SHADER_INSTRUMENTATION_PROPERTIES: Self = Self(-1000607001i32);
     pub const SHADER_INSTRUMENTATION_CREATE_INFO: Self = Self(-1000607002i32);
     pub const SHADER_INSTRUMENTATION_METRIC_DESCRIPTION: Self = Self(-1000607003i32);
-    pub const PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_ROBUSTNESS_FEATURES: Self = Self(
-        -1000608000i32,
-    );
+    pub const PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_ROBUSTNESS_FEATURES: Self = Self(-1000608000i32);
     pub const PHYSICAL_DEVICE_FORMAT_PACK_FEATURES: Self = Self(-1000609000i32);
-    pub const PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_LAYERED_FEATURES: Self = Self(
-        -1000611000i32,
-    );
-    pub const PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_LAYERED_PROPERTIES: Self = Self(
-        -1000611001i32,
-    );
-    pub const PIPELINE_FRAGMENT_DENSITY_MAP_LAYERED_CREATE_INFO: Self = Self(
-        -1000611002i32,
-    );
+    pub const PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_LAYERED_FEATURES: Self = Self(-1000611000i32);
+    pub const PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_LAYERED_PROPERTIES: Self = Self(-1000611001i32);
+    pub const PIPELINE_FRAGMENT_DENSITY_MAP_LAYERED_CREATE_INFO: Self = Self(-1000611002i32);
     pub const SET_PRESENT_CONFIG: Self = Self(-1000613000i32);
     pub const PHYSICAL_DEVICE_PRESENT_METERING_FEATURES: Self = Self(-1000613001i32);
-    pub const RENDER_PASS_FRAGMENT_DENSITY_MAP_OFFSET_END_INFO: Self = Self(
-        -1000425002i32,
-    );
-    pub const PHYSICAL_DEVICE_ZERO_INITIALIZE_DEVICE_MEMORY_FEATURES: Self = Self(
-        -1000620000i32,
-    );
-    pub const PHYSICAL_DEVICE_SHADER_64_BIT_INDEXING_FEATURES: Self = Self(
-        -1000627000i32,
-    );
+    pub const RENDER_PASS_FRAGMENT_DENSITY_MAP_OFFSET_END_INFO: Self = Self(-1000425002i32);
+    pub const PHYSICAL_DEVICE_ZERO_INITIALIZE_DEVICE_MEMORY_FEATURES: Self = Self(-1000620000i32);
+    pub const PHYSICAL_DEVICE_SHADER_64_BIT_INDEXING_FEATURES: Self = Self(-1000627000i32);
     pub const PHYSICAL_DEVICE_CUSTOM_RESOLVE_FEATURES: Self = Self(-1000628000i32);
     pub const BEGIN_CUSTOM_RESOLVE_INFO: Self = Self(-1000628001i32);
     pub const CUSTOM_RESOLVE_CREATE_INFO: Self = Self(-1000628002i32);
@@ -7590,23 +7291,14 @@ impl StructureType {
     pub const RESOLVE_IMAGE_MODE_INFO: Self = Self(-1000630004i32);
     pub const PHYSICAL_DEVICE_SHADER_LONG_VECTOR_FEATURES: Self = Self(-1000635000i32);
     pub const PHYSICAL_DEVICE_SHADER_LONG_VECTOR_PROPERTIES: Self = Self(-1000635001i32);
-    pub const PHYSICAL_DEVICE_PIPELINE_CACHE_INCREMENTAL_MODE_FEATURES: Self = Self(
-        -1000637000i32,
-    );
-    pub const PHYSICAL_DEVICE_SHADER_UNIFORM_BUFFER_UNSIZED_ARRAY_FEATURES: Self = Self(
-        -1000642000i32,
-    );
+    pub const PHYSICAL_DEVICE_PIPELINE_CACHE_INCREMENTAL_MODE_FEATURES: Self = Self(-1000637000i32);
+    pub const PHYSICAL_DEVICE_SHADER_UNIFORM_BUFFER_UNSIZED_ARRAY_FEATURES: Self =
+        Self(-1000642000i32);
     pub const COMPUTE_OCCUPANCY_PRIORITY_PARAMETERS: Self = Self(-1000645000i32);
-    pub const PHYSICAL_DEVICE_COMPUTE_OCCUPANCY_PRIORITY_FEATURES: Self = Self(
-        -1000645001i32,
-    );
-    pub const PHYSICAL_DEVICE_SHADER_SUBGROUP_PARTITIONED_FEATURES: Self = Self(
-        -1000662000i32,
-    );
+    pub const PHYSICAL_DEVICE_COMPUTE_OCCUPANCY_PRIORITY_FEATURES: Self = Self(-1000645001i32);
+    pub const PHYSICAL_DEVICE_SHADER_SUBGROUP_PARTITIONED_FEATURES: Self = Self(-1000662000i32);
     pub const UBM_SURFACE_CREATE_INFO: Self = Self(-1000664000i32);
-    pub const PHYSICAL_DEVICE_SHADER_MIXED_FLOAT_DOT_PRODUCT_FEATURES: Self = Self(
-        -1000673000i32,
-    );
+    pub const PHYSICAL_DEVICE_SHADER_MIXED_FLOAT_DOT_PRODUCT_FEATURES: Self = Self(-1000673000i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
         Self(value)
@@ -7723,26 +7415,16 @@ impl std::fmt::Debug for StructureType {
             -1000156001i32 => f.write_str("SAMPLER_YCBCR_CONVERSION_INFO"),
             -1000156002i32 => f.write_str("BIND_IMAGE_PLANE_MEMORY_INFO"),
             -1000156003i32 => f.write_str("IMAGE_PLANE_MEMORY_REQUIREMENTS_INFO"),
-            -1000156004i32 => {
-                f.write_str("PHYSICAL_DEVICE_SAMPLER_YCBCR_CONVERSION_FEATURES")
-            }
-            -1000156005i32 => {
-                f.write_str("SAMPLER_YCBCR_CONVERSION_IMAGE_FORMAT_PROPERTIES")
-            }
+            -1000156004i32 => f.write_str("PHYSICAL_DEVICE_SAMPLER_YCBCR_CONVERSION_FEATURES"),
+            -1000156005i32 => f.write_str("SAMPLER_YCBCR_CONVERSION_IMAGE_FORMAT_PROPERTIES"),
             -1000060003i32 => f.write_str("DEVICE_GROUP_RENDER_PASS_BEGIN_INFO"),
             -1000117000i32 => f.write_str("PHYSICAL_DEVICE_POINT_CLIPPING_PROPERTIES"),
-            -1000117001i32 => {
-                f.write_str("RENDER_PASS_INPUT_ATTACHMENT_ASPECT_CREATE_INFO")
-            }
-            -1000117003i32 => {
-                f.write_str("PIPELINE_TESSELLATION_DOMAIN_ORIGIN_STATE_CREATE_INFO")
-            }
+            -1000117001i32 => f.write_str("RENDER_PASS_INPUT_ATTACHMENT_ASPECT_CREATE_INFO"),
+            -1000117003i32 => f.write_str("PIPELINE_TESSELLATION_DOMAIN_ORIGIN_STATE_CREATE_INFO"),
             -1000053000i32 => f.write_str("RENDER_PASS_MULTIVIEW_CREATE_INFO"),
             -1000053001i32 => f.write_str("PHYSICAL_DEVICE_MULTIVIEW_FEATURES"),
             -1000053002i32 => f.write_str("PHYSICAL_DEVICE_MULTIVIEW_PROPERTIES"),
-            -1000063000i32 => {
-                f.write_str("PHYSICAL_DEVICE_SHADER_DRAW_PARAMETERS_FEATURES")
-            }
+            -1000063000i32 => f.write_str("PHYSICAL_DEVICE_SHADER_DRAW_PARAMETERS_FEATURES"),
             -1000196000i32 => f.write_str("PHYSICAL_DEVICE_DRIVER_PROPERTIES"),
             49i32 => f.write_str("PHYSICAL_DEVICE_VULKAN_1_1_FEATURES"),
             50i32 => f.write_str("PHYSICAL_DEVICE_VULKAN_1_1_PROPERTIES"),
@@ -7752,16 +7434,12 @@ impl std::fmt::Debug for StructureType {
             -1000211000i32 => f.write_str("PHYSICAL_DEVICE_VULKAN_MEMORY_MODEL_FEATURES"),
             -1000261000i32 => f.write_str("PHYSICAL_DEVICE_HOST_QUERY_RESET_FEATURES"),
             -1000207000i32 => f.write_str("PHYSICAL_DEVICE_TIMELINE_SEMAPHORE_FEATURES"),
-            -1000207001i32 => {
-                f.write_str("PHYSICAL_DEVICE_TIMELINE_SEMAPHORE_PROPERTIES")
-            }
+            -1000207001i32 => f.write_str("PHYSICAL_DEVICE_TIMELINE_SEMAPHORE_PROPERTIES"),
             -1000207002i32 => f.write_str("SEMAPHORE_TYPE_CREATE_INFO"),
             -1000207003i32 => f.write_str("TIMELINE_SEMAPHORE_SUBMIT_INFO"),
             -1000207004i32 => f.write_str("SEMAPHORE_WAIT_INFO"),
             -1000207005i32 => f.write_str("SEMAPHORE_SIGNAL_INFO"),
-            -1000257000i32 => {
-                f.write_str("PHYSICAL_DEVICE_BUFFER_DEVICE_ADDRESS_FEATURES")
-            }
+            -1000257000i32 => f.write_str("PHYSICAL_DEVICE_BUFFER_DEVICE_ADDRESS_FEATURES"),
             -1000244001i32 => f.write_str("BUFFER_DEVICE_ADDRESS_INFO"),
             -1000257002i32 => f.write_str("BUFFER_OPAQUE_CAPTURE_ADDRESS_CREATE_INFO"),
             -1000257003i32 => f.write_str("MEMORY_OPAQUE_CAPTURE_ADDRESS_ALLOCATE_INFO"),
@@ -7770,23 +7448,15 @@ impl std::fmt::Debug for StructureType {
             -1000180000i32 => f.write_str("PHYSICAL_DEVICE_SHADER_ATOMIC_INT64_FEATURES"),
             -1000082000i32 => f.write_str("PHYSICAL_DEVICE_SHADER_FLOAT16_INT8_FEATURES"),
             -1000197000i32 => f.write_str("PHYSICAL_DEVICE_FLOAT_CONTROLS_PROPERTIES"),
-            -1000161000i32 => {
-                f.write_str("DESCRIPTOR_SET_LAYOUT_BINDING_FLAGS_CREATE_INFO")
-            }
+            -1000161000i32 => f.write_str("DESCRIPTOR_SET_LAYOUT_BINDING_FLAGS_CREATE_INFO"),
             -1000161001i32 => f.write_str("PHYSICAL_DEVICE_DESCRIPTOR_INDEXING_FEATURES"),
-            -1000161002i32 => {
-                f.write_str("PHYSICAL_DEVICE_DESCRIPTOR_INDEXING_PROPERTIES")
-            }
-            -1000161003i32 => {
-                f.write_str("DESCRIPTOR_SET_VARIABLE_DESCRIPTOR_COUNT_ALLOCATE_INFO")
-            }
+            -1000161002i32 => f.write_str("PHYSICAL_DEVICE_DESCRIPTOR_INDEXING_PROPERTIES"),
+            -1000161003i32 => f.write_str("DESCRIPTOR_SET_VARIABLE_DESCRIPTOR_COUNT_ALLOCATE_INFO"),
             -1000161004i32 => {
                 f.write_str("DESCRIPTOR_SET_VARIABLE_DESCRIPTOR_COUNT_LAYOUT_SUPPORT")
             }
             -1000221000i32 => f.write_str("PHYSICAL_DEVICE_SCALAR_BLOCK_LAYOUT_FEATURES"),
-            -1000130000i32 => {
-                f.write_str("PHYSICAL_DEVICE_SAMPLER_FILTER_MINMAX_PROPERTIES")
-            }
+            -1000130000i32 => f.write_str("PHYSICAL_DEVICE_SAMPLER_FILTER_MINMAX_PROPERTIES"),
             -1000130001i32 => f.write_str("SAMPLER_REDUCTION_MODE_CREATE_INFO"),
             -1000253000i32 => {
                 f.write_str("PHYSICAL_DEVICE_UNIFORM_BUFFER_STANDARD_LAYOUT_FEATURES")
@@ -7801,14 +7471,10 @@ impl std::fmt::Debug for StructureType {
             -1000109004i32 => f.write_str("RENDER_PASS_CREATE_INFO_2"),
             -1000109005i32 => f.write_str("SUBPASS_BEGIN_INFO"),
             -1000109006i32 => f.write_str("SUBPASS_END_INFO"),
-            -1000199000i32 => {
-                f.write_str("PHYSICAL_DEVICE_DEPTH_STENCIL_RESOLVE_PROPERTIES")
-            }
+            -1000199000i32 => f.write_str("PHYSICAL_DEVICE_DEPTH_STENCIL_RESOLVE_PROPERTIES"),
             -1000199001i32 => f.write_str("SUBPASS_DESCRIPTION_DEPTH_STENCIL_RESOLVE"),
             -1000246000i32 => f.write_str("IMAGE_STENCIL_USAGE_CREATE_INFO"),
-            -1000108000i32 => {
-                f.write_str("PHYSICAL_DEVICE_IMAGELESS_FRAMEBUFFER_FEATURES")
-            }
+            -1000108000i32 => f.write_str("PHYSICAL_DEVICE_IMAGELESS_FRAMEBUFFER_FEATURES"),
             -1000108001i32 => f.write_str("FRAMEBUFFER_ATTACHMENTS_CREATE_INFO"),
             -1000108002i32 => f.write_str("FRAMEBUFFER_ATTACHMENT_IMAGE_INFO"),
             -1000108003i32 => f.write_str("RENDER_PASS_ATTACHMENT_BEGIN_INFO"),
@@ -7838,22 +7504,16 @@ impl std::fmt::Debug for StructureType {
             -1000337006i32 => f.write_str("BUFFER_COPY_2"),
             -1000337007i32 => f.write_str("IMAGE_COPY_2"),
             -1000337009i32 => f.write_str("BUFFER_IMAGE_COPY_2"),
-            -1000066000i32 => {
-                f.write_str("PHYSICAL_DEVICE_TEXTURE_COMPRESSION_ASTC_HDR_FEATURES")
-            }
+            -1000066000i32 => f.write_str("PHYSICAL_DEVICE_TEXTURE_COMPRESSION_ASTC_HDR_FEATURES"),
             -1000360000i32 => f.write_str("FORMAT_PROPERTIES_3"),
             -1000413000i32 => f.write_str("PHYSICAL_DEVICE_MAINTENANCE_4_FEATURES"),
             -1000413001i32 => f.write_str("PHYSICAL_DEVICE_MAINTENANCE_4_PROPERTIES"),
             -1000413002i32 => f.write_str("DEVICE_BUFFER_MEMORY_REQUIREMENTS"),
             -1000413003i32 => f.write_str("DEVICE_IMAGE_MEMORY_REQUIREMENTS"),
             -1000192000i32 => f.write_str("PIPELINE_CREATION_FEEDBACK_CREATE_INFO"),
-            -1000215000i32 => {
-                f.write_str("PHYSICAL_DEVICE_SHADER_TERMINATE_INVOCATION_FEATURES")
-            }
+            -1000215000i32 => f.write_str("PHYSICAL_DEVICE_SHADER_TERMINATE_INVOCATION_FEATURES"),
             -1000276000i32 => {
-                f.write_str(
-                    "PHYSICAL_DEVICE_SHADER_DEMOTE_TO_HELPER_INVOCATION_FEATURES",
-                )
+                f.write_str("PHYSICAL_DEVICE_SHADER_DEMOTE_TO_HELPER_INVOCATION_FEATURES")
             }
             -1000297000i32 => {
                 f.write_str("PHYSICAL_DEVICE_PIPELINE_CREATION_CACHE_CONTROL_FEATURES")
@@ -7862,34 +7522,18 @@ impl std::fmt::Debug for StructureType {
                 f.write_str("PHYSICAL_DEVICE_ZERO_INITIALIZE_WORKGROUP_MEMORY_FEATURES")
             }
             -1000335000i32 => f.write_str("PHYSICAL_DEVICE_IMAGE_ROBUSTNESS_FEATURES"),
-            -1000225000i32 => {
-                f.write_str("PHYSICAL_DEVICE_SUBGROUP_SIZE_CONTROL_PROPERTIES")
-            }
+            -1000225000i32 => f.write_str("PHYSICAL_DEVICE_SUBGROUP_SIZE_CONTROL_PROPERTIES"),
             -1000225001i32 => {
                 f.write_str("PIPELINE_SHADER_STAGE_REQUIRED_SUBGROUP_SIZE_CREATE_INFO")
             }
-            -1000225002i32 => {
-                f.write_str("PHYSICAL_DEVICE_SUBGROUP_SIZE_CONTROL_FEATURES")
-            }
-            -1000138000i32 => {
-                f.write_str("PHYSICAL_DEVICE_INLINE_UNIFORM_BLOCK_FEATURES")
-            }
-            -1000138001i32 => {
-                f.write_str("PHYSICAL_DEVICE_INLINE_UNIFORM_BLOCK_PROPERTIES")
-            }
+            -1000225002i32 => f.write_str("PHYSICAL_DEVICE_SUBGROUP_SIZE_CONTROL_FEATURES"),
+            -1000138000i32 => f.write_str("PHYSICAL_DEVICE_INLINE_UNIFORM_BLOCK_FEATURES"),
+            -1000138001i32 => f.write_str("PHYSICAL_DEVICE_INLINE_UNIFORM_BLOCK_PROPERTIES"),
             -1000138002i32 => f.write_str("WRITE_DESCRIPTOR_SET_INLINE_UNIFORM_BLOCK"),
-            -1000138003i32 => {
-                f.write_str("DESCRIPTOR_POOL_INLINE_UNIFORM_BLOCK_CREATE_INFO")
-            }
-            -1000280000i32 => {
-                f.write_str("PHYSICAL_DEVICE_SHADER_INTEGER_DOT_PRODUCT_FEATURES")
-            }
-            -1000280001i32 => {
-                f.write_str("PHYSICAL_DEVICE_SHADER_INTEGER_DOT_PRODUCT_PROPERTIES")
-            }
-            -1000281001i32 => {
-                f.write_str("PHYSICAL_DEVICE_TEXEL_BUFFER_ALIGNMENT_PROPERTIES")
-            }
+            -1000138003i32 => f.write_str("DESCRIPTOR_POOL_INLINE_UNIFORM_BLOCK_CREATE_INFO"),
+            -1000280000i32 => f.write_str("PHYSICAL_DEVICE_SHADER_INTEGER_DOT_PRODUCT_FEATURES"),
+            -1000280001i32 => f.write_str("PHYSICAL_DEVICE_SHADER_INTEGER_DOT_PRODUCT_PROPERTIES"),
+            -1000281001i32 => f.write_str("PHYSICAL_DEVICE_TEXEL_BUFFER_ALIGNMENT_PROPERTIES"),
             -1000337004i32 => f.write_str("BLIT_IMAGE_INFO_2"),
             -1000337005i32 => f.write_str("RESOLVE_IMAGE_INFO_2"),
             -1000337008i32 => f.write_str("IMAGE_BLIT_2"),
@@ -7902,9 +7546,7 @@ impl std::fmt::Debug for StructureType {
             55i32 => f.write_str("PHYSICAL_DEVICE_VULKAN_1_4_FEATURES"),
             56i32 => f.write_str("PHYSICAL_DEVICE_VULKAN_1_4_PROPERTIES"),
             -1000174000i32 => f.write_str("DEVICE_QUEUE_GLOBAL_PRIORITY_CREATE_INFO"),
-            -1000388000i32 => {
-                f.write_str("PHYSICAL_DEVICE_GLOBAL_PRIORITY_QUERY_FEATURES")
-            }
+            -1000388000i32 => f.write_str("PHYSICAL_DEVICE_GLOBAL_PRIORITY_QUERY_FEATURES"),
             -1000388001i32 => f.write_str("QUEUE_FAMILY_GLOBAL_PRIORITY_PROPERTIES"),
             -1000265000i32 => f.write_str("PHYSICAL_DEVICE_INDEX_TYPE_UINT8_FEATURES"),
             -1000271000i32 => f.write_str("MEMORY_MAP_INFO"),
@@ -7928,49 +7570,27 @@ impl std::fmt::Debug for StructureType {
             -1000270007i32 => f.write_str("COPY_IMAGE_TO_IMAGE_INFO"),
             -1000270008i32 => f.write_str("SUBRESOURCE_HOST_MEMCPY_SIZE"),
             -1000270009i32 => f.write_str("HOST_IMAGE_COPY_DEVICE_PERFORMANCE_QUERY"),
-            -1000416000i32 => {
-                f.write_str("PHYSICAL_DEVICE_SHADER_SUBGROUP_ROTATE_FEATURES")
-            }
-            -1000528000i32 => {
-                f.write_str("PHYSICAL_DEVICE_SHADER_FLOAT_CONTROLS_2_FEATURES")
-            }
-            -1000544000i32 => {
-                f.write_str("PHYSICAL_DEVICE_SHADER_EXPECT_ASSUME_FEATURES")
-            }
+            -1000416000i32 => f.write_str("PHYSICAL_DEVICE_SHADER_SUBGROUP_ROTATE_FEATURES"),
+            -1000528000i32 => f.write_str("PHYSICAL_DEVICE_SHADER_FLOAT_CONTROLS_2_FEATURES"),
+            -1000544000i32 => f.write_str("PHYSICAL_DEVICE_SHADER_EXPECT_ASSUME_FEATURES"),
             -1000470005i32 => f.write_str("PIPELINE_CREATE_FLAGS_2_CREATE_INFO"),
             -1000080000i32 => f.write_str("PHYSICAL_DEVICE_PUSH_DESCRIPTOR_PROPERTIES"),
             -1000545003i32 => f.write_str("BIND_DESCRIPTOR_SETS_INFO"),
             -1000545004i32 => f.write_str("PUSH_CONSTANTS_INFO"),
             -1000545005i32 => f.write_str("PUSH_DESCRIPTOR_SET_INFO"),
             -1000545006i32 => f.write_str("PUSH_DESCRIPTOR_SET_WITH_TEMPLATE_INFO"),
-            -1000466000i32 => {
-                f.write_str("PHYSICAL_DEVICE_PIPELINE_PROTECTED_ACCESS_FEATURES")
-            }
+            -1000466000i32 => f.write_str("PHYSICAL_DEVICE_PIPELINE_PROTECTED_ACCESS_FEATURES"),
             -1000068000i32 => f.write_str("PIPELINE_ROBUSTNESS_CREATE_INFO"),
             -1000068001i32 => f.write_str("PHYSICAL_DEVICE_PIPELINE_ROBUSTNESS_FEATURES"),
-            -1000068002i32 => {
-                f.write_str("PHYSICAL_DEVICE_PIPELINE_ROBUSTNESS_PROPERTIES")
-            }
+            -1000068002i32 => f.write_str("PHYSICAL_DEVICE_PIPELINE_ROBUSTNESS_PROPERTIES"),
             -1000259000i32 => f.write_str("PHYSICAL_DEVICE_LINE_RASTERIZATION_FEATURES"),
-            -1000259001i32 => {
-                f.write_str("PIPELINE_RASTERIZATION_LINE_STATE_CREATE_INFO")
-            }
-            -1000259002i32 => {
-                f.write_str("PHYSICAL_DEVICE_LINE_RASTERIZATION_PROPERTIES")
-            }
-            -1000525000i32 => {
-                f.write_str("PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_PROPERTIES")
-            }
-            -1000190001i32 => {
-                f.write_str("PIPELINE_VERTEX_INPUT_DIVISOR_STATE_CREATE_INFO")
-            }
-            -1000190002i32 => {
-                f.write_str("PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_FEATURES")
-            }
+            -1000259001i32 => f.write_str("PIPELINE_RASTERIZATION_LINE_STATE_CREATE_INFO"),
+            -1000259002i32 => f.write_str("PHYSICAL_DEVICE_LINE_RASTERIZATION_PROPERTIES"),
+            -1000525000i32 => f.write_str("PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_PROPERTIES"),
+            -1000190001i32 => f.write_str("PIPELINE_VERTEX_INPUT_DIVISOR_STATE_CREATE_INFO"),
+            -1000190002i32 => f.write_str("PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_FEATURES"),
             -1000470003i32 => f.write_str("RENDERING_AREA_INFO"),
-            -1000232000i32 => {
-                f.write_str("PHYSICAL_DEVICE_DYNAMIC_RENDERING_LOCAL_READ_FEATURES")
-            }
+            -1000232000i32 => f.write_str("PHYSICAL_DEVICE_DYNAMIC_RENDERING_LOCAL_READ_FEATURES"),
             -1000232001i32 => f.write_str("RENDERING_ATTACHMENT_LOCATION_INFO"),
             -1000232002i32 => f.write_str("RENDERING_INPUT_ATTACHMENT_INDEX_INFO"),
             -1000298000i32 => f.write_str("PHYSICAL_DEVICE_VULKAN_SC_1_0_FEATURES"),
@@ -7999,9 +7619,7 @@ impl std::fmt::Debug for StructureType {
             -1000008000i32 => f.write_str("ANDROID_SURFACE_CREATE_INFO"),
             -1000009000i32 => f.write_str("WIN32_SURFACE_CREATE_INFO"),
             -1000011000i32 => f.write_str("DEBUG_REPORT_CALLBACK_CREATE_INFO"),
-            -1000018000i32 => {
-                f.write_str("PIPELINE_RASTERIZATION_STATE_RASTERIZATION_ORDER")
-            }
+            -1000018000i32 => f.write_str("PIPELINE_RASTERIZATION_STATE_RASTERIZATION_ORDER"),
             -1000022000i32 => f.write_str("DEBUG_MARKER_OBJECT_NAME_INFO"),
             -1000022001i32 => f.write_str("DEBUG_MARKER_OBJECT_TAG_INFO"),
             -1000022002i32 => f.write_str("DEBUG_MARKER_MARKER_INFO"),
@@ -8029,12 +7647,8 @@ impl std::fmt::Debug for StructureType {
             -1000026001i32 => f.write_str("DEDICATED_ALLOCATION_BUFFER_CREATE_INFO"),
             -1000026002i32 => f.write_str("DEDICATED_ALLOCATION_MEMORY_ALLOCATE_INFO"),
             -1000028000i32 => f.write_str("PHYSICAL_DEVICE_TRANSFORM_FEEDBACK_FEATURES"),
-            -1000028001i32 => {
-                f.write_str("PHYSICAL_DEVICE_TRANSFORM_FEEDBACK_PROPERTIES")
-            }
-            -1000028002i32 => {
-                f.write_str("PIPELINE_RASTERIZATION_STATE_STREAM_CREATE_INFO")
-            }
+            -1000028001i32 => f.write_str("PHYSICAL_DEVICE_TRANSFORM_FEEDBACK_PROPERTIES"),
+            -1000028002i32 => f.write_str("PIPELINE_RASTERIZATION_STATE_STREAM_CREATE_INFO"),
             -1000029000i32 => f.write_str("CU_MODULE_CREATE_INFO"),
             -1000029001i32 => f.write_str("CU_FUNCTION_CREATE_INFO"),
             -1000029002i32 => f.write_str("CU_LAUNCH_INFO"),
@@ -8042,12 +7656,8 @@ impl std::fmt::Debug for StructureType {
             -1000030000i32 => f.write_str("IMAGE_VIEW_HANDLE_INFO"),
             -1000030001i32 => f.write_str("IMAGE_VIEW_ADDRESS_PROPERTIES"),
             -1000038000i32 => f.write_str("VIDEO_ENCODE_H264_CAPABILITIES"),
-            -1000038001i32 => {
-                f.write_str("VIDEO_ENCODE_H264_SESSION_PARAMETERS_CREATE_INFO")
-            }
-            -1000038002i32 => {
-                f.write_str("VIDEO_ENCODE_H264_SESSION_PARAMETERS_ADD_INFO")
-            }
+            -1000038001i32 => f.write_str("VIDEO_ENCODE_H264_SESSION_PARAMETERS_CREATE_INFO"),
+            -1000038002i32 => f.write_str("VIDEO_ENCODE_H264_SESSION_PARAMETERS_ADD_INFO"),
             -1000038003i32 => f.write_str("VIDEO_ENCODE_H264_PICTURE_INFO"),
             -1000038004i32 => f.write_str("VIDEO_ENCODE_H264_DPB_SLOT_INFO"),
             -1000038005i32 => f.write_str("VIDEO_ENCODE_H264_NALU_SLICE_INFO"),
@@ -8057,19 +7667,11 @@ impl std::fmt::Debug for StructureType {
             -1000038009i32 => f.write_str("VIDEO_ENCODE_H264_RATE_CONTROL_LAYER_INFO"),
             -1000038010i32 => f.write_str("VIDEO_ENCODE_H264_SESSION_CREATE_INFO"),
             -1000038011i32 => f.write_str("VIDEO_ENCODE_H264_QUALITY_LEVEL_PROPERTIES"),
-            -1000038012i32 => {
-                f.write_str("VIDEO_ENCODE_H264_SESSION_PARAMETERS_GET_INFO")
-            }
-            -1000038013i32 => {
-                f.write_str("VIDEO_ENCODE_H264_SESSION_PARAMETERS_FEEDBACK_INFO")
-            }
+            -1000038012i32 => f.write_str("VIDEO_ENCODE_H264_SESSION_PARAMETERS_GET_INFO"),
+            -1000038013i32 => f.write_str("VIDEO_ENCODE_H264_SESSION_PARAMETERS_FEEDBACK_INFO"),
             -1000039000i32 => f.write_str("VIDEO_ENCODE_H265_CAPABILITIES"),
-            -1000039001i32 => {
-                f.write_str("VIDEO_ENCODE_H265_SESSION_PARAMETERS_CREATE_INFO")
-            }
-            -1000039002i32 => {
-                f.write_str("VIDEO_ENCODE_H265_SESSION_PARAMETERS_ADD_INFO")
-            }
+            -1000039001i32 => f.write_str("VIDEO_ENCODE_H265_SESSION_PARAMETERS_CREATE_INFO"),
+            -1000039002i32 => f.write_str("VIDEO_ENCODE_H265_SESSION_PARAMETERS_ADD_INFO"),
             -1000039003i32 => f.write_str("VIDEO_ENCODE_H265_PICTURE_INFO"),
             -1000039004i32 => f.write_str("VIDEO_ENCODE_H265_DPB_SLOT_INFO"),
             -1000039005i32 => f.write_str("VIDEO_ENCODE_H265_NALU_SLICE_SEGMENT_INFO"),
@@ -8079,27 +7681,17 @@ impl std::fmt::Debug for StructureType {
             -1000039010i32 => f.write_str("VIDEO_ENCODE_H265_RATE_CONTROL_LAYER_INFO"),
             -1000039011i32 => f.write_str("VIDEO_ENCODE_H265_SESSION_CREATE_INFO"),
             -1000039012i32 => f.write_str("VIDEO_ENCODE_H265_QUALITY_LEVEL_PROPERTIES"),
-            -1000039013i32 => {
-                f.write_str("VIDEO_ENCODE_H265_SESSION_PARAMETERS_GET_INFO")
-            }
-            -1000039014i32 => {
-                f.write_str("VIDEO_ENCODE_H265_SESSION_PARAMETERS_FEEDBACK_INFO")
-            }
+            -1000039013i32 => f.write_str("VIDEO_ENCODE_H265_SESSION_PARAMETERS_GET_INFO"),
+            -1000039014i32 => f.write_str("VIDEO_ENCODE_H265_SESSION_PARAMETERS_FEEDBACK_INFO"),
             -1000040000i32 => f.write_str("VIDEO_DECODE_H264_CAPABILITIES"),
             -1000040001i32 => f.write_str("VIDEO_DECODE_H264_PICTURE_INFO"),
             -1000040003i32 => f.write_str("VIDEO_DECODE_H264_PROFILE_INFO"),
-            -1000040004i32 => {
-                f.write_str("VIDEO_DECODE_H264_SESSION_PARAMETERS_CREATE_INFO")
-            }
-            -1000040005i32 => {
-                f.write_str("VIDEO_DECODE_H264_SESSION_PARAMETERS_ADD_INFO")
-            }
+            -1000040004i32 => f.write_str("VIDEO_DECODE_H264_SESSION_PARAMETERS_CREATE_INFO"),
+            -1000040005i32 => f.write_str("VIDEO_DECODE_H264_SESSION_PARAMETERS_ADD_INFO"),
             -1000040006i32 => f.write_str("VIDEO_DECODE_H264_DPB_SLOT_INFO"),
             -1000041000i32 => f.write_str("TEXTURE_LOD_GATHER_FORMAT_PROPERTIES"),
             -1000049000i32 => f.write_str("STREAM_DESCRIPTOR_SURFACE_CREATE_INFO"),
-            -1000050000i32 => {
-                f.write_str("PHYSICAL_DEVICE_CORNER_SAMPLED_IMAGE_FEATURES")
-            }
+            -1000050000i32 => f.write_str("PHYSICAL_DEVICE_CORNER_SAMPLED_IMAGE_FEATURES"),
             -1000051000i32 => f.write_str("PRIVATE_VENDOR_INFO_PLACEHOLDER_OFFSET_0"),
             -1000057000i32 => f.write_str("IMPORT_MEMORY_WIN32_HANDLE_INFO"),
             -1000057001i32 => f.write_str("EXPORT_MEMORY_WIN32_HANDLE_INFO"),
@@ -8119,17 +7711,11 @@ impl std::fmt::Debug for StructureType {
             -1000078003i32 => f.write_str("SEMAPHORE_GET_WIN32_HANDLE_INFO"),
             -1000079000i32 => f.write_str("IMPORT_SEMAPHORE_FD_INFO"),
             -1000079001i32 => f.write_str("SEMAPHORE_GET_FD_INFO"),
-            -1000081000i32 => {
-                f.write_str("COMMAND_BUFFER_INHERITANCE_CONDITIONAL_RENDERING_INFO")
-            }
-            -1000081001i32 => {
-                f.write_str("PHYSICAL_DEVICE_CONDITIONAL_RENDERING_FEATURES")
-            }
+            -1000081000i32 => f.write_str("COMMAND_BUFFER_INHERITANCE_CONDITIONAL_RENDERING_INFO"),
+            -1000081001i32 => f.write_str("PHYSICAL_DEVICE_CONDITIONAL_RENDERING_FEATURES"),
             -1000081002i32 => f.write_str("CONDITIONAL_RENDERING_BEGIN_INFO"),
             -1000084000i32 => f.write_str("PRESENT_REGIONS"),
-            -1000087000i32 => {
-                f.write_str("PIPELINE_VIEWPORT_W_SCALING_STATE_CREATE_INFO")
-            }
+            -1000087000i32 => f.write_str("PIPELINE_VIEWPORT_W_SCALING_STATE_CREATE_INFO"),
             -1000090000i32 => f.write_str("SURFACE_CAPABILITIES_2"),
             -1000091000i32 => f.write_str("DISPLAY_POWER_INFO"),
             -1000091001i32 => f.write_str("DEVICE_EVENT_INFO"),
@@ -8143,20 +7729,12 @@ impl std::fmt::Debug for StructureType {
             -1000098000i32 => f.write_str("PIPELINE_VIEWPORT_SWIZZLE_STATE_CREATE_INFO"),
             -1000099000i32 => f.write_str("PHYSICAL_DEVICE_DISCARD_RECTANGLE_PROPERTIES"),
             -1000099001i32 => f.write_str("PIPELINE_DISCARD_RECTANGLE_STATE_CREATE_INFO"),
-            -1000101000i32 => {
-                f.write_str("PHYSICAL_DEVICE_CONSERVATIVE_RASTERIZATION_PROPERTIES")
-            }
-            -1000101001i32 => {
-                f.write_str("PIPELINE_RASTERIZATION_CONSERVATIVE_STATE_CREATE_INFO")
-            }
+            -1000101000i32 => f.write_str("PHYSICAL_DEVICE_CONSERVATIVE_RASTERIZATION_PROPERTIES"),
+            -1000101001i32 => f.write_str("PIPELINE_RASTERIZATION_CONSERVATIVE_STATE_CREATE_INFO"),
             -1000102000i32 => f.write_str("PHYSICAL_DEVICE_DEPTH_CLIP_ENABLE_FEATURES"),
-            -1000102001i32 => {
-                f.write_str("PIPELINE_RASTERIZATION_DEPTH_CLIP_STATE_CREATE_INFO")
-            }
+            -1000102001i32 => f.write_str("PIPELINE_RASTERIZATION_DEPTH_CLIP_STATE_CREATE_INFO"),
             -1000105000i32 => f.write_str("HDR_METADATA"),
-            -1000110000i32 => {
-                f.write_str("PHYSICAL_DEVICE_RELAXED_LINE_RASTERIZATION_FEATURES")
-            }
+            -1000110000i32 => f.write_str("PHYSICAL_DEVICE_RELAXED_LINE_RASTERIZATION_FEATURES"),
             -1000111000i32 => f.write_str("SHARED_PRESENT_SURFACE_CAPABILITIES"),
             -1000114000i32 => f.write_str("IMPORT_FENCE_WIN32_HANDLE_INFO"),
             -1000114001i32 => f.write_str("EXPORT_FENCE_WIN32_HANDLE_INFO"),
@@ -8203,23 +7781,15 @@ impl std::fmt::Debug for StructureType {
             -1000135003i32 => f.write_str("BIND_HEAP_INFO"),
             -1000135004i32 => f.write_str("PUSH_DATA_INFO"),
             -1000135005i32 => f.write_str("DESCRIPTOR_SET_AND_BINDING_MAPPING"),
-            -1000135006i32 => {
-                f.write_str("SHADER_DESCRIPTOR_SET_AND_BINDING_MAPPING_INFO")
-            }
+            -1000135006i32 => f.write_str("SHADER_DESCRIPTOR_SET_AND_BINDING_MAPPING_INFO"),
             -1000135007i32 => f.write_str("OPAQUE_CAPTURE_DATA_CREATE_INFO"),
             -1000135008i32 => f.write_str("PHYSICAL_DEVICE_DESCRIPTOR_HEAP_PROPERTIES"),
             -1000135009i32 => f.write_str("PHYSICAL_DEVICE_DESCRIPTOR_HEAP_FEATURES"),
-            -1000135010i32 => {
-                f.write_str("COMMAND_BUFFER_INHERITANCE_DESCRIPTOR_HEAP_INFO")
-            }
-            -1000135011i32 => {
-                f.write_str("SAMPLER_CUSTOM_BORDER_COLOR_INDEX_CREATE_INFO")
-            }
+            -1000135010i32 => f.write_str("COMMAND_BUFFER_INHERITANCE_DESCRIPTOR_HEAP_INFO"),
+            -1000135011i32 => f.write_str("SAMPLER_CUSTOM_BORDER_COLOR_INDEX_CREATE_INFO"),
             -1000135012i32 => f.write_str("INDIRECT_COMMANDS_LAYOUT_PUSH_DATA_TOKEN"),
             -1000135013i32 => f.write_str("SUBSAMPLED_IMAGE_FORMAT_PROPERTIES"),
-            -1000135014i32 => {
-                f.write_str("PHYSICAL_DEVICE_DESCRIPTOR_HEAP_TENSOR_PROPERTIES")
-            }
+            -1000135014i32 => f.write_str("PHYSICAL_DEVICE_DESCRIPTOR_HEAP_TENSOR_PROPERTIES"),
             -1000044008i32 => f.write_str("ATTACHMENT_SAMPLE_COUNT_INFO"),
             -1000141000i32 => f.write_str("PHYSICAL_DEVICE_SHADER_BFLOAT16_FEATURES"),
             -1000143000i32 => f.write_str("SAMPLE_LOCATIONS_INFO"),
@@ -8227,79 +7797,47 @@ impl std::fmt::Debug for StructureType {
             -1000143002i32 => f.write_str("PIPELINE_SAMPLE_LOCATIONS_STATE_CREATE_INFO"),
             -1000143003i32 => f.write_str("PHYSICAL_DEVICE_SAMPLE_LOCATIONS_PROPERTIES"),
             -1000143004i32 => f.write_str("MULTISAMPLE_PROPERTIES"),
-            -1000148000i32 => {
-                f.write_str("PHYSICAL_DEVICE_BLEND_OPERATION_ADVANCED_FEATURES")
-            }
-            -1000148001i32 => {
-                f.write_str("PHYSICAL_DEVICE_BLEND_OPERATION_ADVANCED_PROPERTIES")
-            }
-            -1000148002i32 => {
-                f.write_str("PIPELINE_COLOR_BLEND_ADVANCED_STATE_CREATE_INFO")
-            }
+            -1000148000i32 => f.write_str("PHYSICAL_DEVICE_BLEND_OPERATION_ADVANCED_FEATURES"),
+            -1000148001i32 => f.write_str("PHYSICAL_DEVICE_BLEND_OPERATION_ADVANCED_PROPERTIES"),
+            -1000148002i32 => f.write_str("PIPELINE_COLOR_BLEND_ADVANCED_STATE_CREATE_INFO"),
             -1000149000i32 => f.write_str("PIPELINE_COVERAGE_TO_COLOR_STATE_CREATE_INFO"),
             -1000150007i32 => f.write_str("WRITE_DESCRIPTOR_SET_ACCELERATION_STRUCTURE"),
             -1000150000i32 => f.write_str("ACCELERATION_STRUCTURE_BUILD_GEOMETRY_INFO"),
             -1000150002i32 => f.write_str("ACCELERATION_STRUCTURE_DEVICE_ADDRESS_INFO"),
             -1000150003i32 => f.write_str("ACCELERATION_STRUCTURE_GEOMETRY_AABBS_DATA"),
-            -1000150004i32 => {
-                f.write_str("ACCELERATION_STRUCTURE_GEOMETRY_INSTANCES_DATA")
-            }
-            -1000150005i32 => {
-                f.write_str("ACCELERATION_STRUCTURE_GEOMETRY_TRIANGLES_DATA")
-            }
+            -1000150004i32 => f.write_str("ACCELERATION_STRUCTURE_GEOMETRY_INSTANCES_DATA"),
+            -1000150005i32 => f.write_str("ACCELERATION_STRUCTURE_GEOMETRY_TRIANGLES_DATA"),
             -1000150006i32 => f.write_str("ACCELERATION_STRUCTURE_GEOMETRY"),
             -1000150009i32 => f.write_str("ACCELERATION_STRUCTURE_VERSION_INFO"),
             -1000150010i32 => f.write_str("COPY_ACCELERATION_STRUCTURE_INFO"),
             -1000150011i32 => f.write_str("COPY_ACCELERATION_STRUCTURE_TO_MEMORY_INFO"),
             -1000150012i32 => f.write_str("COPY_MEMORY_TO_ACCELERATION_STRUCTURE_INFO"),
-            -1000150013i32 => {
-                f.write_str("PHYSICAL_DEVICE_ACCELERATION_STRUCTURE_FEATURES")
-            }
-            -1000150014i32 => {
-                f.write_str("PHYSICAL_DEVICE_ACCELERATION_STRUCTURE_PROPERTIES")
-            }
+            -1000150013i32 => f.write_str("PHYSICAL_DEVICE_ACCELERATION_STRUCTURE_FEATURES"),
+            -1000150014i32 => f.write_str("PHYSICAL_DEVICE_ACCELERATION_STRUCTURE_PROPERTIES"),
             -1000150017i32 => f.write_str("ACCELERATION_STRUCTURE_CREATE_INFO"),
             -1000150020i32 => f.write_str("ACCELERATION_STRUCTURE_BUILD_SIZES_INFO"),
-            -1000347000i32 => {
-                f.write_str("PHYSICAL_DEVICE_RAY_TRACING_PIPELINE_FEATURES")
-            }
-            -1000347001i32 => {
-                f.write_str("PHYSICAL_DEVICE_RAY_TRACING_PIPELINE_PROPERTIES")
-            }
+            -1000347000i32 => f.write_str("PHYSICAL_DEVICE_RAY_TRACING_PIPELINE_FEATURES"),
+            -1000347001i32 => f.write_str("PHYSICAL_DEVICE_RAY_TRACING_PIPELINE_PROPERTIES"),
             -1000150015i32 => f.write_str("RAY_TRACING_PIPELINE_CREATE_INFO"),
             -1000150016i32 => f.write_str("RAY_TRACING_SHADER_GROUP_CREATE_INFO"),
             -1000150018i32 => f.write_str("RAY_TRACING_PIPELINE_INTERFACE_CREATE_INFO"),
             -1000348013i32 => f.write_str("PHYSICAL_DEVICE_RAY_QUERY_FEATURES"),
-            -1000152000i32 => {
-                f.write_str("PIPELINE_COVERAGE_MODULATION_STATE_CREATE_INFO")
-            }
+            -1000152000i32 => f.write_str("PIPELINE_COVERAGE_MODULATION_STATE_CREATE_INFO"),
             -1000154000i32 => f.write_str("PHYSICAL_DEVICE_SHADER_SM_BUILTINS_FEATURES"),
-            -1000154001i32 => {
-                f.write_str("PHYSICAL_DEVICE_SHADER_SM_BUILTINS_PROPERTIES")
-            }
+            -1000154001i32 => f.write_str("PHYSICAL_DEVICE_SHADER_SM_BUILTINS_PROPERTIES"),
             -1000158000i32 => f.write_str("DRM_FORMAT_MODIFIER_PROPERTIES_LIST"),
-            -1000158002i32 => {
-                f.write_str("PHYSICAL_DEVICE_IMAGE_DRM_FORMAT_MODIFIER_INFO")
-            }
+            -1000158002i32 => f.write_str("PHYSICAL_DEVICE_IMAGE_DRM_FORMAT_MODIFIER_INFO"),
             -1000158003i32 => f.write_str("IMAGE_DRM_FORMAT_MODIFIER_LIST_CREATE_INFO"),
-            -1000158004i32 => {
-                f.write_str("IMAGE_DRM_FORMAT_MODIFIER_EXPLICIT_CREATE_INFO")
-            }
+            -1000158004i32 => f.write_str("IMAGE_DRM_FORMAT_MODIFIER_EXPLICIT_CREATE_INFO"),
             -1000158005i32 => f.write_str("IMAGE_DRM_FORMAT_MODIFIER_PROPERTIES"),
             -1000158006i32 => f.write_str("DRM_FORMAT_MODIFIER_PROPERTIES_LIST_2"),
             -1000160000i32 => f.write_str("VALIDATION_CACHE_CREATE_INFO"),
             -1000160001i32 => f.write_str("SHADER_MODULE_VALIDATION_CACHE_CREATE_INFO"),
             -1000163000i32 => f.write_str("PHYSICAL_DEVICE_PORTABILITY_SUBSET_FEATURES"),
-            -1000163001i32 => {
-                f.write_str("PHYSICAL_DEVICE_PORTABILITY_SUBSET_PROPERTIES")
-            }
-            -1000164000i32 => {
-                f.write_str("PIPELINE_VIEWPORT_SHADING_RATE_IMAGE_STATE_CREATE_INFO")
-            }
+            -1000163001i32 => f.write_str("PHYSICAL_DEVICE_PORTABILITY_SUBSET_PROPERTIES"),
+            -1000164000i32 => f.write_str("PIPELINE_VIEWPORT_SHADING_RATE_IMAGE_STATE_CREATE_INFO"),
             -1000164001i32 => f.write_str("PHYSICAL_DEVICE_SHADING_RATE_IMAGE_FEATURES"),
-            -1000164002i32 => {
-                f.write_str("PHYSICAL_DEVICE_SHADING_RATE_IMAGE_PROPERTIES")
-            }
+            -1000164002i32 => f.write_str("PHYSICAL_DEVICE_SHADING_RATE_IMAGE_PROPERTIES"),
             -1000164005i32 => {
                 f.write_str("PIPELINE_VIEWPORT_COARSE_SAMPLE_ORDER_STATE_CREATE_INFO")
             }
@@ -8307,39 +7845,25 @@ impl std::fmt::Debug for StructureType {
             -1000165004i32 => f.write_str("GEOMETRY_TRIANGLES"),
             -1000165005i32 => f.write_str("GEOMETRY_AABB"),
             -1000165006i32 => f.write_str("BIND_ACCELERATION_STRUCTURE_MEMORY_INFO"),
-            -1000165008i32 => {
-                f.write_str("ACCELERATION_STRUCTURE_MEMORY_REQUIREMENTS_INFO")
-            }
+            -1000165008i32 => f.write_str("ACCELERATION_STRUCTURE_MEMORY_REQUIREMENTS_INFO"),
             -1000165009i32 => f.write_str("PHYSICAL_DEVICE_RAY_TRACING_PROPERTIES"),
             -1000165012i32 => f.write_str("ACCELERATION_STRUCTURE_INFO"),
-            -1000166000i32 => {
-                f.write_str("PHYSICAL_DEVICE_REPRESENTATIVE_FRAGMENT_TEST_FEATURES")
-            }
+            -1000166000i32 => f.write_str("PHYSICAL_DEVICE_REPRESENTATIVE_FRAGMENT_TEST_FEATURES"),
             -1000166001i32 => {
                 f.write_str("PIPELINE_REPRESENTATIVE_FRAGMENT_TEST_STATE_CREATE_INFO")
             }
             -1000170000i32 => f.write_str("PHYSICAL_DEVICE_IMAGE_VIEW_IMAGE_FORMAT_INFO"),
-            -1000170001i32 => {
-                f.write_str("FILTER_CUBIC_IMAGE_VIEW_IMAGE_FORMAT_PROPERTIES")
-            }
-            -1000172000i32 => {
-                f.write_str("PHYSICAL_DEVICE_COOPERATIVE_MATRIX_CONVERSION_FEATURES")
-            }
+            -1000170001i32 => f.write_str("FILTER_CUBIC_IMAGE_VIEW_IMAGE_FORMAT_PROPERTIES"),
+            -1000172000i32 => f.write_str("PHYSICAL_DEVICE_COOPERATIVE_MATRIX_CONVERSION_FEATURES"),
             -1000178000i32 => f.write_str("IMPORT_MEMORY_HOST_POINTER_INFO"),
             -1000178001i32 => f.write_str("MEMORY_HOST_POINTER_PROPERTIES"),
-            -1000178002i32 => {
-                f.write_str("PHYSICAL_DEVICE_EXTERNAL_MEMORY_HOST_PROPERTIES")
-            }
+            -1000178002i32 => f.write_str("PHYSICAL_DEVICE_EXTERNAL_MEMORY_HOST_PROPERTIES"),
             -1000181000i32 => f.write_str("PHYSICAL_DEVICE_SHADER_CLOCK_FEATURES"),
             -1000183000i32 => f.write_str("PIPELINE_COMPILER_CONTROL_CREATE_INFO"),
             -1000185000i32 => f.write_str("PHYSICAL_DEVICE_SHADER_CORE_PROPERTIES"),
             -1000187000i32 => f.write_str("VIDEO_DECODE_H265_CAPABILITIES"),
-            -1000187001i32 => {
-                f.write_str("VIDEO_DECODE_H265_SESSION_PARAMETERS_CREATE_INFO")
-            }
-            -1000187002i32 => {
-                f.write_str("VIDEO_DECODE_H265_SESSION_PARAMETERS_ADD_INFO")
-            }
+            -1000187001i32 => f.write_str("VIDEO_DECODE_H265_SESSION_PARAMETERS_CREATE_INFO"),
+            -1000187002i32 => f.write_str("VIDEO_DECODE_H265_SESSION_PARAMETERS_ADD_INFO"),
             -1000187003i32 => f.write_str("VIDEO_DECODE_H265_PROFILE_INFO"),
             -1000187004i32 => f.write_str("VIDEO_DECODE_H265_PICTURE_INFO"),
             -1000187005i32 => f.write_str("VIDEO_DECODE_H265_DPB_SLOT_INFO"),
@@ -8347,12 +7871,8 @@ impl std::fmt::Debug for StructureType {
             -1000191000i32 => f.write_str("PRESENT_FRAME_TOKEN"),
             -1000202000i32 => f.write_str("PHYSICAL_DEVICE_MESH_SHADER_FEATURES"),
             -1000202001i32 => f.write_str("PHYSICAL_DEVICE_MESH_SHADER_PROPERTIES"),
-            -1000204000i32 => {
-                f.write_str("PHYSICAL_DEVICE_SHADER_IMAGE_FOOTPRINT_FEATURES")
-            }
-            -1000205000i32 => {
-                f.write_str("PIPELINE_VIEWPORT_EXCLUSIVE_SCISSOR_STATE_CREATE_INFO")
-            }
+            -1000204000i32 => f.write_str("PHYSICAL_DEVICE_SHADER_IMAGE_FOOTPRINT_FEATURES"),
+            -1000205000i32 => f.write_str("PIPELINE_VIEWPORT_EXCLUSIVE_SCISSOR_STATE_CREATE_INFO"),
             -1000205002i32 => f.write_str("PHYSICAL_DEVICE_EXCLUSIVE_SCISSOR_FEATURES"),
             -1000206000i32 => f.write_str("CHECKPOINT_DATA"),
             -1000206001i32 => f.write_str("QUEUE_FAMILY_CHECKPOINT_PROPERTIES"),
@@ -8368,9 +7888,7 @@ impl std::fmt::Debug for StructureType {
             -1000208007i32 => f.write_str("PAST_PRESENTATION_TIMING"),
             -1000208008i32 => f.write_str("PRESENT_TIMING_SURFACE_CAPABILITIES"),
             -1000208009i32 => f.write_str("SWAPCHAIN_CALIBRATED_TIMESTAMP_INFO"),
-            -1000209000i32 => {
-                f.write_str("PHYSICAL_DEVICE_SHADER_INTEGER_FUNCTIONS_2_FEATURES")
-            }
+            -1000209000i32 => f.write_str("PHYSICAL_DEVICE_SHADER_INTEGER_FUNCTIONS_2_FEATURES"),
             -1000210000i32 => f.write_str("QUERY_POOL_PERFORMANCE_QUERY_CREATE_INFO"),
             -1000210001i32 => f.write_str("INITIALIZE_PERFORMANCE_API_INFO"),
             -1000210002i32 => f.write_str("PERFORMANCE_MARKER_INFO"),
@@ -8382,69 +7900,41 @@ impl std::fmt::Debug for StructureType {
             -1000213001i32 => f.write_str("SWAPCHAIN_DISPLAY_NATIVE_HDR_CREATE_INFO"),
             -1000214000i32 => f.write_str("IMAGEPIPE_SURFACE_CREATE_INFO"),
             -1000217000i32 => f.write_str("METAL_SURFACE_CREATE_INFO"),
-            -1000218000i32 => {
-                f.write_str("PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_FEATURES")
-            }
-            -1000218001i32 => {
-                f.write_str("PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_PROPERTIES")
-            }
+            -1000218000i32 => f.write_str("PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_FEATURES"),
+            -1000218001i32 => f.write_str("PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_PROPERTIES"),
             -1000218002i32 => f.write_str("RENDER_PASS_FRAGMENT_DENSITY_MAP_CREATE_INFO"),
-            -1000044007i32 => {
-                f.write_str("RENDERING_FRAGMENT_DENSITY_MAP_ATTACHMENT_INFO")
-            }
+            -1000044007i32 => f.write_str("RENDERING_FRAGMENT_DENSITY_MAP_ATTACHMENT_INFO"),
             -1000226000i32 => f.write_str("FRAGMENT_SHADING_RATE_ATTACHMENT_INFO"),
-            -1000226001i32 => {
-                f.write_str("PIPELINE_FRAGMENT_SHADING_RATE_STATE_CREATE_INFO")
-            }
-            -1000226002i32 => {
-                f.write_str("PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_PROPERTIES")
-            }
-            -1000226003i32 => {
-                f.write_str("PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_FEATURES")
-            }
+            -1000226001i32 => f.write_str("PIPELINE_FRAGMENT_SHADING_RATE_STATE_CREATE_INFO"),
+            -1000226002i32 => f.write_str("PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_PROPERTIES"),
+            -1000226003i32 => f.write_str("PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_FEATURES"),
             -1000226004i32 => f.write_str("PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE"),
-            -1000044006i32 => {
-                f.write_str("RENDERING_FRAGMENT_SHADING_RATE_ATTACHMENT_INFO")
-            }
+            -1000044006i32 => f.write_str("RENDERING_FRAGMENT_SHADING_RATE_ATTACHMENT_INFO"),
             -1000227000i32 => f.write_str("PHYSICAL_DEVICE_SHADER_CORE_PROPERTIES_2"),
             -1000229000i32 => f.write_str("PHYSICAL_DEVICE_COHERENT_MEMORY_FEATURES"),
-            -1000231000i32 => {
-                f.write_str("PHYSICAL_DEVICE_SHADER_CONSTANT_DATA_FEATURES")
-            }
+            -1000231000i32 => f.write_str("PHYSICAL_DEVICE_SHADER_CONSTANT_DATA_FEATURES"),
             -1000233000i32 => f.write_str("PHYSICAL_DEVICE_SHADER_ABORT_FEATURES"),
             -1000233001i32 => f.write_str("DEVICE_FAULT_SHADER_ABORT_MESSAGE_INFO"),
             -1000233002i32 => f.write_str("PHYSICAL_DEVICE_SHADER_ABORT_PROPERTIES"),
-            -1000234000i32 => {
-                f.write_str("PHYSICAL_DEVICE_SHADER_IMAGE_ATOMIC_INT64_FEATURES")
-            }
+            -1000234000i32 => f.write_str("PHYSICAL_DEVICE_SHADER_IMAGE_ATOMIC_INT64_FEATURES"),
             -1000235000i32 => f.write_str("PHYSICAL_DEVICE_SHADER_QUAD_CONTROL_FEATURES"),
             -1000237000i32 => f.write_str("PHYSICAL_DEVICE_MEMORY_BUDGET_PROPERTIES"),
             -1000238000i32 => f.write_str("PHYSICAL_DEVICE_MEMORY_PRIORITY_FEATURES"),
             -1000238001i32 => f.write_str("MEMORY_PRIORITY_ALLOCATE_INFO"),
             -1000239000i32 => f.write_str("SURFACE_PROTECTED_CAPABILITIES"),
             -1000240000i32 => {
-                f.write_str(
-                    "PHYSICAL_DEVICE_DEDICATED_ALLOCATION_IMAGE_ALIASING_FEATURES",
-                )
+                f.write_str("PHYSICAL_DEVICE_DEDICATED_ALLOCATION_IMAGE_ALIASING_FEATURES")
             }
             -1000244002i32 => f.write_str("BUFFER_DEVICE_ADDRESS_CREATE_INFO"),
             -1000247000i32 => f.write_str("VALIDATION_FEATURES"),
             -1000248000i32 => f.write_str("PHYSICAL_DEVICE_PRESENT_WAIT_FEATURES"),
             -1000249000i32 => f.write_str("PHYSICAL_DEVICE_COOPERATIVE_MATRIX_FEATURES"),
             -1000249001i32 => f.write_str("COOPERATIVE_MATRIX_PROPERTIES"),
-            -1000249002i32 => {
-                f.write_str("PHYSICAL_DEVICE_COOPERATIVE_MATRIX_PROPERTIES")
-            }
-            -1000250000i32 => {
-                f.write_str("PHYSICAL_DEVICE_COVERAGE_REDUCTION_MODE_FEATURES")
-            }
-            -1000250001i32 => {
-                f.write_str("PIPELINE_COVERAGE_REDUCTION_STATE_CREATE_INFO")
-            }
+            -1000249002i32 => f.write_str("PHYSICAL_DEVICE_COOPERATIVE_MATRIX_PROPERTIES"),
+            -1000250000i32 => f.write_str("PHYSICAL_DEVICE_COVERAGE_REDUCTION_MODE_FEATURES"),
+            -1000250001i32 => f.write_str("PIPELINE_COVERAGE_REDUCTION_STATE_CREATE_INFO"),
             -1000250002i32 => f.write_str("FRAMEBUFFER_MIXED_SAMPLES_COMBINATION"),
-            -1000251000i32 => {
-                f.write_str("PHYSICAL_DEVICE_FRAGMENT_SHADER_INTERLOCK_FEATURES")
-            }
+            -1000251000i32 => f.write_str("PHYSICAL_DEVICE_FRAGMENT_SHADER_INTERLOCK_FEATURES"),
             -1000252000i32 => f.write_str("PHYSICAL_DEVICE_YCBCR_IMAGE_ARRAYS_FEATURES"),
             -1000254000i32 => f.write_str("PHYSICAL_DEVICE_PROVOKING_VERTEX_FEATURES"),
             -1000254001i32 => {
@@ -8456,9 +7946,7 @@ impl std::fmt::Debug for StructureType {
             -1000255001i32 => f.write_str("SURFACE_FULL_SCREEN_EXCLUSIVE_WIN32_INFO"),
             -1000256000i32 => f.write_str("HEADLESS_SURFACE_CREATE_INFO"),
             -1000260000i32 => f.write_str("PHYSICAL_DEVICE_SHADER_ATOMIC_FLOAT_FEATURES"),
-            -1000267000i32 => {
-                f.write_str("PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_FEATURES")
-            }
+            -1000267000i32 => f.write_str("PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_FEATURES"),
             -1000269000i32 => {
                 f.write_str("PHYSICAL_DEVICE_PIPELINE_EXECUTABLE_PROPERTIES_FEATURES")
             }
@@ -8470,50 +7958,30 @@ impl std::fmt::Debug for StructureType {
             -1000272000i32 => f.write_str("PHYSICAL_DEVICE_MAP_MEMORY_PLACED_FEATURES"),
             -1000272001i32 => f.write_str("PHYSICAL_DEVICE_MAP_MEMORY_PLACED_PROPERTIES"),
             -1000272002i32 => f.write_str("MEMORY_MAP_PLACED_INFO"),
-            -1000273000i32 => {
-                f.write_str("PHYSICAL_DEVICE_SHADER_ATOMIC_FLOAT_2_FEATURES")
-            }
-            -1000277000i32 => {
-                f.write_str("PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_PROPERTIES")
-            }
+            -1000273000i32 => f.write_str("PHYSICAL_DEVICE_SHADER_ATOMIC_FLOAT_2_FEATURES"),
+            -1000277000i32 => f.write_str("PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_PROPERTIES"),
             -1000277001i32 => f.write_str("GRAPHICS_SHADER_GROUP_CREATE_INFO"),
             -1000277002i32 => f.write_str("GRAPHICS_PIPELINE_SHADER_GROUPS_CREATE_INFO"),
             -1000277003i32 => f.write_str("INDIRECT_COMMANDS_LAYOUT_TOKEN"),
             -1000277004i32 => f.write_str("INDIRECT_COMMANDS_LAYOUT_CREATE_INFO"),
             -1000277005i32 => f.write_str("GENERATED_COMMANDS_INFO"),
             -1000277006i32 => f.write_str("GENERATED_COMMANDS_MEMORY_REQUIREMENTS_INFO"),
-            -1000277007i32 => {
-                f.write_str("PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_FEATURES")
-            }
-            -1000278000i32 => {
-                f.write_str("PHYSICAL_DEVICE_INHERITED_VIEWPORT_SCISSOR_FEATURES")
-            }
-            -1000278001i32 => {
-                f.write_str("COMMAND_BUFFER_INHERITANCE_VIEWPORT_SCISSOR_INFO")
-            }
-            -1000281000i32 => {
-                f.write_str("PHYSICAL_DEVICE_TEXEL_BUFFER_ALIGNMENT_FEATURES")
-            }
-            -1000282000i32 => {
-                f.write_str("COMMAND_BUFFER_INHERITANCE_RENDER_PASS_TRANSFORM_INFO")
-            }
+            -1000277007i32 => f.write_str("PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_FEATURES"),
+            -1000278000i32 => f.write_str("PHYSICAL_DEVICE_INHERITED_VIEWPORT_SCISSOR_FEATURES"),
+            -1000278001i32 => f.write_str("COMMAND_BUFFER_INHERITANCE_VIEWPORT_SCISSOR_INFO"),
+            -1000281000i32 => f.write_str("PHYSICAL_DEVICE_TEXEL_BUFFER_ALIGNMENT_FEATURES"),
+            -1000282000i32 => f.write_str("COMMAND_BUFFER_INHERITANCE_RENDER_PASS_TRANSFORM_INFO"),
             -1000282001i32 => f.write_str("RENDER_PASS_TRANSFORM_BEGIN_INFO"),
             -1000283000i32 => f.write_str("PHYSICAL_DEVICE_DEPTH_BIAS_CONTROL_FEATURES"),
             -1000283001i32 => f.write_str("DEPTH_BIAS_INFO"),
             -1000283002i32 => f.write_str("DEPTH_BIAS_REPRESENTATION_INFO"),
-            -1000284000i32 => {
-                f.write_str("PHYSICAL_DEVICE_DEVICE_MEMORY_REPORT_FEATURES")
-            }
+            -1000284000i32 => f.write_str("PHYSICAL_DEVICE_DEVICE_MEMORY_REPORT_FEATURES"),
             -1000284001i32 => f.write_str("DEVICE_DEVICE_MEMORY_REPORT_CREATE_INFO"),
             -1000284002i32 => f.write_str("DEVICE_MEMORY_REPORT_CALLBACK_DATA"),
             -1000287000i32 => f.write_str("SAMPLER_CUSTOM_BORDER_COLOR_CREATE_INFO"),
-            -1000287001i32 => {
-                f.write_str("PHYSICAL_DEVICE_CUSTOM_BORDER_COLOR_PROPERTIES")
-            }
+            -1000287001i32 => f.write_str("PHYSICAL_DEVICE_CUSTOM_BORDER_COLOR_PROPERTIES"),
             -1000287002i32 => f.write_str("PHYSICAL_DEVICE_CUSTOM_BORDER_COLOR_FEATURES"),
-            -1000288000i32 => {
-                f.write_str("PHYSICAL_DEVICE_TEXTURE_COMPRESSION_ASTC_3D_FEATURES")
-            }
+            -1000288000i32 => f.write_str("PHYSICAL_DEVICE_TEXTURE_COMPRESSION_ASTC_3D_FEATURES"),
             -1000290000i32 => f.write_str("PIPELINE_LIBRARY_CREATE_INFO"),
             -1000292000i32 => f.write_str("PHYSICAL_DEVICE_PRESENT_BARRIER_FEATURES"),
             -1000292001i32 => f.write_str("SURFACE_CAPABILITIES_PRESENT_BARRIER"),
@@ -8526,24 +7994,18 @@ impl std::fmt::Debug for StructureType {
             -1000299003i32 => f.write_str("VIDEO_ENCODE_CAPABILITIES"),
             -1000299004i32 => f.write_str("VIDEO_ENCODE_USAGE_INFO"),
             -1000299005i32 => f.write_str("QUERY_POOL_VIDEO_ENCODE_FEEDBACK_CREATE_INFO"),
-            -1000299006i32 => {
-                f.write_str("PHYSICAL_DEVICE_VIDEO_ENCODE_QUALITY_LEVEL_INFO")
-            }
+            -1000299006i32 => f.write_str("PHYSICAL_DEVICE_VIDEO_ENCODE_QUALITY_LEVEL_INFO"),
             -1000299007i32 => f.write_str("VIDEO_ENCODE_QUALITY_LEVEL_PROPERTIES"),
             -1000299008i32 => f.write_str("VIDEO_ENCODE_QUALITY_LEVEL_INFO"),
             -1000299009i32 => f.write_str("VIDEO_ENCODE_SESSION_PARAMETERS_GET_INFO"),
-            -1000299010i32 => {
-                f.write_str("VIDEO_ENCODE_SESSION_PARAMETERS_FEEDBACK_INFO")
-            }
+            -1000299010i32 => f.write_str("VIDEO_ENCODE_SESSION_PARAMETERS_FEEDBACK_INFO"),
             -1000300000i32 => f.write_str("PHYSICAL_DEVICE_DIAGNOSTICS_CONFIG_FEATURES"),
             -1000300001i32 => f.write_str("DEVICE_DIAGNOSTICS_CONFIG_CREATE_INFO"),
             -1000307000i32 => f.write_str("CUDA_MODULE_CREATE_INFO"),
             -1000307001i32 => f.write_str("CUDA_FUNCTION_CREATE_INFO"),
             -1000307002i32 => f.write_str("CUDA_LAUNCH_INFO"),
             -1000307003i32 => f.write_str("PHYSICAL_DEVICE_CUDA_KERNEL_LAUNCH_FEATURES"),
-            -1000307004i32 => {
-                f.write_str("PHYSICAL_DEVICE_CUDA_KERNEL_LAUNCH_PROPERTIES")
-            }
+            -1000307004i32 => f.write_str("PHYSICAL_DEVICE_CUDA_KERNEL_LAUNCH_PROPERTIES"),
             -1000308000i32 => f.write_str("REFRESH_OBJECT_LIST"),
             -1000309000i32 => f.write_str("PHYSICAL_DEVICE_TILE_SHADING_FEATURES"),
             -1000309001i32 => f.write_str("PHYSICAL_DEVICE_TILE_SHADING_PROPERTIES"),
@@ -8580,18 +8042,14 @@ impl std::fmt::Debug for StructureType {
             -1000316012i32 => {
                 f.write_str("DESCRIPTOR_BUFFER_BINDING_PUSH_DESCRIPTOR_BUFFER_HANDLE")
             }
-            -1000316009i32 => {
-                f.write_str("ACCELERATION_STRUCTURE_CAPTURE_DESCRIPTOR_DATA_INFO")
-            }
+            -1000316009i32 => f.write_str("ACCELERATION_STRUCTURE_CAPTURE_DESCRIPTOR_DATA_INFO"),
             -1000318000i32 => f.write_str("DEVICE_MEMORY_COPY"),
             -1000318001i32 => f.write_str("COPY_DEVICE_MEMORY_INFO"),
             -1000318002i32 => f.write_str("DEVICE_MEMORY_IMAGE_COPY"),
             -1000318003i32 => f.write_str("COPY_DEVICE_MEMORY_IMAGE_INFO"),
             -1000318004i32 => f.write_str("MEMORY_RANGE_BARRIERS_INFO"),
             -1000318005i32 => f.write_str("MEMORY_RANGE_BARRIER"),
-            -1000318006i32 => {
-                f.write_str("PHYSICAL_DEVICE_DEVICE_ADDRESS_COMMANDS_FEATURES")
-            }
+            -1000318006i32 => f.write_str("PHYSICAL_DEVICE_DEVICE_ADDRESS_COMMANDS_FEATURES"),
             -1000318007i32 => f.write_str("BIND_INDEX_BUFFER_3_INFO"),
             -1000318008i32 => f.write_str("BIND_VERTEX_BUFFER_3_INFO"),
             -1000318009i32 => f.write_str("DRAW_INDIRECT_2_INFO"),
@@ -8601,58 +8059,30 @@ impl std::fmt::Debug for StructureType {
             -1000318013i32 => f.write_str("BIND_TRANSFORM_FEEDBACK_BUFFER_2_INFO"),
             -1000318014i32 => f.write_str("MEMORY_MARKER_INFO"),
             -1000318015i32 => f.write_str("ACCELERATION_STRUCTURE_CREATE_INFO_2"),
-            -1000320000i32 => {
-                f.write_str("PHYSICAL_DEVICE_GRAPHICS_PIPELINE_LIBRARY_FEATURES")
-            }
-            -1000320001i32 => {
-                f.write_str("PHYSICAL_DEVICE_GRAPHICS_PIPELINE_LIBRARY_PROPERTIES")
-            }
+            -1000320000i32 => f.write_str("PHYSICAL_DEVICE_GRAPHICS_PIPELINE_LIBRARY_FEATURES"),
+            -1000320001i32 => f.write_str("PHYSICAL_DEVICE_GRAPHICS_PIPELINE_LIBRARY_PROPERTIES"),
             -1000320002i32 => f.write_str("GRAPHICS_PIPELINE_LIBRARY_CREATE_INFO"),
             -1000321000i32 => {
-                f.write_str(
-                    "PHYSICAL_DEVICE_SHADER_EARLY_AND_LATE_FRAGMENT_TESTS_FEATURES",
-                )
+                f.write_str("PHYSICAL_DEVICE_SHADER_EARLY_AND_LATE_FRAGMENT_TESTS_FEATURES")
             }
-            -1000322000i32 => {
-                f.write_str("PHYSICAL_DEVICE_FRAGMENT_SHADER_BARYCENTRIC_PROPERTIES")
-            }
+            -1000322000i32 => f.write_str("PHYSICAL_DEVICE_FRAGMENT_SHADER_BARYCENTRIC_PROPERTIES"),
             -1000323000i32 => {
-                f.write_str(
-                    "PHYSICAL_DEVICE_SHADER_SUBGROUP_UNIFORM_CONTROL_FLOW_FEATURES",
-                )
+                f.write_str("PHYSICAL_DEVICE_SHADER_SUBGROUP_UNIFORM_CONTROL_FLOW_FEATURES")
             }
-            -1000326000i32 => {
-                f.write_str("PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_ENUMS_PROPERTIES")
-            }
-            -1000326001i32 => {
-                f.write_str("PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_ENUMS_FEATURES")
-            }
-            -1000326002i32 => {
-                f.write_str("PIPELINE_FRAGMENT_SHADING_RATE_ENUM_STATE_CREATE_INFO")
-            }
-            -1000327000i32 => {
-                f.write_str("ACCELERATION_STRUCTURE_GEOMETRY_MOTION_TRIANGLES_DATA")
-            }
-            -1000327001i32 => {
-                f.write_str("PHYSICAL_DEVICE_RAY_TRACING_MOTION_BLUR_FEATURES")
-            }
+            -1000326000i32 => f.write_str("PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_ENUMS_PROPERTIES"),
+            -1000326001i32 => f.write_str("PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_ENUMS_FEATURES"),
+            -1000326002i32 => f.write_str("PIPELINE_FRAGMENT_SHADING_RATE_ENUM_STATE_CREATE_INFO"),
+            -1000327000i32 => f.write_str("ACCELERATION_STRUCTURE_GEOMETRY_MOTION_TRIANGLES_DATA"),
+            -1000327001i32 => f.write_str("PHYSICAL_DEVICE_RAY_TRACING_MOTION_BLUR_FEATURES"),
             -1000327002i32 => f.write_str("ACCELERATION_STRUCTURE_MOTION_INFO"),
-            -1000330000i32 => {
-                f.write_str("PHYSICAL_DEVICE_YCBCR_2_PLANE_444_FORMATS_FEATURES")
-            }
-            -1000332000i32 => {
-                f.write_str("PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_2_FEATURES")
-            }
-            -1000332001i32 => {
-                f.write_str("PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_2_PROPERTIES")
-            }
+            -1000330000i32 => f.write_str("PHYSICAL_DEVICE_YCBCR_2_PLANE_444_FORMATS_FEATURES"),
+            -1000332000i32 => f.write_str("PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_2_FEATURES"),
+            -1000332001i32 => f.write_str("PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_2_PROPERTIES"),
             -1000333000i32 => f.write_str("COPY_COMMAND_TRANSFORM_INFO"),
             -1000336000i32 => {
                 f.write_str("PHYSICAL_DEVICE_WORKGROUP_MEMORY_EXPLICIT_LAYOUT_FEATURES")
             }
-            -1000338000i32 => {
-                f.write_str("PHYSICAL_DEVICE_IMAGE_COMPRESSION_CONTROL_FEATURES")
-            }
+            -1000338000i32 => f.write_str("PHYSICAL_DEVICE_IMAGE_COMPRESSION_CONTROL_FEATURES"),
             -1000338001i32 => f.write_str("IMAGE_COMPRESSION_CONTROL"),
             -1000338004i32 => f.write_str("IMAGE_COMPRESSION_PROPERTIES"),
             -1000339000i32 => {
@@ -8664,20 +8094,14 @@ impl std::fmt::Debug for StructureType {
             -1000341002i32 => f.write_str("DEVICE_FAULT_INFO"),
             -1000344000i32 => f.write_str("PHYSICAL_DEVICE_RGBA10X6_FORMATS_FEATURES"),
             -1000346000i32 => f.write_str("DIRECTFB_SURFACE_CREATE_INFO"),
-            -1000352000i32 => {
-                f.write_str("PHYSICAL_DEVICE_VERTEX_INPUT_DYNAMIC_STATE_FEATURES")
-            }
+            -1000352000i32 => f.write_str("PHYSICAL_DEVICE_VERTEX_INPUT_DYNAMIC_STATE_FEATURES"),
             -1000352001i32 => f.write_str("VERTEX_INPUT_BINDING_DESCRIPTION_2"),
             -1000352002i32 => f.write_str("VERTEX_INPUT_ATTRIBUTE_DESCRIPTION_2"),
             -1000353000i32 => f.write_str("PHYSICAL_DEVICE_DRM_PROPERTIES"),
-            -1000354000i32 => {
-                f.write_str("PHYSICAL_DEVICE_ADDRESS_BINDING_REPORT_FEATURES")
-            }
+            -1000354000i32 => f.write_str("PHYSICAL_DEVICE_ADDRESS_BINDING_REPORT_FEATURES"),
             -1000354001i32 => f.write_str("DEVICE_ADDRESS_BINDING_CALLBACK_DATA"),
             -1000355000i32 => f.write_str("PHYSICAL_DEVICE_DEPTH_CLIP_CONTROL_FEATURES"),
-            -1000355001i32 => {
-                f.write_str("PIPELINE_VIEWPORT_DEPTH_CLIP_CONTROL_CREATE_INFO")
-            }
+            -1000355001i32 => f.write_str("PIPELINE_VIEWPORT_DEPTH_CLIP_CONTROL_CREATE_INFO"),
             -1000356000i32 => {
                 f.write_str("PHYSICAL_DEVICE_PRIMITIVE_TOPOLOGY_LIST_RESTART_FEATURES")
             }
@@ -8701,9 +8125,7 @@ impl std::fmt::Debug for StructureType {
             -1000369002i32 => f.write_str("PHYSICAL_DEVICE_SUBPASS_SHADING_PROPERTIES"),
             -1000370000i32 => f.write_str("PHYSICAL_DEVICE_INVOCATION_MASK_FEATURES"),
             -1000371000i32 => f.write_str("MEMORY_GET_REMOTE_ADDRESS_INFO"),
-            -1000371001i32 => {
-                f.write_str("PHYSICAL_DEVICE_EXTERNAL_MEMORY_RDMA_FEATURES")
-            }
+            -1000371001i32 => f.write_str("PHYSICAL_DEVICE_EXTERNAL_MEMORY_RDMA_FEATURES"),
             -1000372000i32 => f.write_str("PIPELINE_PROPERTIES_IDENTIFIER"),
             -1000372001i32 => f.write_str("PHYSICAL_DEVICE_PIPELINE_PROPERTIES_FEATURES"),
             -1000373000i32 => f.write_str("IMPORT_FENCE_SCI_SYNC_INFO"),
@@ -8718,41 +8140,25 @@ impl std::fmt::Debug for StructureType {
             -1000374001i32 => f.write_str("EXPORT_MEMORY_SCI_BUF_INFO"),
             -1000374002i32 => f.write_str("MEMORY_GET_SCI_BUF_INFO"),
             -1000374003i32 => f.write_str("MEMORY_SCI_BUF_PROPERTIES"),
-            -1000374004i32 => {
-                f.write_str("PHYSICAL_DEVICE_EXTERNAL_MEMORY_SCI_BUF_FEATURES")
-            }
+            -1000374004i32 => f.write_str("PHYSICAL_DEVICE_EXTERNAL_MEMORY_SCI_BUF_FEATURES"),
             -1000375000i32 => f.write_str("PHYSICAL_DEVICE_FRAME_BOUNDARY_FEATURES"),
             -1000375001i32 => f.write_str("FRAME_BOUNDARY"),
             -1000376000i32 => {
-                f.write_str(
-                    "PHYSICAL_DEVICE_MULTISAMPLED_RENDER_TO_SINGLE_SAMPLED_FEATURES",
-                )
+                f.write_str("PHYSICAL_DEVICE_MULTISAMPLED_RENDER_TO_SINGLE_SAMPLED_FEATURES")
             }
             -1000376001i32 => f.write_str("SUBPASS_RESOLVE_PERFORMANCE_QUERY"),
             -1000376002i32 => f.write_str("MULTISAMPLED_RENDER_TO_SINGLE_SAMPLED_INFO"),
-            -1000377000i32 => {
-                f.write_str("PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_2_FEATURES")
-            }
+            -1000377000i32 => f.write_str("PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_2_FEATURES"),
             -1000378000i32 => f.write_str("SCREEN_SURFACE_CREATE_INFO"),
             -1000381000i32 => f.write_str("PHYSICAL_DEVICE_COLOR_WRITE_ENABLE_FEATURES"),
             -1000381001i32 => f.write_str("PIPELINE_COLOR_WRITE_CREATE_INFO"),
-            -1000382000i32 => {
-                f.write_str("PHYSICAL_DEVICE_PRIMITIVES_GENERATED_QUERY_FEATURES")
-            }
-            -1000386000i32 => {
-                f.write_str("PHYSICAL_DEVICE_RAY_TRACING_MAINTENANCE_1_FEATURES")
-            }
-            -1000387000i32 => {
-                f.write_str("PHYSICAL_DEVICE_SHADER_UNTYPED_POINTERS_FEATURES")
-            }
-            -1000390000i32 => {
-                f.write_str("PHYSICAL_DEVICE_VIDEO_ENCODE_RGB_CONVERSION_FEATURES")
-            }
+            -1000382000i32 => f.write_str("PHYSICAL_DEVICE_PRIMITIVES_GENERATED_QUERY_FEATURES"),
+            -1000386000i32 => f.write_str("PHYSICAL_DEVICE_RAY_TRACING_MAINTENANCE_1_FEATURES"),
+            -1000387000i32 => f.write_str("PHYSICAL_DEVICE_SHADER_UNTYPED_POINTERS_FEATURES"),
+            -1000390000i32 => f.write_str("PHYSICAL_DEVICE_VIDEO_ENCODE_RGB_CONVERSION_FEATURES"),
             -1000390001i32 => f.write_str("VIDEO_ENCODE_RGB_CONVERSION_CAPABILITIES"),
             -1000390002i32 => f.write_str("VIDEO_ENCODE_PROFILE_RGB_CONVERSION_INFO"),
-            -1000390003i32 => {
-                f.write_str("VIDEO_ENCODE_SESSION_RGB_CONVERSION_CREATE_INFO")
-            }
+            -1000390003i32 => f.write_str("VIDEO_ENCODE_SESSION_RGB_CONVERSION_CREATE_INFO"),
             -1000391000i32 => f.write_str("PHYSICAL_DEVICE_IMAGE_VIEW_MIN_LOD_FEATURES"),
             -1000391001i32 => f.write_str("IMAGE_VIEW_MIN_LOD_CREATE_INFO"),
             -1000392000i32 => f.write_str("PHYSICAL_DEVICE_MULTI_DRAW_FEATURES"),
@@ -8769,63 +8175,31 @@ impl std::fmt::Debug for StructureType {
             -1000396006i32 => f.write_str("PHYSICAL_DEVICE_OPACITY_MICROMAP_PROPERTIES"),
             -1000396007i32 => f.write_str("MICROMAP_CREATE_INFO"),
             -1000396008i32 => f.write_str("MICROMAP_BUILD_SIZES_INFO"),
-            -1000396009i32 => {
-                f.write_str("ACCELERATION_STRUCTURE_TRIANGLES_OPACITY_MICROMAP")
-            }
-            -1000397000i32 => {
-                f.write_str("PHYSICAL_DEVICE_DISPLACEMENT_MICROMAP_FEATURES")
-            }
-            -1000397001i32 => {
-                f.write_str("PHYSICAL_DEVICE_DISPLACEMENT_MICROMAP_PROPERTIES")
-            }
-            -1000397002i32 => {
-                f.write_str("ACCELERATION_STRUCTURE_TRIANGLES_DISPLACEMENT_MICROMAP")
-            }
-            -1000404000i32 => {
-                f.write_str("PHYSICAL_DEVICE_CLUSTER_CULLING_SHADER_FEATURES")
-            }
-            -1000404001i32 => {
-                f.write_str("PHYSICAL_DEVICE_CLUSTER_CULLING_SHADER_PROPERTIES")
-            }
-            -1000404002i32 => {
-                f.write_str("PHYSICAL_DEVICE_CLUSTER_CULLING_SHADER_VRS_FEATURES")
-            }
-            -1000411000i32 => {
-                f.write_str("PHYSICAL_DEVICE_BORDER_COLOR_SWIZZLE_FEATURES")
-            }
-            -1000411001i32 => {
-                f.write_str("SAMPLER_BORDER_COLOR_COMPONENT_MAPPING_CREATE_INFO")
-            }
-            -1000412000i32 => {
-                f.write_str("PHYSICAL_DEVICE_PAGEABLE_DEVICE_LOCAL_MEMORY_FEATURES")
-            }
+            -1000396009i32 => f.write_str("ACCELERATION_STRUCTURE_TRIANGLES_OPACITY_MICROMAP"),
+            -1000397000i32 => f.write_str("PHYSICAL_DEVICE_DISPLACEMENT_MICROMAP_FEATURES"),
+            -1000397001i32 => f.write_str("PHYSICAL_DEVICE_DISPLACEMENT_MICROMAP_PROPERTIES"),
+            -1000397002i32 => f.write_str("ACCELERATION_STRUCTURE_TRIANGLES_DISPLACEMENT_MICROMAP"),
+            -1000404000i32 => f.write_str("PHYSICAL_DEVICE_CLUSTER_CULLING_SHADER_FEATURES"),
+            -1000404001i32 => f.write_str("PHYSICAL_DEVICE_CLUSTER_CULLING_SHADER_PROPERTIES"),
+            -1000404002i32 => f.write_str("PHYSICAL_DEVICE_CLUSTER_CULLING_SHADER_VRS_FEATURES"),
+            -1000411000i32 => f.write_str("PHYSICAL_DEVICE_BORDER_COLOR_SWIZZLE_FEATURES"),
+            -1000411001i32 => f.write_str("SAMPLER_BORDER_COLOR_COMPONENT_MAPPING_CREATE_INFO"),
+            -1000412000i32 => f.write_str("PHYSICAL_DEVICE_PAGEABLE_DEVICE_LOCAL_MEMORY_FEATURES"),
             -1000417000i32 => f.write_str("DEVICE_QUEUE_SHADER_CORE_CONTROL_CREATE_INFO"),
             -1000417001i32 => f.write_str("PHYSICAL_DEVICE_SCHEDULING_CONTROLS_FEATURES"),
-            -1000417002i32 => {
-                f.write_str("PHYSICAL_DEVICE_SCHEDULING_CONTROLS_PROPERTIES")
-            }
-            -1000418000i32 => {
-                f.write_str("PHYSICAL_DEVICE_IMAGE_SLICED_VIEW_OF_3D_FEATURES")
-            }
+            -1000417002i32 => f.write_str("PHYSICAL_DEVICE_SCHEDULING_CONTROLS_PROPERTIES"),
+            -1000418000i32 => f.write_str("PHYSICAL_DEVICE_IMAGE_SLICED_VIEW_OF_3D_FEATURES"),
             -1000418001i32 => f.write_str("IMAGE_VIEW_SLICED_CREATE_INFO"),
-            -1000420000i32 => {
-                f.write_str("PHYSICAL_DEVICE_DESCRIPTOR_SET_HOST_MAPPING_FEATURES")
-            }
+            -1000420000i32 => f.write_str("PHYSICAL_DEVICE_DESCRIPTOR_SET_HOST_MAPPING_FEATURES"),
             -1000420001i32 => f.write_str("DESCRIPTOR_SET_BINDING_REFERENCE"),
             -1000420002i32 => f.write_str("DESCRIPTOR_SET_LAYOUT_HOST_MAPPING_INFO"),
-            -1000422000i32 => {
-                f.write_str("PHYSICAL_DEVICE_NON_SEAMLESS_CUBE_MAP_FEATURES")
-            }
+            -1000422000i32 => f.write_str("PHYSICAL_DEVICE_NON_SEAMLESS_CUBE_MAP_FEATURES"),
             -1000424000i32 => f.write_str("PHYSICAL_DEVICE_RENDER_PASS_STRIPED_FEATURES"),
-            -1000424001i32 => {
-                f.write_str("PHYSICAL_DEVICE_RENDER_PASS_STRIPED_PROPERTIES")
-            }
+            -1000424001i32 => f.write_str("PHYSICAL_DEVICE_RENDER_PASS_STRIPED_PROPERTIES"),
             -1000424002i32 => f.write_str("RENDER_PASS_STRIPE_BEGIN_INFO"),
             -1000424003i32 => f.write_str("RENDER_PASS_STRIPE_INFO"),
             -1000424004i32 => f.write_str("RENDER_PASS_STRIPE_SUBMIT_INFO"),
-            -1000426000i32 => {
-                f.write_str("PHYSICAL_DEVICE_COPY_MEMORY_INDIRECT_FEATURES")
-            }
+            -1000426000i32 => f.write_str("PHYSICAL_DEVICE_COPY_MEMORY_INDIRECT_FEATURES"),
             -1000428000i32 => {
                 f.write_str("PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_COMPUTE_FEATURES")
             }
@@ -8838,27 +8212,17 @@ impl std::fmt::Debug for StructureType {
                 f.write_str("ACCELERATION_STRUCTURE_GEOMETRY_LINEAR_SWEPT_SPHERES_DATA")
             }
             -1000429010i32 => f.write_str("ACCELERATION_STRUCTURE_GEOMETRY_SPHERES_DATA"),
-            -1000430000i32 => {
-                f.write_str("PHYSICAL_DEVICE_LINEAR_COLOR_ATTACHMENT_FEATURES")
-            }
-            -1000434000i32 => {
-                f.write_str("PHYSICAL_DEVICE_SHADER_MAXIMAL_RECONVERGENCE_FEATURES")
-            }
+            -1000430000i32 => f.write_str("PHYSICAL_DEVICE_LINEAR_COLOR_ATTACHMENT_FEATURES"),
+            -1000434000i32 => f.write_str("PHYSICAL_DEVICE_SHADER_MAXIMAL_RECONVERGENCE_FEATURES"),
             -1000435000i32 => f.write_str("APPLICATION_PARAMETERS"),
             -1000437000i32 => {
-                f.write_str(
-                    "PHYSICAL_DEVICE_IMAGE_COMPRESSION_CONTROL_SWAPCHAIN_FEATURES",
-                )
+                f.write_str("PHYSICAL_DEVICE_IMAGE_COMPRESSION_CONTROL_SWAPCHAIN_FEATURES")
             }
             -1000440000i32 => f.write_str("PHYSICAL_DEVICE_IMAGE_PROCESSING_FEATURES"),
             -1000440001i32 => f.write_str("PHYSICAL_DEVICE_IMAGE_PROCESSING_PROPERTIES"),
             -1000440002i32 => f.write_str("IMAGE_VIEW_SAMPLE_WEIGHT_CREATE_INFO"),
-            -1000451000i32 => {
-                f.write_str("PHYSICAL_DEVICE_NESTED_COMMAND_BUFFER_FEATURES")
-            }
-            -1000451001i32 => {
-                f.write_str("PHYSICAL_DEVICE_NESTED_COMMAND_BUFFER_PROPERTIES")
-            }
+            -1000451000i32 => f.write_str("PHYSICAL_DEVICE_NESTED_COMMAND_BUFFER_FEATURES"),
+            -1000451001i32 => f.write_str("PHYSICAL_DEVICE_NESTED_COMMAND_BUFFER_PROPERTIES"),
             -1000452000i32 => f.write_str("NATIVE_BUFFER_USAGE_OHOS"),
             -1000452001i32 => f.write_str("NATIVE_BUFFER_PROPERTIES_OHOS"),
             -1000452002i32 => f.write_str("NATIVE_BUFFER_FORMAT_PROPERTIES_OHOS"),
@@ -8866,15 +8230,9 @@ impl std::fmt::Debug for StructureType {
             -1000452004i32 => f.write_str("MEMORY_GET_NATIVE_BUFFER_INFO_OHOS"),
             -1000452005i32 => f.write_str("EXTERNAL_FORMAT_OHOS"),
             -1000453000i32 => f.write_str("EXTERNAL_MEMORY_ACQUIRE_UNMODIFIED"),
-            -1000455000i32 => {
-                f.write_str("PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_3_FEATURES")
-            }
-            -1000455001i32 => {
-                f.write_str("PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_3_PROPERTIES")
-            }
-            -1000458000i32 => {
-                f.write_str("PHYSICAL_DEVICE_SUBPASS_MERGE_FEEDBACK_FEATURES")
-            }
+            -1000455000i32 => f.write_str("PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_3_FEATURES"),
+            -1000455001i32 => f.write_str("PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_3_PROPERTIES"),
+            -1000458000i32 => f.write_str("PHYSICAL_DEVICE_SUBPASS_MERGE_FEEDBACK_FEATURES"),
             -1000458001i32 => f.write_str("RENDER_PASS_CREATION_CONTROL"),
             -1000458002i32 => f.write_str("RENDER_PASS_CREATION_FEEDBACK_CREATE_INFO"),
             -1000458003i32 => f.write_str("RENDER_PASS_SUBPASS_FEEDBACK_CREATE_INFO"),
@@ -8898,25 +8256,15 @@ impl std::fmt::Debug for StructureType {
             -1000460015i32 => f.write_str("PHYSICAL_DEVICE_EXTERNAL_TENSOR_INFO"),
             -1000460016i32 => f.write_str("EXTERNAL_TENSOR_PROPERTIES"),
             -1000460017i32 => f.write_str("EXTERNAL_MEMORY_TENSOR_CREATE_INFO"),
-            -1000460018i32 => {
-                f.write_str("PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_TENSOR_FEATURES")
-            }
-            -1000460019i32 => {
-                f.write_str("PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_TENSOR_PROPERTIES")
-            }
+            -1000460018i32 => f.write_str("PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_TENSOR_FEATURES"),
+            -1000460019i32 => f.write_str("PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_TENSOR_PROPERTIES"),
             -1000460020i32 => f.write_str("DESCRIPTOR_GET_TENSOR_INFO"),
             -1000460021i32 => f.write_str("TENSOR_CAPTURE_DESCRIPTOR_DATA_INFO"),
             -1000460022i32 => f.write_str("TENSOR_VIEW_CAPTURE_DESCRIPTOR_DATA_INFO"),
             -1000460023i32 => f.write_str("FRAME_BOUNDARY_TENSORS"),
-            -1000462000i32 => {
-                f.write_str("PHYSICAL_DEVICE_SHADER_MODULE_IDENTIFIER_FEATURES")
-            }
-            -1000462001i32 => {
-                f.write_str("PHYSICAL_DEVICE_SHADER_MODULE_IDENTIFIER_PROPERTIES")
-            }
-            -1000462002i32 => {
-                f.write_str("PIPELINE_SHADER_STAGE_MODULE_IDENTIFIER_CREATE_INFO")
-            }
+            -1000462000i32 => f.write_str("PHYSICAL_DEVICE_SHADER_MODULE_IDENTIFIER_FEATURES"),
+            -1000462001i32 => f.write_str("PHYSICAL_DEVICE_SHADER_MODULE_IDENTIFIER_PROPERTIES"),
+            -1000462002i32 => f.write_str("PIPELINE_SHADER_STAGE_MODULE_IDENTIFIER_CREATE_INFO"),
             -1000462003i32 => f.write_str("SHADER_MODULE_IDENTIFIER"),
             -1000464000i32 => f.write_str("PHYSICAL_DEVICE_OPTICAL_FLOW_FEATURES"),
             -1000464001i32 => f.write_str("PHYSICAL_DEVICE_OPTICAL_FLOW_PROPERTIES"),
@@ -8924,29 +8272,17 @@ impl std::fmt::Debug for StructureType {
             -1000464003i32 => f.write_str("OPTICAL_FLOW_IMAGE_FORMAT_PROPERTIES"),
             -1000464004i32 => f.write_str("OPTICAL_FLOW_SESSION_CREATE_INFO"),
             -1000464005i32 => f.write_str("OPTICAL_FLOW_EXECUTE_INFO"),
-            -1000464010i32 => {
-                f.write_str("OPTICAL_FLOW_SESSION_CREATE_PRIVATE_DATA_INFO")
-            }
+            -1000464010i32 => f.write_str("OPTICAL_FLOW_SESSION_CREATE_PRIVATE_DATA_INFO"),
             -1000465000i32 => f.write_str("PHYSICAL_DEVICE_LEGACY_DITHERING_FEATURES"),
-            -1000468000i32 => {
-                f.write_str("PHYSICAL_DEVICE_EXTERNAL_FORMAT_RESOLVE_FEATURES")
-            }
-            -1000468001i32 => {
-                f.write_str("PHYSICAL_DEVICE_EXTERNAL_FORMAT_RESOLVE_PROPERTIES")
-            }
-            -1000468002i32 => {
-                f.write_str("ANDROID_HARDWARE_BUFFER_FORMAT_RESOLVE_PROPERTIES")
-            }
+            -1000468000i32 => f.write_str("PHYSICAL_DEVICE_EXTERNAL_FORMAT_RESOLVE_FEATURES"),
+            -1000468001i32 => f.write_str("PHYSICAL_DEVICE_EXTERNAL_FORMAT_RESOLVE_PROPERTIES"),
+            -1000468002i32 => f.write_str("ANDROID_HARDWARE_BUFFER_FORMAT_RESOLVE_PROPERTIES"),
             -1000476000i32 => f.write_str("PHYSICAL_DEVICE_ANTI_LAG_FEATURES"),
             -1000476001i32 => f.write_str("ANTI_LAG_DATA"),
             -1000476002i32 => f.write_str("ANTI_LAG_PRESENTATION_INFO"),
-            -1000478000i32 => {
-                f.write_str("PHYSICAL_DEVICE_DENSE_GEOMETRY_FORMAT_FEATURES")
-            }
+            -1000478000i32 => f.write_str("PHYSICAL_DEVICE_DENSE_GEOMETRY_FORMAT_FEATURES"),
             -1000478001i32 => {
-                f.write_str(
-                    "ACCELERATION_STRUCTURE_DENSE_GEOMETRY_FORMAT_TRIANGLES_DATA",
-                )
+                f.write_str("ACCELERATION_STRUCTURE_DENSE_GEOMETRY_FORMAT_TRIANGLES_DATA")
             }
             -1000479000i32 => f.write_str("SURFACE_CAPABILITIES_PRESENT_ID_2"),
             -1000479001i32 => f.write_str("PRESENT_ID_2"),
@@ -8954,9 +8290,7 @@ impl std::fmt::Debug for StructureType {
             -1000480000i32 => f.write_str("SURFACE_CAPABILITIES_PRESENT_WAIT_2"),
             -1000480001i32 => f.write_str("PHYSICAL_DEVICE_PRESENT_WAIT_2_FEATURES"),
             -1000480002i32 => f.write_str("PRESENT_WAIT_2_INFO"),
-            -1000481000i32 => {
-                f.write_str("PHYSICAL_DEVICE_RAY_TRACING_POSITION_FETCH_FEATURES")
-            }
+            -1000481000i32 => f.write_str("PHYSICAL_DEVICE_RAY_TRACING_POSITION_FETCH_FEATURES"),
             -1000482000i32 => f.write_str("PHYSICAL_DEVICE_SHADER_OBJECT_FEATURES"),
             -1000482001i32 => f.write_str("PHYSICAL_DEVICE_SHADER_OBJECT_PROPERTIES"),
             -1000482002i32 => f.write_str("SHADER_CREATE_INFO"),
@@ -8968,23 +8302,17 @@ impl std::fmt::Debug for StructureType {
             -1000483005i32 => f.write_str("RELEASE_CAPTURED_PIPELINE_DATA_INFO"),
             -1000483006i32 => f.write_str("PIPELINE_BINARY_DATA_INFO"),
             -1000483007i32 => f.write_str("PIPELINE_CREATE_INFO"),
-            -1000483008i32 => {
-                f.write_str("DEVICE_PIPELINE_BINARY_INTERNAL_CACHE_CONTROL")
-            }
+            -1000483008i32 => f.write_str("DEVICE_PIPELINE_BINARY_INTERNAL_CACHE_CONTROL"),
             -1000483009i32 => f.write_str("PIPELINE_BINARY_HANDLES_INFO"),
             -1000484000i32 => f.write_str("PHYSICAL_DEVICE_TILE_PROPERTIES_FEATURES"),
             -1000484001i32 => f.write_str("TILE_PROPERTIES"),
             -1000485000i32 => f.write_str("PHYSICAL_DEVICE_AMIGO_PROFILING_FEATURES"),
             -1000485001i32 => f.write_str("AMIGO_PROFILING_SUBMIT_INFO"),
-            -1000488000i32 => {
-                f.write_str("PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_VIEWPORTS_FEATURES")
-            }
+            -1000488000i32 => f.write_str("PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_VIEWPORTS_FEATURES"),
             -1000489000i32 => f.write_str("SEMAPHORE_SCI_SYNC_POOL_CREATE_INFO"),
             -1000489001i32 => f.write_str("SEMAPHORE_SCI_SYNC_CREATE_INFO"),
             -1000489002i32 => f.write_str("PHYSICAL_DEVICE_EXTERNAL_SCI_SYNC_2_FEATURES"),
-            -1000489003i32 => {
-                f.write_str("DEVICE_SEMAPHORE_SCI_SYNC_POOL_RESERVATION_CREATE_INFO")
-            }
+            -1000489003i32 => f.write_str("DEVICE_SEMAPHORE_SCI_SYNC_POOL_RESERVATION_CREATE_INFO"),
             -1000490000i32 => {
                 f.write_str("PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_FEATURES")
             }
@@ -8992,37 +8320,23 @@ impl std::fmt::Debug for StructureType {
                 f.write_str("PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_PROPERTIES")
             }
             -1000491000i32 => f.write_str("PHYSICAL_DEVICE_COOPERATIVE_VECTOR_FEATURES"),
-            -1000491001i32 => {
-                f.write_str("PHYSICAL_DEVICE_COOPERATIVE_VECTOR_PROPERTIES")
-            }
+            -1000491001i32 => f.write_str("PHYSICAL_DEVICE_COOPERATIVE_VECTOR_PROPERTIES"),
             -1000491002i32 => f.write_str("COOPERATIVE_VECTOR_PROPERTIES"),
             -1000491004i32 => f.write_str("CONVERT_COOPERATIVE_VECTOR_MATRIX_INFO"),
-            -1000492000i32 => {
-                f.write_str("PHYSICAL_DEVICE_EXTENDED_SPARSE_ADDRESS_SPACE_FEATURES")
-            }
+            -1000492000i32 => f.write_str("PHYSICAL_DEVICE_EXTENDED_SPARSE_ADDRESS_SPACE_FEATURES"),
             -1000492001i32 => {
                 f.write_str("PHYSICAL_DEVICE_EXTENDED_SPARSE_ADDRESS_SPACE_PROPERTIES")
             }
-            -1000495000i32 => {
-                f.write_str("PHYSICAL_DEVICE_LEGACY_VERTEX_ATTRIBUTES_FEATURES")
-            }
-            -1000495001i32 => {
-                f.write_str("PHYSICAL_DEVICE_LEGACY_VERTEX_ATTRIBUTES_PROPERTIES")
-            }
+            -1000495000i32 => f.write_str("PHYSICAL_DEVICE_LEGACY_VERTEX_ATTRIBUTES_FEATURES"),
+            -1000495001i32 => f.write_str("PHYSICAL_DEVICE_LEGACY_VERTEX_ATTRIBUTES_PROPERTIES"),
             -1000496000i32 => f.write_str("LAYER_SETTINGS_CREATE_INFO"),
-            -1000497000i32 => {
-                f.write_str("PHYSICAL_DEVICE_SHADER_CORE_BUILTINS_FEATURES")
-            }
-            -1000497001i32 => {
-                f.write_str("PHYSICAL_DEVICE_SHADER_CORE_BUILTINS_PROPERTIES")
-            }
+            -1000497000i32 => f.write_str("PHYSICAL_DEVICE_SHADER_CORE_BUILTINS_FEATURES"),
+            -1000497001i32 => f.write_str("PHYSICAL_DEVICE_SHADER_CORE_BUILTINS_PROPERTIES"),
             -1000498000i32 => {
                 f.write_str("PHYSICAL_DEVICE_PIPELINE_LIBRARY_GROUP_HANDLES_FEATURES")
             }
             -1000499000i32 => {
-                f.write_str(
-                    "PHYSICAL_DEVICE_DYNAMIC_RENDERING_UNUSED_ATTACHMENTS_FEATURES",
-                )
+                f.write_str("PHYSICAL_DEVICE_DYNAMIC_RENDERING_UNUSED_ATTACHMENTS_FEATURES")
             }
             -1000504000i32 => {
                 f.write_str("PHYSICAL_DEVICE_INTERNALLY_SYNCHRONIZED_QUEUES_FEATURES")
@@ -9040,62 +8354,40 @@ impl std::fmt::Debug for StructureType {
             -1000507001i32 => f.write_str("DATA_GRAPH_PIPELINE_SESSION_CREATE_INFO"),
             -1000507002i32 => f.write_str("DATA_GRAPH_PIPELINE_RESOURCE_INFO"),
             -1000507003i32 => f.write_str("DATA_GRAPH_PIPELINE_CONSTANT"),
-            -1000507004i32 => {
-                f.write_str("DATA_GRAPH_PIPELINE_SESSION_MEMORY_REQUIREMENTS_INFO")
-            }
+            -1000507004i32 => f.write_str("DATA_GRAPH_PIPELINE_SESSION_MEMORY_REQUIREMENTS_INFO"),
             -1000507005i32 => f.write_str("BIND_DATA_GRAPH_PIPELINE_SESSION_MEMORY_INFO"),
             -1000507006i32 => f.write_str("PHYSICAL_DEVICE_DATA_GRAPH_FEATURES"),
-            -1000507007i32 => {
-                f.write_str("DATA_GRAPH_PIPELINE_SHADER_MODULE_CREATE_INFO")
-            }
+            -1000507007i32 => f.write_str("DATA_GRAPH_PIPELINE_SHADER_MODULE_CREATE_INFO"),
             -1000507008i32 => f.write_str("DATA_GRAPH_PIPELINE_PROPERTY_QUERY_RESULT"),
             -1000507009i32 => f.write_str("DATA_GRAPH_PIPELINE_INFO"),
-            -1000507010i32 => {
-                f.write_str("DATA_GRAPH_PIPELINE_COMPILER_CONTROL_CREATE_INFO")
-            }
+            -1000507010i32 => f.write_str("DATA_GRAPH_PIPELINE_COMPILER_CONTROL_CREATE_INFO"),
             -1000507011i32 => {
                 f.write_str("DATA_GRAPH_PIPELINE_SESSION_BIND_POINT_REQUIREMENTS_INFO")
             }
-            -1000507012i32 => {
-                f.write_str("DATA_GRAPH_PIPELINE_SESSION_BIND_POINT_REQUIREMENT")
-            }
+            -1000507012i32 => f.write_str("DATA_GRAPH_PIPELINE_SESSION_BIND_POINT_REQUIREMENT"),
             -1000507013i32 => f.write_str("DATA_GRAPH_PIPELINE_IDENTIFIER_CREATE_INFO"),
             -1000507014i32 => f.write_str("DATA_GRAPH_PIPELINE_DISPATCH_INFO"),
             -1000507016i32 => f.write_str("DATA_GRAPH_PROCESSING_ENGINE_CREATE_INFO"),
-            -1000507017i32 => {
-                f.write_str("QUEUE_FAMILY_DATA_GRAPH_PROCESSING_ENGINE_PROPERTIES")
-            }
+            -1000507017i32 => f.write_str("QUEUE_FAMILY_DATA_GRAPH_PROCESSING_ENGINE_PROPERTIES"),
             -1000507018i32 => f.write_str("QUEUE_FAMILY_DATA_GRAPH_PROPERTIES"),
             -1000507019i32 => {
-                f.write_str(
-                    "PHYSICAL_DEVICE_QUEUE_FAMILY_DATA_GRAPH_PROCESSING_ENGINE_INFO",
-                )
+                f.write_str("PHYSICAL_DEVICE_QUEUE_FAMILY_DATA_GRAPH_PROCESSING_ENGINE_INFO")
             }
             -1000507015i32 => {
-                f.write_str(
-                    "DATA_GRAPH_PIPELINE_CONSTANT_TENSOR_SEMI_STRUCTURED_SPARSITY_INFO",
-                )
+                f.write_str("DATA_GRAPH_PIPELINE_CONSTANT_TENSOR_SEMI_STRUCTURED_SPARSITY_INFO")
             }
             -1000510000i32 => {
                 f.write_str("PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_RENDER_AREAS_FEATURES")
             }
-            -1000510001i32 => {
-                f.write_str("MULTIVIEW_PER_VIEW_RENDER_AREAS_RENDER_PASS_BEGIN_INFO")
-            }
-            -1000511000i32 => {
-                f.write_str("PHYSICAL_DEVICE_COMPUTE_SHADER_DERIVATIVES_PROPERTIES")
-            }
+            -1000510001i32 => f.write_str("MULTIVIEW_PER_VIEW_RENDER_AREAS_RENDER_PASS_BEGIN_INFO"),
+            -1000511000i32 => f.write_str("PHYSICAL_DEVICE_COMPUTE_SHADER_DERIVATIVES_PROPERTIES"),
             -1000512000i32 => f.write_str("VIDEO_DECODE_AV1_CAPABILITIES"),
             -1000512001i32 => f.write_str("VIDEO_DECODE_AV1_PICTURE_INFO"),
             -1000512003i32 => f.write_str("VIDEO_DECODE_AV1_PROFILE_INFO"),
-            -1000512004i32 => {
-                f.write_str("VIDEO_DECODE_AV1_SESSION_PARAMETERS_CREATE_INFO")
-            }
+            -1000512004i32 => f.write_str("VIDEO_DECODE_AV1_SESSION_PARAMETERS_CREATE_INFO"),
             -1000512005i32 => f.write_str("VIDEO_DECODE_AV1_DPB_SLOT_INFO"),
             -1000513000i32 => f.write_str("VIDEO_ENCODE_AV1_CAPABILITIES"),
-            -1000513001i32 => {
-                f.write_str("VIDEO_ENCODE_AV1_SESSION_PARAMETERS_CREATE_INFO")
-            }
+            -1000513001i32 => f.write_str("VIDEO_ENCODE_AV1_SESSION_PARAMETERS_CREATE_INFO"),
             -1000513002i32 => f.write_str("VIDEO_ENCODE_AV1_PICTURE_INFO"),
             -1000513003i32 => f.write_str("VIDEO_ENCODE_AV1_DPB_SLOT_INFO"),
             -1000513004i32 => f.write_str("PHYSICAL_DEVICE_VIDEO_ENCODE_AV1_FEATURES"),
@@ -9111,42 +8403,28 @@ impl std::fmt::Debug for StructureType {
             -1000514003i32 => f.write_str("VIDEO_DECODE_VP9_PROFILE_INFO"),
             -1000515000i32 => f.write_str("PHYSICAL_DEVICE_VIDEO_MAINTENANCE_1_FEATURES"),
             -1000515001i32 => f.write_str("VIDEO_INLINE_QUERY_INFO"),
-            -1000516000i32 => {
-                f.write_str("PHYSICAL_DEVICE_PER_STAGE_DESCRIPTOR_SET_FEATURES")
-            }
+            -1000516000i32 => f.write_str("PHYSICAL_DEVICE_PER_STAGE_DESCRIPTOR_SET_FEATURES"),
             -1000518000i32 => f.write_str("PHYSICAL_DEVICE_IMAGE_PROCESSING_2_FEATURES"),
-            -1000518001i32 => {
-                f.write_str("PHYSICAL_DEVICE_IMAGE_PROCESSING_2_PROPERTIES")
-            }
+            -1000518001i32 => f.write_str("PHYSICAL_DEVICE_IMAGE_PROCESSING_2_PROPERTIES"),
             -1000518002i32 => f.write_str("SAMPLER_BLOCK_MATCH_WINDOW_CREATE_INFO"),
             -1000519000i32 => f.write_str("SAMPLER_CUBIC_WEIGHTS_CREATE_INFO"),
             -1000519001i32 => f.write_str("PHYSICAL_DEVICE_CUBIC_WEIGHTS_FEATURES"),
             -1000519002i32 => f.write_str("BLIT_IMAGE_CUBIC_WEIGHTS_INFO"),
             -1000520000i32 => f.write_str("PHYSICAL_DEVICE_YCBCR_DEGAMMA_FEATURES"),
-            -1000520001i32 => {
-                f.write_str("SAMPLER_YCBCR_CONVERSION_YCBCR_DEGAMMA_CREATE_INFO")
-            }
+            -1000520001i32 => f.write_str("SAMPLER_YCBCR_CONVERSION_YCBCR_DEGAMMA_CREATE_INFO"),
             -1000521000i32 => f.write_str("PHYSICAL_DEVICE_CUBIC_CLAMP_FEATURES"),
             -1000524000i32 => {
-                f.write_str(
-                    "PHYSICAL_DEVICE_ATTACHMENT_FEEDBACK_LOOP_DYNAMIC_STATE_FEATURES",
-                )
+                f.write_str("PHYSICAL_DEVICE_ATTACHMENT_FEEDBACK_LOOP_DYNAMIC_STATE_FEATURES")
             }
-            -1000527000i32 => {
-                f.write_str("PHYSICAL_DEVICE_UNIFIED_IMAGE_LAYOUTS_FEATURES")
-            }
+            -1000527000i32 => f.write_str("PHYSICAL_DEVICE_UNIFIED_IMAGE_LAYOUTS_FEATURES"),
             -1000527001i32 => f.write_str("ATTACHMENT_FEEDBACK_LOOP_INFO"),
             -1000529000i32 => f.write_str("SCREEN_BUFFER_PROPERTIES"),
             -1000529001i32 => f.write_str("SCREEN_BUFFER_FORMAT_PROPERTIES"),
             -1000529002i32 => f.write_str("IMPORT_SCREEN_BUFFER_INFO"),
-            -1000529004i32 => {
-                f.write_str("PHYSICAL_DEVICE_EXTERNAL_MEMORY_SCREEN_BUFFER_FEATURES")
-            }
+            -1000529004i32 => f.write_str("PHYSICAL_DEVICE_EXTERNAL_MEMORY_SCREEN_BUFFER_FEATURES"),
             -1000530000i32 => f.write_str("PHYSICAL_DEVICE_LAYERED_DRIVER_PROPERTIES"),
             -1000545007i32 => f.write_str("SET_DESCRIPTOR_BUFFER_OFFSETS_INFO"),
-            -1000545008i32 => {
-                f.write_str("BIND_DESCRIPTOR_BUFFER_EMBEDDED_SAMPLERS_INFO")
-            }
+            -1000545008i32 => f.write_str("BIND_DESCRIPTOR_BUFFER_EMBEDDED_SAMPLERS_INFO"),
             -1000546000i32 => {
                 f.write_str("PHYSICAL_DEVICE_DESCRIPTOR_POOL_OVERALLOCATION_FEATURES")
             }
@@ -9161,70 +8439,40 @@ impl std::fmt::Debug for StructureType {
             -1000551000i32 => f.write_str("DISPLAY_SURFACE_STEREO_CREATE_INFO"),
             -1000551001i32 => f.write_str("DISPLAY_MODE_STEREO_PROPERTIES"),
             -1000552000i32 => f.write_str("VIDEO_ENCODE_INTRA_REFRESH_CAPABILITIES"),
-            -1000552001i32 => {
-                f.write_str("VIDEO_ENCODE_SESSION_INTRA_REFRESH_CREATE_INFO")
-            }
+            -1000552001i32 => f.write_str("VIDEO_ENCODE_SESSION_INTRA_REFRESH_CREATE_INFO"),
             -1000552002i32 => f.write_str("VIDEO_ENCODE_INTRA_REFRESH_INFO"),
             -1000552003i32 => f.write_str("VIDEO_REFERENCE_INTRA_REFRESH_INFO"),
-            -1000552004i32 => {
-                f.write_str("PHYSICAL_DEVICE_VIDEO_ENCODE_INTRA_REFRESH_FEATURES")
-            }
+            -1000552004i32 => f.write_str("PHYSICAL_DEVICE_VIDEO_ENCODE_INTRA_REFRESH_FEATURES"),
             -1000553000i32 => f.write_str("VIDEO_ENCODE_QUANTIZATION_MAP_CAPABILITIES"),
             -1000553001i32 => f.write_str("VIDEO_FORMAT_QUANTIZATION_MAP_PROPERTIES"),
             -1000553002i32 => f.write_str("VIDEO_ENCODE_QUANTIZATION_MAP_INFO"),
             -1000553005i32 => {
-                f.write_str(
-                    "VIDEO_ENCODE_QUANTIZATION_MAP_SESSION_PARAMETERS_CREATE_INFO",
-                )
+                f.write_str("VIDEO_ENCODE_QUANTIZATION_MAP_SESSION_PARAMETERS_CREATE_INFO")
             }
-            -1000553009i32 => {
-                f.write_str("PHYSICAL_DEVICE_VIDEO_ENCODE_QUANTIZATION_MAP_FEATURES")
-            }
-            -1000553003i32 => {
-                f.write_str("VIDEO_ENCODE_H264_QUANTIZATION_MAP_CAPABILITIES")
-            }
-            -1000553004i32 => {
-                f.write_str("VIDEO_ENCODE_H265_QUANTIZATION_MAP_CAPABILITIES")
-            }
-            -1000553006i32 => {
-                f.write_str("VIDEO_FORMAT_H265_QUANTIZATION_MAP_PROPERTIES")
-            }
-            -1000553007i32 => {
-                f.write_str("VIDEO_ENCODE_AV1_QUANTIZATION_MAP_CAPABILITIES")
-            }
+            -1000553009i32 => f.write_str("PHYSICAL_DEVICE_VIDEO_ENCODE_QUANTIZATION_MAP_FEATURES"),
+            -1000553003i32 => f.write_str("VIDEO_ENCODE_H264_QUANTIZATION_MAP_CAPABILITIES"),
+            -1000553004i32 => f.write_str("VIDEO_ENCODE_H265_QUANTIZATION_MAP_CAPABILITIES"),
+            -1000553006i32 => f.write_str("VIDEO_FORMAT_H265_QUANTIZATION_MAP_PROPERTIES"),
+            -1000553007i32 => f.write_str("VIDEO_ENCODE_AV1_QUANTIZATION_MAP_CAPABILITIES"),
             -1000553008i32 => f.write_str("VIDEO_FORMAT_AV1_QUANTIZATION_MAP_PROPERTIES"),
             -1000555000i32 => f.write_str("PHYSICAL_DEVICE_RAW_ACCESS_CHAINS_FEATURES"),
             -1000556000i32 => f.write_str("EXTERNAL_COMPUTE_QUEUE_DEVICE_CREATE_INFO"),
             -1000556001i32 => f.write_str("EXTERNAL_COMPUTE_QUEUE_CREATE_INFO"),
             -1000556002i32 => f.write_str("EXTERNAL_COMPUTE_QUEUE_DATA_PARAMS"),
-            -1000556003i32 => {
-                f.write_str("PHYSICAL_DEVICE_EXTERNAL_COMPUTE_QUEUE_PROPERTIES")
-            }
+            -1000556003i32 => f.write_str("PHYSICAL_DEVICE_EXTERNAL_COMPUTE_QUEUE_PROPERTIES"),
             -1000558000i32 => {
-                f.write_str(
-                    "PHYSICAL_DEVICE_SHADER_RELAXED_EXTENDED_INSTRUCTION_FEATURES",
-                )
+                f.write_str("PHYSICAL_DEVICE_SHADER_RELAXED_EXTENDED_INSTRUCTION_FEATURES")
             }
-            -1000559000i32 => {
-                f.write_str("PHYSICAL_DEVICE_COMMAND_BUFFER_INHERITANCE_FEATURES")
-            }
+            -1000559000i32 => f.write_str("PHYSICAL_DEVICE_COMMAND_BUFFER_INHERITANCE_FEATURES"),
             -1000562000i32 => f.write_str("PHYSICAL_DEVICE_MAINTENANCE_7_FEATURES"),
             -1000562001i32 => f.write_str("PHYSICAL_DEVICE_MAINTENANCE_7_PROPERTIES"),
             -1000562002i32 => f.write_str("PHYSICAL_DEVICE_LAYERED_API_PROPERTIES_LIST"),
             -1000562003i32 => f.write_str("PHYSICAL_DEVICE_LAYERED_API_PROPERTIES"),
-            -1000562004i32 => {
-                f.write_str("PHYSICAL_DEVICE_LAYERED_API_VULKAN_PROPERTIES")
-            }
-            -1000563000i32 => {
-                f.write_str("PHYSICAL_DEVICE_SHADER_ATOMIC_FLOAT16_VECTOR_FEATURES")
-            }
-            -1000564000i32 => {
-                f.write_str("PHYSICAL_DEVICE_SHADER_REPLICATED_COMPOSITES_FEATURES")
-            }
+            -1000562004i32 => f.write_str("PHYSICAL_DEVICE_LAYERED_API_VULKAN_PROPERTIES"),
+            -1000563000i32 => f.write_str("PHYSICAL_DEVICE_SHADER_ATOMIC_FLOAT16_VECTOR_FEATURES"),
+            -1000564000i32 => f.write_str("PHYSICAL_DEVICE_SHADER_REPLICATED_COMPOSITES_FEATURES"),
             -1000567000i32 => f.write_str("PHYSICAL_DEVICE_SHADER_FLOAT8_FEATURES"),
-            -1000568000i32 => {
-                f.write_str("PHYSICAL_DEVICE_RAY_TRACING_VALIDATION_FEATURES")
-            }
+            -1000568000i32 => f.write_str("PHYSICAL_DEVICE_RAY_TRACING_VALIDATION_FEATURES"),
             -1000569000i32 => {
                 f.write_str("PHYSICAL_DEVICE_CLUSTER_ACCELERATION_STRUCTURE_FEATURES")
             }
@@ -9234,38 +8482,24 @@ impl std::fmt::Debug for StructureType {
             -1000569002i32 => {
                 f.write_str("CLUSTER_ACCELERATION_STRUCTURE_CLUSTERS_BOTTOM_LEVEL_INPUT")
             }
-            -1000569003i32 => {
-                f.write_str("CLUSTER_ACCELERATION_STRUCTURE_TRIANGLE_CLUSTER_INPUT")
-            }
-            -1000569004i32 => {
-                f.write_str("CLUSTER_ACCELERATION_STRUCTURE_MOVE_OBJECTS_INPUT")
-            }
+            -1000569003i32 => f.write_str("CLUSTER_ACCELERATION_STRUCTURE_TRIANGLE_CLUSTER_INPUT"),
+            -1000569004i32 => f.write_str("CLUSTER_ACCELERATION_STRUCTURE_MOVE_OBJECTS_INPUT"),
             -1000569005i32 => f.write_str("CLUSTER_ACCELERATION_STRUCTURE_INPUT_INFO"),
             -1000569006i32 => f.write_str("CLUSTER_ACCELERATION_STRUCTURE_COMMANDS_INFO"),
             -1000569007i32 => {
-                f.write_str(
-                    "RAY_TRACING_PIPELINE_CLUSTER_ACCELERATION_STRUCTURE_CREATE_INFO",
-                )
+                f.write_str("RAY_TRACING_PIPELINE_CLUSTER_ACCELERATION_STRUCTURE_CREATE_INFO")
             }
             -1000570000i32 => {
-                f.write_str(
-                    "PHYSICAL_DEVICE_PARTITIONED_ACCELERATION_STRUCTURE_FEATURES",
-                )
+                f.write_str("PHYSICAL_DEVICE_PARTITIONED_ACCELERATION_STRUCTURE_FEATURES")
             }
             -1000570001i32 => {
-                f.write_str(
-                    "PHYSICAL_DEVICE_PARTITIONED_ACCELERATION_STRUCTURE_PROPERTIES",
-                )
+                f.write_str("PHYSICAL_DEVICE_PARTITIONED_ACCELERATION_STRUCTURE_PROPERTIES")
             }
             -1000570002i32 => {
                 f.write_str("WRITE_DESCRIPTOR_SET_PARTITIONED_ACCELERATION_STRUCTURE")
             }
-            -1000570003i32 => {
-                f.write_str("PARTITIONED_ACCELERATION_STRUCTURE_INSTANCES_INPUT")
-            }
-            -1000570004i32 => {
-                f.write_str("BUILD_PARTITIONED_ACCELERATION_STRUCTURE_INFO")
-            }
+            -1000570003i32 => f.write_str("PARTITIONED_ACCELERATION_STRUCTURE_INSTANCES_INPUT"),
+            -1000570004i32 => f.write_str("BUILD_PARTITIONED_ACCELERATION_STRUCTURE_INFO"),
             -1000570005i32 => f.write_str("PARTITIONED_ACCELERATION_STRUCTURE_FLAGS"),
             -1000572003i32 => f.write_str("INDIRECT_EXECUTION_SET_CREATE_INFO"),
             -1000572008i32 => f.write_str("WRITE_INDIRECT_EXECUTION_SET_PIPELINE"),
@@ -9279,51 +8513,29 @@ impl std::fmt::Debug for StructureType {
             -1000573003i32 => f.write_str("DEVICE_FAULT_DEBUG_INFO"),
             -1000574000i32 => f.write_str("PHYSICAL_DEVICE_MAINTENANCE_8_FEATURES"),
             -1000574002i32 => f.write_str("MEMORY_BARRIER_ACCESS_FLAGS_3"),
-            -1000575000i32 => {
-                f.write_str("PHYSICAL_DEVICE_IMAGE_ALIGNMENT_CONTROL_FEATURES")
-            }
-            -1000575001i32 => {
-                f.write_str("PHYSICAL_DEVICE_IMAGE_ALIGNMENT_CONTROL_PROPERTIES")
-            }
+            -1000575000i32 => f.write_str("PHYSICAL_DEVICE_IMAGE_ALIGNMENT_CONTROL_FEATURES"),
+            -1000575001i32 => f.write_str("PHYSICAL_DEVICE_IMAGE_ALIGNMENT_CONTROL_PROPERTIES"),
             -1000575002i32 => f.write_str("IMAGE_ALIGNMENT_CONTROL_CREATE_INFO"),
             -1000579000i32 => f.write_str("PHYSICAL_DEVICE_SHADER_FMA_FEATURES"),
             -1000580000i32 => f.write_str("PUSH_CONSTANT_BANK_INFO"),
             -1000580001i32 => f.write_str("PHYSICAL_DEVICE_PUSH_CONSTANT_BANK_FEATURES"),
-            -1000580002i32 => {
-                f.write_str("PHYSICAL_DEVICE_PUSH_CONSTANT_BANK_PROPERTIES")
-            }
+            -1000580002i32 => f.write_str("PHYSICAL_DEVICE_PUSH_CONSTANT_BANK_PROPERTIES"),
             -1000582000i32 => f.write_str("PHYSICAL_DEVICE_DEPTH_CLAMP_CONTROL_FEATURES"),
-            -1000582001i32 => {
-                f.write_str("PIPELINE_VIEWPORT_DEPTH_CLAMP_CONTROL_CREATE_INFO")
-            }
+            -1000582001i32 => f.write_str("PIPELINE_VIEWPORT_DEPTH_CLAMP_CONTROL_CREATE_INFO"),
             -1000584000i32 => f.write_str("PHYSICAL_DEVICE_MAINTENANCE_9_FEATURES"),
             -1000584001i32 => f.write_str("PHYSICAL_DEVICE_MAINTENANCE_9_PROPERTIES"),
             -1000584002i32 => f.write_str("QUEUE_FAMILY_OWNERSHIP_TRANSFER_PROPERTIES"),
             -1000586000i32 => f.write_str("PHYSICAL_DEVICE_VIDEO_MAINTENANCE_2_FEATURES"),
-            -1000586001i32 => {
-                f.write_str("VIDEO_DECODE_H264_INLINE_SESSION_PARAMETERS_INFO")
-            }
-            -1000586002i32 => {
-                f.write_str("VIDEO_DECODE_H265_INLINE_SESSION_PARAMETERS_INFO")
-            }
-            -1000586003i32 => {
-                f.write_str("VIDEO_DECODE_AV1_INLINE_SESSION_PARAMETERS_INFO")
-            }
+            -1000586001i32 => f.write_str("VIDEO_DECODE_H264_INLINE_SESSION_PARAMETERS_INFO"),
+            -1000586002i32 => f.write_str("VIDEO_DECODE_H265_INLINE_SESSION_PARAMETERS_INFO"),
+            -1000586003i32 => f.write_str("VIDEO_DECODE_AV1_INLINE_SESSION_PARAMETERS_INFO"),
             1000685000i32 => f.write_str("SURFACE_CREATE_INFO_OHOS"),
             -1000590000i32 => f.write_str("PHYSICAL_DEVICE_HDR_VIVID_FEATURES"),
             -1000590001i32 => f.write_str("HDR_VIVID_DYNAMIC_METADATA"),
-            -1000593000i32 => {
-                f.write_str("PHYSICAL_DEVICE_COOPERATIVE_MATRIX_2_FEATURES")
-            }
-            -1000593001i32 => {
-                f.write_str("COOPERATIVE_MATRIX_FLEXIBLE_DIMENSIONS_PROPERTIES")
-            }
-            -1000593002i32 => {
-                f.write_str("PHYSICAL_DEVICE_COOPERATIVE_MATRIX_2_PROPERTIES")
-            }
-            -1000596000i32 => {
-                f.write_str("PHYSICAL_DEVICE_PIPELINE_OPACITY_MICROMAP_FEATURES")
-            }
+            -1000593000i32 => f.write_str("PHYSICAL_DEVICE_COOPERATIVE_MATRIX_2_FEATURES"),
+            -1000593001i32 => f.write_str("COOPERATIVE_MATRIX_FLEXIBLE_DIMENSIONS_PROPERTIES"),
+            -1000593002i32 => f.write_str("PHYSICAL_DEVICE_COOPERATIVE_MATRIX_2_PROPERTIES"),
+            -1000596000i32 => f.write_str("PHYSICAL_DEVICE_PIPELINE_OPACITY_MICROMAP_FEATURES"),
             -1000602000i32 => f.write_str("IMPORT_MEMORY_METAL_HANDLE_INFO"),
             -1000602001i32 => f.write_str("MEMORY_METAL_HANDLE_PROPERTIES"),
             -1000602002i32 => f.write_str("MEMORY_GET_METAL_HANDLE_INFO"),
@@ -9333,71 +8545,43 @@ impl std::fmt::Debug for StructureType {
             -1000605001i32 => {
                 f.write_str("PHYSICAL_DEVICE_PERFORMANCE_COUNTERS_BY_REGION_PROPERTIES")
             }
-            -1000605004i32 => {
-                f.write_str("RENDER_PASS_PERFORMANCE_COUNTERS_BY_REGION_BEGIN_INFO")
-            }
-            -1000607000i32 => {
-                f.write_str("PHYSICAL_DEVICE_SHADER_INSTRUMENTATION_FEATURES")
-            }
-            -1000607001i32 => {
-                f.write_str("PHYSICAL_DEVICE_SHADER_INSTRUMENTATION_PROPERTIES")
-            }
+            -1000605004i32 => f.write_str("RENDER_PASS_PERFORMANCE_COUNTERS_BY_REGION_BEGIN_INFO"),
+            -1000607000i32 => f.write_str("PHYSICAL_DEVICE_SHADER_INSTRUMENTATION_FEATURES"),
+            -1000607001i32 => f.write_str("PHYSICAL_DEVICE_SHADER_INSTRUMENTATION_PROPERTIES"),
             -1000607002i32 => f.write_str("SHADER_INSTRUMENTATION_CREATE_INFO"),
             -1000607003i32 => f.write_str("SHADER_INSTRUMENTATION_METRIC_DESCRIPTION"),
-            -1000608000i32 => {
-                f.write_str("PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_ROBUSTNESS_FEATURES")
-            }
+            -1000608000i32 => f.write_str("PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_ROBUSTNESS_FEATURES"),
             -1000609000i32 => f.write_str("PHYSICAL_DEVICE_FORMAT_PACK_FEATURES"),
-            -1000611000i32 => {
-                f.write_str("PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_LAYERED_FEATURES")
-            }
+            -1000611000i32 => f.write_str("PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_LAYERED_FEATURES"),
             -1000611001i32 => {
                 f.write_str("PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_LAYERED_PROPERTIES")
             }
-            -1000611002i32 => {
-                f.write_str("PIPELINE_FRAGMENT_DENSITY_MAP_LAYERED_CREATE_INFO")
-            }
+            -1000611002i32 => f.write_str("PIPELINE_FRAGMENT_DENSITY_MAP_LAYERED_CREATE_INFO"),
             -1000613000i32 => f.write_str("SET_PRESENT_CONFIG"),
             -1000613001i32 => f.write_str("PHYSICAL_DEVICE_PRESENT_METERING_FEATURES"),
-            -1000425002i32 => {
-                f.write_str("RENDER_PASS_FRAGMENT_DENSITY_MAP_OFFSET_END_INFO")
-            }
-            -1000620000i32 => {
-                f.write_str("PHYSICAL_DEVICE_ZERO_INITIALIZE_DEVICE_MEMORY_FEATURES")
-            }
-            -1000627000i32 => {
-                f.write_str("PHYSICAL_DEVICE_SHADER_64_BIT_INDEXING_FEATURES")
-            }
+            -1000425002i32 => f.write_str("RENDER_PASS_FRAGMENT_DENSITY_MAP_OFFSET_END_INFO"),
+            -1000620000i32 => f.write_str("PHYSICAL_DEVICE_ZERO_INITIALIZE_DEVICE_MEMORY_FEATURES"),
+            -1000627000i32 => f.write_str("PHYSICAL_DEVICE_SHADER_64_BIT_INDEXING_FEATURES"),
             -1000628000i32 => f.write_str("PHYSICAL_DEVICE_CUSTOM_RESOLVE_FEATURES"),
             -1000628001i32 => f.write_str("BEGIN_CUSTOM_RESOLVE_INFO"),
             -1000628002i32 => f.write_str("CUSTOM_RESOLVE_CREATE_INFO"),
             -1000629000i32 => f.write_str("PHYSICAL_DEVICE_DATA_GRAPH_MODEL_FEATURES"),
-            -1000629001i32 => {
-                f.write_str("DATA_GRAPH_PIPELINE_BUILTIN_MODEL_CREATE_INFO")
-            }
+            -1000629001i32 => f.write_str("DATA_GRAPH_PIPELINE_BUILTIN_MODEL_CREATE_INFO"),
             -1000630000i32 => f.write_str("PHYSICAL_DEVICE_MAINTENANCE_10_FEATURES"),
             -1000630001i32 => f.write_str("PHYSICAL_DEVICE_MAINTENANCE_10_PROPERTIES"),
             -1000630002i32 => f.write_str("RENDERING_ATTACHMENT_FLAGS_INFO"),
             -1000630004i32 => f.write_str("RESOLVE_IMAGE_MODE_INFO"),
             -1000635000i32 => f.write_str("PHYSICAL_DEVICE_SHADER_LONG_VECTOR_FEATURES"),
-            -1000635001i32 => {
-                f.write_str("PHYSICAL_DEVICE_SHADER_LONG_VECTOR_PROPERTIES")
-            }
+            -1000635001i32 => f.write_str("PHYSICAL_DEVICE_SHADER_LONG_VECTOR_PROPERTIES"),
             -1000637000i32 => {
                 f.write_str("PHYSICAL_DEVICE_PIPELINE_CACHE_INCREMENTAL_MODE_FEATURES")
             }
             -1000642000i32 => {
-                f.write_str(
-                    "PHYSICAL_DEVICE_SHADER_UNIFORM_BUFFER_UNSIZED_ARRAY_FEATURES",
-                )
+                f.write_str("PHYSICAL_DEVICE_SHADER_UNIFORM_BUFFER_UNSIZED_ARRAY_FEATURES")
             }
             -1000645000i32 => f.write_str("COMPUTE_OCCUPANCY_PRIORITY_PARAMETERS"),
-            -1000645001i32 => {
-                f.write_str("PHYSICAL_DEVICE_COMPUTE_OCCUPANCY_PRIORITY_FEATURES")
-            }
-            -1000662000i32 => {
-                f.write_str("PHYSICAL_DEVICE_SHADER_SUBGROUP_PARTITIONED_FEATURES")
-            }
+            -1000645001i32 => f.write_str("PHYSICAL_DEVICE_COMPUTE_OCCUPANCY_PRIORITY_FEATURES"),
+            -1000662000i32 => f.write_str("PHYSICAL_DEVICE_SHADER_SUBGROUP_PARTITIONED_FEATURES"),
             -1000664000i32 => f.write_str("UBM_SURFACE_CREATE_INFO"),
             -1000673000i32 => {
                 f.write_str("PHYSICAL_DEVICE_SHADER_MIXED_FLOAT_DOT_PRODUCT_FEATURES")
@@ -9433,7 +8617,10 @@ impl std::fmt::Debug for PipelineExecutableStatisticFormatKHR {
             3i32 => f.write_str("FLOAT64"),
             other => {
                 write!(
-                    f, "{}({})", stringify!(PipelineExecutableStatisticFormatKHR), other
+                    f,
+                    "{}({})",
+                    stringify!(PipelineExecutableStatisticFormatKHR),
+                    other
                 )
             }
         }
@@ -9491,7 +8678,10 @@ impl std::fmt::Debug for RayTracingInvocationReorderModeEXT {
             1i32 => f.write_str("REORDER"),
             other => {
                 write!(
-                    f, "{}({})", stringify!(RayTracingInvocationReorderModeEXT), other
+                    f,
+                    "{}({})",
+                    stringify!(RayTracingInvocationReorderModeEXT),
+                    other
                 )
             }
         }

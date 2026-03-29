@@ -214,8 +214,8 @@ fn bitmask_bit_prefix(rust_type_name: &str) -> String {
 /// Strip prefix from a C bit name like `VK_PIPELINE_STAGE_VERTEX_SHADER_BIT`.
 /// Also removes `_BIT` / `_BIT_KHR` etc. from the result.
 fn strip_bit_prefix(c_name: &str, prefix: &str) -> Option<String> {
-    let stripped = if c_name.starts_with(prefix) {
-        &c_name[prefix.len()..]
+    let stripped = if let Some(s) = c_name.strip_prefix(prefix) {
+        s
     } else {
         c_name.strip_prefix("VK_")?
     };
@@ -299,8 +299,14 @@ mod tests {
             ],
         );
         let code = emit_bitmask(&def).to_string();
-        assert!(code.contains("pub const TRANSFER_SRC"), "missing TRANSFER_SRC");
-        assert!(code.contains("pub const VERTEX_BUFFER"), "missing VERTEX_BUFFER");
+        assert!(
+            code.contains("pub const TRANSFER_SRC"),
+            "missing TRANSFER_SRC"
+        );
+        assert!(
+            code.contains("pub const VERTEX_BUFFER"),
+            "missing VERTEX_BUFFER"
+        );
     }
 
     #[test]

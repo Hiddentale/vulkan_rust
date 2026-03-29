@@ -513,9 +513,7 @@ impl PipelineCreateFlagBits2 {
     pub const _2_EXECUTION_GRAPH_BIT: Self = Self(4294967296u64);
     pub const _2_DESCRIPTOR_HEAP: Self = Self(68719476736u64);
     pub const _2_RAY_TRACING_SKIP_BUILT_IN_PRIMITIVES: Self = Self::_2_RAY_TRACING_SKIP_TRIANGLES;
-    pub const _2_RAY_TRACING_ALLOW_SPHERES_AND_LINEAR_SWEPT_SPHERES: Self = Self(
-        8589934592u64,
-    );
+    pub const _2_RAY_TRACING_ALLOW_SPHERES_AND_LINEAR_SWEPT_SPHERES: Self = Self(8589934592u64);
     pub const _2_ENABLE_LEGACY_DITHERING: Self = Self(17179869184u64);
     pub const _2_DEFER_COMPILE: Self = Self(32u64);
     pub const _2_CAPTURE_STATISTICS: Self = Self(64u64);
@@ -684,8 +682,7 @@ impl std::fmt::Debug for PipelineCreateFlagBits2 {
             remaining &= !Self::_2_DESCRIPTOR_HEAP.0;
             first = false;
         }
-        if remaining & Self::_2_RAY_TRACING_ALLOW_SPHERES_AND_LINEAR_SWEPT_SPHERES.0 != 0
-        {
+        if remaining & Self::_2_RAY_TRACING_ALLOW_SPHERES_AND_LINEAR_SWEPT_SPHERES.0 != 0 {
             if !first {
                 f.write_str(" | ")?;
             }
@@ -3011,15 +3008,11 @@ impl FormatFeatureFlagBits {
     pub const TRANSFER_DST: Self = Self(32768u32);
     pub const MIDPOINT_CHROMA_SAMPLES: Self = Self(131072u32);
     pub const SAMPLED_IMAGE_YCBCR_CONVERSION_LINEAR_FILTER: Self = Self(262144u32);
-    pub const SAMPLED_IMAGE_YCBCR_CONVERSION_SEPARATE_RECONSTRUCTION_FILTER: Self = Self(
-        524288u32,
-    );
-    pub const SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT: Self = Self(
-        1048576u32,
-    );
-    pub const SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT_FORCEABLE: Self = Self(
-        2097152u32,
-    );
+    pub const SAMPLED_IMAGE_YCBCR_CONVERSION_SEPARATE_RECONSTRUCTION_FILTER: Self = Self(524288u32);
+    pub const SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT: Self =
+        Self(1048576u32);
+    pub const SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT_FORCEABLE: Self =
+        Self(2097152u32);
     pub const DISJOINT: Self = Self(4194304u32);
     pub const COSITED_CHROMA_SAMPLES: Self = Self(8388608u32);
     pub const SAMPLED_IMAGE_FILTER_MINMAX: Self = Self(65536u32);
@@ -3220,47 +3213,32 @@ impl std::fmt::Debug for FormatFeatureFlagBits {
             remaining &= !Self::SAMPLED_IMAGE_YCBCR_CONVERSION_LINEAR_FILTER.0;
             first = false;
         }
-        if remaining
-            & Self::SAMPLED_IMAGE_YCBCR_CONVERSION_SEPARATE_RECONSTRUCTION_FILTER.0 != 0
-        {
+        if remaining & Self::SAMPLED_IMAGE_YCBCR_CONVERSION_SEPARATE_RECONSTRUCTION_FILTER.0 != 0 {
             if !first {
                 f.write_str(" | ")?;
             }
-            f.write_str(
-                "SAMPLED_IMAGE_YCBCR_CONVERSION_SEPARATE_RECONSTRUCTION_FILTER",
-            )?;
-            remaining
-                &= !Self::SAMPLED_IMAGE_YCBCR_CONVERSION_SEPARATE_RECONSTRUCTION_FILTER
-                    .0;
+            f.write_str("SAMPLED_IMAGE_YCBCR_CONVERSION_SEPARATE_RECONSTRUCTION_FILTER")?;
+            remaining &= !Self::SAMPLED_IMAGE_YCBCR_CONVERSION_SEPARATE_RECONSTRUCTION_FILTER.0;
+            first = false;
+        }
+        if remaining & Self::SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT.0 != 0 {
+            if !first {
+                f.write_str(" | ")?;
+            }
+            f.write_str("SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT")?;
+            remaining &= !Self::SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT.0;
             first = false;
         }
         if remaining
-            & Self::SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT.0 != 0
+            & Self::SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT_FORCEABLE.0
+            != 0
         {
             if !first {
                 f.write_str(" | ")?;
             }
-            f.write_str(
-                "SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT",
-            )?;
-            remaining
-                &= !Self::SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT
-                    .0;
-            first = false;
-        }
-        if remaining
-            & Self::SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT_FORCEABLE
-                .0 != 0
-        {
-            if !first {
-                f.write_str(" | ")?;
-            }
-            f.write_str(
-                "SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT_FORCEABLE",
-            )?;
-            remaining
-                &= !Self::SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT_FORCEABLE
-                    .0;
+            f.write_str("SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT_FORCEABLE")?;
+            remaining &=
+                !Self::SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT_FORCEABLE.0;
             first = false;
         }
         if remaining & Self::DISJOINT.0 != 0 {
@@ -8545,9 +8523,12 @@ impl SubpassDescriptionFlagBits {
     pub const FRAGMENT_REGION_BIT: Self = Self::FRAGMENT_REGION;
     pub const SHADER_RESOLVE_BIT: Self = Self::CUSTOM_RESOLVE;
     pub const TILE_SHADING_APRON_BIT: Self = Self(256u32);
-    pub const RASTERIZATION_ORDER_ATTACHMENT_COLOR_ACCESS_BIT: Self = Self::RASTERIZATION_ORDER_ATTACHMENT_COLOR_ACCESS;
-    pub const RASTERIZATION_ORDER_ATTACHMENT_DEPTH_ACCESS_BIT: Self = Self::RASTERIZATION_ORDER_ATTACHMENT_DEPTH_ACCESS;
-    pub const RASTERIZATION_ORDER_ATTACHMENT_STENCIL_ACCESS_BIT: Self = Self::RASTERIZATION_ORDER_ATTACHMENT_STENCIL_ACCESS;
+    pub const RASTERIZATION_ORDER_ATTACHMENT_COLOR_ACCESS_BIT: Self =
+        Self::RASTERIZATION_ORDER_ATTACHMENT_COLOR_ACCESS;
+    pub const RASTERIZATION_ORDER_ATTACHMENT_DEPTH_ACCESS_BIT: Self =
+        Self::RASTERIZATION_ORDER_ATTACHMENT_DEPTH_ACCESS;
+    pub const RASTERIZATION_ORDER_ATTACHMENT_STENCIL_ACCESS_BIT: Self =
+        Self::RASTERIZATION_ORDER_ATTACHMENT_STENCIL_ACCESS;
     pub const RASTERIZATION_ORDER_ATTACHMENT_COLOR_ACCESS: Self = Self(16u32);
     pub const RASTERIZATION_ORDER_ATTACHMENT_DEPTH_ACCESS: Self = Self(32u32);
     pub const RASTERIZATION_ORDER_ATTACHMENT_STENCIL_ACCESS: Self = Self(64u32);
@@ -12265,9 +12246,11 @@ impl PipelineCreateFlagBits {
     pub const RAY_TRACING_SHADER_GROUP_HANDLE_CAPTURE_REPLAY: Self = Self(524288u32);
     pub const DEFER_COMPILE: Self = Self(32u32);
     pub const RENDERING_FRAGMENT_DENSITY_MAP_ATTACHMENT: Self = Self(4194304u32);
-    pub const PIPELINE_RASTERIZATION_STATE_CREATE_FRAGMENT_DENSITY_MAP_ATTACHMENT: Self = Self::RENDERING_FRAGMENT_DENSITY_MAP_ATTACHMENT;
+    pub const PIPELINE_RASTERIZATION_STATE_CREATE_FRAGMENT_DENSITY_MAP_ATTACHMENT: Self =
+        Self::RENDERING_FRAGMENT_DENSITY_MAP_ATTACHMENT;
     pub const RENDERING_FRAGMENT_SHADING_RATE_ATTACHMENT: Self = Self(2097152u32);
-    pub const PIPELINE_RASTERIZATION_STATE_CREATE_FRAGMENT_SHADING_RATE_ATTACHMENT: Self = Self::RENDERING_FRAGMENT_SHADING_RATE_ATTACHMENT;
+    pub const PIPELINE_RASTERIZATION_STATE_CREATE_FRAGMENT_SHADING_RATE_ATTACHMENT: Self =
+        Self::RENDERING_FRAGMENT_SHADING_RATE_ATTACHMENT;
     pub const CAPTURE_STATISTICS: Self = Self(64u32);
     pub const CAPTURE_INTERNAL_REPRESENTATIONS: Self = Self(128u32);
     pub const INDIRECT_BINDABLE: Self = Self(262144u32);
@@ -12616,7 +12599,8 @@ impl PipelineColorBlendStateCreateFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
-    pub const RASTERIZATION_ORDER_ATTACHMENT_ACCESS_BIT: Self = Self::RASTERIZATION_ORDER_ATTACHMENT_ACCESS;
+    pub const RASTERIZATION_ORDER_ATTACHMENT_ACCESS_BIT: Self =
+        Self::RASTERIZATION_ORDER_ATTACHMENT_ACCESS;
     pub const RASTERIZATION_ORDER_ATTACHMENT_ACCESS: Self = Self(1u32);
 }
 impl std::ops::BitOr for PipelineColorBlendStateCreateFlagBits {
@@ -23132,8 +23116,10 @@ impl PipelineDepthStencilStateCreateFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
-    pub const RASTERIZATION_ORDER_ATTACHMENT_DEPTH_ACCESS_BIT: Self = Self::RASTERIZATION_ORDER_ATTACHMENT_DEPTH_ACCESS;
-    pub const RASTERIZATION_ORDER_ATTACHMENT_STENCIL_ACCESS_BIT: Self = Self::RASTERIZATION_ORDER_ATTACHMENT_STENCIL_ACCESS;
+    pub const RASTERIZATION_ORDER_ATTACHMENT_DEPTH_ACCESS_BIT: Self =
+        Self::RASTERIZATION_ORDER_ATTACHMENT_DEPTH_ACCESS;
+    pub const RASTERIZATION_ORDER_ATTACHMENT_STENCIL_ACCESS_BIT: Self =
+        Self::RASTERIZATION_ORDER_ATTACHMENT_STENCIL_ACCESS;
     pub const RASTERIZATION_ORDER_ATTACHMENT_DEPTH_ACCESS: Self = Self(1u32);
     pub const RASTERIZATION_ORDER_ATTACHMENT_STENCIL_ACCESS: Self = Self(2u32);
 }
@@ -23985,15 +23971,12 @@ impl FormatFeatureFlagBits2 {
     pub const _2_SAMPLED_IMAGE_FILTER_MINMAX: Self = Self(65536u64);
     pub const _2_MIDPOINT_CHROMA_SAMPLES: Self = Self(131072u64);
     pub const _2_SAMPLED_IMAGE_YCBCR_CONVERSION_LINEAR_FILTER: Self = Self(262144u64);
-    pub const _2_SAMPLED_IMAGE_YCBCR_CONVERSION_SEPARATE_RECONSTRUCTION_FILTER: Self = Self(
-        524288u64,
-    );
-    pub const _2_SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT: Self = Self(
-        1048576u64,
-    );
-    pub const _2_SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT_FORCEABLE: Self = Self(
-        2097152u64,
-    );
+    pub const _2_SAMPLED_IMAGE_YCBCR_CONVERSION_SEPARATE_RECONSTRUCTION_FILTER: Self =
+        Self(524288u64);
+    pub const _2_SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT: Self =
+        Self(1048576u64);
+    pub const _2_SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT_FORCEABLE: Self =
+        Self(2097152u64);
     pub const _2_DISJOINT: Self = Self(4194304u64);
     pub const _2_COSITED_CHROMA_SAMPLES: Self = Self(8388608u64);
     pub const _2_STORAGE_READ_WITHOUT_FORMAT: Self = Self(2147483648u64);
@@ -24223,39 +24206,27 @@ impl std::fmt::Debug for FormatFeatureFlagBits2 {
             remaining &= !Self::_2_SAMPLED_IMAGE_YCBCR_CONVERSION_LINEAR_FILTER.0;
             first = false;
         }
-        if remaining
-            & Self::_2_SAMPLED_IMAGE_YCBCR_CONVERSION_SEPARATE_RECONSTRUCTION_FILTER.0
-            != 0
+        if remaining & Self::_2_SAMPLED_IMAGE_YCBCR_CONVERSION_SEPARATE_RECONSTRUCTION_FILTER.0 != 0
         {
             if !first {
                 f.write_str(" | ")?;
             }
-            f.write_str(
-                "_2_SAMPLED_IMAGE_YCBCR_CONVERSION_SEPARATE_RECONSTRUCTION_FILTER",
-            )?;
-            remaining
-                &= !Self::_2_SAMPLED_IMAGE_YCBCR_CONVERSION_SEPARATE_RECONSTRUCTION_FILTER
-                    .0;
+            f.write_str("_2_SAMPLED_IMAGE_YCBCR_CONVERSION_SEPARATE_RECONSTRUCTION_FILTER")?;
+            remaining &= !Self::_2_SAMPLED_IMAGE_YCBCR_CONVERSION_SEPARATE_RECONSTRUCTION_FILTER.0;
             first = false;
         }
-        if remaining
-            & Self::_2_SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT.0
-            != 0
+        if remaining & Self::_2_SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT.0 != 0
         {
             if !first {
                 f.write_str(" | ")?;
             }
-            f.write_str(
-                "_2_SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT",
-            )?;
-            remaining
-                &= !Self::_2_SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT
-                    .0;
+            f.write_str("_2_SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT")?;
+            remaining &= !Self::_2_SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT.0;
             first = false;
         }
         if remaining
-            & Self::_2_SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT_FORCEABLE
-                .0 != 0
+            & Self::_2_SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT_FORCEABLE.0
+            != 0
         {
             if !first {
                 f.write_str(" | ")?;
@@ -24263,9 +24234,8 @@ impl std::fmt::Debug for FormatFeatureFlagBits2 {
             f.write_str(
                 "_2_SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT_FORCEABLE",
             )?;
-            remaining
-                &= !Self::_2_SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT_FORCEABLE
-                    .0;
+            remaining &=
+                !Self::_2_SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT_FORCEABLE.0;
             first = false;
         }
         if remaining & Self::_2_DISJOINT.0 != 0 {

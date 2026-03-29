@@ -960,7 +960,12 @@ impl Default for IndirectCommandsLayoutEXT {
 }
 impl std::fmt::Debug for IndirectCommandsLayoutEXT {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}({:#x})", stringify!(IndirectCommandsLayoutEXT), self.0)
+        write!(
+            f,
+            "{}({:#x})",
+            stringify!(IndirectCommandsLayoutEXT),
+            self.0
+        )
     }
 }
 #[repr(transparent)]
@@ -1198,7 +1203,12 @@ impl Default for PerformanceConfigurationINTEL {
 }
 impl std::fmt::Debug for PerformanceConfigurationINTEL {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}({:#x})", stringify!(PerformanceConfigurationINTEL), self.0)
+        write!(
+            f,
+            "{}({:#x})",
+            stringify!(PerformanceConfigurationINTEL),
+            self.0
+        )
     }
 }
 #[repr(transparent)]
@@ -1572,7 +1582,12 @@ impl Default for DataGraphPipelineSessionARM {
 }
 impl std::fmt::Debug for DataGraphPipelineSessionARM {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}({:#x})", stringify!(DataGraphPipelineSessionARM), self.0)
+        write!(
+            f,
+            "{}({:#x})",
+            stringify!(DataGraphPipelineSessionARM),
+            self.0
+        )
     }
 }
 #[repr(transparent)]
@@ -1878,7 +1893,12 @@ impl Default for VideoSessionParametersKHR {
 }
 impl std::fmt::Debug for VideoSessionParametersKHR {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}({:#x})", stringify!(VideoSessionParametersKHR), self.0)
+        write!(
+            f,
+            "{}({:#x})",
+            stringify!(VideoSessionParametersKHR),
+            self.0
+        )
     }
 }
 #[repr(transparent)]

@@ -115,10 +115,7 @@ fn parse_c_value_u64(s: &str) -> Option<TokenStream> {
         return Some(quote! { #lit });
     }
 
-    let num: String = s
-        .chars()
-        .take_while(|c| c.is_ascii_digit())
-        .collect();
+    let num: String = s.chars().take_while(|c| c.is_ascii_digit()).collect();
     let val: u64 = num.parse().ok()?;
     let lit = proc_macro2::Literal::u64_suffixed(val);
     Some(quote! { #lit })

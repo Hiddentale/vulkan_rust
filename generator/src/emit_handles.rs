@@ -109,7 +109,10 @@ mod tests {
         let tokens = emit_handle(&make_handle("Instance", true));
         assert_valid_rust(&tokens);
         let code = tokens.to_string();
-        assert!(code.contains("pub struct Instance (usize)"), "expected usize repr");
+        assert!(
+            code.contains("pub struct Instance (usize)"),
+            "expected usize repr"
+        );
         assert!(code.contains("type Repr = usize"), "expected Repr = usize");
     }
 
@@ -118,7 +121,10 @@ mod tests {
         let tokens = emit_handle(&make_handle("Buffer", false));
         assert_valid_rust(&tokens);
         let code = tokens.to_string();
-        assert!(code.contains("pub struct Buffer (u64)"), "expected u64 repr");
+        assert!(
+            code.contains("pub struct Buffer (u64)"),
+            "expected u64 repr"
+        );
         assert!(code.contains("type Repr = u64"), "expected Repr = u64");
     }
 
