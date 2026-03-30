@@ -4,7 +4,7 @@ use heck::ToSnakeCase;
 use proc_macro2::TokenStream;
 use quote::{format_ident, quote};
 
-use crate::parse::{MemberDef, StructDef};
+use crate::parse::{MemberDef, StructDef, VkRegistry};
 use crate::type_map;
 
 // ---------------------------------------------------------------------------
@@ -132,6 +132,250 @@ fn is_rust_keyword(name: &str) -> bool {
             | "try"
             | "macro"
     )
+}
+
+// ---------------------------------------------------------------------------
+// Public entry point
+// ---------------------------------------------------------------------------
+
+/// Emit all struct and union definitions.
+pub fn emit_structs(registry: &VkRegistry) -> TokenStream {
+    let base_structs = emit_base_pnext_structs();
+
+    let structs: Vec<TokenStream> = registry
+        .structs
+        .iter()
+        .filter(|s| !is_base_pnext_struct(&s.name))
+        .map(emit_struct_or_union)
+        .collect();
+
+    quote! {
+        use super::enums::*;
+        use super::handles::*;
+        use super::bitmasks::*;
+        use super::constants::*;
+
+        #base_structs
+        #(#structs)*
+    }
+}
+
+// ---------------------------------------------------------------------------
+// BaseOutStructure / BaseInStructure (subtask 3)
+// ---------------------------------------------------------------------------
+
+const BASE_PNEXT_STRUCTS: &[&str] = &["BaseOutStructure", "BaseInStructure"];
+
+fn is_base_pnext_struct(name: &str) -> bool {
+    BASE_PNEXT_STRUCTS.contains(&name)
+}
+
+fn emit_base_pnext_structs() -> TokenStream {
+    quote! {
+        /// Structure type used for traversing pNext chains (mutable).
+        #[repr(C)]
+        #[derive(Copy, Clone)]
+        #[doc(alias = "VkBaseOutStructure")]
+        pub struct BaseOutStructure {
+            pub s_type: StructureType,
+            pub p_next: *mut BaseOutStructure,
+        }
+
+        impl Default for BaseOutStructure {
+            #[inline]
+            fn default() -> Self {
+                Self {
+                    s_type: StructureType::from_raw(0),
+                    p_next: std::ptr::null_mut(),
+                }
+            }
+        }
+
+        impl std::fmt::Debug for BaseOutStructure {
+            fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+                f.debug_struct("BaseOutStructure")
+                    .field("s_type", &self.s_type)
+                    .field("p_next", &self.p_next)
+                    .finish()
+            }
+        }
+
+        /// Structure type used for traversing pNext chains (const).
+        #[repr(C)]
+        #[derive(Copy, Clone)]
+        #[doc(alias = "VkBaseInStructure")]
+        pub struct BaseInStructure {
+            pub s_type: StructureType,
+            pub p_next: *const BaseInStructure,
+        }
+
+        impl Default for BaseInStructure {
+            #[inline]
+            fn default() -> Self {
+                Self {
+                    s_type: StructureType::from_raw(0),
+                    p_next: std::ptr::null(),
+                }
+            }
+        }
+
+        impl std::fmt::Debug for BaseInStructure {
+            fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+                f.debug_struct("BaseInStructure")
+                    .field("s_type", &self.s_type)
+                    .field("p_next", &self.p_next)
+                    .finish()
+            }
+        }
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Struct and union emission (subtasks 2b, 2c, 2d)
+// ---------------------------------------------------------------------------
+
+fn emit_struct_or_union(def: &StructDef) -> TokenStream {
+    if def.is_union {
+        emit_union(def)
+    } else {
+        emit_struct(def)
+    }
+}
+
+fn emit_struct(def: &StructDef) -> TokenStream {
+    let name = format_ident!("{}", &def.name);
+    let vk_name = format!("Vk{}", &def.name);
+    let fields = emit_fields(&def.members);
+    let default_impl = emit_default(def);
+
+    quote! {
+        #[repr(C)]
+        #[derive(Copy, Clone, Debug)]
+        #[doc(alias = #vk_name)]
+        pub struct #name {
+            #(#fields)*
+        }
+
+        #default_impl
+    }
+}
+
+fn emit_union(def: &StructDef) -> TokenStream {
+    let name = format_ident!("{}", &def.name);
+    let vk_name = format!("Vk{}", &def.name);
+    let fields = emit_fields(&def.members);
+
+    quote! {
+        #[repr(C)]
+        #[derive(Copy, Clone)]
+        #[doc(alias = #vk_name)]
+        pub union #name {
+            #(#fields)*
+        }
+
+        impl Default for #name {
+            #[inline]
+            fn default() -> Self {
+                unsafe { std::mem::zeroed() }
+            }
+        }
+
+        impl std::fmt::Debug for #name {
+            fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+                f.write_str(stringify!(#name))
+            }
+        }
+    }
+}
+
+fn emit_fields(members: &[MemberDef]) -> Vec<TokenStream> {
+    members.iter().map(emit_field).collect()
+}
+
+fn emit_field(member: &MemberDef) -> TokenStream {
+    let rust_name = member_name(&member.name);
+    let field_ident = if is_rust_keyword(&rust_name) {
+        format_ident!("r#{}", rust_name)
+    } else {
+        format_ident!("{}", rust_name)
+    };
+    let ty = resolve_member_type(member);
+
+    quote! { pub #field_ident: #ty, }
+}
+
+fn emit_default(def: &StructDef) -> TokenStream {
+    let name = format_ident!("{}", &def.name);
+    let stype = struct_stype(def);
+    let has_pnext = def.members.iter().any(|m| m.name == "pNext");
+
+    if stype.is_some() || has_pnext {
+        // Struct with sType/pNext: manual Default that fills s_type and nulls pNext.
+        let field_defaults: Vec<TokenStream> = def
+            .members
+            .iter()
+            .map(|m| {
+                let rust_name = member_name(&m.name);
+                let field_ident = if is_rust_keyword(&rust_name) {
+                    format_ident!("r#{}", rust_name)
+                } else {
+                    format_ident!("{}", rust_name)
+                };
+
+                if m.name == "sType"
+                    && let Some(ref stype_val) = stype
+                {
+                    return quote! { #field_ident: #stype_val, };
+                }
+
+                let default_val = default_value_for(m);
+                quote! { #field_ident: #default_val, }
+            })
+            .collect();
+
+        quote! {
+            impl Default for #name {
+                #[inline]
+                fn default() -> Self {
+                    Self {
+                        #(#field_defaults)*
+                    }
+                }
+            }
+        }
+    } else {
+        // Plain struct: use zeroed memory. Safe because all Vulkan structs are
+        // repr(C) and zero-initialized is a valid state.
+        quote! {
+            impl Default for #name {
+                #[inline]
+                fn default() -> Self {
+                    unsafe { std::mem::zeroed() }
+                }
+            }
+        }
+    }
+}
+
+/// Produce a default value expression for a struct member.
+fn default_value_for(member: &MemberDef) -> TokenStream {
+    // Pointers default to null.
+    if member.is_pointer || member.is_double_pointer {
+        if member.is_const {
+            return quote! { std::ptr::null() };
+        } else {
+            return quote! { std::ptr::null_mut() };
+        }
+    }
+
+    // Arrays default to zeroed.
+    if member.array_size.is_some() {
+        return quote! { unsafe { std::mem::zeroed() } };
+    }
+
+    // Everything else: use Default::default() which works for u32, i32, f32,
+    // and our generated newtypes (all have Default).
+    quote! { Default::default() }
 }
 
 // ---------------------------------------------------------------------------
@@ -343,5 +587,158 @@ mod tests {
         assert!(is_rust_keyword("type"));
         assert!(is_rust_keyword("ref"));
         assert!(!is_rust_keyword("flags"));
+    }
+
+    // --- Base pNext structs ---
+
+    #[test]
+    fn base_pnext_structs_valid_rust() {
+        let tokens = emit_base_pnext_structs();
+        // Needs StructureType in scope to parse.
+        let wrapped = quote! {
+            #[repr(transparent)]
+            #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
+            pub struct StructureType(i32);
+            impl StructureType {
+                pub const fn from_raw(value: i32) -> Self { Self(value) }
+            }
+            #tokens
+        };
+        assert_valid_rust(&wrapped);
+    }
+
+    #[test]
+    fn base_pnext_structs_have_self_referential_pointer() {
+        let code = emit_base_pnext_structs().to_string();
+        assert!(code.contains("p_next : * mut BaseOutStructure"));
+        assert!(code.contains("p_next : * const BaseInStructure"));
+    }
+
+    // --- Struct emission ---
+
+    #[test]
+    fn plain_struct_emits_repr_c() {
+        let def = StructDef {
+            name: "Extent2D".to_string(),
+            members: vec![
+                make_member("width", "uint32_t"),
+                make_member("height", "uint32_t"),
+            ],
+            extends: vec![],
+            returned_only: false,
+            is_union: false,
+            provided_by: None,
+        };
+        let tokens = emit_struct(&def);
+        let code = tokens.to_string();
+        assert!(code.contains("# [repr (C)]"));
+        assert!(code.contains("pub struct Extent2D"));
+        assert!(code.contains("pub width : u32"));
+        assert!(code.contains("pub height : u32"));
+    }
+
+    #[test]
+    fn plain_struct_has_zeroed_default() {
+        let def = StructDef {
+            name: "Extent2D".to_string(),
+            members: vec![
+                make_member("width", "uint32_t"),
+                make_member("height", "uint32_t"),
+            ],
+            extends: vec![],
+            returned_only: false,
+            is_union: false,
+            provided_by: None,
+        };
+        let code = emit_struct(&def).to_string();
+        assert!(code.contains("std :: mem :: zeroed ()"));
+    }
+
+    #[test]
+    fn stype_struct_has_manual_default() {
+        let def = StructDef {
+            name: "BufferCreateInfo".to_string(),
+            members: vec![
+                MemberDef {
+                    values: Some("VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO".to_string()),
+                    ..make_member("sType", "VkStructureType")
+                },
+                make_pointer_member("pNext", "void", true),
+                make_member("flags", "VkBufferCreateFlags"),
+                make_member("size", "VkDeviceSize"),
+            ],
+            extends: vec![],
+            returned_only: false,
+            is_union: false,
+            provided_by: None,
+        };
+        let code = emit_struct(&def).to_string();
+        assert!(code.contains("StructureType :: BUFFER_CREATE_INFO"));
+        assert!(code.contains("std :: ptr :: null ()"));
+    }
+
+    #[test]
+    fn struct_has_doc_alias() {
+        let def = StructDef {
+            name: "Extent2D".to_string(),
+            members: vec![make_member("width", "uint32_t")],
+            extends: vec![],
+            returned_only: false,
+            is_union: false,
+            provided_by: None,
+        };
+        let code = emit_struct(&def).to_string();
+        assert!(code.contains("VkExtent2D"));
+    }
+
+    #[test]
+    fn keyword_field_gets_raw_ident() {
+        let def = StructDef {
+            name: "WriteDescriptorSet".to_string(),
+            members: vec![make_member("type", "VkDescriptorType")],
+            extends: vec![],
+            returned_only: false,
+            is_union: false,
+            provided_by: None,
+        };
+        let code = emit_struct(&def).to_string();
+        // raw ident shows as `r#type` in token output
+        assert!(code.contains("r#type"));
+    }
+
+    // --- Union emission ---
+
+    #[test]
+    fn union_emits_union_keyword() {
+        let def = StructDef {
+            name: "ClearColorValue".to_string(),
+            members: vec![
+                make_array_member("float32", "float", "4"),
+                make_array_member("int32", "int32_t", "4"),
+                make_array_member("uint32", "uint32_t", "4"),
+            ],
+            extends: vec![],
+            returned_only: false,
+            is_union: true,
+            provided_by: None,
+        };
+        let code = emit_union(&def).to_string();
+        assert!(code.contains("pub union ClearColorValue"));
+        assert!(!code.contains("Debug ,"), "union should not derive Debug");
+        assert!(code.contains("impl std :: fmt :: Debug"));
+    }
+
+    #[test]
+    fn union_has_zeroed_default() {
+        let def = StructDef {
+            name: "ClearColorValue".to_string(),
+            members: vec![make_array_member("float32", "float", "4")],
+            extends: vec![],
+            returned_only: false,
+            is_union: true,
+            provided_by: None,
+        };
+        let code = emit_union(&def).to_string();
+        assert!(code.contains("std :: mem :: zeroed ()"));
     }
 }
