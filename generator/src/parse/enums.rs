@@ -7,8 +7,8 @@ use vk_parse::{
 };
 
 use super::{
-    compute_enum_offset, is_non_vulkan, parse_c_literal, parse_c_literal_u64, strip_vk,
-    BitmaskBit, BitmaskValue, EnumValue, EnumVariant,
+    BitmaskBit, BitmaskValue, EnumValue, EnumVariant, compute_enum_offset, is_non_vulkan,
+    parse_c_literal, parse_c_literal_u64, strip_vk,
 };
 
 pub(super) fn collect_enums(

@@ -2,7 +2,8 @@ use std::sync::Arc;
 
 use std::ffi::CStr;
 
-use crate::error::{LoadError, VkResult, check};
+use crate::error::{LoadError, VkResult, check, enumerate_two_call};
+use crate::instance::Instance;
 use crate::loader::Loader;
 use crate::version::Version;
 use crate::vk;
@@ -106,15 +107,40 @@ impl Entry {
 
     /// Create a Vulkan instance.
     ///
-    /// Returns the raw `VkInstance` handle. The `Instance` wrapper is
-    /// introduced in Phase 8.
+    /// # Safety
+    ///
+    /// `create_info` must be a valid, fully populated `InstanceCreateInfo`.
+    /// The caller is responsible for calling `instance.destroy_instance`
+    /// when done.
+    pub unsafe fn create_instance(
+        &self,
+        create_info: &vk::structs::InstanceCreateInfo,
+        allocator: Option<&vk::structs::AllocationCallbacks>,
+    ) -> VkResult<Instance> {
+        let raw = unsafe { self.create_instance_raw(create_info, allocator) }?;
+        let instance = unsafe {
+            Instance::load(
+                raw,
+                self.get_instance_proc_addr,
+                self.get_device_proc_addr,
+                Some(self._loader.clone()),
+            )
+        };
+        Ok(instance)
+    }
+
+    /// Create a Vulkan instance and return the raw handle.
+    ///
+    /// Use this when you need the `VkInstance` handle without the wrapper,
+    /// for example when passing it to OpenXR which manages the instance
+    /// lifetime externally.
     ///
     /// # Safety
     ///
     /// `create_info` must be a valid, fully populated `InstanceCreateInfo`.
     /// The caller is responsible for destroying the instance with
     /// `vkDestroyInstance` when done.
-    pub unsafe fn create_instance(
+    pub unsafe fn create_instance_raw(
         &self,
         create_info: &vk::structs::InstanceCreateInfo,
         allocator: Option<&vk::structs::AllocationCallbacks>,
@@ -172,20 +198,6 @@ impl Entry {
     }
 }
 
-/// Two-call enumerate pattern used by many Vulkan commands.
-///
-/// First call with null data pointer to get the count, allocate, then
-/// call again to fill the buffer.
-fn enumerate_two_call<T>(call: impl Fn(*mut u32, *mut T) -> vk::enums::Result) -> VkResult<Vec<T>> {
-    let mut count = 0u32;
-    check(call(&mut count, std::ptr::null_mut()))?;
-    let mut data = Vec::with_capacity(count as usize);
-    let result = call(&mut count, data.as_mut_ptr());
-    check(result)?;
-    unsafe { data.set_len(count as usize) };
-    Ok(data)
-}
-
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -213,6 +225,7 @@ mod tests {
     #[test]
     #[ignore] // requires Vulkan runtime
     fn new_succeeds_with_real_loader() {
+        let _vk = crate::VK_TEST_MUTEX.lock().unwrap();
         let loader = crate::loader::LibloadingLoader::new().expect("failed to load Vulkan library");
         let entry = unsafe { Entry::new(loader) }.expect("failed to create Entry");
         assert!(entry.get_instance_proc_addr().is_some());
@@ -222,6 +235,7 @@ mod tests {
     #[test]
     #[ignore] // requires Vulkan runtime
     fn version_returns_at_least_1_0() {
+        let _vk = crate::VK_TEST_MUTEX.lock().unwrap();
         let entry = create_entry();
         let version = entry.version().expect("failed to query version");
         assert!(version.major >= 1);
@@ -231,6 +245,7 @@ mod tests {
     #[test]
     #[ignore] // requires Vulkan runtime
     fn enumerate_layer_properties_succeeds() {
+        let _vk = crate::VK_TEST_MUTEX.lock().unwrap();
         let entry = create_entry();
         let layers = unsafe { entry.enumerate_instance_layer_properties() }
             .expect("failed to enumerate layers");
@@ -240,6 +255,7 @@ mod tests {
     #[test]
     #[ignore] // requires Vulkan runtime
     fn enumerate_extension_properties_succeeds() {
+        let _vk = crate::VK_TEST_MUTEX.lock().unwrap();
         let entry = create_entry();
         let extensions = unsafe { entry.enumerate_instance_extension_properties(None) }
             .expect("failed to enumerate extensions");

@@ -149,8 +149,20 @@ fn print_summary(registry: &parse::VkRegistry) {
     println!(
         "  aliases:       {} (type={}, command={}, bitmask={})",
         registry.aliases.len(),
-        registry.aliases.iter().filter(|a| a.kind == parse::AliasKind::Type).count(),
-        registry.aliases.iter().filter(|a| a.kind == parse::AliasKind::Command).count(),
-        registry.aliases.iter().filter(|a| a.kind == parse::AliasKind::Bitmask).count(),
+        registry
+            .aliases
+            .iter()
+            .filter(|a| a.kind == parse::AliasKind::Type)
+            .count(),
+        registry
+            .aliases
+            .iter()
+            .filter(|a| a.kind == parse::AliasKind::Command)
+            .count(),
+        registry
+            .aliases
+            .iter()
+            .filter(|a| a.kind == parse::AliasKind::Bitmask)
+            .count(),
     );
 }

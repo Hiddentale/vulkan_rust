@@ -5,8 +5,8 @@ use std::collections::HashMap;
 use vk_parse::{ExtensionChild, FeatureChild, InterfaceItem, Registry, RegistryChild};
 
 use super::{
-    is_vulkan_extension, strip_vk, ExtensionDef, ExtensionItem, FuncPointerDef, ParamDef,
-    PlatformDef, VkRegistry,
+    ExtensionDef, ExtensionItem, FuncPointerDef, ParamDef, PlatformDef, VkRegistry,
+    is_vulkan_extension, strip_vk,
 };
 
 pub(super) fn stamp_provenance(registry: &Registry, reg: &mut VkRegistry) {
@@ -54,9 +54,7 @@ pub(super) fn stamp_provenance(registry: &Registry, reg: &mut VkRegistry) {
                                         .or_insert(ext.name.clone());
                                 }
                                 InterfaceItem::Command { name, .. } => {
-                                    provider_map
-                                        .entry(name.clone())
-                                        .or_insert(ext.name.clone());
+                                    provider_map.entry(name.clone()).or_insert(ext.name.clone());
                                 }
                                 _ => {}
                             }

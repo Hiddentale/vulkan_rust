@@ -412,6 +412,9 @@ mod tests {
             kind: AliasKind::Type,
         }];
         let code = emit_pfn_aliases(&aliases).to_string();
-        assert!(code.is_empty(), "should not emit PFN alias for type aliases");
+        assert!(
+            code.is_empty(),
+            "should not emit PFN alias for type aliases"
+        );
     }
 }

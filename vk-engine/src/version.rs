@@ -39,7 +39,11 @@ mod tests {
 
     #[test]
     fn round_trip() {
-        let v = Version { major: 1, minor: 3, patch: 250 };
+        let v = Version {
+            major: 1,
+            minor: 3,
+            patch: 250,
+        };
         assert_eq!(Version::from_raw(v.to_raw()), v);
     }
 
@@ -47,31 +51,65 @@ mod tests {
     fn from_raw_known_versions() {
         // VK_API_VERSION_1_0 = VK_MAKE_API_VERSION(0, 1, 0, 0)
         let v10 = Version::from_raw(1 << 22);
-        assert_eq!(v10, Version { major: 1, minor: 0, patch: 0 });
+        assert_eq!(
+            v10,
+            Version {
+                major: 1,
+                minor: 0,
+                patch: 0
+            }
+        );
 
         // VK_API_VERSION_1_3 = 0x00403000
         let v13 = Version::from_raw(0x00403000);
-        assert_eq!(v13, Version { major: 1, minor: 3, patch: 0 });
+        assert_eq!(
+            v13,
+            Version {
+                major: 1,
+                minor: 3,
+                patch: 0
+            }
+        );
     }
 
     #[test]
     fn display_format() {
-        let v = Version { major: 1, minor: 2, patch: 195 };
+        let v = Version {
+            major: 1,
+            minor: 2,
+            patch: 195,
+        };
         assert_eq!(v.to_string(), "1.2.195");
     }
 
     #[test]
     fn ordering() {
-        let v10 = Version { major: 1, minor: 0, patch: 0 };
-        let v12 = Version { major: 1, minor: 2, patch: 0 };
-        let v13 = Version { major: 1, minor: 3, patch: 0 };
+        let v10 = Version {
+            major: 1,
+            minor: 0,
+            patch: 0,
+        };
+        let v12 = Version {
+            major: 1,
+            minor: 2,
+            patch: 0,
+        };
+        let v13 = Version {
+            major: 1,
+            minor: 3,
+            patch: 0,
+        };
         assert!(v10 < v12);
         assert!(v12 < v13);
     }
 
     #[test]
     fn to_raw_known_versions() {
-        let v13 = Version { major: 1, minor: 3, patch: 0 };
+        let v13 = Version {
+            major: 1,
+            minor: 3,
+            patch: 0,
+        };
         assert_eq!(v13.to_raw(), 0x00403000);
     }
 }

@@ -415,7 +415,10 @@ mod tests {
 
     #[test]
     fn flags_alias_bare() {
-        assert_eq!(resolve_flags_alias("BufferCreateFlags"), "BufferCreateFlagBits");
+        assert_eq!(
+            resolve_flags_alias("BufferCreateFlags"),
+            "BufferCreateFlagBits"
+        );
     }
 
     #[test]
@@ -436,7 +439,10 @@ mod tests {
 
     #[test]
     fn flags_alias_noop_for_flagbits() {
-        assert_eq!(resolve_flags_alias("BufferCreateFlagBits"), "BufferCreateFlagBits");
+        assert_eq!(
+            resolve_flags_alias("BufferCreateFlagBits"),
+            "BufferCreateFlagBits"
+        );
     }
 
     #[test]

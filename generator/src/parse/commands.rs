@@ -3,8 +3,8 @@
 use vk_parse::{Command, CommandDefinition, CommandParam, EnumSpec, EnumsChild};
 
 use super::{
-    is_non_vulkan, is_non_vulkan_api, strip_vk, AliasDef, AliasKind, CommandDef, ConstantDef,
-    DispatchLevel, ParamDef, VkRegistry,
+    AliasDef, AliasKind, CommandDef, ConstantDef, DispatchLevel, ParamDef, VkRegistry,
+    is_non_vulkan, is_non_vulkan_api, strip_vk,
 };
 
 pub(super) fn collect_commands(commands: &[Command], reg: &mut VkRegistry) {

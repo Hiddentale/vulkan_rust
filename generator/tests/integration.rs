@@ -23,10 +23,7 @@ fn generator_runs_successfully() {
         .output()
         .expect("failed to launch generator");
     let stderr = String::from_utf8_lossy(&output.stderr);
-    assert!(
-        output.status.success(),
-        "generator failed:\n{stderr}"
-    );
+    assert!(output.status.success(), "generator failed:\n{stderr}");
 }
 
 #[test]
