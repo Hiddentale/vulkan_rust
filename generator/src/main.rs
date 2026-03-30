@@ -1,9 +1,14 @@
+mod emit_aliases;
 mod emit_bitmasks;
+mod emit_builders;
 mod emit_constants;
 mod emit_enums;
 mod emit_handles;
+mod emit_structs;
 #[allow(dead_code)]
 mod parse;
+mod resolve_types;
+mod stype;
 #[allow(dead_code)]
 mod type_map;
 
@@ -33,6 +38,16 @@ fn main() {
         &out_dir,
         "constants.rs",
         emit_constants::emit_constants(&registry),
+    );
+    write_module(
+        &out_dir,
+        "structs.rs",
+        emit_structs::emit_structs(&registry),
+    );
+    write_module(
+        &out_dir,
+        "builders.rs",
+        emit_builders::emit_builders(&registry),
     );
 
     update_lib_rs(&out_dir);
@@ -69,6 +84,8 @@ pub mod handles;
 pub mod enums;
 pub mod bitmasks;
 pub mod constants;
+pub mod structs;
+pub mod builders;
 ";
     let path = out_dir.join("lib.rs");
     fs::write(&path, content).unwrap_or_else(|e| {
