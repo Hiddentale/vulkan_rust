@@ -1,7 +1,10 @@
 use std::sync::Arc;
 
-use crate::error::LoadError;
+use std::ffi::CStr;
+
+use crate::error::{check, LoadError, VkResult};
 use crate::loader::Loader;
+use crate::version::Version;
 use crate::vk;
 use vk::handles::Handle;
 
@@ -80,6 +83,100 @@ impl Entry {
     pub(crate) fn commands(&self) -> &vk::commands::EntryCommands {
         &self.commands
     }
+
+    /// Query the Vulkan instance version supported by the loader.
+    ///
+    /// Requires Vulkan 1.1+. On a 1.0-only system where
+    /// `vkEnumerateInstanceVersion` is unavailable, returns `1.0.0`.
+    pub fn version(&self) -> VkResult<Version> {
+        let fp = match self.commands.enumerate_instance_version {
+            Some(fp) => fp,
+            None => return Ok(Version { major: 1, minor: 0, patch: 0 }),
+        };
+        let mut raw = 0u32;
+        check(unsafe { fp(&mut raw) })?;
+        Ok(Version::from_raw(raw))
+    }
+
+    /// Create a Vulkan instance.
+    ///
+    /// Returns the raw `VkInstance` handle. The `Instance` wrapper is
+    /// introduced in Phase 8.
+    ///
+    /// # Safety
+    ///
+    /// `create_info` must be a valid, fully populated `InstanceCreateInfo`.
+    /// The caller is responsible for destroying the instance with
+    /// `vkDestroyInstance` when done.
+    pub unsafe fn create_instance(
+        &self,
+        create_info: &vk::structs::InstanceCreateInfo,
+        allocator: Option<&vk::structs::AllocationCallbacks>,
+    ) -> VkResult<vk::handles::Instance> {
+        let fp = self.commands.create_instance.expect("vkCreateInstance not loaded");
+        let mut instance = vk::handles::Instance::null();
+        let result = unsafe {
+            fp(
+                create_info,
+                allocator.map_or(std::ptr::null(), |a| a),
+                &mut instance,
+            )
+        };
+        check(result)?;
+        Ok(instance)
+    }
+
+    /// Enumerate available instance layer properties.
+    ///
+    /// # Safety
+    ///
+    /// The Vulkan loader must be in a valid state.
+    pub unsafe fn enumerate_instance_layer_properties(
+        &self,
+    ) -> VkResult<Vec<vk::structs::LayerProperties>> {
+        let fp = self
+            .commands
+            .enumerate_instance_layer_properties
+            .expect("vkEnumerateInstanceLayerProperties not loaded");
+        enumerate_two_call(|count, data| unsafe { fp(count, data) })
+    }
+
+    /// Enumerate available instance extension properties.
+    ///
+    /// Pass `None` for `layer_name` to enumerate extensions provided by the
+    /// loader and implicit layers. Pass a layer name to enumerate extensions
+    /// provided by that layer.
+    ///
+    /// # Safety
+    ///
+    /// If `layer_name` is `Some`, it must name a layer that is present.
+    pub unsafe fn enumerate_instance_extension_properties(
+        &self,
+        layer_name: Option<&CStr>,
+    ) -> VkResult<Vec<vk::structs::ExtensionProperties>> {
+        let fp = self
+            .commands
+            .enumerate_instance_extension_properties
+            .expect("vkEnumerateInstanceExtensionProperties not loaded");
+        let layer_ptr = layer_name.map_or(std::ptr::null(), |n| n.as_ptr());
+        enumerate_two_call(|count, data| unsafe { fp(layer_ptr, count, data) })
+    }
+}
+
+/// Two-call enumerate pattern used by many Vulkan commands.
+///
+/// First call with null data pointer to get the count, allocate, then
+/// call again to fill the buffer.
+fn enumerate_two_call<T>(
+    call: impl Fn(*mut u32, *mut T) -> vk::enums::Result,
+) -> VkResult<Vec<T>> {
+    let mut count = 0u32;
+    check(call(&mut count, std::ptr::null_mut()))?;
+    let mut data = Vec::with_capacity(count as usize);
+    let result = call(&mut count, data.as_mut_ptr());
+    check(result)?;
+    unsafe { data.set_len(count as usize) };
+    Ok(data)
 }
 
 #[cfg(test)]
@@ -114,5 +211,40 @@ mod tests {
         let entry = unsafe { Entry::new(loader) }.expect("failed to create Entry");
         assert!(entry.get_instance_proc_addr().is_some());
         assert!(entry.get_device_proc_addr().is_some());
+    }
+
+    #[test]
+    #[ignore] // requires Vulkan runtime
+    fn version_returns_at_least_1_0() {
+        let entry = create_entry();
+        let version = entry.version().expect("failed to query version");
+        assert!(version.major >= 1);
+        println!("Vulkan {version}");
+    }
+
+    #[test]
+    #[ignore] // requires Vulkan runtime
+    fn enumerate_layer_properties_succeeds() {
+        let entry = create_entry();
+        let layers = unsafe { entry.enumerate_instance_layer_properties() }
+            .expect("failed to enumerate layers");
+        println!("found {} layers", layers.len());
+    }
+
+    #[test]
+    #[ignore] // requires Vulkan runtime
+    fn enumerate_extension_properties_succeeds() {
+        let entry = create_entry();
+        let extensions = unsafe { entry.enumerate_instance_extension_properties(None) }
+            .expect("failed to enumerate extensions");
+        assert!(!extensions.is_empty(), "expected at least one extension");
+        println!("found {} extensions", extensions.len());
+    }
+
+    /// Helper to create an Entry for integration tests.
+    fn create_entry() -> Entry {
+        let loader =
+            crate::loader::LibloadingLoader::new().expect("failed to load Vulkan library");
+        unsafe { Entry::new(loader) }.expect("failed to create Entry")
     }
 }
