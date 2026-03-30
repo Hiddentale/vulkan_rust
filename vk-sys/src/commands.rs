@@ -5272,111 +5272,111 @@ pub type PFN_vkCreateAccelerationStructure2KHR = Option<
         p_acceleration_structure: *mut AccelerationStructureKHR,
     ) -> Result,
 >;
-pub type PFN_vkGetPhysicalDeviceFeatures2KHR = PFN_vkGetPhysicalDeviceFeatures2;
-pub type PFN_vkCmdSetFrontFaceEXT = PFN_vkCmdSetFrontFace;
-pub type PFN_vkDestroySamplerYcbcrConversionKHR = PFN_vkDestroySamplerYcbcrConversion;
-pub type PFN_vkCmdSetDepthBiasEnableEXT = PFN_vkCmdSetDepthBiasEnable;
-pub type PFN_vkResetQueryPoolEXT = PFN_vkResetQueryPool;
-pub type PFN_vkCmdCopyImageToBuffer2KHR = PFN_vkCmdCopyImageToBuffer2;
-pub type PFN_vkCmdSetScissorWithCountEXT = PFN_vkCmdSetScissorWithCount;
-pub type PFN_vkCmdCopyBufferToImage2KHR = PFN_vkCmdCopyBufferToImage2;
-pub type PFN_vkGetImageSubresourceLayout2KHR = PFN_vkGetImageSubresourceLayout2;
-pub type PFN_vkCmdSetCullModeEXT = PFN_vkCmdSetCullMode;
-pub type PFN_vkEnumeratePhysicalDeviceGroupsKHR = PFN_vkEnumeratePhysicalDeviceGroups;
-pub type PFN_vkGetBufferDeviceAddressKHR = PFN_vkGetBufferDeviceAddress;
-pub type PFN_vkBindImageMemory2KHR = PFN_vkBindImageMemory2;
-pub type PFN_vkGetSemaphoreCounterValueKHR = PFN_vkGetSemaphoreCounterValue;
-pub type PFN_vkGetImageMemoryRequirements2KHR = PFN_vkGetImageMemoryRequirements2;
-pub type PFN_vkCmdSetViewportWithCountEXT = PFN_vkCmdSetViewportWithCount;
-pub type PFN_vkCmdResetEvent2KHR = PFN_vkCmdResetEvent2;
-pub type PFN_vkCopyImageToImageEXT = PFN_vkCopyImageToImage;
-pub type PFN_vkGetPhysicalDeviceMemoryProperties2KHR = PFN_vkGetPhysicalDeviceMemoryProperties2;
-pub type PFN_vkCmdSetStencilTestEnableEXT = PFN_vkCmdSetStencilTestEnable;
-pub type PFN_vkCmdSetPrimitiveRestartEnableEXT = PFN_vkCmdSetPrimitiveRestartEnable;
-pub type PFN_vkGetPhysicalDeviceExternalSemaphorePropertiesKHR = PFN_vkGetPhysicalDeviceExternalSemaphoreProperties;
-pub type PFN_vkGetDeviceBufferMemoryRequirementsKHR = PFN_vkGetDeviceBufferMemoryRequirements;
-pub type PFN_vkReleaseSwapchainImagesEXT = PFN_vkReleaseSwapchainImagesKHR;
-pub type PFN_vkCmdPushDescriptorSetWithTemplateKHR = PFN_vkCmdPushDescriptorSetWithTemplate;
-pub type PFN_vkMapMemory2KHR = PFN_vkMapMemory2;
-pub type PFN_vkGetPhysicalDeviceExternalBufferPropertiesKHR = PFN_vkGetPhysicalDeviceExternalBufferProperties;
-pub type PFN_vkCreateRenderPass2KHR = PFN_vkCreateRenderPass2;
-pub type PFN_vkDestroyPrivateDataSlotEXT = PFN_vkDestroyPrivateDataSlot;
-pub type PFN_vkCmdSetRenderingInputAttachmentIndicesKHR = PFN_vkCmdSetRenderingInputAttachmentIndices;
-pub type PFN_vkCmdSetDepthCompareOpEXT = PFN_vkCmdSetDepthCompareOp;
-pub type PFN_vkCmdCopyBuffer2KHR = PFN_vkCmdCopyBuffer2;
-pub type PFN_vkGetPhysicalDeviceCalibrateableTimeDomainsEXT = PFN_vkGetPhysicalDeviceCalibrateableTimeDomainsKHR;
-pub type PFN_vkCmdSetEvent2KHR = PFN_vkCmdSetEvent2;
-pub type PFN_vkCmdEndRenderPass2KHR = PFN_vkCmdEndRenderPass2;
-pub type PFN_vkCreatePrivateDataSlotEXT = PFN_vkCreatePrivateDataSlot;
-pub type PFN_vkTransitionImageLayoutEXT = PFN_vkTransitionImageLayout;
-pub type PFN_vkUnmapMemory2KHR = PFN_vkUnmapMemory2;
-pub type PFN_vkQueueSubmit2KHR = PFN_vkQueueSubmit2;
-pub type PFN_vkGetDeviceImageSubresourceLayoutKHR = PFN_vkGetDeviceImageSubresourceLayout;
-pub type PFN_vkCmdSetLineStippleEXT = PFN_vkCmdSetLineStipple;
-pub type PFN_vkCmdSetDepthWriteEnableEXT = PFN_vkCmdSetDepthWriteEnable;
-pub type PFN_vkGetPhysicalDeviceSparseImageFormatProperties2KHR = PFN_vkGetPhysicalDeviceSparseImageFormatProperties2;
-pub type PFN_vkCmdBeginRenderPass2KHR = PFN_vkCmdBeginRenderPass2;
-pub type PFN_vkCmdNextSubpass2KHR = PFN_vkCmdNextSubpass2;
-pub type PFN_vkCmdSetDepthBoundsTestEnableEXT = PFN_vkCmdSetDepthBoundsTestEnable;
-pub type PFN_vkCmdResolveImage2KHR = PFN_vkCmdResolveImage2;
-pub type PFN_vkGetPhysicalDeviceFormatProperties2KHR = PFN_vkGetPhysicalDeviceFormatProperties2;
-pub type PFN_vkGetDescriptorSetLayoutSupportKHR = PFN_vkGetDescriptorSetLayoutSupport;
-pub type PFN_vkBindBufferMemory2KHR = PFN_vkBindBufferMemory2;
-pub type PFN_vkCmdDrawIndexedIndirectCountAMD = PFN_vkCmdDrawIndexedIndirectCount;
-pub type PFN_vkCmdBindDescriptorSets2KHR = PFN_vkCmdBindDescriptorSets2;
-pub type PFN_vkGetDeviceMemoryOpaqueCaptureAddressKHR = PFN_vkGetDeviceMemoryOpaqueCaptureAddress;
-pub type PFN_vkGetPhysicalDeviceToolPropertiesEXT = PFN_vkGetPhysicalDeviceToolProperties;
-pub type PFN_vkCmdDrawIndirectCountAMD = PFN_vkCmdDrawIndirectCount;
-pub type PFN_vkWaitSemaphoresKHR = PFN_vkWaitSemaphores;
-pub type PFN_vkCreateSamplerYcbcrConversionKHR = PFN_vkCreateSamplerYcbcrConversion;
-pub type PFN_vkCmdBindVertexBuffers2EXT = PFN_vkCmdBindVertexBuffers2;
-pub type PFN_vkCmdWriteTimestamp2KHR = PFN_vkCmdWriteTimestamp2;
-pub type PFN_vkCmdPushDescriptorSetKHR = PFN_vkCmdPushDescriptorSet;
-pub type PFN_vkCmdBlitImage2KHR = PFN_vkCmdBlitImage2;
-pub type PFN_vkCmdSetPrimitiveTopologyEXT = PFN_vkCmdSetPrimitiveTopology;
-pub type PFN_vkCmdSetRasterizerDiscardEnableEXT = PFN_vkCmdSetRasterizerDiscardEnable;
-pub type PFN_vkCmdEndRendering2EXT = PFN_vkCmdEndRendering2KHR;
-pub type PFN_vkCmdPushDescriptorSetWithTemplate2KHR = PFN_vkCmdPushDescriptorSetWithTemplate2;
-pub type PFN_vkCmdDispatchBaseKHR = PFN_vkCmdDispatchBase;
-pub type PFN_vkGetPrivateDataEXT = PFN_vkGetPrivateData;
-pub type PFN_vkCmdEndRenderingKHR = PFN_vkCmdEndRendering;
-pub type PFN_vkCopyImageToMemoryEXT = PFN_vkCopyImageToMemory;
-pub type PFN_vkGetPhysicalDeviceProperties2KHR = PFN_vkGetPhysicalDeviceProperties2;
-pub type PFN_vkGetImageSubresourceLayout2EXT = PFN_vkGetImageSubresourceLayout2;
-pub type PFN_vkCmdWaitEvents2KHR = PFN_vkCmdWaitEvents2;
 pub type PFN_vkCreateDescriptorUpdateTemplateKHR = PFN_vkCreateDescriptorUpdateTemplate;
-pub type PFN_vkGetBufferDeviceAddressEXT = PFN_vkGetBufferDeviceAddress;
-pub type PFN_vkGetRayTracingShaderGroupHandlesNV = PFN_vkGetRayTracingShaderGroupHandlesKHR;
-pub type PFN_vkGetRenderingAreaGranularityKHR = PFN_vkGetRenderingAreaGranularity;
-pub type PFN_vkDestroyDescriptorUpdateTemplateKHR = PFN_vkDestroyDescriptorUpdateTemplate;
-pub type PFN_vkGetDeviceGroupPeerMemoryFeaturesKHR = PFN_vkGetDeviceGroupPeerMemoryFeatures;
-pub type PFN_vkCmdSetStencilOpEXT = PFN_vkCmdSetStencilOp;
-pub type PFN_vkGetDeviceImageSparseMemoryRequirementsKHR = PFN_vkGetDeviceImageSparseMemoryRequirements;
-pub type PFN_vkCmdBeginRenderingKHR = PFN_vkCmdBeginRendering;
-pub type PFN_vkCmdPushConstants2KHR = PFN_vkCmdPushConstants2;
-pub type PFN_vkCmdPushDescriptorSet2KHR = PFN_vkCmdPushDescriptorSet2;
-pub type PFN_vkGetDeviceImageMemoryRequirementsKHR = PFN_vkGetDeviceImageMemoryRequirements;
-pub type PFN_vkGetPhysicalDeviceImageFormatProperties2KHR = PFN_vkGetPhysicalDeviceImageFormatProperties2;
-pub type PFN_vkCmdPipelineBarrier2KHR = PFN_vkCmdPipelineBarrier2;
-pub type PFN_vkGetBufferOpaqueCaptureAddressKHR = PFN_vkGetBufferOpaqueCaptureAddress;
-pub type PFN_vkGetBufferMemoryRequirements2KHR = PFN_vkGetBufferMemoryRequirements2;
-pub type PFN_vkCmdSetDeviceMaskKHR = PFN_vkCmdSetDeviceMask;
-pub type PFN_vkGetCalibratedTimestampsEXT = PFN_vkGetCalibratedTimestampsKHR;
-pub type PFN_vkCopyMemoryToImageEXT = PFN_vkCopyMemoryToImage;
-pub type PFN_vkGetImageSparseMemoryRequirements2KHR = PFN_vkGetImageSparseMemoryRequirements2;
-pub type PFN_vkGetPhysicalDeviceExternalFencePropertiesKHR = PFN_vkGetPhysicalDeviceExternalFenceProperties;
-pub type PFN_vkCmdSetRenderingAttachmentLocationsKHR = PFN_vkCmdSetRenderingAttachmentLocations;
-pub type PFN_vkCmdSetLineStippleKHR = PFN_vkCmdSetLineStipple;
-pub type PFN_vkSignalSemaphoreKHR = PFN_vkSignalSemaphore;
-pub type PFN_vkUpdateDescriptorSetWithTemplateKHR = PFN_vkUpdateDescriptorSetWithTemplate;
-pub type PFN_vkGetPhysicalDeviceQueueFamilyProperties2KHR = PFN_vkGetPhysicalDeviceQueueFamilyProperties2;
-pub type PFN_vkCmdSetDepthTestEnableEXT = PFN_vkCmdSetDepthTestEnable;
-pub type PFN_vkTrimCommandPoolKHR = PFN_vkTrimCommandPool;
-pub type PFN_vkCmdDrawIndirectCountKHR = PFN_vkCmdDrawIndirectCount;
-pub type PFN_vkCmdDrawIndexedIndirectCountKHR = PFN_vkCmdDrawIndexedIndirectCount;
-pub type PFN_vkCmdBindIndexBuffer2KHR = PFN_vkCmdBindIndexBuffer2;
 pub type PFN_vkSetPrivateDataEXT = PFN_vkSetPrivateData;
+pub type PFN_vkCmdSetDepthTestEnableEXT = PFN_vkCmdSetDepthTestEnable;
+pub type PFN_vkSignalSemaphoreKHR = PFN_vkSignalSemaphore;
+pub type PFN_vkGetImageSubresourceLayout2EXT = PFN_vkGetImageSubresourceLayout2;
+pub type PFN_vkCmdPushDescriptorSet2KHR = PFN_vkCmdPushDescriptorSet2;
+pub type PFN_vkCmdPushDescriptorSetWithTemplateKHR = PFN_vkCmdPushDescriptorSetWithTemplate;
+pub type PFN_vkCmdPipelineBarrier2KHR = PFN_vkCmdPipelineBarrier2;
+pub type PFN_vkDestroyPrivateDataSlotEXT = PFN_vkDestroyPrivateDataSlot;
+pub type PFN_vkGetPhysicalDeviceSparseImageFormatProperties2KHR = PFN_vkGetPhysicalDeviceSparseImageFormatProperties2;
+pub type PFN_vkCopyImageToMemoryEXT = PFN_vkCopyImageToMemory;
+pub type PFN_vkCmdSetCullModeEXT = PFN_vkCmdSetCullMode;
+pub type PFN_vkCmdSetEvent2KHR = PFN_vkCmdSetEvent2;
+pub type PFN_vkGetDeviceMemoryOpaqueCaptureAddressKHR = PFN_vkGetDeviceMemoryOpaqueCaptureAddress;
+pub type PFN_vkCmdPushDescriptorSetWithTemplate2KHR = PFN_vkCmdPushDescriptorSetWithTemplate2;
+pub type PFN_vkCmdSetDepthBoundsTestEnableEXT = PFN_vkCmdSetDepthBoundsTestEnable;
+pub type PFN_vkCmdBindIndexBuffer2KHR = PFN_vkCmdBindIndexBuffer2;
+pub type PFN_vkGetPhysicalDeviceExternalFencePropertiesKHR = PFN_vkGetPhysicalDeviceExternalFenceProperties;
+pub type PFN_vkQueueSubmit2KHR = PFN_vkQueueSubmit2;
+pub type PFN_vkResetQueryPoolEXT = PFN_vkResetQueryPool;
+pub type PFN_vkGetPhysicalDeviceFormatProperties2KHR = PFN_vkGetPhysicalDeviceFormatProperties2;
+pub type PFN_vkUnmapMemory2KHR = PFN_vkUnmapMemory2;
+pub type PFN_vkCmdSetDeviceMaskKHR = PFN_vkCmdSetDeviceMask;
+pub type PFN_vkGetRenderingAreaGranularityKHR = PFN_vkGetRenderingAreaGranularity;
+pub type PFN_vkBindBufferMemory2KHR = PFN_vkBindBufferMemory2;
+pub type PFN_vkCmdCopyBuffer2KHR = PFN_vkCmdCopyBuffer2;
+pub type PFN_vkTransitionImageLayoutEXT = PFN_vkTransitionImageLayout;
+pub type PFN_vkReleaseSwapchainImagesEXT = PFN_vkReleaseSwapchainImagesKHR;
+pub type PFN_vkGetImageMemoryRequirements2KHR = PFN_vkGetImageMemoryRequirements2;
+pub type PFN_vkCreatePrivateDataSlotEXT = PFN_vkCreatePrivateDataSlot;
+pub type PFN_vkCmdWriteTimestamp2KHR = PFN_vkCmdWriteTimestamp2;
+pub type PFN_vkCmdNextSubpass2KHR = PFN_vkCmdNextSubpass2;
+pub type PFN_vkCopyImageToImageEXT = PFN_vkCopyImageToImage;
+pub type PFN_vkCmdSetLineStippleKHR = PFN_vkCmdSetLineStipple;
+pub type PFN_vkCmdSetRenderingAttachmentLocationsKHR = PFN_vkCmdSetRenderingAttachmentLocations;
+pub type PFN_vkCmdSetRasterizerDiscardEnableEXT = PFN_vkCmdSetRasterizerDiscardEnable;
+pub type PFN_vkCmdEndRenderingKHR = PFN_vkCmdEndRendering;
+pub type PFN_vkCmdSetLineStippleEXT = PFN_vkCmdSetLineStipple;
+pub type PFN_vkCmdSetScissorWithCountEXT = PFN_vkCmdSetScissorWithCount;
+pub type PFN_vkCmdWaitEvents2KHR = PFN_vkCmdWaitEvents2;
+pub type PFN_vkCmdPushDescriptorSetKHR = PFN_vkCmdPushDescriptorSet;
+pub type PFN_vkCmdPushConstants2KHR = PFN_vkCmdPushConstants2;
+pub type PFN_vkTrimCommandPoolKHR = PFN_vkTrimCommandPool;
+pub type PFN_vkGetDeviceBufferMemoryRequirementsKHR = PFN_vkGetDeviceBufferMemoryRequirements;
+pub type PFN_vkDestroyDescriptorUpdateTemplateKHR = PFN_vkDestroyDescriptorUpdateTemplate;
+pub type PFN_vkCmdSetDepthCompareOpEXT = PFN_vkCmdSetDepthCompareOp;
+pub type PFN_vkCmdSetDepthBiasEnableEXT = PFN_vkCmdSetDepthBiasEnable;
+pub type PFN_vkDestroySamplerYcbcrConversionKHR = PFN_vkDestroySamplerYcbcrConversion;
+pub type PFN_vkCmdDrawIndexedIndirectCountKHR = PFN_vkCmdDrawIndexedIndirectCount;
+pub type PFN_vkGetPhysicalDeviceExternalSemaphorePropertiesKHR = PFN_vkGetPhysicalDeviceExternalSemaphoreProperties;
 pub type PFN_vkCmdCopyImage2KHR = PFN_vkCmdCopyImage2;
+pub type PFN_vkCmdCopyBufferToImage2KHR = PFN_vkCmdCopyBufferToImage2;
+pub type PFN_vkGetBufferMemoryRequirements2KHR = PFN_vkGetBufferMemoryRequirements2;
+pub type PFN_vkGetDeviceImageSparseMemoryRequirementsKHR = PFN_vkGetDeviceImageSparseMemoryRequirements;
+pub type PFN_vkBindImageMemory2KHR = PFN_vkBindImageMemory2;
+pub type PFN_vkCmdSetPrimitiveRestartEnableEXT = PFN_vkCmdSetPrimitiveRestartEnable;
+pub type PFN_vkGetPrivateDataEXT = PFN_vkGetPrivateData;
+pub type PFN_vkCreateSamplerYcbcrConversionKHR = PFN_vkCreateSamplerYcbcrConversion;
+pub type PFN_vkGetPhysicalDeviceImageFormatProperties2KHR = PFN_vkGetPhysicalDeviceImageFormatProperties2;
+pub type PFN_vkCmdBindDescriptorSets2KHR = PFN_vkCmdBindDescriptorSets2;
+pub type PFN_vkGetBufferDeviceAddressKHR = PFN_vkGetBufferDeviceAddress;
+pub type PFN_vkEnumeratePhysicalDeviceGroupsKHR = PFN_vkEnumeratePhysicalDeviceGroups;
+pub type PFN_vkGetDeviceImageMemoryRequirementsKHR = PFN_vkGetDeviceImageMemoryRequirements;
+pub type PFN_vkCmdDrawIndirectCountKHR = PFN_vkCmdDrawIndirectCount;
+pub type PFN_vkGetDescriptorSetLayoutSupportKHR = PFN_vkGetDescriptorSetLayoutSupport;
+pub type PFN_vkCmdDrawIndexedIndirectCountAMD = PFN_vkCmdDrawIndexedIndirectCount;
+pub type PFN_vkGetDeviceGroupPeerMemoryFeaturesKHR = PFN_vkGetDeviceGroupPeerMemoryFeatures;
+pub type PFN_vkCopyMemoryToImageEXT = PFN_vkCopyMemoryToImage;
+pub type PFN_vkCmdSetStencilTestEnableEXT = PFN_vkCmdSetStencilTestEnable;
+pub type PFN_vkCmdBeginRenderPass2KHR = PFN_vkCmdBeginRenderPass2;
+pub type PFN_vkCmdBeginRenderingKHR = PFN_vkCmdBeginRendering;
+pub type PFN_vkGetPhysicalDeviceExternalBufferPropertiesKHR = PFN_vkGetPhysicalDeviceExternalBufferProperties;
+pub type PFN_vkGetCalibratedTimestampsEXT = PFN_vkGetCalibratedTimestampsKHR;
+pub type PFN_vkWaitSemaphoresKHR = PFN_vkWaitSemaphores;
+pub type PFN_vkUpdateDescriptorSetWithTemplateKHR = PFN_vkUpdateDescriptorSetWithTemplate;
+pub type PFN_vkCmdEndRenderPass2KHR = PFN_vkCmdEndRenderPass2;
+pub type PFN_vkGetBufferDeviceAddressEXT = PFN_vkGetBufferDeviceAddress;
+pub type PFN_vkCmdSetDepthWriteEnableEXT = PFN_vkCmdSetDepthWriteEnable;
+pub type PFN_vkCmdDispatchBaseKHR = PFN_vkCmdDispatchBase;
+pub type PFN_vkGetDeviceImageSubresourceLayoutKHR = PFN_vkGetDeviceImageSubresourceLayout;
+pub type PFN_vkMapMemory2KHR = PFN_vkMapMemory2;
+pub type PFN_vkCmdResetEvent2KHR = PFN_vkCmdResetEvent2;
+pub type PFN_vkCmdSetRenderingInputAttachmentIndicesKHR = PFN_vkCmdSetRenderingInputAttachmentIndices;
+pub type PFN_vkGetRayTracingShaderGroupHandlesNV = PFN_vkGetRayTracingShaderGroupHandlesKHR;
+pub type PFN_vkGetPhysicalDeviceMemoryProperties2KHR = PFN_vkGetPhysicalDeviceMemoryProperties2;
+pub type PFN_vkCreateRenderPass2KHR = PFN_vkCreateRenderPass2;
+pub type PFN_vkCmdDrawIndirectCountAMD = PFN_vkCmdDrawIndirectCount;
+pub type PFN_vkGetImageSubresourceLayout2KHR = PFN_vkGetImageSubresourceLayout2;
+pub type PFN_vkGetPhysicalDeviceToolPropertiesEXT = PFN_vkGetPhysicalDeviceToolProperties;
+pub type PFN_vkGetPhysicalDeviceCalibrateableTimeDomainsEXT = PFN_vkGetPhysicalDeviceCalibrateableTimeDomainsKHR;
+pub type PFN_vkCmdBlitImage2KHR = PFN_vkCmdBlitImage2;
+pub type PFN_vkGetPhysicalDeviceFeatures2KHR = PFN_vkGetPhysicalDeviceFeatures2;
+pub type PFN_vkGetBufferOpaqueCaptureAddressKHR = PFN_vkGetBufferOpaqueCaptureAddress;
+pub type PFN_vkGetPhysicalDeviceProperties2KHR = PFN_vkGetPhysicalDeviceProperties2;
+pub type PFN_vkGetImageSparseMemoryRequirements2KHR = PFN_vkGetImageSparseMemoryRequirements2;
+pub type PFN_vkCmdCopyImageToBuffer2KHR = PFN_vkCmdCopyImageToBuffer2;
+pub type PFN_vkCmdResolveImage2KHR = PFN_vkCmdResolveImage2;
+pub type PFN_vkCmdSetStencilOpEXT = PFN_vkCmdSetStencilOp;
+pub type PFN_vkCmdSetFrontFaceEXT = PFN_vkCmdSetFrontFace;
+pub type PFN_vkGetSemaphoreCounterValueKHR = PFN_vkGetSemaphoreCounterValue;
+pub type PFN_vkCmdEndRendering2EXT = PFN_vkCmdEndRendering2KHR;
+pub type PFN_vkCmdSetPrimitiveTopologyEXT = PFN_vkCmdSetPrimitiveTopology;
+pub type PFN_vkCmdBindVertexBuffers2EXT = PFN_vkCmdBindVertexBuffers2;
+pub type PFN_vkGetPhysicalDeviceQueueFamilyProperties2KHR = PFN_vkGetPhysicalDeviceQueueFamilyProperties2;
+pub type PFN_vkCmdSetViewportWithCountEXT = PFN_vkCmdSetViewportWithCount;
 pub struct EntryCommands {
     pub create_instance: PFN_vkCreateInstance,
     pub enumerate_instance_version: PFN_vkEnumerateInstanceVersion,
@@ -8889,7 +8889,7 @@ impl DeviceCommands {
                 cmd.cmd_draw_indirect_count = std::mem::transmute(
                     f(
                         std::ffi::CStr::from_bytes_with_nul_unchecked(
-                            b"vkCmdDrawIndirectCountAMD\0",
+                            b"vkCmdDrawIndirectCountKHR\0",
                         ),
                     ),
                 );
@@ -8898,7 +8898,7 @@ impl DeviceCommands {
                 cmd.cmd_draw_indirect_count = std::mem::transmute(
                     f(
                         std::ffi::CStr::from_bytes_with_nul_unchecked(
-                            b"vkCmdDrawIndirectCountKHR\0",
+                            b"vkCmdDrawIndirectCountAMD\0",
                         ),
                     ),
                 );
@@ -8914,7 +8914,7 @@ impl DeviceCommands {
                 cmd.cmd_draw_indexed_indirect_count = std::mem::transmute(
                     f(
                         std::ffi::CStr::from_bytes_with_nul_unchecked(
-                            b"vkCmdDrawIndexedIndirectCountAMD\0",
+                            b"vkCmdDrawIndexedIndirectCountKHR\0",
                         ),
                     ),
                 );
@@ -8923,7 +8923,7 @@ impl DeviceCommands {
                 cmd.cmd_draw_indexed_indirect_count = std::mem::transmute(
                     f(
                         std::ffi::CStr::from_bytes_with_nul_unchecked(
-                            b"vkCmdDrawIndexedIndirectCountKHR\0",
+                            b"vkCmdDrawIndexedIndirectCountAMD\0",
                         ),
                     ),
                 );
@@ -9508,7 +9508,7 @@ impl DeviceCommands {
                 cmd.cmd_set_line_stipple = std::mem::transmute(
                     f(
                         std::ffi::CStr::from_bytes_with_nul_unchecked(
-                            b"vkCmdSetLineStippleEXT\0",
+                            b"vkCmdSetLineStippleKHR\0",
                         ),
                     ),
                 );
@@ -9517,7 +9517,7 @@ impl DeviceCommands {
                 cmd.cmd_set_line_stipple = std::mem::transmute(
                     f(
                         std::ffi::CStr::from_bytes_with_nul_unchecked(
-                            b"vkCmdSetLineStippleKHR\0",
+                            b"vkCmdSetLineStippleEXT\0",
                         ),
                     ),
                 );
@@ -10938,7 +10938,7 @@ impl DeviceCommands {
                 cmd.get_image_subresource_layout2 = std::mem::transmute(
                     f(
                         std::ffi::CStr::from_bytes_with_nul_unchecked(
-                            b"vkGetImageSubresourceLayout2KHR\0",
+                            b"vkGetImageSubresourceLayout2EXT\0",
                         ),
                     ),
                 );
@@ -10947,7 +10947,7 @@ impl DeviceCommands {
                 cmd.get_image_subresource_layout2 = std::mem::transmute(
                     f(
                         std::ffi::CStr::from_bytes_with_nul_unchecked(
-                            b"vkGetImageSubresourceLayout2EXT\0",
+                            b"vkGetImageSubresourceLayout2KHR\0",
                         ),
                     ),
                 );

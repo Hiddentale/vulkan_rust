@@ -114,7 +114,7 @@ pub fn emit_func_pointer_stubs(registry: &VkRegistry) -> TokenStream {
     quote! { #(#stubs)* }
 }
 
-/// Emit opaque stubs for StdVideo* types from Vulkan video codec headers.
+/// Emit opaque stubs for StdVideo* types referenced by struct members.
 pub fn emit_stdvideo_stubs(registry: &VkRegistry) -> TokenStream {
     let mut names: BTreeSet<String> = BTreeSet::new();
     for s in &registry.structs {
@@ -140,4 +140,190 @@ pub fn emit_stdvideo_stubs(registry: &VkRegistry) -> TokenStream {
         })
         .collect();
     quote! { #(#stubs)* }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::parse::*;
+    use std::collections::HashMap;
+
+    fn empty_registry() -> VkRegistry {
+        VkRegistry {
+            handles: vec![],
+            structs: vec![],
+            enums: vec![],
+            bitmasks: vec![],
+            commands: vec![],
+            constants: vec![],
+            func_pointers: vec![],
+            extensions: vec![],
+            platforms: vec![],
+            aliases: HashMap::new(),
+            base_types: HashMap::new(),
+        }
+    }
+
+    fn make_member(name: &str, type_name: &str) -> MemberDef {
+        MemberDef {
+            name: name.to_string(),
+            type_name: type_name.to_string(),
+            is_pointer: false,
+            is_const: false,
+            is_double_pointer: false,
+            array_size: None,
+            optional: false,
+            values: None,
+            len: None,
+            extern_sync: None,
+        }
+    }
+
+    fn make_param(name: &str, type_name: &str) -> ParamDef {
+        ParamDef {
+            name: name.to_string(),
+            type_name: type_name.to_string(),
+            is_pointer: false,
+            is_const: false,
+            is_double_pointer: false,
+            array_size: None,
+            optional: false,
+            len: None,
+            extern_sync: None,
+        }
+    }
+
+    #[test]
+    fn flags_alias_from_bitmask() {
+        let mut reg = empty_registry();
+        reg.bitmasks.push(BitmaskDef {
+            name: "BufferCreateFlagBits".to_string(),
+            flags_name: "BufferCreateFlags".to_string(),
+            bitwidth: 32,
+            bits: vec![],
+        });
+        let code = emit_flags_aliases(&reg).to_string();
+        assert!(code.contains("BufferCreateFlags"));
+        assert!(code.contains("BufferCreateFlagBits"));
+    }
+
+    #[test]
+    fn flags_alias_skips_struct_name_conflict() {
+        let mut reg = empty_registry();
+        reg.bitmasks.push(BitmaskDef {
+            name: "FooFlagBits".to_string(),
+            flags_name: "FooFlags".to_string(),
+            bitwidth: 32,
+            bits: vec![],
+        });
+        reg.structs.push(StructDef {
+            name: "FooFlags".to_string(),
+            members: vec![],
+            extends: vec![],
+            returned_only: false,
+            is_union: false,
+            provided_by: None,
+        });
+        let code = emit_flags_aliases(&reg).to_string();
+        assert!(
+            !code.contains("FooFlags"),
+            "should skip alias when struct with same name exists"
+        );
+    }
+
+    #[test]
+    fn flags_alias_falls_back_to_u32_when_no_bitmask() {
+        let mut reg = empty_registry();
+        reg.structs.push(StructDef {
+            name: "Test".to_string(),
+            members: vec![make_member("flags", "VkDescriptorPoolResetFlags")],
+            extends: vec![],
+            returned_only: false,
+            is_union: false,
+            provided_by: None,
+        });
+        let code = emit_flags_aliases(&reg).to_string();
+        assert!(code.contains("DescriptorPoolResetFlags"));
+        assert!(code.contains("u32"), "should fall back to u32");
+    }
+
+    #[test]
+    fn flags_alias_scans_command_params() {
+        let mut reg = empty_registry();
+        reg.commands.push(CommandDef {
+            name: "vkTrimCommandPool".to_string(),
+            return_type: "void".to_string(),
+            params: vec![make_param("flags", "VkCommandPoolTrimFlags")],
+            success_codes: vec![],
+            error_codes: vec![],
+            dispatch_level: DispatchLevel::Device,
+            provided_by: None,
+        });
+        let code = emit_flags_aliases(&reg).to_string();
+        assert!(
+            code.contains("CommandPoolTrimFlags"),
+            "should emit alias for flags type only referenced by command param"
+        );
+    }
+
+    #[test]
+    fn type_alias_skips_self_referential() {
+        let mut reg = empty_registry();
+        reg.aliases.insert("Foo".to_string(), "Foo".to_string());
+        let code = emit_type_aliases(&reg).to_string();
+        assert!(code.is_empty());
+    }
+
+    #[test]
+    fn type_alias_skips_flags() {
+        let mut reg = empty_registry();
+        reg.aliases
+            .insert("ImageUsageFlags".to_string(), "ImageUsageFlagBits".to_string());
+        let code = emit_type_aliases(&reg).to_string();
+        assert!(!code.contains("ImageUsageFlags"));
+    }
+
+    #[test]
+    fn type_alias_emits_promoted_type() {
+        let mut reg = empty_registry();
+        reg.aliases.insert(
+            "RenderPassCreateInfo2KHR".to_string(),
+            "RenderPassCreateInfo2".to_string(),
+        );
+        let code = emit_type_aliases(&reg).to_string();
+        assert!(code.contains("RenderPassCreateInfo2KHR"));
+        assert!(code.contains("RenderPassCreateInfo2"));
+    }
+
+    #[test]
+    fn stdvideo_stub_emits_opaque_struct() {
+        let mut reg = empty_registry();
+        reg.structs.push(StructDef {
+            name: "VideoDecodeInfoKHR".to_string(),
+            members: vec![make_member("pSlot", "StdVideoDecodeH264PictureInfo")],
+            extends: vec![],
+            returned_only: false,
+            is_union: false,
+            provided_by: None,
+        });
+        let code = emit_stdvideo_stubs(&reg).to_string();
+        assert!(code.contains("StdVideoDecodeH264PictureInfo"));
+        assert!(code.contains("repr (C)"));
+        assert!(code.contains("_opaque"));
+    }
+
+    #[test]
+    fn func_pointer_stub_emits_option_fn() {
+        let mut reg = empty_registry();
+        reg.func_pointers.push(FuncPointerDef {
+            name: "PFN_vkAllocationFunction".to_string(),
+            return_type: "void*".to_string(),
+            is_return_pointer: true,
+            params: vec![],
+        });
+        let code = emit_func_pointer_stubs(&reg).to_string();
+        assert!(code.contains("PFN_vkAllocationFunction"));
+        assert!(code.contains("Option"));
+        assert!(code.contains("extern \"system\""));
+    }
 }

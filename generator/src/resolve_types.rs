@@ -410,4 +410,53 @@ mod tests {
         let ty = resolve_return_type("VkBool32").unwrap();
         assert_eq!(ty.to_string(), "u32");
     }
+
+    // --- Flags alias resolution tests ---
+
+    #[test]
+    fn flags_alias_bare() {
+        assert_eq!(resolve_flags_alias("BufferCreateFlags"), "BufferCreateFlagBits");
+    }
+
+    #[test]
+    fn flags_alias_extension_suffixed() {
+        assert_eq!(
+            resolve_flags_alias("SwapchainCreateFlagsKHR"),
+            "SwapchainCreateFlagBitsKHR"
+        );
+    }
+
+    #[test]
+    fn flags_alias_versioned() {
+        assert_eq!(
+            resolve_flags_alias("PipelineCreateFlags2KHR"),
+            "PipelineCreateFlagBits2KHR"
+        );
+    }
+
+    #[test]
+    fn flags_alias_noop_for_flagbits() {
+        assert_eq!(resolve_flags_alias("BufferCreateFlagBits"), "BufferCreateFlagBits");
+    }
+
+    #[test]
+    fn flags_alias_noop_for_unrelated() {
+        assert_eq!(resolve_flags_alias("SomeRandomType"), "SomeRandomType");
+    }
+
+    #[test]
+    fn flags_alias_ext_suffix() {
+        assert_eq!(
+            resolve_flags_alias("DebugUtilsMessageTypeFlagsEXT"),
+            "DebugUtilsMessageTypeFlagBitsEXT"
+        );
+    }
+
+    #[test]
+    fn flags_alias_nv_suffix() {
+        assert_eq!(
+            resolve_flags_alias("ExternalMemoryHandleTypeFlagsNV"),
+            "ExternalMemoryHandleTypeFlagBitsNV"
+        );
+    }
 }
