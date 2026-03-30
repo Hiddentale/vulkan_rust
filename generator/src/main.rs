@@ -13,6 +13,7 @@ mod stype;
 #[allow(dead_code)]
 mod type_map;
 mod validate;
+mod wrapper_utils;
 
 use std::fs;
 use std::path::Path;
