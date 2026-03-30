@@ -101,12 +101,12 @@ pub fn classify_params(cmd: &CommandDef, pnext_structs: &HashSet<String>) -> Vec
 
     // Step 1: Mark self-handle (only if the first param is an exact match for
     // the dispatch level's handle type, and is passed by value).
-    if let Some(handle_type) = self_handle_type(cmd.dispatch_level) {
-        if let Some(first) = params.first() {
-            if first.type_name == handle_type && !first.is_pointer {
-                roles[0] = ParamRole::SelfHandle;
-            }
-        }
+    if let Some(handle_type) = self_handle_type(cmd.dispatch_level)
+        && let Some(first) = params.first()
+        && first.type_name == handle_type
+        && !first.is_pointer
+    {
+        roles[0] = ParamRole::SelfHandle;
     }
 
     // Build name → index map for resolving `len` references.
@@ -214,10 +214,8 @@ pub fn classify_params(cmd: &CommandDef, pnext_structs: &HashSet<String>) -> Vec
     let has_output_pair = roles
         .iter()
         .any(|r| matches!(r, ParamRole::OutputArray { .. }));
-    if !has_output_pair {
-        if let Some(idx) = find_single_output(params, &roles, pnext_structs) {
-            roles[idx] = ParamRole::Output;
-        }
+    if !has_output_pair && let Some(idx) = find_single_output(params, &roles, pnext_structs) {
+        roles[idx] = ParamRole::Output;
     }
 
     roles
@@ -516,10 +514,7 @@ mod tests {
             DispatchLevel::Instance,
         );
         let roles = classify_params(&c, &empty_pnext());
-        assert_eq!(
-            roles,
-            vec![ParamRole::Regular, ParamRole::Output,]
-        );
+        assert_eq!(roles, vec![ParamRole::Regular, ParamRole::Output,]);
     }
 
     #[test]
@@ -919,11 +914,7 @@ mod tests {
                 param("device", "VkDevice"),
                 param("commandPool", "VkCommandPool"),
                 param("commandBufferCount", "uint32_t"),
-                const_ptr_with_len(
-                    "pCommandBuffers",
-                    "VkCommandBuffer",
-                    "commandBufferCount",
-                ),
+                const_ptr_with_len("pCommandBuffers", "VkCommandBuffer", "commandBufferCount"),
             ],
             DispatchLevel::Device,
         );

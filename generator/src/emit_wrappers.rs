@@ -13,7 +13,7 @@ use quote::{format_ident, quote};
 use crate::parse::{CommandDef, DispatchLevel, ParamDef, VkRegistry};
 use crate::resolve_types::{is_rust_keyword, resolve_base_type, resolve_param_type};
 use crate::wrapper_utils::{
-    build_pnext_struct_set, classify_command, classify_params, CommandPattern, ParamRole,
+    CommandPattern, ParamRole, build_pnext_struct_set, classify_command, classify_params,
 };
 
 // ---------------------------------------------------------------------------
@@ -26,12 +26,24 @@ pub fn emit_wrappers(registry: &VkRegistry) -> (TokenStream, TokenStream, TokenS
     let pnext = build_pnext_struct_set(registry);
     let exclusions = exclusion_set();
 
-    let (entry_methods, ec) =
-        emit_methods(DispatchLevel::Entry, &registry.commands, &pnext, &exclusions);
-    let (instance_methods, ic) =
-        emit_methods(DispatchLevel::Instance, &registry.commands, &pnext, &exclusions);
-    let (device_methods, dc) =
-        emit_methods(DispatchLevel::Device, &registry.commands, &pnext, &exclusions);
+    let (entry_methods, ec) = emit_methods(
+        DispatchLevel::Entry,
+        &registry.commands,
+        &pnext,
+        &exclusions,
+    );
+    let (instance_methods, ic) = emit_methods(
+        DispatchLevel::Instance,
+        &registry.commands,
+        &pnext,
+        &exclusions,
+    );
+    let (device_methods, dc) = emit_methods(
+        DispatchLevel::Device,
+        &registry.commands,
+        &pnext,
+        &exclusions,
+    );
 
     println!("\n=== wrappers ===");
     println!("  entry methods:    {ec}");
@@ -47,8 +59,8 @@ pub fn emit_wrappers(registry: &VkRegistry) -> (TokenStream, TokenStream, TokenS
 
 /// Count how many wrapper methods would be generated per dispatch level.
 /// Used by tests to catch regressions where commands silently get dropped.
-pub fn wrapper_counts(registry: &VkRegistry) -> (usize, usize, usize) {
-    let pnext = build_pnext_struct_set(registry);
+#[cfg(test)]
+fn wrapper_counts(registry: &VkRegistry) -> (usize, usize, usize) {
     let exclusions = exclusion_set();
 
     let count = |level: DispatchLevel| -> usize {
@@ -211,7 +223,10 @@ fn emit_signature_param(param: &ParamDef, role: &ParamRole) -> Option<TokenStrea
 /// `*const VkFoo` → `&Foo` (or `Option<&Foo>` when optional).
 /// Everything else passes through as the raw resolved C type.
 fn wrapper_param_type(param: &ParamDef) -> TokenStream {
-    if param.is_pointer && param.is_const && !param.is_double_pointer && is_vk_type(&param.type_name)
+    if param.is_pointer
+        && param.is_const
+        && !param.is_double_pointer
+        && is_vk_type(&param.type_name)
     {
         let base = resolve_base_type(&param.type_name);
         if param.optional {
@@ -923,8 +938,12 @@ mod tests {
 
         let (entry_methods, ec) =
             emit_methods(DispatchLevel::Entry, &commands, &empty_pnext(), &exclusions);
-        let (instance_methods, ic) =
-            emit_methods(DispatchLevel::Instance, &commands, &empty_pnext(), &exclusions);
+        let (instance_methods, ic) = emit_methods(
+            DispatchLevel::Instance,
+            &commands,
+            &empty_pnext(),
+            &exclusions,
+        );
 
         assert_eq!(ec, 0); // vkCreateInstance is excluded
         assert_eq!(ic, 1); // vkDestroyInstance is NOT excluded
@@ -1027,7 +1046,10 @@ mod tests {
 
         // Instance: ~109 total minus ~7 excluded = ~99-105
         assert!(instance >= 80, "instance methods too low: {instance}");
-        assert!(instance <= 130, "instance methods unexpectedly high: {instance}");
+        assert!(
+            instance <= 130,
+            "instance methods unexpectedly high: {instance}"
+        );
 
         // Device: ~628 total minus ~0 excluded = ~620-640
         assert!(device >= 550, "device methods too low: {device}");

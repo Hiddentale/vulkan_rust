@@ -6,13 +6,13 @@ mod emit_constants;
 mod emit_enums;
 mod emit_handles;
 mod emit_structs;
+mod emit_wrappers;
 #[allow(dead_code)]
 mod parse;
 mod resolve_types;
 mod stype;
 #[allow(dead_code)]
 mod type_map;
-mod emit_wrappers;
 mod validate;
 mod wrapper_utils;
 
@@ -72,11 +72,7 @@ fn main() {
         emit_wrappers::emit_wrappers(&registry);
 
     write_module(&engine_dir, "entry_wrappers.rs", entry_wrappers);
-    write_module(
-        &engine_dir,
-        "instance_wrappers.rs",
-        instance_wrappers,
-    );
+    write_module(&engine_dir, "instance_wrappers.rs", instance_wrappers);
     write_module(&engine_dir, "device_wrappers.rs", device_wrappers);
     write_engine_mod_rs(&engine_dir);
 

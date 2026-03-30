@@ -76,7 +76,6 @@ impl Device {
     pub fn commands(&self) -> &vk::commands::DeviceCommands {
         &self.commands
     }
-
 }
 
 #[cfg(test)]
