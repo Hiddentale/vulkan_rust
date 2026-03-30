@@ -12,6 +12,7 @@ mod resolve_types;
 mod stype;
 #[allow(dead_code)]
 mod type_map;
+mod validate;
 
 use std::fs;
 use std::path::Path;
@@ -21,6 +22,7 @@ fn main() {
     let registry = parse::parse_registry(&vk_xml);
 
     print_summary(&registry);
+    validate::check_type_completeness(&registry);
 
     let out_dir = Path::new(env!("CARGO_MANIFEST_DIR")).join("../vk-sys/src");
 
@@ -143,5 +145,11 @@ fn print_summary(registry: &parse::VkRegistry) {
     println!("  funcpointers:  {}", registry.func_pointers.len());
     println!("  extensions:    {}", registry.extensions.len());
     println!("  platforms:     {}", registry.platforms.len());
-    println!("  aliases:       {}", registry.aliases.len());
+    println!(
+        "  aliases:       {} (type={}, command={}, bitmask={})",
+        registry.aliases.len(),
+        registry.aliases.iter().filter(|a| a.kind == parse::AliasKind::Type).count(),
+        registry.aliases.iter().filter(|a| a.kind == parse::AliasKind::Command).count(),
+        registry.aliases.iter().filter(|a| a.kind == parse::AliasKind::Bitmask).count(),
+    );
 }

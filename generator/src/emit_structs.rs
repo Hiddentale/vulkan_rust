@@ -350,7 +350,7 @@ mod tests {
             func_pointers: vec![],
             extensions: vec![],
             platforms: vec![],
-            aliases: std::collections::HashMap::new(),
+            aliases: vec![],
             base_types: std::collections::HashMap::new(),
         }
     }

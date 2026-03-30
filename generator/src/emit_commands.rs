@@ -17,7 +17,7 @@ pub fn emit_commands(registry: &VkRegistry) -> TokenStream {
     let alias_map = build_reverse_alias_map(registry);
 
     let pfn_typedefs = emit_pfn_typedefs(&registry.commands);
-    let pfn_aliases = emit_pfn_aliases(&registry.aliases, &registry.commands);
+    let pfn_aliases = emit_pfn_aliases(&registry.aliases);
 
     let deduped = dedup_commands(&registry.commands);
     let entry_cmds: Vec<&CommandDef> = deduped
@@ -102,26 +102,16 @@ fn emit_pfn_params(params: &[ParamDef]) -> TokenStream {
 }
 
 /// Emit `pub type PFN_vkFooKHR = PFN_vkFoo;` for aliased commands.
-fn emit_pfn_aliases(
-    aliases: &HashMap<String, String>,
-    commands: &[CommandDef],
-) -> TokenStream {
-    // Only emit PFN aliases for actual command names, not type/enum aliases.
-    let command_names: std::collections::HashSet<&str> =
-        commands.iter().map(|c| c.name.as_str()).collect();
+fn emit_pfn_aliases(aliases: &[crate::parse::AliasDef]) -> TokenStream {
+    use crate::parse::AliasKind;
     let items: Vec<TokenStream> = aliases
         .iter()
-        .filter_map(|(alias_name, canonical_name)| {
-            if alias_name == canonical_name {
-                return None;
-            }
-            if !command_names.contains(canonical_name.as_str()) {
-                return None;
-            }
-            // Alias names already have the `vk` prefix (strip_vk only strips `Vk`).
-            let alias_pfn = format_ident!("PFN_{}", alias_name);
-            let canonical_pfn = format_ident!("PFN_{}", canonical_name);
-            Some(quote! { pub type #alias_pfn = #canonical_pfn; })
+        .filter(|a| a.kind == AliasKind::Command)
+        .map(|a| {
+            // Command alias names have the `vk` prefix (strip_vk only strips `Vk`).
+            let alias_pfn = format_ident!("PFN_{}", &a.name);
+            let canonical_pfn = format_ident!("PFN_{}", &a.target);
+            quote! { pub type #alias_pfn = #canonical_pfn; }
         })
         .collect();
     quote! { #(#items)* }
@@ -246,21 +236,16 @@ fn dedup_commands(commands: &[CommandDef]) -> Vec<&CommandDef> {
 }
 
 /// Build a reverse alias map: canonical command name → list of alias names.
-/// The registry stores alias→canonical; we need canonical→[aliases] for fallback loading.
-///
-/// Note: `strip_vk` strips the `Vk` prefix (not `vk`), so command aliases in
-/// `registry.aliases` still have their lowercase `vk` prefix (e.g.
-/// `"vkCreateRenderPass2KHR" → "vkCreateRenderPass2"`).
+/// Filtered to `AliasKind::Command` so no heuristic needed.
 fn build_reverse_alias_map(registry: &VkRegistry) -> HashMap<String, Vec<String>> {
-    let command_names: std::collections::HashSet<&str> =
-        registry.commands.iter().map(|c| c.name.as_str()).collect();
+    use crate::parse::AliasKind;
     let mut reverse: HashMap<String, Vec<String>> = HashMap::new();
-    for (alias, canonical) in &registry.aliases {
-        if command_names.contains(canonical.as_str()) {
+    for a in &registry.aliases {
+        if a.kind == AliasKind::Command {
             reverse
-                .entry(canonical.clone())
+                .entry(a.target.clone())
                 .or_default()
-                .push(alias.clone());
+                .push(a.name.clone());
         }
     }
     reverse
@@ -407,24 +392,26 @@ mod tests {
 
     #[test]
     fn pfn_alias_emits_type_alias() {
-        let mut aliases = HashMap::new();
-        // Aliases have `vk` prefix (strip_vk only strips `Vk`).
-        aliases.insert(
-            "vkCreateRenderPass2KHR".to_string(),
-            "vkCreateRenderPass2".to_string(),
-        );
-        let commands = vec![make_command("vkCreateRenderPass2", "VkResult", vec![])];
-        let code = emit_pfn_aliases(&aliases, &commands).to_string();
+        use crate::parse::{AliasDef, AliasKind};
+        let aliases = vec![AliasDef {
+            name: "vkCreateRenderPass2KHR".to_string(),
+            target: "vkCreateRenderPass2".to_string(),
+            kind: AliasKind::Command,
+        }];
+        let code = emit_pfn_aliases(&aliases).to_string();
         assert!(code.contains("PFN_vkCreateRenderPass2KHR"));
         assert!(code.contains("PFN_vkCreateRenderPass2"));
     }
 
     #[test]
     fn pfn_alias_skips_non_command_aliases() {
-        let mut aliases = HashMap::new();
-        aliases.insert("ImageUsageFlags".to_string(), "ImageUsageFlagBits".to_string());
-        let commands = vec![];
-        let code = emit_pfn_aliases(&aliases, &commands).to_string();
+        use crate::parse::{AliasDef, AliasKind};
+        let aliases = vec![AliasDef {
+            name: "ImageUsageFlags".to_string(),
+            target: "ImageUsageFlagBits".to_string(),
+            kind: AliasKind::Type,
+        }];
+        let code = emit_pfn_aliases(&aliases).to_string();
         assert!(code.is_empty(), "should not emit PFN alias for type aliases");
     }
 }

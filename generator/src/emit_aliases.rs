@@ -70,19 +70,14 @@ pub fn emit_flags_aliases(registry: &VkRegistry) -> TokenStream {
 
 /// Emit `pub type Name = Target;` for Vk type aliases (e.g. promoted extension types).
 pub fn emit_type_aliases(registry: &VkRegistry) -> TokenStream {
+    use crate::parse::AliasKind;
     let aliases: Vec<TokenStream> = registry
         .aliases
         .iter()
-        .filter_map(|(name, target)| {
-            if name == target {
-                return None;
-            }
-            if name.starts_with(|c: char| c.is_ascii_lowercase()) || name.contains("vk") {
-                return None;
-            }
-
-            let clean_name = name.strip_prefix("Vk").unwrap_or(name);
-            let clean_target = target.strip_prefix("Vk").unwrap_or(target);
+        .filter(|a| a.kind == AliasKind::Type)
+        .filter_map(|a| {
+            let clean_name = a.name.strip_prefix("Vk").unwrap_or(&a.name);
+            let clean_target = a.target.strip_prefix("Vk").unwrap_or(&a.target);
             if clean_name == clean_target {
                 return None;
             }
@@ -159,7 +154,7 @@ mod tests {
             func_pointers: vec![],
             extensions: vec![],
             platforms: vec![],
-            aliases: HashMap::new(),
+            aliases: vec![],
             base_types: HashMap::new(),
         }
     }
@@ -269,7 +264,11 @@ mod tests {
     #[test]
     fn type_alias_skips_self_referential() {
         let mut reg = empty_registry();
-        reg.aliases.insert("Foo".to_string(), "Foo".to_string());
+        reg.aliases.push(AliasDef {
+            name: "Foo".to_string(),
+            target: "Foo".to_string(),
+            kind: AliasKind::Type,
+        });
         let code = emit_type_aliases(&reg).to_string();
         assert!(code.is_empty());
     }
@@ -277,8 +276,11 @@ mod tests {
     #[test]
     fn type_alias_skips_flags() {
         let mut reg = empty_registry();
-        reg.aliases
-            .insert("ImageUsageFlags".to_string(), "ImageUsageFlagBits".to_string());
+        reg.aliases.push(AliasDef {
+            name: "ImageUsageFlags".to_string(),
+            target: "ImageUsageFlagBits".to_string(),
+            kind: AliasKind::Type,
+        });
         let code = emit_type_aliases(&reg).to_string();
         assert!(!code.contains("ImageUsageFlags"));
     }
@@ -286,10 +288,11 @@ mod tests {
     #[test]
     fn type_alias_emits_promoted_type() {
         let mut reg = empty_registry();
-        reg.aliases.insert(
-            "RenderPassCreateInfo2KHR".to_string(),
-            "RenderPassCreateInfo2".to_string(),
-        );
+        reg.aliases.push(AliasDef {
+            name: "RenderPassCreateInfo2KHR".to_string(),
+            target: "RenderPassCreateInfo2".to_string(),
+            kind: AliasKind::Type,
+        });
         let code = emit_type_aliases(&reg).to_string();
         assert!(code.contains("RenderPassCreateInfo2KHR"));
         assert!(code.contains("RenderPassCreateInfo2"));
