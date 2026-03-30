@@ -3,7 +3,9 @@
 pub use vk_sys as vk;
 
 mod error;
+mod loader;
 mod version;
 
 pub use error::{LoadError, VkResult};
+pub use loader::Loader;
 pub use version::Version;
