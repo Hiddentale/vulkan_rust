@@ -14,7 +14,7 @@ mod version;
 
 pub use bytecode::{BytecodeError, cast_to_u32};
 #[cfg(feature = "surface")]
-pub use surface::required_extensions;
+pub use surface::{SurfaceError, required_extensions};
 pub use device::Device;
 pub use entry::Entry;
 pub use error::{LoadError, VkResult};
