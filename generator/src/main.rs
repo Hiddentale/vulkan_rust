@@ -1,3 +1,4 @@
+mod emit_aliases;
 mod emit_bitmasks;
 mod emit_builders;
 mod emit_constants;
@@ -6,6 +7,8 @@ mod emit_handles;
 mod emit_structs;
 #[allow(dead_code)]
 mod parse;
+mod resolve_types;
+mod stype;
 #[allow(dead_code)]
 mod type_map;
 

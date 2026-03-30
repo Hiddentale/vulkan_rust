@@ -5,16 +5,15 @@ use std::collections::HashSet;
 use proc_macro2::TokenStream;
 use quote::{format_ident, quote};
 
-use crate::emit_structs::{
-    build_stype_raw_map, build_stype_variant_set, has_stype_pnext, is_base_pnext_struct,
-    is_rust_keyword, member_name, resolve_member_type, struct_stype_full,
-};
+use crate::emit_structs::{has_stype_pnext, is_base_pnext_struct};
 use crate::parse::{MemberDef, StructDef, VkRegistry};
+use crate::resolve_types::{is_rust_keyword, member_name, resolve_base_type, resolve_member_type};
+use crate::stype;
 
 /// Emit builders for all extensible structs.
 pub fn emit_builders(registry: &VkRegistry) -> TokenStream {
-    let stype_variants = build_stype_variant_set(registry);
-    let stype_raw = build_stype_raw_map(registry);
+    let stype_variants = stype::build_variant_set(registry);
+    let stype_raw = stype::build_raw_map(registry);
     let builders: Vec<TokenStream> = registry
         .structs
         .iter()
@@ -57,7 +56,7 @@ fn emit_builder(
         .map(|m| emit_setter(m, def))
         .collect();
 
-    let stype_val = struct_stype_full(def, stype_variants, stype_raw);
+    let stype_val = stype::struct_stype(def, stype_variants, stype_raw);
     let default_stype = stype_val.unwrap_or_else(|| quote! { Default::default() });
 
     // push_next: only if any struct extends this one.
@@ -169,7 +168,7 @@ fn emit_slice_setter(ptr_member: &MemberDef, count_member: &MemberDef) -> TokenS
     let count_field = format_ident!("{}", member_name(&count_member.name));
 
     // The element type is the base type (without pointer wrapping).
-    let elem_ty = crate::emit_structs::resolve_base_type(&ptr_member.type_name);
+    let elem_ty = resolve_base_type(&ptr_member.type_name);
 
     // Count field type (usually u32). Avoid redundant `as usize` casts.
     let count_ty = resolve_member_type(count_member);
