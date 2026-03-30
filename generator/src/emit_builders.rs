@@ -308,11 +308,7 @@ mod tests {
     #[test]
     fn builder_struct_emitted() {
         let def = make_buffer_create_info();
-        let code = emit_builder(
-            &def,
-            &std::collections::HashMap::new(),
-        )
-        .to_string();
+        let code = emit_builder(&def, &std::collections::HashMap::new()).to_string();
         assert!(code.contains("pub struct BufferCreateInfoBuilder"));
         assert!(code.contains("PhantomData"));
     }
@@ -331,11 +327,7 @@ mod tests {
     #[test]
     fn builder_skips_stype_and_pnext_setters() {
         let def = make_buffer_create_info();
-        let code = emit_builder(
-            &def,
-            &std::collections::HashMap::new(),
-        )
-        .to_string();
+        let code = emit_builder(&def, &std::collections::HashMap::new()).to_string();
         // Should NOT have a setter named s_type or p_next.
         assert!(!code.contains("fn s_type"), "should skip sType setter");
         assert!(!code.contains("fn p_next"), "should skip pNext setter");
@@ -344,11 +336,7 @@ mod tests {
     #[test]
     fn builder_has_simple_setters() {
         let def = make_buffer_create_info();
-        let code = emit_builder(
-            &def,
-            &std::collections::HashMap::new(),
-        )
-        .to_string();
+        let code = emit_builder(&def, &std::collections::HashMap::new()).to_string();
         assert!(code.contains("fn flags"), "missing flags setter");
         assert!(code.contains("fn size"), "missing size setter");
         assert!(code.contains("fn usage"), "missing usage setter");
@@ -361,11 +349,7 @@ mod tests {
     #[test]
     fn builder_has_slice_setter_for_pointer_count_pair() {
         let def = make_buffer_create_info();
-        let code = emit_builder(
-            &def,
-            &std::collections::HashMap::new(),
-        )
-        .to_string();
+        let code = emit_builder(&def, &std::collections::HashMap::new()).to_string();
         assert!(
             code.contains("fn queue_family_indices"),
             "missing slice setter"
@@ -383,11 +367,7 @@ mod tests {
     #[test]
     fn builder_skips_count_field_setter() {
         let def = make_buffer_create_info();
-        let code = emit_builder(
-            &def,
-            &std::collections::HashMap::new(),
-        )
-        .to_string();
+        let code = emit_builder(&def, &std::collections::HashMap::new()).to_string();
         assert!(
             !code.contains("fn queue_family_index_count"),
             "count field should not have its own setter"
@@ -397,11 +377,7 @@ mod tests {
     #[test]
     fn builder_has_push_next() {
         let def = make_buffer_create_info();
-        let code = emit_builder(
-            &def,
-            &std::collections::HashMap::new(),
-        )
-        .to_string();
+        let code = emit_builder(&def, &std::collections::HashMap::new()).to_string();
         assert!(code.contains("fn push_next"), "missing push_next");
         assert!(
             code.contains("ExtendsBufferCreateInfo"),
@@ -412,11 +388,7 @@ mod tests {
     #[test]
     fn builder_has_deref() {
         let def = make_buffer_create_info();
-        let code = emit_builder(
-            &def,
-            &std::collections::HashMap::new(),
-        )
-        .to_string();
+        let code = emit_builder(&def, &std::collections::HashMap::new()).to_string();
         assert!(code.contains("impl < 'a > core :: ops :: Deref for BufferCreateInfoBuilder"));
         assert!(code.contains("type Target = BufferCreateInfo"));
     }
@@ -424,11 +396,7 @@ mod tests {
     #[test]
     fn builder_has_deref_mut() {
         let def = make_buffer_create_info();
-        let code = emit_builder(
-            &def,
-            &std::collections::HashMap::new(),
-        )
-        .to_string();
+        let code = emit_builder(&def, &std::collections::HashMap::new()).to_string();
         assert!(code.contains("DerefMut for BufferCreateInfoBuilder"));
     }
 
@@ -442,11 +410,7 @@ mod tests {
             is_union: false,
             provided_by: None,
         };
-        let code = emit_builder(
-            &def,
-            &std::collections::HashMap::new(),
-        )
-        .to_string();
+        let code = emit_builder(&def, &std::collections::HashMap::new()).to_string();
         assert!(
             !code.contains("fn push_next"),
             "returned_only structs should not have push_next"

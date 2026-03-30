@@ -151,25 +151,20 @@ mod tests {
 
     #[test]
     fn from_raw_parts_stores_handle() {
-        let device = unsafe {
-            Device::from_raw_parts(fake_handle(), Some(mock_get_device_proc_addr))
-        };
+        let device =
+            unsafe { Device::from_raw_parts(fake_handle(), Some(mock_get_device_proc_addr)) };
         assert_eq!(device.handle().as_raw(), fake_handle().as_raw());
     }
 
     #[test]
     fn handle_returns_value_from_construction() {
-        let device = unsafe {
-            Device::load(fake_handle(), Some(mock_get_device_proc_addr))
-        };
+        let device = unsafe { Device::load(fake_handle(), Some(mock_get_device_proc_addr)) };
         assert_eq!(device.handle().as_raw(), fake_handle().as_raw());
     }
 
     #[test]
     fn commands_returns_reference() {
-        let device = unsafe {
-            Device::load(fake_handle(), Some(mock_get_device_proc_addr))
-        };
+        let device = unsafe { Device::load(fake_handle(), Some(mock_get_device_proc_addr)) };
         // Commands were loaded with a null-returning proc addr, so all
         // function pointers are None — but the reference is valid.
         let _ = device.commands();
@@ -249,9 +244,8 @@ mod tests {
             pp_enabled_extension_names: std::ptr::null(),
             p_enabled_features: std::ptr::null(),
         };
-        let device =
-            unsafe { instance.create_device(physical_device, &device_create_info, None) }
-                .expect("failed to create device");
+        let device = unsafe { instance.create_device(physical_device, &device_create_info, None) }
+            .expect("failed to create device");
 
         (instance, device)
     }

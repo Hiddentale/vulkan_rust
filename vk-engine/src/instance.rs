@@ -111,9 +111,7 @@ impl Instance {
     /// # Safety
     ///
     /// The instance must be valid.
-    pub unsafe fn enumerate_physical_devices(
-        &self,
-    ) -> VkResult<Vec<vk::handles::PhysicalDevice>> {
+    pub unsafe fn enumerate_physical_devices(&self) -> VkResult<Vec<vk::handles::PhysicalDevice>> {
         let fp = self
             .commands
             .enumerate_physical_devices
@@ -243,25 +241,22 @@ mod tests {
 
     #[test]
     fn from_raw_parts_stores_handle() {
-        let instance = unsafe {
-            Instance::from_raw_parts(fake_handle(), Some(mock_get_instance_proc_addr))
-        };
+        let instance =
+            unsafe { Instance::from_raw_parts(fake_handle(), Some(mock_get_instance_proc_addr)) };
         assert_eq!(instance.handle().as_raw(), fake_handle().as_raw());
     }
 
     #[test]
     fn handle_returns_value_from_construction() {
-        let instance = unsafe {
-            Instance::load(fake_handle(), Some(mock_get_instance_proc_addr), None)
-        };
+        let instance =
+            unsafe { Instance::load(fake_handle(), Some(mock_get_instance_proc_addr), None) };
         assert_eq!(instance.handle().as_raw(), fake_handle().as_raw());
     }
 
     #[test]
     fn commands_returns_reference() {
-        let instance = unsafe {
-            Instance::load(fake_handle(), Some(mock_get_instance_proc_addr), None)
-        };
+        let instance =
+            unsafe { Instance::load(fake_handle(), Some(mock_get_instance_proc_addr), None) };
         // Commands were loaded with a null-returning proc addr, so all
         // function pointers are None — but the reference is valid.
         let _ = instance.commands();
@@ -298,8 +293,7 @@ mod tests {
     fn get_physical_device_queue_family_properties_returns_at_least_one() {
         let instance = create_real_instance();
         let devices = unsafe { instance.enumerate_physical_devices() }.unwrap();
-        let families =
-            unsafe { instance.get_physical_device_queue_family_properties(devices[0]) };
+        let families = unsafe { instance.get_physical_device_queue_family_properties(devices[0]) };
         assert!(!families.is_empty(), "expected at least one queue family");
     }
 

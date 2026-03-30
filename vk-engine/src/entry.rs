@@ -118,9 +118,8 @@ impl Entry {
         allocator: Option<&vk::structs::AllocationCallbacks>,
     ) -> VkResult<Instance> {
         let raw = unsafe { self.create_instance_raw(create_info, allocator) }?;
-        let instance = unsafe {
-            Instance::load(raw, self.get_instance_proc_addr, self.get_device_proc_addr)
-        };
+        let instance =
+            unsafe { Instance::load(raw, self.get_instance_proc_addr, self.get_device_proc_addr) };
         Ok(instance)
     }
 
@@ -192,7 +191,6 @@ impl Entry {
         enumerate_two_call(|count, data| unsafe { fp(layer_ptr, count, data) })
     }
 }
-
 
 #[cfg(test)]
 mod tests {

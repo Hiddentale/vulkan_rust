@@ -5,8 +5,7 @@ use std::collections::{HashMap, HashSet};
 use vk_parse::{Type, TypeMember, TypeMemberDefinition, TypeMemberMarkup, TypeSpec};
 
 use super::{
-    extract_markup_name, strip_vk, AliasDef, AliasKind, HandleDef, MemberDef, StructDef,
-    VkRegistry,
+    AliasDef, AliasKind, HandleDef, MemberDef, StructDef, VkRegistry, extract_markup_name, strip_vk,
 };
 
 pub(super) fn collect_types(

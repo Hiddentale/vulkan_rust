@@ -8,10 +8,7 @@ use quote::quote;
 use crate::parse::{EnumValue, StructDef, VkRegistry};
 
 /// Return a `StructureType::from_raw(N)` token for a struct's sType member.
-pub fn struct_stype(
-    def: &StructDef,
-    stype_raw: &HashMap<String, i32>,
-) -> Option<TokenStream> {
+pub fn struct_stype(def: &StructDef, stype_raw: &HashMap<String, i32>) -> Option<TokenStream> {
     def.members.iter().find_map(|m| {
         if m.name == "sType" {
             m.values
@@ -38,10 +35,7 @@ pub fn build_raw_map(registry: &VkRegistry) -> HashMap<String, i32> {
         .collect()
 }
 
-fn stype_constant(
-    values: &str,
-    stype_raw: &HashMap<String, i32>,
-) -> Option<TokenStream> {
+fn stype_constant(values: &str, stype_raw: &HashMap<String, i32>) -> Option<TokenStream> {
     stype_raw
         .get(values)
         .map(|&raw| quote! { StructureType::from_raw(#raw) })
