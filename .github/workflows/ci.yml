@@ -232,7 +232,7 @@ jobs:
       - name: Run ignored tests (requires Vulkan runtime)
         run: |
           export VK_ICD_FILENAMES="$LVP_ICD"
-          cargo test --workspace --test-threads=1 -- --ignored
+          cargo test --workspace -- --ignored --test-threads=1
 
   layout-cross-validation:
     name: C ↔ Rust Layout Validation
