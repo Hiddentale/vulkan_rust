@@ -198,6 +198,7 @@ mod tests {
             values: None,
             len: None,
             extern_sync: None,
+            is_bitfield: false,
         }
     }
 

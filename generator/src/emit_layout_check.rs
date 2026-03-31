@@ -5,44 +5,38 @@
 //! proves the generated Rust `#[repr(C)]` struct disagrees with the
 //! real C Vulkan headers — the most dangerous class of FFI bug.
 
-use std::collections::{HashMap, HashSet};
+use std::collections::HashSet;
 
 use crate::parse::{StructDef, VkRegistry};
 use crate::resolve_types::{is_rust_keyword, member_name};
 
-/// Structs to skip entirely — opaque stubs, Vulkan SC types, or types with
-/// platform-specific member types that won't resolve in the C headers on Linux.
-fn is_opaque_or_problematic(name: &str) -> bool {
+/// Structs to skip — opaque stubs without real C definitions.
+fn is_opaque(name: &str) -> bool {
     name.starts_with("StdVideo")
 }
 
-/// Returns true if the provider is a Vulkan SC feature (not standard Vulkan).
-fn is_vulkan_sc_provider(provider: &str) -> bool {
-    provider.starts_with("VKSC_")
-}
-
-/// Build the set of platform-restricted extension names (win32, android, etc.)
-/// that won't be available when compiling with generic Linux Vulkan headers.
-fn platform_extension_names(registry: &VkRegistry) -> HashSet<String> {
-    // Platforms available on a generic Linux CI runner with mesa.
-    let linux_platforms: HashSet<&str> = ["xcb", "xlib", "wayland", "xlib_xrandr"]
-        .into_iter()
-        .collect();
-
-    let platform_extensions: HashMap<&str, &str> = registry
+/// Build the set of extension names to skip: any extension that requires
+/// platform headers or targets Vulkan SC instead of standard Vulkan.
+/// A plain `#include <vulkan/vulkan.h>` (no VK_USE_PLATFORM defines)
+/// only provides types from platform-independent, standard-Vulkan extensions.
+fn untestable_extensions(registry: &VkRegistry) -> HashSet<String> {
+    registry
         .extensions
         .iter()
-        .filter_map(|ext| ext.platform.as_deref().map(|p| (ext.name.as_str(), p)))
-        .collect();
-
-    platform_extensions
-        .iter()
-        .filter(|(_, plat)| !linux_platforms.contains(*plat))
-        .map(|(name, _)| name.to_string())
+        .filter(|ext| {
+            ext.platform.is_some() || !ext.supported.contains("vulkan") || ext.supported == "vulkansc"
+        })
+        .map(|ext| ext.name.clone())
         .collect()
 }
 
-/// Filter structs to only those testable on Linux with standard Vulkan headers.
+/// Returns true if the struct has any bit-field members.
+/// `offsetof()` is undefined for C bit-fields.
+fn has_bitfields(s: &StructDef) -> bool {
+    s.members.iter().any(|m| m.is_bitfield)
+}
+
+/// Filter structs to only those testable with a plain `#include <vulkan/vulkan.h>`.
 fn testable_structs<'a>(
     registry: &'a VkRegistry,
     skip_extensions: &HashSet<String>,
@@ -51,10 +45,11 @@ fn testable_structs<'a>(
         .structs
         .iter()
         .filter(|s| !s.members.is_empty())
-        .filter(|s| !is_opaque_or_problematic(&s.name))
+        .filter(|s| !is_opaque(&s.name))
+        .filter(|s| !has_bitfields(s))
         .filter(|s| match &s.provided_by {
             Some(provider) => {
-                !skip_extensions.contains(provider) && !is_vulkan_sc_provider(provider)
+                !skip_extensions.contains(provider) && !provider.starts_with("VKSC_")
             }
             None => true,
         })
@@ -77,7 +72,7 @@ fn should_skip_field(field_name: &str) -> bool {
 /// StructName size align off0 off1 off2 ...
 /// ```
 pub fn emit_c_layout_check(registry: &VkRegistry) -> String {
-    let skip = platform_extension_names(registry);
+    let skip = untestable_extensions(registry);
     let structs = testable_structs(registry, &skip);
 
     let mut c = String::new();
@@ -122,7 +117,7 @@ pub fn emit_c_layout_check(registry: &VkRegistry) -> String {
 
 /// Generate a Rust program that prints the same layout data as the C program.
 pub fn emit_rust_layout_check(registry: &VkRegistry) -> String {
-    let skip = platform_extension_names(registry);
+    let skip = untestable_extensions(registry);
     let structs = testable_structs(registry, &skip);
 
     let mut rs = String::new();
@@ -179,6 +174,7 @@ mod tests {
             values: None,
             len: None,
             extern_sync: None,
+            is_bitfield: false,
         }
     }
 

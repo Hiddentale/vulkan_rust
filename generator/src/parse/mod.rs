@@ -60,6 +60,7 @@ pub struct MemberDef {
     pub values: Option<String>,
     pub len: Option<String>,
     pub extern_sync: Option<String>,
+    pub is_bitfield: bool,
 }
 
 #[derive(Debug)]
