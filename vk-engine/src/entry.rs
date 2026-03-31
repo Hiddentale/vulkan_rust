@@ -112,6 +112,25 @@ impl Entry {
     /// `create_info` must be a valid, fully populated `InstanceCreateInfo`.
     /// The caller is responsible for calling `instance.destroy_instance`
     /// when done.
+    ///
+    /// # Examples
+    ///
+    /// ```no_run
+    /// use vk_engine::{Entry, LibloadingLoader};
+    /// use vk_engine::vk::structs::*;
+    ///
+    /// let loader = unsafe { LibloadingLoader::new() }.expect("Vulkan not found");
+    /// let entry = unsafe { Entry::new(loader) }.expect("entry creation failed");
+    ///
+    /// let app_info = ApplicationInfo::builder()
+    ///     .api_version(1 << 22); // Vulkan 1.0
+    /// let create_info = InstanceCreateInfo::builder()
+    ///     .p_application_info(&*app_info);
+    /// let instance = unsafe { entry.create_instance(&create_info, None) }
+    ///     .expect("instance creation failed");
+    /// // Use instance...
+    /// unsafe { instance.destroy_instance(None) };
+    /// ```
     pub unsafe fn create_instance(
         &self,
         create_info: &vk::structs::InstanceCreateInfo,

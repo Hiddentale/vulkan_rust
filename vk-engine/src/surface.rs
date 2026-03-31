@@ -84,13 +84,15 @@ pub fn required_extensions() -> &'static [&'static CStr] {
 impl Instance {
     /// Create a Vulkan surface from platform window handles.
     ///
-    /// The instance must have been created with the extensions returned
-    /// by [`required_extensions()`].
+    /// Supports Win32, X11, Wayland, Metal, and Android. The instance must
+    /// have been created with the extensions returned by [`required_extensions()`].
     ///
     /// # Safety
     ///
     /// - `display` and `window` must be valid and outlive the returned surface.
     /// - The instance must have enabled the required surface extensions.
+    /// - The returned surface must be destroyed with `destroy_surface_khr`
+    ///   before the instance is destroyed.
     pub unsafe fn create_surface(
         &self,
         display: &dyn HasDisplayHandle,

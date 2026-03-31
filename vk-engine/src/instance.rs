@@ -109,6 +109,36 @@ impl Instance {
     /// - `physical_device` must be a valid handle obtained from this instance.
     /// - `create_info` must be a valid, fully populated `DeviceCreateInfo`.
     /// - The caller is responsible for calling `device.destroy_device` when done.
+    ///
+    /// # Examples
+    ///
+    /// ```no_run
+    /// # use vk_engine::{Entry, Instance, LibloadingLoader};
+    /// # use vk_engine::vk::structs::*;
+    /// # use vk_engine::vk::enums::*;
+    /// # let loader = unsafe { LibloadingLoader::new() }.unwrap();
+    /// # let entry = unsafe { Entry::new(loader) }.unwrap();
+    /// # let instance = unsafe {
+    /// #     entry.create_instance(&*InstanceCreateInfo::builder(), None)
+    /// # }.unwrap();
+    /// let physical_devices = unsafe { instance.enumerate_physical_devices() }
+    ///     .expect("no devices");
+    /// let physical_device = physical_devices[0];
+    ///
+    /// let priorities = [1.0f32];
+    /// let queue_info = DeviceQueueCreateInfo::builder()
+    ///     .queue_family_index(0)
+    ///     .queue_priorities(&priorities);
+    /// let queue_infos = [*queue_info];
+    /// let device_info = DeviceCreateInfo::builder()
+    ///     .queue_create_infos(&queue_infos);
+    /// let device = unsafe {
+    ///     instance.create_device(physical_device, &device_info, None)
+    /// }.expect("device creation failed");
+    /// // Use device...
+    /// unsafe { device.destroy_device(None) };
+    /// # unsafe { instance.destroy_instance(None) };
+    /// ```
     pub unsafe fn create_device(
         &self,
         physical_device: vk::handles::PhysicalDevice,
