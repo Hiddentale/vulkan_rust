@@ -201,6 +201,7 @@ mod tests {
             len: None,
             extern_sync: None,
             is_bitfield: false,
+            bitwidth: None,
         }
     }
 

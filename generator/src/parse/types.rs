@@ -154,10 +154,15 @@ fn parse_member_def(def: &TypeMemberDefinition) -> MemberDef {
     let array_size = array_size.or_else(|| parse_fixed_array_size(code));
 
     // Bit-fields appear as "uint32_t name:24" in the code string.
-    let is_bitfield = code.contains(':') && {
-        let after_name = code.rsplit_once(':').map(|(_, bits)| bits.trim());
-        after_name.is_some_and(|b| b.chars().all(|c| c.is_ascii_digit()) && !b.is_empty())
-    };
+    let bitwidth = code.rsplit_once(':').and_then(|(_, bits)| {
+        let bits = bits.trim();
+        if !bits.is_empty() && bits.chars().all(|c| c.is_ascii_digit()) {
+            bits.parse::<u8>().ok()
+        } else {
+            None
+        }
+    });
+    let is_bitfield = bitwidth.is_some();
 
     MemberDef {
         name,
@@ -171,6 +176,7 @@ fn parse_member_def(def: &TypeMemberDefinition) -> MemberDef {
         len: def.len.clone(),
         extern_sync: def.externsync.clone(),
         is_bitfield,
+        bitwidth,
     }
 }
 

@@ -6523,14 +6523,30 @@ Provided by **VK_NV_cluster_acceleration_structure**.*/
 #[derive(Copy, Clone, Debug)]
 #[doc(alias = "VkClusterAccelerationStructureGeometryIndexAndGeometryFlagsNV")]
 pub struct ClusterAccelerationStructureGeometryIndexAndGeometryFlagsNV {
-    pub geometry_index: u32,
-    pub reserved: u32,
-    pub geometry_flags: u32,
+    pub bitfield_0: u32,
 }
 impl Default for ClusterAccelerationStructureGeometryIndexAndGeometryFlagsNV {
     #[inline]
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
+    }
+}
+impl ClusterAccelerationStructureGeometryIndexAndGeometryFlagsNV {
+    #[inline]
+    pub fn geometry_index(&self) -> u32 {
+        self.bitfield_0 & 16777215u32
+    }
+    #[inline]
+    pub fn set_geometry_index(&mut self, val: u32) {
+        self.bitfield_0 = (self.bitfield_0 & !16777215u32) | (val & 16777215u32);
+    }
+    #[inline]
+    pub fn geometry_flags(&self) -> u32 {
+        (self.bitfield_0 >> 29u32) & 7u32
+    }
+    #[inline]
+    pub fn set_geometry_flags(&mut self, val: u32) {
+        self.bitfield_0 = (self.bitfield_0 & !(7u32 << 29u32)) | ((val & 7u32) << 29u32);
     }
 }
 ///[`VkClusterAccelerationStructureMoveObjectsInfoNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkClusterAccelerationStructureMoveObjectsInfoNV.html)
@@ -6589,11 +6605,7 @@ Provided by **VK_NV_cluster_acceleration_structure**.*/
 pub struct ClusterAccelerationStructureBuildTriangleClusterInfoNV {
     pub cluster_id: u32,
     pub cluster_flags: ClusterAccelerationStructureClusterFlagsNV,
-    pub triangle_count: u32,
-    pub vertex_count: u32,
-    pub position_truncate_bit_count: u32,
-    pub index_type: u32,
-    pub opacity_micromap_index_type: u32,
+    pub bitfield_0: u32,
     pub base_geometry_index_and_geometry_flags: ClusterAccelerationStructureGeometryIndexAndGeometryFlagsNV,
     pub index_buffer_stride: u16,
     pub vertex_buffer_stride: u16,
@@ -6611,6 +6623,52 @@ impl Default for ClusterAccelerationStructureBuildTriangleClusterInfoNV {
         unsafe { core::mem::zeroed() }
     }
 }
+impl ClusterAccelerationStructureBuildTriangleClusterInfoNV {
+    #[inline]
+    pub fn triangle_count(&self) -> u32 {
+        self.bitfield_0 & 511u32
+    }
+    #[inline]
+    pub fn set_triangle_count(&mut self, val: u32) {
+        self.bitfield_0 = (self.bitfield_0 & !511u32) | (val & 511u32);
+    }
+    #[inline]
+    pub fn vertex_count(&self) -> u32 {
+        (self.bitfield_0 >> 9u32) & 511u32
+    }
+    #[inline]
+    pub fn set_vertex_count(&mut self, val: u32) {
+        self.bitfield_0 = (self.bitfield_0 & !(511u32 << 9u32))
+            | ((val & 511u32) << 9u32);
+    }
+    #[inline]
+    pub fn position_truncate_bit_count(&self) -> u32 {
+        (self.bitfield_0 >> 18u32) & 63u32
+    }
+    #[inline]
+    pub fn set_position_truncate_bit_count(&mut self, val: u32) {
+        self.bitfield_0 = (self.bitfield_0 & !(63u32 << 18u32))
+            | ((val & 63u32) << 18u32);
+    }
+    #[inline]
+    pub fn index_type(&self) -> u32 {
+        (self.bitfield_0 >> 24u32) & 15u32
+    }
+    #[inline]
+    pub fn set_index_type(&mut self, val: u32) {
+        self.bitfield_0 = (self.bitfield_0 & !(15u32 << 24u32))
+            | ((val & 15u32) << 24u32);
+    }
+    #[inline]
+    pub fn opacity_micromap_index_type(&self) -> u32 {
+        (self.bitfield_0 >> 28u32) & 15u32
+    }
+    #[inline]
+    pub fn set_opacity_micromap_index_type(&mut self, val: u32) {
+        self.bitfield_0 = (self.bitfield_0 & !(15u32 << 28u32))
+            | ((val & 15u32) << 28u32);
+    }
+}
 ///[`VkClusterAccelerationStructureBuildTriangleClusterTemplateInfoNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkClusterAccelerationStructureBuildTriangleClusterTemplateInfoNV.html)
 /**
 Provided by **VK_NV_cluster_acceleration_structure**.*/
@@ -6620,11 +6678,7 @@ Provided by **VK_NV_cluster_acceleration_structure**.*/
 pub struct ClusterAccelerationStructureBuildTriangleClusterTemplateInfoNV {
     pub cluster_id: u32,
     pub cluster_flags: ClusterAccelerationStructureClusterFlagsNV,
-    pub triangle_count: u32,
-    pub vertex_count: u32,
-    pub position_truncate_bit_count: u32,
-    pub index_type: u32,
-    pub opacity_micromap_index_type: u32,
+    pub bitfield_0: u32,
     pub base_geometry_index_and_geometry_flags: ClusterAccelerationStructureGeometryIndexAndGeometryFlagsNV,
     pub index_buffer_stride: u16,
     pub vertex_buffer_stride: u16,
@@ -6643,6 +6697,52 @@ impl Default for ClusterAccelerationStructureBuildTriangleClusterTemplateInfoNV 
         unsafe { core::mem::zeroed() }
     }
 }
+impl ClusterAccelerationStructureBuildTriangleClusterTemplateInfoNV {
+    #[inline]
+    pub fn triangle_count(&self) -> u32 {
+        self.bitfield_0 & 511u32
+    }
+    #[inline]
+    pub fn set_triangle_count(&mut self, val: u32) {
+        self.bitfield_0 = (self.bitfield_0 & !511u32) | (val & 511u32);
+    }
+    #[inline]
+    pub fn vertex_count(&self) -> u32 {
+        (self.bitfield_0 >> 9u32) & 511u32
+    }
+    #[inline]
+    pub fn set_vertex_count(&mut self, val: u32) {
+        self.bitfield_0 = (self.bitfield_0 & !(511u32 << 9u32))
+            | ((val & 511u32) << 9u32);
+    }
+    #[inline]
+    pub fn position_truncate_bit_count(&self) -> u32 {
+        (self.bitfield_0 >> 18u32) & 63u32
+    }
+    #[inline]
+    pub fn set_position_truncate_bit_count(&mut self, val: u32) {
+        self.bitfield_0 = (self.bitfield_0 & !(63u32 << 18u32))
+            | ((val & 63u32) << 18u32);
+    }
+    #[inline]
+    pub fn index_type(&self) -> u32 {
+        (self.bitfield_0 >> 24u32) & 15u32
+    }
+    #[inline]
+    pub fn set_index_type(&mut self, val: u32) {
+        self.bitfield_0 = (self.bitfield_0 & !(15u32 << 24u32))
+            | ((val & 15u32) << 24u32);
+    }
+    #[inline]
+    pub fn opacity_micromap_index_type(&self) -> u32 {
+        (self.bitfield_0 >> 28u32) & 15u32
+    }
+    #[inline]
+    pub fn set_opacity_micromap_index_type(&mut self, val: u32) {
+        self.bitfield_0 = (self.bitfield_0 & !(15u32 << 28u32))
+            | ((val & 15u32) << 28u32);
+    }
+}
 ///[`VkClusterAccelerationStructureInstantiateClusterInfoNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkClusterAccelerationStructureInstantiateClusterInfoNV.html)
 /**
 Provided by **VK_NV_cluster_acceleration_structure**.*/
@@ -6651,8 +6751,7 @@ Provided by **VK_NV_cluster_acceleration_structure**.*/
 #[doc(alias = "VkClusterAccelerationStructureInstantiateClusterInfoNV")]
 pub struct ClusterAccelerationStructureInstantiateClusterInfoNV {
     pub cluster_id_offset: u32,
-    pub geometry_index_offset: u32,
-    pub reserved: u32,
+    pub bitfield_0: u32,
     pub cluster_template_address: u64,
     pub vertex_buffer: StridedDeviceAddressNV,
 }
@@ -6660,6 +6759,16 @@ impl Default for ClusterAccelerationStructureInstantiateClusterInfoNV {
     #[inline]
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
+    }
+}
+impl ClusterAccelerationStructureInstantiateClusterInfoNV {
+    #[inline]
+    pub fn geometry_index_offset(&self) -> u32 {
+        self.bitfield_0 & 16777215u32
+    }
+    #[inline]
+    pub fn set_geometry_index_offset(&mut self, val: u32) {
+        self.bitfield_0 = (self.bitfield_0 & !16777215u32) | (val & 16777215u32);
     }
 }
 ///[`VkClusterAccelerationStructureClustersBottomLevelInputNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkClusterAccelerationStructureClustersBottomLevelInputNV.html)
@@ -22079,16 +22188,50 @@ Provided by **VK_KHR_acceleration_structure**.*/
 #[doc(alias = "VkAccelerationStructureInstanceKHR")]
 pub struct AccelerationStructureInstanceKHR {
     pub transform: TransformMatrixKHR,
-    pub instance_custom_index: u32,
-    pub mask: u32,
-    pub instance_shader_binding_table_record_offset: u32,
-    pub flags: GeometryInstanceFlagsKHR,
+    pub bitfield_0: u32,
+    pub bitfield_1: u32,
     pub acceleration_structure_reference: u64,
 }
 impl Default for AccelerationStructureInstanceKHR {
     #[inline]
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
+    }
+}
+impl AccelerationStructureInstanceKHR {
+    #[inline]
+    pub fn instance_custom_index(&self) -> u32 {
+        self.bitfield_0 & 16777215u32
+    }
+    #[inline]
+    pub fn set_instance_custom_index(&mut self, val: u32) {
+        self.bitfield_0 = (self.bitfield_0 & !16777215u32) | (val & 16777215u32);
+    }
+    #[inline]
+    pub fn mask(&self) -> u32 {
+        (self.bitfield_0 >> 24u32) & 255u32
+    }
+    #[inline]
+    pub fn set_mask(&mut self, val: u32) {
+        self.bitfield_0 = (self.bitfield_0 & !(255u32 << 24u32))
+            | ((val & 255u32) << 24u32);
+    }
+    #[inline]
+    pub fn instance_shader_binding_table_record_offset(&self) -> u32 {
+        self.bitfield_1 & 16777215u32
+    }
+    #[inline]
+    pub fn set_instance_shader_binding_table_record_offset(&mut self, val: u32) {
+        self.bitfield_1 = (self.bitfield_1 & !16777215u32) | (val & 16777215u32);
+    }
+    #[inline]
+    pub fn flags(&self) -> u32 {
+        (self.bitfield_1 >> 24u32) & 255u32
+    }
+    #[inline]
+    pub fn set_flags(&mut self, val: u32) {
+        self.bitfield_1 = (self.bitfield_1 & !(255u32 << 24u32))
+            | ((val & 255u32) << 24u32);
     }
 }
 ///[`VkAccelerationStructureDeviceAddressInfoKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccelerationStructureDeviceAddressInfoKHR.html)
@@ -31380,16 +31523,50 @@ Provided by **VK_NV_ray_tracing_motion_blur**.*/
 pub struct AccelerationStructureSRTMotionInstanceNV {
     pub transform_t0: SRTDataNV,
     pub transform_t1: SRTDataNV,
-    pub instance_custom_index: u32,
-    pub mask: u32,
-    pub instance_shader_binding_table_record_offset: u32,
-    pub flags: GeometryInstanceFlagsKHR,
+    pub bitfield_0: u32,
+    pub bitfield_1: u32,
     pub acceleration_structure_reference: u64,
 }
 impl Default for AccelerationStructureSRTMotionInstanceNV {
     #[inline]
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
+    }
+}
+impl AccelerationStructureSRTMotionInstanceNV {
+    #[inline]
+    pub fn instance_custom_index(&self) -> u32 {
+        self.bitfield_0 & 16777215u32
+    }
+    #[inline]
+    pub fn set_instance_custom_index(&mut self, val: u32) {
+        self.bitfield_0 = (self.bitfield_0 & !16777215u32) | (val & 16777215u32);
+    }
+    #[inline]
+    pub fn mask(&self) -> u32 {
+        (self.bitfield_0 >> 24u32) & 255u32
+    }
+    #[inline]
+    pub fn set_mask(&mut self, val: u32) {
+        self.bitfield_0 = (self.bitfield_0 & !(255u32 << 24u32))
+            | ((val & 255u32) << 24u32);
+    }
+    #[inline]
+    pub fn instance_shader_binding_table_record_offset(&self) -> u32 {
+        self.bitfield_1 & 16777215u32
+    }
+    #[inline]
+    pub fn set_instance_shader_binding_table_record_offset(&mut self, val: u32) {
+        self.bitfield_1 = (self.bitfield_1 & !16777215u32) | (val & 16777215u32);
+    }
+    #[inline]
+    pub fn flags(&self) -> u32 {
+        (self.bitfield_1 >> 24u32) & 255u32
+    }
+    #[inline]
+    pub fn set_flags(&mut self, val: u32) {
+        self.bitfield_1 = (self.bitfield_1 & !(255u32 << 24u32))
+            | ((val & 255u32) << 24u32);
     }
 }
 ///[`VkAccelerationStructureMatrixMotionInstanceNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccelerationStructureMatrixMotionInstanceNV.html)
@@ -31401,16 +31578,50 @@ Provided by **VK_NV_ray_tracing_motion_blur**.*/
 pub struct AccelerationStructureMatrixMotionInstanceNV {
     pub transform_t0: TransformMatrixKHR,
     pub transform_t1: TransformMatrixKHR,
-    pub instance_custom_index: u32,
-    pub mask: u32,
-    pub instance_shader_binding_table_record_offset: u32,
-    pub flags: GeometryInstanceFlagsKHR,
+    pub bitfield_0: u32,
+    pub bitfield_1: u32,
     pub acceleration_structure_reference: u64,
 }
 impl Default for AccelerationStructureMatrixMotionInstanceNV {
     #[inline]
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
+    }
+}
+impl AccelerationStructureMatrixMotionInstanceNV {
+    #[inline]
+    pub fn instance_custom_index(&self) -> u32 {
+        self.bitfield_0 & 16777215u32
+    }
+    #[inline]
+    pub fn set_instance_custom_index(&mut self, val: u32) {
+        self.bitfield_0 = (self.bitfield_0 & !16777215u32) | (val & 16777215u32);
+    }
+    #[inline]
+    pub fn mask(&self) -> u32 {
+        (self.bitfield_0 >> 24u32) & 255u32
+    }
+    #[inline]
+    pub fn set_mask(&mut self, val: u32) {
+        self.bitfield_0 = (self.bitfield_0 & !(255u32 << 24u32))
+            | ((val & 255u32) << 24u32);
+    }
+    #[inline]
+    pub fn instance_shader_binding_table_record_offset(&self) -> u32 {
+        self.bitfield_1 & 16777215u32
+    }
+    #[inline]
+    pub fn set_instance_shader_binding_table_record_offset(&mut self, val: u32) {
+        self.bitfield_1 = (self.bitfield_1 & !16777215u32) | (val & 16777215u32);
+    }
+    #[inline]
+    pub fn flags(&self) -> u32 {
+        (self.bitfield_1 >> 24u32) & 255u32
+    }
+    #[inline]
+    pub fn set_flags(&mut self, val: u32) {
+        self.bitfield_1 = (self.bitfield_1 & !(255u32 << 24u32))
+            | ((val & 255u32) << 24u32);
     }
 }
 ///[`VkAccelerationStructureMotionInstanceDataNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccelerationStructureMotionInstanceDataNV.html)

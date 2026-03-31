@@ -18,7 +18,16 @@ pub(super) fn stamp_provenance(registry: &Registry, reg: &mut VkRegistry) {
                 let provider = feature.name.clone();
                 for fc in &feature.children {
                     let items = match fc {
-                        FeatureChild::Require { items, .. } => items,
+                        FeatureChild::Require { items, api, .. } => {
+                            // Skip require blocks for non-vulkan APIs (e.g. vulkansc)
+                            if api
+                                .as_deref()
+                                .is_some_and(|a| !a.split(',').any(|part| part.trim() == "vulkan"))
+                            {
+                                continue;
+                            }
+                            items
+                        }
                         _ => continue,
                     };
                     for item in items {

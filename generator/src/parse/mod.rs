@@ -48,7 +48,7 @@ pub struct StructDef {
     pub provided_by: Option<String>,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct MemberDef {
     pub name: String,
     pub type_name: String,
@@ -61,6 +61,7 @@ pub struct MemberDef {
     pub len: Option<String>,
     pub extern_sync: Option<String>,
     pub is_bitfield: bool,
+    pub bitwidth: Option<u8>,
 }
 
 #[derive(Debug)]
