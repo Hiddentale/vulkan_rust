@@ -112,6 +112,31 @@ jobs:
       - name: Run tests
         run: cargo test --workspace
 
+  doc-check:
+    name: Documentation Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install system dependencies
+        run: sudo apt-get install -y libvulkan-dev libxcb1-dev libxkbcommon-dev
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Regenerate bindings
+        run: cargo run -p generator
+
+      - name: Check docs build without warnings
+        run: RUSTDOCFLAGS="-D warnings" cargo doc --no-deps --all-features
+
+      - name: Run doc tests
+        run: cargo test --doc --all-features
+
   generator-determinism:
     name: Generator Determinism
     runs-on: ubuntu-latest

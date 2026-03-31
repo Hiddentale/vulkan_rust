@@ -1,4 +1,38 @@
-//! Ergonomic Vulkan 1.2 wrapper with `from_raw_parts` support.
+//! Ergonomic Vulkan wrapper built on generated FFI bindings.
+//!
+//! `vk-engine` provides safe-ish wrappers around the raw Vulkan API exposed by
+//! [`vk-sys`](vk). The raw types live in the re-exported [`vk`] module; this
+//! crate adds ergonomic methods on [`Entry`], [`Instance`], and [`Device`] that
+//! handle output parameters, two-call enumeration, and error checking.
+//!
+//! # Quick start
+//!
+//! ```no_run
+//! use vk_engine::{Entry, LibloadingLoader};
+//!
+//! # fn main() -> Result<(), Box<dyn std::error::Error>> {
+//! let loader = unsafe { LibloadingLoader::new() }?;
+//! let entry = unsafe { Entry::new(loader) }?;
+//! // entry is now ready to create instances, enumerate layers, etc.
+//! # Ok(())
+//! # }
+//! ```
+//!
+//! # Crate structure
+//!
+//! | Module | Purpose |
+//! |--------|---------|
+//! | [`vk`] | Re-export of `vk-sys` — raw `#[repr(C)]` types, handles, enums |
+//! | [`Entry`] | Vulkan entry point — loads the library, enumerates layers/extensions |
+//! | [`Instance`] | Vulkan instance — physical device queries, instance-level commands |
+//! | [`Device`] | Vulkan logical device — all device-level commands |
+//! | [`bytecode`] | SPIR-V byte alignment helpers |
+//!
+//! # Feature flags
+//!
+//! | Flag | Default | Description |
+//! |------|---------|-------------|
+//! | `surface` | yes | Window surface creation via `raw-window-handle` |
 
 pub use vk_sys as vk;
 
