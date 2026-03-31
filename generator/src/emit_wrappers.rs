@@ -1136,12 +1136,12 @@ mod tests {
         let exclusions = super::exclusion_set();
 
         let mut report = String::new();
-        writeln!(report, "# Wrapper Audit Report\n").unwrap();
+        writeln!(report, "# Wrapper Audit Report\n").expect("write to String");
         writeln!(
             report,
             "Auto-generated. Run `cargo test -p generator -- generate_wrapper_audit --ignored` to regenerate.\n"
         )
-        .unwrap();
+        .expect("write to String");
 
         let mut pattern_counts: std::collections::HashMap<&str, usize> =
             std::collections::HashMap::new();
@@ -1158,9 +1158,9 @@ mod tests {
                 .filter(|c| c.dispatch_level == level)
                 .collect();
 
-            writeln!(report, "## {level_name} ({} commands)\n", cmds.len()).unwrap();
-            writeln!(report, "| Command | Pattern | Params | Transforms |").unwrap();
-            writeln!(report, "|---------|---------|--------|------------|").unwrap();
+            writeln!(report, "## {level_name} ({} commands)\n", cmds.len()).expect("write to String");
+            writeln!(report, "| Command | Pattern | Params | Transforms |").expect("write to String");
+            writeln!(report, "|---------|---------|--------|------------|").expect("write to String");
 
             for cmd in &cmds {
                 let excluded = exclusions.contains(&cmd.name);
@@ -1240,7 +1240,7 @@ mod tests {
                     cmd.params.len(),
                     transform_str,
                 )
-                .unwrap();
+                .expect("write to String");
 
                 // Track commands with raw pointer params that stayed Regular.
                 if !excluded && !raw_params.is_empty() {
@@ -1248,20 +1248,20 @@ mod tests {
                 }
             }
 
-            writeln!(report).unwrap();
+            writeln!(report).expect("write to String");
         }
 
         // Summary section.
-        writeln!(report, "## Summary\n").unwrap();
-        writeln!(report, "| Pattern | Count |").unwrap();
-        writeln!(report, "|---------|-------|").unwrap();
+        writeln!(report, "## Summary\n").expect("write to String");
+        writeln!(report, "| Pattern | Count |").expect("write to String");
+        writeln!(report, "|---------|-------|").expect("write to String");
         let mut sorted_patterns: Vec<_> = pattern_counts.into_iter().collect();
         sorted_patterns.sort_by_key(|(_, count)| std::cmp::Reverse(*count));
         for (name, count) in &sorted_patterns {
-            writeln!(report, "| {name} | {count} |").unwrap();
+            writeln!(report, "| {name} | {count} |").expect("write to String");
         }
         let total: usize = sorted_patterns.iter().map(|(_, c)| c).sum();
-        writeln!(report, "| **Total** | **{total}** |").unwrap();
+        writeln!(report, "| **Total** | **{total}** |").expect("write to String");
 
         // Raw pointer warnings.
         writeln!(
@@ -1269,21 +1269,21 @@ mod tests {
             "\n## Commands with raw pointer params ({} total)\n",
             raw_forward_commands.len()
         )
-        .unwrap();
+        .expect("write to String");
         writeln!(
             report,
             "These commands have parameters that passed through as raw pointers"
         )
-        .unwrap();
+        .expect("write to String");
         writeln!(
             report,
             "because they didn't match any ergonomic transform rule.\n"
         )
-        .unwrap();
-        writeln!(report, "| Command | Pattern | Raw params |").unwrap();
-        writeln!(report, "|---------|---------|------------|").unwrap();
+        .expect("write to String");
+        writeln!(report, "| Command | Pattern | Raw params |").expect("write to String");
+        writeln!(report, "|---------|---------|------------|").expect("write to String");
         for (name, pattern, params) in &raw_forward_commands {
-            writeln!(report, "| `{name}` | {pattern} | {} |", params.join(", ")).unwrap();
+            writeln!(report, "| `{name}` | {pattern} | {} |", params.join(", ")).expect("write to String");
         }
 
         let out_path =

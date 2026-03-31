@@ -37,7 +37,7 @@ impl Device {
         get_device_proc_addr: vk::commands::PFN_vkGetDeviceProcAddr,
         loader: Option<Arc<dyn Loader>>,
     ) -> Self {
-        let get_device_proc_addr_fn = get_device_proc_addr.unwrap();
+        let get_device_proc_addr_fn = get_device_proc_addr.expect("vkGetDeviceProcAddr not loaded");
         let commands = Box::new(unsafe {
             vk::commands::DeviceCommands::load(|name| {
                 std::mem::transmute(get_device_proc_addr_fn(handle, name.as_ptr()))
@@ -120,7 +120,7 @@ mod tests {
     #[test]
     #[ignore] // requires Vulkan runtime
     fn device_wait_idle_succeeds() {
-        let _vk = crate::VK_TEST_MUTEX.lock().unwrap();
+        let _vk = crate::VK_TEST_MUTEX.lock().expect("VK_TEST_MUTEX poisoned");
         let (instance, device) = create_real_device();
         unsafe { device.device_wait_idle() }.expect("device_wait_idle failed");
         unsafe { device.destroy_device(None) };
@@ -130,7 +130,7 @@ mod tests {
     #[test]
     #[ignore] // requires Vulkan runtime
     fn get_device_queue_returns_non_null_queue() {
-        let _vk = crate::VK_TEST_MUTEX.lock().unwrap();
+        let _vk = crate::VK_TEST_MUTEX.lock().expect("VK_TEST_MUTEX poisoned");
         let (instance, device) = create_real_device();
         let queue = unsafe { device.get_device_queue(0, 0) };
         assert!(!queue.is_null(), "expected non-null queue handle");
@@ -141,7 +141,7 @@ mod tests {
     #[test]
     #[ignore] // requires Vulkan runtime
     fn queue_wait_idle_succeeds() {
-        let _vk = crate::VK_TEST_MUTEX.lock().unwrap();
+        let _vk = crate::VK_TEST_MUTEX.lock().expect("VK_TEST_MUTEX poisoned");
         let (instance, device) = create_real_device();
         let queue = unsafe { device.get_device_queue(0, 0) };
         unsafe { device.queue_wait_idle(queue) }.expect("queue_wait_idle failed");

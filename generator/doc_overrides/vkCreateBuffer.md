@@ -1,13 +1,13 @@
 # Examples
 
 ```no_run
-# let (_, instance) = vk_engine::test_helpers::create_test_instance().unwrap();
-# let phys = unsafe { instance.enumerate_physical_devices() }.unwrap();
+# let (_, instance) = vk_engine::test_helpers::create_test_instance().expect("test setup");
+# let phys = unsafe { instance.enumerate_physical_devices() }.expect("no devices");
 # let p = [1.0f32];
 # let qi = vk_engine::vk::structs::DeviceQueueCreateInfo::builder().queue_priorities(&p);
 # let qis = [*qi];
 # let di = vk_engine::vk::structs::DeviceCreateInfo::builder().queue_create_infos(&qis);
-# let device = unsafe { instance.create_device(phys[0], &di, None) }.unwrap();
+# let device = unsafe { instance.create_device(phys[0], &di, None) }.expect("device creation");
 use vk_engine::vk::structs::*;
 use vk_engine::vk::bitmasks::*;
 

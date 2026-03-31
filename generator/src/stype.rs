@@ -79,7 +79,7 @@ mod tests {
     fn stype_constant_uses_from_raw() {
         let raw = make_raw_map();
         let tokens = stype_constant("VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO", &raw);
-        assert!(tokens.unwrap().to_string().contains("from_raw"));
+        assert!(tokens.expect("should resolve known sType").to_string().contains("from_raw"));
     }
 
     #[test]
@@ -107,7 +107,7 @@ mod tests {
         let raw = make_raw_map();
         let result = struct_stype(&def, &raw);
         assert!(result.is_some());
-        assert!(result.unwrap().to_string().contains("from_raw"));
+        assert!(result.expect("should find sType for BufferCreateInfo").to_string().contains("from_raw"));
     }
 
     #[test]

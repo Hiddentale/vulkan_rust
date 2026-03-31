@@ -523,14 +523,14 @@ mod tests {
     fn handle_instance_is_dispatchable() {
         let h = registry().handles.iter().find(|h| h.name == "Instance");
         assert!(h.is_some(), "Instance handle not found");
-        assert!(h.unwrap().dispatchable);
+        assert!(h.expect("Instance handle must exist").dispatchable);
     }
 
     #[test]
     fn handle_buffer_is_non_dispatchable() {
         let h = registry().handles.iter().find(|h| h.name == "Buffer");
         assert!(h.is_some(), "Buffer handle not found");
-        assert!(!h.unwrap().dispatchable);
+        assert!(!h.expect("Buffer handle must exist").dispatchable);
     }
 
     #[test]
@@ -549,7 +549,7 @@ mod tests {
             .handles
             .iter()
             .find(|h| h.name == "Instance")
-            .unwrap();
+            .expect("Instance handle not found");
         assert!(h.object_type.is_some());
     }
 
@@ -564,7 +564,7 @@ mod tests {
             .iter()
             .find(|s| s.name == "BufferCreateInfo");
         assert!(s.is_some());
-        let s = s.unwrap();
+        let s = s.expect("BufferCreateInfo struct not found");
         assert!(!s.is_union);
         assert!(!s.members.is_empty());
     }
@@ -575,7 +575,7 @@ mod tests {
             .structs
             .iter()
             .find(|s| s.name == "BufferCreateInfo")
-            .unwrap();
+            .expect("BufferCreateInfo struct not found");
         let s_type = s.members.iter().find(|m| m.name == "sType");
         assert!(
             s_type.is_some(),
@@ -589,11 +589,12 @@ mod tests {
             .structs
             .iter()
             .find(|s| s.name == "BufferCreateInfo")
-            .unwrap();
+            .expect("BufferCreateInfo struct not found");
         let p_next = s.members.iter().find(|m| m.name == "pNext");
         assert!(p_next.is_some());
-        assert!(p_next.unwrap().is_pointer);
-        assert!(p_next.unwrap().is_const);
+        let p_next = p_next.expect("pNext member not found");
+        assert!(p_next.is_pointer);
+        assert!(p_next.is_const);
     }
 
     #[test]
@@ -603,7 +604,7 @@ mod tests {
             .iter()
             .find(|s| s.name == "ClearColorValue");
         assert!(u.is_some());
-        assert!(u.unwrap().is_union);
+        assert!(u.expect("ClearColorValue union not found").is_union);
     }
 
     #[test]
@@ -634,7 +635,7 @@ mod tests {
 
         let undefined = e.variants.iter().find(|v| v.name == "VK_FORMAT_UNDEFINED");
         assert!(undefined.is_some());
-        match &undefined.unwrap().value {
+        match &undefined.expect("VK_FORMAT_UNDEFINED variant not found").value {
             EnumValue::I32(0) => {}
             other => panic!("expected I32(0), got {other:?}"),
         }
@@ -656,7 +657,7 @@ mod tests {
             .iter()
             .find(|v| v.name == "VK_ERROR_OUT_OF_HOST_MEMORY");
         assert!(oom.is_some());
-        match &oom.unwrap().value {
+        match &oom.expect("VK_ERROR_OUT_OF_HOST_MEMORY variant not found").value {
             EnumValue::I32(v) => assert!(*v < 0, "error codes should be negative"),
             other => panic!("expected I32, got {other:?}"),
         }
@@ -677,7 +678,7 @@ mod tests {
             .iter()
             .find(|v| v.name == "VK_ERROR_OUT_OF_POOL_MEMORY");
         assert!(oom_pool.is_some(), "VK_ERROR_OUT_OF_POOL_MEMORY not found");
-        match &oom_pool.unwrap().value {
+        match &oom_pool.expect("VK_ERROR_OUT_OF_POOL_MEMORY variant not found").value {
             EnumValue::I32(v) => assert!(
                 *v < 0,
                 "VK_ERROR_OUT_OF_POOL_MEMORY should be negative, got {v}"
@@ -712,7 +713,7 @@ mod tests {
             .iter()
             .find(|b| b.name == "BufferUsageFlagBits");
         assert!(b.is_some());
-        let b = b.unwrap();
+        let b = b.expect("BufferUsageFlagBits bitmask not found");
         assert_eq!(b.bitwidth, 32);
         assert!(!b.bits.is_empty());
     }
@@ -724,7 +725,7 @@ mod tests {
             .iter()
             .find(|b| b.name == "PipelineStageFlagBits2");
         assert!(b.is_some());
-        assert_eq!(b.unwrap().bitwidth, 64);
+        assert_eq!(b.expect("PipelineStageFlagBits2 bitmask not found").bitwidth, 64);
     }
 
     #[test]
@@ -733,7 +734,7 @@ mod tests {
             .bitmasks
             .iter()
             .find(|b| b.name == "BufferUsageFlagBits")
-            .unwrap();
+            .expect("BufferUsageFlagBits bitmask not found");
         for bit in &b.bits {
             match &bit.value {
                 BitmaskValue::Bitpos(pos) => assert!(*pos < 64, "bitpos too large: {pos}"),
@@ -784,7 +785,7 @@ mod tests {
             .commands
             .iter()
             .find(|c| c.name == "vkCreateBuffer")
-            .unwrap();
+            .expect("vkCreateBuffer command not found");
         assert!(c.params.len() >= 3, "vkCreateBuffer should have 4 params");
         assert_eq!(c.params[0].type_name, "VkDevice");
     }
@@ -795,7 +796,7 @@ mod tests {
             .commands
             .iter()
             .find(|c| c.name == "vkCreateInstance")
-            .unwrap();
+            .expect("vkCreateInstance command not found");
         assert!(!c.success_codes.is_empty());
         assert!(!c.error_codes.is_empty());
     }
@@ -811,7 +812,7 @@ mod tests {
             .iter()
             .find(|c| c.name == "VK_MAX_PHYSICAL_DEVICE_NAME_SIZE");
         assert!(c.is_some());
-        assert_eq!(c.unwrap().value, "256");
+        assert_eq!(c.expect("VK_MAX_PHYSICAL_DEVICE_NAME_SIZE not found").value, "256");
     }
 
     #[test]
@@ -835,7 +836,7 @@ mod tests {
             .iter()
             .find(|f| f.name == "PFN_vkAllocationFunction");
         assert!(fp.is_some());
-        let fp = fp.unwrap();
+        let fp = fp.expect("PFN_vkAllocationFunction not found");
         assert!(!fp.params.is_empty());
     }
 
@@ -850,7 +851,7 @@ mod tests {
             .iter()
             .find(|e| e.name == "VK_KHR_swapchain");
         assert!(ext.is_some());
-        let ext = ext.unwrap();
+        let ext = ext.expect("VK_KHR_swapchain extension not found");
         assert!(!ext.items.is_empty());
     }
 
@@ -884,7 +885,7 @@ mod tests {
             .handles
             .iter()
             .find(|h| h.name == "Instance")
-            .unwrap();
+            .expect("Instance handle not found");
         assert!(h.provided_by.is_some(), "Instance should have provided_by");
     }
 
@@ -895,7 +896,7 @@ mod tests {
             .iter()
             .find(|s| s.name == "SwapchainCreateInfoKHR");
         assert!(s.is_some());
-        assert_eq!(s.unwrap().provided_by.as_deref(), Some("VK_KHR_swapchain"));
+        assert_eq!(s.expect("SwapchainCreateInfoKHR struct not found").provided_by.as_deref(), Some("VK_KHR_swapchain"));
     }
 
     // -----------------------------------------------------------------------

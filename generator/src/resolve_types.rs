@@ -128,7 +128,7 @@ pub fn resolve_flags_alias(name: &str) -> String {
     }
 
     if name.ends_with("Flags") && !name.ends_with("FlagBits") {
-        let prefix = name.strip_suffix("Flags").unwrap();
+        let prefix = name.strip_suffix("Flags").expect("suffix checked above");
         return format!("{prefix}FlagBits");
     }
     name.to_string()
@@ -401,13 +401,13 @@ mod tests {
 
     #[test]
     fn resolve_return_vk_result() {
-        let ty = resolve_return_type("VkResult").unwrap();
+        let ty = resolve_return_type("VkResult").expect("VkResult should resolve");
         assert_eq!(ty.to_string(), "Result");
     }
 
     #[test]
     fn resolve_return_vk_bool() {
-        let ty = resolve_return_type("VkBool32").unwrap();
+        let ty = resolve_return_type("VkBool32").expect("VkBool32 should resolve");
         assert_eq!(ty.to_string(), "u32");
     }
 
