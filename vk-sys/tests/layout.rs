@@ -118,3 +118,22 @@ fn bitmask_types_are_u32() {
     assert_eq!(size_of::<bitmasks::MemoryPropertyFlagBits>(), 4);
     assert_eq!(size_of::<bitmasks::QueueFlagBits>(), 4);
 }
+
+#[test]
+fn bitmask_64bit_types_are_u64() {
+    assert_eq!(size_of::<bitmasks::AccessFlagBits2>(), 8);
+    assert_eq!(size_of::<bitmasks::PipelineStageFlagBits2>(), 8);
+    assert_eq!(size_of::<bitmasks::FormatFeatureFlagBits2>(), 8);
+    assert_eq!(size_of::<bitmasks::PipelineCreateFlagBits2>(), 8);
+    assert_eq!(size_of::<bitmasks::BufferUsageFlagBits2>(), 8);
+    assert_eq!(size_of::<bitmasks::MemoryDecompressionMethodFlagBitsEXT>(), 8);
+}
+
+// ── Struct with 64-bit bitmask fields ─────────────────────────────
+// MemoryBarrier2: s_type(4) pad(4) p_next(8) src_stage(8) src_access(8)
+//                 dst_stage(8) dst_access(8) = 48
+#[test]
+fn memory_barrier2_layout() {
+    assert_eq!(size_of::<structs::MemoryBarrier2>(), 48);
+    assert_eq!(align_of::<structs::MemoryBarrier2>(), 8);
+}
