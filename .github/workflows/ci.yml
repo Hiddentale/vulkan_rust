@@ -182,10 +182,14 @@ jobs:
         uses: taiki-e/install-action@cargo-llvm-cov
 
       - name: Generate coverage report
-        run: cargo llvm-cov --workspace --lcov --output-path lcov.info
+        run: |
+          cargo llvm-cov --workspace --lcov --output-path lcov.info \
+            --ignore-filename-regex '(vk-sys/src/|vk-engine/src/generated/)'
 
       - name: Print coverage summary
-        run: cargo llvm-cov --workspace --no-run
+        run: |
+          cargo llvm-cov report --workspace \
+            --ignore-filename-regex '(vk-sys/src/|vk-engine/src/generated/)'
 
       - name: Upload coverage artifact
         uses: actions/upload-artifact@v4
