@@ -226,12 +226,12 @@ fn emit_wrapper_docs(cmd: &CommandDef, roles: &[ParamRole]) -> TokenStream {
     // Doc overrides: append hand-written content from doc_overrides/{vkCommandName}.md.
     let overrides_dir = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("doc_overrides");
     let override_path = overrides_dir.join(format!("{}.md", &cmd.name));
-    if override_path.exists() {
-        if let Ok(content) = std::fs::read_to_string(&override_path) {
-            doc_lines.push(quote! { #[doc = ""] });
-            for line in content.lines() {
-                doc_lines.push(quote! { #[doc = #line] });
-            }
+    if override_path.exists()
+        && let Ok(content) = std::fs::read_to_string(&override_path)
+    {
+        doc_lines.push(quote! { #[doc = ""] });
+        for line in content.lines() {
+            doc_lines.push(quote! { #[doc = #line] });
         }
     }
 
@@ -1158,9 +1158,12 @@ mod tests {
                 .filter(|c| c.dispatch_level == level)
                 .collect();
 
-            writeln!(report, "## {level_name} ({} commands)\n", cmds.len()).expect("write to String");
-            writeln!(report, "| Command | Pattern | Params | Transforms |").expect("write to String");
-            writeln!(report, "|---------|---------|--------|------------|").expect("write to String");
+            writeln!(report, "## {level_name} ({} commands)\n", cmds.len())
+                .expect("write to String");
+            writeln!(report, "| Command | Pattern | Params | Transforms |")
+                .expect("write to String");
+            writeln!(report, "|---------|---------|--------|------------|")
+                .expect("write to String");
 
             for cmd in &cmds {
                 let excluded = exclusions.contains(&cmd.name);
@@ -1283,7 +1286,8 @@ mod tests {
         writeln!(report, "| Command | Pattern | Raw params |").expect("write to String");
         writeln!(report, "|---------|---------|------------|").expect("write to String");
         for (name, pattern, params) in &raw_forward_commands {
-            writeln!(report, "| `{name}` | {pattern} | {} |", params.join(", ")).expect("write to String");
+            writeln!(report, "| `{name}` | {pattern} | {} |", params.join(", "))
+                .expect("write to String");
         }
 
         let out_path =

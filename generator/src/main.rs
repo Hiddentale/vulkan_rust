@@ -92,7 +92,11 @@ fn write_module(out_dir: &Path, filename: &str, tokens: proc_macro2::TokenStream
 fn rustfmt_engine() {
     let status = std::process::Command::new(env!("CARGO"))
         .args(["fmt", "-p", "vk-engine"])
-        .current_dir(Path::new(env!("CARGO_MANIFEST_DIR")).parent().expect("CARGO_MANIFEST_DIR has parent"))
+        .current_dir(
+            Path::new(env!("CARGO_MANIFEST_DIR"))
+                .parent()
+                .expect("CARGO_MANIFEST_DIR has parent"),
+        )
         .status();
     match status {
         Ok(s) if s.success() => println!("  rustfmt vk-engine: ok"),

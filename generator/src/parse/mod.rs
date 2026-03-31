@@ -635,7 +635,10 @@ mod tests {
 
         let undefined = e.variants.iter().find(|v| v.name == "VK_FORMAT_UNDEFINED");
         assert!(undefined.is_some());
-        match &undefined.expect("VK_FORMAT_UNDEFINED variant not found").value {
+        match &undefined
+            .expect("VK_FORMAT_UNDEFINED variant not found")
+            .value
+        {
             EnumValue::I32(0) => {}
             other => panic!("expected I32(0), got {other:?}"),
         }
@@ -657,7 +660,10 @@ mod tests {
             .iter()
             .find(|v| v.name == "VK_ERROR_OUT_OF_HOST_MEMORY");
         assert!(oom.is_some());
-        match &oom.expect("VK_ERROR_OUT_OF_HOST_MEMORY variant not found").value {
+        match &oom
+            .expect("VK_ERROR_OUT_OF_HOST_MEMORY variant not found")
+            .value
+        {
             EnumValue::I32(v) => assert!(*v < 0, "error codes should be negative"),
             other => panic!("expected I32, got {other:?}"),
         }
@@ -678,7 +684,10 @@ mod tests {
             .iter()
             .find(|v| v.name == "VK_ERROR_OUT_OF_POOL_MEMORY");
         assert!(oom_pool.is_some(), "VK_ERROR_OUT_OF_POOL_MEMORY not found");
-        match &oom_pool.expect("VK_ERROR_OUT_OF_POOL_MEMORY variant not found").value {
+        match &oom_pool
+            .expect("VK_ERROR_OUT_OF_POOL_MEMORY variant not found")
+            .value
+        {
             EnumValue::I32(v) => assert!(
                 *v < 0,
                 "VK_ERROR_OUT_OF_POOL_MEMORY should be negative, got {v}"
@@ -725,7 +734,11 @@ mod tests {
             .iter()
             .find(|b| b.name == "PipelineStageFlagBits2");
         assert!(b.is_some());
-        assert_eq!(b.expect("PipelineStageFlagBits2 bitmask not found").bitwidth, 64);
+        assert_eq!(
+            b.expect("PipelineStageFlagBits2 bitmask not found")
+                .bitwidth,
+            64
+        );
     }
 
     #[test]
@@ -812,7 +825,10 @@ mod tests {
             .iter()
             .find(|c| c.name == "VK_MAX_PHYSICAL_DEVICE_NAME_SIZE");
         assert!(c.is_some());
-        assert_eq!(c.expect("VK_MAX_PHYSICAL_DEVICE_NAME_SIZE not found").value, "256");
+        assert_eq!(
+            c.expect("VK_MAX_PHYSICAL_DEVICE_NAME_SIZE not found").value,
+            "256"
+        );
     }
 
     #[test]
@@ -896,7 +912,12 @@ mod tests {
             .iter()
             .find(|s| s.name == "SwapchainCreateInfoKHR");
         assert!(s.is_some());
-        assert_eq!(s.expect("SwapchainCreateInfoKHR struct not found").provided_by.as_deref(), Some("VK_KHR_swapchain"));
+        assert_eq!(
+            s.expect("SwapchainCreateInfoKHR struct not found")
+                .provided_by
+                .as_deref(),
+            Some("VK_KHR_swapchain")
+        );
     }
 
     // -----------------------------------------------------------------------

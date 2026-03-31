@@ -14,7 +14,9 @@ fn load_registry() -> generator::parse::VkRegistry {
 
 /// Read generated file content as a string.
 fn read_generated(relative: &str) -> String {
-    let root = Path::new(env!("CARGO_MANIFEST_DIR")).parent().expect("CARGO_MANIFEST_DIR has parent");
+    let root = Path::new(env!("CARGO_MANIFEST_DIR"))
+        .parent()
+        .expect("CARGO_MANIFEST_DIR has parent");
     std::fs::read_to_string(root.join(relative))
         .unwrap_or_else(|e| panic!("failed to read {relative}: {e}"))
 }

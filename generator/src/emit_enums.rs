@@ -393,7 +393,10 @@ mod tests {
         let def = make_enum("Format", vec![("VK_FORMAT_UNDEFINED", 0)]);
         let code = emit_enum(&def).to_string();
         // Spec link doc exists, but no variant-level comment.
-        assert!(code.contains("registry.khronos.org"), "spec link should exist");
+        assert!(
+            code.contains("registry.khronos.org"),
+            "spec link should exist"
+        );
         assert!(
             !code.contains("Implicit layout"),
             "no variant comment expected"

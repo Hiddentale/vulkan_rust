@@ -467,7 +467,9 @@ mod tests {
         let cmd = make_command("vkCreateInstance", "VkResult", vec![]);
         let code = emit_pfn_typedef(&cmd).to_string();
         assert!(
-            code.contains("registry.khronos.org/vulkan/specs/latest/man/html/vkCreateInstance.html"),
+            code.contains(
+                "registry.khronos.org/vulkan/specs/latest/man/html/vkCreateInstance.html"
+            ),
             "missing spec link"
         );
     }
@@ -479,7 +481,10 @@ mod tests {
             ..make_command("vkEnumeratePhysicalDevices", "VkResult", vec![])
         };
         let code = emit_pfn_typedef(&cmd).to_string();
-        assert!(code.contains("Success Codes"), "missing success codes section");
+        assert!(
+            code.contains("Success Codes"),
+            "missing success codes section"
+        );
         assert!(code.contains("VK_SUCCESS"));
         assert!(code.contains("VK_INCOMPLETE"));
     }
@@ -517,7 +522,10 @@ mod tests {
             ..make_command("vkDestroyDevice", "void", vec![])
         };
         let code = emit_pfn_typedef(&cmd).to_string();
-        assert!(code.contains("Thread Safety"), "missing thread safety section");
+        assert!(
+            code.contains("Thread Safety"),
+            "missing thread safety section"
+        );
         assert!(code.contains("externally synchronized"));
     }
 

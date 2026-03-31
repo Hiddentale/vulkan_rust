@@ -210,7 +210,9 @@ mod tests {
     #[test]
     fn constant_has_doc_alias() {
         let def = make_constant("VK_TRUE", "1", Some("uint32_t"));
-        let code = emit_constant(&def).expect("should emit constant").to_string();
+        let code = emit_constant(&def)
+            .expect("should emit constant")
+            .to_string();
         assert!(code.contains("VK_TRUE"), "expected doc(alias)");
     }
 

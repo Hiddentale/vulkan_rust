@@ -173,8 +173,7 @@ fn emit_struct_docs(def: &StructDef, extended_by: &HashMap<String, Vec<String>>)
 
     // Returned-only annotation.
     if def.returned_only {
-        let line =
-            "\n**Returned only** — filled by Vulkan, not constructed by the application.";
+        let line = "\n**Returned only** — filled by Vulkan, not constructed by the application.";
         doc_lines.push(quote! { #[doc = #line] });
     }
 
@@ -307,8 +306,9 @@ fn emit_fields_with_docs(members: &[MemberDef]) -> Vec<TokenStream> {
 
             // Thread safety.
             if m.extern_sync.is_some() {
-                doc_lines
-                    .push(quote! { #[doc = "**Thread safety:** must be externally synchronized."] });
+                doc_lines.push(
+                    quote! { #[doc = "**Thread safety:** must be externally synchronized."] },
+                );
             }
 
             quote! {
@@ -837,7 +837,10 @@ mod tests {
             provided_by: None,
         };
         let code = emit_struct(&def, &HashMap::new(), &HashMap::new()).to_string();
-        assert!(code.contains("Returned only"), "missing returned_only annotation");
+        assert!(
+            code.contains("Returned only"),
+            "missing returned_only annotation"
+        );
     }
 
     #[test]
@@ -944,7 +947,10 @@ mod tests {
             provided_by: None,
         };
         let code = emit_struct(&def, &HashMap::new(), &HashMap::new()).to_string();
-        assert!(code.contains("Optional"), "optional pointer should be annotated");
+        assert!(
+            code.contains("Optional"),
+            "optional pointer should be annotated"
+        );
     }
 
     #[test]
@@ -1002,7 +1008,9 @@ mod tests {
         };
         let code = emit_union(&def, &HashMap::new()).to_string();
         assert!(
-            code.contains("registry.khronos.org/vulkan/specs/latest/man/html/VkClearColorValue.html"),
+            code.contains(
+                "registry.khronos.org/vulkan/specs/latest/man/html/VkClearColorValue.html"
+            ),
             "union missing spec link"
         );
     }

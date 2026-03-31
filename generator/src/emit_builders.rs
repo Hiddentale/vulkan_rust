@@ -86,7 +86,10 @@ fn emit_builder(
         quote! {}
     };
 
-    let builder_doc = format!("Builder for [`{}`] with lifetime-tied pNext safety.", &def.name);
+    let builder_doc = format!(
+        "Builder for [`{}`] with lifetime-tied pNext safety.",
+        &def.name
+    );
 
     quote! {
         #[doc = #builder_doc]
