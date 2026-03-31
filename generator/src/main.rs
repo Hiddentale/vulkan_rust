@@ -92,7 +92,11 @@ fn write_module(out_dir: &Path, filename: &str, tokens: proc_macro2::TokenStream
 fn rustfmt_engine() {
     let status = std::process::Command::new(env!("CARGO"))
         .args(["fmt", "-p", "vk-engine"])
-        .current_dir(Path::new(env!("CARGO_MANIFEST_DIR")).parent().unwrap())
+        .current_dir(
+            Path::new(env!("CARGO_MANIFEST_DIR"))
+                .parent()
+                .expect("CARGO_MANIFEST_DIR has parent"),
+        )
         .status();
     match status {
         Ok(s) if s.success() => println!("  rustfmt vk-engine: ok"),
@@ -106,6 +110,10 @@ fn update_lib_rs(out_dir: &Path) {
 //! Raw Vulkan FFI types generated from `vk.xml`.
 //!
 //! Do not edit by hand — regenerate with the `generator` crate.
+//!
+//! Every type carries a spec link, and structs include metadata from
+//! vk.xml: extension provenance, pNext chain relationships, member
+//! annotations (optional, length-of, thread safety).
 
 #![no_std]
 #![allow(non_camel_case_types)]
@@ -129,7 +137,13 @@ fn write_engine_mod_rs(out_dir: &Path) {
     let content = "\
 //! Generated wrapper methods for Entry, Instance, and Device.
 //!
-//! Do not edit by hand — regenerate with the `generator` crate.
+//! These methods are auto-generated from `vk.xml` by the `generator` crate.
+//! Do not edit by hand — run `cargo run -p generator` to regenerate.
+//!
+//! Each method wraps a single Vulkan command, adding:
+//! - Output-parameter returns (instead of out-pointer + `VkResult`)
+//! - Two-call enumeration for array-returning commands
+//! - Spec links, error codes, and safety documentation
 
 mod entry_wrappers;
 mod instance_wrappers;

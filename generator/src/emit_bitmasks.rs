@@ -54,7 +54,12 @@ fn emit_bitmask(def: &BitmaskDef) -> TokenStream {
         })
         .collect();
 
+    let spec_link = format!(
+        "[`{vk_name}`](https://registry.khronos.org/vulkan/specs/latest/man/html/{vk_name}.html)"
+    );
+
     quote! {
+        #[doc = #spec_link]
         #[repr(transparent)]
         #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
         #[doc(alias = #vk_name)]
@@ -144,6 +149,7 @@ fn emit_bit_constant(bit: &BitmaskBit, prefix: &str, is_64: bool) -> Option<Toke
 
     match &bit.value {
         BitmaskValue::Bitpos(pos) => {
+            let bit_doc = format!("Bit {pos}.");
             let lit = if is_64 {
                 let val = 1u64 << pos;
                 Literal::u64_suffixed(val)
@@ -151,7 +157,10 @@ fn emit_bit_constant(bit: &BitmaskBit, prefix: &str, is_64: bool) -> Option<Toke
                 let val = 1u32 << pos;
                 Literal::u32_suffixed(val)
             };
-            Some(quote! { pub const #ident: Self = Self(#lit); })
+            Some(quote! {
+                #[doc = #bit_doc]
+                pub const #ident: Self = Self(#lit);
+            })
         }
         BitmaskValue::Value(val) => {
             let lit = if is_64 {

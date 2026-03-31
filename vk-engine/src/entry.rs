@@ -46,7 +46,8 @@ impl Entry {
             std::mem::transmute(ptr)
         };
 
-        let get_instance_proc_addr_fn = get_instance_proc_addr.unwrap();
+        let get_instance_proc_addr_fn =
+            get_instance_proc_addr.expect("vkGetInstanceProcAddr not loaded");
         let null_instance = vk::handles::Instance::null();
 
         let get_device_proc_addr: vk::commands::PFN_vkGetDeviceProcAddr =
@@ -112,6 +113,25 @@ impl Entry {
     /// `create_info` must be a valid, fully populated `InstanceCreateInfo`.
     /// The caller is responsible for calling `instance.destroy_instance`
     /// when done.
+    ///
+    /// # Examples
+    ///
+    /// ```no_run
+    /// use vk_engine::{Entry, LibloadingLoader};
+    /// use vk_engine::vk::structs::*;
+    ///
+    /// let loader = unsafe { LibloadingLoader::new() }.expect("Vulkan not found");
+    /// let entry = unsafe { Entry::new(loader) }.expect("entry creation failed");
+    ///
+    /// let app_info = ApplicationInfo::builder()
+    ///     .api_version(1 << 22); // Vulkan 1.0
+    /// let create_info = InstanceCreateInfo::builder()
+    ///     .p_application_info(&*app_info);
+    /// let instance = unsafe { entry.create_instance(&create_info, None) }
+    ///     .expect("instance creation failed");
+    /// // Use instance...
+    /// unsafe { instance.destroy_instance(None) };
+    /// ```
     pub unsafe fn create_instance(
         &self,
         create_info: &vk::structs::InstanceCreateInfo,
@@ -225,7 +245,7 @@ mod tests {
     #[test]
     #[ignore] // requires Vulkan runtime
     fn new_succeeds_with_real_loader() {
-        let _vk = crate::VK_TEST_MUTEX.lock().unwrap();
+        let _vk = crate::VK_TEST_MUTEX.lock().expect("VK_TEST_MUTEX poisoned");
         let loader = crate::loader::LibloadingLoader::new().expect("failed to load Vulkan library");
         let entry = unsafe { Entry::new(loader) }.expect("failed to create Entry");
         assert!(entry.get_instance_proc_addr().is_some());
@@ -235,7 +255,7 @@ mod tests {
     #[test]
     #[ignore] // requires Vulkan runtime
     fn version_returns_at_least_1_0() {
-        let _vk = crate::VK_TEST_MUTEX.lock().unwrap();
+        let _vk = crate::VK_TEST_MUTEX.lock().expect("VK_TEST_MUTEX poisoned");
         let entry = create_entry();
         let version = entry.version().expect("failed to query version");
         assert!(version.major >= 1);
@@ -245,7 +265,7 @@ mod tests {
     #[test]
     #[ignore] // requires Vulkan runtime
     fn enumerate_layer_properties_succeeds() {
-        let _vk = crate::VK_TEST_MUTEX.lock().unwrap();
+        let _vk = crate::VK_TEST_MUTEX.lock().expect("VK_TEST_MUTEX poisoned");
         let entry = create_entry();
         let layers = unsafe { entry.enumerate_instance_layer_properties() }
             .expect("failed to enumerate layers");
@@ -255,7 +275,7 @@ mod tests {
     #[test]
     #[ignore] // requires Vulkan runtime
     fn enumerate_extension_properties_succeeds() {
-        let _vk = crate::VK_TEST_MUTEX.lock().unwrap();
+        let _vk = crate::VK_TEST_MUTEX.lock().expect("VK_TEST_MUTEX poisoned");
         let entry = create_entry();
         let extensions = unsafe { entry.enumerate_instance_extension_properties(None) }
             .expect("failed to enumerate extensions");

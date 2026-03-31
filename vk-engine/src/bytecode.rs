@@ -31,6 +31,18 @@ impl std::error::Error for BytecodeError {}
 /// Returns an error if `bytes.len()` is not a multiple of 4 or the
 /// pointer is not 4-byte aligned. Use `include_bytes!` or aligned
 /// allocators to ensure correctness.
+///
+/// # Examples
+///
+/// ```
+/// use vk_engine::cast_to_u32;
+///
+/// #[repr(align(4))]
+/// struct Aligned([u8; 8]);
+/// let spirv = Aligned([0x03, 0x02, 0x23, 0x07, 0, 0, 0, 0]);
+/// let words = cast_to_u32(&spirv.0).expect("alignment error");
+/// assert_eq!(words.len(), 2);
+/// ```
 pub fn cast_to_u32(bytes: &[u8]) -> Result<&[u32], BytecodeError> {
     if bytes.is_empty() {
         return Ok(&[]);
@@ -53,7 +65,7 @@ mod tests {
         #[repr(align(4))]
         struct Aligned([u8; 8]);
         let data = Aligned([0x03, 0x02, 0x23, 0x07, 0, 0, 0, 0]);
-        let words = cast_to_u32(&data.0).unwrap();
+        let words = cast_to_u32(&data.0).expect("aligned input should succeed");
         assert_eq!(words.len(), 2);
         assert_eq!(words[0], 0x07230203); // SPIR-V magic number (little-endian)
     }
@@ -69,7 +81,7 @@ mod tests {
     #[test]
     fn empty_input_succeeds() {
         let empty: &[u8] = &[];
-        let words = cast_to_u32(empty).unwrap();
+        let words = cast_to_u32(empty).expect("empty input should succeed");
         assert!(words.is_empty());
     }
 

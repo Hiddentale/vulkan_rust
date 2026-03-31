@@ -47,7 +47,8 @@ impl Instance {
         get_device_proc_addr: vk::commands::PFN_vkGetDeviceProcAddr,
         loader: Option<Arc<dyn Loader>>,
     ) -> Self {
-        let get_instance_proc_addr_fn = get_instance_proc_addr.unwrap();
+        let get_instance_proc_addr_fn =
+            get_instance_proc_addr.expect("vkGetInstanceProcAddr not loaded");
         let commands = Box::new(unsafe {
             vk::commands::InstanceCommands::load(|name| {
                 std::mem::transmute(get_instance_proc_addr_fn(handle, name.as_ptr()))
@@ -77,7 +78,8 @@ impl Instance {
         handle: vk::handles::Instance,
         get_instance_proc_addr: vk::commands::PFN_vkGetInstanceProcAddr,
     ) -> Self {
-        let get_instance_proc_addr_fn = get_instance_proc_addr.unwrap();
+        let get_instance_proc_addr_fn =
+            get_instance_proc_addr.expect("vkGetInstanceProcAddr not loaded");
 
         let get_device_proc_addr: vk::commands::PFN_vkGetDeviceProcAddr = unsafe {
             std::mem::transmute(get_instance_proc_addr_fn(
@@ -109,6 +111,30 @@ impl Instance {
     /// - `physical_device` must be a valid handle obtained from this instance.
     /// - `create_info` must be a valid, fully populated `DeviceCreateInfo`.
     /// - The caller is responsible for calling `device.destroy_device` when done.
+    ///
+    /// # Examples
+    ///
+    /// ```no_run
+    /// # use vk_engine::vk::structs::*;
+    /// # let (entry, instance) = vk_engine::test_helpers::create_test_instance().expect("test setup failed");
+    /// let physical_devices = unsafe { instance.enumerate_physical_devices() }
+    ///     .expect("no devices");
+    /// let physical_device = physical_devices[0];
+    ///
+    /// let priorities = [1.0f32];
+    /// let queue_info = DeviceQueueCreateInfo::builder()
+    ///     .queue_family_index(0)
+    ///     .queue_priorities(&priorities);
+    /// let queue_infos = [*queue_info];
+    /// let device_info = DeviceCreateInfo::builder()
+    ///     .queue_create_infos(&queue_infos);
+    /// let device = unsafe {
+    ///     instance.create_device(physical_device, &device_info, None)
+    /// }.expect("device creation failed");
+    /// // Use device...
+    /// unsafe { device.destroy_device(None) };
+    /// # unsafe { instance.destroy_instance(None) };
+    /// ```
     pub unsafe fn create_device(
         &self,
         physical_device: vk::handles::PhysicalDevice,
@@ -178,7 +204,7 @@ mod tests {
     #[test]
     #[ignore] // requires Vulkan runtime
     fn enumerate_physical_devices_returns_at_least_one() {
-        let _vk = crate::VK_TEST_MUTEX.lock().unwrap();
+        let _vk = crate::VK_TEST_MUTEX.lock().expect("VK_TEST_MUTEX poisoned");
         let instance = create_real_instance();
         let devices = unsafe { instance.enumerate_physical_devices() }
             .expect("enumerate_physical_devices failed");
@@ -188,9 +214,10 @@ mod tests {
     #[test]
     #[ignore] // requires Vulkan runtime
     fn get_physical_device_properties_succeeds() {
-        let _vk = crate::VK_TEST_MUTEX.lock().unwrap();
+        let _vk = crate::VK_TEST_MUTEX.lock().expect("VK_TEST_MUTEX poisoned");
         let instance = create_real_instance();
-        let devices = unsafe { instance.enumerate_physical_devices() }.unwrap();
+        let devices = unsafe { instance.enumerate_physical_devices() }
+            .expect("enumerate_physical_devices failed");
         let props = unsafe { instance.get_physical_device_properties(devices[0]) };
         let name_bytes: Vec<u8> = props
             .device_name
@@ -206,9 +233,10 @@ mod tests {
     #[test]
     #[ignore] // requires Vulkan runtime
     fn get_physical_device_queue_family_properties_returns_at_least_one() {
-        let _vk = crate::VK_TEST_MUTEX.lock().unwrap();
+        let _vk = crate::VK_TEST_MUTEX.lock().expect("VK_TEST_MUTEX poisoned");
         let instance = create_real_instance();
-        let devices = unsafe { instance.enumerate_physical_devices() }.unwrap();
+        let devices = unsafe { instance.enumerate_physical_devices() }
+            .expect("enumerate_physical_devices failed");
         let families = unsafe { instance.get_physical_device_queue_family_properties(devices[0]) };
         assert!(!families.is_empty(), "expected at least one queue family");
     }
@@ -216,9 +244,10 @@ mod tests {
     #[test]
     #[ignore] // requires Vulkan runtime
     fn get_physical_device_memory_properties_succeeds() {
-        let _vk = crate::VK_TEST_MUTEX.lock().unwrap();
+        let _vk = crate::VK_TEST_MUTEX.lock().expect("VK_TEST_MUTEX poisoned");
         let instance = create_real_instance();
-        let devices = unsafe { instance.enumerate_physical_devices() }.unwrap();
+        let devices = unsafe { instance.enumerate_physical_devices() }
+            .expect("enumerate_physical_devices failed");
         let mem_props = unsafe { instance.get_physical_device_memory_properties(devices[0]) };
         assert!(
             mem_props.memory_type_count > 0,
@@ -233,9 +262,10 @@ mod tests {
     #[test]
     #[ignore] // requires Vulkan runtime
     fn get_physical_device_features_succeeds() {
-        let _vk = crate::VK_TEST_MUTEX.lock().unwrap();
+        let _vk = crate::VK_TEST_MUTEX.lock().expect("VK_TEST_MUTEX poisoned");
         let instance = create_real_instance();
-        let devices = unsafe { instance.enumerate_physical_devices() }.unwrap();
+        let devices = unsafe { instance.enumerate_physical_devices() }
+            .expect("enumerate_physical_devices failed");
         // Just verify the call completes without crashing; feature
         // availability is driver-dependent.
         let _features = unsafe { instance.get_physical_device_features(devices[0]) };

@@ -116,7 +116,7 @@ fn emit_file(wrapper_type: &str, methods: TokenStream) -> TokenStream {
     quote! {
         #![allow(unused_imports)]
         #![allow(clippy::too_many_arguments)]
-        #![allow(clippy::missing_safety_doc)]
+        // Safety docs are now generated from vk.xml metadata.
 
         use crate::error::{check, enumerate_two_call, fill_two_call, VkResult};
         use crate::vk::bitmasks::*;
@@ -170,12 +170,72 @@ fn emit_method(cmd: &CommandDef, roles: &[ParamRole], pattern: CommandPattern) -
     let sig_params = emit_signature_params(cmd, roles);
     let ret = emit_return_type(cmd, roles, pattern);
     let body = emit_body(cmd, roles, pattern);
+    let docs = emit_wrapper_docs(cmd, roles);
 
     quote! {
+        #docs
         pub unsafe fn #method_name(&self, #sig_params) #ret {
             #body
         }
     }
+}
+
+/// Build doc comment lines for a wrapper method.
+fn emit_wrapper_docs(cmd: &CommandDef, roles: &[ParamRole]) -> TokenStream {
+    let spec_link = format!(
+        "Wraps [`{name}`](https://registry.khronos.org/vulkan/specs/latest/man/html/{name}.html).",
+        name = &cmd.name,
+    );
+
+    let mut doc_lines: Vec<TokenStream> = vec![quote! { #[doc = #spec_link] }];
+
+    // Provided by.
+    if let Some(ref provider) = cmd.provided_by {
+        let line = format!("\nProvided by **{provider}**.");
+        doc_lines.push(quote! { #[doc = #line] });
+    }
+
+    // Error codes → # Errors section.
+    if !cmd.error_codes.is_empty() {
+        doc_lines.push(quote! { #[doc = ""] });
+        doc_lines.push(quote! { #[doc = "# Errors"] });
+        for code in &cmd.error_codes {
+            let line = format!("- `{code}`");
+            doc_lines.push(quote! { #[doc = #line] });
+        }
+    }
+
+    // Safety section.
+    let dispatch_handle = cmd.params.first().map(|p| p.name.as_str()).unwrap_or("");
+    let handle_safety = format!("- `{dispatch_handle}` (self) must be valid and not destroyed.");
+    let sync_lines: Vec<String> = cmd
+        .params
+        .iter()
+        .zip(roles.iter())
+        .filter(|(p, _)| p.extern_sync.is_some())
+        .map(|(p, _)| format!("- `{}` must be externally synchronized.", p.name))
+        .collect();
+
+    doc_lines.push(quote! { #[doc = ""] });
+    doc_lines.push(quote! { #[doc = "# Safety"] });
+    doc_lines.push(quote! { #[doc = #handle_safety] });
+    for line in &sync_lines {
+        doc_lines.push(quote! { #[doc = #line] });
+    }
+
+    // Doc overrides: append hand-written content from doc_overrides/{vkCommandName}.md.
+    let overrides_dir = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("doc_overrides");
+    let override_path = overrides_dir.join(format!("{}.md", &cmd.name));
+    if override_path.exists()
+        && let Ok(content) = std::fs::read_to_string(&override_path)
+    {
+        doc_lines.push(quote! { #[doc = ""] });
+        for line in content.lines() {
+            doc_lines.push(quote! { #[doc = #line] });
+        }
+    }
+
+    quote! { #(#doc_lines)* }
 }
 
 // ---------------------------------------------------------------------------
@@ -1076,12 +1136,12 @@ mod tests {
         let exclusions = super::exclusion_set();
 
         let mut report = String::new();
-        writeln!(report, "# Wrapper Audit Report\n").unwrap();
+        writeln!(report, "# Wrapper Audit Report\n").expect("write to String");
         writeln!(
             report,
             "Auto-generated. Run `cargo test -p generator -- generate_wrapper_audit --ignored` to regenerate.\n"
         )
-        .unwrap();
+        .expect("write to String");
 
         let mut pattern_counts: std::collections::HashMap<&str, usize> =
             std::collections::HashMap::new();
@@ -1098,9 +1158,12 @@ mod tests {
                 .filter(|c| c.dispatch_level == level)
                 .collect();
 
-            writeln!(report, "## {level_name} ({} commands)\n", cmds.len()).unwrap();
-            writeln!(report, "| Command | Pattern | Params | Transforms |").unwrap();
-            writeln!(report, "|---------|---------|--------|------------|").unwrap();
+            writeln!(report, "## {level_name} ({} commands)\n", cmds.len())
+                .expect("write to String");
+            writeln!(report, "| Command | Pattern | Params | Transforms |")
+                .expect("write to String");
+            writeln!(report, "|---------|---------|--------|------------|")
+                .expect("write to String");
 
             for cmd in &cmds {
                 let excluded = exclusions.contains(&cmd.name);
@@ -1180,7 +1243,7 @@ mod tests {
                     cmd.params.len(),
                     transform_str,
                 )
-                .unwrap();
+                .expect("write to String");
 
                 // Track commands with raw pointer params that stayed Regular.
                 if !excluded && !raw_params.is_empty() {
@@ -1188,20 +1251,20 @@ mod tests {
                 }
             }
 
-            writeln!(report).unwrap();
+            writeln!(report).expect("write to String");
         }
 
         // Summary section.
-        writeln!(report, "## Summary\n").unwrap();
-        writeln!(report, "| Pattern | Count |").unwrap();
-        writeln!(report, "|---------|-------|").unwrap();
+        writeln!(report, "## Summary\n").expect("write to String");
+        writeln!(report, "| Pattern | Count |").expect("write to String");
+        writeln!(report, "|---------|-------|").expect("write to String");
         let mut sorted_patterns: Vec<_> = pattern_counts.into_iter().collect();
         sorted_patterns.sort_by_key(|(_, count)| std::cmp::Reverse(*count));
         for (name, count) in &sorted_patterns {
-            writeln!(report, "| {name} | {count} |").unwrap();
+            writeln!(report, "| {name} | {count} |").expect("write to String");
         }
         let total: usize = sorted_patterns.iter().map(|(_, c)| c).sum();
-        writeln!(report, "| **Total** | **{total}** |").unwrap();
+        writeln!(report, "| **Total** | **{total}** |").expect("write to String");
 
         // Raw pointer warnings.
         writeln!(
@@ -1209,21 +1272,22 @@ mod tests {
             "\n## Commands with raw pointer params ({} total)\n",
             raw_forward_commands.len()
         )
-        .unwrap();
+        .expect("write to String");
         writeln!(
             report,
             "These commands have parameters that passed through as raw pointers"
         )
-        .unwrap();
+        .expect("write to String");
         writeln!(
             report,
             "because they didn't match any ergonomic transform rule.\n"
         )
-        .unwrap();
-        writeln!(report, "| Command | Pattern | Raw params |").unwrap();
-        writeln!(report, "|---------|---------|------------|").unwrap();
+        .expect("write to String");
+        writeln!(report, "| Command | Pattern | Raw params |").expect("write to String");
+        writeln!(report, "|---------|---------|------------|").expect("write to String");
         for (name, pattern, params) in &raw_forward_commands {
-            writeln!(report, "| `{name}` | {pattern} | {} |", params.join(", ")).unwrap();
+            writeln!(report, "| `{name}` | {pattern} | {} |", params.join(", "))
+                .expect("write to String");
         }
 
         let out_path =

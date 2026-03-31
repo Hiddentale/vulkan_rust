@@ -1,3 +1,4 @@
+///[`VkAccelerationStructureCreateFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccelerationStructureCreateFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkAccelerationStructureCreateFlagBitsKHR")]
@@ -23,8 +24,11 @@ impl AccelerationStructureCreateFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const DEVICE_ADDRESS_CAPTURE_REPLAY: Self = Self(1u32);
+    ///Bit 3.
     pub const DESCRIPTOR_BUFFER_CAPTURE_REPLAY: Self = Self(8u32);
+    ///Bit 2.
     pub const MOTION: Self = Self(4u32);
 }
 impl core::ops::BitOr for AccelerationStructureCreateFlagBitsKHR {
@@ -113,6 +117,7 @@ impl core::fmt::Debug for AccelerationStructureCreateFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkAccessFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccessFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkAccessFlagBits")]
@@ -138,33 +143,59 @@ impl AccessFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const INDIRECT_COMMAND_READ: Self = Self(1u32);
+    ///Bit 1.
     pub const INDEX_READ: Self = Self(2u32);
+    ///Bit 2.
     pub const VERTEX_ATTRIBUTE_READ: Self = Self(4u32);
+    ///Bit 3.
     pub const UNIFORM_READ: Self = Self(8u32);
+    ///Bit 4.
     pub const INPUT_ATTACHMENT_READ: Self = Self(16u32);
+    ///Bit 5.
     pub const SHADER_READ: Self = Self(32u32);
+    ///Bit 6.
     pub const SHADER_WRITE: Self = Self(64u32);
+    ///Bit 7.
     pub const COLOR_ATTACHMENT_READ: Self = Self(128u32);
+    ///Bit 8.
     pub const COLOR_ATTACHMENT_WRITE: Self = Self(256u32);
+    ///Bit 9.
     pub const DEPTH_STENCIL_ATTACHMENT_READ: Self = Self(512u32);
+    ///Bit 10.
     pub const DEPTH_STENCIL_ATTACHMENT_WRITE: Self = Self(1024u32);
+    ///Bit 11.
     pub const TRANSFER_READ: Self = Self(2048u32);
+    ///Bit 12.
     pub const TRANSFER_WRITE: Self = Self(4096u32);
+    ///Bit 13.
     pub const HOST_READ: Self = Self(8192u32);
+    ///Bit 14.
     pub const HOST_WRITE: Self = Self(16384u32);
+    ///Bit 15.
     pub const MEMORY_READ: Self = Self(32768u32);
+    ///Bit 16.
     pub const MEMORY_WRITE: Self = Self(65536u32);
     pub const NONE: Self = Self(0u32);
+    ///Bit 25.
     pub const TRANSFORM_FEEDBACK_WRITE: Self = Self(33554432u32);
+    ///Bit 26.
     pub const TRANSFORM_FEEDBACK_COUNTER_READ: Self = Self(67108864u32);
+    ///Bit 27.
     pub const TRANSFORM_FEEDBACK_COUNTER_WRITE: Self = Self(134217728u32);
+    ///Bit 20.
     pub const CONDITIONAL_RENDERING_READ: Self = Self(1048576u32);
+    ///Bit 19.
     pub const COLOR_ATTACHMENT_READ_NONCOHERENT: Self = Self(524288u32);
+    ///Bit 21.
     pub const ACCELERATION_STRUCTURE_READ: Self = Self(2097152u32);
+    ///Bit 22.
     pub const ACCELERATION_STRUCTURE_WRITE: Self = Self(4194304u32);
     pub const SHADING_RATE_IMAGE_READ: Self = Self::FRAGMENT_SHADING_RATE_ATTACHMENT_READ;
+    ///Bit 24.
     pub const FRAGMENT_DENSITY_MAP_READ: Self = Self(16777216u32);
+    ///Bit 23.
     pub const FRAGMENT_SHADING_RATE_ATTACHMENT_READ: Self = Self(8388608u32);
 }
 impl core::ops::BitOr for AccessFlagBits {
@@ -437,6 +468,7 @@ impl core::fmt::Debug for AccessFlagBits {
         Ok(())
     }
 }
+///[`VkAccessFlagBits2`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccessFlagBits2.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkAccessFlagBits2")]
@@ -463,54 +495,102 @@ impl AccessFlagBits2 {
         (self.0 & other.0) == other.0
     }
     pub const _2_NONE: Self = Self(0u64);
+    ///Bit 0.
     pub const _2_INDIRECT_COMMAND_READ: Self = Self(1u64);
+    ///Bit 1.
     pub const _2_INDEX_READ: Self = Self(2u64);
+    ///Bit 2.
     pub const _2_VERTEX_ATTRIBUTE_READ: Self = Self(4u64);
+    ///Bit 3.
     pub const _2_UNIFORM_READ: Self = Self(8u64);
+    ///Bit 4.
     pub const _2_INPUT_ATTACHMENT_READ: Self = Self(16u64);
+    ///Bit 5.
     pub const _2_SHADER_READ: Self = Self(32u64);
+    ///Bit 6.
     pub const _2_SHADER_WRITE: Self = Self(64u64);
+    ///Bit 7.
     pub const _2_COLOR_ATTACHMENT_READ: Self = Self(128u64);
+    ///Bit 8.
     pub const _2_COLOR_ATTACHMENT_WRITE: Self = Self(256u64);
+    ///Bit 9.
     pub const _2_DEPTH_STENCIL_ATTACHMENT_READ: Self = Self(512u64);
+    ///Bit 10.
     pub const _2_DEPTH_STENCIL_ATTACHMENT_WRITE: Self = Self(1024u64);
+    ///Bit 11.
     pub const _2_TRANSFER_READ: Self = Self(2048u64);
+    ///Bit 12.
     pub const _2_TRANSFER_WRITE: Self = Self(4096u64);
+    ///Bit 13.
     pub const _2_HOST_READ: Self = Self(8192u64);
+    ///Bit 14.
     pub const _2_HOST_WRITE: Self = Self(16384u64);
+    ///Bit 15.
     pub const _2_MEMORY_READ: Self = Self(32768u64);
+    ///Bit 16.
     pub const _2_MEMORY_WRITE: Self = Self(65536u64);
+    ///Bit 32.
     pub const _2_SHADER_SAMPLED_READ: Self = Self(4294967296u64);
+    ///Bit 33.
     pub const _2_SHADER_STORAGE_READ: Self = Self(8589934592u64);
+    ///Bit 34.
     pub const _2_SHADER_STORAGE_WRITE: Self = Self(17179869184u64);
+    ///Bit 35.
     pub const _2_VIDEO_DECODE_READ: Self = Self(34359738368u64);
+    ///Bit 36.
     pub const _2_VIDEO_DECODE_WRITE: Self = Self(68719476736u64);
+    ///Bit 57.
     pub const _2_SAMPLER_HEAP_READ: Self = Self(144115188075855872u64);
+    ///Bit 58.
     pub const _2_RESOURCE_HEAP_READ: Self = Self(288230376151711744u64);
+    ///Bit 37.
     pub const _2_VIDEO_ENCODE_READ: Self = Self(137438953472u64);
+    ///Bit 38.
     pub const _2_VIDEO_ENCODE_WRITE: Self = Self(274877906944u64);
+    ///Bit 51.
     pub const _2_SHADER_TILE_ATTACHMENT_READ_BIT: Self = Self(2251799813685248u64);
+    ///Bit 52.
     pub const _2_SHADER_TILE_ATTACHMENT_WRITE_BIT: Self = Self(4503599627370496u64);
+    ///Bit 25.
     pub const _2_TRANSFORM_FEEDBACK_WRITE: Self = Self(33554432u64);
+    ///Bit 26.
     pub const _2_TRANSFORM_FEEDBACK_COUNTER_READ: Self = Self(67108864u64);
+    ///Bit 27.
     pub const _2_TRANSFORM_FEEDBACK_COUNTER_WRITE: Self = Self(134217728u64);
+    ///Bit 20.
     pub const _2_CONDITIONAL_RENDERING_READ: Self = Self(1048576u64);
+    ///Bit 23.
     pub const _2_FRAGMENT_SHADING_RATE_ATTACHMENT_READ: Self = Self(8388608u64);
     pub const _2_SHADING_RATE_IMAGE_READ: Self = Self::_2_FRAGMENT_SHADING_RATE_ATTACHMENT_READ;
+    ///Bit 21.
     pub const _2_ACCELERATION_STRUCTURE_READ: Self = Self(2097152u64);
+    ///Bit 22.
     pub const _2_ACCELERATION_STRUCTURE_WRITE: Self = Self(4194304u64);
+    ///Bit 24.
     pub const _2_FRAGMENT_DENSITY_MAP_READ: Self = Self(16777216u64);
+    ///Bit 19.
     pub const _2_COLOR_ATTACHMENT_READ_NONCOHERENT: Self = Self(524288u64);
+    ///Bit 41.
     pub const _2_DESCRIPTOR_BUFFER_READ: Self = Self(2199023255552u64);
+    ///Bit 39.
     pub const _2_INVOCATION_MASK_READ_BIT: Self = Self(549755813888u64);
+    ///Bit 40.
     pub const _2_SHADER_BINDING_TABLE_READ: Self = Self(1099511627776u64);
+    ///Bit 44.
     pub const _2_MICROMAP_READ: Self = Self(17592186044416u64);
+    ///Bit 45.
     pub const _2_MICROMAP_WRITE: Self = Self(35184372088832u64);
+    ///Bit 42.
     pub const _2_OPTICAL_FLOW_READ: Self = Self(4398046511104u64);
+    ///Bit 43.
     pub const _2_OPTICAL_FLOW_WRITE: Self = Self(8796093022208u64);
+    ///Bit 47.
     pub const _2_DATA_GRAPH_READ_BIT: Self = Self(140737488355328u64);
+    ///Bit 48.
     pub const _2_DATA_GRAPH_WRITE_BIT: Self = Self(281474976710656u64);
+    ///Bit 55.
     pub const _2_MEMORY_DECOMPRESSION_READ: Self = Self(36028797018963968u64);
+    ///Bit 56.
     pub const _2_MEMORY_DECOMPRESSION_WRITE: Self = Self(72057594037927936u64);
 }
 impl core::ops::BitOr for AccessFlagBits2 {
@@ -959,6 +1039,7 @@ impl core::fmt::Debug for AccessFlagBits2 {
         Ok(())
     }
 }
+///[`VkAccessFlagBits3KHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccessFlagBits3KHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkAccessFlagBits3KHR")]
@@ -1048,6 +1129,7 @@ impl core::fmt::Debug for AccessFlagBits3KHR {
         Ok(())
     }
 }
+///[`VkAcquireProfilingLockFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAcquireProfilingLockFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkAcquireProfilingLockFlagBitsKHR")]
@@ -1136,6 +1218,7 @@ impl core::fmt::Debug for AcquireProfilingLockFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkAddressCommandFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAddressCommandFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkAddressCommandFlagBitsKHR")]
@@ -1161,11 +1244,17 @@ impl AddressCommandFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const PROTECTED: Self = Self(1u32);
+    ///Bit 1.
     pub const FULLY_BOUND: Self = Self(2u32);
+    ///Bit 2.
     pub const STORAGE_BUFFER_USAGE: Self = Self(4u32);
+    ///Bit 3.
     pub const UNKNOWN_STORAGE_BUFFER_USAGE: Self = Self(8u32);
+    ///Bit 4.
     pub const TRANSFORM_FEEDBACK_BUFFER_USAGE: Self = Self(16u32);
+    ///Bit 5.
     pub const UNKNOWN_TRANSFORM_FEEDBACK_BUFFER_USAGE: Self = Self(32u32);
 }
 impl core::ops::BitOr for AddressCommandFlagBitsKHR {
@@ -1278,6 +1367,7 @@ impl core::fmt::Debug for AddressCommandFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkAddressCopyFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAddressCopyFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkAddressCopyFlagBitsKHR")]
@@ -1303,8 +1393,11 @@ impl AddressCopyFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const DEVICE_LOCAL: Self = Self(1u32);
+    ///Bit 1.
     pub const SPARSE: Self = Self(2u32);
+    ///Bit 2.
     pub const PROTECTED: Self = Self(4u32);
 }
 impl core::ops::BitOr for AddressCopyFlagBitsKHR {
@@ -1393,6 +1486,7 @@ impl core::fmt::Debug for AddressCopyFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkAttachmentDescriptionFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAttachmentDescriptionFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkAttachmentDescriptionFlagBits")]
@@ -1418,8 +1512,11 @@ impl AttachmentDescriptionFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const MAY_ALIAS: Self = Self(1u32);
+    ///Bit 1.
     pub const RESOLVE_SKIP_TRANSFER_FUNCTION: Self = Self(2u32);
+    ///Bit 2.
     pub const RESOLVE_ENABLE_TRANSFER_FUNCTION: Self = Self(4u32);
 }
 impl core::ops::BitOr for AttachmentDescriptionFlagBits {
@@ -1508,6 +1605,7 @@ impl core::fmt::Debug for AttachmentDescriptionFlagBits {
         Ok(())
     }
 }
+///[`VkBufferCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBufferCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkBufferCreateFlagBits")]
@@ -1533,12 +1631,19 @@ impl BufferCreateFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const SPARSE_BINDING: Self = Self(1u32);
+    ///Bit 1.
     pub const SPARSE_RESIDENCY: Self = Self(2u32);
+    ///Bit 2.
     pub const SPARSE_ALIASED: Self = Self(4u32);
+    ///Bit 3.
     pub const PROTECTED: Self = Self(8u32);
+    ///Bit 4.
     pub const DEVICE_ADDRESS_CAPTURE_REPLAY: Self = Self(16u32);
+    ///Bit 5.
     pub const DESCRIPTOR_BUFFER_CAPTURE_REPLAY: Self = Self(32u32);
+    ///Bit 6.
     pub const VIDEO_PROFILE_INDEPENDENT: Self = Self(64u32);
 }
 impl core::ops::BitOr for BufferCreateFlagBits {
@@ -1659,6 +1764,7 @@ impl core::fmt::Debug for BufferCreateFlagBits {
         Ok(())
     }
 }
+///[`VkBufferUsageFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBufferUsageFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkBufferUsageFlagBits")]
@@ -1684,34 +1790,62 @@ impl BufferUsageFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const TRANSFER_SRC: Self = Self(1u32);
+    ///Bit 1.
     pub const TRANSFER_DST: Self = Self(2u32);
+    ///Bit 2.
     pub const UNIFORM_TEXEL_BUFFER: Self = Self(4u32);
+    ///Bit 3.
     pub const STORAGE_TEXEL_BUFFER: Self = Self(8u32);
+    ///Bit 4.
     pub const UNIFORM_BUFFER: Self = Self(16u32);
+    ///Bit 5.
     pub const STORAGE_BUFFER: Self = Self(32u32);
+    ///Bit 6.
     pub const INDEX_BUFFER: Self = Self(64u32);
+    ///Bit 7.
     pub const VERTEX_BUFFER: Self = Self(128u32);
+    ///Bit 8.
     pub const INDIRECT_BUFFER: Self = Self(256u32);
+    ///Bit 17.
     pub const SHADER_DEVICE_ADDRESS: Self = Self(131072u32);
+    ///Bit 13.
     pub const VIDEO_DECODE_SRC: Self = Self(8192u32);
+    ///Bit 14.
     pub const VIDEO_DECODE_DST: Self = Self(16384u32);
+    ///Bit 11.
     pub const TRANSFORM_FEEDBACK_BUFFER: Self = Self(2048u32);
+    ///Bit 12.
     pub const TRANSFORM_FEEDBACK_COUNTER_BUFFER: Self = Self(4096u32);
+    ///Bit 9.
     pub const CONDITIONAL_RENDERING: Self = Self(512u32);
+    ///Bit 25.
     pub const EXECUTION_GRAPH_SCRATCH_BIT: Self = Self(33554432u32);
+    ///Bit 28.
     pub const DESCRIPTOR_HEAP: Self = Self(268435456u32);
+    ///Bit 19.
     pub const ACCELERATION_STRUCTURE_BUILD_INPUT_READ_ONLY: Self = Self(524288u32);
+    ///Bit 20.
     pub const ACCELERATION_STRUCTURE_STORAGE: Self = Self(1048576u32);
+    ///Bit 10.
     pub const SHADER_BINDING_TABLE: Self = Self(1024u32);
     pub const RAY_TRACING: Self = Self::SHADER_BINDING_TABLE;
+    ///Bit 15.
     pub const VIDEO_ENCODE_DST: Self = Self(32768u32);
+    ///Bit 16.
     pub const VIDEO_ENCODE_SRC: Self = Self(65536u32);
+    ///Bit 21.
     pub const SAMPLER_DESCRIPTOR_BUFFER: Self = Self(2097152u32);
+    ///Bit 22.
     pub const RESOURCE_DESCRIPTOR_BUFFER: Self = Self(4194304u32);
+    ///Bit 26.
     pub const PUSH_DESCRIPTORS_DESCRIPTOR_BUFFER: Self = Self(67108864u32);
+    ///Bit 23.
     pub const MICROMAP_BUILD_INPUT_READ_ONLY: Self = Self(8388608u32);
+    ///Bit 24.
     pub const MICROMAP_STORAGE: Self = Self(16777216u32);
+    ///Bit 27.
     pub const TILE_MEMORY_BIT: Self = Self(134217728u32);
 }
 impl core::ops::BitOr for BufferUsageFlagBits {
@@ -2000,6 +2134,7 @@ impl core::fmt::Debug for BufferUsageFlagBits {
         Ok(())
     }
 }
+///[`VkBufferUsageFlagBits2`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBufferUsageFlagBits2.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkBufferUsageFlagBits2")]
@@ -2025,38 +2160,70 @@ impl BufferUsageFlagBits2 {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const _2_TRANSFER_SRC: Self = Self(1u64);
+    ///Bit 1.
     pub const _2_TRANSFER_DST: Self = Self(2u64);
+    ///Bit 2.
     pub const _2_UNIFORM_TEXEL_BUFFER: Self = Self(4u64);
+    ///Bit 3.
     pub const _2_STORAGE_TEXEL_BUFFER: Self = Self(8u64);
+    ///Bit 4.
     pub const _2_UNIFORM_BUFFER: Self = Self(16u64);
+    ///Bit 5.
     pub const _2_STORAGE_BUFFER: Self = Self(32u64);
+    ///Bit 6.
     pub const _2_INDEX_BUFFER: Self = Self(64u64);
+    ///Bit 7.
     pub const _2_VERTEX_BUFFER: Self = Self(128u64);
+    ///Bit 8.
     pub const _2_INDIRECT_BUFFER: Self = Self(256u64);
+    ///Bit 17.
     pub const _2_SHADER_DEVICE_ADDRESS: Self = Self(131072u64);
+    ///Bit 25.
     pub const _2_EXECUTION_GRAPH_SCRATCH_BIT: Self = Self(33554432u64);
+    ///Bit 28.
     pub const _2_DESCRIPTOR_HEAP: Self = Self(268435456u64);
+    ///Bit 9.
     pub const _2_CONDITIONAL_RENDERING: Self = Self(512u64);
+    ///Bit 10.
     pub const _2_SHADER_BINDING_TABLE: Self = Self(1024u64);
     pub const _2_RAY_TRACING: Self = Self::_2_SHADER_BINDING_TABLE;
+    ///Bit 11.
     pub const _2_TRANSFORM_FEEDBACK_BUFFER: Self = Self(2048u64);
+    ///Bit 12.
     pub const _2_TRANSFORM_FEEDBACK_COUNTER_BUFFER: Self = Self(4096u64);
+    ///Bit 13.
     pub const _2_VIDEO_DECODE_SRC: Self = Self(8192u64);
+    ///Bit 14.
     pub const _2_VIDEO_DECODE_DST: Self = Self(16384u64);
+    ///Bit 15.
     pub const _2_VIDEO_ENCODE_DST: Self = Self(32768u64);
+    ///Bit 16.
     pub const _2_VIDEO_ENCODE_SRC: Self = Self(65536u64);
+    ///Bit 19.
     pub const _2_ACCELERATION_STRUCTURE_BUILD_INPUT_READ_ONLY: Self = Self(524288u64);
+    ///Bit 20.
     pub const _2_ACCELERATION_STRUCTURE_STORAGE: Self = Self(1048576u64);
+    ///Bit 21.
     pub const _2_SAMPLER_DESCRIPTOR_BUFFER: Self = Self(2097152u64);
+    ///Bit 22.
     pub const _2_RESOURCE_DESCRIPTOR_BUFFER: Self = Self(4194304u64);
+    ///Bit 26.
     pub const _2_PUSH_DESCRIPTORS_DESCRIPTOR_BUFFER: Self = Self(67108864u64);
+    ///Bit 23.
     pub const _2_MICROMAP_BUILD_INPUT_READ_ONLY: Self = Self(8388608u64);
+    ///Bit 24.
     pub const _2_MICROMAP_STORAGE: Self = Self(16777216u64);
+    ///Bit 33.
     pub const _2_COMPRESSED_DATA_DGF1_BIT: Self = Self(8589934592u64);
+    ///Bit 29.
     pub const _2_DATA_GRAPH_FOREIGN_DESCRIPTOR_BIT: Self = Self(536870912u64);
+    ///Bit 27.
     pub const _2_TILE_MEMORY_BIT: Self = Self(134217728u64);
+    ///Bit 32.
     pub const _2_MEMORY_DECOMPRESSION: Self = Self(4294967296u64);
+    ///Bit 31.
     pub const _2_PREPROCESS_BUFFER: Self = Self(2147483648u64);
 }
 impl core::ops::BitOr for BufferUsageFlagBits2 {
@@ -2377,6 +2544,7 @@ impl core::fmt::Debug for BufferUsageFlagBits2 {
         Ok(())
     }
 }
+///[`VkBuildAccelerationStructureFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBuildAccelerationStructureFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkBuildAccelerationStructureFlagBitsKHR")]
@@ -2402,17 +2570,29 @@ impl BuildAccelerationStructureFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const ALLOW_UPDATE: Self = Self(1u32);
+    ///Bit 1.
     pub const ALLOW_COMPACTION: Self = Self(2u32);
+    ///Bit 2.
     pub const PREFER_FAST_TRACE: Self = Self(4u32);
+    ///Bit 3.
     pub const PREFER_FAST_BUILD: Self = Self(8u32);
+    ///Bit 4.
     pub const LOW_MEMORY: Self = Self(16u32);
+    ///Bit 5.
     pub const MOTION: Self = Self(32u32);
+    ///Bit 6.
     pub const ALLOW_OPACITY_MICROMAP_UPDATE: Self = Self(64u32);
+    ///Bit 7.
     pub const ALLOW_DISABLE_OPACITY_MICROMAPS: Self = Self(128u32);
+    ///Bit 8.
     pub const ALLOW_OPACITY_MICROMAP_DATA_UPDATE: Self = Self(256u32);
+    ///Bit 9.
     pub const ALLOW_DISPLACEMENT_MICROMAP_UPDATE: Self = Self(512u32);
+    ///Bit 11.
     pub const ALLOW_DATA_ACCESS: Self = Self(2048u32);
+    ///Bit 12.
     pub const ALLOW_CLUSTER_OPACITY_MICROMAPS: Self = Self(4096u32);
 }
 impl core::ops::BitOr for BuildAccelerationStructureFlagBitsKHR {
@@ -2573,6 +2753,7 @@ impl core::fmt::Debug for BuildAccelerationStructureFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkBuildMicromapFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBuildMicromapFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkBuildMicromapFlagBitsEXT")]
@@ -2598,8 +2779,11 @@ impl BuildMicromapFlagBitsEXT {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const PREFER_FAST_TRACE: Self = Self(1u32);
+    ///Bit 1.
     pub const PREFER_FAST_BUILD: Self = Self(2u32);
+    ///Bit 2.
     pub const ALLOW_COMPACTION: Self = Self(4u32);
 }
 impl core::ops::BitOr for BuildMicromapFlagBitsEXT {
@@ -2688,6 +2872,7 @@ impl core::fmt::Debug for BuildMicromapFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkClusterAccelerationStructureAddressResolutionFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkClusterAccelerationStructureAddressResolutionFlagBitsNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkClusterAccelerationStructureAddressResolutionFlagBitsNV")]
@@ -2714,11 +2899,17 @@ impl ClusterAccelerationStructureAddressResolutionFlagBitsNV {
         (self.0 & other.0) == other.0
     }
     pub const NONE: Self = Self(0u32);
+    ///Bit 0.
     pub const INDIRECTED_DST_IMPLICIT_DATA: Self = Self(1u32);
+    ///Bit 1.
     pub const INDIRECTED_SCRATCH_DATA: Self = Self(2u32);
+    ///Bit 2.
     pub const INDIRECTED_DST_ADDRESS_ARRAY: Self = Self(4u32);
+    ///Bit 3.
     pub const INDIRECTED_DST_SIZES_ARRAY: Self = Self(8u32);
+    ///Bit 4.
     pub const INDIRECTED_SRC_INFOS_ARRAY: Self = Self(16u32);
+    ///Bit 5.
     pub const INDIRECTED_SRC_INFOS_COUNT: Self = Self(32u32);
 }
 impl core::ops::BitOr for ClusterAccelerationStructureAddressResolutionFlagBitsNV {
@@ -2833,6 +3024,7 @@ impl core::fmt::Debug for ClusterAccelerationStructureAddressResolutionFlagBitsN
         Ok(())
     }
 }
+///[`VkClusterAccelerationStructureClusterFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkClusterAccelerationStructureClusterFlagBitsNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkClusterAccelerationStructureClusterFlagBitsNV")]
@@ -2858,6 +3050,7 @@ impl ClusterAccelerationStructureClusterFlagBitsNV {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const ALLOW_DISABLE_OPACITY_MICROMAPS: Self = Self(1u32);
 }
 impl core::ops::BitOr for ClusterAccelerationStructureClusterFlagBitsNV {
@@ -2930,6 +3123,7 @@ impl core::fmt::Debug for ClusterAccelerationStructureClusterFlagBitsNV {
         Ok(())
     }
 }
+///[`VkClusterAccelerationStructureGeometryFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkClusterAccelerationStructureGeometryFlagBitsNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkClusterAccelerationStructureGeometryFlagBitsNV")]
@@ -2955,8 +3149,11 @@ impl ClusterAccelerationStructureGeometryFlagBitsNV {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const CULL_DISABLE: Self = Self(1u32);
+    ///Bit 1.
     pub const NO_DUPLICATE_ANYHIT_INVOCATION: Self = Self(2u32);
+    ///Bit 2.
     pub const OPAQUE: Self = Self(4u32);
 }
 impl core::ops::BitOr for ClusterAccelerationStructureGeometryFlagBitsNV {
@@ -3045,6 +3242,7 @@ impl core::fmt::Debug for ClusterAccelerationStructureGeometryFlagBitsNV {
         Ok(())
     }
 }
+///[`VkClusterAccelerationStructureIndexFormatFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkClusterAccelerationStructureIndexFormatFlagBitsNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkClusterAccelerationStructureIndexFormatFlagBitsNV")]
@@ -3070,8 +3268,11 @@ impl ClusterAccelerationStructureIndexFormatFlagBitsNV {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const _8BIT: Self = Self(1u32);
+    ///Bit 1.
     pub const _16BIT: Self = Self(2u32);
+    ///Bit 2.
     pub const _32BIT: Self = Self(4u32);
 }
 impl core::ops::BitOr for ClusterAccelerationStructureIndexFormatFlagBitsNV {
@@ -3160,6 +3361,7 @@ impl core::fmt::Debug for ClusterAccelerationStructureIndexFormatFlagBitsNV {
         Ok(())
     }
 }
+///[`VkColorComponentFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkColorComponentFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkColorComponentFlagBits")]
@@ -3185,9 +3387,13 @@ impl ColorComponentFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const R: Self = Self(1u32);
+    ///Bit 1.
     pub const G: Self = Self(2u32);
+    ///Bit 2.
     pub const B: Self = Self(4u32);
+    ///Bit 3.
     pub const A: Self = Self(8u32);
 }
 impl core::ops::BitOr for ColorComponentFlagBits {
@@ -3284,6 +3490,7 @@ impl core::fmt::Debug for ColorComponentFlagBits {
         Ok(())
     }
 }
+///[`VkCommandBufferResetFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferResetFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkCommandBufferResetFlagBits")]
@@ -3309,6 +3516,7 @@ impl CommandBufferResetFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const RELEASE_RESOURCES: Self = Self(1u32);
 }
 impl core::ops::BitOr for CommandBufferResetFlagBits {
@@ -3381,6 +3589,7 @@ impl core::fmt::Debug for CommandBufferResetFlagBits {
         Ok(())
     }
 }
+///[`VkCommandBufferUsageFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferUsageFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkCommandBufferUsageFlagBits")]
@@ -3406,8 +3615,11 @@ impl CommandBufferUsageFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const ONE_TIME_SUBMIT: Self = Self(1u32);
+    ///Bit 1.
     pub const RENDER_PASS_CONTINUE: Self = Self(2u32);
+    ///Bit 2.
     pub const SIMULTANEOUS_USE: Self = Self(4u32);
 }
 impl core::ops::BitOr for CommandBufferUsageFlagBits {
@@ -3496,6 +3708,7 @@ impl core::fmt::Debug for CommandBufferUsageFlagBits {
         Ok(())
     }
 }
+///[`VkCommandPoolCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandPoolCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkCommandPoolCreateFlagBits")]
@@ -3521,8 +3734,11 @@ impl CommandPoolCreateFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const TRANSIENT: Self = Self(1u32);
+    ///Bit 1.
     pub const RESET_COMMAND_BUFFER: Self = Self(2u32);
+    ///Bit 2.
     pub const PROTECTED: Self = Self(4u32);
 }
 impl core::ops::BitOr for CommandPoolCreateFlagBits {
@@ -3611,6 +3827,7 @@ impl core::fmt::Debug for CommandPoolCreateFlagBits {
         Ok(())
     }
 }
+///[`VkCommandPoolResetFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandPoolResetFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkCommandPoolResetFlagBits")]
@@ -3636,6 +3853,7 @@ impl CommandPoolResetFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const RELEASE_RESOURCES: Self = Self(1u32);
 }
 impl core::ops::BitOr for CommandPoolResetFlagBits {
@@ -3708,6 +3926,7 @@ impl core::fmt::Debug for CommandPoolResetFlagBits {
         Ok(())
     }
 }
+///[`VkCompositeAlphaFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCompositeAlphaFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkCompositeAlphaFlagBitsKHR")]
@@ -3733,9 +3952,13 @@ impl CompositeAlphaFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const OPAQUE: Self = Self(1u32);
+    ///Bit 1.
     pub const PRE_MULTIPLIED: Self = Self(2u32);
+    ///Bit 2.
     pub const POST_MULTIPLIED: Self = Self(4u32);
+    ///Bit 3.
     pub const INHERIT: Self = Self(8u32);
 }
 impl core::ops::BitOr for CompositeAlphaFlagBitsKHR {
@@ -3832,6 +4055,7 @@ impl core::fmt::Debug for CompositeAlphaFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkConditionalRenderingFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkConditionalRenderingFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkConditionalRenderingFlagBitsEXT")]
@@ -3857,6 +4081,7 @@ impl ConditionalRenderingFlagBitsEXT {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const INVERTED: Self = Self(1u32);
 }
 impl core::ops::BitOr for ConditionalRenderingFlagBitsEXT {
@@ -3929,6 +4154,7 @@ impl core::fmt::Debug for ConditionalRenderingFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkCullModeFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCullModeFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkCullModeFlagBits")]
@@ -3955,7 +4181,9 @@ impl CullModeFlagBits {
         (self.0 & other.0) == other.0
     }
     pub const NONE: Self = Self(0u32);
+    ///Bit 0.
     pub const FRONT: Self = Self(1u32);
+    ///Bit 1.
     pub const BACK: Self = Self(2u32);
     pub const FRONT_AND_BACK: Self = Self(3u32);
 }
@@ -4037,6 +4265,7 @@ impl core::fmt::Debug for CullModeFlagBits {
         Ok(())
     }
 }
+///[`VkDataGraphPipelineDispatchFlagBitsARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDataGraphPipelineDispatchFlagBitsARM.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkDataGraphPipelineDispatchFlagBitsARM")]
@@ -4125,6 +4354,7 @@ impl core::fmt::Debug for DataGraphPipelineDispatchFlagBitsARM {
         Ok(())
     }
 }
+///[`VkDataGraphPipelineSessionCreateFlagBitsARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDataGraphPipelineSessionCreateFlagBitsARM.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkDataGraphPipelineSessionCreateFlagBitsARM")]
@@ -4150,6 +4380,7 @@ impl DataGraphPipelineSessionCreateFlagBitsARM {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const PROTECTED_BIT: Self = Self(1u64);
 }
 impl core::ops::BitOr for DataGraphPipelineSessionCreateFlagBitsARM {
@@ -4222,6 +4453,7 @@ impl core::fmt::Debug for DataGraphPipelineSessionCreateFlagBitsARM {
         Ok(())
     }
 }
+///[`VkDebugReportFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDebugReportFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkDebugReportFlagBitsEXT")]
@@ -4247,10 +4479,15 @@ impl DebugReportFlagBitsEXT {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const INFORMATION: Self = Self(1u32);
+    ///Bit 1.
     pub const WARNING: Self = Self(2u32);
+    ///Bit 2.
     pub const PERFORMANCE_WARNING: Self = Self(4u32);
+    ///Bit 3.
     pub const ERROR: Self = Self(8u32);
+    ///Bit 4.
     pub const DEBUG: Self = Self(16u32);
 }
 impl core::ops::BitOr for DebugReportFlagBitsEXT {
@@ -4355,6 +4592,7 @@ impl core::fmt::Debug for DebugReportFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkDebugUtilsMessageSeverityFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDebugUtilsMessageSeverityFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkDebugUtilsMessageSeverityFlagBitsEXT")]
@@ -4380,9 +4618,13 @@ impl DebugUtilsMessageSeverityFlagBitsEXT {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const VERBOSE: Self = Self(1u32);
+    ///Bit 4.
     pub const INFO: Self = Self(16u32);
+    ///Bit 8.
     pub const WARNING: Self = Self(256u32);
+    ///Bit 12.
     pub const ERROR: Self = Self(4096u32);
 }
 impl core::ops::BitOr for DebugUtilsMessageSeverityFlagBitsEXT {
@@ -4479,6 +4721,7 @@ impl core::fmt::Debug for DebugUtilsMessageSeverityFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkDebugUtilsMessageTypeFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDebugUtilsMessageTypeFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkDebugUtilsMessageTypeFlagBitsEXT")]
@@ -4504,9 +4747,13 @@ impl DebugUtilsMessageTypeFlagBitsEXT {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const GENERAL: Self = Self(1u32);
+    ///Bit 1.
     pub const VALIDATION: Self = Self(2u32);
+    ///Bit 2.
     pub const PERFORMANCE: Self = Self(4u32);
+    ///Bit 3.
     pub const DEVICE_ADDRESS_BINDING: Self = Self(8u32);
 }
 impl core::ops::BitOr for DebugUtilsMessageTypeFlagBitsEXT {
@@ -4603,6 +4850,7 @@ impl core::fmt::Debug for DebugUtilsMessageTypeFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkDependencyFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDependencyFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkDependencyFlagBits")]
@@ -4628,11 +4876,17 @@ impl DependencyFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const BY_REGION: Self = Self(1u32);
+    ///Bit 2.
     pub const DEVICE_GROUP: Self = Self(4u32);
+    ///Bit 1.
     pub const VIEW_LOCAL: Self = Self(2u32);
+    ///Bit 3.
     pub const FEEDBACK_LOOP: Self = Self(8u32);
+    ///Bit 5.
     pub const QUEUE_FAMILY_OWNERSHIP_TRANSFER_USE_ALL_STAGES: Self = Self(32u32);
+    ///Bit 6.
     pub const ASYMMETRIC_EVENT: Self = Self(64u32);
 }
 impl core::ops::BitOr for DependencyFlagBits {
@@ -4745,6 +4999,7 @@ impl core::fmt::Debug for DependencyFlagBits {
         Ok(())
     }
 }
+///[`VkDescriptorBindingFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorBindingFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkDescriptorBindingFlagBits")]
@@ -4770,9 +5025,13 @@ impl DescriptorBindingFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const UPDATE_AFTER_BIND: Self = Self(1u32);
+    ///Bit 1.
     pub const UPDATE_UNUSED_WHILE_PENDING: Self = Self(2u32);
+    ///Bit 2.
     pub const PARTIALLY_BOUND: Self = Self(4u32);
+    ///Bit 3.
     pub const VARIABLE_DESCRIPTOR_COUNT: Self = Self(8u32);
 }
 impl core::ops::BitOr for DescriptorBindingFlagBits {
@@ -4869,6 +5128,7 @@ impl core::fmt::Debug for DescriptorBindingFlagBits {
         Ok(())
     }
 }
+///[`VkDescriptorPoolCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorPoolCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkDescriptorPoolCreateFlagBits")]
@@ -4894,11 +5154,16 @@ impl DescriptorPoolCreateFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const FREE_DESCRIPTOR_SET: Self = Self(1u32);
+    ///Bit 1.
     pub const UPDATE_AFTER_BIND: Self = Self(2u32);
     pub const HOST_ONLY_BIT: Self = Self::HOST_ONLY;
+    ///Bit 2.
     pub const HOST_ONLY: Self = Self(4u32);
+    ///Bit 3.
     pub const ALLOW_OVERALLOCATION_SETS: Self = Self(8u32);
+    ///Bit 4.
     pub const ALLOW_OVERALLOCATION_POOLS: Self = Self(16u32);
 }
 impl core::ops::BitOr for DescriptorPoolCreateFlagBits {
@@ -5003,6 +5268,7 @@ impl core::fmt::Debug for DescriptorPoolCreateFlagBits {
         Ok(())
     }
 }
+///[`VkDescriptorSetLayoutCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorSetLayoutCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkDescriptorSetLayoutCreateFlagBits")]
@@ -5028,13 +5294,20 @@ impl DescriptorSetLayoutCreateFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 1.
     pub const UPDATE_AFTER_BIND_POOL: Self = Self(2u32);
+    ///Bit 0.
     pub const PUSH_DESCRIPTOR: Self = Self(1u32);
+    ///Bit 4.
     pub const DESCRIPTOR_BUFFER: Self = Self(16u32);
+    ///Bit 5.
     pub const EMBEDDED_IMMUTABLE_SAMPLERS: Self = Self(32u32);
     pub const HOST_ONLY_POOL_BIT: Self = Self::HOST_ONLY_POOL;
+    ///Bit 7.
     pub const INDIRECT_BINDABLE: Self = Self(128u32);
+    ///Bit 2.
     pub const HOST_ONLY_POOL: Self = Self(4u32);
+    ///Bit 6.
     pub const PER_STAGE: Self = Self(64u32);
 }
 impl core::ops::BitOr for DescriptorSetLayoutCreateFlagBits {
@@ -5155,6 +5428,7 @@ impl core::fmt::Debug for DescriptorSetLayoutCreateFlagBits {
         Ok(())
     }
 }
+///[`VkDeviceAddressBindingFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddressBindingFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkDeviceAddressBindingFlagBitsEXT")]
@@ -5180,6 +5454,7 @@ impl DeviceAddressBindingFlagBitsEXT {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const INTERNAL_OBJECT: Self = Self(1u32);
 }
 impl core::ops::BitOr for DeviceAddressBindingFlagBitsEXT {
@@ -5252,6 +5527,7 @@ impl core::fmt::Debug for DeviceAddressBindingFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkDeviceDiagnosticsConfigFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceDiagnosticsConfigFlagBitsNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkDeviceDiagnosticsConfigFlagBitsNV")]
@@ -5277,9 +5553,13 @@ impl DeviceDiagnosticsConfigFlagBitsNV {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const ENABLE_SHADER_DEBUG_INFO: Self = Self(1u32);
+    ///Bit 1.
     pub const ENABLE_RESOURCE_TRACKING: Self = Self(2u32);
+    ///Bit 2.
     pub const ENABLE_AUTOMATIC_CHECKPOINTS: Self = Self(4u32);
+    ///Bit 3.
     pub const ENABLE_SHADER_ERROR_REPORTING: Self = Self(8u32);
 }
 impl core::ops::BitOr for DeviceDiagnosticsConfigFlagBitsNV {
@@ -5376,6 +5656,7 @@ impl core::fmt::Debug for DeviceDiagnosticsConfigFlagBitsNV {
         Ok(())
     }
 }
+///[`VkDeviceFaultFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceFaultFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkDeviceFaultFlagBitsKHR")]
@@ -5401,11 +5682,17 @@ impl DeviceFaultFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const FLAG_DEVICE_LOST: Self = Self(1u32);
+    ///Bit 1.
     pub const FLAG_MEMORY_ADDRESS: Self = Self(2u32);
+    ///Bit 2.
     pub const FLAG_INSTRUCTION_ADDRESS: Self = Self(4u32);
+    ///Bit 3.
     pub const FLAG_VENDOR: Self = Self(8u32);
+    ///Bit 4.
     pub const FLAG_WATCHDOG_TIMEOUT: Self = Self(16u32);
+    ///Bit 5.
     pub const FLAG_OVERFLOW: Self = Self(32u32);
 }
 impl core::ops::BitOr for DeviceFaultFlagBitsKHR {
@@ -5518,6 +5805,7 @@ impl core::fmt::Debug for DeviceFaultFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkDeviceGroupPresentModeFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceGroupPresentModeFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkDeviceGroupPresentModeFlagBitsKHR")]
@@ -5543,9 +5831,13 @@ impl DeviceGroupPresentModeFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const LOCAL: Self = Self(1u32);
+    ///Bit 1.
     pub const REMOTE: Self = Self(2u32);
+    ///Bit 2.
     pub const SUM: Self = Self(4u32);
+    ///Bit 3.
     pub const LOCAL_MULTI_DEVICE: Self = Self(8u32);
 }
 impl core::ops::BitOr for DeviceGroupPresentModeFlagBitsKHR {
@@ -5642,6 +5934,7 @@ impl core::fmt::Debug for DeviceGroupPresentModeFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkDeviceQueueCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceQueueCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkDeviceQueueCreateFlagBits")]
@@ -5667,7 +5960,9 @@ impl DeviceQueueCreateFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const PROTECTED: Self = Self(1u32);
+    ///Bit 2.
     pub const INTERNALLY_SYNCHRONIZED: Self = Self(4u32);
 }
 impl core::ops::BitOr for DeviceQueueCreateFlagBits {
@@ -5748,6 +6043,7 @@ impl core::fmt::Debug for DeviceQueueCreateFlagBits {
         Ok(())
     }
 }
+///[`VkDisplayPlaneAlphaFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDisplayPlaneAlphaFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkDisplayPlaneAlphaFlagBitsKHR")]
@@ -5773,9 +6069,13 @@ impl DisplayPlaneAlphaFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const OPAQUE: Self = Self(1u32);
+    ///Bit 1.
     pub const GLOBAL: Self = Self(2u32);
+    ///Bit 2.
     pub const PER_PIXEL: Self = Self(4u32);
+    ///Bit 3.
     pub const PER_PIXEL_PREMULTIPLIED: Self = Self(8u32);
 }
 impl core::ops::BitOr for DisplayPlaneAlphaFlagBitsKHR {
@@ -5872,6 +6172,7 @@ impl core::fmt::Debug for DisplayPlaneAlphaFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkEventCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkEventCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkEventCreateFlagBits")]
@@ -5897,6 +6198,7 @@ impl EventCreateFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const DEVICE_ONLY: Self = Self(1u32);
 }
 impl core::ops::BitOr for EventCreateFlagBits {
@@ -5969,6 +6271,7 @@ impl core::fmt::Debug for EventCreateFlagBits {
         Ok(())
     }
 }
+///[`VkExportMetalObjectTypeFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExportMetalObjectTypeFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkExportMetalObjectTypeFlagBitsEXT")]
@@ -5994,11 +6297,17 @@ impl ExportMetalObjectTypeFlagBitsEXT {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const METAL_DEVICE: Self = Self(1u32);
+    ///Bit 1.
     pub const METAL_COMMAND_QUEUE: Self = Self(2u32);
+    ///Bit 2.
     pub const METAL_BUFFER: Self = Self(4u32);
+    ///Bit 3.
     pub const METAL_TEXTURE: Self = Self(8u32);
+    ///Bit 4.
     pub const METAL_IOSURFACE: Self = Self(16u32);
+    ///Bit 5.
     pub const METAL_SHARED_EVENT: Self = Self(32u32);
 }
 impl core::ops::BitOr for ExportMetalObjectTypeFlagBitsEXT {
@@ -6111,6 +6420,7 @@ impl core::fmt::Debug for ExportMetalObjectTypeFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkExternalFenceFeatureFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalFenceFeatureFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkExternalFenceFeatureFlagBits")]
@@ -6136,7 +6446,9 @@ impl ExternalFenceFeatureFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const EXPORTABLE: Self = Self(1u32);
+    ///Bit 1.
     pub const IMPORTABLE: Self = Self(2u32);
 }
 impl core::ops::BitOr for ExternalFenceFeatureFlagBits {
@@ -6217,6 +6529,7 @@ impl core::fmt::Debug for ExternalFenceFeatureFlagBits {
         Ok(())
     }
 }
+///[`VkExternalFenceHandleTypeFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalFenceHandleTypeFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkExternalFenceHandleTypeFlagBits")]
@@ -6242,11 +6555,17 @@ impl ExternalFenceHandleTypeFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const OPAQUE_FD: Self = Self(1u32);
+    ///Bit 1.
     pub const OPAQUE_WIN32: Self = Self(2u32);
+    ///Bit 2.
     pub const OPAQUE_WIN32_KMT: Self = Self(4u32);
+    ///Bit 3.
     pub const SYNC_FD: Self = Self(8u32);
+    ///Bit 4.
     pub const SCI_SYNC_OBJ: Self = Self(16u32);
+    ///Bit 5.
     pub const SCI_SYNC_FENCE: Self = Self(32u32);
 }
 impl core::ops::BitOr for ExternalFenceHandleTypeFlagBits {
@@ -6359,6 +6678,7 @@ impl core::fmt::Debug for ExternalFenceHandleTypeFlagBits {
         Ok(())
     }
 }
+///[`VkExternalMemoryFeatureFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalMemoryFeatureFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkExternalMemoryFeatureFlagBits")]
@@ -6384,8 +6704,11 @@ impl ExternalMemoryFeatureFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const DEDICATED_ONLY: Self = Self(1u32);
+    ///Bit 1.
     pub const EXPORTABLE: Self = Self(2u32);
+    ///Bit 2.
     pub const IMPORTABLE: Self = Self(4u32);
 }
 impl core::ops::BitOr for ExternalMemoryFeatureFlagBits {
@@ -6474,6 +6797,7 @@ impl core::fmt::Debug for ExternalMemoryFeatureFlagBits {
         Ok(())
     }
 }
+///[`VkExternalMemoryFeatureFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalMemoryFeatureFlagBitsNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkExternalMemoryFeatureFlagBitsNV")]
@@ -6499,8 +6823,11 @@ impl ExternalMemoryFeatureFlagBitsNV {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const DEDICATED_ONLY: Self = Self(1u32);
+    ///Bit 1.
     pub const EXPORTABLE: Self = Self(2u32);
+    ///Bit 2.
     pub const IMPORTABLE: Self = Self(4u32);
 }
 impl core::ops::BitOr for ExternalMemoryFeatureFlagBitsNV {
@@ -6589,6 +6916,7 @@ impl core::fmt::Debug for ExternalMemoryFeatureFlagBitsNV {
         Ok(())
     }
 }
+///[`VkExternalMemoryHandleTypeFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalMemoryHandleTypeFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkExternalMemoryHandleTypeFlagBits")]
@@ -6614,24 +6942,43 @@ impl ExternalMemoryHandleTypeFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const OPAQUE_FD: Self = Self(1u32);
+    ///Bit 1.
     pub const OPAQUE_WIN32: Self = Self(2u32);
+    ///Bit 2.
     pub const OPAQUE_WIN32_KMT: Self = Self(4u32);
+    ///Bit 3.
     pub const D3D11_TEXTURE: Self = Self(8u32);
+    ///Bit 4.
     pub const D3D11_TEXTURE_KMT: Self = Self(16u32);
+    ///Bit 5.
     pub const D3D12_HEAP: Self = Self(32u32);
+    ///Bit 6.
     pub const D3D12_RESOURCE: Self = Self(64u32);
+    ///Bit 9.
     pub const DMA_BUF: Self = Self(512u32);
+    ///Bit 10.
     pub const ANDROID_HARDWARE_BUFFER_BIT: Self = Self(1024u32);
+    ///Bit 7.
     pub const HOST_ALLOCATION: Self = Self(128u32);
+    ///Bit 8.
     pub const HOST_MAPPED_FOREIGN_MEMORY: Self = Self(256u32);
+    ///Bit 11.
     pub const ZIRCON_VMO_BIT: Self = Self(2048u32);
+    ///Bit 12.
     pub const RDMA_ADDRESS: Self = Self(4096u32);
+    ///Bit 13.
     pub const SCI_BUF: Self = Self(8192u32);
+    ///Bit 15.
     pub const OH_NATIVE_BUFFER_BIT: Self = Self(32768u32);
+    ///Bit 14.
     pub const SCREEN_BUFFER_BIT: Self = Self(16384u32);
+    ///Bit 16.
     pub const MTLBUFFER: Self = Self(65536u32);
+    ///Bit 17.
     pub const MTLTEXTURE: Self = Self(131072u32);
+    ///Bit 18.
     pub const MTLHEAP: Self = Self(262144u32);
 }
 impl core::ops::BitOr for ExternalMemoryHandleTypeFlagBits {
@@ -6848,6 +7195,7 @@ impl core::fmt::Debug for ExternalMemoryHandleTypeFlagBits {
         Ok(())
     }
 }
+///[`VkExternalMemoryHandleTypeFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalMemoryHandleTypeFlagBitsNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkExternalMemoryHandleTypeFlagBitsNV")]
@@ -6873,9 +7221,13 @@ impl ExternalMemoryHandleTypeFlagBitsNV {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const OPAQUE_WIN32: Self = Self(1u32);
+    ///Bit 1.
     pub const OPAQUE_WIN32_KMT: Self = Self(2u32);
+    ///Bit 2.
     pub const D3D11_IMAGE: Self = Self(4u32);
+    ///Bit 3.
     pub const D3D11_IMAGE_KMT: Self = Self(8u32);
 }
 impl core::ops::BitOr for ExternalMemoryHandleTypeFlagBitsNV {
@@ -6972,6 +7324,7 @@ impl core::fmt::Debug for ExternalMemoryHandleTypeFlagBitsNV {
         Ok(())
     }
 }
+///[`VkExternalSemaphoreFeatureFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalSemaphoreFeatureFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkExternalSemaphoreFeatureFlagBits")]
@@ -6997,7 +7350,9 @@ impl ExternalSemaphoreFeatureFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const EXPORTABLE: Self = Self(1u32);
+    ///Bit 1.
     pub const IMPORTABLE: Self = Self(2u32);
 }
 impl core::ops::BitOr for ExternalSemaphoreFeatureFlagBits {
@@ -7078,6 +7433,7 @@ impl core::fmt::Debug for ExternalSemaphoreFeatureFlagBits {
         Ok(())
     }
 }
+///[`VkExternalSemaphoreHandleTypeFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkExternalSemaphoreHandleTypeFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkExternalSemaphoreHandleTypeFlagBits")]
@@ -7103,13 +7459,20 @@ impl ExternalSemaphoreHandleTypeFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const OPAQUE_FD: Self = Self(1u32);
+    ///Bit 1.
     pub const OPAQUE_WIN32: Self = Self(2u32);
+    ///Bit 2.
     pub const OPAQUE_WIN32_KMT: Self = Self(4u32);
+    ///Bit 3.
     pub const D3D12_FENCE: Self = Self(8u32);
     pub const D3D11_FENCE: Self = Self::D3D12_FENCE;
+    ///Bit 4.
     pub const SYNC_FD: Self = Self(16u32);
+    ///Bit 7.
     pub const ZIRCON_EVENT_BIT: Self = Self(128u32);
+    ///Bit 5.
     pub const SCI_SYNC_OBJ: Self = Self(32u32);
 }
 impl core::ops::BitOr for ExternalSemaphoreHandleTypeFlagBits {
@@ -7230,6 +7593,7 @@ impl core::fmt::Debug for ExternalSemaphoreHandleTypeFlagBits {
         Ok(())
     }
 }
+///[`VkFenceCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFenceCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkFenceCreateFlagBits")]
@@ -7255,6 +7619,7 @@ impl FenceCreateFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const SIGNALED: Self = Self(1u32);
 }
 impl core::ops::BitOr for FenceCreateFlagBits {
@@ -7327,6 +7692,7 @@ impl core::fmt::Debug for FenceCreateFlagBits {
         Ok(())
     }
 }
+///[`VkFenceImportFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFenceImportFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkFenceImportFlagBits")]
@@ -7352,6 +7718,7 @@ impl FenceImportFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const TEMPORARY: Self = Self(1u32);
 }
 impl core::ops::BitOr for FenceImportFlagBits {
@@ -7424,6 +7791,7 @@ impl core::fmt::Debug for FenceImportFlagBits {
         Ok(())
     }
 }
+///[`VkFormatFeatureFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFormatFeatureFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkFormatFeatureFlagBits")]
@@ -7449,43 +7817,74 @@ impl FormatFeatureFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const SAMPLED_IMAGE: Self = Self(1u32);
+    ///Bit 1.
     pub const STORAGE_IMAGE: Self = Self(2u32);
+    ///Bit 2.
     pub const STORAGE_IMAGE_ATOMIC: Self = Self(4u32);
+    ///Bit 3.
     pub const UNIFORM_TEXEL_BUFFER: Self = Self(8u32);
+    ///Bit 4.
     pub const STORAGE_TEXEL_BUFFER: Self = Self(16u32);
+    ///Bit 5.
     pub const STORAGE_TEXEL_BUFFER_ATOMIC: Self = Self(32u32);
+    ///Bit 6.
     pub const VERTEX_BUFFER: Self = Self(64u32);
+    ///Bit 7.
     pub const COLOR_ATTACHMENT: Self = Self(128u32);
+    ///Bit 8.
     pub const COLOR_ATTACHMENT_BLEND: Self = Self(256u32);
+    ///Bit 9.
     pub const DEPTH_STENCIL_ATTACHMENT: Self = Self(512u32);
+    ///Bit 10.
     pub const BLIT_SRC: Self = Self(1024u32);
+    ///Bit 11.
     pub const BLIT_DST: Self = Self(2048u32);
+    ///Bit 12.
     pub const SAMPLED_IMAGE_FILTER_LINEAR: Self = Self(4096u32);
+    ///Bit 14.
     pub const TRANSFER_SRC: Self = Self(16384u32);
+    ///Bit 15.
     pub const TRANSFER_DST: Self = Self(32768u32);
+    ///Bit 17.
     pub const MIDPOINT_CHROMA_SAMPLES: Self = Self(131072u32);
+    ///Bit 18.
     pub const SAMPLED_IMAGE_YCBCR_CONVERSION_LINEAR_FILTER: Self = Self(262144u32);
+    ///Bit 19.
     pub const SAMPLED_IMAGE_YCBCR_CONVERSION_SEPARATE_RECONSTRUCTION_FILTER: Self = Self(
         524288u32,
     );
+    ///Bit 20.
     pub const SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT: Self = Self(
         1048576u32,
     );
+    ///Bit 21.
     pub const SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT_FORCEABLE: Self = Self(
         2097152u32,
     );
+    ///Bit 22.
     pub const DISJOINT: Self = Self(4194304u32);
+    ///Bit 23.
     pub const COSITED_CHROMA_SAMPLES: Self = Self(8388608u32);
+    ///Bit 16.
     pub const SAMPLED_IMAGE_FILTER_MINMAX: Self = Self(65536u32);
     pub const SAMPLED_IMAGE_FILTER_CUBIC_BIT: Self = Self::SAMPLED_IMAGE_FILTER_CUBIC;
+    ///Bit 25.
     pub const VIDEO_DECODE_OUTPUT: Self = Self(33554432u32);
+    ///Bit 26.
     pub const VIDEO_DECODE_DPB: Self = Self(67108864u32);
+    ///Bit 29.
     pub const ACCELERATION_STRUCTURE_VERTEX_BUFFER: Self = Self(536870912u32);
+    ///Bit 13.
     pub const SAMPLED_IMAGE_FILTER_CUBIC: Self = Self(8192u32);
+    ///Bit 24.
     pub const FRAGMENT_DENSITY_MAP: Self = Self(16777216u32);
+    ///Bit 30.
     pub const FRAGMENT_SHADING_RATE_ATTACHMENT: Self = Self(1073741824u32);
+    ///Bit 27.
     pub const VIDEO_ENCODE_INPUT: Self = Self(134217728u32);
+    ///Bit 28.
     pub const VIDEO_ENCODE_DPB: Self = Self(268435456u32);
 }
 impl core::ops::BitOr for FormatFeatureFlagBits {
@@ -7817,6 +8216,7 @@ impl core::fmt::Debug for FormatFeatureFlagBits {
         Ok(())
     }
 }
+///[`VkFormatFeatureFlagBits2`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFormatFeatureFlagBits2.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkFormatFeatureFlagBits2")]
@@ -7842,65 +8242,119 @@ impl FormatFeatureFlagBits2 {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const _2_SAMPLED_IMAGE: Self = Self(1u64);
+    ///Bit 1.
     pub const _2_STORAGE_IMAGE: Self = Self(2u64);
+    ///Bit 2.
     pub const _2_STORAGE_IMAGE_ATOMIC: Self = Self(4u64);
+    ///Bit 3.
     pub const _2_UNIFORM_TEXEL_BUFFER: Self = Self(8u64);
+    ///Bit 4.
     pub const _2_STORAGE_TEXEL_BUFFER: Self = Self(16u64);
+    ///Bit 5.
     pub const _2_STORAGE_TEXEL_BUFFER_ATOMIC: Self = Self(32u64);
+    ///Bit 6.
     pub const _2_VERTEX_BUFFER: Self = Self(64u64);
+    ///Bit 7.
     pub const _2_COLOR_ATTACHMENT: Self = Self(128u64);
+    ///Bit 8.
     pub const _2_COLOR_ATTACHMENT_BLEND: Self = Self(256u64);
+    ///Bit 9.
     pub const _2_DEPTH_STENCIL_ATTACHMENT: Self = Self(512u64);
+    ///Bit 10.
     pub const _2_BLIT_SRC: Self = Self(1024u64);
+    ///Bit 11.
     pub const _2_BLIT_DST: Self = Self(2048u64);
+    ///Bit 12.
     pub const _2_SAMPLED_IMAGE_FILTER_LINEAR: Self = Self(4096u64);
+    ///Bit 14.
     pub const _2_TRANSFER_SRC: Self = Self(16384u64);
+    ///Bit 15.
     pub const _2_TRANSFER_DST: Self = Self(32768u64);
+    ///Bit 16.
     pub const _2_SAMPLED_IMAGE_FILTER_MINMAX: Self = Self(65536u64);
+    ///Bit 17.
     pub const _2_MIDPOINT_CHROMA_SAMPLES: Self = Self(131072u64);
+    ///Bit 18.
     pub const _2_SAMPLED_IMAGE_YCBCR_CONVERSION_LINEAR_FILTER: Self = Self(262144u64);
+    ///Bit 19.
     pub const _2_SAMPLED_IMAGE_YCBCR_CONVERSION_SEPARATE_RECONSTRUCTION_FILTER: Self = Self(
         524288u64,
     );
+    ///Bit 20.
     pub const _2_SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT: Self = Self(
         1048576u64,
     );
+    ///Bit 21.
     pub const _2_SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT_FORCEABLE: Self = Self(
         2097152u64,
     );
+    ///Bit 22.
     pub const _2_DISJOINT: Self = Self(4194304u64);
+    ///Bit 23.
     pub const _2_COSITED_CHROMA_SAMPLES: Self = Self(8388608u64);
+    ///Bit 31.
     pub const _2_STORAGE_READ_WITHOUT_FORMAT: Self = Self(2147483648u64);
+    ///Bit 32.
     pub const _2_STORAGE_WRITE_WITHOUT_FORMAT: Self = Self(4294967296u64);
+    ///Bit 33.
     pub const _2_SAMPLED_IMAGE_DEPTH_COMPARISON: Self = Self(8589934592u64);
+    ///Bit 13.
     pub const _2_SAMPLED_IMAGE_FILTER_CUBIC: Self = Self(8192u64);
+    ///Bit 46.
     pub const _2_HOST_IMAGE_TRANSFER: Self = Self(70368744177664u64);
+    ///Bit 25.
     pub const _2_VIDEO_DECODE_OUTPUT: Self = Self(33554432u64);
+    ///Bit 26.
     pub const _2_VIDEO_DECODE_DPB: Self = Self(67108864u64);
+    ///Bit 29.
     pub const _2_ACCELERATION_STRUCTURE_VERTEX_BUFFER: Self = Self(536870912u64);
+    ///Bit 24.
     pub const _2_FRAGMENT_DENSITY_MAP: Self = Self(16777216u64);
+    ///Bit 30.
     pub const _2_FRAGMENT_SHADING_RATE_ATTACHMENT: Self = Self(1073741824u64);
+    ///Bit 27.
     pub const _2_VIDEO_ENCODE_INPUT: Self = Self(134217728u64);
+    ///Bit 28.
     pub const _2_VIDEO_ENCODE_DPB: Self = Self(268435456u64);
+    ///Bit 51.
     pub const _2_ACCELERATION_STRUCTURE_RADIUS_BUFFER: Self = Self(2251799813685248u64);
+    ///Bit 38.
     pub const _2_LINEAR_COLOR_ATTACHMENT: Self = Self(274877906944u64);
+    ///Bit 34.
     pub const _2_WEIGHT_IMAGE_BIT: Self = Self(17179869184u64);
+    ///Bit 35.
     pub const _2_WEIGHT_SAMPLED_IMAGE_BIT: Self = Self(34359738368u64);
+    ///Bit 36.
     pub const _2_BLOCK_MATCHING_BIT: Self = Self(68719476736u64);
+    ///Bit 37.
     pub const _2_BOX_FILTER_SAMPLED_BIT: Self = Self(137438953472u64);
+    ///Bit 39.
     pub const _2_TENSOR_SHADER_BIT: Self = Self(549755813888u64);
+    ///Bit 43.
     pub const _2_TENSOR_IMAGE_ALIASING_BIT: Self = Self(8796093022208u64);
+    ///Bit 40.
     pub const _2_OPTICAL_FLOW_IMAGE: Self = Self(1099511627776u64);
+    ///Bit 41.
     pub const _2_OPTICAL_FLOW_VECTOR: Self = Self(2199023255552u64);
+    ///Bit 42.
     pub const _2_OPTICAL_FLOW_COST: Self = Self(4398046511104u64);
+    ///Bit 48.
     pub const _2_TENSOR_DATA_GRAPH_BIT: Self = Self(281474976710656u64);
+    ///Bit 59.
     pub const _2_COPY_IMAGE_INDIRECT_DST: Self = Self(576460752303423488u64);
+    ///Bit 49.
     pub const _2_VIDEO_ENCODE_QUANTIZATION_DELTA_MAP: Self = Self(562949953421312u64);
+    ///Bit 50.
     pub const _2_VIDEO_ENCODE_EMPHASIS_MAP: Self = Self(1125899906842624u64);
+    ///Bit 52.
     pub const _2_DEPTH_COPY_ON_COMPUTE_QUEUE: Self = Self(4503599627370496u64);
+    ///Bit 53.
     pub const _2_DEPTH_COPY_ON_TRANSFER_QUEUE: Self = Self(9007199254740992u64);
+    ///Bit 54.
     pub const _2_STENCIL_COPY_ON_COMPUTE_QUEUE: Self = Self(18014398509481984u64);
+    ///Bit 55.
     pub const _2_STENCIL_COPY_ON_TRANSFER_QUEUE: Self = Self(36028797018963968u64);
 }
 impl core::ops::BitOr for FormatFeatureFlagBits2 {
@@ -8418,6 +8872,7 @@ impl core::fmt::Debug for FormatFeatureFlagBits2 {
         Ok(())
     }
 }
+///[`VkFrameBoundaryFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFrameBoundaryFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkFrameBoundaryFlagBitsEXT")]
@@ -8443,6 +8898,7 @@ impl FrameBoundaryFlagBitsEXT {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const FRAME_END: Self = Self(1u32);
 }
 impl core::ops::BitOr for FrameBoundaryFlagBitsEXT {
@@ -8515,6 +8971,7 @@ impl core::fmt::Debug for FrameBoundaryFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkFramebufferCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFramebufferCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkFramebufferCreateFlagBits")]
@@ -8540,6 +8997,7 @@ impl FramebufferCreateFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const IMAGELESS: Self = Self(1u32);
 }
 impl core::ops::BitOr for FramebufferCreateFlagBits {
@@ -8612,6 +9070,7 @@ impl core::fmt::Debug for FramebufferCreateFlagBits {
         Ok(())
     }
 }
+///[`VkGeometryFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkGeometryFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkGeometryFlagBitsKHR")]
@@ -8637,7 +9096,9 @@ impl GeometryFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const OPAQUE: Self = Self(1u32);
+    ///Bit 1.
     pub const NO_DUPLICATE_ANY_HIT_INVOCATION: Self = Self(2u32);
 }
 impl core::ops::BitOr for GeometryFlagBitsKHR {
@@ -8718,6 +9179,7 @@ impl core::fmt::Debug for GeometryFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkGeometryInstanceFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkGeometryInstanceFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkGeometryInstanceFlagBitsKHR")]
@@ -8743,13 +9205,19 @@ impl GeometryInstanceFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const TRIANGLE_FACING_CULL_DISABLE: Self = Self(1u32);
+    ///Bit 1.
     pub const TRIANGLE_FLIP_FACING: Self = Self(2u32);
+    ///Bit 2.
     pub const FORCE_OPAQUE: Self = Self(4u32);
+    ///Bit 3.
     pub const FORCE_NO_OPAQUE: Self = Self(8u32);
     pub const TRIANGLE_FRONT_COUNTERCLOCKWISE: Self = Self::TRIANGLE_FLIP_FACING;
     pub const TRIANGLE_CULL_DISABLE: Self = Self::TRIANGLE_FACING_CULL_DISABLE;
+    ///Bit 4.
     pub const FORCE_OPACITY_MICROMAP_2_STATE: Self = Self(16u32);
+    ///Bit 5.
     pub const DISABLE_OPACITY_MICROMAPS: Self = Self(32u32);
 }
 impl core::ops::BitOr for GeometryInstanceFlagBitsKHR {
@@ -8862,6 +9330,7 @@ impl core::fmt::Debug for GeometryInstanceFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkGraphicsPipelineLibraryFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkGraphicsPipelineLibraryFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkGraphicsPipelineLibraryFlagBitsEXT")]
@@ -8887,9 +9356,13 @@ impl GraphicsPipelineLibraryFlagBitsEXT {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const VERTEX_INPUT_INTERFACE: Self = Self(1u32);
+    ///Bit 1.
     pub const PRE_RASTERIZATION_SHADERS: Self = Self(2u32);
+    ///Bit 2.
     pub const FRAGMENT_SHADER: Self = Self(4u32);
+    ///Bit 3.
     pub const FRAGMENT_OUTPUT_INTERFACE: Self = Self(8u32);
 }
 impl core::ops::BitOr for GraphicsPipelineLibraryFlagBitsEXT {
@@ -8986,6 +9459,7 @@ impl core::fmt::Debug for GraphicsPipelineLibraryFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkHostImageCopyFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkHostImageCopyFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkHostImageCopyFlagBits")]
@@ -9011,6 +9485,7 @@ impl HostImageCopyFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const MEMCPY: Self = Self(1u32);
 }
 impl core::ops::BitOr for HostImageCopyFlagBits {
@@ -9083,6 +9558,7 @@ impl core::fmt::Debug for HostImageCopyFlagBits {
         Ok(())
     }
 }
+///[`VkImageAspectFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageAspectFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkImageAspectFlagBits")]
@@ -9108,17 +9584,28 @@ impl ImageAspectFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const COLOR: Self = Self(1u32);
+    ///Bit 1.
     pub const DEPTH: Self = Self(2u32);
+    ///Bit 2.
     pub const STENCIL: Self = Self(4u32);
+    ///Bit 3.
     pub const METADATA: Self = Self(8u32);
+    ///Bit 4.
     pub const PLANE_0: Self = Self(16u32);
+    ///Bit 5.
     pub const PLANE_1: Self = Self(32u32);
+    ///Bit 6.
     pub const PLANE_2: Self = Self(64u32);
     pub const NONE: Self = Self(0u32);
+    ///Bit 7.
     pub const MEMORY_PLANE_0: Self = Self(128u32);
+    ///Bit 8.
     pub const MEMORY_PLANE_1: Self = Self(256u32);
+    ///Bit 9.
     pub const MEMORY_PLANE_2: Self = Self(512u32);
+    ///Bit 10.
     pub const MEMORY_PLANE_3: Self = Self(1024u32);
 }
 impl core::ops::BitOr for ImageAspectFlagBits {
@@ -9271,6 +9758,7 @@ impl core::fmt::Debug for ImageAspectFlagBits {
         Ok(())
     }
 }
+///[`VkImageCompressionFixedRateFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageCompressionFixedRateFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkImageCompressionFixedRateFlagBitsEXT")]
@@ -9297,29 +9785,53 @@ impl ImageCompressionFixedRateFlagBitsEXT {
         (self.0 & other.0) == other.0
     }
     pub const NONE: Self = Self(0u32);
+    ///Bit 0.
     pub const _1BPC: Self = Self(1u32);
+    ///Bit 1.
     pub const _2BPC: Self = Self(2u32);
+    ///Bit 2.
     pub const _3BPC: Self = Self(4u32);
+    ///Bit 3.
     pub const _4BPC: Self = Self(8u32);
+    ///Bit 4.
     pub const _5BPC: Self = Self(16u32);
+    ///Bit 5.
     pub const _6BPC: Self = Self(32u32);
+    ///Bit 6.
     pub const _7BPC: Self = Self(64u32);
+    ///Bit 7.
     pub const _8BPC: Self = Self(128u32);
+    ///Bit 8.
     pub const _9BPC: Self = Self(256u32);
+    ///Bit 9.
     pub const _10BPC: Self = Self(512u32);
+    ///Bit 10.
     pub const _11BPC: Self = Self(1024u32);
+    ///Bit 11.
     pub const _12BPC: Self = Self(2048u32);
+    ///Bit 12.
     pub const _13BPC: Self = Self(4096u32);
+    ///Bit 13.
     pub const _14BPC: Self = Self(8192u32);
+    ///Bit 14.
     pub const _15BPC: Self = Self(16384u32);
+    ///Bit 15.
     pub const _16BPC: Self = Self(32768u32);
+    ///Bit 16.
     pub const _17BPC: Self = Self(65536u32);
+    ///Bit 17.
     pub const _18BPC: Self = Self(131072u32);
+    ///Bit 18.
     pub const _19BPC: Self = Self(262144u32);
+    ///Bit 19.
     pub const _20BPC: Self = Self(524288u32);
+    ///Bit 20.
     pub const _21BPC: Self = Self(1048576u32);
+    ///Bit 21.
     pub const _22BPC: Self = Self(2097152u32);
+    ///Bit 22.
     pub const _23BPC: Self = Self(4194304u32);
+    ///Bit 23.
     pub const _24BPC: Self = Self(8388608u32);
 }
 impl core::ops::BitOr for ImageCompressionFixedRateFlagBitsEXT {
@@ -9576,6 +10088,7 @@ impl core::fmt::Debug for ImageCompressionFixedRateFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkImageCompressionFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageCompressionFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkImageCompressionFlagBitsEXT")]
@@ -9602,8 +10115,11 @@ impl ImageCompressionFlagBitsEXT {
         (self.0 & other.0) == other.0
     }
     pub const DEFAULT: Self = Self(0u32);
+    ///Bit 0.
     pub const FIXED_RATE_DEFAULT: Self = Self(1u32);
+    ///Bit 1.
     pub const FIXED_RATE_EXPLICIT: Self = Self(2u32);
+    ///Bit 2.
     pub const DISABLED: Self = Self(4u32);
 }
 impl core::ops::BitOr for ImageCompressionFlagBitsEXT {
@@ -9692,6 +10208,7 @@ impl core::fmt::Debug for ImageCompressionFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkImageConstraintsInfoFlagBitsFUCHSIA`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageConstraintsInfoFlagBitsFUCHSIA.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkImageConstraintsInfoFlagBitsFUCHSIA")]
@@ -9717,10 +10234,15 @@ impl ImageConstraintsInfoFlagBitsFUCHSIA {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const CPU_READ_RARELY: Self = Self(1u32);
+    ///Bit 1.
     pub const CPU_READ_OFTEN: Self = Self(2u32);
+    ///Bit 2.
     pub const CPU_WRITE_RARELY: Self = Self(4u32);
+    ///Bit 3.
     pub const CPU_WRITE_OFTEN: Self = Self(8u32);
+    ///Bit 4.
     pub const PROTECTED_OPTIONAL: Self = Self(16u32);
 }
 impl core::ops::BitOr for ImageConstraintsInfoFlagBitsFUCHSIA {
@@ -9825,6 +10347,7 @@ impl core::fmt::Debug for ImageConstraintsInfoFlagBitsFUCHSIA {
         Ok(())
     }
 }
+///[`VkImageCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkImageCreateFlagBits")]
@@ -9850,27 +10373,47 @@ impl ImageCreateFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const SPARSE_BINDING: Self = Self(1u32);
+    ///Bit 1.
     pub const SPARSE_RESIDENCY: Self = Self(2u32);
+    ///Bit 2.
     pub const SPARSE_ALIASED: Self = Self(4u32);
+    ///Bit 3.
     pub const MUTABLE_FORMAT: Self = Self(8u32);
+    ///Bit 4.
     pub const CUBE_COMPATIBLE: Self = Self(16u32);
+    ///Bit 10.
     pub const ALIAS: Self = Self(1024u32);
+    ///Bit 6.
     pub const SPLIT_INSTANCE_BIND_REGIONS: Self = Self(64u32);
+    ///Bit 5.
     pub const _2D_ARRAY_COMPATIBLE: Self = Self(32u32);
+    ///Bit 7.
     pub const BLOCK_TEXEL_VIEW_COMPATIBLE: Self = Self(128u32);
+    ///Bit 8.
     pub const EXTENDED_USAGE: Self = Self(256u32);
+    ///Bit 11.
     pub const PROTECTED: Self = Self(2048u32);
+    ///Bit 9.
     pub const DISJOINT: Self = Self(512u32);
+    ///Bit 13.
     pub const CORNER_SAMPLED: Self = Self(8192u32);
+    ///Bit 16.
     pub const DESCRIPTOR_HEAP_CAPTURE_REPLAY: Self = Self(65536u32);
+    ///Bit 12.
     pub const SAMPLE_LOCATIONS_COMPATIBLE_DEPTH: Self = Self(4096u32);
+    ///Bit 14.
     pub const SUBSAMPLED: Self = Self(16384u32);
     pub const DESCRIPTOR_BUFFER_CAPTURE_REPLAY: Self = Self::DESCRIPTOR_HEAP_CAPTURE_REPLAY;
+    ///Bit 18.
     pub const MULTISAMPLED_RENDER_TO_SINGLE_SAMPLED: Self = Self(262144u32);
+    ///Bit 17.
     pub const _2D_VIEW_COMPATIBLE: Self = Self(131072u32);
     pub const FRAGMENT_DENSITY_MAP_OFFSET_BIT: Self = Self::FRAGMENT_DENSITY_MAP_OFFSET;
+    ///Bit 20.
     pub const VIDEO_PROFILE_INDEPENDENT: Self = Self(1048576u32);
+    ///Bit 15.
     pub const FRAGMENT_DENSITY_MAP_OFFSET: Self = Self(32768u32);
 }
 impl core::ops::BitOr for ImageCreateFlagBits {
@@ -10095,6 +10638,7 @@ impl core::fmt::Debug for ImageCreateFlagBits {
         Ok(())
     }
 }
+///[`VkImageFormatConstraintsFlagBitsFUCHSIA`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageFormatConstraintsFlagBitsFUCHSIA.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkImageFormatConstraintsFlagBitsFUCHSIA")]
@@ -10183,6 +10727,7 @@ impl core::fmt::Debug for ImageFormatConstraintsFlagBitsFUCHSIA {
         Ok(())
     }
 }
+///[`VkImageUsageFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageUsageFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkImageUsageFlagBits")]
@@ -10208,31 +10753,56 @@ impl ImageUsageFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const TRANSFER_SRC: Self = Self(1u32);
+    ///Bit 1.
     pub const TRANSFER_DST: Self = Self(2u32);
+    ///Bit 2.
     pub const SAMPLED: Self = Self(4u32);
+    ///Bit 3.
     pub const STORAGE: Self = Self(8u32);
+    ///Bit 4.
     pub const COLOR_ATTACHMENT: Self = Self(16u32);
+    ///Bit 5.
     pub const DEPTH_STENCIL_ATTACHMENT: Self = Self(32u32);
+    ///Bit 6.
     pub const TRANSIENT_ATTACHMENT: Self = Self(64u32);
+    ///Bit 7.
     pub const INPUT_ATTACHMENT: Self = Self(128u32);
+    ///Bit 22.
     pub const HOST_TRANSFER: Self = Self(4194304u32);
+    ///Bit 10.
     pub const VIDEO_DECODE_DST: Self = Self(1024u32);
+    ///Bit 11.
     pub const VIDEO_DECODE_SRC: Self = Self(2048u32);
+    ///Bit 12.
     pub const VIDEO_DECODE_DPB: Self = Self(4096u32);
     pub const SHADING_RATE_IMAGE: Self = Self::FRAGMENT_SHADING_RATE_ATTACHMENT;
+    ///Bit 9.
     pub const FRAGMENT_DENSITY_MAP: Self = Self(512u32);
+    ///Bit 8.
     pub const FRAGMENT_SHADING_RATE_ATTACHMENT: Self = Self(256u32);
+    ///Bit 13.
     pub const VIDEO_ENCODE_DST: Self = Self(8192u32);
+    ///Bit 14.
     pub const VIDEO_ENCODE_SRC: Self = Self(16384u32);
+    ///Bit 15.
     pub const VIDEO_ENCODE_DPB: Self = Self(32768u32);
+    ///Bit 19.
     pub const ATTACHMENT_FEEDBACK_LOOP: Self = Self(524288u32);
+    ///Bit 18.
     pub const INVOCATION_MASK_BIT: Self = Self(262144u32);
+    ///Bit 20.
     pub const SAMPLE_WEIGHT_BIT: Self = Self(1048576u32);
+    ///Bit 21.
     pub const SAMPLE_BLOCK_MATCH_BIT: Self = Self(2097152u32);
+    ///Bit 23.
     pub const TENSOR_ALIASING_BIT: Self = Self(8388608u32);
+    ///Bit 27.
     pub const TILE_MEMORY_BIT: Self = Self(134217728u32);
+    ///Bit 25.
     pub const VIDEO_ENCODE_QUANTIZATION_DELTA_MAP: Self = Self(33554432u32);
+    ///Bit 26.
     pub const VIDEO_ENCODE_EMPHASIS_MAP: Self = Self(67108864u32);
 }
 impl core::ops::BitOr for ImageUsageFlagBits {
@@ -10497,6 +11067,7 @@ impl core::fmt::Debug for ImageUsageFlagBits {
         Ok(())
     }
 }
+///[`VkImageViewCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageViewCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkImageViewCreateFlagBits")]
@@ -10522,8 +11093,11 @@ impl ImageViewCreateFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const FRAGMENT_DENSITY_MAP_DYNAMIC: Self = Self(1u32);
+    ///Bit 2.
     pub const DESCRIPTOR_BUFFER_CAPTURE_REPLAY: Self = Self(4u32);
+    ///Bit 1.
     pub const FRAGMENT_DENSITY_MAP_DEFERRED: Self = Self(2u32);
 }
 impl core::ops::BitOr for ImageViewCreateFlagBits {
@@ -10612,6 +11186,7 @@ impl core::fmt::Debug for ImageViewCreateFlagBits {
         Ok(())
     }
 }
+///[`VkIndirectCommandsInputModeFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkIndirectCommandsInputModeFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkIndirectCommandsInputModeFlagBitsEXT")]
@@ -10637,7 +11212,9 @@ impl IndirectCommandsInputModeFlagBitsEXT {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const VULKAN_INDEX_BUFFER: Self = Self(1u32);
+    ///Bit 1.
     pub const DXGI_INDEX_BUFFER: Self = Self(2u32);
 }
 impl core::ops::BitOr for IndirectCommandsInputModeFlagBitsEXT {
@@ -10718,6 +11295,7 @@ impl core::fmt::Debug for IndirectCommandsInputModeFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkIndirectCommandsLayoutUsageFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkIndirectCommandsLayoutUsageFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkIndirectCommandsLayoutUsageFlagBitsEXT")]
@@ -10743,7 +11321,9 @@ impl IndirectCommandsLayoutUsageFlagBitsEXT {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const EXPLICIT_PREPROCESS: Self = Self(1u32);
+    ///Bit 1.
     pub const UNORDERED_SEQUENCES: Self = Self(2u32);
 }
 impl core::ops::BitOr for IndirectCommandsLayoutUsageFlagBitsEXT {
@@ -10824,6 +11404,7 @@ impl core::fmt::Debug for IndirectCommandsLayoutUsageFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkIndirectCommandsLayoutUsageFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkIndirectCommandsLayoutUsageFlagBitsNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkIndirectCommandsLayoutUsageFlagBitsNV")]
@@ -10849,8 +11430,11 @@ impl IndirectCommandsLayoutUsageFlagBitsNV {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const EXPLICIT_PREPROCESS: Self = Self(1u32);
+    ///Bit 1.
     pub const INDEXED_SEQUENCES: Self = Self(2u32);
+    ///Bit 2.
     pub const UNORDERED_SEQUENCES: Self = Self(4u32);
 }
 impl core::ops::BitOr for IndirectCommandsLayoutUsageFlagBitsNV {
@@ -10939,6 +11523,7 @@ impl core::fmt::Debug for IndirectCommandsLayoutUsageFlagBitsNV {
         Ok(())
     }
 }
+///[`VkIndirectStateFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkIndirectStateFlagBitsNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkIndirectStateFlagBitsNV")]
@@ -10964,6 +11549,7 @@ impl IndirectStateFlagBitsNV {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const FLAG_FRONTFACE: Self = Self(1u32);
 }
 impl core::ops::BitOr for IndirectStateFlagBitsNV {
@@ -11036,6 +11622,7 @@ impl core::fmt::Debug for IndirectStateFlagBitsNV {
         Ok(())
     }
 }
+///[`VkInstanceCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkInstanceCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkInstanceCreateFlagBits")]
@@ -11061,6 +11648,7 @@ impl InstanceCreateFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const ENUMERATE_PORTABILITY: Self = Self(1u32);
 }
 impl core::ops::BitOr for InstanceCreateFlagBits {
@@ -11133,6 +11721,7 @@ impl core::fmt::Debug for InstanceCreateFlagBits {
         Ok(())
     }
 }
+///[`VkMemoryAllocateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryAllocateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkMemoryAllocateFlagBits")]
@@ -11158,9 +11747,13 @@ impl MemoryAllocateFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const DEVICE_MASK: Self = Self(1u32);
+    ///Bit 1.
     pub const DEVICE_ADDRESS: Self = Self(2u32);
+    ///Bit 2.
     pub const DEVICE_ADDRESS_CAPTURE_REPLAY: Self = Self(4u32);
+    ///Bit 3.
     pub const ZERO_INITIALIZE: Self = Self(8u32);
 }
 impl core::ops::BitOr for MemoryAllocateFlagBits {
@@ -11257,6 +11850,7 @@ impl core::fmt::Debug for MemoryAllocateFlagBits {
         Ok(())
     }
 }
+///[`VkMemoryDecompressionMethodFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryDecompressionMethodFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkMemoryDecompressionMethodFlagBitsEXT")]
@@ -11282,6 +11876,7 @@ impl MemoryDecompressionMethodFlagBitsEXT {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const GDEFLATE_1_0: Self = Self(1u64);
 }
 impl core::ops::BitOr for MemoryDecompressionMethodFlagBitsEXT {
@@ -11354,6 +11949,7 @@ impl core::fmt::Debug for MemoryDecompressionMethodFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkMemoryHeapFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryHeapFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkMemoryHeapFlagBits")]
@@ -11379,9 +11975,13 @@ impl MemoryHeapFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const DEVICE_LOCAL: Self = Self(1u32);
+    ///Bit 1.
     pub const MULTI_INSTANCE: Self = Self(2u32);
+    ///Bit 2.
     pub const SEU_SAFE: Self = Self(4u32);
+    ///Bit 3.
     pub const TILE_MEMORY_BIT: Self = Self(8u32);
 }
 impl core::ops::BitOr for MemoryHeapFlagBits {
@@ -11478,6 +12078,7 @@ impl core::fmt::Debug for MemoryHeapFlagBits {
         Ok(())
     }
 }
+///[`VkMemoryMapFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryMapFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkMemoryMapFlagBits")]
@@ -11503,6 +12104,7 @@ impl MemoryMapFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const PLACED: Self = Self(1u32);
 }
 impl core::ops::BitOr for MemoryMapFlagBits {
@@ -11575,6 +12177,7 @@ impl core::fmt::Debug for MemoryMapFlagBits {
         Ok(())
     }
 }
+///[`VkMemoryPropertyFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryPropertyFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkMemoryPropertyFlagBits")]
@@ -11600,14 +12203,23 @@ impl MemoryPropertyFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const DEVICE_LOCAL: Self = Self(1u32);
+    ///Bit 1.
     pub const HOST_VISIBLE: Self = Self(2u32);
+    ///Bit 2.
     pub const HOST_COHERENT: Self = Self(4u32);
+    ///Bit 3.
     pub const HOST_CACHED: Self = Self(8u32);
+    ///Bit 4.
     pub const LAZILY_ALLOCATED: Self = Self(16u32);
+    ///Bit 5.
     pub const PROTECTED: Self = Self(32u32);
+    ///Bit 6.
     pub const DEVICE_COHERENT: Self = Self(64u32);
+    ///Bit 7.
     pub const DEVICE_UNCACHED: Self = Self(128u32);
+    ///Bit 8.
     pub const RDMA_CAPABLE: Self = Self(256u32);
 }
 impl core::ops::BitOr for MemoryPropertyFlagBits {
@@ -11744,6 +12356,7 @@ impl core::fmt::Debug for MemoryPropertyFlagBits {
         Ok(())
     }
 }
+///[`VkMemoryUnmapFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryUnmapFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkMemoryUnmapFlagBits")]
@@ -11769,6 +12382,7 @@ impl MemoryUnmapFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const RESERVE: Self = Self(1u32);
 }
 impl core::ops::BitOr for MemoryUnmapFlagBits {
@@ -11841,6 +12455,7 @@ impl core::fmt::Debug for MemoryUnmapFlagBits {
         Ok(())
     }
 }
+///[`VkMicromapCreateFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMicromapCreateFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkMicromapCreateFlagBitsEXT")]
@@ -11866,6 +12481,7 @@ impl MicromapCreateFlagBitsEXT {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const DEVICE_ADDRESS_CAPTURE_REPLAY: Self = Self(1u32);
 }
 impl core::ops::BitOr for MicromapCreateFlagBitsEXT {
@@ -11938,6 +12554,7 @@ impl core::fmt::Debug for MicromapCreateFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkOpticalFlowExecuteFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOpticalFlowExecuteFlagBitsNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkOpticalFlowExecuteFlagBitsNV")]
@@ -11963,6 +12580,7 @@ impl OpticalFlowExecuteFlagBitsNV {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const DISABLE_TEMPORAL_HINTS: Self = Self(1u32);
 }
 impl core::ops::BitOr for OpticalFlowExecuteFlagBitsNV {
@@ -12035,6 +12653,7 @@ impl core::fmt::Debug for OpticalFlowExecuteFlagBitsNV {
         Ok(())
     }
 }
+///[`VkOpticalFlowGridSizeFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOpticalFlowGridSizeFlagBitsNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkOpticalFlowGridSizeFlagBitsNV")]
@@ -12061,9 +12680,13 @@ impl OpticalFlowGridSizeFlagBitsNV {
         (self.0 & other.0) == other.0
     }
     pub const UNKNOWN: Self = Self(0u32);
+    ///Bit 0.
     pub const _1X1: Self = Self(1u32);
+    ///Bit 1.
     pub const _2X2: Self = Self(2u32);
+    ///Bit 2.
     pub const _4X4: Self = Self(4u32);
+    ///Bit 3.
     pub const _8X8: Self = Self(8u32);
 }
 impl core::ops::BitOr for OpticalFlowGridSizeFlagBitsNV {
@@ -12160,6 +12783,7 @@ impl core::fmt::Debug for OpticalFlowGridSizeFlagBitsNV {
         Ok(())
     }
 }
+///[`VkOpticalFlowSessionCreateFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOpticalFlowSessionCreateFlagBitsNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkOpticalFlowSessionCreateFlagBitsNV")]
@@ -12185,10 +12809,15 @@ impl OpticalFlowSessionCreateFlagBitsNV {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const ENABLE_HINT: Self = Self(1u32);
+    ///Bit 1.
     pub const ENABLE_COST: Self = Self(2u32);
+    ///Bit 2.
     pub const ENABLE_GLOBAL_FLOW: Self = Self(4u32);
+    ///Bit 3.
     pub const ALLOW_REGIONS: Self = Self(8u32);
+    ///Bit 4.
     pub const BOTH_DIRECTIONS: Self = Self(16u32);
 }
 impl core::ops::BitOr for OpticalFlowSessionCreateFlagBitsNV {
@@ -12293,6 +12922,7 @@ impl core::fmt::Debug for OpticalFlowSessionCreateFlagBitsNV {
         Ok(())
     }
 }
+///[`VkOpticalFlowUsageFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOpticalFlowUsageFlagBitsNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkOpticalFlowUsageFlagBitsNV")]
@@ -12319,10 +12949,15 @@ impl OpticalFlowUsageFlagBitsNV {
         (self.0 & other.0) == other.0
     }
     pub const UNKNOWN: Self = Self(0u32);
+    ///Bit 0.
     pub const INPUT: Self = Self(1u32);
+    ///Bit 1.
     pub const OUTPUT: Self = Self(2u32);
+    ///Bit 2.
     pub const HINT: Self = Self(4u32);
+    ///Bit 3.
     pub const COST: Self = Self(8u32);
+    ///Bit 4.
     pub const GLOBAL_FLOW: Self = Self(16u32);
 }
 impl core::ops::BitOr for OpticalFlowUsageFlagBitsNV {
@@ -12427,6 +13062,7 @@ impl core::fmt::Debug for OpticalFlowUsageFlagBitsNV {
         Ok(())
     }
 }
+///[`VkPartitionedAccelerationStructureInstanceFlagBitsNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPartitionedAccelerationStructureInstanceFlagBitsNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPartitionedAccelerationStructureInstanceFlagBitsNV")]
@@ -12452,10 +13088,15 @@ impl PartitionedAccelerationStructureInstanceFlagBitsNV {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const FLAG_TRIANGLE_FACING_CULL_DISABLE: Self = Self(1u32);
+    ///Bit 1.
     pub const FLAG_TRIANGLE_FLIP_FACING: Self = Self(2u32);
+    ///Bit 2.
     pub const FLAG_FORCE_OPAQUE: Self = Self(4u32);
+    ///Bit 3.
     pub const FLAG_FORCE_NO_OPAQUE: Self = Self(8u32);
+    ///Bit 4.
     pub const FLAG_ENABLE_EXPLICIT_BOUNDING_BOX: Self = Self(16u32);
 }
 impl core::ops::BitOr for PartitionedAccelerationStructureInstanceFlagBitsNV {
@@ -12560,6 +13201,7 @@ impl core::fmt::Debug for PartitionedAccelerationStructureInstanceFlagBitsNV {
         Ok(())
     }
 }
+///[`VkPastPresentationTimingFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPastPresentationTimingFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPastPresentationTimingFlagBitsEXT")]
@@ -12585,7 +13227,9 @@ impl PastPresentationTimingFlagBitsEXT {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const ALLOW_PARTIAL_RESULTS: Self = Self(1u32);
+    ///Bit 1.
     pub const ALLOW_OUT_OF_ORDER_RESULTS: Self = Self(2u32);
 }
 impl core::ops::BitOr for PastPresentationTimingFlagBitsEXT {
@@ -12666,6 +13310,7 @@ impl core::fmt::Debug for PastPresentationTimingFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkPeerMemoryFeatureFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPeerMemoryFeatureFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPeerMemoryFeatureFlagBits")]
@@ -12691,9 +13336,13 @@ impl PeerMemoryFeatureFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const COPY_SRC: Self = Self(1u32);
+    ///Bit 1.
     pub const COPY_DST: Self = Self(2u32);
+    ///Bit 2.
     pub const GENERIC_SRC: Self = Self(4u32);
+    ///Bit 3.
     pub const GENERIC_DST: Self = Self(8u32);
 }
 impl core::ops::BitOr for PeerMemoryFeatureFlagBits {
@@ -12790,6 +13439,7 @@ impl core::fmt::Debug for PeerMemoryFeatureFlagBits {
         Ok(())
     }
 }
+///[`VkPerformanceCounterDescriptionFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPerformanceCounterDescriptionFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPerformanceCounterDescriptionFlagBitsKHR")]
@@ -12815,7 +13465,9 @@ impl PerformanceCounterDescriptionFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const PERFORMANCE_IMPACTING: Self = Self(1u32);
+    ///Bit 1.
     pub const CONCURRENTLY_IMPACTED: Self = Self(2u32);
 }
 impl core::ops::BitOr for PerformanceCounterDescriptionFlagBitsKHR {
@@ -12896,6 +13548,7 @@ impl core::fmt::Debug for PerformanceCounterDescriptionFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkPhysicalDeviceSchedulingControlsFlagBitsARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceSchedulingControlsFlagBitsARM.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPhysicalDeviceSchedulingControlsFlagBitsARM")]
@@ -12921,6 +13574,7 @@ impl PhysicalDeviceSchedulingControlsFlagBitsARM {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const SHADER_CORE_COUNT: Self = Self(1u64);
 }
 impl core::ops::BitOr for PhysicalDeviceSchedulingControlsFlagBitsARM {
@@ -12993,6 +13647,7 @@ impl core::fmt::Debug for PhysicalDeviceSchedulingControlsFlagBitsARM {
         Ok(())
     }
 }
+///[`VkPipelineCacheCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineCacheCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPipelineCacheCreateFlagBits")]
@@ -13018,9 +13673,13 @@ impl PipelineCacheCreateFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const EXTERNALLY_SYNCHRONIZED: Self = Self(1u32);
+    ///Bit 1.
     pub const READ_ONLY: Self = Self(2u32);
+    ///Bit 2.
     pub const USE_APPLICATION_STORAGE: Self = Self(4u32);
+    ///Bit 3.
     pub const INTERNALLY_SYNCHRONIZED_MERGE: Self = Self(8u32);
 }
 impl core::ops::BitOr for PipelineCacheCreateFlagBits {
@@ -13117,6 +13776,7 @@ impl core::fmt::Debug for PipelineCacheCreateFlagBits {
         Ok(())
     }
 }
+///[`VkPipelineColorBlendStateCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineColorBlendStateCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPipelineColorBlendStateCreateFlagBits")]
@@ -13143,6 +13803,7 @@ impl PipelineColorBlendStateCreateFlagBits {
         (self.0 & other.0) == other.0
     }
     pub const RASTERIZATION_ORDER_ATTACHMENT_ACCESS_BIT: Self = Self::RASTERIZATION_ORDER_ATTACHMENT_ACCESS;
+    ///Bit 0.
     pub const RASTERIZATION_ORDER_ATTACHMENT_ACCESS: Self = Self(1u32);
 }
 impl core::ops::BitOr for PipelineColorBlendStateCreateFlagBits {
@@ -13215,6 +13876,7 @@ impl core::fmt::Debug for PipelineColorBlendStateCreateFlagBits {
         Ok(())
     }
 }
+///[`VkPipelineCompilerControlFlagBitsAMD`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineCompilerControlFlagBitsAMD.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPipelineCompilerControlFlagBitsAMD")]
@@ -13303,6 +13965,7 @@ impl core::fmt::Debug for PipelineCompilerControlFlagBitsAMD {
         Ok(())
     }
 }
+///[`VkPipelineCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPipelineCreateFlagBits")]
@@ -13328,38 +13991,69 @@ impl PipelineCreateFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const DISABLE_OPTIMIZATION: Self = Self(1u32);
+    ///Bit 1.
     pub const ALLOW_DERIVATIVES: Self = Self(2u32);
+    ///Bit 2.
     pub const DERIVATIVE: Self = Self(4u32);
+    ///Bit 4.
     pub const DISPATCH_BASE: Self = Self(16u32);
+    ///Bit 3.
     pub const VIEW_INDEX_FROM_DEVICE_INDEX: Self = Self(8u32);
+    ///Bit 8.
     pub const FAIL_ON_PIPELINE_COMPILE_REQUIRED: Self = Self(256u32);
+    ///Bit 9.
     pub const EARLY_RETURN_ON_FAILURE: Self = Self(512u32);
+    ///Bit 27.
     pub const NO_PROTECTED_ACCESS: Self = Self(134217728u32);
+    ///Bit 30.
     pub const PROTECTED_ACCESS_ONLY: Self = Self(1073741824u32);
+    ///Bit 14.
     pub const RAY_TRACING_NO_NULL_ANY_HIT_SHADERS: Self = Self(16384u32);
+    ///Bit 15.
     pub const RAY_TRACING_NO_NULL_CLOSEST_HIT_SHADERS: Self = Self(32768u32);
+    ///Bit 16.
     pub const RAY_TRACING_NO_NULL_MISS_SHADERS: Self = Self(65536u32);
+    ///Bit 17.
     pub const RAY_TRACING_NO_NULL_INTERSECTION_SHADERS: Self = Self(131072u32);
+    ///Bit 12.
     pub const RAY_TRACING_SKIP_TRIANGLES: Self = Self(4096u32);
+    ///Bit 13.
     pub const RAY_TRACING_SKIP_AABBS: Self = Self(8192u32);
+    ///Bit 19.
     pub const RAY_TRACING_SHADER_GROUP_HANDLE_CAPTURE_REPLAY: Self = Self(524288u32);
+    ///Bit 5.
     pub const DEFER_COMPILE: Self = Self(32u32);
+    ///Bit 22.
     pub const RENDERING_FRAGMENT_DENSITY_MAP_ATTACHMENT: Self = Self(4194304u32);
     pub const PIPELINE_RASTERIZATION_STATE_CREATE_FRAGMENT_DENSITY_MAP_ATTACHMENT: Self = Self::RENDERING_FRAGMENT_DENSITY_MAP_ATTACHMENT;
+    ///Bit 21.
     pub const RENDERING_FRAGMENT_SHADING_RATE_ATTACHMENT: Self = Self(2097152u32);
     pub const PIPELINE_RASTERIZATION_STATE_CREATE_FRAGMENT_SHADING_RATE_ATTACHMENT: Self = Self::RENDERING_FRAGMENT_SHADING_RATE_ATTACHMENT;
+    ///Bit 6.
     pub const CAPTURE_STATISTICS: Self = Self(64u32);
+    ///Bit 7.
     pub const CAPTURE_INTERNAL_REPRESENTATIONS: Self = Self(128u32);
+    ///Bit 18.
     pub const INDIRECT_BINDABLE: Self = Self(262144u32);
+    ///Bit 11.
     pub const LIBRARY: Self = Self(2048u32);
+    ///Bit 29.
     pub const DESCRIPTOR_BUFFER: Self = Self(536870912u32);
+    ///Bit 23.
     pub const RETAIN_LINK_TIME_OPTIMIZATION_INFO: Self = Self(8388608u32);
+    ///Bit 10.
     pub const LINK_TIME_OPTIMIZATION: Self = Self(1024u32);
+    ///Bit 20.
     pub const RAY_TRACING_ALLOW_MOTION: Self = Self(1048576u32);
+    ///Bit 25.
     pub const COLOR_ATTACHMENT_FEEDBACK_LOOP: Self = Self(33554432u32);
+    ///Bit 26.
     pub const DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP: Self = Self(67108864u32);
+    ///Bit 24.
     pub const RAY_TRACING_OPACITY_MICROMAP: Self = Self(16777216u32);
+    ///Bit 28.
     pub const RAY_TRACING_DISPLACEMENT_MICROMAP: Self = Self(268435456u32);
 }
 impl core::ops::BitOr for PipelineCreateFlagBits {
@@ -13672,6 +14366,7 @@ impl core::fmt::Debug for PipelineCreateFlagBits {
         Ok(())
     }
 }
+///[`VkPipelineCreateFlagBits2`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineCreateFlagBits2.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPipelineCreateFlagBits2")]
@@ -13697,48 +14392,88 @@ impl PipelineCreateFlagBits2 {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const _2_DISABLE_OPTIMIZATION: Self = Self(1u64);
+    ///Bit 1.
     pub const _2_ALLOW_DERIVATIVES: Self = Self(2u64);
+    ///Bit 2.
     pub const _2_DERIVATIVE: Self = Self(4u64);
+    ///Bit 3.
     pub const _2_VIEW_INDEX_FROM_DEVICE_INDEX: Self = Self(8u64);
+    ///Bit 4.
     pub const _2_DISPATCH_BASE: Self = Self(16u64);
+    ///Bit 8.
     pub const _2_FAIL_ON_PIPELINE_COMPILE_REQUIRED: Self = Self(256u64);
+    ///Bit 9.
     pub const _2_EARLY_RETURN_ON_FAILURE: Self = Self(512u64);
+    ///Bit 27.
     pub const _2_NO_PROTECTED_ACCESS: Self = Self(134217728u64);
+    ///Bit 30.
     pub const _2_PROTECTED_ACCESS_ONLY: Self = Self(1073741824u64);
+    ///Bit 32.
     pub const _2_EXECUTION_GRAPH_BIT: Self = Self(4294967296u64);
+    ///Bit 36.
     pub const _2_DESCRIPTOR_HEAP: Self = Self(68719476736u64);
     pub const _2_RAY_TRACING_SKIP_BUILT_IN_PRIMITIVES: Self = Self::_2_RAY_TRACING_SKIP_TRIANGLES;
+    ///Bit 33.
     pub const _2_RAY_TRACING_ALLOW_SPHERES_AND_LINEAR_SWEPT_SPHERES: Self = Self(
         8589934592u64,
     );
+    ///Bit 34.
     pub const _2_ENABLE_LEGACY_DITHERING: Self = Self(17179869184u64);
+    ///Bit 5.
     pub const _2_DEFER_COMPILE: Self = Self(32u64);
+    ///Bit 6.
     pub const _2_CAPTURE_STATISTICS: Self = Self(64u64);
+    ///Bit 7.
     pub const _2_CAPTURE_INTERNAL_REPRESENTATIONS: Self = Self(128u64);
+    ///Bit 10.
     pub const _2_LINK_TIME_OPTIMIZATION: Self = Self(1024u64);
+    ///Bit 23.
     pub const _2_RETAIN_LINK_TIME_OPTIMIZATION_INFO: Self = Self(8388608u64);
+    ///Bit 11.
     pub const _2_LIBRARY: Self = Self(2048u64);
+    ///Bit 12.
     pub const _2_RAY_TRACING_SKIP_TRIANGLES: Self = Self(4096u64);
+    ///Bit 13.
     pub const _2_RAY_TRACING_SKIP_AABBS: Self = Self(8192u64);
+    ///Bit 14.
     pub const _2_RAY_TRACING_NO_NULL_ANY_HIT_SHADERS: Self = Self(16384u64);
+    ///Bit 15.
     pub const _2_RAY_TRACING_NO_NULL_CLOSEST_HIT_SHADERS: Self = Self(32768u64);
+    ///Bit 16.
     pub const _2_RAY_TRACING_NO_NULL_MISS_SHADERS: Self = Self(65536u64);
+    ///Bit 17.
     pub const _2_RAY_TRACING_NO_NULL_INTERSECTION_SHADERS: Self = Self(131072u64);
+    ///Bit 19.
     pub const _2_RAY_TRACING_SHADER_GROUP_HANDLE_CAPTURE_REPLAY: Self = Self(524288u64);
+    ///Bit 18.
     pub const _2_INDIRECT_BINDABLE: Self = Self(262144u64);
+    ///Bit 20.
     pub const _2_RAY_TRACING_ALLOW_MOTION: Self = Self(1048576u64);
+    ///Bit 21.
     pub const _2_RENDERING_FRAGMENT_SHADING_RATE_ATTACHMENT: Self = Self(2097152u64);
+    ///Bit 22.
     pub const _2_RENDERING_FRAGMENT_DENSITY_MAP_ATTACHMENT: Self = Self(4194304u64);
+    ///Bit 24.
     pub const _2_RAY_TRACING_OPACITY_MICROMAP: Self = Self(16777216u64);
+    ///Bit 25.
     pub const _2_COLOR_ATTACHMENT_FEEDBACK_LOOP: Self = Self(33554432u64);
+    ///Bit 26.
     pub const _2_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP: Self = Self(67108864u64);
+    ///Bit 28.
     pub const _2_RAY_TRACING_DISPLACEMENT_MICROMAP: Self = Self(268435456u64);
+    ///Bit 29.
     pub const _2_DESCRIPTOR_BUFFER: Self = Self(536870912u64);
+    ///Bit 37.
     pub const _2_DISALLOW_OPACITY_MICROMAP_BIT: Self = Self(137438953472u64);
+    ///Bit 39.
     pub const _2_INSTRUMENT_SHADERS_BIT: Self = Self(549755813888u64);
+    ///Bit 31.
     pub const _2_CAPTURE_DATA: Self = Self(2147483648u64);
+    ///Bit 40.
     pub const _2_PER_LAYER_FRAGMENT_DENSITY_BIT: Self = Self(1099511627776u64);
+    ///Bit 43.
     pub const _2_64_BIT_INDEXING: Self = Self(8796093022208u64);
 }
 impl core::ops::BitOr for PipelineCreateFlagBits2 {
@@ -14124,6 +14859,7 @@ impl core::fmt::Debug for PipelineCreateFlagBits2 {
         Ok(())
     }
 }
+///[`VkPipelineCreationFeedbackFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineCreationFeedbackFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPipelineCreationFeedbackFlagBits")]
@@ -14149,8 +14885,11 @@ impl PipelineCreationFeedbackFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const VALID: Self = Self(1u32);
+    ///Bit 1.
     pub const APPLICATION_PIPELINE_CACHE_HIT: Self = Self(2u32);
+    ///Bit 2.
     pub const BASE_PIPELINE_ACCELERATION: Self = Self(4u32);
 }
 impl core::ops::BitOr for PipelineCreationFeedbackFlagBits {
@@ -14239,6 +14978,7 @@ impl core::fmt::Debug for PipelineCreationFeedbackFlagBits {
         Ok(())
     }
 }
+///[`VkPipelineDepthStencilStateCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineDepthStencilStateCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPipelineDepthStencilStateCreateFlagBits")]
@@ -14266,7 +15006,9 @@ impl PipelineDepthStencilStateCreateFlagBits {
     }
     pub const RASTERIZATION_ORDER_ATTACHMENT_DEPTH_ACCESS_BIT: Self = Self::RASTERIZATION_ORDER_ATTACHMENT_DEPTH_ACCESS;
     pub const RASTERIZATION_ORDER_ATTACHMENT_STENCIL_ACCESS_BIT: Self = Self::RASTERIZATION_ORDER_ATTACHMENT_STENCIL_ACCESS;
+    ///Bit 0.
     pub const RASTERIZATION_ORDER_ATTACHMENT_DEPTH_ACCESS: Self = Self(1u32);
+    ///Bit 1.
     pub const RASTERIZATION_ORDER_ATTACHMENT_STENCIL_ACCESS: Self = Self(2u32);
 }
 impl core::ops::BitOr for PipelineDepthStencilStateCreateFlagBits {
@@ -14347,6 +15089,7 @@ impl core::fmt::Debug for PipelineDepthStencilStateCreateFlagBits {
         Ok(())
     }
 }
+///[`VkPipelineLayoutCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineLayoutCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPipelineLayoutCreateFlagBits")]
@@ -14372,6 +15115,7 @@ impl PipelineLayoutCreateFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 1.
     pub const INDEPENDENT_SETS: Self = Self(2u32);
 }
 impl core::ops::BitOr for PipelineLayoutCreateFlagBits {
@@ -14444,6 +15188,7 @@ impl core::fmt::Debug for PipelineLayoutCreateFlagBits {
         Ok(())
     }
 }
+///[`VkPipelineShaderStageCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineShaderStageCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPipelineShaderStageCreateFlagBits")]
@@ -14469,7 +15214,9 @@ impl PipelineShaderStageCreateFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const ALLOW_VARYING_SUBGROUP_SIZE: Self = Self(1u32);
+    ///Bit 1.
     pub const REQUIRE_FULL_SUBGROUPS: Self = Self(2u32);
 }
 impl core::ops::BitOr for PipelineShaderStageCreateFlagBits {
@@ -14550,6 +15297,7 @@ impl core::fmt::Debug for PipelineShaderStageCreateFlagBits {
         Ok(())
     }
 }
+///[`VkPipelineStageFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineStageFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPipelineStageFlagBits")]
@@ -14575,30 +15323,53 @@ impl PipelineStageFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const TOP_OF_PIPE: Self = Self(1u32);
+    ///Bit 1.
     pub const DRAW_INDIRECT: Self = Self(2u32);
+    ///Bit 2.
     pub const VERTEX_INPUT: Self = Self(4u32);
+    ///Bit 3.
     pub const VERTEX_SHADER: Self = Self(8u32);
+    ///Bit 4.
     pub const TESSELLATION_CONTROL_SHADER: Self = Self(16u32);
+    ///Bit 5.
     pub const TESSELLATION_EVALUATION_SHADER: Self = Self(32u32);
+    ///Bit 6.
     pub const GEOMETRY_SHADER: Self = Self(64u32);
+    ///Bit 7.
     pub const FRAGMENT_SHADER: Self = Self(128u32);
+    ///Bit 8.
     pub const EARLY_FRAGMENT_TESTS: Self = Self(256u32);
+    ///Bit 9.
     pub const LATE_FRAGMENT_TESTS: Self = Self(512u32);
+    ///Bit 10.
     pub const COLOR_ATTACHMENT_OUTPUT: Self = Self(1024u32);
+    ///Bit 11.
     pub const COMPUTE_SHADER: Self = Self(2048u32);
+    ///Bit 12.
     pub const TRANSFER: Self = Self(4096u32);
+    ///Bit 13.
     pub const BOTTOM_OF_PIPE: Self = Self(8192u32);
+    ///Bit 14.
     pub const HOST: Self = Self(16384u32);
+    ///Bit 15.
     pub const ALL_GRAPHICS: Self = Self(32768u32);
+    ///Bit 16.
     pub const ALL_COMMANDS: Self = Self(65536u32);
     pub const NONE: Self = Self(0u32);
+    ///Bit 24.
     pub const TRANSFORM_FEEDBACK: Self = Self(16777216u32);
+    ///Bit 18.
     pub const CONDITIONAL_RENDERING: Self = Self(262144u32);
+    ///Bit 25.
     pub const ACCELERATION_STRUCTURE_BUILD: Self = Self(33554432u32);
+    ///Bit 21.
     pub const RAY_TRACING_SHADER: Self = Self(2097152u32);
     pub const SHADING_RATE_IMAGE: Self = Self::FRAGMENT_SHADING_RATE_ATTACHMENT;
+    ///Bit 23.
     pub const FRAGMENT_DENSITY_PROCESS: Self = Self(8388608u32);
+    ///Bit 22.
     pub const FRAGMENT_SHADING_RATE_ATTACHMENT: Self = Self(4194304u32);
 }
 impl core::ops::BitOr for PipelineStageFlagBits {
@@ -14847,6 +15618,7 @@ impl core::fmt::Debug for PipelineStageFlagBits {
         Ok(())
     }
 }
+///[`VkPipelineStageFlagBits2`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineStageFlagBits2.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPipelineStageFlagBits2")]
@@ -14873,50 +15645,92 @@ impl PipelineStageFlagBits2 {
         (self.0 & other.0) == other.0
     }
     pub const _2_NONE: Self = Self(0u64);
+    ///Bit 0.
     pub const _2_TOP_OF_PIPE: Self = Self(1u64);
+    ///Bit 1.
     pub const _2_DRAW_INDIRECT: Self = Self(2u64);
+    ///Bit 2.
     pub const _2_VERTEX_INPUT: Self = Self(4u64);
+    ///Bit 3.
     pub const _2_VERTEX_SHADER: Self = Self(8u64);
+    ///Bit 4.
     pub const _2_TESSELLATION_CONTROL_SHADER: Self = Self(16u64);
+    ///Bit 5.
     pub const _2_TESSELLATION_EVALUATION_SHADER: Self = Self(32u64);
+    ///Bit 6.
     pub const _2_GEOMETRY_SHADER: Self = Self(64u64);
+    ///Bit 7.
     pub const _2_FRAGMENT_SHADER: Self = Self(128u64);
+    ///Bit 8.
     pub const _2_EARLY_FRAGMENT_TESTS: Self = Self(256u64);
+    ///Bit 9.
     pub const _2_LATE_FRAGMENT_TESTS: Self = Self(512u64);
+    ///Bit 10.
     pub const _2_COLOR_ATTACHMENT_OUTPUT: Self = Self(1024u64);
+    ///Bit 11.
     pub const _2_COMPUTE_SHADER: Self = Self(2048u64);
+    ///Bit 12.
     pub const _2_ALL_TRANSFER: Self = Self(4096u64);
     pub const _2_TRANSFER: Self = Self::_2_ALL_TRANSFER;
+    ///Bit 13.
     pub const _2_BOTTOM_OF_PIPE: Self = Self(8192u64);
+    ///Bit 14.
     pub const _2_HOST: Self = Self(16384u64);
+    ///Bit 15.
     pub const _2_ALL_GRAPHICS: Self = Self(32768u64);
+    ///Bit 16.
     pub const _2_ALL_COMMANDS: Self = Self(65536u64);
+    ///Bit 32.
     pub const _2_COPY: Self = Self(4294967296u64);
+    ///Bit 33.
     pub const _2_RESOLVE: Self = Self(8589934592u64);
+    ///Bit 34.
     pub const _2_BLIT: Self = Self(17179869184u64);
+    ///Bit 35.
     pub const _2_CLEAR: Self = Self(34359738368u64);
+    ///Bit 36.
     pub const _2_INDEX_INPUT: Self = Self(68719476736u64);
+    ///Bit 37.
     pub const _2_VERTEX_ATTRIBUTE_INPUT: Self = Self(137438953472u64);
+    ///Bit 38.
     pub const _2_PRE_RASTERIZATION_SHADERS: Self = Self(274877906944u64);
+    ///Bit 26.
     pub const _2_VIDEO_DECODE: Self = Self(67108864u64);
+    ///Bit 27.
     pub const _2_VIDEO_ENCODE: Self = Self(134217728u64);
+    ///Bit 24.
     pub const _2_TRANSFORM_FEEDBACK: Self = Self(16777216u64);
+    ///Bit 18.
     pub const _2_CONDITIONAL_RENDERING: Self = Self(262144u64);
+    ///Bit 22.
     pub const _2_FRAGMENT_SHADING_RATE_ATTACHMENT: Self = Self(4194304u64);
     pub const _2_SHADING_RATE_IMAGE: Self = Self::_2_FRAGMENT_SHADING_RATE_ATTACHMENT;
+    ///Bit 25.
     pub const _2_ACCELERATION_STRUCTURE_BUILD: Self = Self(33554432u64);
+    ///Bit 21.
     pub const _2_RAY_TRACING_SHADER: Self = Self(2097152u64);
+    ///Bit 23.
     pub const _2_FRAGMENT_DENSITY_PROCESS: Self = Self(8388608u64);
+    ///Bit 39.
     pub const _2_SUBPASS_SHADER_BIT: Self = Self(549755813888u64);
     pub const _2_SUBPASS_SHADING_BIT: Self = Self::_2_SUBPASS_SHADER_BIT;
+    ///Bit 40.
     pub const _2_INVOCATION_MASK_BIT: Self = Self(1099511627776u64);
+    ///Bit 28.
     pub const _2_ACCELERATION_STRUCTURE_COPY: Self = Self(268435456u64);
+    ///Bit 30.
     pub const _2_MICROMAP_BUILD: Self = Self(1073741824u64);
+    ///Bit 41.
     pub const _2_CLUSTER_CULLING_SHADER_BIT: Self = Self(2199023255552u64);
+    ///Bit 29.
     pub const _2_OPTICAL_FLOW: Self = Self(536870912u64);
+    ///Bit 44.
     pub const _2_CONVERT_COOPERATIVE_VECTOR_MATRIX: Self = Self(17592186044416u64);
+    ///Bit 42.
     pub const _2_DATA_GRAPH_BIT: Self = Self(4398046511104u64);
+    ///Bit 46.
     pub const _2_COPY_INDIRECT: Self = Self(70368744177664u64);
+    ///Bit 45.
     pub const _2_MEMORY_DECOMPRESSION: Self = Self(35184372088832u64);
 }
 impl core::ops::BitOr for PipelineStageFlagBits2 {
@@ -15317,6 +16131,7 @@ impl core::fmt::Debug for PipelineStageFlagBits2 {
         Ok(())
     }
 }
+///[`VkPresentGravityFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPresentGravityFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPresentGravityFlagBitsKHR")]
@@ -15342,8 +16157,11 @@ impl PresentGravityFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const MIN: Self = Self(1u32);
+    ///Bit 1.
     pub const MAX: Self = Self(2u32);
+    ///Bit 2.
     pub const CENTERED: Self = Self(4u32);
 }
 impl core::ops::BitOr for PresentGravityFlagBitsKHR {
@@ -15432,6 +16250,7 @@ impl core::fmt::Debug for PresentGravityFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkPresentScalingFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPresentScalingFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPresentScalingFlagBitsKHR")]
@@ -15457,8 +16276,11 @@ impl PresentScalingFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const ONE_TO_ONE: Self = Self(1u32);
+    ///Bit 1.
     pub const ASPECT_RATIO_STRETCH: Self = Self(2u32);
+    ///Bit 2.
     pub const STRETCH: Self = Self(4u32);
 }
 impl core::ops::BitOr for PresentScalingFlagBitsKHR {
@@ -15547,6 +16369,7 @@ impl core::fmt::Debug for PresentScalingFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkPresentStageFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPresentStageFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPresentStageFlagBitsEXT")]
@@ -15572,9 +16395,13 @@ impl PresentStageFlagBitsEXT {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const QUEUE_OPERATIONS_END: Self = Self(1u32);
+    ///Bit 1.
     pub const REQUEST_DEQUEUED: Self = Self(2u32);
+    ///Bit 2.
     pub const IMAGE_FIRST_PIXEL_OUT: Self = Self(4u32);
+    ///Bit 3.
     pub const IMAGE_FIRST_PIXEL_VISIBLE: Self = Self(8u32);
 }
 impl core::ops::BitOr for PresentStageFlagBitsEXT {
@@ -15671,6 +16498,7 @@ impl core::fmt::Debug for PresentStageFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkPresentTimingInfoFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPresentTimingInfoFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPresentTimingInfoFlagBitsEXT")]
@@ -15696,7 +16524,9 @@ impl PresentTimingInfoFlagBitsEXT {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const PRESENT_AT_RELATIVE_TIME: Self = Self(1u32);
+    ///Bit 1.
     pub const PRESENT_AT_NEAREST_REFRESH_CYCLE: Self = Self(2u32);
 }
 impl core::ops::BitOr for PresentTimingInfoFlagBitsEXT {
@@ -15777,6 +16607,7 @@ impl core::fmt::Debug for PresentTimingInfoFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkPrivateDataSlotCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPrivateDataSlotCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkPrivateDataSlotCreateFlagBits")]
@@ -15865,6 +16696,7 @@ impl core::fmt::Debug for PrivateDataSlotCreateFlagBits {
         Ok(())
     }
 }
+///[`VkQueryControlFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueryControlFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkQueryControlFlagBits")]
@@ -15890,6 +16722,7 @@ impl QueryControlFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const PRECISE: Self = Self(1u32);
 }
 impl core::ops::BitOr for QueryControlFlagBits {
@@ -15962,6 +16795,7 @@ impl core::fmt::Debug for QueryControlFlagBits {
         Ok(())
     }
 }
+///[`VkQueryPipelineStatisticFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueryPipelineStatisticFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkQueryPipelineStatisticFlagBits")]
@@ -15987,19 +16821,33 @@ impl QueryPipelineStatisticFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const INPUT_ASSEMBLY_VERTICES: Self = Self(1u32);
+    ///Bit 1.
     pub const INPUT_ASSEMBLY_PRIMITIVES: Self = Self(2u32);
+    ///Bit 2.
     pub const VERTEX_SHADER_INVOCATIONS: Self = Self(4u32);
+    ///Bit 3.
     pub const GEOMETRY_SHADER_INVOCATIONS: Self = Self(8u32);
+    ///Bit 4.
     pub const GEOMETRY_SHADER_PRIMITIVES: Self = Self(16u32);
+    ///Bit 5.
     pub const CLIPPING_INVOCATIONS: Self = Self(32u32);
+    ///Bit 6.
     pub const CLIPPING_PRIMITIVES: Self = Self(64u32);
+    ///Bit 7.
     pub const FRAGMENT_SHADER_INVOCATIONS: Self = Self(128u32);
+    ///Bit 8.
     pub const TESSELLATION_CONTROL_SHADER_PATCHES: Self = Self(256u32);
+    ///Bit 9.
     pub const TESSELLATION_EVALUATION_SHADER_INVOCATIONS: Self = Self(512u32);
+    ///Bit 10.
     pub const COMPUTE_SHADER_INVOCATIONS: Self = Self(1024u32);
+    ///Bit 11.
     pub const TASK_SHADER_INVOCATIONS: Self = Self(2048u32);
+    ///Bit 12.
     pub const MESH_SHADER_INVOCATIONS: Self = Self(4096u32);
+    ///Bit 13.
     pub const CLUSTER_CULLING_SHADER_INVOCATIONS_BIT: Self = Self(8192u32);
 }
 impl core::ops::BitOr for QueryPipelineStatisticFlagBits {
@@ -16176,6 +17024,7 @@ impl core::fmt::Debug for QueryPipelineStatisticFlagBits {
         Ok(())
     }
 }
+///[`VkQueryPoolCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueryPoolCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkQueryPoolCreateFlagBits")]
@@ -16201,6 +17050,7 @@ impl QueryPoolCreateFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const RESET: Self = Self(1u32);
 }
 impl core::ops::BitOr for QueryPoolCreateFlagBits {
@@ -16273,6 +17123,7 @@ impl core::fmt::Debug for QueryPoolCreateFlagBits {
         Ok(())
     }
 }
+///[`VkQueryResultFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueryResultFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkQueryResultFlagBits")]
@@ -16298,10 +17149,15 @@ impl QueryResultFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const _64: Self = Self(1u32);
+    ///Bit 1.
     pub const WAIT: Self = Self(2u32);
+    ///Bit 2.
     pub const WITH_AVAILABILITY: Self = Self(4u32);
+    ///Bit 3.
     pub const PARTIAL: Self = Self(8u32);
+    ///Bit 4.
     pub const WITH_STATUS: Self = Self(16u32);
 }
 impl core::ops::BitOr for QueryResultFlagBits {
@@ -16406,6 +17262,7 @@ impl core::fmt::Debug for QueryResultFlagBits {
         Ok(())
     }
 }
+///[`VkQueueFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueueFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkQueueFlagBits")]
@@ -16431,14 +17288,23 @@ impl QueueFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const GRAPHICS: Self = Self(1u32);
+    ///Bit 1.
     pub const COMPUTE: Self = Self(2u32);
+    ///Bit 2.
     pub const TRANSFER: Self = Self(4u32);
+    ///Bit 3.
     pub const SPARSE_BINDING: Self = Self(8u32);
+    ///Bit 4.
     pub const PROTECTED: Self = Self(16u32);
+    ///Bit 5.
     pub const VIDEO_DECODE: Self = Self(32u32);
+    ///Bit 6.
     pub const VIDEO_ENCODE: Self = Self(64u32);
+    ///Bit 8.
     pub const OPTICAL_FLOW: Self = Self(256u32);
+    ///Bit 10.
     pub const DATA_GRAPH_BIT: Self = Self(1024u32);
 }
 impl core::ops::BitOr for QueueFlagBits {
@@ -16575,6 +17441,7 @@ impl core::fmt::Debug for QueueFlagBits {
         Ok(())
     }
 }
+///[`VkRefreshObjectFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRefreshObjectFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkRefreshObjectFlagBitsKHR")]
@@ -16663,6 +17530,7 @@ impl core::fmt::Debug for RefreshObjectFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkRenderPassCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderPassCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkRenderPassCreateFlagBits")]
@@ -16688,7 +17556,9 @@ impl RenderPassCreateFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 1.
     pub const TRANSFORM_BIT: Self = Self(2u32);
+    ///Bit 2.
     pub const PER_LAYER_FRAGMENT_DENSITY_BIT: Self = Self(4u32);
 }
 impl core::ops::BitOr for RenderPassCreateFlagBits {
@@ -16769,6 +17639,7 @@ impl core::fmt::Debug for RenderPassCreateFlagBits {
         Ok(())
     }
 }
+///[`VkRenderingAttachmentFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingAttachmentFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkRenderingAttachmentFlagBitsKHR")]
@@ -16794,8 +17665,11 @@ impl RenderingAttachmentFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const INPUT_ATTACHMENT_FEEDBACK: Self = Self(1u32);
+    ///Bit 1.
     pub const RESOLVE_SKIP_TRANSFER_FUNCTION: Self = Self(2u32);
+    ///Bit 2.
     pub const RESOLVE_ENABLE_TRANSFER_FUNCTION: Self = Self(4u32);
 }
 impl core::ops::BitOr for RenderingAttachmentFlagBitsKHR {
@@ -16884,6 +17758,7 @@ impl core::fmt::Debug for RenderingAttachmentFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkRenderingFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRenderingFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkRenderingFlagBits")]
@@ -16909,13 +17784,21 @@ impl RenderingFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const CONTENTS_SECONDARY_COMMAND_BUFFERS: Self = Self(1u32);
+    ///Bit 1.
     pub const SUSPENDING: Self = Self(2u32);
+    ///Bit 2.
     pub const RESUMING: Self = Self(4u32);
+    ///Bit 3.
     pub const ENABLE_LEGACY_DITHERING: Self = Self(8u32);
+    ///Bit 5.
     pub const PER_LAYER_FRAGMENT_DENSITY_BIT: Self = Self(32u32);
+    ///Bit 6.
     pub const FRAGMENT_REGION: Self = Self(64u32);
+    ///Bit 7.
     pub const CUSTOM_RESOLVE: Self = Self(128u32);
+    ///Bit 8.
     pub const LOCAL_READ_CONCURRENT_ACCESS_CONTROL: Self = Self(256u32);
 }
 impl core::ops::BitOr for RenderingFlagBits {
@@ -17044,6 +17927,7 @@ impl core::fmt::Debug for RenderingFlagBits {
         Ok(())
     }
 }
+///[`VkResolveImageFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkResolveImageFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkResolveImageFlagBitsKHR")]
@@ -17069,7 +17953,9 @@ impl ResolveImageFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const SKIP_TRANSFER_FUNCTION: Self = Self(1u32);
+    ///Bit 1.
     pub const ENABLE_TRANSFER_FUNCTION: Self = Self(2u32);
 }
 impl core::ops::BitOr for ResolveImageFlagBitsKHR {
@@ -17150,6 +18036,7 @@ impl core::fmt::Debug for ResolveImageFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkResolveModeFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkResolveModeFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkResolveModeFlagBits")]
@@ -17176,12 +18063,18 @@ impl ResolveModeFlagBits {
         (self.0 & other.0) == other.0
     }
     pub const NONE: Self = Self(0u32);
+    ///Bit 0.
     pub const SAMPLE_ZERO: Self = Self(1u32);
+    ///Bit 1.
     pub const AVERAGE: Self = Self(2u32);
+    ///Bit 2.
     pub const MIN: Self = Self(4u32);
+    ///Bit 3.
     pub const MAX: Self = Self(8u32);
+    ///Bit 4.
     pub const EXTERNAL_FORMAT_DOWNSAMPLE_BIT: Self = Self(16u32);
     pub const EXTERNAL_FORMAT_DOWNSAMPLE: Self = Self::EXTERNAL_FORMAT_DOWNSAMPLE_BIT;
+    ///Bit 5.
     pub const CUSTOM: Self = Self(32u32);
 }
 impl core::ops::BitOr for ResolveModeFlagBits {
@@ -17294,6 +18187,7 @@ impl core::fmt::Debug for ResolveModeFlagBits {
         Ok(())
     }
 }
+///[`VkSampleCountFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSampleCountFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkSampleCountFlagBits")]
@@ -17319,12 +18213,19 @@ impl SampleCountFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const _1: Self = Self(1u32);
+    ///Bit 1.
     pub const _2: Self = Self(2u32);
+    ///Bit 2.
     pub const _4: Self = Self(4u32);
+    ///Bit 3.
     pub const _8: Self = Self(8u32);
+    ///Bit 4.
     pub const _16: Self = Self(16u32);
+    ///Bit 5.
     pub const _32: Self = Self(32u32);
+    ///Bit 6.
     pub const _64: Self = Self(64u32);
 }
 impl core::ops::BitOr for SampleCountFlagBits {
@@ -17445,6 +18346,7 @@ impl core::fmt::Debug for SampleCountFlagBits {
         Ok(())
     }
 }
+///[`VkSamplerCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSamplerCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkSamplerCreateFlagBits")]
@@ -17470,10 +18372,15 @@ impl SamplerCreateFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const SUBSAMPLED: Self = Self(1u32);
+    ///Bit 1.
     pub const SUBSAMPLED_COARSE_RECONSTRUCTION: Self = Self(2u32);
+    ///Bit 3.
     pub const DESCRIPTOR_BUFFER_CAPTURE_REPLAY: Self = Self(8u32);
+    ///Bit 2.
     pub const NON_SEAMLESS_CUBE_MAP: Self = Self(4u32);
+    ///Bit 4.
     pub const IMAGE_PROCESSING_BIT: Self = Self(16u32);
 }
 impl core::ops::BitOr for SamplerCreateFlagBits {
@@ -17578,6 +18485,7 @@ impl core::fmt::Debug for SamplerCreateFlagBits {
         Ok(())
     }
 }
+///[`VkSemaphoreCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSemaphoreCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkSemaphoreCreateFlagBits")]
@@ -17666,6 +18574,7 @@ impl core::fmt::Debug for SemaphoreCreateFlagBits {
         Ok(())
     }
 }
+///[`VkSemaphoreImportFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSemaphoreImportFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkSemaphoreImportFlagBits")]
@@ -17691,6 +18600,7 @@ impl SemaphoreImportFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const TEMPORARY: Self = Self(1u32);
 }
 impl core::ops::BitOr for SemaphoreImportFlagBits {
@@ -17763,6 +18673,7 @@ impl core::fmt::Debug for SemaphoreImportFlagBits {
         Ok(())
     }
 }
+///[`VkSemaphoreWaitFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSemaphoreWaitFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkSemaphoreWaitFlagBits")]
@@ -17788,6 +18699,7 @@ impl SemaphoreWaitFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const ANY: Self = Self(1u32);
 }
 impl core::ops::BitOr for SemaphoreWaitFlagBits {
@@ -17860,6 +18772,7 @@ impl core::fmt::Debug for SemaphoreWaitFlagBits {
         Ok(())
     }
 }
+///[`VkShaderCorePropertiesFlagBitsAMD`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderCorePropertiesFlagBitsAMD.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkShaderCorePropertiesFlagBitsAMD")]
@@ -17948,6 +18861,7 @@ impl core::fmt::Debug for ShaderCorePropertiesFlagBitsAMD {
         Ok(())
     }
 }
+///[`VkShaderCreateFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderCreateFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkShaderCreateFlagBitsEXT")]
@@ -17973,16 +18887,27 @@ impl ShaderCreateFlagBitsEXT {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const LINK_STAGE: Self = Self(1u32);
+    ///Bit 10.
     pub const DESCRIPTOR_HEAP: Self = Self(1024u32);
+    ///Bit 11.
     pub const INSTRUMENT_SHADER_BIT: Self = Self(2048u32);
+    ///Bit 1.
     pub const ALLOW_VARYING_SUBGROUP_SIZE: Self = Self(2u32);
+    ///Bit 2.
     pub const REQUIRE_FULL_SUBGROUPS: Self = Self(4u32);
+    ///Bit 3.
     pub const NO_TASK_SHADER: Self = Self(8u32);
+    ///Bit 4.
     pub const DISPATCH_BASE: Self = Self(16u32);
+    ///Bit 5.
     pub const FRAGMENT_SHADING_RATE_ATTACHMENT: Self = Self(32u32);
+    ///Bit 6.
     pub const FRAGMENT_DENSITY_MAP_ATTACHMENT: Self = Self(64u32);
+    ///Bit 7.
     pub const INDIRECT_BINDABLE: Self = Self(128u32);
+    ///Bit 15.
     pub const _64_BIT_INDEXING: Self = Self(32768u32);
 }
 impl core::ops::BitOr for ShaderCreateFlagBitsEXT {
@@ -18135,6 +19060,7 @@ impl core::fmt::Debug for ShaderCreateFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkShaderModuleCreateFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderModuleCreateFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkShaderModuleCreateFlagBits")]
@@ -18223,6 +19149,7 @@ impl core::fmt::Debug for ShaderModuleCreateFlagBits {
         Ok(())
     }
 }
+///[`VkShaderStageFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderStageFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkShaderStageFlagBits")]
@@ -18248,21 +19175,35 @@ impl ShaderStageFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const VERTEX: Self = Self(1u32);
+    ///Bit 1.
     pub const TESSELLATION_CONTROL: Self = Self(2u32);
+    ///Bit 2.
     pub const TESSELLATION_EVALUATION: Self = Self(4u32);
+    ///Bit 3.
     pub const GEOMETRY: Self = Self(8u32);
+    ///Bit 4.
     pub const FRAGMENT: Self = Self(16u32);
+    ///Bit 5.
     pub const COMPUTE: Self = Self(32u32);
     pub const ALL_GRAPHICS: Self = Self(31u32);
     pub const ALL: Self = Self(2147483647u32);
+    ///Bit 8.
     pub const RAYGEN: Self = Self(256u32);
+    ///Bit 9.
     pub const ANY_HIT: Self = Self(512u32);
+    ///Bit 10.
     pub const CLOSEST_HIT: Self = Self(1024u32);
+    ///Bit 11.
     pub const MISS: Self = Self(2048u32);
+    ///Bit 12.
     pub const INTERSECTION: Self = Self(4096u32);
+    ///Bit 13.
     pub const CALLABLE: Self = Self(8192u32);
+    ///Bit 14.
     pub const SUBPASS_SHADING_BIT: Self = Self(16384u32);
+    ///Bit 19.
     pub const CLUSTER_CULLING_BIT: Self = Self(524288u32);
 }
 impl core::ops::BitOr for ShaderStageFlagBits {
@@ -18439,6 +19380,7 @@ impl core::fmt::Debug for ShaderStageFlagBits {
         Ok(())
     }
 }
+///[`VkSparseImageFormatFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSparseImageFormatFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkSparseImageFormatFlagBits")]
@@ -18464,8 +19406,11 @@ impl SparseImageFormatFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const SINGLE_MIPTAIL: Self = Self(1u32);
+    ///Bit 1.
     pub const ALIGNED_MIP_SIZE: Self = Self(2u32);
+    ///Bit 2.
     pub const NONSTANDARD_BLOCK_SIZE: Self = Self(4u32);
 }
 impl core::ops::BitOr for SparseImageFormatFlagBits {
@@ -18554,6 +19499,7 @@ impl core::fmt::Debug for SparseImageFormatFlagBits {
         Ok(())
     }
 }
+///[`VkSparseMemoryBindFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSparseMemoryBindFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkSparseMemoryBindFlagBits")]
@@ -18579,6 +19525,7 @@ impl SparseMemoryBindFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const METADATA: Self = Self(1u32);
 }
 impl core::ops::BitOr for SparseMemoryBindFlagBits {
@@ -18651,6 +19598,7 @@ impl core::fmt::Debug for SparseMemoryBindFlagBits {
         Ok(())
     }
 }
+///[`VkSpirvResourceTypeFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSpirvResourceTypeFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkSpirvResourceTypeFlagBitsEXT")]
@@ -18677,15 +19625,25 @@ impl SpirvResourceTypeFlagBitsEXT {
         (self.0 & other.0) == other.0
     }
     pub const ALL: Self = Self(2147483647u32);
+    ///Bit 0.
     pub const SAMPLER: Self = Self(1u32);
+    ///Bit 1.
     pub const SAMPLED_IMAGE: Self = Self(2u32);
+    ///Bit 2.
     pub const READ_ONLY_IMAGE: Self = Self(4u32);
+    ///Bit 3.
     pub const READ_WRITE_IMAGE: Self = Self(8u32);
+    ///Bit 4.
     pub const COMBINED_SAMPLED_IMAGE: Self = Self(16u32);
+    ///Bit 5.
     pub const UNIFORM_BUFFER: Self = Self(32u32);
+    ///Bit 6.
     pub const READ_ONLY_STORAGE_BUFFER: Self = Self(64u32);
+    ///Bit 7.
     pub const READ_WRITE_STORAGE_BUFFER: Self = Self(128u32);
+    ///Bit 8.
     pub const ACCELERATION_STRUCTURE: Self = Self(256u32);
+    ///Bit 9.
     pub const TENSOR_BIT: Self = Self(512u32);
 }
 impl core::ops::BitOr for SpirvResourceTypeFlagBitsEXT {
@@ -18830,6 +19788,7 @@ impl core::fmt::Debug for SpirvResourceTypeFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkStencilFaceFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStencilFaceFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkStencilFaceFlagBits")]
@@ -18855,7 +19814,9 @@ impl StencilFaceFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const FRONT: Self = Self(1u32);
+    ///Bit 1.
     pub const BACK: Self = Self(2u32);
     pub const FRONT_AND_BACK: Self = Self(3u32);
     pub const STENCIL_FRONT_AND_BACK: Self = Self::FRONT_AND_BACK;
@@ -18938,6 +19899,7 @@ impl core::fmt::Debug for StencilFaceFlagBits {
         Ok(())
     }
 }
+///[`VkSubgroupFeatureFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSubgroupFeatureFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkSubgroupFeatureFlagBits")]
@@ -18963,15 +19925,25 @@ impl SubgroupFeatureFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const BASIC: Self = Self(1u32);
+    ///Bit 1.
     pub const VOTE: Self = Self(2u32);
+    ///Bit 2.
     pub const ARITHMETIC: Self = Self(4u32);
+    ///Bit 3.
     pub const BALLOT: Self = Self(8u32);
+    ///Bit 4.
     pub const SHUFFLE: Self = Self(16u32);
+    ///Bit 5.
     pub const SHUFFLE_RELATIVE: Self = Self(32u32);
+    ///Bit 6.
     pub const CLUSTERED: Self = Self(64u32);
+    ///Bit 7.
     pub const QUAD: Self = Self(128u32);
+    ///Bit 9.
     pub const ROTATE: Self = Self(512u32);
+    ///Bit 10.
     pub const ROTATE_CLUSTERED: Self = Self(1024u32);
 }
 impl core::ops::BitOr for SubgroupFeatureFlagBits {
@@ -19116,6 +20088,7 @@ impl core::fmt::Debug for SubgroupFeatureFlagBits {
         Ok(())
     }
 }
+///[`VkSubmitFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSubmitFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkSubmitFlagBits")]
@@ -19141,6 +20114,7 @@ impl SubmitFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const PROTECTED: Self = Self(1u32);
 }
 impl core::ops::BitOr for SubmitFlagBits {
@@ -19213,6 +20187,7 @@ impl core::fmt::Debug for SubmitFlagBits {
         Ok(())
     }
 }
+///[`VkSubpassDescriptionFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSubpassDescriptionFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkSubpassDescriptionFlagBits")]
@@ -19238,19 +20213,28 @@ impl SubpassDescriptionFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const PER_VIEW_ATTRIBUTES_BIT: Self = Self(1u32);
+    ///Bit 1.
     pub const PER_VIEW_POSITION_X_ONLY_BIT: Self = Self(2u32);
     pub const FRAGMENT_REGION_BIT: Self = Self::FRAGMENT_REGION;
     pub const SHADER_RESOLVE_BIT: Self = Self::CUSTOM_RESOLVE;
+    ///Bit 8.
     pub const TILE_SHADING_APRON_BIT: Self = Self(256u32);
     pub const RASTERIZATION_ORDER_ATTACHMENT_COLOR_ACCESS_BIT: Self = Self::RASTERIZATION_ORDER_ATTACHMENT_COLOR_ACCESS;
     pub const RASTERIZATION_ORDER_ATTACHMENT_DEPTH_ACCESS_BIT: Self = Self::RASTERIZATION_ORDER_ATTACHMENT_DEPTH_ACCESS;
     pub const RASTERIZATION_ORDER_ATTACHMENT_STENCIL_ACCESS_BIT: Self = Self::RASTERIZATION_ORDER_ATTACHMENT_STENCIL_ACCESS;
+    ///Bit 4.
     pub const RASTERIZATION_ORDER_ATTACHMENT_COLOR_ACCESS: Self = Self(16u32);
+    ///Bit 5.
     pub const RASTERIZATION_ORDER_ATTACHMENT_DEPTH_ACCESS: Self = Self(32u32);
+    ///Bit 6.
     pub const RASTERIZATION_ORDER_ATTACHMENT_STENCIL_ACCESS: Self = Self(64u32);
+    ///Bit 7.
     pub const ENABLE_LEGACY_DITHERING: Self = Self(128u32);
+    ///Bit 2.
     pub const FRAGMENT_REGION: Self = Self(4u32);
+    ///Bit 3.
     pub const CUSTOM_RESOLVE: Self = Self(8u32);
 }
 impl core::ops::BitOr for SubpassDescriptionFlagBits {
@@ -19387,6 +20371,7 @@ impl core::fmt::Debug for SubpassDescriptionFlagBits {
         Ok(())
     }
 }
+///[`VkSurfaceCounterFlagBitsEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceCounterFlagBitsEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkSurfaceCounterFlagBitsEXT")]
@@ -19412,6 +20397,7 @@ impl SurfaceCounterFlagBitsEXT {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const VBLANK: Self = Self(1u32);
 }
 impl core::ops::BitOr for SurfaceCounterFlagBitsEXT {
@@ -19484,6 +20470,7 @@ impl core::fmt::Debug for SurfaceCounterFlagBitsEXT {
         Ok(())
     }
 }
+///[`VkSurfaceTransformFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSurfaceTransformFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkSurfaceTransformFlagBitsKHR")]
@@ -19509,14 +20496,23 @@ impl SurfaceTransformFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const IDENTITY: Self = Self(1u32);
+    ///Bit 1.
     pub const ROTATE_90: Self = Self(2u32);
+    ///Bit 2.
     pub const ROTATE_180: Self = Self(4u32);
+    ///Bit 3.
     pub const ROTATE_270: Self = Self(8u32);
+    ///Bit 4.
     pub const HORIZONTAL_MIRROR: Self = Self(16u32);
+    ///Bit 5.
     pub const HORIZONTAL_MIRROR_ROTATE_90: Self = Self(32u32);
+    ///Bit 6.
     pub const HORIZONTAL_MIRROR_ROTATE_180: Self = Self(64u32);
+    ///Bit 7.
     pub const HORIZONTAL_MIRROR_ROTATE_270: Self = Self(128u32);
+    ///Bit 8.
     pub const INHERIT: Self = Self(256u32);
 }
 impl core::ops::BitOr for SurfaceTransformFlagBitsKHR {
@@ -19653,6 +20649,7 @@ impl core::fmt::Debug for SurfaceTransformFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkSwapchainCreateFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSwapchainCreateFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkSwapchainCreateFlagBitsKHR")]
@@ -19678,11 +20675,17 @@ impl SwapchainCreateFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const SPLIT_INSTANCE_BIND_REGIONS: Self = Self(1u32);
+    ///Bit 1.
     pub const PROTECTED: Self = Self(2u32);
+    ///Bit 2.
     pub const MUTABLE_FORMAT: Self = Self(4u32);
+    ///Bit 9.
     pub const PRESENT_TIMING: Self = Self(512u32);
+    ///Bit 6.
     pub const PRESENT_ID_2: Self = Self(64u32);
+    ///Bit 7.
     pub const PRESENT_WAIT_2: Self = Self(128u32);
 }
 impl core::ops::BitOr for SwapchainCreateFlagBitsKHR {
@@ -19795,6 +20798,7 @@ impl core::fmt::Debug for SwapchainCreateFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkSwapchainImageUsageFlagBitsANDROID`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSwapchainImageUsageFlagBitsANDROID.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkSwapchainImageUsageFlagBitsANDROID")]
@@ -19820,6 +20824,7 @@ impl SwapchainImageUsageFlagBitsANDROID {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const SHARED_BIT: Self = Self(1u32);
 }
 impl core::ops::BitOr for SwapchainImageUsageFlagBitsANDROID {
@@ -19892,6 +20897,7 @@ impl core::fmt::Debug for SwapchainImageUsageFlagBitsANDROID {
         Ok(())
     }
 }
+///[`VkSwapchainImageUsageFlagBitsOHOS`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSwapchainImageUsageFlagBitsOHOS.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkSwapchainImageUsageFlagBitsOHOS")]
@@ -19917,6 +20923,7 @@ impl SwapchainImageUsageFlagBitsOHOS {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const SHARED_BIT: Self = Self(1u32);
 }
 impl core::ops::BitOr for SwapchainImageUsageFlagBitsOHOS {
@@ -19989,6 +20996,7 @@ impl core::fmt::Debug for SwapchainImageUsageFlagBitsOHOS {
         Ok(())
     }
 }
+///[`VkTensorCreateFlagBitsARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkTensorCreateFlagBitsARM.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkTensorCreateFlagBitsARM")]
@@ -20014,9 +21022,13 @@ impl TensorCreateFlagBitsARM {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const MUTABLE_FORMAT_BIT: Self = Self(1u64);
+    ///Bit 1.
     pub const PROTECTED_BIT: Self = Self(2u64);
+    ///Bit 3.
     pub const DESCRIPTOR_HEAP_CAPTURE_REPLAY_BIT: Self = Self(8u64);
+    ///Bit 2.
     pub const DESCRIPTOR_BUFFER_CAPTURE_REPLAY_BIT: Self = Self(4u64);
 }
 impl core::ops::BitOr for TensorCreateFlagBitsARM {
@@ -20113,6 +21125,7 @@ impl core::fmt::Debug for TensorCreateFlagBitsARM {
         Ok(())
     }
 }
+///[`VkTensorUsageFlagBitsARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkTensorUsageFlagBitsARM.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkTensorUsageFlagBitsARM")]
@@ -20138,10 +21151,15 @@ impl TensorUsageFlagBitsARM {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 1.
     pub const SHADER_BIT: Self = Self(2u64);
+    ///Bit 2.
     pub const TRANSFER_SRC_BIT: Self = Self(4u64);
+    ///Bit 3.
     pub const TRANSFER_DST_BIT: Self = Self(8u64);
+    ///Bit 4.
     pub const IMAGE_ALIASING_BIT: Self = Self(16u64);
+    ///Bit 5.
     pub const DATA_GRAPH_BIT: Self = Self(32u64);
 }
 impl core::ops::BitOr for TensorUsageFlagBitsARM {
@@ -20246,6 +21264,7 @@ impl core::fmt::Debug for TensorUsageFlagBitsARM {
         Ok(())
     }
 }
+///[`VkTensorViewCreateFlagBitsARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkTensorViewCreateFlagBitsARM.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkTensorViewCreateFlagBitsARM")]
@@ -20271,6 +21290,7 @@ impl TensorViewCreateFlagBitsARM {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const DESCRIPTOR_BUFFER_CAPTURE_REPLAY_BIT: Self = Self(1u64);
 }
 impl core::ops::BitOr for TensorViewCreateFlagBitsARM {
@@ -20343,6 +21363,7 @@ impl core::fmt::Debug for TensorViewCreateFlagBitsARM {
         Ok(())
     }
 }
+///[`VkTileShadingRenderPassFlagBitsQCOM`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkTileShadingRenderPassFlagBitsQCOM.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkTileShadingRenderPassFlagBitsQCOM")]
@@ -20368,7 +21389,9 @@ impl TileShadingRenderPassFlagBitsQCOM {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const ENABLE_BIT: Self = Self(1u32);
+    ///Bit 1.
     pub const PER_TILE_EXECUTION_BIT: Self = Self(2u32);
 }
 impl core::ops::BitOr for TileShadingRenderPassFlagBitsQCOM {
@@ -20449,6 +21472,7 @@ impl core::fmt::Debug for TileShadingRenderPassFlagBitsQCOM {
         Ok(())
     }
 }
+///[`VkToolPurposeFlagBits`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkToolPurposeFlagBits.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkToolPurposeFlagBits")]
@@ -20474,12 +21498,19 @@ impl ToolPurposeFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const VALIDATION: Self = Self(1u32);
+    ///Bit 1.
     pub const PROFILING: Self = Self(2u32);
+    ///Bit 2.
     pub const TRACING: Self = Self(4u32);
+    ///Bit 3.
     pub const ADDITIONAL_FEATURES: Self = Self(8u32);
+    ///Bit 4.
     pub const MODIFYING_FEATURES: Self = Self(16u32);
+    ///Bit 5.
     pub const DEBUG_REPORTING: Self = Self(32u32);
+    ///Bit 6.
     pub const DEBUG_MARKERS: Self = Self(64u32);
 }
 impl core::ops::BitOr for ToolPurposeFlagBits {
@@ -20600,6 +21631,7 @@ impl core::fmt::Debug for ToolPurposeFlagBits {
         Ok(())
     }
 }
+///[`VkVideoCapabilityFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoCapabilityFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoCapabilityFlagBitsKHR")]
@@ -20625,7 +21657,9 @@ impl VideoCapabilityFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const PROTECTED_CONTENT: Self = Self(1u32);
+    ///Bit 1.
     pub const SEPARATE_REFERENCE_IMAGES: Self = Self(2u32);
 }
 impl core::ops::BitOr for VideoCapabilityFlagBitsKHR {
@@ -20706,6 +21740,7 @@ impl core::fmt::Debug for VideoCapabilityFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoChromaSubsamplingFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoChromaSubsamplingFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoChromaSubsamplingFlagBitsKHR")]
@@ -20732,9 +21767,13 @@ impl VideoChromaSubsamplingFlagBitsKHR {
         (self.0 & other.0) == other.0
     }
     pub const INVALID: Self = Self(0u32);
+    ///Bit 0.
     pub const MONOCHROME: Self = Self(1u32);
+    ///Bit 1.
     pub const _420: Self = Self(2u32);
+    ///Bit 2.
     pub const _422: Self = Self(4u32);
+    ///Bit 3.
     pub const _444: Self = Self(8u32);
 }
 impl core::ops::BitOr for VideoChromaSubsamplingFlagBitsKHR {
@@ -20831,6 +21870,7 @@ impl core::fmt::Debug for VideoChromaSubsamplingFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoCodecOperationFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoCodecOperationFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoCodecOperationFlagBitsKHR")]
@@ -20857,12 +21897,19 @@ impl VideoCodecOperationFlagBitsKHR {
         (self.0 & other.0) == other.0
     }
     pub const NONE: Self = Self(0u32);
+    ///Bit 16.
     pub const ENCODE_H264: Self = Self(65536u32);
+    ///Bit 17.
     pub const ENCODE_H265: Self = Self(131072u32);
+    ///Bit 0.
     pub const DECODE_H264: Self = Self(1u32);
+    ///Bit 1.
     pub const DECODE_H265: Self = Self(2u32);
+    ///Bit 2.
     pub const DECODE_AV1: Self = Self(4u32);
+    ///Bit 18.
     pub const ENCODE_AV1: Self = Self(262144u32);
+    ///Bit 3.
     pub const DECODE_VP9: Self = Self(8u32);
 }
 impl core::ops::BitOr for VideoCodecOperationFlagBitsKHR {
@@ -20983,6 +22030,7 @@ impl core::fmt::Debug for VideoCodecOperationFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoCodingControlFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoCodingControlFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoCodingControlFlagBitsKHR")]
@@ -21008,8 +22056,11 @@ impl VideoCodingControlFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const RESET: Self = Self(1u32);
+    ///Bit 1.
     pub const ENCODE_RATE_CONTROL: Self = Self(2u32);
+    ///Bit 2.
     pub const ENCODE_QUALITY_LEVEL: Self = Self(4u32);
 }
 impl core::ops::BitOr for VideoCodingControlFlagBitsKHR {
@@ -21098,6 +22149,7 @@ impl core::fmt::Debug for VideoCodingControlFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoComponentBitDepthFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoComponentBitDepthFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoComponentBitDepthFlagBitsKHR")]
@@ -21124,8 +22176,11 @@ impl VideoComponentBitDepthFlagBitsKHR {
         (self.0 & other.0) == other.0
     }
     pub const INVALID: Self = Self(0u32);
+    ///Bit 0.
     pub const _8: Self = Self(1u32);
+    ///Bit 2.
     pub const _10: Self = Self(4u32);
+    ///Bit 4.
     pub const _12: Self = Self(16u32);
 }
 impl core::ops::BitOr for VideoComponentBitDepthFlagBitsKHR {
@@ -21214,6 +22269,7 @@ impl core::fmt::Debug for VideoComponentBitDepthFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoDecodeCapabilityFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoDecodeCapabilityFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoDecodeCapabilityFlagBitsKHR")]
@@ -21239,7 +22295,9 @@ impl VideoDecodeCapabilityFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const DPB_AND_OUTPUT_COINCIDE: Self = Self(1u32);
+    ///Bit 1.
     pub const DPB_AND_OUTPUT_DISTINCT: Self = Self(2u32);
 }
 impl core::ops::BitOr for VideoDecodeCapabilityFlagBitsKHR {
@@ -21320,6 +22378,7 @@ impl core::fmt::Debug for VideoDecodeCapabilityFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoDecodeH264PictureLayoutFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoDecodeH264PictureLayoutFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoDecodeH264PictureLayoutFlagBitsKHR")]
@@ -21346,7 +22405,9 @@ impl VideoDecodeH264PictureLayoutFlagBitsKHR {
         (self.0 & other.0) == other.0
     }
     pub const PROGRESSIVE: Self = Self(0u32);
+    ///Bit 0.
     pub const INTERLACED_INTERLEAVED_LINES: Self = Self(1u32);
+    ///Bit 1.
     pub const INTERLACED_SEPARATE_PLANES: Self = Self(2u32);
 }
 impl core::ops::BitOr for VideoDecodeH264PictureLayoutFlagBitsKHR {
@@ -21427,6 +22488,7 @@ impl core::fmt::Debug for VideoDecodeH264PictureLayoutFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoDecodeUsageFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoDecodeUsageFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoDecodeUsageFlagBitsKHR")]
@@ -21453,8 +22515,11 @@ impl VideoDecodeUsageFlagBitsKHR {
         (self.0 & other.0) == other.0
     }
     pub const DEFAULT: Self = Self(0u32);
+    ///Bit 0.
     pub const TRANSCODING: Self = Self(1u32);
+    ///Bit 1.
     pub const OFFLINE: Self = Self(2u32);
+    ///Bit 2.
     pub const STREAMING: Self = Self(4u32);
 }
 impl core::ops::BitOr for VideoDecodeUsageFlagBitsKHR {
@@ -21543,6 +22608,7 @@ impl core::fmt::Debug for VideoDecodeUsageFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoEncodeAV1CapabilityFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeAV1CapabilityFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeAV1CapabilityFlagBitsKHR")]
@@ -21568,11 +22634,17 @@ impl VideoEncodeAV1CapabilityFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const PER_RATE_CONTROL_GROUP_MIN_MAX_Q_INDEX: Self = Self(1u32);
+    ///Bit 1.
     pub const GENERATE_OBU_EXTENSION_HEADER: Self = Self(2u32);
+    ///Bit 2.
     pub const PRIMARY_REFERENCE_CDF_ONLY: Self = Self(4u32);
+    ///Bit 3.
     pub const FRAME_SIZE_OVERRIDE: Self = Self(8u32);
+    ///Bit 4.
     pub const MOTION_VECTOR_SCALING: Self = Self(16u32);
+    ///Bit 5.
     pub const COMPOUND_PREDICTION_INTRA_REFRESH: Self = Self(32u32);
 }
 impl core::ops::BitOr for VideoEncodeAV1CapabilityFlagBitsKHR {
@@ -21685,6 +22757,7 @@ impl core::fmt::Debug for VideoEncodeAV1CapabilityFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoEncodeAV1RateControlFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeAV1RateControlFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeAV1RateControlFlagBitsKHR")]
@@ -21710,9 +22783,13 @@ impl VideoEncodeAV1RateControlFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const REGULAR_GOP: Self = Self(1u32);
+    ///Bit 1.
     pub const TEMPORAL_LAYER_PATTERN_DYADIC: Self = Self(2u32);
+    ///Bit 2.
     pub const REFERENCE_PATTERN_FLAT: Self = Self(4u32);
+    ///Bit 3.
     pub const REFERENCE_PATTERN_DYADIC: Self = Self(8u32);
 }
 impl core::ops::BitOr for VideoEncodeAV1RateControlFlagBitsKHR {
@@ -21809,6 +22886,7 @@ impl core::fmt::Debug for VideoEncodeAV1RateControlFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoEncodeAV1StdFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeAV1StdFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeAV1StdFlagBitsKHR")]
@@ -21834,9 +22912,13 @@ impl VideoEncodeAV1StdFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const UNIFORM_TILE_SPACING_FLAG_SET: Self = Self(1u32);
+    ///Bit 1.
     pub const SKIP_MODE_PRESENT_UNSET: Self = Self(2u32);
+    ///Bit 2.
     pub const PRIMARY_REF_FRAME: Self = Self(4u32);
+    ///Bit 3.
     pub const DELTA_Q: Self = Self(8u32);
 }
 impl core::ops::BitOr for VideoEncodeAV1StdFlagBitsKHR {
@@ -21933,6 +23015,7 @@ impl core::fmt::Debug for VideoEncodeAV1StdFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoEncodeAV1SuperblockSizeFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeAV1SuperblockSizeFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeAV1SuperblockSizeFlagBitsKHR")]
@@ -21958,7 +23041,9 @@ impl VideoEncodeAV1SuperblockSizeFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const _64: Self = Self(1u32);
+    ///Bit 1.
     pub const _128: Self = Self(2u32);
 }
 impl core::ops::BitOr for VideoEncodeAV1SuperblockSizeFlagBitsKHR {
@@ -22039,6 +23124,7 @@ impl core::fmt::Debug for VideoEncodeAV1SuperblockSizeFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoEncodeCapabilityFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeCapabilityFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeCapabilityFlagBitsKHR")]
@@ -22064,9 +23150,13 @@ impl VideoEncodeCapabilityFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const PRECEDING_EXTERNALLY_ENCODED_BYTES: Self = Self(1u32);
+    ///Bit 1.
     pub const INSUFFICIENT_BITSTREAM_BUFFER_RANGE_DETECTION: Self = Self(2u32);
+    ///Bit 2.
     pub const QUANTIZATION_DELTA_MAP: Self = Self(4u32);
+    ///Bit 3.
     pub const EMPHASIS_MAP: Self = Self(8u32);
 }
 impl core::ops::BitOr for VideoEncodeCapabilityFlagBitsKHR {
@@ -22163,6 +23253,7 @@ impl core::fmt::Debug for VideoEncodeCapabilityFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoEncodeContentFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeContentFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeContentFlagBitsKHR")]
@@ -22189,8 +23280,11 @@ impl VideoEncodeContentFlagBitsKHR {
         (self.0 & other.0) == other.0
     }
     pub const DEFAULT: Self = Self(0u32);
+    ///Bit 0.
     pub const CAMERA: Self = Self(1u32);
+    ///Bit 1.
     pub const DESKTOP: Self = Self(2u32);
+    ///Bit 2.
     pub const RENDERED: Self = Self(4u32);
 }
 impl core::ops::BitOr for VideoEncodeContentFlagBitsKHR {
@@ -22279,6 +23373,7 @@ impl core::fmt::Debug for VideoEncodeContentFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoEncodeFeedbackFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeFeedbackFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeFeedbackFlagBitsKHR")]
@@ -22304,8 +23399,11 @@ impl VideoEncodeFeedbackFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const BITSTREAM_BUFFER_OFFSET: Self = Self(1u32);
+    ///Bit 1.
     pub const BITSTREAM_BYTES_WRITTEN: Self = Self(2u32);
+    ///Bit 2.
     pub const BITSTREAM_HAS_OVERRIDES: Self = Self(4u32);
 }
 impl core::ops::BitOr for VideoEncodeFeedbackFlagBitsKHR {
@@ -22394,6 +23492,7 @@ impl core::fmt::Debug for VideoEncodeFeedbackFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoEncodeFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeFlagBitsKHR")]
@@ -22419,8 +23518,11 @@ impl VideoEncodeFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 2.
     pub const INTRA_REFRESH: Self = Self(4u32);
+    ///Bit 0.
     pub const WITH_QUANTIZATION_DELTA_MAP: Self = Self(1u32);
+    ///Bit 1.
     pub const WITH_EMPHASIS_MAP: Self = Self(2u32);
 }
 impl core::ops::BitOr for VideoEncodeFlagBitsKHR {
@@ -22509,6 +23611,7 @@ impl core::fmt::Debug for VideoEncodeFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoEncodeH264CapabilityFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeH264CapabilityFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeH264CapabilityFlagBitsKHR")]
@@ -22534,16 +23637,27 @@ impl VideoEncodeH264CapabilityFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const HRD_COMPLIANCE: Self = Self(1u32);
+    ///Bit 1.
     pub const PREDICTION_WEIGHT_TABLE_GENERATED: Self = Self(2u32);
+    ///Bit 2.
     pub const ROW_UNALIGNED_SLICE: Self = Self(4u32);
+    ///Bit 3.
     pub const DIFFERENT_SLICE_TYPE: Self = Self(8u32);
+    ///Bit 4.
     pub const B_FRAME_IN_L0_LIST: Self = Self(16u32);
+    ///Bit 5.
     pub const B_FRAME_IN_L1_LIST: Self = Self(32u32);
+    ///Bit 6.
     pub const PER_PICTURE_TYPE_MIN_MAX_QP: Self = Self(64u32);
+    ///Bit 7.
     pub const PER_SLICE_CONSTANT_QP: Self = Self(128u32);
+    ///Bit 8.
     pub const GENERATE_PREFIX_NALU: Self = Self(256u32);
+    ///Bit 10.
     pub const B_PICTURE_INTRA_REFRESH: Self = Self(1024u32);
+    ///Bit 9.
     pub const MB_QP_DIFF_WRAPAROUND: Self = Self(512u32);
 }
 impl core::ops::BitOr for VideoEncodeH264CapabilityFlagBitsKHR {
@@ -22696,6 +23810,7 @@ impl core::fmt::Debug for VideoEncodeH264CapabilityFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoEncodeH264RateControlFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeH264RateControlFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeH264RateControlFlagBitsKHR")]
@@ -22721,10 +23836,15 @@ impl VideoEncodeH264RateControlFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const ATTEMPT_HRD_COMPLIANCE: Self = Self(1u32);
+    ///Bit 1.
     pub const REGULAR_GOP: Self = Self(2u32);
+    ///Bit 2.
     pub const REFERENCE_PATTERN_FLAT: Self = Self(4u32);
+    ///Bit 3.
     pub const REFERENCE_PATTERN_DYADIC: Self = Self(8u32);
+    ///Bit 4.
     pub const TEMPORAL_LAYER_PATTERN_DYADIC: Self = Self(16u32);
 }
 impl core::ops::BitOr for VideoEncodeH264RateControlFlagBitsKHR {
@@ -22829,6 +23949,7 @@ impl core::fmt::Debug for VideoEncodeH264RateControlFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoEncodeH264StdFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeH264StdFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeH264StdFlagBitsKHR")]
@@ -22854,25 +23975,45 @@ impl VideoEncodeH264StdFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const SEPARATE_COLOR_PLANE_FLAG_SET: Self = Self(1u32);
+    ///Bit 1.
     pub const QPPRIME_Y_ZERO_TRANSFORM_BYPASS_FLAG_SET: Self = Self(2u32);
+    ///Bit 2.
     pub const SCALING_MATRIX_PRESENT_FLAG_SET: Self = Self(4u32);
+    ///Bit 3.
     pub const CHROMA_QP_INDEX_OFFSET: Self = Self(8u32);
+    ///Bit 4.
     pub const SECOND_CHROMA_QP_INDEX_OFFSET: Self = Self(16u32);
+    ///Bit 5.
     pub const PIC_INIT_QP_MINUS26: Self = Self(32u32);
+    ///Bit 6.
     pub const WEIGHTED_PRED_FLAG_SET: Self = Self(64u32);
+    ///Bit 7.
     pub const WEIGHTED_BIPRED_IDC_EXPLICIT: Self = Self(128u32);
+    ///Bit 8.
     pub const WEIGHTED_BIPRED_IDC_IMPLICIT: Self = Self(256u32);
+    ///Bit 9.
     pub const TRANSFORM_8X8_MODE_FLAG_SET: Self = Self(512u32);
+    ///Bit 10.
     pub const DIRECT_SPATIAL_MV_PRED_FLAG_UNSET: Self = Self(1024u32);
+    ///Bit 11.
     pub const ENTROPY_CODING_MODE_FLAG_UNSET: Self = Self(2048u32);
+    ///Bit 12.
     pub const ENTROPY_CODING_MODE_FLAG_SET: Self = Self(4096u32);
+    ///Bit 13.
     pub const DIRECT_8X8_INFERENCE_FLAG_UNSET: Self = Self(8192u32);
+    ///Bit 14.
     pub const CONSTRAINED_INTRA_PRED_FLAG_SET: Self = Self(16384u32);
+    ///Bit 15.
     pub const DEBLOCKING_FILTER_DISABLED: Self = Self(32768u32);
+    ///Bit 16.
     pub const DEBLOCKING_FILTER_ENABLED: Self = Self(65536u32);
+    ///Bit 17.
     pub const DEBLOCKING_FILTER_PARTIAL: Self = Self(131072u32);
+    ///Bit 19.
     pub const SLICE_QP_DELTA: Self = Self(524288u32);
+    ///Bit 20.
     pub const DIFFERENT_SLICE_QP_DELTA: Self = Self(1048576u32);
 }
 impl core::ops::BitOr for VideoEncodeH264StdFlagBitsKHR {
@@ -23097,6 +24238,7 @@ impl core::fmt::Debug for VideoEncodeH264StdFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoEncodeH265CapabilityFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeH265CapabilityFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeH265CapabilityFlagBitsKHR")]
@@ -23122,17 +24264,29 @@ impl VideoEncodeH265CapabilityFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const HRD_COMPLIANCE: Self = Self(1u32);
+    ///Bit 1.
     pub const PREDICTION_WEIGHT_TABLE_GENERATED: Self = Self(2u32);
+    ///Bit 2.
     pub const ROW_UNALIGNED_SLICE_SEGMENT: Self = Self(4u32);
+    ///Bit 3.
     pub const DIFFERENT_SLICE_SEGMENT_TYPE: Self = Self(8u32);
+    ///Bit 4.
     pub const B_FRAME_IN_L0_LIST: Self = Self(16u32);
+    ///Bit 5.
     pub const B_FRAME_IN_L1_LIST: Self = Self(32u32);
+    ///Bit 6.
     pub const PER_PICTURE_TYPE_MIN_MAX_QP: Self = Self(64u32);
+    ///Bit 7.
     pub const PER_SLICE_SEGMENT_CONSTANT_QP: Self = Self(128u32);
+    ///Bit 8.
     pub const MULTIPLE_TILES_PER_SLICE_SEGMENT: Self = Self(256u32);
+    ///Bit 9.
     pub const MULTIPLE_SLICE_SEGMENTS_PER_TILE: Self = Self(512u32);
+    ///Bit 11.
     pub const B_PICTURE_INTRA_REFRESH: Self = Self(2048u32);
+    ///Bit 10.
     pub const CU_QP_DIFF_WRAPAROUND: Self = Self(1024u32);
 }
 impl core::ops::BitOr for VideoEncodeH265CapabilityFlagBitsKHR {
@@ -23293,6 +24447,7 @@ impl core::fmt::Debug for VideoEncodeH265CapabilityFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoEncodeH265CtbSizeFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeH265CtbSizeFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeH265CtbSizeFlagBitsKHR")]
@@ -23318,8 +24473,11 @@ impl VideoEncodeH265CtbSizeFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const _16: Self = Self(1u32);
+    ///Bit 1.
     pub const _32: Self = Self(2u32);
+    ///Bit 2.
     pub const _64: Self = Self(4u32);
 }
 impl core::ops::BitOr for VideoEncodeH265CtbSizeFlagBitsKHR {
@@ -23408,6 +24566,7 @@ impl core::fmt::Debug for VideoEncodeH265CtbSizeFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoEncodeH265RateControlFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeH265RateControlFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeH265RateControlFlagBitsKHR")]
@@ -23433,10 +24592,15 @@ impl VideoEncodeH265RateControlFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const ATTEMPT_HRD_COMPLIANCE: Self = Self(1u32);
+    ///Bit 1.
     pub const REGULAR_GOP: Self = Self(2u32);
+    ///Bit 2.
     pub const REFERENCE_PATTERN_FLAT: Self = Self(4u32);
+    ///Bit 3.
     pub const REFERENCE_PATTERN_DYADIC: Self = Self(8u32);
+    ///Bit 4.
     pub const TEMPORAL_SUB_LAYER_PATTERN_DYADIC: Self = Self(16u32);
 }
 impl core::ops::BitOr for VideoEncodeH265RateControlFlagBitsKHR {
@@ -23541,6 +24705,7 @@ impl core::fmt::Debug for VideoEncodeH265RateControlFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoEncodeH265StdFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeH265StdFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeH265StdFlagBitsKHR")]
@@ -23566,26 +24731,47 @@ impl VideoEncodeH265StdFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const SEPARATE_COLOR_PLANE_FLAG_SET: Self = Self(1u32);
+    ///Bit 1.
     pub const SAMPLE_ADAPTIVE_OFFSET_ENABLED_FLAG_SET: Self = Self(2u32);
+    ///Bit 2.
     pub const SCALING_LIST_DATA_PRESENT_FLAG_SET: Self = Self(4u32);
+    ///Bit 3.
     pub const PCM_ENABLED_FLAG_SET: Self = Self(8u32);
+    ///Bit 4.
     pub const SPS_TEMPORAL_MVP_ENABLED_FLAG_SET: Self = Self(16u32);
+    ///Bit 5.
     pub const INIT_QP_MINUS26: Self = Self(32u32);
+    ///Bit 6.
     pub const WEIGHTED_PRED_FLAG_SET: Self = Self(64u32);
+    ///Bit 7.
     pub const WEIGHTED_BIPRED_FLAG_SET: Self = Self(128u32);
+    ///Bit 8.
     pub const LOG2_PARALLEL_MERGE_LEVEL_MINUS2: Self = Self(256u32);
+    ///Bit 9.
     pub const SIGN_DATA_HIDING_ENABLED_FLAG_SET: Self = Self(512u32);
+    ///Bit 10.
     pub const TRANSFORM_SKIP_ENABLED_FLAG_SET: Self = Self(1024u32);
+    ///Bit 11.
     pub const TRANSFORM_SKIP_ENABLED_FLAG_UNSET: Self = Self(2048u32);
+    ///Bit 12.
     pub const PPS_SLICE_CHROMA_QP_OFFSETS_PRESENT_FLAG_SET: Self = Self(4096u32);
+    ///Bit 13.
     pub const TRANSQUANT_BYPASS_ENABLED_FLAG_SET: Self = Self(8192u32);
+    ///Bit 14.
     pub const CONSTRAINED_INTRA_PRED_FLAG_SET: Self = Self(16384u32);
+    ///Bit 15.
     pub const ENTROPY_CODING_SYNC_ENABLED_FLAG_SET: Self = Self(32768u32);
+    ///Bit 16.
     pub const DEBLOCKING_FILTER_OVERRIDE_ENABLED_FLAG_SET: Self = Self(65536u32);
+    ///Bit 17.
     pub const DEPENDENT_SLICE_SEGMENTS_ENABLED_FLAG_SET: Self = Self(131072u32);
+    ///Bit 18.
     pub const DEPENDENT_SLICE_SEGMENT_FLAG_SET: Self = Self(262144u32);
+    ///Bit 19.
     pub const SLICE_QP_DELTA: Self = Self(524288u32);
+    ///Bit 20.
     pub const DIFFERENT_SLICE_QP_DELTA: Self = Self(1048576u32);
 }
 impl core::ops::BitOr for VideoEncodeH265StdFlagBitsKHR {
@@ -23818,6 +25004,7 @@ impl core::fmt::Debug for VideoEncodeH265StdFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoEncodeH265TransformBlockSizeFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeH265TransformBlockSizeFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeH265TransformBlockSizeFlagBitsKHR")]
@@ -23843,9 +25030,13 @@ impl VideoEncodeH265TransformBlockSizeFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const _4: Self = Self(1u32);
+    ///Bit 1.
     pub const _8: Self = Self(2u32);
+    ///Bit 2.
     pub const _16: Self = Self(4u32);
+    ///Bit 3.
     pub const _32: Self = Self(8u32);
 }
 impl core::ops::BitOr for VideoEncodeH265TransformBlockSizeFlagBitsKHR {
@@ -23942,6 +25133,7 @@ impl core::fmt::Debug for VideoEncodeH265TransformBlockSizeFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoEncodeIntraRefreshModeFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeIntraRefreshModeFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeIntraRefreshModeFlagBitsKHR")]
@@ -23968,9 +25160,13 @@ impl VideoEncodeIntraRefreshModeFlagBitsKHR {
         (self.0 & other.0) == other.0
     }
     pub const NONE: Self = Self(0u32);
+    ///Bit 0.
     pub const PER_PICTURE_PARTITION: Self = Self(1u32);
+    ///Bit 1.
     pub const BLOCK_BASED: Self = Self(2u32);
+    ///Bit 2.
     pub const BLOCK_ROW_BASED: Self = Self(4u32);
+    ///Bit 3.
     pub const BLOCK_COLUMN_BASED: Self = Self(8u32);
 }
 impl core::ops::BitOr for VideoEncodeIntraRefreshModeFlagBitsKHR {
@@ -24067,6 +25263,7 @@ impl core::fmt::Debug for VideoEncodeIntraRefreshModeFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoEncodeRateControlModeFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeRateControlModeFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeRateControlModeFlagBitsKHR")]
@@ -24093,8 +25290,11 @@ impl VideoEncodeRateControlModeFlagBitsKHR {
         (self.0 & other.0) == other.0
     }
     pub const DEFAULT: Self = Self(0u32);
+    ///Bit 0.
     pub const DISABLED: Self = Self(1u32);
+    ///Bit 1.
     pub const CBR: Self = Self(2u32);
+    ///Bit 2.
     pub const VBR: Self = Self(4u32);
 }
 impl core::ops::BitOr for VideoEncodeRateControlModeFlagBitsKHR {
@@ -24183,6 +25383,7 @@ impl core::fmt::Debug for VideoEncodeRateControlModeFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoEncodeRgbChromaOffsetFlagBitsVALVE`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeRgbChromaOffsetFlagBitsVALVE.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeRgbChromaOffsetFlagBitsVALVE")]
@@ -24208,7 +25409,9 @@ impl VideoEncodeRgbChromaOffsetFlagBitsVALVE {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const COSITED_EVEN_BIT: Self = Self(1u32);
+    ///Bit 1.
     pub const MIDPOINT_BIT: Self = Self(2u32);
 }
 impl core::ops::BitOr for VideoEncodeRgbChromaOffsetFlagBitsVALVE {
@@ -24289,6 +25492,7 @@ impl core::fmt::Debug for VideoEncodeRgbChromaOffsetFlagBitsVALVE {
         Ok(())
     }
 }
+///[`VkVideoEncodeRgbModelConversionFlagBitsVALVE`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeRgbModelConversionFlagBitsVALVE.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeRgbModelConversionFlagBitsVALVE")]
@@ -24314,10 +25518,15 @@ impl VideoEncodeRgbModelConversionFlagBitsVALVE {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const RGB_IDENTITY_BIT: Self = Self(1u32);
+    ///Bit 1.
     pub const YCBCR_IDENTITY_BIT: Self = Self(2u32);
+    ///Bit 2.
     pub const YCBCR_709_BIT: Self = Self(4u32);
+    ///Bit 3.
     pub const YCBCR_601_BIT: Self = Self(8u32);
+    ///Bit 4.
     pub const YCBCR_2020_BIT: Self = Self(16u32);
 }
 impl core::ops::BitOr for VideoEncodeRgbModelConversionFlagBitsVALVE {
@@ -24422,6 +25631,7 @@ impl core::fmt::Debug for VideoEncodeRgbModelConversionFlagBitsVALVE {
         Ok(())
     }
 }
+///[`VkVideoEncodeRgbRangeCompressionFlagBitsVALVE`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeRgbRangeCompressionFlagBitsVALVE.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeRgbRangeCompressionFlagBitsVALVE")]
@@ -24447,7 +25657,9 @@ impl VideoEncodeRgbRangeCompressionFlagBitsVALVE {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const FULL_RANGE_BIT: Self = Self(1u32);
+    ///Bit 1.
     pub const NARROW_RANGE_BIT: Self = Self(2u32);
 }
 impl core::ops::BitOr for VideoEncodeRgbRangeCompressionFlagBitsVALVE {
@@ -24528,6 +25740,7 @@ impl core::fmt::Debug for VideoEncodeRgbRangeCompressionFlagBitsVALVE {
         Ok(())
     }
 }
+///[`VkVideoEncodeUsageFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeUsageFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoEncodeUsageFlagBitsKHR")]
@@ -24554,9 +25767,13 @@ impl VideoEncodeUsageFlagBitsKHR {
         (self.0 & other.0) == other.0
     }
     pub const DEFAULT: Self = Self(0u32);
+    ///Bit 0.
     pub const TRANSCODING: Self = Self(1u32);
+    ///Bit 1.
     pub const STREAMING: Self = Self(2u32);
+    ///Bit 2.
     pub const RECORDING: Self = Self(4u32);
+    ///Bit 3.
     pub const CONFERENCING: Self = Self(8u32);
 }
 impl core::ops::BitOr for VideoEncodeUsageFlagBitsKHR {
@@ -24653,6 +25870,7 @@ impl core::fmt::Debug for VideoEncodeUsageFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoSessionCreateFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoSessionCreateFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoSessionCreateFlagBitsKHR")]
@@ -24678,11 +25896,17 @@ impl VideoSessionCreateFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const PROTECTED_CONTENT: Self = Self(1u32);
+    ///Bit 1.
     pub const ALLOW_ENCODE_PARAMETER_OPTIMIZATIONS: Self = Self(2u32);
+    ///Bit 2.
     pub const INLINE_QUERIES: Self = Self(4u32);
+    ///Bit 3.
     pub const ALLOW_ENCODE_QUANTIZATION_DELTA_MAP: Self = Self(8u32);
+    ///Bit 4.
     pub const ALLOW_ENCODE_EMPHASIS_MAP: Self = Self(16u32);
+    ///Bit 5.
     pub const INLINE_SESSION_PARAMETERS: Self = Self(32u32);
 }
 impl core::ops::BitOr for VideoSessionCreateFlagBitsKHR {
@@ -24795,6 +26019,7 @@ impl core::fmt::Debug for VideoSessionCreateFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkVideoSessionParametersCreateFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoSessionParametersCreateFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkVideoSessionParametersCreateFlagBitsKHR")]
@@ -24820,6 +26045,7 @@ impl VideoSessionParametersCreateFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    ///Bit 0.
     pub const QUANTIZATION_MAP_COMPATIBLE: Self = Self(1u32);
 }
 impl core::ops::BitOr for VideoSessionParametersCreateFlagBitsKHR {
@@ -24892,6 +26118,7 @@ impl core::fmt::Debug for VideoSessionParametersCreateFlagBitsKHR {
         Ok(())
     }
 }
+///[`VkWaylandSurfaceCreateFlagBitsKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkWaylandSurfaceCreateFlagBitsKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, Hash, Default)]
 #[doc(alias = "VkWaylandSurfaceCreateFlagBitsKHR")]

@@ -73,7 +73,9 @@ unsafe fn load_vulkan_library() -> Result<libloading::Library, LoadError> {
             Err(e) => last_err = Some(e),
         }
     }
-    Err(LoadError::Library(last_err.unwrap()))
+    Err(LoadError::Library(
+        last_err.expect("LIB_NAMES is non-empty"),
+    ))
 }
 
 #[cfg(test)]

@@ -45,7 +45,12 @@ fn emit_enum(def: &EnumDef) -> TokenStream {
         })
         .collect();
 
+    let spec_link = format!(
+        "[`{vk_name}`](https://registry.khronos.org/vulkan/specs/latest/man/html/{vk_name}.html)"
+    );
+
     quote! {
+        #[doc = #spec_link]
         #[repr(transparent)]
         #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
         #[doc(alias = #vk_name)]
@@ -76,8 +81,20 @@ fn emit_variant(variant: &EnumVariant, prefix: &str) -> Option<TokenStream> {
     let rust_name = strip_variant_prefix(&variant.name, prefix)?;
     let ident = format_ident!("{}", rust_name);
 
+    let comment_doc: Vec<TokenStream> = variant
+        .comment
+        .as_deref()
+        .map(|c| {
+            // Sanitize Asciidoc <<section-ref>> syntax that rustdoc
+            // would interpret as unclosed HTML tags.
+            let sanitized = c.replace("<<", "`").replace(">>", "`");
+            vec![quote! { #[doc = #sanitized] }]
+        })
+        .unwrap_or_default();
+
     match &variant.value {
         EnumValue::I32(val) => Some(quote! {
+            #(#comment_doc)*
             pub const #ident: Self = Self(#val);
         }),
         EnumValue::Alias(alias) => {
@@ -88,6 +105,7 @@ fn emit_variant(variant: &EnumVariant, prefix: &str) -> Option<TokenStream> {
             }
             let alias_ident = format_ident!("{}", alias_name);
             Some(quote! {
+                #(#comment_doc)*
                 pub const #ident: Self = Self::#alias_ident;
             })
         }
@@ -206,6 +224,7 @@ mod tests {
                 .map(|(vname, val)| EnumVariant {
                     name: vname.to_string(),
                     value: EnumValue::I32(val),
+                    comment: None,
                 })
                 .collect(),
         }
@@ -262,10 +281,12 @@ mod tests {
                 EnumVariant {
                     name: "VK_COLOR_SPACE_SRGB_NONLINEAR_KHR".to_string(),
                     value: EnumValue::I32(0),
+                    comment: None,
                 },
                 EnumVariant {
                     name: "VK_COLORSPACE_SRGB_NONLINEAR_KHR".to_string(),
                     value: EnumValue::Alias("VK_COLOR_SPACE_SRGB_NONLINEAR_KHR".to_string()),
+                    comment: None,
                 },
             ],
         };
@@ -281,15 +302,18 @@ mod tests {
                 EnumVariant {
                     name: "VK_PRESENT_MODE_FIFO_KHR".to_string(),
                     value: EnumValue::I32(2),
+                    comment: None,
                 },
                 // This alias strips to the same name as the original after suffix removal.
                 EnumVariant {
                     name: "VK_PRESENT_MODE_FIFO_LATEST_READY_KHR".to_string(),
                     value: EnumValue::I32(1000361000),
+                    comment: None,
                 },
                 EnumVariant {
                     name: "VK_PRESENT_MODE_FIFO_LATEST_READY_EXT".to_string(),
                     value: EnumValue::Alias("VK_PRESENT_MODE_FIFO_LATEST_READY_KHR".to_string()),
+                    comment: None,
                 },
             ],
         };
@@ -345,5 +369,37 @@ mod tests {
         let prefix = "VK_FORMAT_";
         let result = strip_variant_prefix("VK_FORMAT_2PACK16", prefix);
         assert_eq!(result, Some("_2PACK16".to_string()));
+    }
+
+    #[test]
+    fn variant_with_comment_gets_doc() {
+        let def = EnumDef {
+            name: "ImageLayout".to_string(),
+            variants: vec![EnumVariant {
+                name: "VK_IMAGE_LAYOUT_UNDEFINED".to_string(),
+                value: EnumValue::I32(0),
+                comment: Some("Implicit layout for undefined contents".to_string()),
+            }],
+        };
+        let code = emit_enum(&def).to_string();
+        assert!(
+            code.contains("Implicit layout"),
+            "variant comment should appear as doc"
+        );
+    }
+
+    #[test]
+    fn variant_without_comment_has_no_variant_doc() {
+        let def = make_enum("Format", vec![("VK_FORMAT_UNDEFINED", 0)]);
+        let code = emit_enum(&def).to_string();
+        // Spec link doc exists, but no variant-level comment.
+        assert!(
+            code.contains("registry.khronos.org"),
+            "spec link should exist"
+        );
+        assert!(
+            !code.contains("Implicit layout"),
+            "no variant comment expected"
+        );
     }
 }

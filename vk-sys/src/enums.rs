@@ -1,3 +1,4 @@
+///[`VkAccelerationStructureBuildTypeKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccelerationStructureBuildTypeKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkAccelerationStructureBuildTypeKHR")]
@@ -27,6 +28,7 @@ impl core::fmt::Debug for AccelerationStructureBuildTypeKHR {
         }
     }
 }
+///[`VkAccelerationStructureCompatibilityKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccelerationStructureCompatibilityKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkAccelerationStructureCompatibilityKHR")]
@@ -56,6 +58,7 @@ impl core::fmt::Debug for AccelerationStructureCompatibilityKHR {
         }
     }
 }
+///[`VkAccelerationStructureMemoryRequirementsTypeNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccelerationStructureMemoryRequirementsTypeNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkAccelerationStructureMemoryRequirementsTypeNV")]
@@ -88,6 +91,7 @@ impl core::fmt::Debug for AccelerationStructureMemoryRequirementsTypeNV {
         }
     }
 }
+///[`VkAccelerationStructureMotionInstanceTypeNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccelerationStructureMotionInstanceTypeNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkAccelerationStructureMotionInstanceTypeNV")]
@@ -120,6 +124,7 @@ impl core::fmt::Debug for AccelerationStructureMotionInstanceTypeNV {
         }
     }
 }
+///[`VkAccelerationStructureTypeKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAccelerationStructureTypeKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkAccelerationStructureTypeKHR")]
@@ -147,6 +152,7 @@ impl core::fmt::Debug for AccelerationStructureTypeKHR {
         }
     }
 }
+///[`VkAntiLagModeAMD`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAntiLagModeAMD.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkAntiLagModeAMD")]
@@ -174,6 +180,7 @@ impl core::fmt::Debug for AntiLagModeAMD {
         }
     }
 }
+///[`VkAntiLagStageAMD`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAntiLagStageAMD.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkAntiLagStageAMD")]
@@ -199,6 +206,7 @@ impl core::fmt::Debug for AntiLagStageAMD {
         }
     }
 }
+///[`VkAttachmentLoadOp`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAttachmentLoadOp.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkAttachmentLoadOp")]
@@ -228,6 +236,7 @@ impl core::fmt::Debug for AttachmentLoadOp {
         }
     }
 }
+///[`VkAttachmentStoreOp`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkAttachmentStoreOp.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkAttachmentStoreOp")]
@@ -255,6 +264,7 @@ impl core::fmt::Debug for AttachmentStoreOp {
         }
     }
 }
+///[`VkBlendFactor`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBlendFactor.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkBlendFactor")]
@@ -314,6 +324,7 @@ impl core::fmt::Debug for BlendFactor {
         }
     }
 }
+///[`VkBlendOp`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBlendOp.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkBlendOp")]
@@ -437,6 +448,7 @@ impl core::fmt::Debug for BlendOp {
         }
     }
 }
+///[`VkBlendOverlapEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBlendOverlapEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkBlendOverlapEXT")]
@@ -464,6 +476,7 @@ impl core::fmt::Debug for BlendOverlapEXT {
         }
     }
 }
+///[`VkBlockMatchWindowCompareModeQCOM`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBlockMatchWindowCompareModeQCOM.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkBlockMatchWindowCompareModeQCOM")]
@@ -491,6 +504,7 @@ impl core::fmt::Debug for BlockMatchWindowCompareModeQCOM {
         }
     }
 }
+///[`VkBorderColor`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBorderColor.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkBorderColor")]
@@ -528,6 +542,7 @@ impl core::fmt::Debug for BorderColor {
         }
     }
 }
+///[`VkBuildAccelerationStructureModeKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBuildAccelerationStructureModeKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkBuildAccelerationStructureModeKHR")]
@@ -555,6 +570,7 @@ impl core::fmt::Debug for BuildAccelerationStructureModeKHR {
         }
     }
 }
+///[`VkBuildMicromapModeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkBuildMicromapModeEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkBuildMicromapModeEXT")]
@@ -578,6 +594,7 @@ impl core::fmt::Debug for BuildMicromapModeEXT {
         }
     }
 }
+///[`VkChromaLocation`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkChromaLocation.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkChromaLocation")]
@@ -603,6 +620,7 @@ impl core::fmt::Debug for ChromaLocation {
         }
     }
 }
+///[`VkClusterAccelerationStructureOpModeNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkClusterAccelerationStructureOpModeNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkClusterAccelerationStructureOpModeNV")]
@@ -634,6 +652,7 @@ impl core::fmt::Debug for ClusterAccelerationStructureOpModeNV {
         }
     }
 }
+///[`VkClusterAccelerationStructureOpTypeNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkClusterAccelerationStructureOpTypeNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkClusterAccelerationStructureOpTypeNV")]
@@ -671,6 +690,7 @@ impl core::fmt::Debug for ClusterAccelerationStructureOpTypeNV {
         }
     }
 }
+///[`VkClusterAccelerationStructureTypeNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkClusterAccelerationStructureTypeNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkClusterAccelerationStructureTypeNV")]
@@ -702,6 +722,7 @@ impl core::fmt::Debug for ClusterAccelerationStructureTypeNV {
         }
     }
 }
+///[`VkCoarseSampleOrderTypeNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCoarseSampleOrderTypeNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkCoarseSampleOrderTypeNV")]
@@ -731,6 +752,7 @@ impl core::fmt::Debug for CoarseSampleOrderTypeNV {
         }
     }
 }
+///[`VkColorSpaceKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkColorSpaceKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkColorSpaceKHR")]
@@ -786,6 +808,7 @@ impl core::fmt::Debug for ColorSpaceKHR {
         }
     }
 }
+///[`VkCommandBufferLevel`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCommandBufferLevel.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkCommandBufferLevel")]
@@ -811,6 +834,7 @@ impl core::fmt::Debug for CommandBufferLevel {
         }
     }
 }
+///[`VkCompareOp`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCompareOp.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkCompareOp")]
@@ -848,6 +872,7 @@ impl core::fmt::Debug for CompareOp {
         }
     }
 }
+///[`VkComponentSwizzle`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkComponentSwizzle.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkComponentSwizzle")]
@@ -883,6 +908,7 @@ impl core::fmt::Debug for ComponentSwizzle {
         }
     }
 }
+///[`VkComponentTypeKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkComponentTypeKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkComponentTypeKHR")]
@@ -938,6 +964,7 @@ impl core::fmt::Debug for ComponentTypeKHR {
         }
     }
 }
+///[`VkCompressedTriangleFormatAMDX`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCompressedTriangleFormatAMDX.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkCompressedTriangleFormatAMDX")]
@@ -961,6 +988,7 @@ impl core::fmt::Debug for CompressedTriangleFormatAMDX {
         }
     }
 }
+///[`VkConservativeRasterizationModeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkConservativeRasterizationModeEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkConservativeRasterizationModeEXT")]
@@ -990,6 +1018,7 @@ impl core::fmt::Debug for ConservativeRasterizationModeEXT {
         }
     }
 }
+///[`VkCooperativeVectorMatrixLayoutNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCooperativeVectorMatrixLayoutNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkCooperativeVectorMatrixLayoutNV")]
@@ -1021,6 +1050,7 @@ impl core::fmt::Debug for CooperativeVectorMatrixLayoutNV {
         }
     }
 }
+///[`VkCopyAccelerationStructureModeKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCopyAccelerationStructureModeKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkCopyAccelerationStructureModeKHR")]
@@ -1052,6 +1082,7 @@ impl core::fmt::Debug for CopyAccelerationStructureModeKHR {
         }
     }
 }
+///[`VkCopyMicromapModeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCopyMicromapModeEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkCopyMicromapModeEXT")]
@@ -1081,6 +1112,7 @@ impl core::fmt::Debug for CopyMicromapModeEXT {
         }
     }
 }
+///[`VkCoverageModulationModeNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCoverageModulationModeNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkCoverageModulationModeNV")]
@@ -1110,6 +1142,7 @@ impl core::fmt::Debug for CoverageModulationModeNV {
         }
     }
 }
+///[`VkCoverageReductionModeNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCoverageReductionModeNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkCoverageReductionModeNV")]
@@ -1135,6 +1168,7 @@ impl core::fmt::Debug for CoverageReductionModeNV {
         }
     }
 }
+///[`VkCubicFilterWeightsQCOM`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkCubicFilterWeightsQCOM.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkCubicFilterWeightsQCOM")]
@@ -1164,6 +1198,7 @@ impl core::fmt::Debug for CubicFilterWeightsQCOM {
         }
     }
 }
+///[`VkDataGraphModelCacheTypeQCOM`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDataGraphModelCacheTypeQCOM.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkDataGraphModelCacheTypeQCOM")]
@@ -1187,6 +1222,7 @@ impl core::fmt::Debug for DataGraphModelCacheTypeQCOM {
         }
     }
 }
+///[`VkDataGraphPipelinePropertyARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDataGraphPipelinePropertyARM.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkDataGraphPipelinePropertyARM")]
@@ -1212,6 +1248,7 @@ impl core::fmt::Debug for DataGraphPipelinePropertyARM {
         }
     }
 }
+///[`VkDataGraphPipelineSessionBindPointARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDataGraphPipelineSessionBindPointARM.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkDataGraphPipelineSessionBindPointARM")]
@@ -1239,6 +1276,7 @@ impl core::fmt::Debug for DataGraphPipelineSessionBindPointARM {
         }
     }
 }
+///[`VkDataGraphPipelineSessionBindPointTypeARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDataGraphPipelineSessionBindPointTypeARM.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkDataGraphPipelineSessionBindPointTypeARM")]
@@ -1267,6 +1305,7 @@ impl core::fmt::Debug for DataGraphPipelineSessionBindPointTypeARM {
         }
     }
 }
+///[`VkDebugReportObjectTypeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDebugReportObjectTypeEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkDebugReportObjectTypeEXT")]
@@ -1372,6 +1411,7 @@ impl core::fmt::Debug for DebugReportObjectTypeEXT {
         }
     }
 }
+///[`VkDefaultVertexAttributeValueKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDefaultVertexAttributeValueKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkDefaultVertexAttributeValueKHR")]
@@ -1399,6 +1439,7 @@ impl core::fmt::Debug for DefaultVertexAttributeValueKHR {
         }
     }
 }
+///[`VkDepthBiasRepresentationEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDepthBiasRepresentationEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkDepthBiasRepresentationEXT")]
@@ -1426,6 +1467,7 @@ impl core::fmt::Debug for DepthBiasRepresentationEXT {
         }
     }
 }
+///[`VkDepthClampModeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDepthClampModeEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkDepthClampModeEXT")]
@@ -1451,6 +1493,7 @@ impl core::fmt::Debug for DepthClampModeEXT {
         }
     }
 }
+///[`VkDescriptorMappingSourceEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorMappingSourceEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkDescriptorMappingSourceEXT")]
@@ -1494,6 +1537,7 @@ impl core::fmt::Debug for DescriptorMappingSourceEXT {
         }
     }
 }
+///[`VkDescriptorType`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorType.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkDescriptorType")]
@@ -1549,11 +1593,13 @@ impl core::fmt::Debug for DescriptorType {
         }
     }
 }
+///[`VkDescriptorUpdateTemplateType`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDescriptorUpdateTemplateType.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkDescriptorUpdateTemplateType")]
 pub struct DescriptorUpdateTemplateType(i32);
 impl DescriptorUpdateTemplateType {
+    ///Create descriptor update template for descriptor set updates
     pub const DESCRIPTOR_SET: Self = Self(0i32);
     pub const PUSH_DESCRIPTORS: Self = Self(1i32);
     #[inline]
@@ -1574,6 +1620,7 @@ impl core::fmt::Debug for DescriptorUpdateTemplateType {
         }
     }
 }
+///[`VkDeviceAddressBindingTypeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceAddressBindingTypeEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkDeviceAddressBindingTypeEXT")]
@@ -1599,6 +1646,7 @@ impl core::fmt::Debug for DeviceAddressBindingTypeEXT {
         }
     }
 }
+///[`VkDeviceEventTypeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceEventTypeEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkDeviceEventTypeEXT")]
@@ -1622,11 +1670,13 @@ impl core::fmt::Debug for DeviceEventTypeEXT {
         }
     }
 }
+///[`VkDeviceFaultAddressTypeKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceFaultAddressTypeKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkDeviceFaultAddressTypeKHR")]
 pub struct DeviceFaultAddressTypeKHR(i32);
 impl DeviceFaultAddressTypeKHR {
+    ///Currently unused
     pub const NONE: Self = Self(0i32);
     pub const READ_INVALID: Self = Self(1i32);
     pub const WRITE_INVALID: Self = Self(2i32);
@@ -1657,6 +1707,7 @@ impl core::fmt::Debug for DeviceFaultAddressTypeKHR {
         }
     }
 }
+///[`VkDeviceFaultVendorBinaryHeaderVersionKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceFaultVendorBinaryHeaderVersionKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkDeviceFaultVendorBinaryHeaderVersionKHR")]
@@ -1685,6 +1736,7 @@ impl core::fmt::Debug for DeviceFaultVendorBinaryHeaderVersionKHR {
         }
     }
 }
+///[`VkDeviceMemoryReportEventTypeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDeviceMemoryReportEventTypeEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkDeviceMemoryReportEventTypeEXT")]
@@ -1718,6 +1770,7 @@ impl core::fmt::Debug for DeviceMemoryReportEventTypeEXT {
         }
     }
 }
+///[`VkDirectDriverLoadingModeLUNARG`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDirectDriverLoadingModeLUNARG.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkDirectDriverLoadingModeLUNARG")]
@@ -1745,6 +1798,7 @@ impl core::fmt::Debug for DirectDriverLoadingModeLUNARG {
         }
     }
 }
+///[`VkDiscardRectangleModeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDiscardRectangleModeEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkDiscardRectangleModeEXT")]
@@ -1770,6 +1824,7 @@ impl core::fmt::Debug for DiscardRectangleModeEXT {
         }
     }
 }
+///[`VkDisplacementMicromapFormatNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDisplacementMicromapFormatNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkDisplacementMicromapFormatNV")]
@@ -1797,6 +1852,7 @@ impl core::fmt::Debug for DisplacementMicromapFormatNV {
         }
     }
 }
+///[`VkDisplayEventTypeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDisplayEventTypeEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkDisplayEventTypeEXT")]
@@ -1820,6 +1876,7 @@ impl core::fmt::Debug for DisplayEventTypeEXT {
         }
     }
 }
+///[`VkDisplayPowerStateEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDisplayPowerStateEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkDisplayPowerStateEXT")]
@@ -1847,6 +1904,7 @@ impl core::fmt::Debug for DisplayPowerStateEXT {
         }
     }
 }
+///[`VkDisplaySurfaceStereoTypeNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDisplaySurfaceStereoTypeNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkDisplaySurfaceStereoTypeNV")]
@@ -1876,38 +1934,67 @@ impl core::fmt::Debug for DisplaySurfaceStereoTypeNV {
         }
     }
 }
+///[`VkDriverId`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDriverId.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkDriverId")]
 pub struct DriverId(i32);
 impl DriverId {
+    ///Advanced Micro Devices, Inc.
     pub const AMD_PROPRIETARY: Self = Self(1i32);
+    ///Advanced Micro Devices, Inc.
     pub const AMD_OPEN_SOURCE: Self = Self(2i32);
+    ///Mesa open source project
     pub const MESA_RADV: Self = Self(3i32);
+    ///NVIDIA Corporation
     pub const NVIDIA_PROPRIETARY: Self = Self(4i32);
+    ///Intel Corporation
     pub const INTEL_PROPRIETARY_WINDOWS: Self = Self(5i32);
+    ///Intel Corporation
     pub const INTEL_OPEN_SOURCE: Self = Self(6i32);
+    ///Imagination Technologies
     pub const IMAGINATION_PROPRIETARY: Self = Self(7i32);
+    ///Qualcomm Technologies, Inc.
     pub const QUALCOMM_PROPRIETARY: Self = Self(8i32);
+    ///Arm Limited
     pub const ARM_PROPRIETARY: Self = Self(9i32);
+    ///Google LLC
     pub const GOOGLE_SWIFTSHADER: Self = Self(10i32);
+    ///Google LLC
     pub const GGP_PROPRIETARY: Self = Self(11i32);
+    ///Broadcom Inc.
     pub const BROADCOM_PROPRIETARY: Self = Self(12i32);
+    ///Mesa
     pub const MESA_LLVMPIPE: Self = Self(13i32);
+    ///MoltenVK
     pub const MOLTENVK: Self = Self(14i32);
+    ///Core Avionics & Industrial Inc.
     pub const COREAVI_PROPRIETARY: Self = Self(15i32);
+    ///Juice Technologies, Inc.
     pub const JUICE_PROPRIETARY: Self = Self(16i32);
+    ///Verisilicon, Inc.
     pub const VERISILICON_PROPRIETARY: Self = Self(17i32);
+    ///Mesa open source project
     pub const MESA_TURNIP: Self = Self(18i32);
+    ///Mesa open source project
     pub const MESA_V3DV: Self = Self(19i32);
+    ///Mesa open source project
     pub const MESA_PANVK: Self = Self(20i32);
+    ///Samsung Electronics Co., Ltd.
     pub const SAMSUNG_PROPRIETARY: Self = Self(21i32);
+    ///Mesa open source project
     pub const MESA_VENUS: Self = Self(22i32);
+    ///Mesa open source project
     pub const MESA_DOZEN: Self = Self(23i32);
+    ///Mesa open source project
     pub const MESA_NVK: Self = Self(24i32);
+    ///Imagination Technologies
     pub const IMAGINATION_OPEN_SOURCE: Self = Self(25i32);
+    ///Mesa open source project
     pub const MESA_HONEYKRISP: Self = Self(26i32);
+    ///Vulkan SC Emulation on Vulkan
     pub const VULKAN_SC_EMULATION_ON_VULKAN: Self = Self(27i32);
+    ///Mesa open source project
     pub const MESA_KOSMICKRISP: Self = Self(28i32);
     pub const INTEL_OPEN_SOURCE_: Self = Self::INTEL_OPEN_SOURCE;
     #[inline]
@@ -1954,6 +2041,7 @@ impl core::fmt::Debug for DriverId {
         }
     }
 }
+///[`VkDynamicState`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkDynamicState.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkDynamicState")]
@@ -1996,7 +2084,9 @@ impl DynamicState {
     pub const EXCLUSIVE_SCISSOR: Self = Self(1000205001i32);
     pub const FRAGMENT_SHADING_RATE: Self = Self(1000226000i32);
     pub const VERTEX_INPUT: Self = Self(1000352000i32);
+    ///Not promoted to 1.3
     pub const PATCH_CONTROL_POINTS: Self = Self(1000377000i32);
+    ///Not promoted to 1.3
     pub const LOGIC_OP: Self = Self(1000377003i32);
     pub const COLOR_WRITE_ENABLE: Self = Self(1000381000i32);
     pub const DEPTH_CLAMP_ENABLE: Self = Self(1000455003i32);
@@ -2121,6 +2211,7 @@ impl core::fmt::Debug for DynamicState {
         }
     }
 }
+///[`VkFaultLevel`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFaultLevel.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkFaultLevel")]
@@ -2150,6 +2241,7 @@ impl core::fmt::Debug for FaultLevel {
         }
     }
 }
+///[`VkFaultQueryBehavior`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFaultQueryBehavior.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkFaultQueryBehavior")]
@@ -2173,6 +2265,7 @@ impl core::fmt::Debug for FaultQueryBehavior {
         }
     }
 }
+///[`VkFaultType`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFaultType.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkFaultType")]
@@ -2208,6 +2301,7 @@ impl core::fmt::Debug for FaultType {
         }
     }
 }
+///[`VkFilter`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFilter.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkFilter")]
@@ -2233,6 +2327,7 @@ impl core::fmt::Debug for Filter {
         }
     }
 }
+///[`VkFormat`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFormat.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkFormat")]
@@ -2851,6 +2946,7 @@ impl core::fmt::Debug for Format {
         }
     }
 }
+///[`VkFragmentShadingRateCombinerOpKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFragmentShadingRateCombinerOpKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkFragmentShadingRateCombinerOpKHR")]
@@ -2884,6 +2980,7 @@ impl core::fmt::Debug for FragmentShadingRateCombinerOpKHR {
         }
     }
 }
+///[`VkFragmentShadingRateNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFragmentShadingRateNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkFragmentShadingRateNV")]
@@ -2929,6 +3026,7 @@ impl core::fmt::Debug for FragmentShadingRateNV {
         }
     }
 }
+///[`VkFragmentShadingRateTypeNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFragmentShadingRateTypeNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkFragmentShadingRateTypeNV")]
@@ -2954,6 +3052,7 @@ impl core::fmt::Debug for FragmentShadingRateTypeNV {
         }
     }
 }
+///[`VkFrontFace`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFrontFace.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkFrontFace")]
@@ -2979,6 +3078,7 @@ impl core::fmt::Debug for FrontFace {
         }
     }
 }
+///[`VkFullScreenExclusiveEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkFullScreenExclusiveEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkFullScreenExclusiveEXT")]
@@ -3008,6 +3108,7 @@ impl core::fmt::Debug for FullScreenExclusiveEXT {
         }
     }
 }
+///[`VkGeometryTypeKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkGeometryTypeKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkGeometryTypeKHR")]
@@ -3041,19 +3142,29 @@ impl core::fmt::Debug for GeometryTypeKHR {
         }
     }
 }
+///[`VkImageLayout`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageLayout.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkImageLayout")]
 pub struct ImageLayout(i32);
 impl ImageLayout {
+    ///Implicit layout an image is when its contents are undefined due to various reasons (e.g. right after creation)
     pub const UNDEFINED: Self = Self(0i32);
+    ///General layout when image can be used for any kind of access
     pub const GENERAL: Self = Self(1i32);
+    ///Optimal layout when image is only used for color attachment read/write
     pub const COLOR_ATTACHMENT_OPTIMAL: Self = Self(2i32);
+    ///Optimal layout when image is only used for depth/stencil attachment read/write
     pub const DEPTH_STENCIL_ATTACHMENT_OPTIMAL: Self = Self(3i32);
+    ///Optimal layout when image is used for read only depth/stencil attachment and shader access
     pub const DEPTH_STENCIL_READ_ONLY_OPTIMAL: Self = Self(4i32);
+    ///Optimal layout when image is used for read only shader access
     pub const SHADER_READ_ONLY_OPTIMAL: Self = Self(5i32);
+    ///Optimal layout when image is used only as source of transfer operations
     pub const TRANSFER_SRC_OPTIMAL: Self = Self(6i32);
+    ///Optimal layout when image is used only as destination of transfer operations
     pub const TRANSFER_DST_OPTIMAL: Self = Self(7i32);
+    ///Initial layout used when the data is populated by the CPU
     pub const PREINITIALIZED: Self = Self(8i32);
     pub const DEPTH_READ_ONLY_STENCIL_ATTACHMENT_OPTIMAL: Self = Self(1000117000i32);
     pub const DEPTH_ATTACHMENT_STENCIL_READ_ONLY_OPTIMAL: Self = Self(1000117001i32);
@@ -3127,6 +3238,7 @@ impl core::fmt::Debug for ImageLayout {
         }
     }
 }
+///[`VkImageTiling`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageTiling.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkImageTiling")]
@@ -3154,6 +3266,7 @@ impl core::fmt::Debug for ImageTiling {
         }
     }
 }
+///[`VkImageType`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageType.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkImageType")]
@@ -3181,6 +3294,7 @@ impl core::fmt::Debug for ImageType {
         }
     }
 }
+///[`VkImageViewType`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkImageViewType.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkImageViewType")]
@@ -3216,6 +3330,7 @@ impl core::fmt::Debug for ImageViewType {
         }
     }
 }
+///[`VkIndexType`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkIndexType.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkIndexType")]
@@ -3245,6 +3360,7 @@ impl core::fmt::Debug for IndexType {
         }
     }
 }
+///[`VkIndirectCommandsTokenTypeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkIndirectCommandsTokenTypeEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkIndirectCommandsTokenTypeEXT")]
@@ -3300,6 +3416,7 @@ impl core::fmt::Debug for IndirectCommandsTokenTypeEXT {
         }
     }
 }
+///[`VkIndirectCommandsTokenTypeNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkIndirectCommandsTokenTypeNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkIndirectCommandsTokenTypeNV")]
@@ -3345,6 +3462,7 @@ impl core::fmt::Debug for IndirectCommandsTokenTypeNV {
         }
     }
 }
+///[`VkIndirectExecutionSetInfoTypeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkIndirectExecutionSetInfoTypeEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkIndirectExecutionSetInfoTypeEXT")]
@@ -3372,6 +3490,7 @@ impl core::fmt::Debug for IndirectExecutionSetInfoTypeEXT {
         }
     }
 }
+///[`VkInternalAllocationType`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkInternalAllocationType.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkInternalAllocationType")]
@@ -3395,6 +3514,7 @@ impl core::fmt::Debug for InternalAllocationType {
         }
     }
 }
+///[`VkLatencyMarkerNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkLatencyMarkerNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkLatencyMarkerNV")]
@@ -3440,6 +3560,7 @@ impl core::fmt::Debug for LatencyMarkerNV {
         }
     }
 }
+///[`VkLayerSettingTypeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkLayerSettingTypeEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkLayerSettingTypeEXT")]
@@ -3477,6 +3598,7 @@ impl core::fmt::Debug for LayerSettingTypeEXT {
         }
     }
 }
+///[`VkLayeredDriverUnderlyingApiMSFT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkLayeredDriverUnderlyingApiMSFT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkLayeredDriverUnderlyingApiMSFT")]
@@ -3504,6 +3626,7 @@ impl core::fmt::Debug for LayeredDriverUnderlyingApiMSFT {
         }
     }
 }
+///[`VkLineRasterizationMode`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkLineRasterizationMode.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkLineRasterizationMode")]
@@ -3533,6 +3656,7 @@ impl core::fmt::Debug for LineRasterizationMode {
         }
     }
 }
+///[`VkLogicOp`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkLogicOp.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkLogicOp")]
@@ -3586,6 +3710,7 @@ impl core::fmt::Debug for LogicOp {
         }
     }
 }
+///[`VkMemoryOverallocationBehaviorAMD`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMemoryOverallocationBehaviorAMD.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkMemoryOverallocationBehaviorAMD")]
@@ -3615,6 +3740,7 @@ impl core::fmt::Debug for MemoryOverallocationBehaviorAMD {
         }
     }
 }
+///[`VkMicromapTypeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkMicromapTypeEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkMicromapTypeEXT")]
@@ -3640,6 +3766,7 @@ impl core::fmt::Debug for MicromapTypeEXT {
         }
     }
 }
+///[`VkObjectType`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkObjectType.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkObjectType")]
@@ -3679,7 +3806,9 @@ impl ObjectType {
     pub const DISPLAY: Self = Self(1000002000i32);
     pub const DISPLAY_MODE: Self = Self(1000002001i32);
     pub const DEBUG_REPORT_CALLBACK: Self = Self(1000011000i32);
+    ///VkVideoSessionKHR
     pub const VIDEO_SESSION: Self = Self(1000023000i32);
+    ///VkVideoSessionParametersKHR
     pub const VIDEO_SESSION_PARAMETERS: Self = Self(1000023001i32);
     pub const CU_MODULE: Self = Self(1000029000i32);
     pub const CU_FUNCTION: Self = Self(1000029001i32);
@@ -3691,6 +3820,7 @@ impl ObjectType {
     pub const INDIRECT_COMMANDS_LAYOUT: Self = Self(1000277000i32);
     pub const CUDA_MODULE: Self = Self(1000307000i32);
     pub const CUDA_FUNCTION: Self = Self(1000307001i32);
+    ///VkBufferCollectionFUCHSIA
     pub const BUFFER_COLLECTION: Self = Self(1000366000i32);
     pub const MICROMAP: Self = Self(1000396000i32);
     pub const TENSOR: Self = Self(1000460000i32);
@@ -3698,6 +3828,7 @@ impl ObjectType {
     pub const OPTICAL_FLOW_SESSION: Self = Self(1000464000i32);
     pub const SHADER: Self = Self(1000482000i32);
     pub const PIPELINE_BINARY: Self = Self(1000483000i32);
+    ///VkSemaphoreSciSyncPoolNV
     pub const SEMAPHORE_SCI_SYNC_POOL: Self = Self(1000489000i32);
     pub const DATA_GRAPH_PIPELINE_SESSION: Self = Self(1000507000i32);
     pub const EXTERNAL_COMPUTE_QUEUE: Self = Self(1000556000i32);
@@ -3777,6 +3908,7 @@ impl core::fmt::Debug for ObjectType {
         }
     }
 }
+///[`VkOpacityMicromapFormatEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOpacityMicromapFormatEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkOpacityMicromapFormatEXT")]
@@ -3802,6 +3934,7 @@ impl core::fmt::Debug for OpacityMicromapFormatEXT {
         }
     }
 }
+///[`VkOpacityMicromapSpecialIndexEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOpacityMicromapSpecialIndexEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkOpacityMicromapSpecialIndexEXT")]
@@ -3835,6 +3968,7 @@ impl core::fmt::Debug for OpacityMicromapSpecialIndexEXT {
         }
     }
 }
+///[`VkOpticalFlowPerformanceLevelNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOpticalFlowPerformanceLevelNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkOpticalFlowPerformanceLevelNV")]
@@ -3866,6 +4000,7 @@ impl core::fmt::Debug for OpticalFlowPerformanceLevelNV {
         }
     }
 }
+///[`VkOpticalFlowSessionBindingPointNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOpticalFlowSessionBindingPointNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkOpticalFlowSessionBindingPointNV")]
@@ -3907,6 +4042,7 @@ impl core::fmt::Debug for OpticalFlowSessionBindingPointNV {
         }
     }
 }
+///[`VkOutOfBandQueueTypeNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkOutOfBandQueueTypeNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkOutOfBandQueueTypeNV")]
@@ -3932,6 +4068,7 @@ impl core::fmt::Debug for OutOfBandQueueTypeNV {
         }
     }
 }
+///[`VkPartitionedAccelerationStructureOpTypeNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPartitionedAccelerationStructureOpTypeNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPartitionedAccelerationStructureOpTypeNV")]
@@ -3964,6 +4101,7 @@ impl core::fmt::Debug for PartitionedAccelerationStructureOpTypeNV {
         }
     }
 }
+///[`VkPerformanceConfigurationTypeINTEL`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPerformanceConfigurationTypeINTEL.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPerformanceConfigurationTypeINTEL")]
@@ -3989,6 +4127,7 @@ impl core::fmt::Debug for PerformanceConfigurationTypeINTEL {
         }
     }
 }
+///[`VkPerformanceCounterScopeKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPerformanceCounterScopeKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPerformanceCounterScopeKHR")]
@@ -4019,6 +4158,7 @@ impl core::fmt::Debug for PerformanceCounterScopeKHR {
         }
     }
 }
+///[`VkPerformanceCounterStorageKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPerformanceCounterStorageKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPerformanceCounterStorageKHR")]
@@ -4052,6 +4192,7 @@ impl core::fmt::Debug for PerformanceCounterStorageKHR {
         }
     }
 }
+///[`VkPerformanceCounterUnitKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPerformanceCounterUnitKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPerformanceCounterUnitKHR")]
@@ -4095,6 +4236,7 @@ impl core::fmt::Debug for PerformanceCounterUnitKHR {
         }
     }
 }
+///[`VkPerformanceOverrideTypeINTEL`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPerformanceOverrideTypeINTEL.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPerformanceOverrideTypeINTEL")]
@@ -4120,6 +4262,7 @@ impl core::fmt::Debug for PerformanceOverrideTypeINTEL {
         }
     }
 }
+///[`VkPerformanceParameterTypeINTEL`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPerformanceParameterTypeINTEL.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPerformanceParameterTypeINTEL")]
@@ -4147,6 +4290,7 @@ impl core::fmt::Debug for PerformanceParameterTypeINTEL {
         }
     }
 }
+///[`VkPerformanceValueTypeINTEL`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPerformanceValueTypeINTEL.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPerformanceValueTypeINTEL")]
@@ -4178,6 +4322,7 @@ impl core::fmt::Debug for PerformanceValueTypeINTEL {
         }
     }
 }
+///[`VkPhysicalDeviceDataGraphOperationTypeARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceDataGraphOperationTypeARM.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPhysicalDeviceDataGraphOperationTypeARM")]
@@ -4210,6 +4355,7 @@ impl core::fmt::Debug for PhysicalDeviceDataGraphOperationTypeARM {
         }
     }
 }
+///[`VkPhysicalDeviceDataGraphProcessingEngineTypeARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceDataGraphProcessingEngineTypeARM.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPhysicalDeviceDataGraphProcessingEngineTypeARM")]
@@ -4242,6 +4388,7 @@ impl core::fmt::Debug for PhysicalDeviceDataGraphProcessingEngineTypeARM {
         }
     }
 }
+///[`VkPhysicalDeviceLayeredApiKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceLayeredApiKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPhysicalDeviceLayeredApiKHR")]
@@ -4273,6 +4420,7 @@ impl core::fmt::Debug for PhysicalDeviceLayeredApiKHR {
         }
     }
 }
+///[`VkPhysicalDeviceType`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceType.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPhysicalDeviceType")]
@@ -4304,6 +4452,7 @@ impl core::fmt::Debug for PhysicalDeviceType {
         }
     }
 }
+///[`VkPipelineBindPoint`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineBindPoint.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPipelineBindPoint")]
@@ -4337,6 +4486,7 @@ impl core::fmt::Debug for PipelineBindPoint {
         }
     }
 }
+///[`VkPipelineCacheHeaderVersion`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineCacheHeaderVersion.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPipelineCacheHeaderVersion")]
@@ -4364,6 +4514,7 @@ impl core::fmt::Debug for PipelineCacheHeaderVersion {
         }
     }
 }
+///[`VkPipelineCacheValidationVersion`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineCacheValidationVersion.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPipelineCacheValidationVersion")]
@@ -4389,6 +4540,7 @@ impl core::fmt::Debug for PipelineCacheValidationVersion {
         }
     }
 }
+///[`VkPipelineExecutableStatisticFormatKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineExecutableStatisticFormatKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPipelineExecutableStatisticFormatKHR")]
@@ -4422,6 +4574,7 @@ impl core::fmt::Debug for PipelineExecutableStatisticFormatKHR {
         }
     }
 }
+///[`VkPipelineMatchControl`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineMatchControl.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPipelineMatchControl")]
@@ -4445,6 +4598,7 @@ impl core::fmt::Debug for PipelineMatchControl {
         }
     }
 }
+///[`VkPipelineRobustnessBufferBehavior`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineRobustnessBufferBehavior.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPipelineRobustnessBufferBehavior")]
@@ -4476,6 +4630,7 @@ impl core::fmt::Debug for PipelineRobustnessBufferBehavior {
         }
     }
 }
+///[`VkPipelineRobustnessImageBehavior`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPipelineRobustnessImageBehavior.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPipelineRobustnessImageBehavior")]
@@ -4507,6 +4662,7 @@ impl core::fmt::Debug for PipelineRobustnessImageBehavior {
         }
     }
 }
+///[`VkPointClippingBehavior`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPointClippingBehavior.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPointClippingBehavior")]
@@ -4532,6 +4688,7 @@ impl core::fmt::Debug for PointClippingBehavior {
         }
     }
 }
+///[`VkPolygonMode`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPolygonMode.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPolygonMode")]
@@ -4561,6 +4718,7 @@ impl core::fmt::Debug for PolygonMode {
         }
     }
 }
+///[`VkPresentModeKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPresentModeKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPresentModeKHR")]
@@ -4594,6 +4752,7 @@ impl core::fmt::Debug for PresentModeKHR {
         }
     }
 }
+///[`VkPrimitiveTopology`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkPrimitiveTopology.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkPrimitiveTopology")]
@@ -4637,6 +4796,7 @@ impl core::fmt::Debug for PrimitiveTopology {
         }
     }
 }
+///[`VkProvokingVertexModeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkProvokingVertexModeEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkProvokingVertexModeEXT")]
@@ -4662,6 +4822,7 @@ impl core::fmt::Debug for ProvokingVertexModeEXT {
         }
     }
 }
+///[`VkQueryPoolSamplingModeINTEL`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueryPoolSamplingModeINTEL.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkQueryPoolSamplingModeINTEL")]
@@ -4685,6 +4846,7 @@ impl core::fmt::Debug for QueryPoolSamplingModeINTEL {
         }
     }
 }
+///[`VkQueryResultStatusKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueryResultStatusKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkQueryResultStatusKHR")]
@@ -4714,12 +4876,14 @@ impl core::fmt::Debug for QueryResultStatusKHR {
         }
     }
 }
+///[`VkQueryType`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueryType.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkQueryType")]
 pub struct QueryType(i32);
 impl QueryType {
     pub const OCCLUSION: Self = Self(0i32);
+    ///Optional
     pub const PIPELINE_STATISTICS: Self = Self(1i32);
     pub const TIMESTAMP: Self = Self(2i32);
     pub const RESULT_STATUS_ONLY: Self = Self(1000023000i32);
@@ -4769,6 +4933,7 @@ impl core::fmt::Debug for QueryType {
         }
     }
 }
+///[`VkQueueGlobalPriority`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkQueueGlobalPriority.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkQueueGlobalPriority")]
@@ -4798,6 +4963,7 @@ impl core::fmt::Debug for QueueGlobalPriority {
         }
     }
 }
+///[`VkRasterizationOrderAMD`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRasterizationOrderAMD.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkRasterizationOrderAMD")]
@@ -4823,6 +4989,7 @@ impl core::fmt::Debug for RasterizationOrderAMD {
         }
     }
 }
+///[`VkRayTracingInvocationReorderModeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRayTracingInvocationReorderModeEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkRayTracingInvocationReorderModeEXT")]
@@ -4852,6 +5019,7 @@ impl core::fmt::Debug for RayTracingInvocationReorderModeEXT {
         }
     }
 }
+///[`VkRayTracingLssIndexingModeNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRayTracingLssIndexingModeNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkRayTracingLssIndexingModeNV")]
@@ -4877,6 +5045,7 @@ impl core::fmt::Debug for RayTracingLssIndexingModeNV {
         }
     }
 }
+///[`VkRayTracingLssPrimitiveEndCapsModeNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRayTracingLssPrimitiveEndCapsModeNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkRayTracingLssPrimitiveEndCapsModeNV")]
@@ -4906,6 +5075,7 @@ impl core::fmt::Debug for RayTracingLssPrimitiveEndCapsModeNV {
         }
     }
 }
+///[`VkRayTracingShaderGroupTypeKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkRayTracingShaderGroupTypeKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkRayTracingShaderGroupTypeKHR")]
@@ -4933,29 +5103,49 @@ impl core::fmt::Debug for RayTracingShaderGroupTypeKHR {
         }
     }
 }
+///[`VkResult`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkResult.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkResult")]
 pub struct Result(i32);
 impl Result {
+    ///Command completed successfully
     pub const SUCCESS: Self = Self(0i32);
+    ///A fence or query has not yet completed
     pub const NOT_READY: Self = Self(1i32);
+    ///A wait operation has not completed in the specified time
     pub const TIMEOUT: Self = Self(2i32);
+    ///An event is signaled
     pub const EVENT_SET: Self = Self(3i32);
+    ///An event is unsignaled
     pub const EVENT_RESET: Self = Self(4i32);
+    ///A return array was too small for the result
     pub const INCOMPLETE: Self = Self(5i32);
+    ///A host memory allocation has failed
     pub const ERROR_OUT_OF_HOST_MEMORY: Self = Self(-1i32);
+    ///A device memory allocation has failed
     pub const ERROR_OUT_OF_DEVICE_MEMORY: Self = Self(-2i32);
+    ///Initialization of an object has failed
     pub const ERROR_INITIALIZATION_FAILED: Self = Self(-3i32);
+    ///The logical device has been lost. See `devsandqueues-lost-device`
     pub const ERROR_DEVICE_LOST: Self = Self(-4i32);
+    ///Mapping of a memory object has failed
     pub const ERROR_MEMORY_MAP_FAILED: Self = Self(-5i32);
+    ///Layer specified does not exist
     pub const ERROR_LAYER_NOT_PRESENT: Self = Self(-6i32);
+    ///Extension specified does not exist
     pub const ERROR_EXTENSION_NOT_PRESENT: Self = Self(-7i32);
+    ///Requested feature is not available on this device
     pub const ERROR_FEATURE_NOT_PRESENT: Self = Self(-8i32);
+    ///Unable to find a Vulkan driver
     pub const ERROR_INCOMPATIBLE_DRIVER: Self = Self(-9i32);
+    ///Too many objects of the type have already been created
     pub const ERROR_TOO_MANY_OBJECTS: Self = Self(-10i32);
+    ///Requested format is not supported on this device
     pub const ERROR_FORMAT_NOT_SUPPORTED: Self = Self(-11i32);
+    ///A requested pool allocation has failed due to fragmentation of the pool's memory
     pub const ERROR_FRAGMENTED_POOL: Self = Self(-12i32);
+    ///An unknown error has occurred, due to an implementation or application bug
     pub const ERROR_UNKNOWN: Self = Self(-13i32);
     pub const ERROR_VALIDATION_FAILED: Self = Self(-1000011001i32);
     pub const ERROR_OUT_OF_POOL_MEMORY: Self = Self(-1000069000i32);
@@ -5065,6 +5255,7 @@ impl core::fmt::Debug for Result {
         }
     }
 }
+///[`VkSamplerAddressMode`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSamplerAddressMode.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkSamplerAddressMode")]
@@ -5074,6 +5265,7 @@ impl SamplerAddressMode {
     pub const MIRRORED_REPEAT: Self = Self(1i32);
     pub const CLAMP_TO_EDGE: Self = Self(2i32);
     pub const CLAMP_TO_BORDER: Self = Self(3i32);
+    ///No need to add an extnumber attribute, since this uses a core enum value
     pub const MIRROR_CLAMP_TO_EDGE: Self = Self(4i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
@@ -5096,12 +5288,15 @@ impl core::fmt::Debug for SamplerAddressMode {
         }
     }
 }
+///[`VkSamplerMipmapMode`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSamplerMipmapMode.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkSamplerMipmapMode")]
 pub struct SamplerMipmapMode(i32);
 impl SamplerMipmapMode {
+    ///Choose nearest mip level
     pub const NEAREST: Self = Self(0i32);
+    ///Linear filter between mip levels
     pub const LINEAR: Self = Self(1i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
@@ -5121,6 +5316,7 @@ impl core::fmt::Debug for SamplerMipmapMode {
         }
     }
 }
+///[`VkSamplerReductionMode`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSamplerReductionMode.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkSamplerReductionMode")]
@@ -5150,15 +5346,20 @@ impl core::fmt::Debug for SamplerReductionMode {
         }
     }
 }
+///[`VkSamplerYcbcrModelConversion`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSamplerYcbcrModelConversion.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkSamplerYcbcrModelConversion")]
 pub struct SamplerYcbcrModelConversion(i32);
 impl SamplerYcbcrModelConversion {
     pub const RGB_IDENTITY: Self = Self(0i32);
+    ///just range expansion
     pub const YCBCR_IDENTITY: Self = Self(1i32);
+    ///aka HD YUV
     pub const YCBCR_709: Self = Self(2i32);
+    ///aka SD YUV
     pub const YCBCR_601: Self = Self(3i32);
+    ///aka UHD YUV
     pub const YCBCR_2020: Self = Self(4i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
@@ -5181,12 +5382,15 @@ impl core::fmt::Debug for SamplerYcbcrModelConversion {
         }
     }
 }
+///[`VkSamplerYcbcrRange`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSamplerYcbcrRange.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkSamplerYcbcrRange")]
 pub struct SamplerYcbcrRange(i32);
 impl SamplerYcbcrRange {
+    ///Luma 0..1 maps to 0..255, chroma -0.5..0.5 to 1..255 (clamped)
     pub const ITU_FULL: Self = Self(0i32);
+    ///Luma 0..1 maps to 16..235, chroma -0.5..0.5 to 16..240
     pub const ITU_NARROW: Self = Self(1i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
@@ -5206,6 +5410,7 @@ impl core::fmt::Debug for SamplerYcbcrRange {
         }
     }
 }
+///[`VkSciSyncClientTypeNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSciSyncClientTypeNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkSciSyncClientTypeNV")]
@@ -5233,6 +5438,7 @@ impl core::fmt::Debug for SciSyncClientTypeNV {
         }
     }
 }
+///[`VkSciSyncPrimitiveTypeNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSciSyncPrimitiveTypeNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkSciSyncPrimitiveTypeNV")]
@@ -5258,6 +5464,7 @@ impl core::fmt::Debug for SciSyncPrimitiveTypeNV {
         }
     }
 }
+///[`VkScopeKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkScopeKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkScopeKHR")]
@@ -5287,6 +5494,7 @@ impl core::fmt::Debug for ScopeKHR {
         }
     }
 }
+///[`VkSemaphoreType`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSemaphoreType.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkSemaphoreType")]
@@ -5312,6 +5520,7 @@ impl core::fmt::Debug for SemaphoreType {
         }
     }
 }
+///[`VkShaderCodeTypeEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderCodeTypeEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkShaderCodeTypeEXT")]
@@ -5337,6 +5546,7 @@ impl core::fmt::Debug for ShaderCodeTypeEXT {
         }
     }
 }
+///[`VkShaderFloatControlsIndependence`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderFloatControlsIndependence.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkShaderFloatControlsIndependence")]
@@ -5366,6 +5576,7 @@ impl core::fmt::Debug for ShaderFloatControlsIndependence {
         }
     }
 }
+///[`VkShaderGroupShaderKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderGroupShaderKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkShaderGroupShaderKHR")]
@@ -5395,6 +5606,7 @@ impl core::fmt::Debug for ShaderGroupShaderKHR {
         }
     }
 }
+///[`VkShaderInfoTypeAMD`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShaderInfoTypeAMD.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkShaderInfoTypeAMD")]
@@ -5422,6 +5634,7 @@ impl core::fmt::Debug for ShaderInfoTypeAMD {
         }
     }
 }
+///[`VkShadingRatePaletteEntryNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkShadingRatePaletteEntryNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkShadingRatePaletteEntryNV")]
@@ -5467,6 +5680,7 @@ impl core::fmt::Debug for ShadingRatePaletteEntryNV {
         }
     }
 }
+///[`VkSharingMode`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSharingMode.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkSharingMode")]
@@ -5492,6 +5706,7 @@ impl core::fmt::Debug for SharingMode {
         }
     }
 }
+///[`VkStencilOp`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStencilOp.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkStencilOp")]
@@ -5529,6 +5744,7 @@ impl core::fmt::Debug for StencilOp {
         }
     }
 }
+///[`VkStructureType`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkStructureType.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkStructureType")]
@@ -5581,7 +5797,9 @@ impl StructureType {
     pub const BUFFER_MEMORY_BARRIER: Self = Self(44i32);
     pub const IMAGE_MEMORY_BARRIER: Self = Self(45i32);
     pub const MEMORY_BARRIER: Self = Self(46i32);
+    ///Reserved for internal use by the loader, layers, and ICDs
     pub const LOADER_INSTANCE_CREATE_INFO: Self = Self(47i32);
+    ///Reserved for internal use by the loader, layers, and ICDs
     pub const LOADER_DEVICE_CREATE_INFO: Self = Self(48i32);
     pub const BIND_BUFFER_MEMORY_INFO: Self = Self(1000157000i32);
     pub const BIND_IMAGE_MEMORY_INFO: Self = Self(1000157001i32);
@@ -6297,6 +6515,7 @@ impl StructureType {
     pub const SURFACE_FULL_SCREEN_EXCLUSIVE_WIN32_INFO: Self = Self(1000255001i32);
     pub const HEADLESS_SURFACE_CREATE_INFO: Self = Self(1000256000i32);
     pub const PHYSICAL_DEVICE_SHADER_ATOMIC_FLOAT_FEATURES: Self = Self(1000260000i32);
+    ///Not promoted to 1.3
     pub const PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_FEATURES: Self = Self(
         1000267000i32,
     );
@@ -6330,6 +6549,7 @@ impl StructureType {
     pub const COMMAND_BUFFER_INHERITANCE_VIEWPORT_SCISSOR_INFO: Self = Self(
         1000278001i32,
     );
+    ///Not promoted to 1.3
     pub const PHYSICAL_DEVICE_TEXEL_BUFFER_ALIGNMENT_FEATURES: Self = Self(
         1000281000i32,
     );
@@ -6554,6 +6774,7 @@ impl StructureType {
     );
     pub const SUBPASS_RESOLVE_PERFORMANCE_QUERY: Self = Self(1000376001i32);
     pub const MULTISAMPLED_RENDER_TO_SINGLE_SAMPLED_INFO: Self = Self(1000376002i32);
+    ///Not promoted to 1.3
     pub const PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_2_FEATURES: Self = Self(
         1000377000i32,
     );
@@ -8865,6 +9086,7 @@ impl core::fmt::Debug for StructureType {
         }
     }
 }
+///[`VkSubpassContents`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSubpassContents.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkSubpassContents")]
@@ -8890,6 +9112,7 @@ impl core::fmt::Debug for SubpassContents {
         }
     }
 }
+///[`VkSubpassMergeStatusEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSubpassMergeStatusEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkSubpassMergeStatusEXT")]
@@ -8939,6 +9162,7 @@ impl core::fmt::Debug for SubpassMergeStatusEXT {
         }
     }
 }
+///[`VkSystemAllocationScope`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkSystemAllocationScope.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkSystemAllocationScope")]
@@ -8970,6 +9194,7 @@ impl core::fmt::Debug for SystemAllocationScope {
         }
     }
 }
+///[`VkTensorTilingARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkTensorTilingARM.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkTensorTilingARM")]
@@ -8995,6 +9220,7 @@ impl core::fmt::Debug for TensorTilingARM {
         }
     }
 }
+///[`VkTessellationDomainOrigin`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkTessellationDomainOrigin.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkTessellationDomainOrigin")]
@@ -9020,6 +9246,7 @@ impl core::fmt::Debug for TessellationDomainOrigin {
         }
     }
 }
+///[`VkTimeDomainKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkTimeDomainKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkTimeDomainKHR")]
@@ -9053,6 +9280,7 @@ impl core::fmt::Debug for TimeDomainKHR {
         }
     }
 }
+///[`VkValidationCacheHeaderVersionEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkValidationCacheHeaderVersionEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkValidationCacheHeaderVersionEXT")]
@@ -9078,6 +9306,7 @@ impl core::fmt::Debug for ValidationCacheHeaderVersionEXT {
         }
     }
 }
+///[`VkValidationCheckEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkValidationCheckEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkValidationCheckEXT")]
@@ -9103,6 +9332,7 @@ impl core::fmt::Debug for ValidationCheckEXT {
         }
     }
 }
+///[`VkValidationFeatureDisableEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkValidationFeatureDisableEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkValidationFeatureDisableEXT")]
@@ -9140,6 +9370,7 @@ impl core::fmt::Debug for ValidationFeatureDisableEXT {
         }
     }
 }
+///[`VkValidationFeatureEnableEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkValidationFeatureEnableEXT.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkValidationFeatureEnableEXT")]
@@ -9171,17 +9402,25 @@ impl core::fmt::Debug for ValidationFeatureEnableEXT {
         }
     }
 }
+///[`VkVendorId`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVendorId.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkVendorId")]
 pub struct VendorId(i32);
 impl VendorId {
+    ///Khronos vendor ID
     pub const KHRONOS: Self = Self(65536i32);
+    ///Vivante vendor ID
     pub const VIV: Self = Self(65537i32);
+    ///VeriSilicon vendor ID
     pub const VSI: Self = Self(65538i32);
+    ///Kazan Software Renderer
     pub const KAZAN: Self = Self(65539i32);
+    ///Codeplay Software Ltd. vendor ID
     pub const CODEPLAY: Self = Self(65540i32);
+    ///PoCL vendor ID
     pub const POCL: Self = Self(65542i32);
+    ///Mobileye vendor ID
     pub const MOBILEYE: Self = Self(65543i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
@@ -9206,6 +9445,7 @@ impl core::fmt::Debug for VendorId {
         }
     }
 }
+///[`VkVertexInputRate`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVertexInputRate.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkVertexInputRate")]
@@ -9231,6 +9471,7 @@ impl core::fmt::Debug for VertexInputRate {
         }
     }
 }
+///[`VkVideoEncodeAV1PredictionModeKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeAV1PredictionModeKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkVideoEncodeAV1PredictionModeKHR")]
@@ -9262,6 +9503,7 @@ impl core::fmt::Debug for VideoEncodeAV1PredictionModeKHR {
         }
     }
 }
+///[`VkVideoEncodeAV1RateControlGroupKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeAV1RateControlGroupKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkVideoEncodeAV1RateControlGroupKHR")]
@@ -9291,6 +9533,7 @@ impl core::fmt::Debug for VideoEncodeAV1RateControlGroupKHR {
         }
     }
 }
+///[`VkVideoEncodeTuningModeKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkVideoEncodeTuningModeKHR.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkVideoEncodeTuningModeKHR")]
@@ -9322,6 +9565,7 @@ impl core::fmt::Debug for VideoEncodeTuningModeKHR {
         }
     }
 }
+///[`VkViewportCoordinateSwizzleNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/VkViewportCoordinateSwizzleNV.html)
 #[repr(transparent)]
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[doc(alias = "VkViewportCoordinateSwizzleNV")]

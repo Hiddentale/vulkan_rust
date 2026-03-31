@@ -21,7 +21,17 @@ fn emit_constant(def: &ConstantDef) -> Option<TokenStream> {
     let vk_name = &def.name;
     let (ty_tokens, val_tokens) = resolve_constant_type_and_value(def)?;
 
+    let comment_doc: Vec<TokenStream> = def
+        .comment
+        .as_deref()
+        .map(|c| {
+            let sanitized = c.replace("<<", "`").replace(">>", "`");
+            vec![quote! { #[doc = #sanitized] }]
+        })
+        .unwrap_or_default();
+
     Some(quote! {
+        #(#comment_doc)*
         #[doc(alias = #vk_name)]
         pub const #ident: #ty_tokens = #val_tokens;
     })
@@ -160,7 +170,7 @@ mod tests {
     #[test]
     fn constant_u32_plain() {
         let def = make_constant("VK_MAX_MEMORY_TYPES", "32", Some("uint32_t"));
-        let tokens = emit_constant(&def).unwrap();
+        let tokens = emit_constant(&def).expect("should emit u32 constant");
         assert_valid_rust(&tokens);
         let code = tokens.to_string();
         assert!(code.contains("MAX_MEMORY_TYPES"));
@@ -170,7 +180,7 @@ mod tests {
     #[test]
     fn constant_u32_bitwise_not() {
         let def = make_constant("VK_ATTACHMENT_UNUSED", "(~0U)", Some("uint32_t"));
-        let tokens = emit_constant(&def).unwrap();
+        let tokens = emit_constant(&def).expect("should emit bitwise-not constant");
         assert_valid_rust(&tokens);
         let code = tokens.to_string();
         assert!(code.contains("ATTACHMENT_UNUSED"));
@@ -180,7 +190,7 @@ mod tests {
     #[test]
     fn constant_u64() {
         let def = make_constant("VK_WHOLE_SIZE", "(~0ULL)", Some("uint64_t"));
-        let tokens = emit_constant(&def).unwrap();
+        let tokens = emit_constant(&def).expect("should emit u64 constant");
         assert_valid_rust(&tokens);
         let code = tokens.to_string();
         assert!(code.contains("WHOLE_SIZE"));
@@ -190,7 +200,7 @@ mod tests {
     #[test]
     fn constant_float() {
         let def = make_constant("VK_LOD_CLAMP_NONE", "1000.0F", Some("float"));
-        let tokens = emit_constant(&def).unwrap();
+        let tokens = emit_constant(&def).expect("should emit float constant");
         assert_valid_rust(&tokens);
         let code = tokens.to_string();
         assert!(code.contains("LOD_CLAMP_NONE"));
@@ -200,37 +210,39 @@ mod tests {
     #[test]
     fn constant_has_doc_alias() {
         let def = make_constant("VK_TRUE", "1", Some("uint32_t"));
-        let code = emit_constant(&def).unwrap().to_string();
+        let code = emit_constant(&def)
+            .expect("should emit constant")
+            .to_string();
         assert!(code.contains("VK_TRUE"), "expected doc(alias)");
     }
 
     #[test]
     fn test_parse_c_value_u32_plain() {
-        let tokens = parse_c_value_u32("256").unwrap();
+        let tokens = parse_c_value_u32("256").expect("should parse plain u32");
         assert_eq!(tokens.to_string(), "256u32");
     }
 
     #[test]
     fn test_parse_c_value_u32_bitwise_not() {
-        let tokens = parse_c_value_u32("(~0U)").unwrap();
+        let tokens = parse_c_value_u32("(~0U)").expect("should parse bitwise-not u32");
         assert_eq!(tokens.to_string(), "! 0u32");
     }
 
     #[test]
     fn test_parse_c_value_u64_bitwise_not() {
-        let tokens = parse_c_value_u64("(~0ULL)").unwrap();
+        let tokens = parse_c_value_u64("(~0ULL)").expect("should parse bitwise-not u64");
         assert_eq!(tokens.to_string(), "! 0u64");
     }
 
     #[test]
     fn test_parse_c_float() {
-        let tokens = parse_c_float("1000.0F").unwrap();
+        let tokens = parse_c_float("1000.0F").expect("should parse float");
         assert_eq!(tokens.to_string(), "1000f32");
     }
 
     #[test]
     fn test_parse_c_float_lowercase() {
-        let tokens = parse_c_float("0.25f").unwrap();
+        let tokens = parse_c_float("0.25f").expect("should parse lowercase float");
         assert_eq!(tokens.to_string(), "0.25f32");
     }
 }

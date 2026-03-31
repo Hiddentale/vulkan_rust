@@ -21,12 +21,14 @@ fn cargo() -> Command {
 }
 
 fn workspace_root() -> &'static Path {
-    Path::new(env!("CARGO_MANIFEST_DIR")).parent().unwrap()
+    Path::new(env!("CARGO_MANIFEST_DIR"))
+        .parent()
+        .expect("CARGO_MANIFEST_DIR has parent")
 }
 
 #[test]
 fn generator_runs_successfully() {
-    let _lock = GENERATOR_LOCK.lock().unwrap();
+    let _lock = GENERATOR_LOCK.lock().expect("GENERATOR_LOCK poisoned");
     let output = cargo()
         .args(["run", "-p", "generator"])
         .output()
@@ -37,7 +39,7 @@ fn generator_runs_successfully() {
 
 #[test]
 fn generated_output_compiles() {
-    let _lock = GENERATOR_LOCK.lock().unwrap();
+    let _lock = GENERATOR_LOCK.lock().expect("GENERATOR_LOCK poisoned");
     // Ensure generator has run first.
     let run = cargo()
         .args(["run", "-p", "generator"])
@@ -63,7 +65,7 @@ fn generated_output_compiles() {
 /// making the test self-contained regardless of parallel test execution.
 #[test]
 fn generator_output_is_deterministic() {
-    let _lock = GENERATOR_LOCK.lock().unwrap();
+    let _lock = GENERATOR_LOCK.lock().expect("GENERATOR_LOCK poisoned");
     let root = workspace_root();
 
     let generated_files: Vec<std::path::PathBuf> = vec![
