@@ -197,6 +197,34 @@ jobs:
           name: coverage-report
           path: lcov.info
 
+  vulkan-runtime-tests:
+    name: Vulkan Runtime Tests (lavapipe)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install system dependencies and lavapipe
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libvulkan-dev libxcb1-dev libxkbcommon-dev mesa-vulkan-drivers
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Verify lavapipe is available
+        run: |
+          VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/lvp_icd.x86_64.json \
+          vulkaninfo --summary 2>&1 | head -20 || echo "vulkaninfo not available, continuing anyway"
+
+      - name: Run ignored tests (requires Vulkan runtime)
+        env:
+          VK_ICD_FILENAMES: /usr/share/vulkan/icd.d/lvp_icd.x86_64.json
+        run: cargo test --workspace -- --ignored
+
   generator-determinism:
     name: Generator Determinism
     runs-on: ubuntu-latest
