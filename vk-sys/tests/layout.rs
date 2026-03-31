@@ -118,3 +118,87 @@ fn bitmask_types_are_u32() {
     assert_eq!(size_of::<bitmasks::MemoryPropertyFlagBits>(), 4);
     assert_eq!(size_of::<bitmasks::QueueFlagBits>(), 4);
 }
+
+#[test]
+fn bitmask_64bit_types_are_u64() {
+    assert_eq!(size_of::<bitmasks::AccessFlagBits2>(), 8);
+    assert_eq!(size_of::<bitmasks::PipelineStageFlagBits2>(), 8);
+    assert_eq!(size_of::<bitmasks::FormatFeatureFlagBits2>(), 8);
+    assert_eq!(size_of::<bitmasks::PipelineCreateFlagBits2>(), 8);
+    assert_eq!(size_of::<bitmasks::BufferUsageFlagBits2>(), 8);
+    assert_eq!(size_of::<bitmasks::MemoryDecompressionMethodFlagBitsEXT>(), 8);
+}
+
+// ── Struct with 64-bit bitmask fields ─────────────────────────────
+// MemoryBarrier2: s_type(4) pad(4) p_next(8) src_stage(8) src_access(8)
+//                 dst_stage(8) dst_access(8) = 48
+#[test]
+fn memory_barrier2_layout() {
+    assert_eq!(size_of::<structs::MemoryBarrier2>(), 48);
+    assert_eq!(align_of::<structs::MemoryBarrier2>(), 8);
+}
+
+// ── 64-bit bitmask aliases match their targets ────────────────────
+// KHR/NV aliases of 64-bit flags must be the same size as the core type.
+#[test]
+fn bitmask_64bit_aliases_match_target_size() {
+    assert_eq!(
+        size_of::<structs::PipelineCreateFlags2KHR>(),
+        size_of::<bitmasks::PipelineCreateFlagBits2>(),
+    );
+    assert_eq!(
+        size_of::<structs::PipelineStageFlags2KHR>(),
+        size_of::<bitmasks::PipelineStageFlagBits2>(),
+    );
+    assert_eq!(
+        size_of::<structs::MemoryDecompressionMethodFlagsNV>(),
+        size_of::<bitmasks::MemoryDecompressionMethodFlagBitsEXT>(),
+    );
+}
+
+// ── High-bit constants for 64-bit bitmasks ────────────────────────
+// At least one constant must exceed u32::MAX, proving no silent truncation.
+#[test]
+fn bitmask_64bit_has_high_bit_constants() {
+    // AccessFlagBits2: SHADER_SAMPLED_READ is bit 32
+    assert!(
+        bitmasks::AccessFlagBits2::_2_SHADER_SAMPLED_READ.as_raw() > u32::MAX as u64,
+        "AccessFlagBits2 should have constants above u32::MAX"
+    );
+    // PipelineStageFlagBits2: COPY is bit 32
+    assert!(
+        bitmasks::PipelineStageFlagBits2::_2_COPY.as_raw() > u32::MAX as u64,
+        "PipelineStageFlagBits2 should have constants above u32::MAX"
+    );
+}
+
+// ── Union layouts ─────────────────────────────────────────────────
+// Union size = largest member, alignment = most-aligned member.
+
+// ClearColorValue: float32[4] | int32[4] | uint32[4] — all 16 bytes, align 4
+#[test]
+fn clear_color_value_layout() {
+    assert_eq!(size_of::<structs::ClearColorValue>(), 16);
+    assert_eq!(align_of::<structs::ClearColorValue>(), 4);
+}
+
+// ClearValue: ClearColorValue(16) | ClearDepthStencilValue(8) = 16, align 4
+#[test]
+fn clear_value_layout() {
+    assert_eq!(size_of::<structs::ClearValue>(), 16);
+    assert_eq!(align_of::<structs::ClearValue>(), 4);
+}
+
+// DeviceOrHostAddressKHR: u64 | *mut c_void = 8, align 8
+#[test]
+fn device_or_host_address_layout() {
+    assert_eq!(size_of::<structs::DeviceOrHostAddressKHR>(), 8);
+    assert_eq!(align_of::<structs::DeviceOrHostAddressKHR>(), 8);
+}
+
+// PerformanceCounterResultKHR: i32|i64|u32|u64|f32|f64 = 8, align 8
+#[test]
+fn performance_counter_result_layout() {
+    assert_eq!(size_of::<structs::PerformanceCounterResultKHR>(), 8);
+    assert_eq!(align_of::<structs::PerformanceCounterResultKHR>(), 8);
+}

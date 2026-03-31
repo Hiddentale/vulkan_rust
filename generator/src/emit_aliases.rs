@@ -30,6 +30,19 @@ pub fn emit_flags_aliases(registry: &VkRegistry) -> TokenStream {
         }
     }
 
+    // Build a lookup from alias name → alias target for Flags types.
+    // This lets us follow chains like PipelineCreateFlags2KHR → PipelineCreateFlags2.
+    let flags_alias_targets: std::collections::BTreeMap<String, String> = registry
+        .aliases
+        .iter()
+        .filter(|a| a.name.contains("Flags"))
+        .map(|a| {
+            let clean_name = a.name.strip_prefix("Vk").unwrap_or(&a.name).to_string();
+            let clean_target = a.target.strip_prefix("Vk").unwrap_or(&a.target).to_string();
+            (clean_name, clean_target)
+        })
+        .collect();
+
     // Collect all type names referenced by struct members and command params.
     let referenced_types = registry
         .structs
@@ -54,6 +67,20 @@ pub fn emit_flags_aliases(registry: &VkRegistry) -> TokenStream {
             if existing_bitmasks.contains(&flag_bits) || emitted.contains(&flag_bits) {
                 let bits_ident = format_ident!("{}", flag_bits);
                 aliases.push(quote! { pub type #flags_ident = #bits_ident; });
+            } else if let Some(target) = flags_alias_targets.get(stripped) {
+                // Follow the alias chain: e.g. PipelineCreateFlags2KHR → PipelineCreateFlags2.
+                // The target should already be emitted (or will resolve to a known bitmask).
+                let target_bits = resolve_flags_alias(target);
+                let target_ident =
+                    if existing_bitmasks.contains(&target_bits) || emitted.contains(&target_bits) {
+                        format_ident!("{}", target_bits)
+                    } else if emitted.contains(target) {
+                        format_ident!("{}", target)
+                    } else {
+                        // Target itself may need emitting first; alias directly to it.
+                        format_ident!("{}", target)
+                    };
+                aliases.push(quote! { pub type #flags_ident = #target_ident; });
             } else {
                 let is_64 = stripped.contains("Flags2") || stripped.contains("Flags3");
                 if is_64 {
@@ -313,6 +340,42 @@ mod tests {
         assert!(code.contains("StdVideoDecodeH264PictureInfo"));
         assert!(code.contains("repr (C)"));
         assert!(code.contains("_opaque"));
+    }
+
+    #[test]
+    fn flags_alias_follows_alias_chain_for_64bit_khr() {
+        let mut reg = empty_registry();
+        // The real bitmask: PipelineCreateFlagBits2 (64-bit)
+        reg.bitmasks.push(BitmaskDef {
+            name: "PipelineCreateFlagBits2".to_string(),
+            flags_name: "PipelineCreateFlags2".to_string(),
+            bitwidth: 64,
+            bits: vec![],
+        });
+        // vk.xml alias: VkPipelineCreateFlags2KHR → VkPipelineCreateFlags2
+        reg.aliases.push(AliasDef {
+            name: "VkPipelineCreateFlags2KHR".to_string(),
+            target: "VkPipelineCreateFlags2".to_string(),
+            kind: AliasKind::Type,
+        });
+        // A struct that references the KHR alias
+        reg.structs.push(StructDef {
+            name: "Test".to_string(),
+            members: vec![make_member("flags", "VkPipelineCreateFlags2KHR")],
+            extends: vec![],
+            returned_only: false,
+            is_union: false,
+            provided_by: None,
+        });
+        let code = emit_flags_aliases(&reg).to_string();
+        assert!(
+            code.contains("PipelineCreateFlags2KHR"),
+            "should emit alias for KHR variant"
+        );
+        assert!(
+            !code.contains("u64"),
+            "should NOT fall back to raw u64 — should alias to the real type: {code}"
+        );
     }
 
     #[test]

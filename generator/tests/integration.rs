@@ -2,9 +2,17 @@
 //!
 //! This catches type resolution bugs that unit tests miss — any broken type
 //! across 161k lines of generated Rust will surface as a compile error.
+//!
+//! These tests share generated output files, so they run under a process-wide
+//! mutex to prevent races when cargo runs tests in parallel.
 
 use std::path::Path;
 use std::process::Command;
+use std::sync::Mutex;
+
+/// Serialize all generator integration tests to avoid parallel writes to
+/// the same output files.
+static GENERATOR_LOCK: Mutex<()> = Mutex::new(());
 
 fn cargo() -> Command {
     let mut cmd = Command::new(env!("CARGO"));
@@ -18,6 +26,7 @@ fn workspace_root() -> &'static Path {
 
 #[test]
 fn generator_runs_successfully() {
+    let _lock = GENERATOR_LOCK.lock().unwrap();
     let output = cargo()
         .args(["run", "-p", "generator"])
         .output()
@@ -28,6 +37,7 @@ fn generator_runs_successfully() {
 
 #[test]
 fn generated_output_compiles() {
+    let _lock = GENERATOR_LOCK.lock().unwrap();
     // Ensure generator has run first.
     let run = cargo()
         .args(["run", "-p", "generator"])
@@ -53,6 +63,7 @@ fn generated_output_compiles() {
 /// making the test self-contained regardless of parallel test execution.
 #[test]
 fn generator_output_is_deterministic() {
+    let _lock = GENERATOR_LOCK.lock().unwrap();
     let root = workspace_root();
 
     let generated_files: Vec<std::path::PathBuf> = vec![
