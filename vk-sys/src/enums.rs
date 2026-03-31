@@ -1599,6 +1599,7 @@ impl core::fmt::Debug for DescriptorType {
 #[doc(alias = "VkDescriptorUpdateTemplateType")]
 pub struct DescriptorUpdateTemplateType(i32);
 impl DescriptorUpdateTemplateType {
+    ///Create descriptor update template for descriptor set updates
     pub const DESCRIPTOR_SET: Self = Self(0i32);
     pub const PUSH_DESCRIPTORS: Self = Self(1i32);
     #[inline]
@@ -1675,6 +1676,7 @@ impl core::fmt::Debug for DeviceEventTypeEXT {
 #[doc(alias = "VkDeviceFaultAddressTypeKHR")]
 pub struct DeviceFaultAddressTypeKHR(i32);
 impl DeviceFaultAddressTypeKHR {
+    ///Currently unused
     pub const NONE: Self = Self(0i32);
     pub const READ_INVALID: Self = Self(1i32);
     pub const WRITE_INVALID: Self = Self(2i32);
@@ -1938,33 +1940,61 @@ impl core::fmt::Debug for DisplaySurfaceStereoTypeNV {
 #[doc(alias = "VkDriverId")]
 pub struct DriverId(i32);
 impl DriverId {
+    ///Advanced Micro Devices, Inc.
     pub const AMD_PROPRIETARY: Self = Self(1i32);
+    ///Advanced Micro Devices, Inc.
     pub const AMD_OPEN_SOURCE: Self = Self(2i32);
+    ///Mesa open source project
     pub const MESA_RADV: Self = Self(3i32);
+    ///NVIDIA Corporation
     pub const NVIDIA_PROPRIETARY: Self = Self(4i32);
+    ///Intel Corporation
     pub const INTEL_PROPRIETARY_WINDOWS: Self = Self(5i32);
+    ///Intel Corporation
     pub const INTEL_OPEN_SOURCE: Self = Self(6i32);
+    ///Imagination Technologies
     pub const IMAGINATION_PROPRIETARY: Self = Self(7i32);
+    ///Qualcomm Technologies, Inc.
     pub const QUALCOMM_PROPRIETARY: Self = Self(8i32);
+    ///Arm Limited
     pub const ARM_PROPRIETARY: Self = Self(9i32);
+    ///Google LLC
     pub const GOOGLE_SWIFTSHADER: Self = Self(10i32);
+    ///Google LLC
     pub const GGP_PROPRIETARY: Self = Self(11i32);
+    ///Broadcom Inc.
     pub const BROADCOM_PROPRIETARY: Self = Self(12i32);
+    ///Mesa
     pub const MESA_LLVMPIPE: Self = Self(13i32);
+    ///MoltenVK
     pub const MOLTENVK: Self = Self(14i32);
+    ///Core Avionics & Industrial Inc.
     pub const COREAVI_PROPRIETARY: Self = Self(15i32);
+    ///Juice Technologies, Inc.
     pub const JUICE_PROPRIETARY: Self = Self(16i32);
+    ///Verisilicon, Inc.
     pub const VERISILICON_PROPRIETARY: Self = Self(17i32);
+    ///Mesa open source project
     pub const MESA_TURNIP: Self = Self(18i32);
+    ///Mesa open source project
     pub const MESA_V3DV: Self = Self(19i32);
+    ///Mesa open source project
     pub const MESA_PANVK: Self = Self(20i32);
+    ///Samsung Electronics Co., Ltd.
     pub const SAMSUNG_PROPRIETARY: Self = Self(21i32);
+    ///Mesa open source project
     pub const MESA_VENUS: Self = Self(22i32);
+    ///Mesa open source project
     pub const MESA_DOZEN: Self = Self(23i32);
+    ///Mesa open source project
     pub const MESA_NVK: Self = Self(24i32);
+    ///Imagination Technologies
     pub const IMAGINATION_OPEN_SOURCE: Self = Self(25i32);
+    ///Mesa open source project
     pub const MESA_HONEYKRISP: Self = Self(26i32);
+    ///Vulkan SC Emulation on Vulkan
     pub const VULKAN_SC_EMULATION_ON_VULKAN: Self = Self(27i32);
+    ///Mesa open source project
     pub const MESA_KOSMICKRISP: Self = Self(28i32);
     pub const INTEL_OPEN_SOURCE_: Self = Self::INTEL_OPEN_SOURCE;
     #[inline]
@@ -2054,7 +2084,9 @@ impl DynamicState {
     pub const EXCLUSIVE_SCISSOR: Self = Self(1000205001i32);
     pub const FRAGMENT_SHADING_RATE: Self = Self(1000226000i32);
     pub const VERTEX_INPUT: Self = Self(1000352000i32);
+    ///Not promoted to 1.3
     pub const PATCH_CONTROL_POINTS: Self = Self(1000377000i32);
+    ///Not promoted to 1.3
     pub const LOGIC_OP: Self = Self(1000377003i32);
     pub const COLOR_WRITE_ENABLE: Self = Self(1000381000i32);
     pub const DEPTH_CLAMP_ENABLE: Self = Self(1000455003i32);
@@ -3116,14 +3148,23 @@ impl core::fmt::Debug for GeometryTypeKHR {
 #[doc(alias = "VkImageLayout")]
 pub struct ImageLayout(i32);
 impl ImageLayout {
+    ///Implicit layout an image is when its contents are undefined due to various reasons (e.g. right after creation)
     pub const UNDEFINED: Self = Self(0i32);
+    ///General layout when image can be used for any kind of access
     pub const GENERAL: Self = Self(1i32);
+    ///Optimal layout when image is only used for color attachment read/write
     pub const COLOR_ATTACHMENT_OPTIMAL: Self = Self(2i32);
+    ///Optimal layout when image is only used for depth/stencil attachment read/write
     pub const DEPTH_STENCIL_ATTACHMENT_OPTIMAL: Self = Self(3i32);
+    ///Optimal layout when image is used for read only depth/stencil attachment and shader access
     pub const DEPTH_STENCIL_READ_ONLY_OPTIMAL: Self = Self(4i32);
+    ///Optimal layout when image is used for read only shader access
     pub const SHADER_READ_ONLY_OPTIMAL: Self = Self(5i32);
+    ///Optimal layout when image is used only as source of transfer operations
     pub const TRANSFER_SRC_OPTIMAL: Self = Self(6i32);
+    ///Optimal layout when image is used only as destination of transfer operations
     pub const TRANSFER_DST_OPTIMAL: Self = Self(7i32);
+    ///Initial layout used when the data is populated by the CPU
     pub const PREINITIALIZED: Self = Self(8i32);
     pub const DEPTH_READ_ONLY_STENCIL_ATTACHMENT_OPTIMAL: Self = Self(1000117000i32);
     pub const DEPTH_ATTACHMENT_STENCIL_READ_ONLY_OPTIMAL: Self = Self(1000117001i32);
@@ -3765,7 +3806,9 @@ impl ObjectType {
     pub const DISPLAY: Self = Self(1000002000i32);
     pub const DISPLAY_MODE: Self = Self(1000002001i32);
     pub const DEBUG_REPORT_CALLBACK: Self = Self(1000011000i32);
+    ///VkVideoSessionKHR
     pub const VIDEO_SESSION: Self = Self(1000023000i32);
+    ///VkVideoSessionParametersKHR
     pub const VIDEO_SESSION_PARAMETERS: Self = Self(1000023001i32);
     pub const CU_MODULE: Self = Self(1000029000i32);
     pub const CU_FUNCTION: Self = Self(1000029001i32);
@@ -3777,6 +3820,7 @@ impl ObjectType {
     pub const INDIRECT_COMMANDS_LAYOUT: Self = Self(1000277000i32);
     pub const CUDA_MODULE: Self = Self(1000307000i32);
     pub const CUDA_FUNCTION: Self = Self(1000307001i32);
+    ///VkBufferCollectionFUCHSIA
     pub const BUFFER_COLLECTION: Self = Self(1000366000i32);
     pub const MICROMAP: Self = Self(1000396000i32);
     pub const TENSOR: Self = Self(1000460000i32);
@@ -3784,6 +3828,7 @@ impl ObjectType {
     pub const OPTICAL_FLOW_SESSION: Self = Self(1000464000i32);
     pub const SHADER: Self = Self(1000482000i32);
     pub const PIPELINE_BINARY: Self = Self(1000483000i32);
+    ///VkSemaphoreSciSyncPoolNV
     pub const SEMAPHORE_SCI_SYNC_POOL: Self = Self(1000489000i32);
     pub const DATA_GRAPH_PIPELINE_SESSION: Self = Self(1000507000i32);
     pub const EXTERNAL_COMPUTE_QUEUE: Self = Self(1000556000i32);
@@ -4838,6 +4883,7 @@ impl core::fmt::Debug for QueryResultStatusKHR {
 pub struct QueryType(i32);
 impl QueryType {
     pub const OCCLUSION: Self = Self(0i32);
+    ///Optional
     pub const PIPELINE_STATISTICS: Self = Self(1i32);
     pub const TIMESTAMP: Self = Self(2i32);
     pub const RESULT_STATUS_ONLY: Self = Self(1000023000i32);
@@ -5063,24 +5109,43 @@ impl core::fmt::Debug for RayTracingShaderGroupTypeKHR {
 #[doc(alias = "VkResult")]
 pub struct Result(i32);
 impl Result {
+    ///Command completed successfully
     pub const SUCCESS: Self = Self(0i32);
+    ///A fence or query has not yet completed
     pub const NOT_READY: Self = Self(1i32);
+    ///A wait operation has not completed in the specified time
     pub const TIMEOUT: Self = Self(2i32);
+    ///An event is signaled
     pub const EVENT_SET: Self = Self(3i32);
+    ///An event is unsignaled
     pub const EVENT_RESET: Self = Self(4i32);
+    ///A return array was too small for the result
     pub const INCOMPLETE: Self = Self(5i32);
+    ///A host memory allocation has failed
     pub const ERROR_OUT_OF_HOST_MEMORY: Self = Self(-1i32);
+    ///A device memory allocation has failed
     pub const ERROR_OUT_OF_DEVICE_MEMORY: Self = Self(-2i32);
+    ///Initialization of an object has failed
     pub const ERROR_INITIALIZATION_FAILED: Self = Self(-3i32);
+    ///The logical device has been lost. See <<devsandqueues-lost-device>>
     pub const ERROR_DEVICE_LOST: Self = Self(-4i32);
+    ///Mapping of a memory object has failed
     pub const ERROR_MEMORY_MAP_FAILED: Self = Self(-5i32);
+    ///Layer specified does not exist
     pub const ERROR_LAYER_NOT_PRESENT: Self = Self(-6i32);
+    ///Extension specified does not exist
     pub const ERROR_EXTENSION_NOT_PRESENT: Self = Self(-7i32);
+    ///Requested feature is not available on this device
     pub const ERROR_FEATURE_NOT_PRESENT: Self = Self(-8i32);
+    ///Unable to find a Vulkan driver
     pub const ERROR_INCOMPATIBLE_DRIVER: Self = Self(-9i32);
+    ///Too many objects of the type have already been created
     pub const ERROR_TOO_MANY_OBJECTS: Self = Self(-10i32);
+    ///Requested format is not supported on this device
     pub const ERROR_FORMAT_NOT_SUPPORTED: Self = Self(-11i32);
+    ///A requested pool allocation has failed due to fragmentation of the pool's memory
     pub const ERROR_FRAGMENTED_POOL: Self = Self(-12i32);
+    ///An unknown error has occurred, due to an implementation or application bug
     pub const ERROR_UNKNOWN: Self = Self(-13i32);
     pub const ERROR_VALIDATION_FAILED: Self = Self(-1000011001i32);
     pub const ERROR_OUT_OF_POOL_MEMORY: Self = Self(-1000069000i32);
@@ -5200,6 +5265,7 @@ impl SamplerAddressMode {
     pub const MIRRORED_REPEAT: Self = Self(1i32);
     pub const CLAMP_TO_EDGE: Self = Self(2i32);
     pub const CLAMP_TO_BORDER: Self = Self(3i32);
+    ///No need to add an extnumber attribute, since this uses a core enum value
     pub const MIRROR_CLAMP_TO_EDGE: Self = Self(4i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
@@ -5228,7 +5294,9 @@ impl core::fmt::Debug for SamplerAddressMode {
 #[doc(alias = "VkSamplerMipmapMode")]
 pub struct SamplerMipmapMode(i32);
 impl SamplerMipmapMode {
+    ///Choose nearest mip level
     pub const NEAREST: Self = Self(0i32);
+    ///Linear filter between mip levels
     pub const LINEAR: Self = Self(1i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
@@ -5285,9 +5353,13 @@ impl core::fmt::Debug for SamplerReductionMode {
 pub struct SamplerYcbcrModelConversion(i32);
 impl SamplerYcbcrModelConversion {
     pub const RGB_IDENTITY: Self = Self(0i32);
+    ///just range expansion
     pub const YCBCR_IDENTITY: Self = Self(1i32);
+    ///aka HD YUV
     pub const YCBCR_709: Self = Self(2i32);
+    ///aka SD YUV
     pub const YCBCR_601: Self = Self(3i32);
+    ///aka UHD YUV
     pub const YCBCR_2020: Self = Self(4i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
@@ -5316,7 +5388,9 @@ impl core::fmt::Debug for SamplerYcbcrModelConversion {
 #[doc(alias = "VkSamplerYcbcrRange")]
 pub struct SamplerYcbcrRange(i32);
 impl SamplerYcbcrRange {
+    ///Luma 0..1 maps to 0..255, chroma -0.5..0.5 to 1..255 (clamped)
     pub const ITU_FULL: Self = Self(0i32);
+    ///Luma 0..1 maps to 16..235, chroma -0.5..0.5 to 16..240
     pub const ITU_NARROW: Self = Self(1i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {
@@ -5723,7 +5797,9 @@ impl StructureType {
     pub const BUFFER_MEMORY_BARRIER: Self = Self(44i32);
     pub const IMAGE_MEMORY_BARRIER: Self = Self(45i32);
     pub const MEMORY_BARRIER: Self = Self(46i32);
+    ///Reserved for internal use by the loader, layers, and ICDs
     pub const LOADER_INSTANCE_CREATE_INFO: Self = Self(47i32);
+    ///Reserved for internal use by the loader, layers, and ICDs
     pub const LOADER_DEVICE_CREATE_INFO: Self = Self(48i32);
     pub const BIND_BUFFER_MEMORY_INFO: Self = Self(1000157000i32);
     pub const BIND_IMAGE_MEMORY_INFO: Self = Self(1000157001i32);
@@ -6439,6 +6515,7 @@ impl StructureType {
     pub const SURFACE_FULL_SCREEN_EXCLUSIVE_WIN32_INFO: Self = Self(1000255001i32);
     pub const HEADLESS_SURFACE_CREATE_INFO: Self = Self(1000256000i32);
     pub const PHYSICAL_DEVICE_SHADER_ATOMIC_FLOAT_FEATURES: Self = Self(1000260000i32);
+    ///Not promoted to 1.3
     pub const PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_FEATURES: Self = Self(
         1000267000i32,
     );
@@ -6472,6 +6549,7 @@ impl StructureType {
     pub const COMMAND_BUFFER_INHERITANCE_VIEWPORT_SCISSOR_INFO: Self = Self(
         1000278001i32,
     );
+    ///Not promoted to 1.3
     pub const PHYSICAL_DEVICE_TEXEL_BUFFER_ALIGNMENT_FEATURES: Self = Self(
         1000281000i32,
     );
@@ -6696,6 +6774,7 @@ impl StructureType {
     );
     pub const SUBPASS_RESOLVE_PERFORMANCE_QUERY: Self = Self(1000376001i32);
     pub const MULTISAMPLED_RENDER_TO_SINGLE_SAMPLED_INFO: Self = Self(1000376002i32);
+    ///Not promoted to 1.3
     pub const PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_2_FEATURES: Self = Self(
         1000377000i32,
     );
@@ -9329,12 +9408,19 @@ impl core::fmt::Debug for ValidationFeatureEnableEXT {
 #[doc(alias = "VkVendorId")]
 pub struct VendorId(i32);
 impl VendorId {
+    ///Khronos vendor ID
     pub const KHRONOS: Self = Self(65536i32);
+    ///Vivante vendor ID
     pub const VIV: Self = Self(65537i32);
+    ///VeriSilicon vendor ID
     pub const VSI: Self = Self(65538i32);
+    ///Kazan Software Renderer
     pub const KAZAN: Self = Self(65539i32);
+    ///Codeplay Software Ltd. vendor ID
     pub const CODEPLAY: Self = Self(65540i32);
+    ///PoCL vendor ID
     pub const POCL: Self = Self(65542i32);
+    ///Mobileye vendor ID
     pub const MOBILEYE: Self = Self(65543i32);
     #[inline]
     pub const fn from_raw(value: i32) -> Self {

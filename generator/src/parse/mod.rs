@@ -72,6 +72,7 @@ pub struct EnumDef {
 pub struct EnumVariant {
     pub name: String,
     pub value: EnumValue,
+    pub comment: Option<String>,
 }
 
 #[derive(Debug)]

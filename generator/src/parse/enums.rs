@@ -77,6 +77,7 @@ fn parse_enum_variant(e: &Enum) -> Option<EnumVariant> {
     Some(EnumVariant {
         name: e.name.clone(),
         value,
+        comment: e.comment.clone(),
     })
 }
 
@@ -193,6 +194,7 @@ fn parse_extension_enum_variant(e: &Enum, ext_number: Option<i64>) -> Option<Enu
     Some(EnumVariant {
         name: e.name.clone(),
         value,
+        comment: e.comment.clone(),
     })
 }
 
