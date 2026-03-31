@@ -323,7 +323,52 @@ fn all_struct_members_resolve() {
 }
 
 // ═══════════════════════════════════════════════════════════════════
-// Test 9: Command dispatch level classification
+// Test 9: pNext builder lifetime safety
+// ═══════════════════════════════════════════════════════════════════
+
+/// Every `push_next` method must take `&'a mut T` so the borrow checker
+/// ties the pNext target's lifetime to the builder. If this pattern
+/// breaks for any struct, pNext chain safety is silently lost.
+#[test]
+fn push_next_methods_have_lifetime_tie() {
+    let builders_rs = read_generated("vk-sys/src/builders.rs");
+
+    let push_next_count = builders_rs.matches("fn push_next").count();
+    let lifetime_count = builders_rs.matches("&'a mut T").count();
+
+    assert!(
+        push_next_count > 0,
+        "No push_next methods found in builders.rs"
+    );
+    assert_eq!(
+        push_next_count, lifetime_count,
+        "Some push_next methods are missing the &'a mut T lifetime tie: \
+         found {push_next_count} push_next but only {lifetime_count} with &'a mut T"
+    );
+}
+
+/// Builder count must not decrease. A decrease means extensible structs
+/// stopped getting builders, breaking the ergonomic API.
+#[test]
+fn builder_count_does_not_regress() {
+    let builders_rs = read_generated("vk-sys/src/builders.rs");
+
+    let builder_count = builders_rs.matches("pub struct ").count();
+    let push_next_count = builders_rs.matches("fn push_next").count();
+
+    // Current baseline: 1227 builders, 978 with push_next.
+    assert!(
+        builder_count >= 1200,
+        "Builder count regressed: found {builder_count}, expected >= 1200"
+    );
+    assert!(
+        push_next_count >= 950,
+        "push_next count regressed: found {push_next_count}, expected >= 950"
+    );
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// Test 10: Command dispatch level classification
 // ═══════════════════════════════════════════════════════════════════
 
 /// For every command in InstanceCommands, its first parameter must be
