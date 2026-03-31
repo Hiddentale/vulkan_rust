@@ -1,23 +1,10 @@
-mod emit_aliases;
-mod emit_bitmasks;
-mod emit_builders;
-mod emit_commands;
-mod emit_constants;
-mod emit_enums;
-mod emit_handles;
-mod emit_structs;
-mod emit_wrappers;
-#[allow(dead_code)]
-mod parse;
-mod resolve_types;
-mod stype;
-#[allow(dead_code)]
-mod type_map;
-mod validate;
-mod wrapper_utils;
-
 use std::fs;
 use std::path::Path;
+
+use generator::{
+    emit_bitmasks, emit_builders, emit_commands, emit_constants, emit_enums, emit_handles,
+    emit_structs, emit_wrappers, parse, validate,
+};
 
 fn main() {
     let vk_xml = Path::new(env!("CARGO_MANIFEST_DIR")).join("vk.xml");

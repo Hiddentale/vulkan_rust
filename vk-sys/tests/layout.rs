@@ -137,3 +137,37 @@ fn memory_barrier2_layout() {
     assert_eq!(size_of::<structs::MemoryBarrier2>(), 48);
     assert_eq!(align_of::<structs::MemoryBarrier2>(), 8);
 }
+
+// ── 64-bit bitmask aliases match their targets ────────────────────
+// KHR/NV aliases of 64-bit flags must be the same size as the core type.
+#[test]
+fn bitmask_64bit_aliases_match_target_size() {
+    assert_eq!(
+        size_of::<structs::PipelineCreateFlags2KHR>(),
+        size_of::<bitmasks::PipelineCreateFlagBits2>(),
+    );
+    assert_eq!(
+        size_of::<structs::PipelineStageFlags2KHR>(),
+        size_of::<bitmasks::PipelineStageFlagBits2>(),
+    );
+    assert_eq!(
+        size_of::<structs::MemoryDecompressionMethodFlagsNV>(),
+        size_of::<bitmasks::MemoryDecompressionMethodFlagBitsEXT>(),
+    );
+}
+
+// ── High-bit constants for 64-bit bitmasks ────────────────────────
+// At least one constant must exceed u32::MAX, proving no silent truncation.
+#[test]
+fn bitmask_64bit_has_high_bit_constants() {
+    // AccessFlagBits2: SHADER_SAMPLED_READ is bit 32
+    assert!(
+        bitmasks::AccessFlagBits2::_2_SHADER_SAMPLED_READ.as_raw() > u32::MAX as u64,
+        "AccessFlagBits2 should have constants above u32::MAX"
+    );
+    // PipelineStageFlagBits2: COPY is bit 32
+    assert!(
+        bitmasks::PipelineStageFlagBits2::_2_COPY.as_raw() > u32::MAX as u64,
+        "PipelineStageFlagBits2 should have constants above u32::MAX"
+    );
+}
