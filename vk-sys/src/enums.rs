@@ -5127,7 +5127,7 @@ impl Result {
     pub const ERROR_OUT_OF_DEVICE_MEMORY: Self = Self(-2i32);
     ///Initialization of an object has failed
     pub const ERROR_INITIALIZATION_FAILED: Self = Self(-3i32);
-    ///The logical device has been lost. See <<devsandqueues-lost-device>>
+    ///The logical device has been lost. See `devsandqueues-lost-device`
     pub const ERROR_DEVICE_LOST: Self = Self(-4i32);
     ///Mapping of a memory object has failed
     pub const ERROR_MEMORY_MAP_FAILED: Self = Self(-5i32);

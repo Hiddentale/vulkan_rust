@@ -43496,6033 +43496,6023 @@ impl Default for DeviceFaultShaderAbortMessageInfoKHR {
     }
 }
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkAccelerationStructureBuildGeometryInfoKHR", "`].")]
+#[doc = concat!("[`", "AccelerationStructureBuildGeometryInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsAccelerationStructureBuildGeometryInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkAccelerationStructureCaptureDescriptorDataInfoEXT", "`].")]
+#[doc = concat!("[`", "AccelerationStructureCaptureDescriptorDataInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsAccelerationStructureCaptureDescriptorDataInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkAccelerationStructureCreateInfo2KHR", "`].")]
+#[doc = concat!("[`", "AccelerationStructureCreateInfo2KHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsAccelerationStructureCreateInfo2KHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkAccelerationStructureCreateInfoKHR", "`].")]
+#[doc = concat!("[`", "AccelerationStructureCreateInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsAccelerationStructureCreateInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkAccelerationStructureCreateInfoNV", "`].")]
+#[doc = concat!("[`", "AccelerationStructureCreateInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsAccelerationStructureCreateInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
 #[doc = concat!(
-    "[`", "VkAccelerationStructureDenseGeometryFormatTrianglesDataAMDX", "`]."
+    "[`", "AccelerationStructureDenseGeometryFormatTrianglesDataAMDX", "`]."
 )]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsAccelerationStructureDenseGeometryFormatTrianglesDataAMDX {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkAccelerationStructureDeviceAddressInfoKHR", "`].")]
+#[doc = concat!("[`", "AccelerationStructureDeviceAddressInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsAccelerationStructureDeviceAddressInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkAccelerationStructureGeometryAabbsDataKHR", "`].")]
+#[doc = concat!("[`", "AccelerationStructureGeometryAabbsDataKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsAccelerationStructureGeometryAabbsDataKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkAccelerationStructureGeometryInstancesDataKHR", "`].")]
+#[doc = concat!("[`", "AccelerationStructureGeometryInstancesDataKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsAccelerationStructureGeometryInstancesDataKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkAccelerationStructureGeometryKHR", "`].")]
+#[doc = concat!("[`", "AccelerationStructureGeometryKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsAccelerationStructureGeometryKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkAccelerationStructureGeometryLinearSweptSpheresDataNV", "`].")]
+#[doc = concat!("[`", "AccelerationStructureGeometryLinearSweptSpheresDataNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsAccelerationStructureGeometryLinearSweptSpheresDataNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkAccelerationStructureGeometryMotionTrianglesDataNV", "`].")]
+#[doc = concat!("[`", "AccelerationStructureGeometryMotionTrianglesDataNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsAccelerationStructureGeometryMotionTrianglesDataNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkAccelerationStructureGeometrySpheresDataNV", "`].")]
+#[doc = concat!("[`", "AccelerationStructureGeometrySpheresDataNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsAccelerationStructureGeometrySpheresDataNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkAccelerationStructureGeometryTrianglesDataKHR", "`].")]
+#[doc = concat!("[`", "AccelerationStructureGeometryTrianglesDataKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsAccelerationStructureGeometryTrianglesDataKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkAccelerationStructureInfoNV", "`].")]
+#[doc = concat!("[`", "AccelerationStructureInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsAccelerationStructureInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkAccelerationStructureMemoryRequirementsInfoNV", "`].")]
+#[doc = concat!("[`", "AccelerationStructureMemoryRequirementsInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsAccelerationStructureMemoryRequirementsInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkAccelerationStructureMotionInfoNV", "`].")]
+#[doc = concat!("[`", "AccelerationStructureMotionInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsAccelerationStructureMotionInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkAccelerationStructureTrianglesDisplacementMicromapNV", "`].")]
+#[doc = concat!("[`", "AccelerationStructureTrianglesDisplacementMicromapNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsAccelerationStructureTrianglesDisplacementMicromapNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkAccelerationStructureTrianglesOpacityMicromapEXT", "`].")]
+#[doc = concat!("[`", "AccelerationStructureTrianglesOpacityMicromapEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsAccelerationStructureTrianglesOpacityMicromapEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkAccelerationStructureVersionInfoKHR", "`].")]
+#[doc = concat!("[`", "AccelerationStructureVersionInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsAccelerationStructureVersionInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkAcquireNextImageInfoKHR", "`].")]
+#[doc = concat!("[`", "AcquireNextImageInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsAcquireNextImageInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkAcquireProfilingLockInfoKHR", "`].")]
+#[doc = concat!("[`", "AcquireProfilingLockInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsAcquireProfilingLockInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkAmigoProfilingSubmitInfoSEC", "`].")]
+#[doc = concat!("[`", "AmigoProfilingSubmitInfoSEC", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsAmigoProfilingSubmitInfoSEC {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkAndroidHardwareBufferPropertiesANDROID", "`].")]
+#[doc = concat!("[`", "AndroidHardwareBufferPropertiesANDROID", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsAndroidHardwareBufferPropertiesANDROID {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkAndroidSurfaceCreateInfoKHR", "`].")]
+#[doc = concat!("[`", "AndroidSurfaceCreateInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsAndroidSurfaceCreateInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkAntiLagDataAMD", "`].")]
+#[doc = concat!("[`", "AntiLagDataAMD", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsAntiLagDataAMD {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkAntiLagPresentationInfoAMD", "`].")]
+#[doc = concat!("[`", "AntiLagPresentationInfoAMD", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsAntiLagPresentationInfoAMD {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkApplicationInfo", "`].")]
+#[doc = concat!("[`", "ApplicationInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsApplicationInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkApplicationParametersEXT", "`].")]
+#[doc = concat!("[`", "ApplicationParametersEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsApplicationParametersEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkAttachmentDescription2", "`].")]
+#[doc = concat!("[`", "AttachmentDescription2", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsAttachmentDescription2 {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkAttachmentDescriptionStencilLayout", "`].")]
+#[doc = concat!("[`", "AttachmentDescriptionStencilLayout", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsAttachmentDescriptionStencilLayout {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkAttachmentFeedbackLoopInfoEXT", "`].")]
+#[doc = concat!("[`", "AttachmentFeedbackLoopInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsAttachmentFeedbackLoopInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkAttachmentReference2", "`].")]
+#[doc = concat!("[`", "AttachmentReference2", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsAttachmentReference2 {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkAttachmentReferenceStencilLayout", "`].")]
+#[doc = concat!("[`", "AttachmentReferenceStencilLayout", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsAttachmentReferenceStencilLayout {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkAttachmentSampleCountInfoAMD", "`].")]
+#[doc = concat!("[`", "AttachmentSampleCountInfoAMD", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsAttachmentSampleCountInfoAMD {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBaseInStructure", "`].")]
+#[doc = concat!("[`", "BaseInStructure", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBaseInStructure {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBaseOutStructure", "`].")]
+#[doc = concat!("[`", "BaseOutStructure", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBaseOutStructure {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBeginCustomResolveInfoEXT", "`].")]
+#[doc = concat!("[`", "BeginCustomResolveInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBeginCustomResolveInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBindAccelerationStructureMemoryInfoNV", "`].")]
+#[doc = concat!("[`", "BindAccelerationStructureMemoryInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBindAccelerationStructureMemoryInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBindBufferMemoryDeviceGroupInfo", "`].")]
+#[doc = concat!("[`", "BindBufferMemoryDeviceGroupInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBindBufferMemoryDeviceGroupInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBindBufferMemoryInfo", "`].")]
+#[doc = concat!("[`", "BindBufferMemoryInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBindBufferMemoryInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBindDataGraphPipelineSessionMemoryInfoARM", "`].")]
+#[doc = concat!("[`", "BindDataGraphPipelineSessionMemoryInfoARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBindDataGraphPipelineSessionMemoryInfoARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBindDescriptorBufferEmbeddedSamplersInfoEXT", "`].")]
+#[doc = concat!("[`", "BindDescriptorBufferEmbeddedSamplersInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBindDescriptorBufferEmbeddedSamplersInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBindDescriptorSetsInfo", "`].")]
+#[doc = concat!("[`", "BindDescriptorSetsInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBindDescriptorSetsInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBindHeapInfoEXT", "`].")]
+#[doc = concat!("[`", "BindHeapInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBindHeapInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBindImageMemoryDeviceGroupInfo", "`].")]
+#[doc = concat!("[`", "BindImageMemoryDeviceGroupInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBindImageMemoryDeviceGroupInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBindImageMemoryInfo", "`].")]
+#[doc = concat!("[`", "BindImageMemoryInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBindImageMemoryInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBindImageMemorySwapchainInfoKHR", "`].")]
+#[doc = concat!("[`", "BindImageMemorySwapchainInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBindImageMemorySwapchainInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBindImagePlaneMemoryInfo", "`].")]
+#[doc = concat!("[`", "BindImagePlaneMemoryInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBindImagePlaneMemoryInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBindIndexBuffer3InfoKHR", "`].")]
+#[doc = concat!("[`", "BindIndexBuffer3InfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBindIndexBuffer3InfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBindMemoryStatus", "`].")]
+#[doc = concat!("[`", "BindMemoryStatus", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBindMemoryStatus {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBindSparseInfo", "`].")]
+#[doc = concat!("[`", "BindSparseInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBindSparseInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBindTensorMemoryInfoARM", "`].")]
+#[doc = concat!("[`", "BindTensorMemoryInfoARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBindTensorMemoryInfoARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBindTransformFeedbackBuffer2InfoEXT", "`].")]
+#[doc = concat!("[`", "BindTransformFeedbackBuffer2InfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBindTransformFeedbackBuffer2InfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBindVertexBuffer3InfoKHR", "`].")]
+#[doc = concat!("[`", "BindVertexBuffer3InfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBindVertexBuffer3InfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBindVideoSessionMemoryInfoKHR", "`].")]
+#[doc = concat!("[`", "BindVideoSessionMemoryInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBindVideoSessionMemoryInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBlitImageCubicWeightsInfoQCOM", "`].")]
+#[doc = concat!("[`", "BlitImageCubicWeightsInfoQCOM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBlitImageCubicWeightsInfoQCOM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBlitImageInfo2", "`].")]
+#[doc = concat!("[`", "BlitImageInfo2", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBlitImageInfo2 {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBufferCaptureDescriptorDataInfoEXT", "`].")]
+#[doc = concat!("[`", "BufferCaptureDescriptorDataInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBufferCaptureDescriptorDataInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBufferCollectionBufferCreateInfoFUCHSIA", "`].")]
+#[doc = concat!("[`", "BufferCollectionBufferCreateInfoFUCHSIA", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBufferCollectionBufferCreateInfoFUCHSIA {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBufferCollectionConstraintsInfoFUCHSIA", "`].")]
+#[doc = concat!("[`", "BufferCollectionConstraintsInfoFUCHSIA", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBufferCollectionConstraintsInfoFUCHSIA {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBufferCollectionCreateInfoFUCHSIA", "`].")]
+#[doc = concat!("[`", "BufferCollectionCreateInfoFUCHSIA", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBufferCollectionCreateInfoFUCHSIA {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBufferCollectionImageCreateInfoFUCHSIA", "`].")]
+#[doc = concat!("[`", "BufferCollectionImageCreateInfoFUCHSIA", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBufferCollectionImageCreateInfoFUCHSIA {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBufferConstraintsInfoFUCHSIA", "`].")]
+#[doc = concat!("[`", "BufferConstraintsInfoFUCHSIA", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBufferConstraintsInfoFUCHSIA {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBufferCopy2", "`].")]
+#[doc = concat!("[`", "BufferCopy2", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBufferCopy2 {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBufferCreateInfo", "`].")]
+#[doc = concat!("[`", "BufferCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBufferCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBufferDeviceAddressCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "BufferDeviceAddressCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBufferDeviceAddressCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBufferDeviceAddressInfo", "`].")]
+#[doc = concat!("[`", "BufferDeviceAddressInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBufferDeviceAddressInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBufferImageCopy2", "`].")]
+#[doc = concat!("[`", "BufferImageCopy2", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBufferImageCopy2 {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBufferMemoryBarrier", "`].")]
+#[doc = concat!("[`", "BufferMemoryBarrier", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBufferMemoryBarrier {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBufferMemoryBarrier2", "`].")]
+#[doc = concat!("[`", "BufferMemoryBarrier2", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBufferMemoryBarrier2 {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBufferMemoryRequirementsInfo2", "`].")]
+#[doc = concat!("[`", "BufferMemoryRequirementsInfo2", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBufferMemoryRequirementsInfo2 {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBufferOpaqueCaptureAddressCreateInfo", "`].")]
+#[doc = concat!("[`", "BufferOpaqueCaptureAddressCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBufferOpaqueCaptureAddressCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBufferUsageFlags2CreateInfo", "`].")]
+#[doc = concat!("[`", "BufferUsageFlags2CreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBufferUsageFlags2CreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBufferViewCreateInfo", "`].")]
+#[doc = concat!("[`", "BufferViewCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBufferViewCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkBuildPartitionedAccelerationStructureInfoNV", "`].")]
+#[doc = concat!("[`", "BuildPartitionedAccelerationStructureInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsBuildPartitionedAccelerationStructureInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCalibratedTimestampInfoKHR", "`].")]
+#[doc = concat!("[`", "CalibratedTimestampInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCalibratedTimestampInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkClusterAccelerationStructureClustersBottomLevelInputNV", "`].")]
+#[doc = concat!("[`", "ClusterAccelerationStructureClustersBottomLevelInputNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsClusterAccelerationStructureClustersBottomLevelInputNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkClusterAccelerationStructureCommandsInfoNV", "`].")]
+#[doc = concat!("[`", "ClusterAccelerationStructureCommandsInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsClusterAccelerationStructureCommandsInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkClusterAccelerationStructureInputInfoNV", "`].")]
+#[doc = concat!("[`", "ClusterAccelerationStructureInputInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsClusterAccelerationStructureInputInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkClusterAccelerationStructureMoveObjectsInputNV", "`].")]
+#[doc = concat!("[`", "ClusterAccelerationStructureMoveObjectsInputNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsClusterAccelerationStructureMoveObjectsInputNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkClusterAccelerationStructureTriangleClusterInputNV", "`].")]
+#[doc = concat!("[`", "ClusterAccelerationStructureTriangleClusterInputNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsClusterAccelerationStructureTriangleClusterInputNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCommandBufferAllocateInfo", "`].")]
+#[doc = concat!("[`", "CommandBufferAllocateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCommandBufferAllocateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCommandBufferBeginInfo", "`].")]
+#[doc = concat!("[`", "CommandBufferBeginInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCommandBufferBeginInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCommandBufferInheritanceConditionalRenderingInfoEXT", "`].")]
+#[doc = concat!("[`", "CommandBufferInheritanceConditionalRenderingInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCommandBufferInheritanceConditionalRenderingInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCommandBufferInheritanceDescriptorHeapInfoEXT", "`].")]
+#[doc = concat!("[`", "CommandBufferInheritanceDescriptorHeapInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCommandBufferInheritanceDescriptorHeapInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCommandBufferInheritanceInfo", "`].")]
+#[doc = concat!("[`", "CommandBufferInheritanceInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCommandBufferInheritanceInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCommandBufferInheritanceRenderPassTransformInfoQCOM", "`].")]
+#[doc = concat!("[`", "CommandBufferInheritanceRenderPassTransformInfoQCOM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCommandBufferInheritanceRenderPassTransformInfoQCOM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCommandBufferInheritanceRenderingInfo", "`].")]
+#[doc = concat!("[`", "CommandBufferInheritanceRenderingInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCommandBufferInheritanceRenderingInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCommandBufferInheritanceViewportScissorInfoNV", "`].")]
+#[doc = concat!("[`", "CommandBufferInheritanceViewportScissorInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCommandBufferInheritanceViewportScissorInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCommandBufferSubmitInfo", "`].")]
+#[doc = concat!("[`", "CommandBufferSubmitInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCommandBufferSubmitInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCommandPoolCreateInfo", "`].")]
+#[doc = concat!("[`", "CommandPoolCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCommandPoolCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCommandPoolMemoryReservationCreateInfo", "`].")]
+#[doc = concat!("[`", "CommandPoolMemoryReservationCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCommandPoolMemoryReservationCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkComputeOccupancyPriorityParametersNV", "`].")]
+#[doc = concat!("[`", "ComputeOccupancyPriorityParametersNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsComputeOccupancyPriorityParametersNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkComputePipelineCreateInfo", "`].")]
+#[doc = concat!("[`", "ComputePipelineCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsComputePipelineCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkComputePipelineIndirectBufferInfoNV", "`].")]
+#[doc = concat!("[`", "ComputePipelineIndirectBufferInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsComputePipelineIndirectBufferInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkConditionalRenderingBeginInfo2EXT", "`].")]
+#[doc = concat!("[`", "ConditionalRenderingBeginInfo2EXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsConditionalRenderingBeginInfo2EXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkConditionalRenderingBeginInfoEXT", "`].")]
+#[doc = concat!("[`", "ConditionalRenderingBeginInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsConditionalRenderingBeginInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkConvertCooperativeVectorMatrixInfoNV", "`].")]
+#[doc = concat!("[`", "ConvertCooperativeVectorMatrixInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsConvertCooperativeVectorMatrixInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCooperativeVectorPropertiesNV", "`].")]
+#[doc = concat!("[`", "CooperativeVectorPropertiesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCooperativeVectorPropertiesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCopyAccelerationStructureInfoKHR", "`].")]
+#[doc = concat!("[`", "CopyAccelerationStructureInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCopyAccelerationStructureInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCopyAccelerationStructureToMemoryInfoKHR", "`].")]
+#[doc = concat!("[`", "CopyAccelerationStructureToMemoryInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCopyAccelerationStructureToMemoryInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCopyBufferInfo2", "`].")]
+#[doc = concat!("[`", "CopyBufferInfo2", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCopyBufferInfo2 {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCopyBufferToImageInfo2", "`].")]
+#[doc = concat!("[`", "CopyBufferToImageInfo2", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCopyBufferToImageInfo2 {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCopyCommandTransformInfoQCOM", "`].")]
+#[doc = concat!("[`", "CopyCommandTransformInfoQCOM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCopyCommandTransformInfoQCOM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCopyDescriptorSet", "`].")]
+#[doc = concat!("[`", "CopyDescriptorSet", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCopyDescriptorSet {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCopyDeviceMemoryImageInfoKHR", "`].")]
+#[doc = concat!("[`", "CopyDeviceMemoryImageInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCopyDeviceMemoryImageInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCopyDeviceMemoryInfoKHR", "`].")]
+#[doc = concat!("[`", "CopyDeviceMemoryInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCopyDeviceMemoryInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCopyImageInfo2", "`].")]
+#[doc = concat!("[`", "CopyImageInfo2", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCopyImageInfo2 {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCopyImageToBufferInfo2", "`].")]
+#[doc = concat!("[`", "CopyImageToBufferInfo2", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCopyImageToBufferInfo2 {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCopyImageToImageInfo", "`].")]
+#[doc = concat!("[`", "CopyImageToImageInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCopyImageToImageInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCopyImageToMemoryInfo", "`].")]
+#[doc = concat!("[`", "CopyImageToMemoryInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCopyImageToMemoryInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCopyMemoryIndirectInfoKHR", "`].")]
+#[doc = concat!("[`", "CopyMemoryIndirectInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCopyMemoryIndirectInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCopyMemoryToAccelerationStructureInfoKHR", "`].")]
+#[doc = concat!("[`", "CopyMemoryToAccelerationStructureInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCopyMemoryToAccelerationStructureInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCopyMemoryToImageIndirectInfoKHR", "`].")]
+#[doc = concat!("[`", "CopyMemoryToImageIndirectInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCopyMemoryToImageIndirectInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCopyMemoryToImageInfo", "`].")]
+#[doc = concat!("[`", "CopyMemoryToImageInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCopyMemoryToImageInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCopyMemoryToMicromapInfoEXT", "`].")]
+#[doc = concat!("[`", "CopyMemoryToMicromapInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCopyMemoryToMicromapInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCopyMicromapInfoEXT", "`].")]
+#[doc = concat!("[`", "CopyMicromapInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCopyMicromapInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCopyMicromapToMemoryInfoEXT", "`].")]
+#[doc = concat!("[`", "CopyMicromapToMemoryInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCopyMicromapToMemoryInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCopyTensorInfoARM", "`].")]
+#[doc = concat!("[`", "CopyTensorInfoARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCopyTensorInfoARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCuFunctionCreateInfoNVX", "`].")]
+#[doc = concat!("[`", "CuFunctionCreateInfoNVX", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCuFunctionCreateInfoNVX {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCuLaunchInfoNVX", "`].")]
+#[doc = concat!("[`", "CuLaunchInfoNVX", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCuLaunchInfoNVX {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCuModuleCreateInfoNVX", "`].")]
+#[doc = concat!("[`", "CuModuleCreateInfoNVX", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCuModuleCreateInfoNVX {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCuModuleTexturingModeCreateInfoNVX", "`].")]
+#[doc = concat!("[`", "CuModuleTexturingModeCreateInfoNVX", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCuModuleTexturingModeCreateInfoNVX {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCudaFunctionCreateInfoNV", "`].")]
+#[doc = concat!("[`", "CudaFunctionCreateInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCudaFunctionCreateInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCudaLaunchInfoNV", "`].")]
+#[doc = concat!("[`", "CudaLaunchInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCudaLaunchInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCudaModuleCreateInfoNV", "`].")]
+#[doc = concat!("[`", "CudaModuleCreateInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCudaModuleCreateInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkCustomResolveCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "CustomResolveCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsCustomResolveCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkD3D12FenceSubmitInfoKHR", "`].")]
+#[doc = concat!("[`", "D3D12FenceSubmitInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsD3D12FenceSubmitInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDataGraphPipelineBuiltinModelCreateInfoQCOM", "`].")]
+#[doc = concat!("[`", "DataGraphPipelineBuiltinModelCreateInfoQCOM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDataGraphPipelineBuiltinModelCreateInfoQCOM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDataGraphPipelineCompilerControlCreateInfoARM", "`].")]
+#[doc = concat!("[`", "DataGraphPipelineCompilerControlCreateInfoARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDataGraphPipelineCompilerControlCreateInfoARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDataGraphPipelineConstantARM", "`].")]
+#[doc = concat!("[`", "DataGraphPipelineConstantARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDataGraphPipelineConstantARM {}
 /// Marker trait for structs that can appear in the pNext chain of
 #[doc = concat!(
-    "[`", "VkDataGraphPipelineConstantTensorSemiStructuredSparsityInfoARM", "`]."
+    "[`", "DataGraphPipelineConstantTensorSemiStructuredSparsityInfoARM", "`]."
 )]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDataGraphPipelineConstantTensorSemiStructuredSparsityInfoARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDataGraphPipelineCreateInfoARM", "`].")]
+#[doc = concat!("[`", "DataGraphPipelineCreateInfoARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDataGraphPipelineCreateInfoARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDataGraphPipelineDispatchInfoARM", "`].")]
+#[doc = concat!("[`", "DataGraphPipelineDispatchInfoARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDataGraphPipelineDispatchInfoARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDataGraphPipelineIdentifierCreateInfoARM", "`].")]
+#[doc = concat!("[`", "DataGraphPipelineIdentifierCreateInfoARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDataGraphPipelineIdentifierCreateInfoARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDataGraphPipelineInfoARM", "`].")]
+#[doc = concat!("[`", "DataGraphPipelineInfoARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDataGraphPipelineInfoARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDataGraphPipelinePropertyQueryResultARM", "`].")]
+#[doc = concat!("[`", "DataGraphPipelinePropertyQueryResultARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDataGraphPipelinePropertyQueryResultARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDataGraphPipelineResourceInfoARM", "`].")]
+#[doc = concat!("[`", "DataGraphPipelineResourceInfoARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDataGraphPipelineResourceInfoARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDataGraphPipelineSessionBindPointRequirementsInfoARM", "`].")]
+#[doc = concat!("[`", "DataGraphPipelineSessionBindPointRequirementsInfoARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDataGraphPipelineSessionBindPointRequirementsInfoARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDataGraphPipelineSessionCreateInfoARM", "`].")]
+#[doc = concat!("[`", "DataGraphPipelineSessionCreateInfoARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDataGraphPipelineSessionCreateInfoARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDataGraphPipelineSessionMemoryRequirementsInfoARM", "`].")]
+#[doc = concat!("[`", "DataGraphPipelineSessionMemoryRequirementsInfoARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDataGraphPipelineSessionMemoryRequirementsInfoARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDataGraphPipelineShaderModuleCreateInfoARM", "`].")]
+#[doc = concat!("[`", "DataGraphPipelineShaderModuleCreateInfoARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDataGraphPipelineShaderModuleCreateInfoARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDataGraphProcessingEngineCreateInfoARM", "`].")]
+#[doc = concat!("[`", "DataGraphProcessingEngineCreateInfoARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDataGraphProcessingEngineCreateInfoARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDebugMarkerMarkerInfoEXT", "`].")]
+#[doc = concat!("[`", "DebugMarkerMarkerInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDebugMarkerMarkerInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDebugMarkerObjectNameInfoEXT", "`].")]
+#[doc = concat!("[`", "DebugMarkerObjectNameInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDebugMarkerObjectNameInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDebugMarkerObjectTagInfoEXT", "`].")]
+#[doc = concat!("[`", "DebugMarkerObjectTagInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDebugMarkerObjectTagInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDebugReportCallbackCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "DebugReportCallbackCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDebugReportCallbackCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDebugUtilsLabelEXT", "`].")]
+#[doc = concat!("[`", "DebugUtilsLabelEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDebugUtilsLabelEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDebugUtilsMessengerCallbackDataEXT", "`].")]
+#[doc = concat!("[`", "DebugUtilsMessengerCallbackDataEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDebugUtilsMessengerCallbackDataEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDebugUtilsMessengerCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "DebugUtilsMessengerCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDebugUtilsMessengerCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDebugUtilsObjectNameInfoEXT", "`].")]
+#[doc = concat!("[`", "DebugUtilsObjectNameInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDebugUtilsObjectNameInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDebugUtilsObjectTagInfoEXT", "`].")]
+#[doc = concat!("[`", "DebugUtilsObjectTagInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDebugUtilsObjectTagInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDecompressMemoryInfoEXT", "`].")]
+#[doc = concat!("[`", "DecompressMemoryInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDecompressMemoryInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDedicatedAllocationBufferCreateInfoNV", "`].")]
+#[doc = concat!("[`", "DedicatedAllocationBufferCreateInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDedicatedAllocationBufferCreateInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDedicatedAllocationImageCreateInfoNV", "`].")]
+#[doc = concat!("[`", "DedicatedAllocationImageCreateInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDedicatedAllocationImageCreateInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDedicatedAllocationMemoryAllocateInfoNV", "`].")]
+#[doc = concat!("[`", "DedicatedAllocationMemoryAllocateInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDedicatedAllocationMemoryAllocateInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDependencyInfo", "`].")]
+#[doc = concat!("[`", "DependencyInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDependencyInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDepthBiasInfoEXT", "`].")]
+#[doc = concat!("[`", "DepthBiasInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDepthBiasInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDepthBiasRepresentationInfoEXT", "`].")]
+#[doc = concat!("[`", "DepthBiasRepresentationInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDepthBiasRepresentationInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDescriptorAddressInfoEXT", "`].")]
+#[doc = concat!("[`", "DescriptorAddressInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDescriptorAddressInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDescriptorBufferBindingInfoEXT", "`].")]
+#[doc = concat!("[`", "DescriptorBufferBindingInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDescriptorBufferBindingInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDescriptorBufferBindingPushDescriptorBufferHandleEXT", "`].")]
+#[doc = concat!("[`", "DescriptorBufferBindingPushDescriptorBufferHandleEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDescriptorBufferBindingPushDescriptorBufferHandleEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDescriptorGetInfoEXT", "`].")]
+#[doc = concat!("[`", "DescriptorGetInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDescriptorGetInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDescriptorGetTensorInfoARM", "`].")]
+#[doc = concat!("[`", "DescriptorGetTensorInfoARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDescriptorGetTensorInfoARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDescriptorPoolCreateInfo", "`].")]
+#[doc = concat!("[`", "DescriptorPoolCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDescriptorPoolCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDescriptorPoolInlineUniformBlockCreateInfo", "`].")]
+#[doc = concat!("[`", "DescriptorPoolInlineUniformBlockCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDescriptorPoolInlineUniformBlockCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDescriptorSetAllocateInfo", "`].")]
+#[doc = concat!("[`", "DescriptorSetAllocateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDescriptorSetAllocateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDescriptorSetAndBindingMappingEXT", "`].")]
+#[doc = concat!("[`", "DescriptorSetAndBindingMappingEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDescriptorSetAndBindingMappingEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDescriptorSetBindingReferenceVALVE", "`].")]
+#[doc = concat!("[`", "DescriptorSetBindingReferenceVALVE", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDescriptorSetBindingReferenceVALVE {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDescriptorSetLayoutBindingFlagsCreateInfo", "`].")]
+#[doc = concat!("[`", "DescriptorSetLayoutBindingFlagsCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDescriptorSetLayoutBindingFlagsCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDescriptorSetLayoutCreateInfo", "`].")]
+#[doc = concat!("[`", "DescriptorSetLayoutCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDescriptorSetLayoutCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDescriptorSetLayoutHostMappingInfoVALVE", "`].")]
+#[doc = concat!("[`", "DescriptorSetLayoutHostMappingInfoVALVE", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDescriptorSetLayoutHostMappingInfoVALVE {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDescriptorSetLayoutSupport", "`].")]
+#[doc = concat!("[`", "DescriptorSetLayoutSupport", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDescriptorSetLayoutSupport {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDescriptorSetVariableDescriptorCountAllocateInfo", "`].")]
+#[doc = concat!("[`", "DescriptorSetVariableDescriptorCountAllocateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDescriptorSetVariableDescriptorCountAllocateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDescriptorUpdateTemplateCreateInfo", "`].")]
+#[doc = concat!("[`", "DescriptorUpdateTemplateCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDescriptorUpdateTemplateCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDeviceAddressBindingCallbackDataEXT", "`].")]
+#[doc = concat!("[`", "DeviceAddressBindingCallbackDataEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDeviceAddressBindingCallbackDataEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDeviceBufferMemoryRequirements", "`].")]
+#[doc = concat!("[`", "DeviceBufferMemoryRequirements", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDeviceBufferMemoryRequirements {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDeviceCreateInfo", "`].")]
+#[doc = concat!("[`", "DeviceCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDeviceCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDeviceDeviceMemoryReportCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "DeviceDeviceMemoryReportCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDeviceDeviceMemoryReportCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDeviceDiagnosticsConfigCreateInfoNV", "`].")]
+#[doc = concat!("[`", "DeviceDiagnosticsConfigCreateInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDeviceDiagnosticsConfigCreateInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDeviceEventInfoEXT", "`].")]
+#[doc = concat!("[`", "DeviceEventInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDeviceEventInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDeviceFaultCountsEXT", "`].")]
+#[doc = concat!("[`", "DeviceFaultCountsEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDeviceFaultCountsEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDeviceFaultDebugInfoKHR", "`].")]
+#[doc = concat!("[`", "DeviceFaultDebugInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDeviceFaultDebugInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDeviceGroupBindSparseInfo", "`].")]
+#[doc = concat!("[`", "DeviceGroupBindSparseInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDeviceGroupBindSparseInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDeviceGroupCommandBufferBeginInfo", "`].")]
+#[doc = concat!("[`", "DeviceGroupCommandBufferBeginInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDeviceGroupCommandBufferBeginInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDeviceGroupDeviceCreateInfo", "`].")]
+#[doc = concat!("[`", "DeviceGroupDeviceCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDeviceGroupDeviceCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDeviceGroupPresentInfoKHR", "`].")]
+#[doc = concat!("[`", "DeviceGroupPresentInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDeviceGroupPresentInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDeviceGroupRenderPassBeginInfo", "`].")]
+#[doc = concat!("[`", "DeviceGroupRenderPassBeginInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDeviceGroupRenderPassBeginInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDeviceGroupSubmitInfo", "`].")]
+#[doc = concat!("[`", "DeviceGroupSubmitInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDeviceGroupSubmitInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDeviceGroupSwapchainCreateInfoKHR", "`].")]
+#[doc = concat!("[`", "DeviceGroupSwapchainCreateInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDeviceGroupSwapchainCreateInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDeviceImageMemoryRequirements", "`].")]
+#[doc = concat!("[`", "DeviceImageMemoryRequirements", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDeviceImageMemoryRequirements {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDeviceImageSubresourceInfo", "`].")]
+#[doc = concat!("[`", "DeviceImageSubresourceInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDeviceImageSubresourceInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDeviceMemoryCopyKHR", "`].")]
+#[doc = concat!("[`", "DeviceMemoryCopyKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDeviceMemoryCopyKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDeviceMemoryImageCopyKHR", "`].")]
+#[doc = concat!("[`", "DeviceMemoryImageCopyKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDeviceMemoryImageCopyKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDeviceMemoryOpaqueCaptureAddressInfo", "`].")]
+#[doc = concat!("[`", "DeviceMemoryOpaqueCaptureAddressInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDeviceMemoryOpaqueCaptureAddressInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDeviceMemoryOverallocationCreateInfoAMD", "`].")]
+#[doc = concat!("[`", "DeviceMemoryOverallocationCreateInfoAMD", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDeviceMemoryOverallocationCreateInfoAMD {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDeviceObjectReservationCreateInfo", "`].")]
+#[doc = concat!("[`", "DeviceObjectReservationCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDeviceObjectReservationCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDevicePipelineBinaryInternalCacheControlKHR", "`].")]
+#[doc = concat!("[`", "DevicePipelineBinaryInternalCacheControlKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDevicePipelineBinaryInternalCacheControlKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDevicePrivateDataCreateInfo", "`].")]
+#[doc = concat!("[`", "DevicePrivateDataCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDevicePrivateDataCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDeviceQueueCreateInfo", "`].")]
+#[doc = concat!("[`", "DeviceQueueCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDeviceQueueCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDeviceQueueGlobalPriorityCreateInfo", "`].")]
+#[doc = concat!("[`", "DeviceQueueGlobalPriorityCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDeviceQueueGlobalPriorityCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDeviceQueueInfo2", "`].")]
+#[doc = concat!("[`", "DeviceQueueInfo2", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDeviceQueueInfo2 {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDeviceQueueShaderCoreControlCreateInfoARM", "`].")]
+#[doc = concat!("[`", "DeviceQueueShaderCoreControlCreateInfoARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDeviceQueueShaderCoreControlCreateInfoARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDeviceSemaphoreSciSyncPoolReservationCreateInfoNV", "`].")]
+#[doc = concat!("[`", "DeviceSemaphoreSciSyncPoolReservationCreateInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDeviceSemaphoreSciSyncPoolReservationCreateInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDeviceTensorMemoryRequirementsARM", "`].")]
+#[doc = concat!("[`", "DeviceTensorMemoryRequirementsARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDeviceTensorMemoryRequirementsARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDirectDriverLoadingInfoLUNARG", "`].")]
+#[doc = concat!("[`", "DirectDriverLoadingInfoLUNARG", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDirectDriverLoadingInfoLUNARG {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDirectDriverLoadingListLUNARG", "`].")]
+#[doc = concat!("[`", "DirectDriverLoadingListLUNARG", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDirectDriverLoadingListLUNARG {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDirectFBSurfaceCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "DirectFBSurfaceCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDirectFBSurfaceCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDispatchIndirect2InfoKHR", "`].")]
+#[doc = concat!("[`", "DispatchIndirect2InfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDispatchIndirect2InfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDispatchTileInfoQCOM", "`].")]
+#[doc = concat!("[`", "DispatchTileInfoQCOM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDispatchTileInfoQCOM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDisplayEventInfoEXT", "`].")]
+#[doc = concat!("[`", "DisplayEventInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDisplayEventInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDisplayModeCreateInfoKHR", "`].")]
+#[doc = concat!("[`", "DisplayModeCreateInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDisplayModeCreateInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDisplayModeProperties2KHR", "`].")]
+#[doc = concat!("[`", "DisplayModeProperties2KHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDisplayModeProperties2KHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDisplayPlaneInfo2KHR", "`].")]
+#[doc = concat!("[`", "DisplayPlaneInfo2KHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDisplayPlaneInfo2KHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDisplayPowerInfoEXT", "`].")]
+#[doc = concat!("[`", "DisplayPowerInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDisplayPowerInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDisplayPresentInfoKHR", "`].")]
+#[doc = concat!("[`", "DisplayPresentInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDisplayPresentInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDisplaySurfaceCreateInfoKHR", "`].")]
+#[doc = concat!("[`", "DisplaySurfaceCreateInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDisplaySurfaceCreateInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDisplaySurfaceStereoCreateInfoNV", "`].")]
+#[doc = concat!("[`", "DisplaySurfaceStereoCreateInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDisplaySurfaceStereoCreateInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDrawIndirect2InfoKHR", "`].")]
+#[doc = concat!("[`", "DrawIndirect2InfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDrawIndirect2InfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkDrawIndirectCount2InfoKHR", "`].")]
+#[doc = concat!("[`", "DrawIndirectCount2InfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsDrawIndirectCount2InfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkEventCreateInfo", "`].")]
+#[doc = concat!("[`", "EventCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsEventCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkExecutionGraphPipelineCreateInfoAMDX", "`].")]
+#[doc = concat!("[`", "ExecutionGraphPipelineCreateInfoAMDX", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsExecutionGraphPipelineCreateInfoAMDX {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkExecutionGraphPipelineScratchSizeAMDX", "`].")]
+#[doc = concat!("[`", "ExecutionGraphPipelineScratchSizeAMDX", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsExecutionGraphPipelineScratchSizeAMDX {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkExportFenceCreateInfo", "`].")]
+#[doc = concat!("[`", "ExportFenceCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsExportFenceCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkExportFenceSciSyncInfoNV", "`].")]
+#[doc = concat!("[`", "ExportFenceSciSyncInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsExportFenceSciSyncInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkExportFenceWin32HandleInfoKHR", "`].")]
+#[doc = concat!("[`", "ExportFenceWin32HandleInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsExportFenceWin32HandleInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkExportMemoryAllocateInfo", "`].")]
+#[doc = concat!("[`", "ExportMemoryAllocateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsExportMemoryAllocateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkExportMemoryAllocateInfoNV", "`].")]
+#[doc = concat!("[`", "ExportMemoryAllocateInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsExportMemoryAllocateInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkExportMemorySciBufInfoNV", "`].")]
+#[doc = concat!("[`", "ExportMemorySciBufInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsExportMemorySciBufInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkExportMemoryWin32HandleInfoKHR", "`].")]
+#[doc = concat!("[`", "ExportMemoryWin32HandleInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsExportMemoryWin32HandleInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkExportMemoryWin32HandleInfoNV", "`].")]
+#[doc = concat!("[`", "ExportMemoryWin32HandleInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsExportMemoryWin32HandleInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkExportMetalBufferInfoEXT", "`].")]
+#[doc = concat!("[`", "ExportMetalBufferInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsExportMetalBufferInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkExportMetalCommandQueueInfoEXT", "`].")]
+#[doc = concat!("[`", "ExportMetalCommandQueueInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsExportMetalCommandQueueInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkExportMetalDeviceInfoEXT", "`].")]
+#[doc = concat!("[`", "ExportMetalDeviceInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsExportMetalDeviceInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkExportMetalIOSurfaceInfoEXT", "`].")]
+#[doc = concat!("[`", "ExportMetalIOSurfaceInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsExportMetalIOSurfaceInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkExportMetalObjectCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "ExportMetalObjectCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsExportMetalObjectCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkExportMetalObjectsInfoEXT", "`].")]
+#[doc = concat!("[`", "ExportMetalObjectsInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsExportMetalObjectsInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkExportMetalSharedEventInfoEXT", "`].")]
+#[doc = concat!("[`", "ExportMetalSharedEventInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsExportMetalSharedEventInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkExportMetalTextureInfoEXT", "`].")]
+#[doc = concat!("[`", "ExportMetalTextureInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsExportMetalTextureInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkExportSemaphoreCreateInfo", "`].")]
+#[doc = concat!("[`", "ExportSemaphoreCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsExportSemaphoreCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkExportSemaphoreSciSyncInfoNV", "`].")]
+#[doc = concat!("[`", "ExportSemaphoreSciSyncInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsExportSemaphoreSciSyncInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkExportSemaphoreWin32HandleInfoKHR", "`].")]
+#[doc = concat!("[`", "ExportSemaphoreWin32HandleInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsExportSemaphoreWin32HandleInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkExternalComputeQueueCreateInfoNV", "`].")]
+#[doc = concat!("[`", "ExternalComputeQueueCreateInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsExternalComputeQueueCreateInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkExternalComputeQueueDataParamsNV", "`].")]
+#[doc = concat!("[`", "ExternalComputeQueueDataParamsNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsExternalComputeQueueDataParamsNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkExternalComputeQueueDeviceCreateInfoNV", "`].")]
+#[doc = concat!("[`", "ExternalComputeQueueDeviceCreateInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsExternalComputeQueueDeviceCreateInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkExternalFormatANDROID", "`].")]
+#[doc = concat!("[`", "ExternalFormatANDROID", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsExternalFormatANDROID {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkExternalFormatOHOS", "`].")]
+#[doc = concat!("[`", "ExternalFormatOHOS", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsExternalFormatOHOS {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkExternalFormatQNX", "`].")]
+#[doc = concat!("[`", "ExternalFormatQNX", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsExternalFormatQNX {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkExternalMemoryAcquireUnmodifiedEXT", "`].")]
+#[doc = concat!("[`", "ExternalMemoryAcquireUnmodifiedEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsExternalMemoryAcquireUnmodifiedEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkExternalMemoryBufferCreateInfo", "`].")]
+#[doc = concat!("[`", "ExternalMemoryBufferCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsExternalMemoryBufferCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkExternalMemoryImageCreateInfo", "`].")]
+#[doc = concat!("[`", "ExternalMemoryImageCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsExternalMemoryImageCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkExternalMemoryImageCreateInfoNV", "`].")]
+#[doc = concat!("[`", "ExternalMemoryImageCreateInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsExternalMemoryImageCreateInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkExternalMemoryTensorCreateInfoARM", "`].")]
+#[doc = concat!("[`", "ExternalMemoryTensorCreateInfoARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsExternalMemoryTensorCreateInfoARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkExternalTensorPropertiesARM", "`].")]
+#[doc = concat!("[`", "ExternalTensorPropertiesARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsExternalTensorPropertiesARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkFaultCallbackInfo", "`].")]
+#[doc = concat!("[`", "FaultCallbackInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsFaultCallbackInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkFenceCreateInfo", "`].")]
+#[doc = concat!("[`", "FenceCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsFenceCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkFenceGetFdInfoKHR", "`].")]
+#[doc = concat!("[`", "FenceGetFdInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsFenceGetFdInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkFenceGetSciSyncInfoNV", "`].")]
+#[doc = concat!("[`", "FenceGetSciSyncInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsFenceGetSciSyncInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkFenceGetWin32HandleInfoKHR", "`].")]
+#[doc = concat!("[`", "FenceGetWin32HandleInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsFenceGetWin32HandleInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkFormatProperties2", "`].")]
+#[doc = concat!("[`", "FormatProperties2", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsFormatProperties2 {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkFragmentShadingRateAttachmentInfoKHR", "`].")]
+#[doc = concat!("[`", "FragmentShadingRateAttachmentInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsFragmentShadingRateAttachmentInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkFrameBoundaryEXT", "`].")]
+#[doc = concat!("[`", "FrameBoundaryEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsFrameBoundaryEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkFrameBoundaryTensorsARM", "`].")]
+#[doc = concat!("[`", "FrameBoundaryTensorsARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsFrameBoundaryTensorsARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkFramebufferAttachmentImageInfo", "`].")]
+#[doc = concat!("[`", "FramebufferAttachmentImageInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsFramebufferAttachmentImageInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkFramebufferAttachmentsCreateInfo", "`].")]
+#[doc = concat!("[`", "FramebufferAttachmentsCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsFramebufferAttachmentsCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkFramebufferCreateInfo", "`].")]
+#[doc = concat!("[`", "FramebufferCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsFramebufferCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkGeneratedCommandsInfoEXT", "`].")]
+#[doc = concat!("[`", "GeneratedCommandsInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsGeneratedCommandsInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkGeneratedCommandsInfoNV", "`].")]
+#[doc = concat!("[`", "GeneratedCommandsInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsGeneratedCommandsInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkGeneratedCommandsMemoryRequirementsInfoEXT", "`].")]
+#[doc = concat!("[`", "GeneratedCommandsMemoryRequirementsInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsGeneratedCommandsMemoryRequirementsInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkGeneratedCommandsMemoryRequirementsInfoNV", "`].")]
+#[doc = concat!("[`", "GeneratedCommandsMemoryRequirementsInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsGeneratedCommandsMemoryRequirementsInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkGeneratedCommandsPipelineInfoEXT", "`].")]
+#[doc = concat!("[`", "GeneratedCommandsPipelineInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsGeneratedCommandsPipelineInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkGeneratedCommandsShaderInfoEXT", "`].")]
+#[doc = concat!("[`", "GeneratedCommandsShaderInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsGeneratedCommandsShaderInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkGeometryAABBNV", "`].")]
+#[doc = concat!("[`", "GeometryAABBNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsGeometryAABBNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkGeometryNV", "`].")]
+#[doc = concat!("[`", "GeometryNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsGeometryNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkGeometryTrianglesNV", "`].")]
+#[doc = concat!("[`", "GeometryTrianglesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsGeometryTrianglesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkGetLatencyMarkerInfoNV", "`].")]
+#[doc = concat!("[`", "GetLatencyMarkerInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsGetLatencyMarkerInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkGraphicsPipelineCreateInfo", "`].")]
+#[doc = concat!("[`", "GraphicsPipelineCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsGraphicsPipelineCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkGraphicsPipelineLibraryCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "GraphicsPipelineLibraryCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsGraphicsPipelineLibraryCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkGraphicsPipelineShaderGroupsCreateInfoNV", "`].")]
+#[doc = concat!("[`", "GraphicsPipelineShaderGroupsCreateInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsGraphicsPipelineShaderGroupsCreateInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkGraphicsShaderGroupCreateInfoNV", "`].")]
+#[doc = concat!("[`", "GraphicsShaderGroupCreateInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsGraphicsShaderGroupCreateInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkHdrMetadataEXT", "`].")]
+#[doc = concat!("[`", "HdrMetadataEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsHdrMetadataEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkHdrVividDynamicMetadataHUAWEI", "`].")]
+#[doc = concat!("[`", "HdrVividDynamicMetadataHUAWEI", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsHdrVividDynamicMetadataHUAWEI {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkHeadlessSurfaceCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "HeadlessSurfaceCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsHeadlessSurfaceCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkHostImageLayoutTransitionInfo", "`].")]
+#[doc = concat!("[`", "HostImageLayoutTransitionInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsHostImageLayoutTransitionInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkIOSSurfaceCreateInfoMVK", "`].")]
+#[doc = concat!("[`", "IOSSurfaceCreateInfoMVK", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsIOSSurfaceCreateInfoMVK {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImageAlignmentControlCreateInfoMESA", "`].")]
+#[doc = concat!("[`", "ImageAlignmentControlCreateInfoMESA", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImageAlignmentControlCreateInfoMESA {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImageBlit2", "`].")]
+#[doc = concat!("[`", "ImageBlit2", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImageBlit2 {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImageCaptureDescriptorDataInfoEXT", "`].")]
+#[doc = concat!("[`", "ImageCaptureDescriptorDataInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImageCaptureDescriptorDataInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImageCompressionControlEXT", "`].")]
+#[doc = concat!("[`", "ImageCompressionControlEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImageCompressionControlEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImageConstraintsInfoFUCHSIA", "`].")]
+#[doc = concat!("[`", "ImageConstraintsInfoFUCHSIA", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImageConstraintsInfoFUCHSIA {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImageCopy2", "`].")]
+#[doc = concat!("[`", "ImageCopy2", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImageCopy2 {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImageCreateInfo", "`].")]
+#[doc = concat!("[`", "ImageCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImageCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImageDescriptorInfoEXT", "`].")]
+#[doc = concat!("[`", "ImageDescriptorInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImageDescriptorInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImageDrmFormatModifierExplicitCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "ImageDrmFormatModifierExplicitCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImageDrmFormatModifierExplicitCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImageDrmFormatModifierListCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "ImageDrmFormatModifierListCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImageDrmFormatModifierListCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImageFormatConstraintsInfoFUCHSIA", "`].")]
+#[doc = concat!("[`", "ImageFormatConstraintsInfoFUCHSIA", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImageFormatConstraintsInfoFUCHSIA {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImageFormatListCreateInfo", "`].")]
+#[doc = concat!("[`", "ImageFormatListCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImageFormatListCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImageFormatProperties2", "`].")]
+#[doc = concat!("[`", "ImageFormatProperties2", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImageFormatProperties2 {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImageMemoryBarrier", "`].")]
+#[doc = concat!("[`", "ImageMemoryBarrier", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImageMemoryBarrier {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImageMemoryBarrier2", "`].")]
+#[doc = concat!("[`", "ImageMemoryBarrier2", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImageMemoryBarrier2 {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImageMemoryRequirementsInfo2", "`].")]
+#[doc = concat!("[`", "ImageMemoryRequirementsInfo2", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImageMemoryRequirementsInfo2 {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImagePipeSurfaceCreateInfoFUCHSIA", "`].")]
+#[doc = concat!("[`", "ImagePipeSurfaceCreateInfoFUCHSIA", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImagePipeSurfaceCreateInfoFUCHSIA {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImagePlaneMemoryRequirementsInfo", "`].")]
+#[doc = concat!("[`", "ImagePlaneMemoryRequirementsInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImagePlaneMemoryRequirementsInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImageResolve2", "`].")]
+#[doc = concat!("[`", "ImageResolve2", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImageResolve2 {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImageSparseMemoryRequirementsInfo2", "`].")]
+#[doc = concat!("[`", "ImageSparseMemoryRequirementsInfo2", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImageSparseMemoryRequirementsInfo2 {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImageStencilUsageCreateInfo", "`].")]
+#[doc = concat!("[`", "ImageStencilUsageCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImageStencilUsageCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImageSubresource2", "`].")]
+#[doc = concat!("[`", "ImageSubresource2", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImageSubresource2 {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImageSwapchainCreateInfoKHR", "`].")]
+#[doc = concat!("[`", "ImageSwapchainCreateInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImageSwapchainCreateInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImageToMemoryCopy", "`].")]
+#[doc = concat!("[`", "ImageToMemoryCopy", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImageToMemoryCopy {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImageViewASTCDecodeModeEXT", "`].")]
+#[doc = concat!("[`", "ImageViewASTCDecodeModeEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImageViewASTCDecodeModeEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImageViewCaptureDescriptorDataInfoEXT", "`].")]
+#[doc = concat!("[`", "ImageViewCaptureDescriptorDataInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImageViewCaptureDescriptorDataInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImageViewCreateInfo", "`].")]
+#[doc = concat!("[`", "ImageViewCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImageViewCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImageViewHandleInfoNVX", "`].")]
+#[doc = concat!("[`", "ImageViewHandleInfoNVX", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImageViewHandleInfoNVX {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImageViewMinLodCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "ImageViewMinLodCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImageViewMinLodCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImageViewSampleWeightCreateInfoQCOM", "`].")]
+#[doc = concat!("[`", "ImageViewSampleWeightCreateInfoQCOM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImageViewSampleWeightCreateInfoQCOM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImageViewSlicedCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "ImageViewSlicedCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImageViewSlicedCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImageViewUsageCreateInfo", "`].")]
+#[doc = concat!("[`", "ImageViewUsageCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImageViewUsageCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImportAndroidHardwareBufferInfoANDROID", "`].")]
+#[doc = concat!("[`", "ImportAndroidHardwareBufferInfoANDROID", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImportAndroidHardwareBufferInfoANDROID {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImportFenceFdInfoKHR", "`].")]
+#[doc = concat!("[`", "ImportFenceFdInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImportFenceFdInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImportFenceSciSyncInfoNV", "`].")]
+#[doc = concat!("[`", "ImportFenceSciSyncInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImportFenceSciSyncInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImportFenceWin32HandleInfoKHR", "`].")]
+#[doc = concat!("[`", "ImportFenceWin32HandleInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImportFenceWin32HandleInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImportMemoryBufferCollectionFUCHSIA", "`].")]
+#[doc = concat!("[`", "ImportMemoryBufferCollectionFUCHSIA", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImportMemoryBufferCollectionFUCHSIA {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImportMemoryFdInfoKHR", "`].")]
+#[doc = concat!("[`", "ImportMemoryFdInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImportMemoryFdInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImportMemoryHostPointerInfoEXT", "`].")]
+#[doc = concat!("[`", "ImportMemoryHostPointerInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImportMemoryHostPointerInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImportMemoryMetalHandleInfoEXT", "`].")]
+#[doc = concat!("[`", "ImportMemoryMetalHandleInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImportMemoryMetalHandleInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImportMemorySciBufInfoNV", "`].")]
+#[doc = concat!("[`", "ImportMemorySciBufInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImportMemorySciBufInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImportMemoryWin32HandleInfoKHR", "`].")]
+#[doc = concat!("[`", "ImportMemoryWin32HandleInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImportMemoryWin32HandleInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImportMemoryWin32HandleInfoNV", "`].")]
+#[doc = concat!("[`", "ImportMemoryWin32HandleInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImportMemoryWin32HandleInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImportMemoryZirconHandleInfoFUCHSIA", "`].")]
+#[doc = concat!("[`", "ImportMemoryZirconHandleInfoFUCHSIA", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImportMemoryZirconHandleInfoFUCHSIA {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImportMetalBufferInfoEXT", "`].")]
+#[doc = concat!("[`", "ImportMetalBufferInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImportMetalBufferInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImportMetalIOSurfaceInfoEXT", "`].")]
+#[doc = concat!("[`", "ImportMetalIOSurfaceInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImportMetalIOSurfaceInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImportMetalSharedEventInfoEXT", "`].")]
+#[doc = concat!("[`", "ImportMetalSharedEventInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImportMetalSharedEventInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImportMetalTextureInfoEXT", "`].")]
+#[doc = concat!("[`", "ImportMetalTextureInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImportMetalTextureInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImportNativeBufferInfoOHOS", "`].")]
+#[doc = concat!("[`", "ImportNativeBufferInfoOHOS", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImportNativeBufferInfoOHOS {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImportScreenBufferInfoQNX", "`].")]
+#[doc = concat!("[`", "ImportScreenBufferInfoQNX", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImportScreenBufferInfoQNX {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImportSemaphoreFdInfoKHR", "`].")]
+#[doc = concat!("[`", "ImportSemaphoreFdInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImportSemaphoreFdInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImportSemaphoreSciSyncInfoNV", "`].")]
+#[doc = concat!("[`", "ImportSemaphoreSciSyncInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImportSemaphoreSciSyncInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImportSemaphoreWin32HandleInfoKHR", "`].")]
+#[doc = concat!("[`", "ImportSemaphoreWin32HandleInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImportSemaphoreWin32HandleInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkImportSemaphoreZirconHandleInfoFUCHSIA", "`].")]
+#[doc = concat!("[`", "ImportSemaphoreZirconHandleInfoFUCHSIA", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsImportSemaphoreZirconHandleInfoFUCHSIA {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkIndirectCommandsLayoutCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "IndirectCommandsLayoutCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsIndirectCommandsLayoutCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkIndirectCommandsLayoutCreateInfoNV", "`].")]
+#[doc = concat!("[`", "IndirectCommandsLayoutCreateInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsIndirectCommandsLayoutCreateInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkIndirectCommandsLayoutPushDataTokenNV", "`].")]
+#[doc = concat!("[`", "IndirectCommandsLayoutPushDataTokenNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsIndirectCommandsLayoutPushDataTokenNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkIndirectCommandsLayoutTokenEXT", "`].")]
+#[doc = concat!("[`", "IndirectCommandsLayoutTokenEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsIndirectCommandsLayoutTokenEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkIndirectCommandsLayoutTokenNV", "`].")]
+#[doc = concat!("[`", "IndirectCommandsLayoutTokenNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsIndirectCommandsLayoutTokenNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkIndirectExecutionSetCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "IndirectExecutionSetCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsIndirectExecutionSetCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkIndirectExecutionSetPipelineInfoEXT", "`].")]
+#[doc = concat!("[`", "IndirectExecutionSetPipelineInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsIndirectExecutionSetPipelineInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkIndirectExecutionSetShaderInfoEXT", "`].")]
+#[doc = concat!("[`", "IndirectExecutionSetShaderInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsIndirectExecutionSetShaderInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkIndirectExecutionSetShaderLayoutInfoEXT", "`].")]
+#[doc = concat!("[`", "IndirectExecutionSetShaderLayoutInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsIndirectExecutionSetShaderLayoutInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkInitializePerformanceApiInfoINTEL", "`].")]
+#[doc = concat!("[`", "InitializePerformanceApiInfoINTEL", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsInitializePerformanceApiInfoINTEL {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkInstanceCreateInfo", "`].")]
+#[doc = concat!("[`", "InstanceCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsInstanceCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkLatencySleepInfoNV", "`].")]
+#[doc = concat!("[`", "LatencySleepInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsLatencySleepInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkLatencySleepModeInfoNV", "`].")]
+#[doc = concat!("[`", "LatencySleepModeInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsLatencySleepModeInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkLatencySubmissionPresentIdNV", "`].")]
+#[doc = concat!("[`", "LatencySubmissionPresentIdNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsLatencySubmissionPresentIdNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkLatencySurfaceCapabilitiesNV", "`].")]
+#[doc = concat!("[`", "LatencySurfaceCapabilitiesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsLatencySurfaceCapabilitiesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkLayerSettingsCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "LayerSettingsCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsLayerSettingsCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkMacOSSurfaceCreateInfoMVK", "`].")]
+#[doc = concat!("[`", "MacOSSurfaceCreateInfoMVK", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsMacOSSurfaceCreateInfoMVK {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkMappedMemoryRange", "`].")]
+#[doc = concat!("[`", "MappedMemoryRange", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsMappedMemoryRange {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkMemoryAllocateFlagsInfo", "`].")]
+#[doc = concat!("[`", "MemoryAllocateFlagsInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsMemoryAllocateFlagsInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkMemoryAllocateInfo", "`].")]
+#[doc = concat!("[`", "MemoryAllocateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsMemoryAllocateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkMemoryBarrier", "`].")]
+#[doc = concat!("[`", "MemoryBarrier", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsMemoryBarrier {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkMemoryBarrier2", "`].")]
+#[doc = concat!("[`", "MemoryBarrier2", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsMemoryBarrier2 {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkMemoryBarrierAccessFlags3KHR", "`].")]
+#[doc = concat!("[`", "MemoryBarrierAccessFlags3KHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsMemoryBarrierAccessFlags3KHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkMemoryDedicatedAllocateInfo", "`].")]
+#[doc = concat!("[`", "MemoryDedicatedAllocateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsMemoryDedicatedAllocateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkMemoryDedicatedAllocateInfoTensorARM", "`].")]
+#[doc = concat!("[`", "MemoryDedicatedAllocateInfoTensorARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsMemoryDedicatedAllocateInfoTensorARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkMemoryGetAndroidHardwareBufferInfoANDROID", "`].")]
+#[doc = concat!("[`", "MemoryGetAndroidHardwareBufferInfoANDROID", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsMemoryGetAndroidHardwareBufferInfoANDROID {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkMemoryGetFdInfoKHR", "`].")]
+#[doc = concat!("[`", "MemoryGetFdInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsMemoryGetFdInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkMemoryGetMetalHandleInfoEXT", "`].")]
+#[doc = concat!("[`", "MemoryGetMetalHandleInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsMemoryGetMetalHandleInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkMemoryGetNativeBufferInfoOHOS", "`].")]
+#[doc = concat!("[`", "MemoryGetNativeBufferInfoOHOS", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsMemoryGetNativeBufferInfoOHOS {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkMemoryGetRemoteAddressInfoNV", "`].")]
+#[doc = concat!("[`", "MemoryGetRemoteAddressInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsMemoryGetRemoteAddressInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkMemoryGetSciBufInfoNV", "`].")]
+#[doc = concat!("[`", "MemoryGetSciBufInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsMemoryGetSciBufInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkMemoryGetWin32HandleInfoKHR", "`].")]
+#[doc = concat!("[`", "MemoryGetWin32HandleInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsMemoryGetWin32HandleInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkMemoryGetZirconHandleInfoFUCHSIA", "`].")]
+#[doc = concat!("[`", "MemoryGetZirconHandleInfoFUCHSIA", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsMemoryGetZirconHandleInfoFUCHSIA {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkMemoryMapInfo", "`].")]
+#[doc = concat!("[`", "MemoryMapInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsMemoryMapInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkMemoryMapPlacedInfoEXT", "`].")]
+#[doc = concat!("[`", "MemoryMapPlacedInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsMemoryMapPlacedInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkMemoryMarkerInfoAMD", "`].")]
+#[doc = concat!("[`", "MemoryMarkerInfoAMD", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsMemoryMarkerInfoAMD {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkMemoryOpaqueCaptureAddressAllocateInfo", "`].")]
+#[doc = concat!("[`", "MemoryOpaqueCaptureAddressAllocateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsMemoryOpaqueCaptureAddressAllocateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkMemoryPriorityAllocateInfoEXT", "`].")]
+#[doc = concat!("[`", "MemoryPriorityAllocateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsMemoryPriorityAllocateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkMemoryRangeBarrierKHR", "`].")]
+#[doc = concat!("[`", "MemoryRangeBarrierKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsMemoryRangeBarrierKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkMemoryRangeBarriersInfoKHR", "`].")]
+#[doc = concat!("[`", "MemoryRangeBarriersInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsMemoryRangeBarriersInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkMemoryRequirements2", "`].")]
+#[doc = concat!("[`", "MemoryRequirements2", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsMemoryRequirements2 {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkMemorySciBufPropertiesNV", "`].")]
+#[doc = concat!("[`", "MemorySciBufPropertiesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsMemorySciBufPropertiesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkMemoryToImageCopy", "`].")]
+#[doc = concat!("[`", "MemoryToImageCopy", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsMemoryToImageCopy {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkMemoryUnmapInfo", "`].")]
+#[doc = concat!("[`", "MemoryUnmapInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsMemoryUnmapInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkMetalSurfaceCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "MetalSurfaceCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsMetalSurfaceCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkMicromapBuildInfoEXT", "`].")]
+#[doc = concat!("[`", "MicromapBuildInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsMicromapBuildInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkMicromapBuildSizesInfoEXT", "`].")]
+#[doc = concat!("[`", "MicromapBuildSizesInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsMicromapBuildSizesInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkMicromapCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "MicromapCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsMicromapCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkMicromapVersionInfoEXT", "`].")]
+#[doc = concat!("[`", "MicromapVersionInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsMicromapVersionInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkMultisampledRenderToSingleSampledInfoEXT", "`].")]
+#[doc = concat!("[`", "MultisampledRenderToSingleSampledInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsMultisampledRenderToSingleSampledInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkMultiviewPerViewAttributesInfoNVX", "`].")]
+#[doc = concat!("[`", "MultiviewPerViewAttributesInfoNVX", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsMultiviewPerViewAttributesInfoNVX {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM", "`].")]
+#[doc = concat!("[`", "MultiviewPerViewRenderAreasRenderPassBeginInfoQCOM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkMutableDescriptorTypeCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "MutableDescriptorTypeCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsMutableDescriptorTypeCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkNativeBufferANDROID", "`].")]
+#[doc = concat!("[`", "NativeBufferANDROID", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsNativeBufferANDROID {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkNativeBufferOHOS", "`].")]
+#[doc = concat!("[`", "NativeBufferOHOS", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsNativeBufferOHOS {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkNativeBufferPropertiesOHOS", "`].")]
+#[doc = concat!("[`", "NativeBufferPropertiesOHOS", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsNativeBufferPropertiesOHOS {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkOpaqueCaptureDataCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "OpaqueCaptureDataCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsOpaqueCaptureDataCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkOpaqueCaptureDescriptorDataCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "OpaqueCaptureDescriptorDataCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsOpaqueCaptureDescriptorDataCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkOpticalFlowExecuteInfoNV", "`].")]
+#[doc = concat!("[`", "OpticalFlowExecuteInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsOpticalFlowExecuteInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkOpticalFlowImageFormatInfoNV", "`].")]
+#[doc = concat!("[`", "OpticalFlowImageFormatInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsOpticalFlowImageFormatInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkOpticalFlowSessionCreateInfoNV", "`].")]
+#[doc = concat!("[`", "OpticalFlowSessionCreateInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsOpticalFlowSessionCreateInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkOpticalFlowSessionCreatePrivateDataInfoNV", "`].")]
+#[doc = concat!("[`", "OpticalFlowSessionCreatePrivateDataInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsOpticalFlowSessionCreatePrivateDataInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkOutOfBandQueueTypeInfoNV", "`].")]
+#[doc = concat!("[`", "OutOfBandQueueTypeInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsOutOfBandQueueTypeInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPartitionedAccelerationStructureFlagsNV", "`].")]
+#[doc = concat!("[`", "PartitionedAccelerationStructureFlagsNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPartitionedAccelerationStructureFlagsNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPartitionedAccelerationStructureInstancesInputNV", "`].")]
+#[doc = concat!("[`", "PartitionedAccelerationStructureInstancesInputNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPartitionedAccelerationStructureInstancesInputNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPastPresentationTimingInfoEXT", "`].")]
+#[doc = concat!("[`", "PastPresentationTimingInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPastPresentationTimingInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPerTileBeginInfoQCOM", "`].")]
+#[doc = concat!("[`", "PerTileBeginInfoQCOM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPerTileBeginInfoQCOM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPerTileEndInfoQCOM", "`].")]
+#[doc = concat!("[`", "PerTileEndInfoQCOM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPerTileEndInfoQCOM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPerformanceConfigurationAcquireInfoINTEL", "`].")]
+#[doc = concat!("[`", "PerformanceConfigurationAcquireInfoINTEL", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPerformanceConfigurationAcquireInfoINTEL {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPerformanceMarkerInfoINTEL", "`].")]
+#[doc = concat!("[`", "PerformanceMarkerInfoINTEL", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPerformanceMarkerInfoINTEL {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPerformanceOverrideInfoINTEL", "`].")]
+#[doc = concat!("[`", "PerformanceOverrideInfoINTEL", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPerformanceOverrideInfoINTEL {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPerformanceQueryReservationInfoKHR", "`].")]
+#[doc = concat!("[`", "PerformanceQueryReservationInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPerformanceQueryReservationInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPerformanceQuerySubmitInfoKHR", "`].")]
+#[doc = concat!("[`", "PerformanceQuerySubmitInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPerformanceQuerySubmitInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPerformanceStreamMarkerInfoINTEL", "`].")]
+#[doc = concat!("[`", "PerformanceStreamMarkerInfoINTEL", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPerformanceStreamMarkerInfoINTEL {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDevice16BitStorageFeatures", "`].")]
+#[doc = concat!("[`", "PhysicalDevice16BitStorageFeatures", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDevice16BitStorageFeatures {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDevice4444FormatsFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDevice4444FormatsFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDevice4444FormatsFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDevice8BitStorageFeatures", "`].")]
+#[doc = concat!("[`", "PhysicalDevice8BitStorageFeatures", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDevice8BitStorageFeatures {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceASTCDecodeFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceASTCDecodeFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceASTCDecodeFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceAccelerationStructureFeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceAccelerationStructureFeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceAccelerationStructureFeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceAddressBindingReportFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceAddressBindingReportFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceAddressBindingReportFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceAmigoProfilingFeaturesSEC", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceAmigoProfilingFeaturesSEC", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceAmigoProfilingFeaturesSEC {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceAntiLagFeaturesAMD", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceAntiLagFeaturesAMD", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceAntiLagFeaturesAMD {}
 /// Marker trait for structs that can appear in the pNext chain of
 #[doc = concat!(
-    "[`", "VkPhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT", "`]."
+    "[`", "PhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT", "`]."
 )]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceBlendOperationAdvancedFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceBlendOperationAdvancedFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceBorderColorSwizzleFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceBorderColorSwizzleFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceBorderColorSwizzleFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceBufferDeviceAddressFeatures", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceBufferDeviceAddressFeatures", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceBufferDeviceAddressFeatures {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceBufferDeviceAddressFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceBufferDeviceAddressFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceBufferDeviceAddressFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceClusterAccelerationStructureFeaturesNV", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceClusterAccelerationStructureFeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceClusterAccelerationStructureFeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceClusterCullingShaderFeaturesHUAWEI", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceClusterCullingShaderFeaturesHUAWEI {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEI", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEI", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEI {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceCoherentMemoryFeaturesAMD", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceCoherentMemoryFeaturesAMD", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceCoherentMemoryFeaturesAMD {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceColorWriteEnableFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceColorWriteEnableFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceColorWriteEnableFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceCommandBufferInheritanceFeaturesNV", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceCommandBufferInheritanceFeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceCommandBufferInheritanceFeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceComputeOccupancyPriorityFeaturesNV", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceComputeOccupancyPriorityFeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceComputeOccupancyPriorityFeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceComputeShaderDerivativesFeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceComputeShaderDerivativesFeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceComputeShaderDerivativesFeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceConditionalRenderingFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceConditionalRenderingFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceConditionalRenderingFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceCooperativeMatrix2FeaturesNV", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceCooperativeMatrix2FeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceCooperativeMatrix2FeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceCooperativeMatrixConversionFeaturesQCOM", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceCooperativeMatrixConversionFeaturesQCOM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceCooperativeMatrixConversionFeaturesQCOM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceCooperativeMatrixFeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceCooperativeMatrixFeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceCooperativeMatrixFeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceCooperativeMatrixFeaturesNV", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceCooperativeMatrixFeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceCooperativeMatrixFeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceCooperativeVectorFeaturesNV", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceCooperativeVectorFeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceCooperativeVectorFeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceCopyMemoryIndirectFeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceCopyMemoryIndirectFeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceCopyMemoryIndirectFeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceCopyMemoryIndirectFeaturesNV", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceCopyMemoryIndirectFeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceCopyMemoryIndirectFeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceCornerSampledImageFeaturesNV", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceCornerSampledImageFeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceCornerSampledImageFeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceCoverageReductionModeFeaturesNV", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceCoverageReductionModeFeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceCoverageReductionModeFeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceCubicClampFeaturesQCOM", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceCubicClampFeaturesQCOM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceCubicClampFeaturesQCOM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceCubicWeightsFeaturesQCOM", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceCubicWeightsFeaturesQCOM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceCubicWeightsFeaturesQCOM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceCudaKernelLaunchFeaturesNV", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceCudaKernelLaunchFeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceCudaKernelLaunchFeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceCustomBorderColorFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceCustomBorderColorFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceCustomBorderColorFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceCustomResolveFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceCustomResolveFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceCustomResolveFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceDataGraphFeaturesARM", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceDataGraphFeaturesARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceDataGraphFeaturesARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceDataGraphModelFeaturesQCOM", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceDataGraphModelFeaturesQCOM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceDataGraphModelFeaturesQCOM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!(
-    "[`", "VkPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV", "`]."
-)]
+#[doc = concat!("[`", "PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceDenseGeometryFormatFeaturesAMDX", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceDenseGeometryFormatFeaturesAMDX", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceDenseGeometryFormatFeaturesAMDX {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceDepthBiasControlFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceDepthBiasControlFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceDepthBiasControlFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceDepthClampControlFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceDepthClampControlFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceDepthClampControlFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceDepthClampZeroOneFeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceDepthClampZeroOneFeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceDepthClampZeroOneFeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceDepthClipControlFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceDepthClipControlFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceDepthClipControlFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceDepthClipEnableFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceDepthClipEnableFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceDepthClipEnableFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceDescriptorBufferFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceDescriptorBufferFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceDescriptorBufferFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceDescriptorBufferTensorFeaturesARM", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceDescriptorBufferTensorFeaturesARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceDescriptorBufferTensorFeaturesARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceDescriptorBufferTensorPropertiesARM", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceDescriptorBufferTensorPropertiesARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceDescriptorBufferTensorPropertiesARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceDescriptorHeapFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceDescriptorHeapFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceDescriptorHeapFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceDescriptorIndexingFeatures", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceDescriptorIndexingFeatures", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceDescriptorIndexingFeatures {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceDescriptorPoolOverallocationFeaturesNV", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceDescriptorPoolOverallocationFeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceDescriptorPoolOverallocationFeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceDescriptorSetHostMappingFeaturesVALVE", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceDescriptorSetHostMappingFeaturesVALVE", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceDescriptorSetHostMappingFeaturesVALVE {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceDeviceAddressCommandsFeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceDeviceAddressCommandsFeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceDeviceAddressCommandsFeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceDeviceGeneratedCommandsFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceDeviceGeneratedCommandsFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceDeviceGeneratedCommandsFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceDeviceGeneratedCommandsFeaturesNV", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceDeviceGeneratedCommandsFeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceDeviceGeneratedCommandsFeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceDeviceMemoryReportFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceDeviceMemoryReportFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceDeviceMemoryReportFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceDiagnosticsConfigFeaturesNV", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceDiagnosticsConfigFeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceDiagnosticsConfigFeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceDisplacementMicromapFeaturesNV", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceDisplacementMicromapFeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceDisplacementMicromapFeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceDynamicRenderingFeatures", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceDynamicRenderingFeatures", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceDynamicRenderingFeatures {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceDynamicRenderingLocalReadFeatures", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceDynamicRenderingLocalReadFeatures", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceDynamicRenderingLocalReadFeatures {}
 /// Marker trait for structs that can appear in the pNext chain of
 #[doc = concat!(
-    "[`", "VkPhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT", "`]."
+    "[`", "PhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT", "`]."
 )]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceExclusiveScissorFeaturesNV", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceExclusiveScissorFeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceExclusiveScissorFeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceExtendedDynamicState2FeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceExtendedDynamicState2FeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceExtendedDynamicState2FeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceExtendedDynamicState3FeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceExtendedDynamicState3FeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceExtendedDynamicState3FeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceExtendedDynamicStateFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceExtendedDynamicStateFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceExtendedDynamicStateFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceExtendedSparseAddressSpaceFeaturesNV", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceExtendedSparseAddressSpaceFeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceExtendedSparseAddressSpaceFeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceExternalBufferInfo", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceExternalBufferInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceExternalBufferInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceExternalFenceInfo", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceExternalFenceInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceExternalFenceInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceExternalFormatResolveFeaturesANDROID", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceExternalFormatResolveFeaturesANDROID", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceExternalFormatResolveFeaturesANDROID {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceExternalImageFormatInfo", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceExternalImageFormatInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceExternalImageFormatInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceExternalMemoryRDMAFeaturesNV", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceExternalMemoryRDMAFeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceExternalMemoryRDMAFeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceExternalMemorySciBufFeaturesNV", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceExternalMemorySciBufFeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceExternalMemorySciBufFeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceExternalMemoryScreenBufferFeaturesQNX", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceExternalMemoryScreenBufferFeaturesQNX", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceExternalMemoryScreenBufferFeaturesQNX {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceExternalSciSync2FeaturesNV", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceExternalSciSync2FeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceExternalSciSync2FeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceExternalSciSyncFeaturesNV", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceExternalSciSyncFeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceExternalSciSyncFeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceExternalSemaphoreInfo", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceExternalSemaphoreInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceExternalSemaphoreInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceExternalTensorInfoARM", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceExternalTensorInfoARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceExternalTensorInfoARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceFaultFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceFaultFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceFaultFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceFaultFeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceFaultFeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceFaultFeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceFeatures2", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceFeatures2", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceFeatures2 {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceFormatPackFeaturesARM", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceFormatPackFeaturesARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceFormatPackFeaturesARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceFragmentDensityMap2FeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceFragmentDensityMap2FeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceFragmentDensityMap2FeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceFragmentDensityMapFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceFragmentDensityMapFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceFragmentDensityMapFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceFragmentDensityMapLayeredFeaturesVALVE", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceFragmentDensityMapLayeredFeaturesVALVE", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceFragmentDensityMapLayeredFeaturesVALVE {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceFragmentDensityMapOffsetFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceFragmentDensityMapOffsetFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceFragmentDensityMapOffsetFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceFragmentShaderBarycentricFeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceFragmentShaderBarycentricFeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceFragmentShaderBarycentricFeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceFragmentShaderInterlockFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceFragmentShaderInterlockFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceFragmentShadingRateEnumsFeaturesNV", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceFragmentShadingRateEnumsFeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceFragmentShadingRateEnumsFeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceFragmentShadingRateFeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceFragmentShadingRateFeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceFragmentShadingRateFeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceFrameBoundaryFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceFrameBoundaryFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceFrameBoundaryFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceGlobalPriorityQueryFeatures", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceGlobalPriorityQueryFeatures", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceGlobalPriorityQueryFeatures {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceGraphicsPipelineLibraryFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceGraphicsPipelineLibraryFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceGraphicsPipelineLibraryFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceHdrVividFeaturesHUAWEI", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceHdrVividFeaturesHUAWEI", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceHdrVividFeaturesHUAWEI {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceHostImageCopyFeatures", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceHostImageCopyFeatures", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceHostImageCopyFeatures {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceHostImageCopyProperties", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceHostImageCopyProperties", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceHostImageCopyProperties {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceHostQueryResetFeatures", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceHostQueryResetFeatures", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceHostQueryResetFeatures {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceImage2DViewOf3DFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceImage2DViewOf3DFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceImage2DViewOf3DFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceImageAlignmentControlFeaturesMESA", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceImageAlignmentControlFeaturesMESA", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceImageAlignmentControlFeaturesMESA {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceImageCompressionControlFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceImageCompressionControlFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceImageCompressionControlFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
 #[doc = concat!(
-    "[`", "VkPhysicalDeviceImageCompressionControlSwapchainFeaturesEXT", "`]."
+    "[`", "PhysicalDeviceImageCompressionControlSwapchainFeaturesEXT", "`]."
 )]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceImageCompressionControlSwapchainFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceImageDrmFormatModifierInfoEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceImageDrmFormatModifierInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceImageDrmFormatModifierInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceImageFormatInfo2", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceImageFormatInfo2", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceImageFormatInfo2 {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceImageProcessing2FeaturesQCOM", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceImageProcessing2FeaturesQCOM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceImageProcessing2FeaturesQCOM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceImageProcessingFeaturesQCOM", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceImageProcessingFeaturesQCOM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceImageProcessingFeaturesQCOM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceImageRobustnessFeatures", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceImageRobustnessFeatures", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceImageRobustnessFeatures {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceImageSlicedViewOf3DFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceImageSlicedViewOf3DFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceImageSlicedViewOf3DFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceImageViewImageFormatInfoEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceImageViewImageFormatInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceImageViewImageFormatInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceImageViewMinLodFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceImageViewMinLodFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceImageViewMinLodFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceImagelessFramebufferFeatures", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceImagelessFramebufferFeatures", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceImagelessFramebufferFeatures {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceIndexTypeUint8Features", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceIndexTypeUint8Features", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceIndexTypeUint8Features {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceInheritedViewportScissorFeaturesNV", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceInheritedViewportScissorFeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceInheritedViewportScissorFeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceInlineUniformBlockFeatures", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceInlineUniformBlockFeatures", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceInlineUniformBlockFeatures {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceInternallySynchronizedQueuesFeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceInternallySynchronizedQueuesFeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceInternallySynchronizedQueuesFeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceInvocationMaskFeaturesHUAWEI", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceInvocationMaskFeaturesHUAWEI", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceInvocationMaskFeaturesHUAWEI {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceLayeredApiPropertiesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceLayeredApiPropertiesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceLayeredApiPropertiesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceLayeredApiPropertiesListKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceLayeredApiPropertiesListKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceLayeredApiPropertiesListKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceLegacyDitheringFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceLegacyDitheringFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceLegacyDitheringFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceLegacyVertexAttributesFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceLegacyVertexAttributesFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceLegacyVertexAttributesFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceLineRasterizationFeatures", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceLineRasterizationFeatures", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceLineRasterizationFeatures {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceLinearColorAttachmentFeaturesNV", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceLinearColorAttachmentFeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceLinearColorAttachmentFeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceMaintenance10FeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceMaintenance10FeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceMaintenance10FeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceMaintenance4Features", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceMaintenance4Features", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceMaintenance4Features {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceMaintenance5Features", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceMaintenance5Features", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceMaintenance5Features {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceMaintenance6Features", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceMaintenance6Features", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceMaintenance6Features {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceMaintenance7FeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceMaintenance7FeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceMaintenance7FeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceMaintenance8FeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceMaintenance8FeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceMaintenance8FeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceMaintenance9FeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceMaintenance9FeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceMaintenance9FeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceMapMemoryPlacedFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceMapMemoryPlacedFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceMapMemoryPlacedFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceMemoryDecompressionFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceMemoryDecompressionFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceMemoryDecompressionFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceMemoryPriorityFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceMemoryPriorityFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceMemoryPriorityFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceMemoryProperties2", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceMemoryProperties2", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceMemoryProperties2 {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceMeshShaderFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceMeshShaderFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceMeshShaderFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceMeshShaderFeaturesNV", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceMeshShaderFeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceMeshShaderFeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceMultiDrawFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceMultiDrawFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceMultiDrawFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
 #[doc = concat!(
-    "[`", "VkPhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT", "`]."
+    "[`", "PhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT", "`]."
 )]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceMultiviewFeatures", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceMultiviewFeatures", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceMultiviewFeatures {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceMutableDescriptorTypeFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceMutableDescriptorTypeFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceMutableDescriptorTypeFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceNestedCommandBufferFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceNestedCommandBufferFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceNestedCommandBufferFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceNonSeamlessCubeMapFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceNonSeamlessCubeMapFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceNonSeamlessCubeMapFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceOpacityMicromapFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceOpacityMicromapFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceOpacityMicromapFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceOpticalFlowFeaturesNV", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceOpticalFlowFeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceOpticalFlowFeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDevicePageableDeviceLocalMemoryFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDevicePageableDeviceLocalMemoryFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDevicePageableDeviceLocalMemoryFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!(
-    "[`", "VkPhysicalDevicePartitionedAccelerationStructureFeaturesNV", "`]."
-)]
+#[doc = concat!("[`", "PhysicalDevicePartitionedAccelerationStructureFeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDevicePartitionedAccelerationStructureFeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDevicePerStageDescriptorSetFeaturesNV", "`].")]
+#[doc = concat!("[`", "PhysicalDevicePerStageDescriptorSetFeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDevicePerStageDescriptorSetFeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDevicePerformanceCountersByRegionFeaturesARM", "`].")]
+#[doc = concat!("[`", "PhysicalDevicePerformanceCountersByRegionFeaturesARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDevicePerformanceCountersByRegionFeaturesARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDevicePerformanceQueryFeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDevicePerformanceQueryFeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDevicePerformanceQueryFeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDevicePipelineBinaryFeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDevicePipelineBinaryFeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDevicePipelineBinaryFeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDevicePipelineCacheIncrementalModeFeaturesSEC", "`].")]
+#[doc = concat!("[`", "PhysicalDevicePipelineCacheIncrementalModeFeaturesSEC", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDevicePipelineCacheIncrementalModeFeaturesSEC {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDevicePipelineCreationCacheControlFeatures", "`].")]
+#[doc = concat!("[`", "PhysicalDevicePipelineCreationCacheControlFeatures", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDevicePipelineCreationCacheControlFeatures {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDevicePipelineExecutablePropertiesFeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDevicePipelineExecutablePropertiesFeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDevicePipelineExecutablePropertiesFeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDevicePipelineOpacityMicromapFeaturesARM", "`].")]
+#[doc = concat!("[`", "PhysicalDevicePipelineOpacityMicromapFeaturesARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDevicePipelineOpacityMicromapFeaturesARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDevicePipelinePropertiesFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDevicePipelinePropertiesFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDevicePipelinePropertiesFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDevicePipelineProtectedAccessFeatures", "`].")]
+#[doc = concat!("[`", "PhysicalDevicePipelineProtectedAccessFeatures", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDevicePipelineProtectedAccessFeatures {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDevicePipelineRobustnessFeatures", "`].")]
+#[doc = concat!("[`", "PhysicalDevicePipelineRobustnessFeatures", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDevicePipelineRobustnessFeatures {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDevicePortabilitySubsetFeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDevicePortabilitySubsetFeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDevicePortabilitySubsetFeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDevicePresentBarrierFeaturesNV", "`].")]
+#[doc = concat!("[`", "PhysicalDevicePresentBarrierFeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDevicePresentBarrierFeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDevicePresentId2FeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDevicePresentId2FeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDevicePresentId2FeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDevicePresentIdFeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDevicePresentIdFeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDevicePresentIdFeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDevicePresentMeteringFeaturesNV", "`].")]
+#[doc = concat!("[`", "PhysicalDevicePresentMeteringFeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDevicePresentMeteringFeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDevicePresentModeFifoLatestReadyFeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDevicePresentModeFifoLatestReadyFeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDevicePresentModeFifoLatestReadyFeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDevicePresentTimingFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDevicePresentTimingFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDevicePresentTimingFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDevicePresentWait2FeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDevicePresentWait2FeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDevicePresentWait2FeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDevicePresentWaitFeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDevicePresentWaitFeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDevicePresentWaitFeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDevicePrimitiveTopologyListRestartFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDevicePrimitivesGeneratedQueryFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDevicePrivateDataFeatures", "`].")]
+#[doc = concat!("[`", "PhysicalDevicePrivateDataFeatures", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDevicePrivateDataFeatures {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceProperties2", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceProperties2", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceProperties2 {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceProtectedMemoryFeatures", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceProtectedMemoryFeatures", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceProtectedMemoryFeatures {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceProvokingVertexFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceProvokingVertexFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceProvokingVertexFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDevicePushConstantBankFeaturesNV", "`].")]
+#[doc = concat!("[`", "PhysicalDevicePushConstantBankFeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDevicePushConstantBankFeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
 #[doc = concat!(
-    "[`", "VkPhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARM", "`]."
+    "[`", "PhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARM", "`]."
 )]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceRGBA10X6FormatsFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceRGBA10X6FormatsFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceRGBA10X6FormatsFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
 #[doc = concat!(
-    "[`", "VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT", "`]."
+    "[`", "PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT", "`]."
 )]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceRawAccessChainsFeaturesNV", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceRawAccessChainsFeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceRawAccessChainsFeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceRayQueryFeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceRayQueryFeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceRayQueryFeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceRayTracingInvocationReorderFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceRayTracingInvocationReorderFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceRayTracingInvocationReorderFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceRayTracingInvocationReorderFeaturesNV", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceRayTracingInvocationReorderFeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceRayTracingInvocationReorderFeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceRayTracingMaintenance1FeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceRayTracingMaintenance1FeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceRayTracingMaintenance1FeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceRayTracingMotionBlurFeaturesNV", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceRayTracingMotionBlurFeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceRayTracingMotionBlurFeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceRayTracingPipelineFeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceRayTracingPipelineFeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceRayTracingPipelineFeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceRayTracingPositionFetchFeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceRayTracingPositionFetchFeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceRayTracingPositionFetchFeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceRayTracingValidationFeaturesNV", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceRayTracingValidationFeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceRayTracingValidationFeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceRelaxedLineRasterizationFeaturesIMG", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceRelaxedLineRasterizationFeaturesIMG", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceRelaxedLineRasterizationFeaturesIMG {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceRenderPassStripedFeaturesARM", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceRenderPassStripedFeaturesARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceRenderPassStripedFeaturesARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceRepresentativeFragmentTestFeaturesNV", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceRepresentativeFragmentTestFeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceRepresentativeFragmentTestFeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceRobustness2FeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceRobustness2FeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceRobustness2FeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceSamplerYcbcrConversionFeatures", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceSamplerYcbcrConversionFeatures", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceSamplerYcbcrConversionFeatures {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceScalarBlockLayoutFeatures", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceScalarBlockLayoutFeatures", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceScalarBlockLayoutFeatures {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceSchedulingControlsFeaturesARM", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceSchedulingControlsFeaturesARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceSchedulingControlsFeaturesARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceSeparateDepthStencilLayoutsFeatures", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceSeparateDepthStencilLayoutsFeatures {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceShader64BitIndexingFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceShader64BitIndexingFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShader64BitIndexingFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceShaderAbortFeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceShaderAbortFeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderAbortFeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceShaderAbortPropertiesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceShaderAbortPropertiesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderAbortPropertiesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceShaderAtomicFloat16VectorFeaturesNV", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceShaderAtomicFloat16VectorFeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderAtomicFloat16VectorFeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceShaderAtomicFloat2FeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderAtomicFloat2FeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceShaderAtomicFloatFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceShaderAtomicFloatFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderAtomicFloatFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceShaderAtomicInt64Features", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceShaderAtomicInt64Features", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderAtomicInt64Features {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceShaderBfloat16FeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceShaderBfloat16FeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderBfloat16FeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceShaderClockFeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceShaderClockFeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderClockFeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceShaderConstantDataFeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceShaderConstantDataFeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderConstantDataFeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceShaderCoreBuiltinsFeaturesARM", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceShaderCoreBuiltinsFeaturesARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderCoreBuiltinsFeaturesARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceShaderDemoteToHelperInvocationFeatures", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderDemoteToHelperInvocationFeatures {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceShaderDrawParametersFeatures", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceShaderDrawParametersFeatures", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderDrawParametersFeatures {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!(
-    "[`", "VkPhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD", "`]."
-)]
+#[doc = concat!("[`", "PhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceShaderEnqueueFeaturesAMDX", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceShaderEnqueueFeaturesAMDX", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderEnqueueFeaturesAMDX {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceShaderExpectAssumeFeatures", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceShaderExpectAssumeFeatures", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderExpectAssumeFeatures {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceShaderFloat16Int8Features", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceShaderFloat16Int8Features", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderFloat16Int8Features {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceShaderFloat8FeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceShaderFloat8FeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderFloat8FeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceShaderFloatControls2Features", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceShaderFloatControls2Features", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderFloatControls2Features {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceShaderFmaFeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceShaderFmaFeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderFmaFeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceShaderImageAtomicInt64FeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderImageAtomicInt64FeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceShaderImageFootprintFeaturesNV", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceShaderImageFootprintFeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderImageFootprintFeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceShaderInstrumentationFeaturesARM", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceShaderInstrumentationFeaturesARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderInstrumentationFeaturesARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceShaderIntegerDotProductFeatures", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceShaderIntegerDotProductFeatures", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderIntegerDotProductFeatures {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceShaderIntegerFunctions2FeaturesINTEL", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceShaderLongVectorFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceShaderLongVectorFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderLongVectorFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceShaderMaximalReconvergenceFeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceShaderMaximalReconvergenceFeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderMaximalReconvergenceFeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceShaderMixedFloatDotProductFeaturesVALVE", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceShaderMixedFloatDotProductFeaturesVALVE", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderMixedFloatDotProductFeaturesVALVE {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceShaderModuleIdentifierFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceShaderModuleIdentifierFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderModuleIdentifierFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceShaderObjectFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceShaderObjectFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderObjectFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceShaderQuadControlFeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceShaderQuadControlFeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderQuadControlFeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
 #[doc = concat!(
-    "[`", "VkPhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHR", "`]."
+    "[`", "PhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHR", "`]."
 )]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceShaderReplicatedCompositesFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceShaderReplicatedCompositesFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderReplicatedCompositesFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceShaderSMBuiltinsFeaturesNV", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceShaderSMBuiltinsFeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderSMBuiltinsFeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceShaderSubgroupExtendedTypesFeatures", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceShaderSubgroupExtendedTypesFeatures", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderSubgroupExtendedTypesFeatures {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceShaderSubgroupPartitionedFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceShaderSubgroupPartitionedFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderSubgroupPartitionedFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceShaderSubgroupRotateFeatures", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceShaderSubgroupRotateFeatures", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderSubgroupRotateFeatures {}
 /// Marker trait for structs that can appear in the pNext chain of
 #[doc = concat!(
-    "[`", "VkPhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR", "`]."
+    "[`", "PhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR", "`]."
 )]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceShaderTerminateInvocationFeatures", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceShaderTerminateInvocationFeatures", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderTerminateInvocationFeatures {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceShaderTileImageFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceShaderTileImageFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderTileImageFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!(
-    "[`", "VkPhysicalDeviceShaderUniformBufferUnsizedArrayFeaturesEXT", "`]."
-)]
+#[doc = concat!("[`", "PhysicalDeviceShaderUniformBufferUnsizedArrayFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderUniformBufferUnsizedArrayFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceShaderUntypedPointersFeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceShaderUntypedPointersFeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShaderUntypedPointersFeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceShadingRateImageFeaturesNV", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceShadingRateImageFeaturesNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceShadingRateImageFeaturesNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceSparseImageFormatInfo2", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceSparseImageFormatInfo2", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceSparseImageFormatInfo2 {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceSubgroupSizeControlFeatures", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceSubgroupSizeControlFeatures", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceSubgroupSizeControlFeatures {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceSubpassMergeFeedbackFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceSubpassMergeFeedbackFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceSubpassMergeFeedbackFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceSubpassShadingFeaturesHUAWEI", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceSubpassShadingFeaturesHUAWEI", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceSubpassShadingFeaturesHUAWEI {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceSurfaceInfo2KHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceSurfaceInfo2KHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceSurfaceInfo2KHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceSwapchainMaintenance1FeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceSwapchainMaintenance1FeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceSwapchainMaintenance1FeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceSynchronization2Features", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceSynchronization2Features", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceSynchronization2Features {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceTensorFeaturesARM", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceTensorFeaturesARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceTensorFeaturesARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceTexelBufferAlignmentFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceTexelBufferAlignmentFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceTextureCompressionASTC3DFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceTextureCompressionASTC3DFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceTextureCompressionASTC3DFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceTextureCompressionASTCHDRFeatures", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceTextureCompressionASTCHDRFeatures", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceTextureCompressionASTCHDRFeatures {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceTileMemoryHeapFeaturesQCOM", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceTileMemoryHeapFeaturesQCOM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceTileMemoryHeapFeaturesQCOM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceTileMemoryHeapPropertiesQCOM", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceTileMemoryHeapPropertiesQCOM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceTileMemoryHeapPropertiesQCOM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceTilePropertiesFeaturesQCOM", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceTilePropertiesFeaturesQCOM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceTilePropertiesFeaturesQCOM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceTileShadingFeaturesQCOM", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceTileShadingFeaturesQCOM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceTileShadingFeaturesQCOM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceTimelineSemaphoreFeatures", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceTimelineSemaphoreFeatures", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceTimelineSemaphoreFeatures {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceTransformFeedbackFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceTransformFeedbackFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceTransformFeedbackFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceUnifiedImageLayoutsFeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceUnifiedImageLayoutsFeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceUnifiedImageLayoutsFeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceUniformBufferStandardLayoutFeatures", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceUniformBufferStandardLayoutFeatures", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceUniformBufferStandardLayoutFeatures {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceVariablePointersFeatures", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceVariablePointersFeatures", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceVariablePointersFeatures {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceVertexAttributeDivisorFeatures", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceVertexAttributeDivisorFeatures", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceVertexAttributeDivisorFeatures {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceVertexAttributeRobustnessFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceVertexAttributeRobustnessFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceVertexAttributeRobustnessFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceVertexInputDynamicStateFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceVertexInputDynamicStateFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceVideoDecodeVP9FeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceVideoDecodeVP9FeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceVideoDecodeVP9FeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceVideoEncodeAV1FeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceVideoEncodeAV1FeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceVideoEncodeAV1FeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceVideoEncodeIntraRefreshFeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceVideoEncodeIntraRefreshFeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceVideoEncodeIntraRefreshFeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceVideoEncodeQualityLevelInfoKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceVideoEncodeQualityLevelInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceVideoEncodeQualityLevelInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceVideoEncodeQuantizationMapFeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceVideoEncodeQuantizationMapFeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceVideoEncodeQuantizationMapFeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceVideoEncodeRgbConversionFeaturesVALVE", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceVideoEncodeRgbConversionFeaturesVALVE", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceVideoEncodeRgbConversionFeaturesVALVE {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceVideoFormatInfoKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceVideoFormatInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceVideoFormatInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceVideoMaintenance1FeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceVideoMaintenance1FeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceVideoMaintenance1FeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceVideoMaintenance2FeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceVideoMaintenance2FeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceVideoMaintenance2FeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceVulkan11Features", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceVulkan11Features", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceVulkan11Features {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceVulkan12Features", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceVulkan12Features", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceVulkan12Features {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceVulkan13Features", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceVulkan13Features", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceVulkan13Features {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceVulkan14Features", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceVulkan14Features", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceVulkan14Features {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceVulkanMemoryModelFeatures", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceVulkanMemoryModelFeatures", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceVulkanMemoryModelFeatures {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceVulkanSC10Features", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceVulkanSC10Features", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceVulkanSC10Features {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceYcbcrDegammaFeaturesQCOM", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceYcbcrDegammaFeaturesQCOM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceYcbcrDegammaFeaturesQCOM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceYcbcrImageArraysFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceYcbcrImageArraysFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceYcbcrImageArraysFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXT", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeatures", "`].")]
+#[doc = concat!("[`", "PhysicalDeviceZeroInitializeWorkgroupMemoryFeatures", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPhysicalDeviceZeroInitializeWorkgroupMemoryFeatures {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineBinaryCreateInfoKHR", "`].")]
+#[doc = concat!("[`", "PipelineBinaryCreateInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineBinaryCreateInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineBinaryDataInfoKHR", "`].")]
+#[doc = concat!("[`", "PipelineBinaryDataInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineBinaryDataInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineBinaryHandlesInfoKHR", "`].")]
+#[doc = concat!("[`", "PipelineBinaryHandlesInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineBinaryHandlesInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineBinaryInfoKHR", "`].")]
+#[doc = concat!("[`", "PipelineBinaryInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineBinaryInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineBinaryKeyKHR", "`].")]
+#[doc = concat!("[`", "PipelineBinaryKeyKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineBinaryKeyKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineCacheCreateInfo", "`].")]
+#[doc = concat!("[`", "PipelineCacheCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineCacheCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineColorBlendAdvancedStateCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "PipelineColorBlendAdvancedStateCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineColorBlendAdvancedStateCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineColorBlendStateCreateInfo", "`].")]
+#[doc = concat!("[`", "PipelineColorBlendStateCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineColorBlendStateCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineColorWriteCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "PipelineColorWriteCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineColorWriteCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineCompilerControlCreateInfoAMD", "`].")]
+#[doc = concat!("[`", "PipelineCompilerControlCreateInfoAMD", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineCompilerControlCreateInfoAMD {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineCoverageModulationStateCreateInfoNV", "`].")]
+#[doc = concat!("[`", "PipelineCoverageModulationStateCreateInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineCoverageModulationStateCreateInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineCoverageReductionStateCreateInfoNV", "`].")]
+#[doc = concat!("[`", "PipelineCoverageReductionStateCreateInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineCoverageReductionStateCreateInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineCoverageToColorStateCreateInfoNV", "`].")]
+#[doc = concat!("[`", "PipelineCoverageToColorStateCreateInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineCoverageToColorStateCreateInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineCreateFlags2CreateInfo", "`].")]
+#[doc = concat!("[`", "PipelineCreateFlags2CreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineCreateFlags2CreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineCreateInfoKHR", "`].")]
+#[doc = concat!("[`", "PipelineCreateInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineCreateInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineCreationFeedbackCreateInfo", "`].")]
+#[doc = concat!("[`", "PipelineCreationFeedbackCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineCreationFeedbackCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineDepthStencilStateCreateInfo", "`].")]
+#[doc = concat!("[`", "PipelineDepthStencilStateCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineDepthStencilStateCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineDiscardRectangleStateCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "PipelineDiscardRectangleStateCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineDiscardRectangleStateCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineDynamicStateCreateInfo", "`].")]
+#[doc = concat!("[`", "PipelineDynamicStateCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineDynamicStateCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineExecutableInfoKHR", "`].")]
+#[doc = concat!("[`", "PipelineExecutableInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineExecutableInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineFragmentDensityMapLayeredCreateInfoVALVE", "`].")]
+#[doc = concat!("[`", "PipelineFragmentDensityMapLayeredCreateInfoVALVE", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineFragmentDensityMapLayeredCreateInfoVALVE {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineFragmentShadingRateEnumStateCreateInfoNV", "`].")]
+#[doc = concat!("[`", "PipelineFragmentShadingRateEnumStateCreateInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineFragmentShadingRateEnumStateCreateInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineFragmentShadingRateStateCreateInfoKHR", "`].")]
+#[doc = concat!("[`", "PipelineFragmentShadingRateStateCreateInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineFragmentShadingRateStateCreateInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineIndirectDeviceAddressInfoNV", "`].")]
+#[doc = concat!("[`", "PipelineIndirectDeviceAddressInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineIndirectDeviceAddressInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineInfoKHR", "`].")]
+#[doc = concat!("[`", "PipelineInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineInputAssemblyStateCreateInfo", "`].")]
+#[doc = concat!("[`", "PipelineInputAssemblyStateCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineInputAssemblyStateCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineLayoutCreateInfo", "`].")]
+#[doc = concat!("[`", "PipelineLayoutCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineLayoutCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineLibraryCreateInfoKHR", "`].")]
+#[doc = concat!("[`", "PipelineLibraryCreateInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineLibraryCreateInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineMultisampleStateCreateInfo", "`].")]
+#[doc = concat!("[`", "PipelineMultisampleStateCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineMultisampleStateCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineOfflineCreateInfo", "`].")]
+#[doc = concat!("[`", "PipelineOfflineCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineOfflineCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelinePoolSize", "`].")]
+#[doc = concat!("[`", "PipelinePoolSize", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelinePoolSize {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineRasterizationConservativeStateCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "PipelineRasterizationConservativeStateCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineRasterizationConservativeStateCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineRasterizationDepthClipStateCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "PipelineRasterizationDepthClipStateCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineRasterizationDepthClipStateCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineRasterizationLineStateCreateInfo", "`].")]
+#[doc = concat!("[`", "PipelineRasterizationLineStateCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineRasterizationLineStateCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineRasterizationProvokingVertexStateCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "PipelineRasterizationProvokingVertexStateCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineRasterizationProvokingVertexStateCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineRasterizationStateCreateInfo", "`].")]
+#[doc = concat!("[`", "PipelineRasterizationStateCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineRasterizationStateCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineRasterizationStateRasterizationOrderAMD", "`].")]
+#[doc = concat!("[`", "PipelineRasterizationStateRasterizationOrderAMD", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineRasterizationStateRasterizationOrderAMD {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineRasterizationStateStreamCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "PipelineRasterizationStateStreamCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineRasterizationStateStreamCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineRenderingCreateInfo", "`].")]
+#[doc = concat!("[`", "PipelineRenderingCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineRenderingCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineRepresentativeFragmentTestStateCreateInfoNV", "`].")]
+#[doc = concat!("[`", "PipelineRepresentativeFragmentTestStateCreateInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineRepresentativeFragmentTestStateCreateInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineRobustnessCreateInfo", "`].")]
+#[doc = concat!("[`", "PipelineRobustnessCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineRobustnessCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineSampleLocationsStateCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "PipelineSampleLocationsStateCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineSampleLocationsStateCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineShaderStageCreateInfo", "`].")]
+#[doc = concat!("[`", "PipelineShaderStageCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineShaderStageCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineShaderStageModuleIdentifierCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "PipelineShaderStageModuleIdentifierCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineShaderStageModuleIdentifierCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineShaderStageNodeCreateInfoAMDX", "`].")]
+#[doc = concat!("[`", "PipelineShaderStageNodeCreateInfoAMDX", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineShaderStageNodeCreateInfoAMDX {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineShaderStageRequiredSubgroupSizeCreateInfo", "`].")]
+#[doc = concat!("[`", "PipelineShaderStageRequiredSubgroupSizeCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineShaderStageRequiredSubgroupSizeCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineTessellationDomainOriginStateCreateInfo", "`].")]
+#[doc = concat!("[`", "PipelineTessellationDomainOriginStateCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineTessellationDomainOriginStateCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineTessellationStateCreateInfo", "`].")]
+#[doc = concat!("[`", "PipelineTessellationStateCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineTessellationStateCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineVertexInputDivisorStateCreateInfo", "`].")]
+#[doc = concat!("[`", "PipelineVertexInputDivisorStateCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineVertexInputDivisorStateCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineVertexInputStateCreateInfo", "`].")]
+#[doc = concat!("[`", "PipelineVertexInputStateCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineVertexInputStateCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineViewportCoarseSampleOrderStateCreateInfoNV", "`].")]
+#[doc = concat!("[`", "PipelineViewportCoarseSampleOrderStateCreateInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineViewportCoarseSampleOrderStateCreateInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineViewportDepthClampControlCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "PipelineViewportDepthClampControlCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineViewportDepthClampControlCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineViewportDepthClipControlCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "PipelineViewportDepthClipControlCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineViewportDepthClipControlCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineViewportExclusiveScissorStateCreateInfoNV", "`].")]
+#[doc = concat!("[`", "PipelineViewportExclusiveScissorStateCreateInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineViewportExclusiveScissorStateCreateInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineViewportShadingRateImageStateCreateInfoNV", "`].")]
+#[doc = concat!("[`", "PipelineViewportShadingRateImageStateCreateInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineViewportShadingRateImageStateCreateInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineViewportStateCreateInfo", "`].")]
+#[doc = concat!("[`", "PipelineViewportStateCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineViewportStateCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineViewportSwizzleStateCreateInfoNV", "`].")]
+#[doc = concat!("[`", "PipelineViewportSwizzleStateCreateInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineViewportSwizzleStateCreateInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPipelineViewportWScalingStateCreateInfoNV", "`].")]
+#[doc = concat!("[`", "PipelineViewportWScalingStateCreateInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPipelineViewportWScalingStateCreateInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPresentFrameTokenGGP", "`].")]
+#[doc = concat!("[`", "PresentFrameTokenGGP", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPresentFrameTokenGGP {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPresentId2KHR", "`].")]
+#[doc = concat!("[`", "PresentId2KHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPresentId2KHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPresentIdKHR", "`].")]
+#[doc = concat!("[`", "PresentIdKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPresentIdKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPresentInfoKHR", "`].")]
+#[doc = concat!("[`", "PresentInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPresentInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPresentRegionsKHR", "`].")]
+#[doc = concat!("[`", "PresentRegionsKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPresentRegionsKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPresentTimesInfoGOOGLE", "`].")]
+#[doc = concat!("[`", "PresentTimesInfoGOOGLE", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPresentTimesInfoGOOGLE {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPresentTimingInfoEXT", "`].")]
+#[doc = concat!("[`", "PresentTimingInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPresentTimingInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPresentTimingsInfoEXT", "`].")]
+#[doc = concat!("[`", "PresentTimingsInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPresentTimingsInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPresentWait2InfoKHR", "`].")]
+#[doc = concat!("[`", "PresentWait2InfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPresentWait2InfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPrivateDataSlotCreateInfo", "`].")]
+#[doc = concat!("[`", "PrivateDataSlotCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPrivateDataSlotCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkProtectedSubmitInfo", "`].")]
+#[doc = concat!("[`", "ProtectedSubmitInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsProtectedSubmitInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPushConstantBankInfoNV", "`].")]
+#[doc = concat!("[`", "PushConstantBankInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPushConstantBankInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPushConstantsInfo", "`].")]
+#[doc = concat!("[`", "PushConstantsInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPushConstantsInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPushDataInfoEXT", "`].")]
+#[doc = concat!("[`", "PushDataInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPushDataInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPushDescriptorSetInfo", "`].")]
+#[doc = concat!("[`", "PushDescriptorSetInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPushDescriptorSetInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkPushDescriptorSetWithTemplateInfo", "`].")]
+#[doc = concat!("[`", "PushDescriptorSetWithTemplateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsPushDescriptorSetWithTemplateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkQueryLowLatencySupportNV", "`].")]
+#[doc = concat!("[`", "QueryLowLatencySupportNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsQueryLowLatencySupportNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkQueryPoolCreateInfo", "`].")]
+#[doc = concat!("[`", "QueryPoolCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsQueryPoolCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkQueryPoolPerformanceCreateInfoKHR", "`].")]
+#[doc = concat!("[`", "QueryPoolPerformanceCreateInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsQueryPoolPerformanceCreateInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkQueryPoolPerformanceQueryCreateInfoINTEL", "`].")]
+#[doc = concat!("[`", "QueryPoolPerformanceQueryCreateInfoINTEL", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsQueryPoolPerformanceQueryCreateInfoINTEL {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkQueryPoolVideoEncodeFeedbackCreateInfoKHR", "`].")]
+#[doc = concat!("[`", "QueryPoolVideoEncodeFeedbackCreateInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsQueryPoolVideoEncodeFeedbackCreateInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkQueueFamilyProperties2", "`].")]
+#[doc = concat!("[`", "QueueFamilyProperties2", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsQueueFamilyProperties2 {}
 /// Marker trait for structs that can appear in the pNext chain of
 #[doc = concat!(
-    "[`", "VkRayTracingPipelineClusterAccelerationStructureCreateInfoNV", "`]."
+    "[`", "RayTracingPipelineClusterAccelerationStructureCreateInfoNV", "`]."
 )]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsRayTracingPipelineClusterAccelerationStructureCreateInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkRayTracingPipelineCreateInfoKHR", "`].")]
+#[doc = concat!("[`", "RayTracingPipelineCreateInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsRayTracingPipelineCreateInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkRayTracingPipelineCreateInfoNV", "`].")]
+#[doc = concat!("[`", "RayTracingPipelineCreateInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsRayTracingPipelineCreateInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkRayTracingPipelineInterfaceCreateInfoKHR", "`].")]
+#[doc = concat!("[`", "RayTracingPipelineInterfaceCreateInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsRayTracingPipelineInterfaceCreateInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkRayTracingShaderGroupCreateInfoKHR", "`].")]
+#[doc = concat!("[`", "RayTracingShaderGroupCreateInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsRayTracingShaderGroupCreateInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkRayTracingShaderGroupCreateInfoNV", "`].")]
+#[doc = concat!("[`", "RayTracingShaderGroupCreateInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsRayTracingShaderGroupCreateInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkRefreshObjectListKHR", "`].")]
+#[doc = concat!("[`", "RefreshObjectListKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsRefreshObjectListKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkReleaseCapturedPipelineDataInfoKHR", "`].")]
+#[doc = concat!("[`", "ReleaseCapturedPipelineDataInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsReleaseCapturedPipelineDataInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkReleaseSwapchainImagesInfoKHR", "`].")]
+#[doc = concat!("[`", "ReleaseSwapchainImagesInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsReleaseSwapchainImagesInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkRenderPassAttachmentBeginInfo", "`].")]
+#[doc = concat!("[`", "RenderPassAttachmentBeginInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsRenderPassAttachmentBeginInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkRenderPassBeginInfo", "`].")]
+#[doc = concat!("[`", "RenderPassBeginInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsRenderPassBeginInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkRenderPassCreateInfo", "`].")]
+#[doc = concat!("[`", "RenderPassCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsRenderPassCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkRenderPassCreateInfo2", "`].")]
+#[doc = concat!("[`", "RenderPassCreateInfo2", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsRenderPassCreateInfo2 {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkRenderPassCreationControlEXT", "`].")]
+#[doc = concat!("[`", "RenderPassCreationControlEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsRenderPassCreationControlEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkRenderPassCreationFeedbackCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "RenderPassCreationFeedbackCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsRenderPassCreationFeedbackCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkRenderPassFragmentDensityMapCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "RenderPassFragmentDensityMapCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsRenderPassFragmentDensityMapCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkRenderPassFragmentDensityMapOffsetEndInfoEXT", "`].")]
+#[doc = concat!("[`", "RenderPassFragmentDensityMapOffsetEndInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsRenderPassFragmentDensityMapOffsetEndInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkRenderPassInputAttachmentAspectCreateInfo", "`].")]
+#[doc = concat!("[`", "RenderPassInputAttachmentAspectCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsRenderPassInputAttachmentAspectCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkRenderPassMultiviewCreateInfo", "`].")]
+#[doc = concat!("[`", "RenderPassMultiviewCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsRenderPassMultiviewCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkRenderPassPerformanceCountersByRegionBeginInfoARM", "`].")]
+#[doc = concat!("[`", "RenderPassPerformanceCountersByRegionBeginInfoARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsRenderPassPerformanceCountersByRegionBeginInfoARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkRenderPassSampleLocationsBeginInfoEXT", "`].")]
+#[doc = concat!("[`", "RenderPassSampleLocationsBeginInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsRenderPassSampleLocationsBeginInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkRenderPassStripeBeginInfoARM", "`].")]
+#[doc = concat!("[`", "RenderPassStripeBeginInfoARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsRenderPassStripeBeginInfoARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkRenderPassStripeInfoARM", "`].")]
+#[doc = concat!("[`", "RenderPassStripeInfoARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsRenderPassStripeInfoARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkRenderPassStripeSubmitInfoARM", "`].")]
+#[doc = concat!("[`", "RenderPassStripeSubmitInfoARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsRenderPassStripeSubmitInfoARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkRenderPassSubpassFeedbackCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "RenderPassSubpassFeedbackCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsRenderPassSubpassFeedbackCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkRenderPassTileShadingCreateInfoQCOM", "`].")]
+#[doc = concat!("[`", "RenderPassTileShadingCreateInfoQCOM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsRenderPassTileShadingCreateInfoQCOM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkRenderPassTransformBeginInfoQCOM", "`].")]
+#[doc = concat!("[`", "RenderPassTransformBeginInfoQCOM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsRenderPassTransformBeginInfoQCOM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkRenderingAreaInfo", "`].")]
+#[doc = concat!("[`", "RenderingAreaInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsRenderingAreaInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkRenderingAttachmentFlagsInfoKHR", "`].")]
+#[doc = concat!("[`", "RenderingAttachmentFlagsInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsRenderingAttachmentFlagsInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkRenderingAttachmentInfo", "`].")]
+#[doc = concat!("[`", "RenderingAttachmentInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsRenderingAttachmentInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkRenderingAttachmentLocationInfo", "`].")]
+#[doc = concat!("[`", "RenderingAttachmentLocationInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsRenderingAttachmentLocationInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkRenderingEndInfoKHR", "`].")]
+#[doc = concat!("[`", "RenderingEndInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsRenderingEndInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkRenderingFragmentDensityMapAttachmentInfoEXT", "`].")]
+#[doc = concat!("[`", "RenderingFragmentDensityMapAttachmentInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsRenderingFragmentDensityMapAttachmentInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkRenderingFragmentShadingRateAttachmentInfoKHR", "`].")]
+#[doc = concat!("[`", "RenderingFragmentShadingRateAttachmentInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsRenderingFragmentShadingRateAttachmentInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkRenderingInfo", "`].")]
+#[doc = concat!("[`", "RenderingInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsRenderingInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkRenderingInputAttachmentIndexInfo", "`].")]
+#[doc = concat!("[`", "RenderingInputAttachmentIndexInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsRenderingInputAttachmentIndexInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkResolveImageInfo2", "`].")]
+#[doc = concat!("[`", "ResolveImageInfo2", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsResolveImageInfo2 {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkResolveImageModeInfoKHR", "`].")]
+#[doc = concat!("[`", "ResolveImageModeInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsResolveImageModeInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkResourceDescriptorInfoEXT", "`].")]
+#[doc = concat!("[`", "ResourceDescriptorInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsResourceDescriptorInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSampleLocationsInfoEXT", "`].")]
+#[doc = concat!("[`", "SampleLocationsInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSampleLocationsInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSamplerBlockMatchWindowCreateInfoQCOM", "`].")]
+#[doc = concat!("[`", "SamplerBlockMatchWindowCreateInfoQCOM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSamplerBlockMatchWindowCreateInfoQCOM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSamplerBorderColorComponentMappingCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "SamplerBorderColorComponentMappingCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSamplerBorderColorComponentMappingCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSamplerCaptureDescriptorDataInfoEXT", "`].")]
+#[doc = concat!("[`", "SamplerCaptureDescriptorDataInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSamplerCaptureDescriptorDataInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSamplerCreateInfo", "`].")]
+#[doc = concat!("[`", "SamplerCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSamplerCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSamplerCubicWeightsCreateInfoQCOM", "`].")]
+#[doc = concat!("[`", "SamplerCubicWeightsCreateInfoQCOM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSamplerCubicWeightsCreateInfoQCOM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSamplerCustomBorderColorCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "SamplerCustomBorderColorCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSamplerCustomBorderColorCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSamplerCustomBorderColorIndexCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "SamplerCustomBorderColorIndexCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSamplerCustomBorderColorIndexCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSamplerReductionModeCreateInfo", "`].")]
+#[doc = concat!("[`", "SamplerReductionModeCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSamplerReductionModeCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSamplerYcbcrConversionCreateInfo", "`].")]
+#[doc = concat!("[`", "SamplerYcbcrConversionCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSamplerYcbcrConversionCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSamplerYcbcrConversionInfo", "`].")]
+#[doc = concat!("[`", "SamplerYcbcrConversionInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSamplerYcbcrConversionInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM", "`].")]
+#[doc = concat!("[`", "SamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSciSyncAttributesInfoNV", "`].")]
+#[doc = concat!("[`", "SciSyncAttributesInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSciSyncAttributesInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkScreenBufferPropertiesQNX", "`].")]
+#[doc = concat!("[`", "ScreenBufferPropertiesQNX", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsScreenBufferPropertiesQNX {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkScreenSurfaceCreateInfoQNX", "`].")]
+#[doc = concat!("[`", "ScreenSurfaceCreateInfoQNX", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsScreenSurfaceCreateInfoQNX {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSemaphoreCreateInfo", "`].")]
+#[doc = concat!("[`", "SemaphoreCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSemaphoreCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSemaphoreGetFdInfoKHR", "`].")]
+#[doc = concat!("[`", "SemaphoreGetFdInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSemaphoreGetFdInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSemaphoreGetSciSyncInfoNV", "`].")]
+#[doc = concat!("[`", "SemaphoreGetSciSyncInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSemaphoreGetSciSyncInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSemaphoreGetWin32HandleInfoKHR", "`].")]
+#[doc = concat!("[`", "SemaphoreGetWin32HandleInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSemaphoreGetWin32HandleInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSemaphoreGetZirconHandleInfoFUCHSIA", "`].")]
+#[doc = concat!("[`", "SemaphoreGetZirconHandleInfoFUCHSIA", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSemaphoreGetZirconHandleInfoFUCHSIA {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSemaphoreSciSyncCreateInfoNV", "`].")]
+#[doc = concat!("[`", "SemaphoreSciSyncCreateInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSemaphoreSciSyncCreateInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSemaphoreSciSyncPoolCreateInfoNV", "`].")]
+#[doc = concat!("[`", "SemaphoreSciSyncPoolCreateInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSemaphoreSciSyncPoolCreateInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSemaphoreSignalInfo", "`].")]
+#[doc = concat!("[`", "SemaphoreSignalInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSemaphoreSignalInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSemaphoreSubmitInfo", "`].")]
+#[doc = concat!("[`", "SemaphoreSubmitInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSemaphoreSubmitInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSemaphoreTypeCreateInfo", "`].")]
+#[doc = concat!("[`", "SemaphoreTypeCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSemaphoreTypeCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSemaphoreWaitInfo", "`].")]
+#[doc = concat!("[`", "SemaphoreWaitInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSemaphoreWaitInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSetDescriptorBufferOffsetsInfoEXT", "`].")]
+#[doc = concat!("[`", "SetDescriptorBufferOffsetsInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSetDescriptorBufferOffsetsInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSetLatencyMarkerInfoNV", "`].")]
+#[doc = concat!("[`", "SetLatencyMarkerInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSetLatencyMarkerInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSetPresentConfigNV", "`].")]
+#[doc = concat!("[`", "SetPresentConfigNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSetPresentConfigNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkShaderCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "ShaderCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsShaderCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkShaderDescriptorSetAndBindingMappingInfoEXT", "`].")]
+#[doc = concat!("[`", "ShaderDescriptorSetAndBindingMappingInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsShaderDescriptorSetAndBindingMappingInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkShaderInstrumentationCreateInfoARM", "`].")]
+#[doc = concat!("[`", "ShaderInstrumentationCreateInfoARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsShaderInstrumentationCreateInfoARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkShaderInstrumentationMetricDescriptionARM", "`].")]
+#[doc = concat!("[`", "ShaderInstrumentationMetricDescriptionARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsShaderInstrumentationMetricDescriptionARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkShaderModuleCreateInfo", "`].")]
+#[doc = concat!("[`", "ShaderModuleCreateInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsShaderModuleCreateInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkShaderModuleValidationCacheCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "ShaderModuleValidationCacheCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsShaderModuleValidationCacheCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkStreamDescriptorSurfaceCreateInfoGGP", "`].")]
+#[doc = concat!("[`", "StreamDescriptorSurfaceCreateInfoGGP", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsStreamDescriptorSurfaceCreateInfoGGP {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSubmitInfo", "`].")]
+#[doc = concat!("[`", "SubmitInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSubmitInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSubmitInfo2", "`].")]
+#[doc = concat!("[`", "SubmitInfo2", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSubmitInfo2 {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSubpassBeginInfo", "`].")]
+#[doc = concat!("[`", "SubpassBeginInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSubpassBeginInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSubpassDependency2", "`].")]
+#[doc = concat!("[`", "SubpassDependency2", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSubpassDependency2 {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSubpassDescription2", "`].")]
+#[doc = concat!("[`", "SubpassDescription2", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSubpassDescription2 {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSubpassDescriptionDepthStencilResolve", "`].")]
+#[doc = concat!("[`", "SubpassDescriptionDepthStencilResolve", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSubpassDescriptionDepthStencilResolve {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSubpassEndInfo", "`].")]
+#[doc = concat!("[`", "SubpassEndInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSubpassEndInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSubpassShadingPipelineCreateInfoHUAWEI", "`].")]
+#[doc = concat!("[`", "SubpassShadingPipelineCreateInfoHUAWEI", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSubpassShadingPipelineCreateInfoHUAWEI {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSubresourceLayout2", "`].")]
+#[doc = concat!("[`", "SubresourceLayout2", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSubresourceLayout2 {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSubsampledImageFormatPropertiesEXT", "`].")]
+#[doc = concat!("[`", "SubsampledImageFormatPropertiesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSubsampledImageFormatPropertiesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSurfaceCapabilities2KHR", "`].")]
+#[doc = concat!("[`", "SurfaceCapabilities2KHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSurfaceCapabilities2KHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSurfaceCapabilitiesPresentId2KHR", "`].")]
+#[doc = concat!("[`", "SurfaceCapabilitiesPresentId2KHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSurfaceCapabilitiesPresentId2KHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSurfaceCapabilitiesPresentWait2KHR", "`].")]
+#[doc = concat!("[`", "SurfaceCapabilitiesPresentWait2KHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSurfaceCapabilitiesPresentWait2KHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSurfaceCreateInfoOHOS", "`].")]
+#[doc = concat!("[`", "SurfaceCreateInfoOHOS", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSurfaceCreateInfoOHOS {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSurfaceFormat2KHR", "`].")]
+#[doc = concat!("[`", "SurfaceFormat2KHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSurfaceFormat2KHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSurfaceFullScreenExclusiveInfoEXT", "`].")]
+#[doc = concat!("[`", "SurfaceFullScreenExclusiveInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSurfaceFullScreenExclusiveInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSurfaceFullScreenExclusiveWin32InfoEXT", "`].")]
+#[doc = concat!("[`", "SurfaceFullScreenExclusiveWin32InfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSurfaceFullScreenExclusiveWin32InfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSurfacePresentModeCompatibilityKHR", "`].")]
+#[doc = concat!("[`", "SurfacePresentModeCompatibilityKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSurfacePresentModeCompatibilityKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSurfacePresentModeKHR", "`].")]
+#[doc = concat!("[`", "SurfacePresentModeKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSurfacePresentModeKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSurfacePresentScalingCapabilitiesKHR", "`].")]
+#[doc = concat!("[`", "SurfacePresentScalingCapabilitiesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSurfacePresentScalingCapabilitiesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSwapchainCalibratedTimestampInfoEXT", "`].")]
+#[doc = concat!("[`", "SwapchainCalibratedTimestampInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSwapchainCalibratedTimestampInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSwapchainCounterCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "SwapchainCounterCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSwapchainCounterCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSwapchainCreateInfoKHR", "`].")]
+#[doc = concat!("[`", "SwapchainCreateInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSwapchainCreateInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSwapchainDisplayNativeHdrCreateInfoAMD", "`].")]
+#[doc = concat!("[`", "SwapchainDisplayNativeHdrCreateInfoAMD", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSwapchainDisplayNativeHdrCreateInfoAMD {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSwapchainImageCreateInfoANDROID", "`].")]
+#[doc = concat!("[`", "SwapchainImageCreateInfoANDROID", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSwapchainImageCreateInfoANDROID {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSwapchainImageCreateInfoOHOS", "`].")]
+#[doc = concat!("[`", "SwapchainImageCreateInfoOHOS", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSwapchainImageCreateInfoOHOS {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSwapchainLatencyCreateInfoNV", "`].")]
+#[doc = concat!("[`", "SwapchainLatencyCreateInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSwapchainLatencyCreateInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSwapchainPresentBarrierCreateInfoNV", "`].")]
+#[doc = concat!("[`", "SwapchainPresentBarrierCreateInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSwapchainPresentBarrierCreateInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSwapchainPresentFenceInfoKHR", "`].")]
+#[doc = concat!("[`", "SwapchainPresentFenceInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSwapchainPresentFenceInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSwapchainPresentModeInfoKHR", "`].")]
+#[doc = concat!("[`", "SwapchainPresentModeInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSwapchainPresentModeInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSwapchainPresentModesCreateInfoKHR", "`].")]
+#[doc = concat!("[`", "SwapchainPresentModesCreateInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSwapchainPresentModesCreateInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSwapchainPresentScalingCreateInfoKHR", "`].")]
+#[doc = concat!("[`", "SwapchainPresentScalingCreateInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSwapchainPresentScalingCreateInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkSysmemColorSpaceFUCHSIA", "`].")]
+#[doc = concat!("[`", "SysmemColorSpaceFUCHSIA", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsSysmemColorSpaceFUCHSIA {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkTensorCaptureDescriptorDataInfoARM", "`].")]
+#[doc = concat!("[`", "TensorCaptureDescriptorDataInfoARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsTensorCaptureDescriptorDataInfoARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkTensorCopyARM", "`].")]
+#[doc = concat!("[`", "TensorCopyARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsTensorCopyARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkTensorCreateInfoARM", "`].")]
+#[doc = concat!("[`", "TensorCreateInfoARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsTensorCreateInfoARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkTensorDependencyInfoARM", "`].")]
+#[doc = concat!("[`", "TensorDependencyInfoARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsTensorDependencyInfoARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkTensorDescriptionARM", "`].")]
+#[doc = concat!("[`", "TensorDescriptionARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsTensorDescriptionARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkTensorMemoryBarrierARM", "`].")]
+#[doc = concat!("[`", "TensorMemoryBarrierARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsTensorMemoryBarrierARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkTensorMemoryRequirementsInfoARM", "`].")]
+#[doc = concat!("[`", "TensorMemoryRequirementsInfoARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsTensorMemoryRequirementsInfoARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkTensorViewCaptureDescriptorDataInfoARM", "`].")]
+#[doc = concat!("[`", "TensorViewCaptureDescriptorDataInfoARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsTensorViewCaptureDescriptorDataInfoARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkTensorViewCreateInfoARM", "`].")]
+#[doc = concat!("[`", "TensorViewCreateInfoARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsTensorViewCreateInfoARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkTexelBufferDescriptorInfoEXT", "`].")]
+#[doc = concat!("[`", "TexelBufferDescriptorInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsTexelBufferDescriptorInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkTileMemoryBindInfoQCOM", "`].")]
+#[doc = concat!("[`", "TileMemoryBindInfoQCOM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsTileMemoryBindInfoQCOM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkTileMemoryRequirementsQCOM", "`].")]
+#[doc = concat!("[`", "TileMemoryRequirementsQCOM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsTileMemoryRequirementsQCOM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkTileMemorySizeInfoQCOM", "`].")]
+#[doc = concat!("[`", "TileMemorySizeInfoQCOM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsTileMemorySizeInfoQCOM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkTilePropertiesQCOM", "`].")]
+#[doc = concat!("[`", "TilePropertiesQCOM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsTilePropertiesQCOM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkTimelineSemaphoreSubmitInfo", "`].")]
+#[doc = concat!("[`", "TimelineSemaphoreSubmitInfo", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsTimelineSemaphoreSubmitInfo {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkUbmSurfaceCreateInfoSEC", "`].")]
+#[doc = concat!("[`", "UbmSurfaceCreateInfoSEC", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsUbmSurfaceCreateInfoSEC {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkValidationCacheCreateInfoEXT", "`].")]
+#[doc = concat!("[`", "ValidationCacheCreateInfoEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsValidationCacheCreateInfoEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkValidationFeaturesEXT", "`].")]
+#[doc = concat!("[`", "ValidationFeaturesEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsValidationFeaturesEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkValidationFlagsEXT", "`].")]
+#[doc = concat!("[`", "ValidationFlagsEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsValidationFlagsEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVertexInputAttributeDescription2EXT", "`].")]
+#[doc = concat!("[`", "VertexInputAttributeDescription2EXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVertexInputAttributeDescription2EXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVertexInputBindingDescription2EXT", "`].")]
+#[doc = concat!("[`", "VertexInputBindingDescription2EXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVertexInputBindingDescription2EXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkViSurfaceCreateInfoNN", "`].")]
+#[doc = concat!("[`", "ViSurfaceCreateInfoNN", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsViSurfaceCreateInfoNN {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoBeginCodingInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoBeginCodingInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoBeginCodingInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoCapabilitiesKHR", "`].")]
+#[doc = concat!("[`", "VideoCapabilitiesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoCapabilitiesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoCodingControlInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoCodingControlInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoCodingControlInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoDecodeAV1DpbSlotInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoDecodeAV1DpbSlotInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoDecodeAV1DpbSlotInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoDecodeAV1InlineSessionParametersInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoDecodeAV1InlineSessionParametersInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoDecodeAV1InlineSessionParametersInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoDecodeAV1PictureInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoDecodeAV1PictureInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoDecodeAV1PictureInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoDecodeAV1ProfileInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoDecodeAV1ProfileInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoDecodeAV1ProfileInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoDecodeAV1SessionParametersCreateInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoDecodeAV1SessionParametersCreateInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoDecodeAV1SessionParametersCreateInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoDecodeH264DpbSlotInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoDecodeH264DpbSlotInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoDecodeH264DpbSlotInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoDecodeH264InlineSessionParametersInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoDecodeH264InlineSessionParametersInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoDecodeH264InlineSessionParametersInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoDecodeH264PictureInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoDecodeH264PictureInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoDecodeH264PictureInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoDecodeH264ProfileInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoDecodeH264ProfileInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoDecodeH264ProfileInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoDecodeH264SessionParametersAddInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoDecodeH264SessionParametersAddInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoDecodeH264SessionParametersAddInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoDecodeH264SessionParametersCreateInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoDecodeH264SessionParametersCreateInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoDecodeH264SessionParametersCreateInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoDecodeH265DpbSlotInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoDecodeH265DpbSlotInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoDecodeH265DpbSlotInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoDecodeH265InlineSessionParametersInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoDecodeH265InlineSessionParametersInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoDecodeH265InlineSessionParametersInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoDecodeH265PictureInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoDecodeH265PictureInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoDecodeH265PictureInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoDecodeH265ProfileInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoDecodeH265ProfileInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoDecodeH265ProfileInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoDecodeH265SessionParametersAddInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoDecodeH265SessionParametersAddInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoDecodeH265SessionParametersAddInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoDecodeH265SessionParametersCreateInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoDecodeH265SessionParametersCreateInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoDecodeH265SessionParametersCreateInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoDecodeInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoDecodeInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoDecodeInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoDecodeUsageInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoDecodeUsageInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoDecodeUsageInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoDecodeVP9PictureInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoDecodeVP9PictureInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoDecodeVP9PictureInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoDecodeVP9ProfileInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoDecodeVP9ProfileInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoDecodeVP9ProfileInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeAV1DpbSlotInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeAV1DpbSlotInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeAV1DpbSlotInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeAV1GopRemainingFrameInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeAV1GopRemainingFrameInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeAV1GopRemainingFrameInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeAV1PictureInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeAV1PictureInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeAV1PictureInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeAV1ProfileInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeAV1ProfileInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeAV1ProfileInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeAV1RateControlInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeAV1RateControlInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeAV1RateControlInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeAV1RateControlLayerInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeAV1RateControlLayerInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeAV1RateControlLayerInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeAV1SessionCreateInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeAV1SessionCreateInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeAV1SessionCreateInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeAV1SessionParametersCreateInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeAV1SessionParametersCreateInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeAV1SessionParametersCreateInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeH264DpbSlotInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeH264DpbSlotInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeH264DpbSlotInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeH264GopRemainingFrameInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeH264GopRemainingFrameInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeH264GopRemainingFrameInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeH264NaluSliceInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeH264NaluSliceInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeH264NaluSliceInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeH264PictureInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeH264PictureInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeH264PictureInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeH264ProfileInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeH264ProfileInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeH264ProfileInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeH264RateControlInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeH264RateControlInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeH264RateControlInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeH264RateControlLayerInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeH264RateControlLayerInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeH264RateControlLayerInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeH264SessionCreateInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeH264SessionCreateInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeH264SessionCreateInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeH264SessionParametersAddInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeH264SessionParametersAddInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeH264SessionParametersAddInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeH264SessionParametersCreateInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeH264SessionParametersCreateInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeH264SessionParametersCreateInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeH264SessionParametersGetInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeH264SessionParametersGetInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeH264SessionParametersGetInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeH265DpbSlotInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeH265DpbSlotInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeH265DpbSlotInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeH265GopRemainingFrameInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeH265GopRemainingFrameInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeH265GopRemainingFrameInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeH265NaluSliceSegmentInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeH265NaluSliceSegmentInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeH265NaluSliceSegmentInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeH265PictureInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeH265PictureInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeH265PictureInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeH265ProfileInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeH265ProfileInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeH265ProfileInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeH265RateControlInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeH265RateControlInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeH265RateControlInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeH265RateControlLayerInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeH265RateControlLayerInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeH265RateControlLayerInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeH265SessionCreateInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeH265SessionCreateInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeH265SessionCreateInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeH265SessionParametersAddInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeH265SessionParametersAddInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeH265SessionParametersAddInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeH265SessionParametersCreateInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeH265SessionParametersCreateInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeH265SessionParametersCreateInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeH265SessionParametersGetInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeH265SessionParametersGetInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeH265SessionParametersGetInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeIntraRefreshInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeIntraRefreshInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeIntraRefreshInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeProfileRgbConversionInfoVALVE", "`].")]
+#[doc = concat!("[`", "VideoEncodeProfileRgbConversionInfoVALVE", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeProfileRgbConversionInfoVALVE {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeQualityLevelInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeQualityLevelInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeQualityLevelInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeQualityLevelPropertiesKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeQualityLevelPropertiesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeQualityLevelPropertiesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeQuantizationMapInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeQuantizationMapInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeQuantizationMapInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!(
-    "[`", "VkVideoEncodeQuantizationMapSessionParametersCreateInfoKHR", "`]."
-)]
+#[doc = concat!("[`", "VideoEncodeQuantizationMapSessionParametersCreateInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeQuantizationMapSessionParametersCreateInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeRateControlInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeRateControlInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeRateControlInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeRateControlLayerInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeRateControlLayerInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeRateControlLayerInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeSessionIntraRefreshCreateInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeSessionIntraRefreshCreateInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeSessionIntraRefreshCreateInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeSessionParametersFeedbackInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeSessionParametersFeedbackInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeSessionParametersFeedbackInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeSessionParametersGetInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeSessionParametersGetInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeSessionParametersGetInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeSessionRgbConversionCreateInfoVALVE", "`].")]
+#[doc = concat!("[`", "VideoEncodeSessionRgbConversionCreateInfoVALVE", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeSessionRgbConversionCreateInfoVALVE {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEncodeUsageInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEncodeUsageInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEncodeUsageInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoEndCodingInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoEndCodingInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoEndCodingInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoFormatPropertiesKHR", "`].")]
+#[doc = concat!("[`", "VideoFormatPropertiesKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoFormatPropertiesKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoInlineQueryInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoInlineQueryInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoInlineQueryInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoPictureResourceInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoPictureResourceInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoPictureResourceInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoProfileInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoProfileInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoProfileInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoProfileListInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoProfileListInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoProfileListInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoReferenceIntraRefreshInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoReferenceIntraRefreshInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoReferenceIntraRefreshInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoReferenceSlotInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoReferenceSlotInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoReferenceSlotInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoSessionCreateInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoSessionCreateInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoSessionCreateInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoSessionParametersCreateInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoSessionParametersCreateInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoSessionParametersCreateInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkVideoSessionParametersUpdateInfoKHR", "`].")]
+#[doc = concat!("[`", "VideoSessionParametersUpdateInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsVideoSessionParametersUpdateInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkWaylandSurfaceCreateInfoKHR", "`].")]
+#[doc = concat!("[`", "WaylandSurfaceCreateInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsWaylandSurfaceCreateInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkWin32KeyedMutexAcquireReleaseInfoKHR", "`].")]
+#[doc = concat!("[`", "Win32KeyedMutexAcquireReleaseInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsWin32KeyedMutexAcquireReleaseInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkWin32KeyedMutexAcquireReleaseInfoNV", "`].")]
+#[doc = concat!("[`", "Win32KeyedMutexAcquireReleaseInfoNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsWin32KeyedMutexAcquireReleaseInfoNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkWin32SurfaceCreateInfoKHR", "`].")]
+#[doc = concat!("[`", "Win32SurfaceCreateInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsWin32SurfaceCreateInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkWriteDescriptorSet", "`].")]
+#[doc = concat!("[`", "WriteDescriptorSet", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsWriteDescriptorSet {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkWriteDescriptorSetAccelerationStructureKHR", "`].")]
+#[doc = concat!("[`", "WriteDescriptorSetAccelerationStructureKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsWriteDescriptorSetAccelerationStructureKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkWriteDescriptorSetAccelerationStructureNV", "`].")]
+#[doc = concat!("[`", "WriteDescriptorSetAccelerationStructureNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsWriteDescriptorSetAccelerationStructureNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkWriteDescriptorSetInlineUniformBlock", "`].")]
+#[doc = concat!("[`", "WriteDescriptorSetInlineUniformBlock", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsWriteDescriptorSetInlineUniformBlock {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkWriteDescriptorSetPartitionedAccelerationStructureNV", "`].")]
+#[doc = concat!("[`", "WriteDescriptorSetPartitionedAccelerationStructureNV", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsWriteDescriptorSetPartitionedAccelerationStructureNV {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkWriteDescriptorSetTensorARM", "`].")]
+#[doc = concat!("[`", "WriteDescriptorSetTensorARM", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsWriteDescriptorSetTensorARM {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkWriteIndirectExecutionSetPipelineEXT", "`].")]
+#[doc = concat!("[`", "WriteIndirectExecutionSetPipelineEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsWriteIndirectExecutionSetPipelineEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkWriteIndirectExecutionSetShaderEXT", "`].")]
+#[doc = concat!("[`", "WriteIndirectExecutionSetShaderEXT", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsWriteIndirectExecutionSetShaderEXT {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkXcbSurfaceCreateInfoKHR", "`].")]
+#[doc = concat!("[`", "XcbSurfaceCreateInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.
 pub unsafe trait ExtendsXcbSurfaceCreateInfoKHR {}
 /// Marker trait for structs that can appear in the pNext chain of
-#[doc = concat!("[`", "VkXlibSurfaceCreateInfoKHR", "`].")]
+#[doc = concat!("[`", "XlibSurfaceCreateInfoKHR", "`].")]
 ///
 /// # Safety
 /// Implementors must be valid pNext chain members for the target struct.

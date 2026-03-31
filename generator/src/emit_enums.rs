@@ -84,7 +84,12 @@ fn emit_variant(variant: &EnumVariant, prefix: &str) -> Option<TokenStream> {
     let comment_doc: Vec<TokenStream> = variant
         .comment
         .as_deref()
-        .map(|c| vec![quote! { #[doc = #c] }])
+        .map(|c| {
+            // Sanitize Asciidoc <<section-ref>> syntax that rustdoc
+            // would interpret as unclosed HTML tags.
+            let sanitized = c.replace("<<", "`").replace(">>", "`");
+            vec![quote! { #[doc = #sanitized] }]
+        })
         .unwrap_or_default();
 
     match &variant.value {

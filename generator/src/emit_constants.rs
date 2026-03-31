@@ -24,7 +24,10 @@ fn emit_constant(def: &ConstantDef) -> Option<TokenStream> {
     let comment_doc: Vec<TokenStream> = def
         .comment
         .as_deref()
-        .map(|c| vec![quote! { #[doc = #c] }])
+        .map(|c| {
+            let sanitized = c.replace("<<", "`").replace(">>", "`");
+            vec![quote! { #[doc = #sanitized] }]
+        })
         .unwrap_or_default();
 
     Some(quote! {

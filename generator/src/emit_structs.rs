@@ -420,10 +420,10 @@ fn emit_marker_traits(registry: &VkRegistry) -> TokenStream {
         .iter()
         .map(|name| {
             let trait_ident = format_ident!("Extends{}", name);
-            let vk_name = format!("Vk{}", name);
+            let rust_name = name.clone();
             quote! {
                 /// Marker trait for structs that can appear in the pNext chain of
-                #[doc = concat!("[`", #vk_name, "`].")]
+                #[doc = concat!("[`", #rust_name, "`].")]
                 ///
                 /// # Safety
                 /// Implementors must be valid pNext chain members for the target struct.
