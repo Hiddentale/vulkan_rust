@@ -206,7 +206,8 @@ jobs:
       - name: Install system dependencies and lavapipe
         run: |
           sudo apt-get update
-          sudo apt-get install -y libvulkan-dev libxcb1-dev libxkbcommon-dev mesa-vulkan-drivers
+          sudo apt-get install -y libvulkan-dev libxcb1-dev libxkbcommon-dev \
+            mesa-vulkan-drivers vulkan-tools
 
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
@@ -215,15 +216,23 @@ jobs:
 
       - uses: Swatinem/rust-cache@v2
 
-      - name: Verify lavapipe is available
+      - name: Find lavapipe ICD and verify
         run: |
-          VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/lvp_icd.x86_64.json \
-          vulkaninfo --summary 2>&1 | head -20 || echo "vulkaninfo not available, continuing anyway"
+          # Find the actual ICD file path (varies by Ubuntu version)
+          LVP_ICD=$(find /usr/share/vulkan /etc/vulkan -name '*lvp*' -o -name '*lavapipe*' 2>/dev/null | head -1)
+          if [ -z "$LVP_ICD" ]; then
+            echo "::warning::Lavapipe ICD not found, listing available ICDs:"
+            find /usr/share/vulkan /etc/vulkan -name '*.json' 2>/dev/null
+            exit 1
+          fi
+          echo "Found lavapipe ICD: $LVP_ICD"
+          echo "LVP_ICD=$LVP_ICD" >> "$GITHUB_ENV"
+          VK_ICD_FILENAMES="$LVP_ICD" vulkaninfo --summary
 
       - name: Run ignored tests (requires Vulkan runtime)
-        env:
-          VK_ICD_FILENAMES: /usr/share/vulkan/icd.d/lvp_icd.x86_64.json
-        run: cargo test --workspace -- --ignored
+        run: |
+          export VK_ICD_FILENAMES="$LVP_ICD"
+          cargo test --workspace --test-threads=1 -- --ignored
 
   layout-cross-validation:
     name: C ↔ Rust Layout Validation
