@@ -368,7 +368,120 @@ fn builder_count_does_not_regress() {
 }
 
 // ═══════════════════════════════════════════════════════════════════
-// Test 10: Command dispatch level classification
+// Test 10: Type alias targets resolve
+// ═══════════════════════════════════════════════════════════════════
+
+/// Every type alias chain must eventually resolve to a concrete type
+/// in the registry. A dangling chain means the generator would emit
+/// `pub type Foo = Bar;` where `Bar` is never defined.
+#[test]
+fn type_alias_chains_resolve() {
+    let registry = load_registry();
+
+    let strip_vk = |s: &str| -> String {
+        s.strip_prefix("Vk").unwrap_or(s).to_string()
+    };
+
+    // Concrete types (Vk-stripped): handles, structs, enums, bitmasks, etc.
+    let mut concrete: std::collections::HashSet<String> = std::collections::HashSet::new();
+    for h in &registry.handles {
+        concrete.insert(h.name.clone());
+    }
+    for s in &registry.structs {
+        concrete.insert(s.name.clone());
+    }
+    for e in &registry.enums {
+        concrete.insert(e.name.clone());
+    }
+    for b in &registry.bitmasks {
+        concrete.insert(b.name.clone());
+        concrete.insert(b.flags_name.clone());
+    }
+    for fp in &registry.func_pointers {
+        concrete.insert(fp.name.clone());
+    }
+    for name in registry.base_types.keys() {
+        concrete.insert(name.clone());
+    }
+
+    // Build alias map for chain following. Keys/values are Vk-stripped.
+    let alias_map: std::collections::HashMap<String, String> = registry
+        .aliases
+        .iter()
+        .filter(|a| a.kind == generator::parse::AliasKind::Type)
+        .map(|a| (strip_vk(&a.name), strip_vk(&a.target)))
+        .collect();
+
+    // Flags types (e.g. AccessFlags2) are resolved to their FlagBits
+    // form by the generator, so they're valid even if not in the concrete set.
+    let is_flags_type = |name: &str| -> bool {
+        name.contains("Flags") && !name.contains("FlagBits")
+    };
+
+    let mut dangling = Vec::new();
+    for a in &registry.aliases {
+        if a.kind != generator::parse::AliasKind::Type {
+            continue;
+        }
+
+        // Follow the chain up to 10 hops (all Vk-stripped).
+        let mut current = strip_vk(&a.target);
+        let mut resolved = concrete.contains(&current) || is_flags_type(&current);
+        for _ in 0..10 {
+            if resolved {
+                break;
+            }
+            if let Some(next) = alias_map.get(&current) {
+                current = next.clone();
+                resolved = concrete.contains(&current) || is_flags_type(&current);
+            } else {
+                break;
+            }
+        }
+
+        if !resolved {
+            dangling.push(format!("{} → … → {current}", a.name));
+        }
+    }
+
+    assert!(
+        dangling.is_empty(),
+        "Type alias chains with no concrete target:\n  {}",
+        dangling.join("\n  ")
+    );
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// Test 11: Command alias targets resolve
+// ═══════════════════════════════════════════════════════════════════
+
+/// Every command alias must point to a command that exists in the
+/// registry. A dangling command alias means the fallback loader will
+/// reference a function pointer field that doesn't exist.
+#[test]
+fn command_alias_targets_resolve() {
+    let registry = load_registry();
+
+    let known_commands: std::collections::HashSet<&str> =
+        registry.commands.iter().map(|c| c.name.as_str()).collect();
+
+    let mut dangling = Vec::new();
+    for a in &registry.aliases {
+        if a.kind == generator::parse::AliasKind::Command && !known_commands.contains(a.target.as_str())
+        {
+            dangling.push(format!("{} → {}", a.name, a.target));
+        }
+    }
+
+    assert!(
+        dangling.is_empty(),
+        "Command aliases with missing targets:\n  {}",
+        dangling.join("\n  ")
+    );
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// Test 12: Command dispatch level classification
 // ═══════════════════════════════════════════════════════════════════
 
 /// For every command in InstanceCommands, its first parameter must be
