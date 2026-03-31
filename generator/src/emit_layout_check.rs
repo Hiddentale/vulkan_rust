@@ -24,7 +24,9 @@ fn untestable_extensions(registry: &VkRegistry) -> HashSet<String> {
         .extensions
         .iter()
         .filter(|ext| {
-            ext.platform.is_some() || !ext.supported.contains("vulkan") || ext.supported == "vulkansc"
+            ext.platform.is_some()
+                || !ext.supported.contains("vulkan")
+                || ext.supported == "vulkansc"
         })
         .map(|ext| ext.name.clone())
         .collect()
@@ -48,9 +50,7 @@ fn testable_structs<'a>(
         .filter(|s| !is_opaque(&s.name))
         .filter(|s| !has_bitfields(s))
         .filter(|s| match &s.provided_by {
-            Some(provider) => {
-                !skip_extensions.contains(provider) && !provider.starts_with("VKSC_")
-            }
+            Some(provider) => !skip_extensions.contains(provider) && !provider.starts_with("VKSC_"),
             None => true,
         })
         .collect()
