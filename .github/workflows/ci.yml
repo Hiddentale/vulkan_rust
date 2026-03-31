@@ -162,6 +162,37 @@ jobs:
           echo "---"
           RUSTDOCFLAGS="-Z unstable-options --show-coverage" cargo +nightly doc --no-deps -p vk-sys 2>&1 | tee -a coverage.txt
 
+  test-coverage:
+    name: Test Coverage
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install system dependencies
+        run: sudo apt-get install -y libvulkan-dev libxcb1-dev libxkbcommon-dev
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, llvm-tools-preview
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Install cargo-llvm-cov
+        uses: taiki-e/install-action@cargo-llvm-cov
+
+      - name: Generate coverage report
+        run: cargo llvm-cov --workspace --lcov --output-path lcov.info
+
+      - name: Print coverage summary
+        run: cargo llvm-cov --workspace --no-run
+
+      - name: Upload coverage artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: lcov.info
+
   generator-determinism:
     name: Generator Determinism
     runs-on: ubuntu-latest
