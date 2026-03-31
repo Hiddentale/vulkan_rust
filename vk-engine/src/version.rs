@@ -13,6 +13,15 @@ pub struct Version {
 
 impl Version {
     /// Decode a packed Vulkan version `u32` into its components.
+    ///
+    /// ```
+    /// use vk_engine::Version;
+    ///
+    /// let v = Version::from_raw(0x00403000); // Vulkan 1.3.0
+    /// assert_eq!(v.major, 1);
+    /// assert_eq!(v.minor, 3);
+    /// assert_eq!(v.patch, 0);
+    /// ```
     pub const fn from_raw(raw: u32) -> Self {
         Self {
             major: raw >> 22,

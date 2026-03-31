@@ -625,3 +625,62 @@ fn all_wrapper_methods_have_spec_links() {
         missing.join("\n  ")
     );
 }
+
+// ═══════════════════════════════════════════════════════════════════
+// Test 16: All wrapper methods returning Result have # Errors
+// ═══════════════════════════════════════════════════════════════════
+
+/// Every generated wrapper whose return type contains `Result` AND
+/// whose command has error codes in vk.xml must have an `# Errors`
+/// section. Commands without error codes in vk.xml are exempt.
+#[test]
+fn result_returning_wrappers_have_error_docs() {
+    let registry = load_registry();
+    let instance_wrappers = read_generated("vk-engine/src/generated/instance_wrappers.rs");
+    let device_wrappers = read_generated("vk-engine/src/generated/device_wrappers.rs");
+    let all = format!("{instance_wrappers}\n{device_wrappers}");
+
+    // Build set of commands that have error codes.
+    let cmds_with_errors: std::collections::HashSet<String> = registry
+        .commands
+        .iter()
+        .filter(|c| !c.error_codes.is_empty())
+        .map(|c| {
+            // Convert vkCmdFoo to snake_case field name.
+            let stripped = c.name.strip_prefix("vk").unwrap_or(&c.name);
+            <str as heck::ToSnakeCase>::to_snake_case(stripped)
+        })
+        .collect();
+
+    let mut missing = Vec::new();
+    let lines: Vec<&str> = all.lines().collect();
+    for (i, line) in lines.iter().enumerate() {
+        let trimmed = line.trim();
+        if !trimmed.starts_with("pub unsafe fn ") {
+            continue;
+        }
+        let name = trimmed
+            .strip_prefix("pub unsafe fn ")
+            .unwrap_or("")
+            .split('(')
+            .next()
+            .unwrap_or("");
+
+        // Only check commands that have error codes in the registry.
+        if !cmds_with_errors.contains(name) {
+            continue;
+        }
+
+        let start = i.saturating_sub(25);
+        let has_errors = lines[start..i].iter().any(|l| l.contains("# Errors"));
+        if !has_errors {
+            missing.push(name.to_string());
+        }
+    }
+
+    assert!(
+        missing.is_empty(),
+        "Result-returning wrappers missing # Errors section:\n  {}",
+        missing.join("\n  ")
+    );
+}
