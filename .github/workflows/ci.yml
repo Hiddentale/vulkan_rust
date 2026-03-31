@@ -80,6 +80,7 @@ jobs:
 
   build:
     name: Build & Test (${{ matrix.os }})
+    needs: [fmt, clippy]
     strategy:
       fail-fast: false
       matrix:
@@ -101,8 +102,6 @@ jobs:
 
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
-        with:
-          components: rustfmt
 
       - uses: Swatinem/rust-cache@v2
 
@@ -114,6 +113,7 @@ jobs:
 
   doc-check:
     name: Documentation Check
+    needs: [fmt, clippy, generator-determinism]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -123,13 +123,8 @@ jobs:
 
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
-        with:
-          components: rustfmt
 
       - uses: Swatinem/rust-cache@v2
-
-      - name: Regenerate bindings
-        run: cargo run -p generator
 
       - name: Check docs build without warnings
         run: RUSTDOCFLAGS="-D warnings" cargo doc --no-deps --all-features
@@ -139,6 +134,7 @@ jobs:
 
   doc-coverage:
     name: Documentation Coverage
+    needs: [fmt, clippy, generator-determinism]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -148,13 +144,8 @@ jobs:
 
       - name: Install Rust nightly
         uses: dtolnay/rust-toolchain@nightly
-        with:
-          components: rustfmt
 
       - uses: Swatinem/rust-cache@v2
-
-      - name: Regenerate bindings
-        run: cargo run -p generator
 
       - name: Report doc coverage
         run: |
@@ -164,6 +155,7 @@ jobs:
 
   test-coverage:
     name: Test Coverage
+    needs: [fmt, clippy]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -174,7 +166,7 @@ jobs:
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
         with:
-          components: rustfmt, llvm-tools-preview
+          components: llvm-tools-preview
 
       - uses: Swatinem/rust-cache@v2
 
@@ -199,6 +191,7 @@ jobs:
 
   vulkan-runtime-tests:
     name: Vulkan Runtime Tests (lavapipe)
+    needs: [fmt, clippy]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -211,8 +204,6 @@ jobs:
 
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
-        with:
-          components: rustfmt
 
       - uses: Swatinem/rust-cache@v2
 
@@ -236,12 +227,13 @@ jobs:
 
   layout-cross-validation:
     name: C ↔ Rust Layout Validation
+    needs: [fmt, clippy]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
 
       - name: Install system dependencies
-        run: sudo apt-get install -y libvulkan-dev libxcb1-dev libxkbcommon-dev
+        run: sudo apt-get install -y libxcb1-dev libxkbcommon-dev
 
       - name: Install matching Vulkan headers
         run: |
@@ -255,8 +247,9 @@ jobs:
           git clone --depth 1 --branch "${VK_TAG}" \
             https://github.com/KhronosGroup/Vulkan-Headers.git /tmp/vulkan-headers
 
-          sudo rm -rf /usr/include/vulkan
+          sudo rm -rf /usr/include/vulkan /usr/include/vk_video
           sudo cp -r /tmp/vulkan-headers/include/vulkan /usr/include/vulkan
+          sudo cp -r /tmp/vulkan-headers/include/vk_video /usr/include/vk_video
 
           # Self-check: verify the installed headers match our vk.xml
           INSTALLED=$(grep -oP 'VK_HEADER_VERSION \K\d+' /usr/include/vulkan/vulkan_core.h | head -1)
@@ -268,8 +261,6 @@ jobs:
 
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
-        with:
-          components: rustfmt
 
       - uses: Swatinem/rust-cache@v2
 
@@ -316,3 +307,4 @@ jobs:
             git diff --stat
             exit 1
           fi
+          echo "Generated files are up to date"
