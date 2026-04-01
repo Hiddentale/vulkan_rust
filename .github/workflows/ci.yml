@@ -45,6 +45,18 @@ jobs:
             exit 1
           fi
 
+  audit:
+    name: Dependency Audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install cargo-audit
+        uses: taiki-e/install-action@cargo-audit
+
+      - name: Audit dependencies
+        run: cargo audit
+
   fmt:
     name: Format Check
     runs-on: ubuntu-latest
