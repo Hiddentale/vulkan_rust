@@ -31,6 +31,28 @@
 //! | [`bytecode`] | SPIR-V byte alignment helpers |
 //! | [`Version`] | Decoded Vulkan version (major.minor.patch) from a packed `u32` |
 //!
+//! # Guide
+//!
+//! The companion [vulkan_rs Guide](https://hiddentale.github.io/vulkan_rs/)
+//! covers Vulkan concepts in depth:
+//!
+//! | Topic | Guide chapter |
+//! |-------|---------------|
+//! | First steps | [Hello Triangle tutorial](https://hiddentale.github.io/vulkan_rs/getting-started/hello-triangle-1.html) |
+//! | Handles, lifetimes, parent-child | [The Vulkan Object Model](https://hiddentale.github.io/vulkan_rs/concepts/object-model.html) |
+//! | Heaps, allocation, mapping | [Memory Management](https://hiddentale.github.io/vulkan_rs/concepts/memory.html) |
+//! | Fences, semaphores, barriers | [Synchronization](https://hiddentale.github.io/vulkan_rs/concepts/synchronization.html) |
+//! | Attachments, subpasses | [Render Passes & Framebuffers](https://hiddentale.github.io/vulkan_rs/concepts/render-passes.html) |
+//! | Graphics & compute pipelines | [Pipelines](https://hiddentale.github.io/vulkan_rs/concepts/pipelines.html) |
+//! | Layouts, pools, sets | [Descriptor Sets & Resource Binding](https://hiddentale.github.io/vulkan_rs/concepts/descriptors.html) |
+//! | Recording & submission | [Command Buffers](https://hiddentale.github.io/vulkan_rs/concepts/command-buffers.html) |
+//! | Extension struct chains | [The pNext Extension Chain](https://hiddentale.github.io/vulkan_rs/concepts/pnext.html) |
+//! | Debug messenger, layers | [Validation Layers & Debugging](https://hiddentale.github.io/vulkan_rs/concepts/validation.html) |
+//! | Safety model, two-crate design | [Design Decisions](https://hiddentale.github.io/vulkan_rs/architecture/design.html) |
+//! | Error types, Result pattern | [Error Handling Philosophy](https://hiddentale.github.io/vulkan_rs/architecture/errors.html) |
+//! | Porting from ash | [Migration Guide](https://hiddentale.github.io/vulkan_rs/how-to/migrate-from-ash.html) |
+//! | C API to Rust mapping | [C-to-Rust Reference](https://hiddentale.github.io/vulkan_rs/how-to/c-to-rust.html) |
+//!
 //! # Feature flags
 //!
 //! | Flag | Default | Description |

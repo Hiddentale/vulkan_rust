@@ -17,3 +17,7 @@ surface = ["dep:raw-window-handle"]
 vk-sys = { path = "../vk-sys" }
 libloading = "0.8"
 raw-window-handle = { version = "0.6", optional = true }
+
+[dev-dependencies]
+winit = "0.30"
+image = "0.25"
