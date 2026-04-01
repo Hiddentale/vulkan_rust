@@ -181,6 +181,23 @@ mod device_wrappers;
     });
 }
 
+#[cfg(test)]
+fn empty_registry() -> parse::VkRegistry {
+    parse::VkRegistry {
+        handles: vec![],
+        structs: vec![],
+        enums: vec![],
+        bitmasks: vec![],
+        commands: vec![],
+        constants: vec![],
+        func_pointers: vec![],
+        extensions: vec![],
+        platforms: vec![],
+        aliases: vec![],
+        base_types: Default::default(),
+    }
+}
+
 fn print_summary(registry: &parse::VkRegistry) {
     use parse::DispatchLevel;
 
@@ -243,4 +260,171 @@ fn print_summary(registry: &parse::VkRegistry) {
             .filter(|a| a.kind == parse::AliasKind::Bitmask)
             .count(),
     );
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    // -- write_module ---------------------------------------------------------
+
+    #[test]
+    fn write_module_creates_formatted_file() {
+        let dir = std::env::temp_dir().join("gen_test_write_module");
+        let _ = fs::remove_dir_all(&dir);
+        fs::create_dir_all(&dir).unwrap();
+
+        let tokens = quote::quote! {
+            pub const FOO: u32 = 42u32;
+        };
+        write_module(&dir, "test_out.rs", tokens);
+
+        let content = fs::read_to_string(dir.join("test_out.rs")).unwrap();
+        assert!(content.contains("pub const FOO: u32 = 42u32;"));
+
+        let _ = fs::remove_dir_all(&dir);
+    }
+
+    #[test]
+    #[should_panic(expected = "failed to parse")]
+    fn write_module_panics_on_invalid_tokens() {
+        let dir = std::env::temp_dir().join("gen_test_write_invalid");
+        let _ = fs::remove_dir_all(&dir);
+        fs::create_dir_all(&dir).unwrap();
+
+        // Valid tokens but not a valid syn::File (bare expression).
+        let tokens = quote::quote! { 1 + 2 };
+        write_module(&dir, "bad.rs", tokens);
+    }
+
+    // -- update_lib_rs --------------------------------------------------------
+
+    #[test]
+    fn update_lib_rs_writes_expected_content() {
+        let dir = std::env::temp_dir().join("gen_test_lib_rs");
+        let _ = fs::remove_dir_all(&dir);
+        fs::create_dir_all(&dir).unwrap();
+
+        update_lib_rs(&dir);
+
+        let content = fs::read_to_string(dir.join("lib.rs")).unwrap();
+        assert!(content.contains("#![no_std]"));
+        assert!(content.contains("pub mod handles;"));
+        assert!(content.contains("pub mod enums;"));
+        assert!(content.contains("pub mod bitmasks;"));
+        assert!(content.contains("pub mod constants;"));
+        assert!(content.contains("pub mod structs;"));
+        assert!(content.contains("pub mod builders;"));
+        assert!(content.contains("pub mod commands;"));
+
+        let _ = fs::remove_dir_all(&dir);
+    }
+
+    // -- write_engine_mod_rs --------------------------------------------------
+
+    #[test]
+    fn write_engine_mod_rs_writes_expected_content() {
+        let dir = std::env::temp_dir().join("gen_test_engine_mod");
+        let _ = fs::remove_dir_all(&dir);
+        fs::create_dir_all(&dir).unwrap();
+
+        write_engine_mod_rs(&dir);
+
+        let content = fs::read_to_string(dir.join("mod.rs")).unwrap();
+        assert!(content.contains("mod entry_wrappers;"));
+        assert!(content.contains("mod instance_wrappers;"));
+        assert!(content.contains("mod device_wrappers;"));
+
+        let _ = fs::remove_dir_all(&dir);
+    }
+
+    // -- print_summary --------------------------------------------------------
+
+    #[test]
+    fn print_summary_empty_registry() {
+        // Should not panic with an empty registry.
+        print_summary(&empty_registry());
+    }
+
+    #[test]
+    fn print_summary_with_data() {
+        let mut registry = empty_registry();
+        registry.handles.push(parse::HandleDef {
+            name: "VkInstance".to_string(),
+            dispatchable: true,
+            parent: None,
+            object_type: Some("VK_OBJECT_TYPE_INSTANCE".to_string()),
+            provided_by: None,
+        });
+        registry.structs.push(parse::StructDef {
+            name: "VkExtent2D".to_string(),
+            members: vec![],
+            extends: vec![],
+            returned_only: false,
+            is_union: false,
+            provided_by: None,
+        });
+        registry.structs.push(parse::StructDef {
+            name: "VkClearValue".to_string(),
+            members: vec![],
+            extends: vec![],
+            returned_only: false,
+            is_union: true,
+            provided_by: None,
+        });
+        registry.enums.push(parse::EnumDef {
+            name: "VkResult".to_string(),
+            variants: vec![],
+        });
+        registry.bitmasks.push(parse::BitmaskDef {
+            name: "VkAccessFlags2".to_string(),
+            flags_name: "VkAccessFlagBits2".to_string(),
+            bitwidth: 64,
+            bits: vec![],
+        });
+        registry.commands.push(parse::CommandDef {
+            name: "vkCreateInstance".to_string(),
+            return_type: "VkResult".to_string(),
+            params: vec![],
+            success_codes: vec![],
+            error_codes: vec![],
+            dispatch_level: parse::DispatchLevel::Entry,
+            provided_by: None,
+        });
+        registry.aliases.push(parse::AliasDef {
+            name: "VkFoo".to_string(),
+            target: "VkBar".to_string(),
+            kind: parse::AliasKind::Type,
+        });
+        registry.aliases.push(parse::AliasDef {
+            name: "vkFoo".to_string(),
+            target: "vkBar".to_string(),
+            kind: parse::AliasKind::Command,
+        });
+
+        // Should not panic and should count correctly.
+        print_summary(&registry);
+    }
+
+    // -- write_module round-trip formatting ------------------------------------
+
+    #[test]
+    fn write_module_formats_with_prettyplease() {
+        let dir = std::env::temp_dir().join("gen_test_pretty");
+        let _ = fs::remove_dir_all(&dir);
+        fs::create_dir_all(&dir).unwrap();
+
+        // Intentionally ugly token stream.
+        let tokens = quote::quote! {
+            pub fn foo(a:u32,b:u32,c:u32)->u32{a+b+c}
+        };
+        write_module(&dir, "pretty.rs", tokens);
+
+        let content = fs::read_to_string(dir.join("pretty.rs")).unwrap();
+        // prettyplease should add spaces and formatting.
+        assert!(content.contains("pub fn foo"));
+        assert!(content.contains("-> u32"));
+
+        let _ = fs::remove_dir_all(&dir);
+    }
 }

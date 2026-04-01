@@ -1258,7 +1258,10 @@ mod tests {
         let ret = stringify(emit_return_type(&c, &roles, pattern));
 
         assert!(ret.contains("Vec < QueueFamilyProperties >"));
-        assert!(!ret.contains("VkResult"), "Fill pattern should not wrap in VkResult");
+        assert!(
+            !ret.contains("VkResult"),
+            "Fill pattern should not wrap in VkResult"
+        );
     }
 
     #[test]
@@ -1434,12 +1437,8 @@ mod tests {
 
     #[test]
     fn emit_methods_empty_commands() {
-        let (methods, count) = emit_methods(
-            DispatchLevel::Device,
-            &[],
-            &empty_pnext(),
-            &HashSet::new(),
-        );
+        let (methods, count) =
+            emit_methods(DispatchLevel::Device, &[], &empty_pnext(), &HashSet::new());
         assert_eq!(count, 0);
         assert!(stringify(methods).is_empty());
     }
