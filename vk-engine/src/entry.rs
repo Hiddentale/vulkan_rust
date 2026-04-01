@@ -17,6 +17,9 @@ use vk::handles::Handle;
 ///
 /// The `Entry` keeps the shared library alive via `Arc<dyn Loader>` for the
 /// lifetime of all derived objects.
+///
+/// **Guide:** [Hello Triangle, Part 1](https://hiddentale.github.io/vulkan_rs/getting-started/hello-triangle-1.html)
+/// covers creating an `Entry` and bootstrapping the API.
 pub struct Entry {
     _loader: Arc<dyn Loader>,
     get_instance_proc_addr: vk::commands::PFN_vkGetInstanceProcAddr,

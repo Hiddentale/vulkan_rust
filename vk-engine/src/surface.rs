@@ -1,4 +1,7 @@
 //! Platform-aware Vulkan surface creation and extension helpers.
+//!
+//! **Guide:** [Hello Triangle, Part 2](https://hiddentale.github.io/vulkan_rs/getting-started/hello-triangle-2.html)
+//! covers surface creation and swapchain setup.
 
 use std::ffi::CStr;
 use std::fmt;

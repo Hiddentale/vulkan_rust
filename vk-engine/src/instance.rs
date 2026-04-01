@@ -20,6 +20,9 @@ use vk::handles::Handle;
 /// Does **not** implement `Drop`,the caller must explicitly call
 /// `destroy_instance` when done. This avoids double-destroy bugs when
 /// wrapping externally managed handles via `from_raw_parts`.
+///
+/// **Guide:** [The Vulkan Object Model](https://hiddentale.github.io/vulkan_rs/concepts/object-model.html)
+/// covers handles, lifetimes, and parent-child relationships.
 pub struct Instance {
     handle: vk::handles::Instance,
     commands: Box<vk::commands::InstanceCommands>,

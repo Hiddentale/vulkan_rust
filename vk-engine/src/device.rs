@@ -18,6 +18,11 @@ use crate::vk;
 /// Does **not** implement `Drop`,the caller must explicitly call
 /// `destroy_device` when done. This avoids double-destroy bugs when
 /// wrapping externally managed handles via `from_raw_parts`.
+///
+/// **Guide:** Most device-level operations are covered across
+/// [Memory Management](https://hiddentale.github.io/vulkan_rs/concepts/memory.html),
+/// [Command Buffers](https://hiddentale.github.io/vulkan_rs/concepts/command-buffers.html),
+/// and [Synchronization](https://hiddentale.github.io/vulkan_rs/concepts/synchronization.html).
 pub struct Device {
     handle: vk::handles::Device,
     commands: Box<vk::commands::DeviceCommands>,
