@@ -333,6 +333,67 @@ mod tests {
         assert_eq!(instance.handle().as_raw(), fake_handle().as_raw());
     }
 
+    // -- Error-path mock for create_device ------------------------------------
+
+    unsafe extern "system" fn failing_instance_proc_addr(
+        _instance: vk::handles::Instance,
+        name: *const c_char,
+    ) -> vk::structs::PFN_vkVoidFunction {
+        let name = unsafe { std::ffi::CStr::from_ptr(name) };
+        match name.to_bytes() {
+            b"vkGetDeviceProcAddr" => Some(unsafe {
+                std::mem::transmute::<
+                    unsafe extern "system" fn(
+                        vk::handles::Device,
+                        *const c_char,
+                    )
+                        -> vk::structs::PFN_vkVoidFunction,
+                    unsafe extern "system" fn(),
+                >(mock_device_proc_addr)
+            }),
+            b"vkCreateDevice" => Some(unsafe {
+                std::mem::transmute::<
+                    unsafe extern "system" fn(
+                        vk::handles::PhysicalDevice,
+                        *const vk::structs::DeviceCreateInfo,
+                        *const vk::structs::AllocationCallbacks,
+                        *mut vk::handles::Device,
+                    ) -> vk::enums::Result,
+                    unsafe extern "system" fn(),
+                >(failing_create_device)
+            }),
+            _ => None,
+        }
+    }
+
+    unsafe extern "system" fn failing_create_device(
+        _physical_device: vk::handles::PhysicalDevice,
+        _p_create_info: *const vk::structs::DeviceCreateInfo,
+        _p_allocator: *const vk::structs::AllocationCallbacks,
+        _p_device: *mut vk::handles::Device,
+    ) -> vk::enums::Result {
+        vk::enums::Result::ERROR_INITIALIZATION_FAILED
+    }
+
+    #[test]
+    fn create_device_propagates_error() {
+        let instance = unsafe {
+            Instance::load(
+                fake_handle(),
+                Some(failing_instance_proc_addr),
+                Some(mock_device_proc_addr),
+                None,
+            )
+        };
+        let physical_device = vk::handles::PhysicalDevice::from_raw(0xCAFE);
+        let create_info: vk::structs::DeviceCreateInfo = unsafe { std::mem::zeroed() };
+        let result = unsafe { instance.create_device(physical_device, &create_info, None) };
+        match result {
+            Err(e) => assert_eq!(e, vk::enums::Result::ERROR_INITIALIZATION_FAILED),
+            Ok(_) => panic!("expected error, got Ok"),
+        }
+    }
+
     #[test]
     #[ignore] // requires Vulkan runtime
     fn enumerate_physical_devices_returns_at_least_one() {

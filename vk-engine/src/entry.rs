@@ -449,6 +449,135 @@ mod tests {
         assert!(!raw.is_null());
     }
 
+    // -- Error-path mock loader -----------------------------------------------
+
+    /// Mock loader where entry-level commands return Vulkan errors.
+    struct FailingEntryLoader;
+
+    unsafe extern "system" fn failing_get_instance_proc_addr(
+        _instance: vk::handles::Instance,
+        name: *const c_char,
+    ) -> vk::structs::PFN_vkVoidFunction {
+        let name = unsafe { CStr::from_ptr(name) };
+        match name.to_bytes() {
+            b"vkEnumerateInstanceVersion" => Some(unsafe {
+                std::mem::transmute::<
+                    unsafe extern "system" fn(*mut u32) -> vk::enums::Result,
+                    unsafe extern "system" fn(),
+                >(failing_enumerate_instance_version)
+            }),
+            b"vkEnumerateInstanceLayerProperties" => Some(unsafe {
+                std::mem::transmute::<
+                    unsafe extern "system" fn(
+                        *mut u32,
+                        *mut vk::structs::LayerProperties,
+                    ) -> vk::enums::Result,
+                    unsafe extern "system" fn(),
+                >(failing_enumerate_instance_layer_properties)
+            }),
+            b"vkEnumerateInstanceExtensionProperties" => Some(unsafe {
+                std::mem::transmute::<
+                    unsafe extern "system" fn(
+                        *const c_char,
+                        *mut u32,
+                        *mut vk::structs::ExtensionProperties,
+                    ) -> vk::enums::Result,
+                    unsafe extern "system" fn(),
+                >(failing_enumerate_instance_extension_properties)
+            }),
+            b"vkCreateInstance" => Some(unsafe {
+                std::mem::transmute::<
+                    unsafe extern "system" fn(
+                        *const vk::structs::InstanceCreateInfo,
+                        *const vk::structs::AllocationCallbacks,
+                        *mut vk::handles::Instance,
+                    ) -> vk::enums::Result,
+                    unsafe extern "system" fn(),
+                >(failing_create_instance)
+            }),
+            _ => None,
+        }
+    }
+
+    unsafe extern "system" fn failing_enumerate_instance_version(
+        _p_api_version: *mut u32,
+    ) -> vk::enums::Result {
+        vk::enums::Result::ERROR_OUT_OF_HOST_MEMORY
+    }
+
+    unsafe extern "system" fn failing_enumerate_instance_layer_properties(
+        _p_count: *mut u32,
+        _p_properties: *mut vk::structs::LayerProperties,
+    ) -> vk::enums::Result {
+        vk::enums::Result::ERROR_OUT_OF_HOST_MEMORY
+    }
+
+    unsafe extern "system" fn failing_enumerate_instance_extension_properties(
+        _p_layer_name: *const c_char,
+        _p_count: *mut u32,
+        _p_properties: *mut vk::structs::ExtensionProperties,
+    ) -> vk::enums::Result {
+        vk::enums::Result::ERROR_OUT_OF_HOST_MEMORY
+    }
+
+    unsafe extern "system" fn failing_create_instance(
+        _p_create_info: *const vk::structs::InstanceCreateInfo,
+        _p_allocator: *const vk::structs::AllocationCallbacks,
+        _p_instance: *mut vk::handles::Instance,
+    ) -> vk::enums::Result {
+        vk::enums::Result::ERROR_INITIALIZATION_FAILED
+    }
+
+    unsafe impl Loader for FailingEntryLoader {
+        unsafe fn load(&self, name: &CStr) -> *const c_void {
+            match name.to_bytes() {
+                b"vkGetInstanceProcAddr" => failing_get_instance_proc_addr as *const c_void,
+                _ => std::ptr::null(),
+            }
+        }
+    }
+
+    #[test]
+    fn version_propagates_error() {
+        let entry = unsafe { Entry::new(FailingEntryLoader) }.expect("should create Entry");
+        let result = entry.version();
+        assert_eq!(
+            result.unwrap_err(),
+            vk::enums::Result::ERROR_OUT_OF_HOST_MEMORY
+        );
+    }
+
+    #[test]
+    fn create_instance_raw_propagates_error() {
+        let entry = unsafe { Entry::new(FailingEntryLoader) }.expect("should create Entry");
+        let create_info: vk::structs::InstanceCreateInfo = unsafe { std::mem::zeroed() };
+        let result = unsafe { entry.create_instance_raw(&create_info, None) };
+        assert_eq!(
+            result.unwrap_err(),
+            vk::enums::Result::ERROR_INITIALIZATION_FAILED
+        );
+    }
+
+    #[test]
+    fn enumerate_layer_properties_propagates_error() {
+        let entry = unsafe { Entry::new(FailingEntryLoader) }.expect("should create Entry");
+        let result = unsafe { entry.enumerate_instance_layer_properties() };
+        assert_eq!(
+            result.unwrap_err(),
+            vk::enums::Result::ERROR_OUT_OF_HOST_MEMORY
+        );
+    }
+
+    #[test]
+    fn enumerate_extension_properties_propagates_error() {
+        let entry = unsafe { Entry::new(FailingEntryLoader) }.expect("should create Entry");
+        let result = unsafe { entry.enumerate_instance_extension_properties(None) };
+        assert_eq!(
+            result.unwrap_err(),
+            vk::enums::Result::ERROR_OUT_OF_HOST_MEMORY
+        );
+    }
+
     #[test]
     #[ignore] // requires Vulkan runtime
     fn new_succeeds_with_real_loader() {
