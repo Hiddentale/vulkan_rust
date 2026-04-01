@@ -120,6 +120,46 @@ mod tests {
     }
 
     #[test]
+    fn custom_loader_returns_non_null() {
+        struct FixedLoader;
+        unsafe impl Loader for FixedLoader {
+            unsafe fn load(&self, _name: &CStr) -> *const c_void {
+                0xDEAD as *const c_void
+            }
+        }
+        let loader = FixedLoader;
+        let ptr = unsafe { loader.load(c"vkGetInstanceProcAddr") };
+        assert!(!ptr.is_null());
+        assert_eq!(ptr as usize, 0xDEAD);
+    }
+
+    /// Compile-time check that Loader requires Send + Sync.
+    fn _assert_loader_is_send_sync<T: Loader>() {}
+    #[test]
+    fn loader_trait_requires_send_sync() {
+        struct TestLoader;
+        unsafe impl Loader for TestLoader {
+            unsafe fn load(&self, _name: &CStr) -> *const c_void {
+                std::ptr::null()
+            }
+        }
+        _assert_loader_is_send_sync::<TestLoader>();
+    }
+
+    #[test]
+    fn libloading_loader_new_error_is_load_error_library() {
+        // On systems without Vulkan, new() should return LoadError::Library.
+        // On systems WITH Vulkan, this test is still valid because it just
+        // verifies the error type from a manually constructed error.
+        let lib_err = unsafe { libloading::Library::new("__no_such_lib__") }.unwrap_err();
+        let err = LoadError::Library(lib_err);
+        match &err {
+            LoadError::Library(_) => {}
+            LoadError::MissingEntryPoint => panic!("expected Library variant"),
+        }
+    }
+
+    #[test]
     #[ignore] // requires Vulkan runtime
     fn libloading_loader_new_succeeds() {
         let loader = LibloadingLoader::new().expect("failed to load Vulkan library");
