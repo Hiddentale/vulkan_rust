@@ -110,8 +110,13 @@ This example shows the full create-use-destroy lifecycle. Each step
 is labeled with its purpose.
 
 ```rust,ignore
-use vk_engine::{Instance, Device};
-use vk_engine::vk::{self, Handle};
+use vk_engine::vk;
+use vk_engine::vk::structs::*;
+use vk_engine::vk::enums::*;
+use vk_engine::vk::bitmasks::*;
+use vk_engine::vk::handles::*;
+use vk_engine::vk::Handle;
+use vk_engine::Device;
 
 unsafe fn buffer_lifecycle(device: &Device) {
     // ── Step 1: Describe what you want ──────────────────────────
@@ -119,17 +124,17 @@ unsafe fn buffer_lifecycle(device: &Device) {
     // Every create call takes a CreateInfo struct. The builder
     // fills in sType automatically and provides a typed API
     // for each field.
-    let buffer_info = vk::BufferCreateInfo::builder()
+    let buffer_info = BufferCreateInfo::builder()
         .size(1024)                           // 1 KiB
-        .usage(vk::BufferUsageFlags::VERTEX_BUFFER)
-        .sharing_mode(vk::SharingMode::EXCLUSIVE);
+        .usage(BufferUsageFlags::VERTEX_BUFFER)
+        .sharing_mode(SharingMode::EXCLUSIVE);
 
     // ── Step 2: Create the object ───────────────────────────────
     //
     // The driver allocates the resource and returns a handle.
     // This can fail (out of memory, invalid parameters), so it
     // returns a Result.
-    let buffer: vk::Buffer = device
+    let buffer: Buffer = device
         .create_buffer(&buffer_info, None)
         .expect("Failed to create buffer");
 
@@ -170,19 +175,26 @@ are *allocated in bulk* from a pool, and freed back to that pool (or
 the entire pool is reset/destroyed at once):
 
 ```rust,ignore
+use vk_engine::vk;
+use vk_engine::vk::structs::*;
+use vk_engine::vk::enums::*;
+use vk_engine::vk::handles::*;
+use vk_engine::vk::Handle;
+
 // Pool-based lifecycle (simplified)
 unsafe {
     // Create the pool (this is a normal create/destroy object).
-    let pool_info = vk::CommandPoolCreateInfo::builder()
+    let pool_info = CommandPoolCreateInfo::builder()
         .queue_family_index(graphics_queue_family);
     let pool = device.create_command_pool(&pool_info, None)?;
 
     // Allocate command buffers FROM the pool.
-    let alloc_info = vk::CommandBufferAllocateInfo::builder()
+    let alloc_info = CommandBufferAllocateInfo::builder()
         .command_pool(pool)
-        .level(vk::CommandBufferLevel::PRIMARY)
+        .level(CommandBufferLevel::PRIMARY)
         .command_buffer_count(2);
-    let command_buffers = device.allocate_command_buffers(&alloc_info)?;
+    let mut command_buffers = [CommandBuffer::null(); 2];
+    device.allocate_command_buffers(&alloc_info, command_buffers.as_mut_ptr())?;
 
     // Use command_buffers[0], command_buffers[1], ...
 
@@ -190,7 +202,7 @@ unsafe {
     device.free_command_buffers(pool, &command_buffers);
 
     // Option B: Reset the entire pool (returns all buffers to initial state).
-    device.reset_command_pool(pool, vk::CommandPoolResetFlags::empty())?;
+    device.reset_command_pool(pool, CommandPoolResetFlags::empty())?;
 
     // Destroy the pool (implicitly frees all remaining command buffers).
     device.destroy_command_pool(pool, None);

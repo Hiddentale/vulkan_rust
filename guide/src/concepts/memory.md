@@ -123,15 +123,20 @@ from the CPU into fast GPU memory. It uses the **staging buffer pattern**.
 ### Step 1: Create the destination buffer
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::structs::*;
+use vk::enums::*;
+use vk::bitmasks::*;
+
 // The buffer that will hold the mesh on the GPU.
 // TRANSFER_DST means "this buffer can receive data from a copy command."
-let buffer_info = vk::BufferCreateInfo::builder()
+let buffer_info = BufferCreateInfo::builder()
     .size(vertex_data_size)
     .usage(
-        vk::BufferUsageFlags::VERTEX_BUFFER
-        | vk::BufferUsageFlags::TRANSFER_DST
+        BufferUsageFlags::VERTEX_BUFFER
+        | BufferUsageFlags::TRANSFER_DST
     )
-    .sharing_mode(vk::SharingMode::EXCLUSIVE);
+    .sharing_mode(SharingMode::EXCLUSIVE);
 
 let gpu_buffer = unsafe { device.create_buffer(&buffer_info, None)? };
 ```
@@ -153,6 +158,9 @@ let mem_requirements = unsafe {
 ### Step 3: Find the right memory type
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::structs::*;
+
 // Query what memory the hardware offers.
 let mem_properties = unsafe {
     instance.get_physical_device_memory_properties(physical_device)
@@ -161,7 +169,7 @@ let mem_properties = unsafe {
 // Find a memory type that is:
 //   1. Compatible with the buffer (listed in memory_type_bits)
 //   2. Device-local (fast GPU access)
-let desired = vk::MemoryPropertyFlags::DEVICE_LOCAL;
+let desired = MemoryPropertyFlags::DEVICE_LOCAL;
 
 let memory_type_index = (0..mem_properties.memory_type_count)
     .find(|&i| {
@@ -183,7 +191,10 @@ let memory_type_index = (0..mem_properties.memory_type_count)
 ### Step 4: Allocate and bind
 
 ```rust,ignore
-let alloc_info = vk::MemoryAllocateInfo::builder()
+use vk_engine::vk;
+use vk::structs::*;
+
+let alloc_info = MemoryAllocateInfo::builder()
     .allocation_size(mem_requirements.size)
     .memory_type_index(memory_type_index);
 
@@ -201,11 +212,16 @@ it directly from the CPU. The solution: create a temporary *staging buffer*
 in host-visible memory, write your data there, then copy to the GPU buffer.
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::structs::*;
+use vk::enums::*;
+use vk::bitmasks::*;
+
 // Create a temporary staging buffer in host-visible memory.
-let staging_info = vk::BufferCreateInfo::builder()
+let staging_info = BufferCreateInfo::builder()
     .size(vertex_data_size)
-    .usage(vk::BufferUsageFlags::TRANSFER_SRC)
-    .sharing_mode(vk::SharingMode::EXCLUSIVE);
+    .usage(BufferUsageFlags::TRANSFER_SRC)
+    .sharing_mode(SharingMode::EXCLUSIVE);
 
 let staging_buffer = unsafe { device.create_buffer(&staging_info, None)? };
 let staging_reqs = unsafe {
@@ -214,8 +230,8 @@ let staging_reqs = unsafe {
 
 // Find HOST_VISIBLE | HOST_COHERENT memory for the staging buffer.
 let staging_desired =
-    vk::MemoryPropertyFlags::HOST_VISIBLE
-    | vk::MemoryPropertyFlags::HOST_COHERENT;
+    MemoryPropertyFlags::HOST_VISIBLE
+    | MemoryPropertyFlags::HOST_COHERENT;
 
 let staging_type_index = (0..mem_properties.memory_type_count)
     .find(|&i| {
@@ -227,7 +243,7 @@ let staging_type_index = (0..mem_properties.memory_type_count)
     })
     .expect("No host-visible memory type found");
 
-let staging_alloc = vk::MemoryAllocateInfo::builder()
+let staging_alloc = MemoryAllocateInfo::builder()
     .allocation_size(staging_reqs.size)
     .memory_type_index(staging_type_index);
 
@@ -243,7 +259,7 @@ unsafe {
         staging_memory,
         0,
         vertex_data_size,
-        vk::MemoryMapFlags::empty(),
+        MemoryMapFlags::empty(),
         &mut data_ptr,
     )?;
 
@@ -294,10 +310,13 @@ available on all hardware. The staging buffer pattern works everywhere.
 ### The memory type selection algorithm
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::structs::*;
+
 fn find_memory_type(
-    mem_properties: &vk::PhysicalDeviceMemoryProperties,
+    mem_properties: &PhysicalDeviceMemoryProperties,
     type_bits: u32,       // from MemoryRequirements.memory_type_bits
-    desired: vk::MemoryPropertyFlags,
+    desired: MemoryPropertyFlags,
 ) -> Option<u32> {
     (0..mem_properties.memory_type_count).find(|&i| {
         let compatible = type_bits & (1 << i) != 0;

@@ -86,13 +86,16 @@ This is a minimal pipeline for rendering colored triangles.
 ### Step 1: Load shaders
 
 ```rust,ignore
+use vk_engine::vk;
+use vk_engine::vk::structs::*;
+
 // SPIR-V bytecode, compiled from GLSL with glslc or shaderc.
 let vert_code: &[u32] = /* load from file or include_bytes! */;
 let frag_code: &[u32] = /* load from file or include_bytes! */;
 
-let vert_info = vk::ShaderModuleCreateInfo::builder()
+let vert_info = ShaderModuleCreateInfo::builder()
     .code(vert_code);
-let frag_info = vk::ShaderModuleCreateInfo::builder()
+let frag_info = ShaderModuleCreateInfo::builder()
     .code(frag_code);
 
 let vert_module = unsafe { device.create_shader_module(&vert_info, None)? };
@@ -102,12 +105,12 @@ let frag_module = unsafe { device.create_shader_module(&frag_info, None)? };
 let entry_name = c"main";  // GLSL entry point
 
 let stages = [
-    *vk::PipelineShaderStageCreateInfo::builder()
-        .stage(vk::ShaderStageFlags::VERTEX)
+    *PipelineShaderStageCreateInfo::builder()
+        .stage(ShaderStageFlags::VERTEX)
         .module(vert_module)
         .name(entry_name),
-    *vk::PipelineShaderStageCreateInfo::builder()
-        .stage(vk::ShaderStageFlags::FRAGMENT)
+    *PipelineShaderStageCreateInfo::builder()
+        .stage(ShaderStageFlags::FRAGMENT)
         .module(frag_module)
         .name(entry_name),
 ];
@@ -116,31 +119,35 @@ let stages = [
 ### Step 2: Define vertex input
 
 ```rust,ignore
+use vk_engine::vk;
+use vk_engine::vk::structs::*;
+use vk_engine::vk::enums::*;
+
 // Describe how vertex data is laid out in memory.
-let binding = vk::VertexInputBindingDescription {
+let binding = VertexInputBindingDescription {
     binding: 0,
     stride: std::mem::size_of::<Vertex>() as u32,
-    input_rate: vk::VertexInputRate::VERTEX,
+    input_rate: VertexInputRate::VERTEX,
 };
 
 let attributes = [
     // position: vec3 at offset 0
-    vk::VertexInputAttributeDescription {
+    VertexInputAttributeDescription {
         location: 0,
         binding: 0,
-        format: vk::Format::R32G32B32_SFLOAT,
+        format: Format::R32G32B32_SFLOAT,
         offset: 0,
     },
     // color: vec3 at offset 12
-    vk::VertexInputAttributeDescription {
+    VertexInputAttributeDescription {
         location: 1,
         binding: 0,
-        format: vk::Format::R32G32B32_SFLOAT,
+        format: Format::R32G32B32_SFLOAT,
         offset: 12,
     },
 ];
 
-let vertex_input = vk::PipelineVertexInputStateCreateInfo::builder()
+let vertex_input = PipelineVertexInputStateCreateInfo::builder()
     .vertex_binding_descriptions(&[binding])
     .vertex_attribute_descriptions(&attributes);
 ```
@@ -148,63 +155,73 @@ let vertex_input = vk::PipelineVertexInputStateCreateInfo::builder()
 ### Step 3: Configure fixed-function state
 
 ```rust,ignore
-let input_assembly = vk::PipelineInputAssemblyStateCreateInfo::builder()
-    .topology(vk::PrimitiveTopology::TRIANGLE_LIST);
+use vk_engine::vk;
+use vk_engine::vk::structs::*;
+use vk_engine::vk::enums::*;
+use vk_engine::vk::bitmasks::*;
+
+let input_assembly = PipelineInputAssemblyStateCreateInfo::builder()
+    .topology(PrimitiveTopology::TRIANGLE_LIST);
 
 // Use dynamic viewport and scissor so we don't bake window size
 // into the pipeline. Set them at draw time with cmd_set_viewport
 // and cmd_set_scissor.
-let viewport_state = vk::PipelineViewportStateCreateInfo::builder()
+let viewport_state = PipelineViewportStateCreateInfo::builder()
     .viewport_count(1)
     .scissor_count(1);
 
-let rasterizer = vk::PipelineRasterizationStateCreateInfo::builder()
-    .polygon_mode(vk::PolygonMode::FILL)
-    .cull_mode(vk::CullModeFlags::BACK)
-    .front_face(vk::FrontFace::COUNTER_CLOCKWISE)
+let rasterizer = PipelineRasterizationStateCreateInfo::builder()
+    .polygon_mode(PolygonMode::FILL)
+    .cull_mode(CullModeFlags::BACK)
+    .front_face(FrontFace::COUNTER_CLOCKWISE)
     .line_width(1.0);
 
-let multisampling = vk::PipelineMultisampleStateCreateInfo::builder()
-    .rasterization_samples(vk::SampleCountFlagBits::N1);
+let multisampling = PipelineMultisampleStateCreateInfo::builder()
+    .rasterization_samples(SampleCountFlagBits::_1);
 
-let depth_stencil = vk::PipelineDepthStencilStateCreateInfo::builder()
+let depth_stencil = PipelineDepthStencilStateCreateInfo::builder()
     .depth_test_enable(1)
     .depth_write_enable(1)
-    .depth_compare_op(vk::CompareOp::LESS);
+    .depth_compare_op(CompareOp::LESS);
 
 // No blending: write color directly.
-let blend_attachment = vk::PipelineColorBlendAttachmentState {
+let blend_attachment = PipelineColorBlendAttachmentState {
     blend_enable: 0,
-    color_write_mask: vk::ColorComponentFlags::R
-        | vk::ColorComponentFlags::G
-        | vk::ColorComponentFlags::B
-        | vk::ColorComponentFlags::A,
+    color_write_mask: ColorComponentFlags::R
+        | ColorComponentFlags::G
+        | ColorComponentFlags::B
+        | ColorComponentFlags::A,
     ..unsafe { core::mem::zeroed() }
 };
 
-let color_blending = vk::PipelineColorBlendStateCreateInfo::builder()
+let color_blending = PipelineColorBlendStateCreateInfo::builder()
     .attachments(&[blend_attachment]);
 
 // Dynamic state: viewport and scissor are set at draw time.
 let dynamic_states = [
-    vk::DynamicState::VIEWPORT,
-    vk::DynamicState::SCISSOR,
+    DynamicState::VIEWPORT,
+    DynamicState::SCISSOR,
 ];
-let dynamic_state = vk::PipelineDynamicStateCreateInfo::builder()
+let dynamic_state = PipelineDynamicStateCreateInfo::builder()
     .dynamic_states(&dynamic_states);
 ```
 
 ### Step 4: Create pipeline layout and pipeline
 
 ```rust,ignore
+use vk_engine::vk;
+use vk_engine::vk::structs::*;
+use vk_engine::vk::handles::*;
+use vk_engine::vk::Handle;
+
 // Empty layout (no descriptor sets, no push constants).
-let layout_info = vk::PipelineLayoutCreateInfo::builder();
+let layout_info = PipelineLayoutCreateInfo::builder();
 let pipeline_layout = unsafe {
     device.create_pipeline_layout(&layout_info, None)?
 };
 
 // Assemble everything into one create info.
-let pipeline_info = vk::GraphicsPipelineCreateInfo::builder()
+let pipeline_info = GraphicsPipelineCreateInfo::builder()
     .stages(&stages)
     .vertex_input_state(&vertex_input)
     .input_assembly_state(&input_assembly)
@@ -219,10 +236,10 @@ let pipeline_info = vk::GraphicsPipelineCreateInfo::builder()
     .subpass(0);
 
 // create_graphics_pipelines can create multiple pipelines at once.
-let mut pipeline = vk::Pipeline::null();
+let mut pipeline = Pipeline::null();
 unsafe {
     device.create_graphics_pipelines(
-        vk::PipelineCache::null(),  // no cache for now
+        PipelineCache::null(),  // no cache for now
         &[*pipeline_info],
         None,
         &mut pipeline,
@@ -240,10 +257,13 @@ unsafe {
 ### Step 5: Use in command recording
 
 ```rust,ignore
+use vk_engine::vk;
+use vk_engine::vk::enums::*;
+
 unsafe {
     device.cmd_bind_pipeline(
         command_buffer,
-        vk::PipelineBindPoint::GRAPHICS,
+        PipelineBindPoint::GRAPHICS,
         pipeline,
     );
 
@@ -262,17 +282,22 @@ Compute pipelines are dramatically simpler: just a shader stage and
 a pipeline layout. No vertex input, no rasterization, no blending.
 
 ```rust,ignore
-let compute_info = vk::ComputePipelineCreateInfo::builder()
-    .stage(*vk::PipelineShaderStageCreateInfo::builder()
-        .stage(vk::ShaderStageFlags::COMPUTE)
+use vk_engine::vk;
+use vk_engine::vk::structs::*;
+use vk_engine::vk::handles::*;
+use vk_engine::vk::Handle;
+
+let compute_info = ComputePipelineCreateInfo::builder()
+    .stage(*PipelineShaderStageCreateInfo::builder()
+        .stage(ShaderStageFlags::COMPUTE)
         .module(compute_module)
         .name(c"main"))
     .layout(compute_layout);
 
-let mut compute_pipeline = vk::Pipeline::null();
+let mut compute_pipeline = Pipeline::null();
 unsafe {
     device.create_compute_pipelines(
-        vk::PipelineCache::null(),
+        PipelineCache::null(),
         &[*compute_info],
         None,
         &mut compute_pipeline,
@@ -288,8 +313,11 @@ creations (in the same run or across runs, if you save/load the cache)
 are faster.
 
 ```rust,ignore
+use vk_engine::vk;
+use vk_engine::vk::structs::*;
+
 // Create a cache (optionally seeded with data from a previous run).
-let cache_info = vk::PipelineCacheCreateInfo::builder();
+let cache_info = PipelineCacheCreateInfo::builder();
 let cache = unsafe { device.create_pipeline_cache(&cache_info, None)? };
 
 // Pass the cache when creating pipelines.

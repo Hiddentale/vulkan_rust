@@ -60,6 +60,8 @@ Your app ──────────────────────> Vul
 
 ```rust,ignore
 use std::ffi::CStr;
+use vk_engine::vk;
+use vk::structs::*;
 
 // The standard validation layer name.
 let validation_layer = c"VK_LAYER_KHRONOS_validation";
@@ -67,10 +69,10 @@ let layer_names = [validation_layer.as_ptr()];
 
 // The debug utils extension lets us receive callbacks.
 let extension_names = [
-    vk::EXT_DEBUG_UTILS_EXTENSION_NAME.as_ptr(),
+    c"VK_EXT_debug_utils".as_ptr(),
 ];
 
-let instance_info = vk::InstanceCreateInfo::builder()
+let instance_info = InstanceCreateInfo::builder()
     .enabled_layer_names(&layer_names)
     .enabled_extension_names(&extension_names);
 
@@ -83,12 +85,16 @@ The debug messenger calls your function whenever validation finds a
 problem.
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::structs::*;
+use vk::bitmasks::*;
+
 // This callback receives validation messages.
 // The signature must match PFN_vkDebugUtilsMessengerCallbackEXT.
 unsafe extern "system" fn debug_callback(
-    severity: vk::DebugUtilsMessageSeverityFlagsEXT,
-    message_type: vk::DebugUtilsMessageTypeFlagsEXT,
-    callback_data: *const vk::DebugUtilsMessengerCallbackDataEXT,
+    severity: DebugUtilsMessageSeverityFlagsEXT,
+    message_type: DebugUtilsMessageTypeFlagsEXT,
+    callback_data: *const DebugUtilsMessengerCallbackDataEXT,
     _user_data: *mut core::ffi::c_void,
 ) -> u32 {
     let message = if !callback_data.is_null() {
@@ -102,12 +108,12 @@ unsafe extern "system" fn debug_callback(
         std::borrow::Cow::Borrowed("(no callback data)")
     };
 
-    if severity & vk::DebugUtilsMessageSeverityFlagsEXT::ERROR
-        != vk::DebugUtilsMessageSeverityFlagsEXT::empty()
+    if severity & DebugUtilsMessageSeverityFlagsEXT::ERROR
+        != DebugUtilsMessageSeverityFlagsEXT::empty()
     {
         eprintln!("[VULKAN ERROR] {message}");
-    } else if severity & vk::DebugUtilsMessageSeverityFlagsEXT::WARNING
-        != vk::DebugUtilsMessageSeverityFlagsEXT::empty()
+    } else if severity & DebugUtilsMessageSeverityFlagsEXT::WARNING
+        != DebugUtilsMessageSeverityFlagsEXT::empty()
     {
         eprintln!("[VULKAN WARNING] {message}");
     }
@@ -117,16 +123,20 @@ unsafe extern "system" fn debug_callback(
 ```
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::structs::*;
+use vk::bitmasks::*;
+
 // Create the messenger.
-let messenger_info = vk::DebugUtilsMessengerCreateInfoEXT::builder()
+let messenger_info = DebugUtilsMessengerCreateInfoEXT::builder()
     .message_severity(
-        vk::DebugUtilsMessageSeverityFlagsEXT::WARNING
-        | vk::DebugUtilsMessageSeverityFlagsEXT::ERROR,
+        DebugUtilsMessageSeverityFlagsEXT::WARNING
+        | DebugUtilsMessageSeverityFlagsEXT::ERROR,
     )
     .message_type(
-        vk::DebugUtilsMessageTypeFlagsEXT::GENERAL
-        | vk::DebugUtilsMessageTypeFlagsEXT::VALIDATION
-        | vk::DebugUtilsMessageTypeFlagsEXT::PERFORMANCE,
+        DebugUtilsMessageTypeFlagsEXT::GENERAL
+        | DebugUtilsMessageTypeFlagsEXT::VALIDATION
+        | DebugUtilsMessageTypeFlagsEXT::PERFORMANCE,
     )
     .pfn_user_callback(Some(debug_callback));
 
@@ -140,11 +150,16 @@ let messenger = unsafe {
 To verify validation is working, do something wrong on purpose:
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::structs::*;
+use vk::enums::*;
+use vk::bitmasks::*;
+
 // Create a buffer without TRANSFER_DST usage, then try to copy into it.
-let bad_buffer_info = vk::BufferCreateInfo::builder()
+let bad_buffer_info = BufferCreateInfo::builder()
     .size(1024)
-    .usage(vk::BufferUsageFlags::VERTEX_BUFFER)  // no TRANSFER_DST!
-    .sharing_mode(vk::SharingMode::EXCLUSIVE);
+    .usage(BufferUsageFlags::VERTEX_BUFFER)  // no TRANSFER_DST!
+    .sharing_mode(SharingMode::EXCLUSIVE);
 
 let bad_buffer = unsafe { device.create_buffer(&bad_buffer_info, None)? };
 
@@ -155,6 +170,8 @@ let bad_buffer = unsafe { device.create_buffer(&bad_buffer_info, None)? };
 ### Step 4: Clean up
 
 ```rust,ignore
+use vk_engine::vk;
+
 // Destroy the messenger before destroying the instance.
 unsafe {
     instance.destroy_debug_utils_messenger_ext(messenger, None);
@@ -192,21 +209,25 @@ via pNext. The validation layer will use it for messages during
 `create_instance`:
 
 ```rust,ignore
-let mut debug_info = vk::DebugUtilsMessengerCreateInfoEXT::builder()
+use vk_engine::vk;
+use vk::structs::*;
+use vk::bitmasks::*;
+
+let mut debug_info = DebugUtilsMessengerCreateInfoEXT::builder()
     .message_severity(
-        vk::DebugUtilsMessageSeverityFlagsEXT::WARNING
-        | vk::DebugUtilsMessageSeverityFlagsEXT::ERROR,
+        DebugUtilsMessageSeverityFlagsEXT::WARNING
+        | DebugUtilsMessageSeverityFlagsEXT::ERROR,
     )
     .message_type(
-        vk::DebugUtilsMessageTypeFlagsEXT::GENERAL
-        | vk::DebugUtilsMessageTypeFlagsEXT::VALIDATION
-        | vk::DebugUtilsMessageTypeFlagsEXT::PERFORMANCE,
+        DebugUtilsMessageTypeFlagsEXT::GENERAL
+        | DebugUtilsMessageTypeFlagsEXT::VALIDATION
+        | DebugUtilsMessageTypeFlagsEXT::PERFORMANCE,
     )
     .pfn_user_callback(Some(debug_callback));
 
 // Chain into instance creation via pNext.
 // DebugUtilsMessengerCreateInfoEXT implements ExtendsInstanceCreateInfo.
-let instance_info = vk::InstanceCreateInfo::builder()
+let instance_info = InstanceCreateInfo::builder()
     .enabled_layer_names(&layer_names)
     .enabled_extension_names(&extension_names)
     .push_next(&mut debug_info);
@@ -271,7 +292,7 @@ let layer_names: Vec<*const i8> = if enable_validation {
 ### Required extension
 
 The debug messenger requires the `VK_EXT_debug_utils` instance
-extension. Enable it with `vk::EXT_DEBUG_UTILS_EXTENSION_NAME`.
+extension. Enable it with `c"VK_EXT_debug_utils"` as a C string literal.
 
 ### Destruction order
 

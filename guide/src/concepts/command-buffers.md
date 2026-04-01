@@ -103,11 +103,15 @@ records a simple buffer copy, and submits it.
 ### Step 1: Create a command pool
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::structs::*;
+use vk::bitmasks::*;
+
 // Create a pool for the graphics queue family.
 // RESET_COMMAND_BUFFER lets us reset individual command buffers
 // instead of resetting the entire pool.
-let pool_info = vk::CommandPoolCreateInfo::builder()
-    .flags(vk::CommandPoolCreateFlags::RESET_COMMAND_BUFFER)
+let pool_info = CommandPoolCreateInfo::builder()
+    .flags(CommandPoolCreateFlags::RESET_COMMAND_BUFFER)
     .queue_family_index(graphics_queue_family);
 
 let command_pool = unsafe {
@@ -118,14 +122,19 @@ let command_pool = unsafe {
 ### Step 2: Allocate a command buffer
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::structs::*;
+use vk::enums::*;
+use vk::handles::*;
+
 // Allocate one primary command buffer from the pool.
-let alloc_info = vk::CommandBufferAllocateInfo::builder()
+let alloc_info = CommandBufferAllocateInfo::builder()
     .command_pool(command_pool)
-    .level(vk::CommandBufferLevel::PRIMARY)
+    .level(CommandBufferLevel::PRIMARY)
     .command_buffer_count(1);
 
 // allocate_command_buffers writes into a caller-provided buffer.
-let mut command_buffer = vk::CommandBuffer::null();
+let mut command_buffer = CommandBuffer::null();
 unsafe {
     device.allocate_command_buffers(&alloc_info, &mut command_buffer)?;
 };
@@ -134,11 +143,15 @@ unsafe {
 ### Step 3: Record commands
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::structs::*;
+use vk::bitmasks::*;
+
 // Begin recording. ONE_TIME_SUBMIT tells the driver this buffer
 // will be submitted once and then reset or freed, enabling
 // driver-side optimizations.
-let begin_info = vk::CommandBufferBeginInfo::builder()
-    .flags(vk::CommandBufferUsageFlags::ONE_TIME_SUBMIT);
+let begin_info = CommandBufferBeginInfo::builder()
+    .flags(CommandBufferUsageFlags::ONE_TIME_SUBMIT);
 
 unsafe {
     device.begin_command_buffer(command_buffer, &begin_info)?;
@@ -147,7 +160,7 @@ unsafe {
 // Record a buffer copy command.
 // This does NOT execute the copy. It records the instruction
 // into the command buffer for later execution.
-let copy_region = vk::BufferCopy {
+let copy_region = BufferCopy {
     src_offset: 0,
     dst_offset: 0,
     size: 1024,
@@ -174,11 +187,15 @@ unsafe { device.end_command_buffer(command_buffer)? };
 ### Step 4: Submit to a queue
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::structs::*;
+use vk::handles::*;
+
 // Build a submit info. This describes:
 //   - which command buffers to execute
 //   - which semaphores to wait on before starting
 //   - which semaphores to signal when done
-let submit_info = vk::SubmitInfo::builder()
+let submit_info = SubmitInfo::builder()
     .command_buffers(&[command_buffer]);
 
 // Submit to the graphics queue.
@@ -189,7 +206,7 @@ unsafe {
     device.queue_submit(
         graphics_queue,
         &[*submit_info],
-        vk::Fence::null(),
+        Fence::null(),
     )?;
 };
 
@@ -202,6 +219,9 @@ unsafe { device.queue_wait_idle(graphics_queue)? };
 ### Step 5: Clean up
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::structs::*;
+
 // Option A: Free the command buffer back to the pool.
 unsafe {
     device.free_command_buffers(command_pool, &[command_buffer]);
@@ -212,7 +232,7 @@ unsafe {
 unsafe {
     device.reset_command_buffer(
         command_buffer,
-        vk::CommandBufferResetFlags::empty(),
+        CommandBufferResetFlags::empty(),
     )?;
 };
 
@@ -257,32 +277,38 @@ Many operations (uploading textures, transitioning image layouts) need
 a command buffer just once. The pattern:
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::structs::*;
+use vk::enums::*;
+use vk::bitmasks::*;
+use vk::handles::*;
+
 unsafe fn one_shot_submit(
     device: &Device,
-    pool: vk::CommandPool,
-    queue: vk::Queue,
-    record: impl FnOnce(vk::CommandBuffer),
+    pool: CommandPool,
+    queue: Queue,
+    record: impl FnOnce(CommandBuffer),
 ) -> VkResult<()> {
     // Allocate
-    let alloc_info = vk::CommandBufferAllocateInfo::builder()
+    let alloc_info = CommandBufferAllocateInfo::builder()
         .command_pool(pool)
-        .level(vk::CommandBufferLevel::PRIMARY)
+        .level(CommandBufferLevel::PRIMARY)
         .command_buffer_count(1);
-    let mut cmd = vk::CommandBuffer::null();
+    let mut cmd = CommandBuffer::null();
     unsafe { device.allocate_command_buffers(&alloc_info, &mut cmd)? };
 
     // Record
-    let begin = vk::CommandBufferBeginInfo::builder()
-        .flags(vk::CommandBufferUsageFlags::ONE_TIME_SUBMIT);
+    let begin = CommandBufferBeginInfo::builder()
+        .flags(CommandBufferUsageFlags::ONE_TIME_SUBMIT);
     unsafe { device.begin_command_buffer(cmd, &begin)? };
     record(cmd);
     unsafe { device.end_command_buffer(cmd)? };
 
     // Submit and wait
-    let submit = vk::SubmitInfo::builder()
+    let submit = SubmitInfo::builder()
         .command_buffers(&[cmd]);
     unsafe {
-        device.queue_submit(queue, &[*submit], vk::Fence::null())?;
+        device.queue_submit(queue, &[*submit], Fence::null())?;
         device.queue_wait_idle(queue)?;
     };
 

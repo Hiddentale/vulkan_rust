@@ -90,49 +90,58 @@ image) and one depth attachment.
 ### Step 1: Describe the attachments
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::structs::*;
+use vk::enums::*;
+use vk::bitmasks::*;
+
 // Color attachment: the swapchain image we render into.
-let color_attachment = vk::AttachmentDescription {
-    flags: vk::AttachmentDescriptionFlags::empty(),
+let color_attachment = AttachmentDescription {
+    flags: AttachmentDescriptionFlags::empty(),
     format: swapchain_format,           // e.g. B8G8R8A8_SRGB
-    samples: vk::SampleCountFlagBits::N1,
-    load_op: vk::AttachmentLoadOp::CLEAR,       // clear at start
-    store_op: vk::AttachmentStoreOp::STORE,      // keep the result
-    stencil_load_op: vk::AttachmentLoadOp::DONT_CARE,
-    stencil_store_op: vk::AttachmentStoreOp::DONT_CARE,
-    initial_layout: vk::ImageLayout::UNDEFINED,  // we don't care about previous contents
-    final_layout: vk::ImageLayout::PRESENT_SRC,  // ready for presentation after the pass
+    samples: SampleCountFlagBits::_1,
+    load_op: AttachmentLoadOp::CLEAR,       // clear at start
+    store_op: AttachmentStoreOp::STORE,      // keep the result
+    stencil_load_op: AttachmentLoadOp::DONT_CARE,
+    stencil_store_op: AttachmentStoreOp::DONT_CARE,
+    initial_layout: ImageLayout::UNDEFINED,  // we don't care about previous contents
+    final_layout: ImageLayout::PRESENT_SRC,  // ready for presentation after the pass
 };
 
 // Depth attachment: used for depth testing, discarded after.
-let depth_attachment = vk::AttachmentDescription {
-    flags: vk::AttachmentDescriptionFlags::empty(),
-    format: vk::Format::D32_SFLOAT,
-    samples: vk::SampleCountFlagBits::N1,
-    load_op: vk::AttachmentLoadOp::CLEAR,
-    store_op: vk::AttachmentStoreOp::DONT_CARE,  // we won't read it later
-    stencil_load_op: vk::AttachmentLoadOp::DONT_CARE,
-    stencil_store_op: vk::AttachmentStoreOp::DONT_CARE,
-    initial_layout: vk::ImageLayout::UNDEFINED,
-    final_layout: vk::ImageLayout::DEPTH_STENCIL_ATTACHMENT_OPTIMAL,
+let depth_attachment = AttachmentDescription {
+    flags: AttachmentDescriptionFlags::empty(),
+    format: Format::D32_SFLOAT,
+    samples: SampleCountFlagBits::_1,
+    load_op: AttachmentLoadOp::CLEAR,
+    store_op: AttachmentStoreOp::DONT_CARE,  // we won't read it later
+    stencil_load_op: AttachmentLoadOp::DONT_CARE,
+    stencil_store_op: AttachmentStoreOp::DONT_CARE,
+    initial_layout: ImageLayout::UNDEFINED,
+    final_layout: ImageLayout::DEPTH_STENCIL_ATTACHMENT_OPTIMAL,
 };
 ```
 
 ### Step 2: Define the subpass
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::structs::*;
+use vk::enums::*;
+
 // Subpass 0 uses attachment 0 as color output and attachment 1 as depth.
-let color_ref = vk::AttachmentReference {
+let color_ref = AttachmentReference {
     attachment: 0,    // index into the attachments array
-    layout: vk::ImageLayout::COLOR_ATTACHMENT_OPTIMAL,
+    layout: ImageLayout::COLOR_ATTACHMENT_OPTIMAL,
 };
-let depth_ref = vk::AttachmentReference {
+let depth_ref = AttachmentReference {
     attachment: 1,
-    layout: vk::ImageLayout::DEPTH_STENCIL_ATTACHMENT_OPTIMAL,
+    layout: ImageLayout::DEPTH_STENCIL_ATTACHMENT_OPTIMAL,
 };
 
-let subpass = vk::SubpassDescription {
-    flags: vk::SubpassDescriptionFlags::empty(),
-    pipeline_bind_point: vk::PipelineBindPoint::GRAPHICS,
+let subpass = SubpassDescription {
+    flags: SubpassDescriptionFlags::empty(),
+    pipeline_bind_point: PipelineBindPoint::GRAPHICS,
     input_attachment_count: 0,
     p_input_attachments: core::ptr::null(),
     color_attachment_count: 1,
@@ -147,29 +156,36 @@ let subpass = vk::SubpassDescription {
 ### Step 3: Add a subpass dependency
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::structs::*;
+use vk::constants::SUBPASS_EXTERNAL;
+
 // This dependency ensures that the image layout transition
 // (from the previous frame's PRESENT_SRC to our UNDEFINED→COLOR_ATTACHMENT)
 // happens before we start writing color output.
-let dependency = vk::SubpassDependency {
-    src_subpass: vk::SUBPASS_EXTERNAL,  // operations before the render pass
+let dependency = SubpassDependency {
+    src_subpass: SUBPASS_EXTERNAL,  // operations before the render pass
     dst_subpass: 0,                      // our subpass
-    src_stage_mask: vk::PipelineStageFlags::COLOR_ATTACHMENT_OUTPUT
-        | vk::PipelineStageFlags::EARLY_FRAGMENT_TESTS,
-    dst_stage_mask: vk::PipelineStageFlags::COLOR_ATTACHMENT_OUTPUT
-        | vk::PipelineStageFlags::EARLY_FRAGMENT_TESTS,
-    src_access_mask: vk::AccessFlags::NONE,
-    dst_access_mask: vk::AccessFlags::COLOR_ATTACHMENT_WRITE
-        | vk::AccessFlags::DEPTH_STENCIL_ATTACHMENT_WRITE,
-    dependency_flags: vk::DependencyFlags::empty(),
+    src_stage_mask: PipelineStageFlags::COLOR_ATTACHMENT_OUTPUT
+        | PipelineStageFlags::EARLY_FRAGMENT_TESTS,
+    dst_stage_mask: PipelineStageFlags::COLOR_ATTACHMENT_OUTPUT
+        | PipelineStageFlags::EARLY_FRAGMENT_TESTS,
+    src_access_mask: AccessFlags::NONE,
+    dst_access_mask: AccessFlags::COLOR_ATTACHMENT_WRITE
+        | AccessFlags::DEPTH_STENCIL_ATTACHMENT_WRITE,
+    dependency_flags: DependencyFlags::empty(),
 };
 ```
 
 ### Step 4: Create the render pass
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::structs::*;
+
 let attachments = [color_attachment, depth_attachment];
 
-let render_pass_info = vk::RenderPassCreateInfo::builder()
+let render_pass_info = RenderPassCreateInfo::builder()
     .attachments(&attachments)
     .subpasses(&[subpass])
     .dependencies(&[dependency]);
@@ -182,14 +198,18 @@ let render_pass = unsafe {
 ### Step 5: Create framebuffers (one per swapchain image)
 
 ```rust,ignore
-let framebuffers: Vec<vk::Framebuffer> = swapchain_image_views
+use vk_engine::vk;
+use vk::structs::*;
+use vk::handles::*;
+
+let framebuffers: Vec<Framebuffer> = swapchain_image_views
     .iter()
     .map(|&view| {
         // Each framebuffer uses a different swapchain image view
         // but the same depth image view (shared across frames).
         let attachments = [view, depth_image_view];
 
-        let fb_info = vk::FramebufferCreateInfo::builder()
+        let fb_info = FramebufferCreateInfo::builder()
             .render_pass(render_pass)     // must be compatible
             .attachments(&attachments)
             .width(swapchain_extent.width)
@@ -204,25 +224,29 @@ let framebuffers: Vec<vk::Framebuffer> = swapchain_image_views
 ### Step 6: Use in command recording
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::structs::*;
+use vk::enums::*;
+
 let clear_values = [
-    vk::ClearValue {
-        color: vk::ClearColorValue {
+    ClearValue {
+        color: ClearColorValue {
             float32: [0.0, 0.0, 0.0, 1.0],  // black
         },
     },
-    vk::ClearValue {
-        depth_stencil: vk::ClearDepthStencilValue {
+    ClearValue {
+        depth_stencil: ClearDepthStencilValue {
             depth: 1.0,
             stencil: 0,
         },
     },
 ];
 
-let begin_info = vk::RenderPassBeginInfo::builder()
+let begin_info = RenderPassBeginInfo::builder()
     .render_pass(render_pass)
     .framebuffer(framebuffers[image_index as usize])
-    .render_area(vk::Rect2D {
-        offset: vk::Offset2D { x: 0, y: 0 },
+    .render_area(Rect2D {
+        offset: Offset2D { x: 0, y: 0 },
         extent: swapchain_extent,
     })
     .clear_values(&clear_values);
@@ -233,7 +257,7 @@ unsafe {
     device.cmd_begin_render_pass(
         command_buffer,
         &begin_info,
-        vk::SubpassContents::INLINE,
+        SubpassContents::INLINE,
     );
 
     // ... bind pipeline, bindescriptor sets, draw ...
@@ -249,20 +273,24 @@ which lets you skip render pass and framebuffer objects entirely.
 You specify attachments inline at recording time:
 
 ```rust,ignore
-let color_attachment = vk::RenderingAttachmentInfo::builder()
+use vk_engine::vk;
+use vk::structs::*;
+use vk::enums::*;
+
+let color_attachment = RenderingAttachmentInfo::builder()
     .image_view(swapchain_image_view)
-    .image_layout(vk::ImageLayout::COLOR_ATTACHMENT_OPTIMAL)
-    .load_op(vk::AttachmentLoadOp::CLEAR)
-    .store_op(vk::AttachmentStoreOp::STORE)
-    .clear_value(vk::ClearValue {
-        color: vk::ClearColorValue {
+    .image_layout(ImageLayout::COLOR_ATTACHMENT_OPTIMAL)
+    .load_op(AttachmentLoadOp::CLEAR)
+    .store_op(AttachmentStoreOp::STORE)
+    .clear_value(ClearValue {
+        color: ClearColorValue {
             float32: [0.0, 0.0, 0.0, 1.0],
         },
     });
 
-let rendering_info = vk::RenderingInfo::builder()
-    .render_area(vk::Rect2D {
-        offset: vk::Offset2D { x: 0, y: 0 },
+let rendering_info = RenderingInfo::builder()
+    .render_area(Rect2D {
+        offset: Offset2D { x: 0, y: 0 },
         extent: swapchain_extent,
     })
     .layer_count(1)

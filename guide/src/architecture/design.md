@@ -33,6 +33,8 @@ This separation exists for three reasons:
 All Vulkan commands are inherent methods on `Device` or `Instance`:
 
 ```rust,ignore
+use vk_engine::vk;
+
 // No trait import needed, just call the method.
 let buffer = unsafe { device.create_buffer(&info, None) }?;
 ```
@@ -61,6 +63,8 @@ Both `Instance` and `Device` provide an `unsafe fn from_raw_parts`
 constructor that wraps an externally-owned Vulkan handle:
 
 ```rust,ignore
+use vk_engine::Device;
+
 let device = unsafe {
     Device::from_raw_parts(raw_vk_device, Some(get_device_proc_addr_fn))
 };
@@ -78,6 +82,8 @@ This exists for three use cases:
 `Instance` and `Device` do not implement `Drop`. Destruction is explicit:
 
 ```rust,ignore
+use vk_engine::vk;
+
 unsafe { device.destroy_device(None) };
 ```
 
@@ -102,9 +108,13 @@ own model.
 Every builder dereferences to its inner `vk::*` struct:
 
 ```rust,ignore
-let info = vk::BufferCreateInfoBuilder::new()
+use vk_engine::vk;
+use vk::structs::*;
+use vk::bitmasks::*;
+
+let info = BufferCreateInfo::builder()
     .size(1024)
-    .usage(vk::BufferUsageFlags::VERTEX_BUFFER);
+    .usage(BufferUsageFlags::VERTEX_BUFFER);
 
 // Pass the builder directly where a &BufferCreateInfo is expected.
 let buffer = unsafe { device.create_buffer(&info, None) }?;
@@ -125,6 +135,9 @@ Instead, `vk-sys` represents each Vulkan enum as a `#[repr(transparent)]`
 newtype around `i32`:
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::enums::*;
+
 #[repr(transparent)]
 pub struct Format(i32);
 

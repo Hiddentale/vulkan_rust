@@ -21,7 +21,9 @@ return value after every call.
 `vk-engine` defines a single result type for all Vulkan command wrappers:
 
 ```rust,ignore
-pub type VkResult<T> = std::result::Result<T, vk::Result>;
+use vk_engine::vk;
+
+pub type VkResult<T> = std::result::Result<T, vk::enums::Result>;
 ```
 
 Here `vk::Result` is the `#[repr(transparent)]` i32 newtype from `vk-sys`.
@@ -31,7 +33,9 @@ command's output (a handle, a vector of properties, or just `()`).
 A helper function performs the conversion:
 
 ```rust,ignore
-pub(crate) fn check(result: vk::Result) -> VkResult<()> {
+use vk_engine::vk;
+
+pub(crate) fn check(result: vk::enums::Result) -> VkResult<()> {
     if result.as_raw() >= 0 {
         Ok(())
     } else {
@@ -69,6 +73,8 @@ is not available at all.
 `LoadError` captures these:
 
 ```rust,ignore
+use vk_engine::vk;
+
 pub enum LoadError {
     /// The Vulkan shared library could not be found or opened.
     Library(libloading::Error),
@@ -86,13 +92,15 @@ Creating a window surface involves platform-specific logic and
 `raw-window-handle` integration. Three distinct failure modes exist:
 
 ```rust,ignore
+use vk_engine::vk;
+
 pub enum SurfaceError {
     /// The display/window handle combination is not supported.
     UnsupportedPlatform,
     /// raw-window-handle returned an error.
     HandleError(raw_window_handle::HandleError),
     /// Vulkan error from the surface creation call.
-    Vulkan(vk::Result),
+    Vulkan(vk::enums::Result),
 }
 ```
 
@@ -122,20 +130,26 @@ Most application code follows the same pattern: call the command, propagate
 errors with `?`, handle them at the boundary.
 
 ```rust,ignore
+use vk_engine::vk;
+use vk_engine::Device;
+use vk::handles::*;
+
 unsafe fn create_pipeline(
     device: &Device,
-    layout: vk::PipelineLayout,
-    render_pass: vk::RenderPass,
+    layout: PipelineLayout,
+    render_pass: RenderPass,
     // ...
-) -> VkResult<vk::Pipeline> {
+) -> VkResult<Pipeline> {
     let shader = device.create_shader_module(&shader_info, None)?;
-    let pipeline = device.create_graphics_pipelines(
-        vk::PipelineCache::null(),
+    let mut pipeline = Pipeline::null();
+    device.create_graphics_pipelines(
+        PipelineCache::null(),
         &[pipeline_info],
         None,
+        &mut pipeline,
     )?;
     device.destroy_shader_module(shader, None);
-    Ok(pipeline[0])
+    Ok(pipeline)
 }
 ```
 

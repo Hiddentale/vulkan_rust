@@ -67,25 +67,29 @@ newer Vulkan versions or extensions.
 ### Without vulkan_rs builders (raw C-style)
 
 ```rust,ignore
+use vk_engine::vk;
+use vk_engine::vk::structs::*;
+use vk_engine::vk::enums::*;
+
 // You would need to manually link the structs:
-let mut features_13 = vk::PhysicalDeviceVulkan13Features {
-    s_type: vk::StructureType::PHYSICAL_DEVICE_VULKAN_1_3_FEATURES,
+let mut features_13 = PhysicalDeviceVulkan13Features {
+    s_type: StructureType::PHYSICAL_DEVICE_VULKAN_1_3_FEATURES,
     p_next: core::ptr::null_mut() as *const _,
     dynamic_rendering: 1,   // enable dynamic rendering
     synchronization2: 1,    // enable synchronization2
     ..unsafe { core::mem::zeroed() }
 };
 
-let mut features_12 = vk::PhysicalDeviceVulkan12Features {
-    s_type: vk::StructureType::PHYSICAL_DEVICE_VULKAN_1_2_FEATURES,
+let mut features_12 = PhysicalDeviceVulkan12Features {
+    s_type: StructureType::PHYSICAL_DEVICE_VULKAN_1_2_FEATURES,
     p_next: &mut features_13 as *mut _ as *const _,  // link to next
     buffer_device_address: 1,
     descriptor_indexing: 1,
     ..unsafe { core::mem::zeroed() }
 };
 
-let device_info = vk::DeviceCreateInfo {
-    s_type: vk::StructureType::DEVICE_CREATE_INFO,
+let device_info = DeviceCreateInfo {
+    s_type: StructureType::DEVICE_CREATE_INFO,
     p_next: &mut features_12 as *mut _ as *const _,  // link to chain
     // ...
 };
@@ -97,15 +101,18 @@ link the chain. vulkan_rs builders fix all of these problems.
 ### With vulkan_rs builders (type-safe)
 
 ```rust,ignore
-let mut features_12 = vk::PhysicalDeviceVulkan12Features::builder()
+use vk_engine::vk;
+use vk_engine::vk::structs::*;
+
+let mut features_12 = *PhysicalDeviceVulkan12Features::builder()
     .buffer_device_address(1)
     .descriptor_indexing(1);
 
-let mut features_13 = vk::PhysicalDeviceVulkan13Features::builder()
+let mut features_13 = *PhysicalDeviceVulkan13Features::builder()
     .dynamic_rendering(1)
     .synchronization2(1);
 
-let device_info = vk::DeviceCreateInfo::builder()
+let device_info = DeviceCreateInfo::builder()
     .push_next(&mut features_12)
     .push_next(&mut features_13)
     // ... other fields
@@ -184,9 +191,12 @@ These traits are generated from the `structextends` attribute in
 If you try to `push_next` a struct that doesn't implement the trait:
 
 ```rust,ignore
+use vk_engine::vk;
+use vk_engine::vk::structs::*;
+
 // Compile error: PhysicalDeviceMemoryProperties does not implement
 // ExtendsDeviceCreateInfo
-let info = vk::DeviceCreateInfo::builder()
+let info = DeviceCreateInfo::builder()
     .push_next(&mut mem_props);  // ← won't compile
 ```
 
@@ -196,7 +206,10 @@ vulkan_rs builders implement `Deref<Target = InnerStruct>`, so you can
 pass a builder anywhere a reference to the inner struct is expected:
 
 ```rust,ignore
-let info = vk::DeviceCreateInfo::builder()
+use vk_engine::vk;
+use vk_engine::vk::structs::*;
+
+let info = DeviceCreateInfo::builder()
     .queue_create_infos(&queue_infos)
     .push_next(&mut features_12);
 
@@ -224,9 +237,12 @@ This means the builder and everything chained into it must live in
 the same scope. The compiler enforces this:
 
 ```rust,ignore
+use vk_engine::vk;
+use vk_engine::vk::structs::*;
+
 let info = {
-    let mut features = vk::PhysicalDeviceVulkan12Features::builder();
-    vk::DeviceCreateInfo::builder()
+    let mut features = PhysicalDeviceVulkan12Features::builder();
+    DeviceCreateInfo::builder()
         .push_next(&mut features)
     // ← compile error: `features` does not live long enough
 };
@@ -240,15 +256,18 @@ Chain feature structs into `PhysicalDeviceFeatures2` and call
 `get_physical_device_features2`:
 
 ```rust,ignore
-let mut features_12 = vk::PhysicalDeviceVulkan12Features::builder();
-let mut features_13 = vk::PhysicalDeviceVulkan13Features::builder();
+use vk_engine::vk;
+use vk_engine::vk::structs::*;
 
-let mut features2 = vk::PhysicalDeviceFeatures2::builder()
+let mut features_12 = *PhysicalDeviceVulkan12Features::builder();
+let mut features_13 = *PhysicalDeviceVulkan13Features::builder();
+
+let mut features2 = PhysicalDeviceFeatures2::builder()
     .push_next(&mut features_12)
     .push_next(&mut features_13);
 
 unsafe {
-    instance.get_physical_device_features2(physical_device, &mut features2);
+    instance.get_physical_device_features2(physical_device, &mut *features2);
 };
 
 // Now features_12 and features_13 are filled in by the driver.

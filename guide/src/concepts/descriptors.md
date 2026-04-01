@@ -68,27 +68,31 @@ The most common are `UNIFORM_BUFFER` and `COMBINED_IMAGE_SAMPLER`.
 ### Step 1: Create a descriptor set layout
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::structs::*;
+use vk::enums::*;
+
 // Describe the bindings: slot 0 is a uniform buffer visible to
 // the vertex shader, slot 1 is a combined image sampler visible
 // to the fragment shader.
 let bindings = [
-    vk::DescriptorSetLayoutBinding {
+    DescriptorSetLayoutBinding {
         binding: 0,
-        descriptor_type: vk::DescriptorType::UNIFORM_BUFFER,
+        descriptor_type: DescriptorType::UNIFORM_BUFFER,
         descriptor_count: 1,
-        stage_flags: vk::ShaderStageFlags::VERTEX,
+        stage_flags: ShaderStageFlags::VERTEX,
         p_immutable_samplers: core::ptr::null(),
     },
-    vk::DescriptorSetLayoutBinding {
+    DescriptorSetLayoutBinding {
         binding: 1,
-        descriptor_type: vk::DescriptorType::COMBINED_IMAGE_SAMPLER,
+        descriptor_type: DescriptorType::COMBINED_IMAGE_SAMPLER,
         descriptor_count: 1,
-        stage_flags: vk::ShaderStageFlags::FRAGMENT,
+        stage_flags: ShaderStageFlags::FRAGMENT,
         p_immutable_samplers: core::ptr::null(),
     },
 ];
 
-let layout_info = vk::DescriptorSetLayoutCreateInfo::builder()
+let layout_info = DescriptorSetLayoutCreateInfo::builder()
     .bindings(&bindings);
 
 let descriptor_layout = unsafe {
@@ -102,20 +106,24 @@ let descriptor_layout = unsafe {
 ### Step 2: Create a descriptor pool
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::structs::*;
+use vk::enums::*;
+
 // The pool must have enough room for the descriptor types we need.
 // If we want 10 sets, each with 1 uniform buffer and 1 image sampler:
 let pool_sizes = [
-    vk::DescriptorPoolSize {
-        r#type: vk::DescriptorType::UNIFORM_BUFFER,
+    DescriptorPoolSize {
+        r#type: DescriptorType::UNIFORM_BUFFER,
         descriptor_count: 10,
     },
-    vk::DescriptorPoolSize {
-        r#type: vk::DescriptorType::COMBINED_IMAGE_SAMPLER,
+    DescriptorPoolSize {
+        r#type: DescriptorType::COMBINED_IMAGE_SAMPLER,
         descriptor_count: 10,
     },
 ];
 
-let pool_info = vk::DescriptorPoolCreateInfo::builder()
+let pool_info = DescriptorPoolCreateInfo::builder()
     .max_sets(10)
     .pool_sizes(&pool_sizes);
 
@@ -127,11 +135,15 @@ let descriptor_pool = unsafe {
 ### Step 3: Allocate a descriptor set
 
 ```rust,ignore
-let alloc_info = vk::DescriptorSetAllocateInfo::builder()
+use vk_engine::vk;
+use vk::structs::*;
+use vk::handles::*;
+
+let alloc_info = DescriptorSetAllocateInfo::builder()
     .descriptor_pool(descriptor_pool)
     .set_layouts(&[descriptor_layout]);
 
-let mut descriptor_set = vk::DescriptorSet::null();
+let mut descriptor_set = DescriptorSet::null();
 unsafe {
     device.allocate_descriptor_sets(&alloc_info, &mut descriptor_set)?;
 };
@@ -140,30 +152,34 @@ unsafe {
 ### Step 4: Write descriptors (point slots to actual resources)
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::structs::*;
+use vk::enums::*;
+
 // Point binding 0 to our uniform buffer.
-let buffer_info = vk::DescriptorBufferInfo {
+let buffer_info = DescriptorBufferInfo {
     buffer: uniform_buffer,
     offset: 0,
     range: std::mem::size_of::<UniformData>() as u64,
 };
 
 // Point binding 1 to our texture.
-let image_info = vk::DescriptorImageInfo {
+let image_info = DescriptorImageInfo {
     sampler: texture_sampler,
     image_view: texture_image_view,
-    image_layout: vk::ImageLayout::SHADER_READ_ONLY_OPTIMAL,
+    image_layout: ImageLayout::SHADER_READ_ONLY_OPTIMAL,
 };
 
 let writes = [
-    *vk::WriteDescriptorSet::builder()
+    *WriteDescriptorSet::builder()
         .dst_set(descriptor_set)
         .dst_binding(0)
-        .descriptor_type(vk::DescriptorType::UNIFORM_BUFFER)
+        .descriptor_type(DescriptorType::UNIFORM_BUFFER)
         .buffer_info(&[buffer_info]),
-    *vk::WriteDescriptorSet::builder()
+    *WriteDescriptorSet::builder()
         .dst_set(descriptor_set)
         .dst_binding(1)
-        .descriptor_type(vk::DescriptorType::COMBINED_IMAGE_SAMPLER)
+        .descriptor_type(DescriptorType::COMBINED_IMAGE_SAMPLER)
         .image_info(&[image_info]),
 ];
 
@@ -174,10 +190,13 @@ unsafe { device.update_descriptor_sets(&writes, &[]) };
 ### Step 5: Bind during command recording
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::enums::*;
+
 unsafe {
     device.cmd_bind_descriptor_sets(
         command_buffer,
-        vk::PipelineBindPoint::GRAPHICS,
+        PipelineBindPoint::GRAPHICS,
         pipeline_layout,
         0,                       // first set index
         &[descriptor_set],       // sets to bind
@@ -205,30 +224,34 @@ changes once per frame, set 1 changes when you switch materials,
 set 2 changes per object. You only rebind the sets that changed.
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::structs::*;
+use vk::enums::*;
+
 // In pipeline layout creation:
 let layouts = [per_frame_layout, per_material_layout, per_object_layout];
-let layout_info = vk::PipelineLayoutCreateInfo::builder()
+let layout_info = PipelineLayoutCreateInfo::builder()
     .set_layouts(&layouts);
 
 // During rendering:
 unsafe {
     // Bind set 0 once per frame.
     device.cmd_bind_descriptor_sets(
-        cmd, vk::PipelineBindPoint::GRAPHICS,
+        cmd, PipelineBindPoint::GRAPHICS,
         pipeline_layout, 0, &[per_frame_set], &[],
     );
 
     for material in &materials {
         // Bind set 1 per material.
         device.cmd_bind_descriptor_sets(
-            cmd, vk::PipelineBindPoint::GRAPHICS,
+            cmd, PipelineBindPoint::GRAPHICS,
             pipeline_layout, 1, &[material.descriptor_set], &[],
         );
 
         for object in &material.objects {
             // Bind set 2 per object.
             device.cmd_bind_descriptor_sets(
-                cmd, vk::PipelineBindPoint::GRAPHICS,
+                cmd, PipelineBindPoint::GRAPHICS,
                 pipeline_layout, 2, &[object.descriptor_set], &[],
             );
             device.cmd_draw(cmd, object.vertex_count, 1, 0, 0);

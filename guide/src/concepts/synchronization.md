@@ -76,18 +76,24 @@ safely re-record the command buffer for the next frame.
 signals it when all commands in that submission finish.
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::structs::*;
+
 // ── Create a fence ──────────────────────────────────────────────
 //
 // SIGNALED means the fence starts in the signaled state.
 // This matters for the first frame: wait_for_fences on an
 // unsignaled fence with no prior submission would block forever.
-let fence_info = vk::FenceCreateInfo::builder()
-    .flags(vk::FenceCreateFlags::SIGNALED);
+let fence_info = FenceCreateInfo::builder()
+    .flags(FenceCreateFlags::SIGNALED);
 
 let fence = unsafe { device.create_fence(&fence_info, None)? };
 ```
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::structs::*;
+
 // ── The render loop ─────────────────────────────────────────────
 
 // Step 1: Wait for the previous frame's GPU work to finish.
@@ -104,7 +110,7 @@ unsafe { device.reset_fences(&[fence])? };
 
 // Step 3: Record and submit a command buffer.
 // ...record commands...
-let submit = vk::SubmitInfo::builder()
+let submit = SubmitInfo::builder()
     .command_buffers(&[command_buffer]);
 
 // Pass the fence to queue_submit. The GPU will signal it
@@ -146,13 +152,20 @@ render commands finish.
 into." The other says "rendering is done, safe to present."
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::structs::*;
+
 // Create two semaphores (no flags needed).
-let sem_info = vk::SemaphoreCreateInfo::builder();
+let sem_info = SemaphoreCreateInfo::builder();
 let image_available = unsafe { device.create_semaphore(&sem_info, None)? };
 let render_finished = unsafe { device.create_semaphore(&sem_info, None)? };
 ```
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::structs::*;
+use vk::handles::*;
+
 // ── Acquire a swapchain image ───────────────────────────────────
 //
 // This signals image_available when the image is ready.
@@ -161,7 +174,7 @@ let image_index = unsafe {
         swapchain,
         u64::MAX,          // timeout
         image_available,   // semaphore to signal
-        vk::Fence::null(), // no fence needed here
+        Fence::null(), // no fence needed here
     )?
 };
 
@@ -170,9 +183,9 @@ let image_index = unsafe {
 // Wait on image_available (at the COLOR_ATTACHMENT_OUTPUT stage,
 // because that's when we actually write to the image).
 // Signal render_finished when done.
-let wait_stages = [vk::PipelineStageFlags::COLOR_ATTACHMENT_OUTPUT];
+let wait_stages = [PipelineStageFlags::COLOR_ATTACHMENT_OUTPUT];
 
-let submit = vk::SubmitInfo::builder()
+let submit = SubmitInfo::builder()
     .wait_semaphores(&[image_available])
     .wait_dst_stage_mask(&wait_stages)
     .command_buffers(&[command_buffer])
@@ -185,7 +198,7 @@ unsafe {
 // ── Present the image ───────────────────────────────────────────
 //
 // Wait on render_finished before the display reads the image.
-let present_info = vk::PresentInfoKHR::builder()
+let present_info = PresentInfoKHR::builder()
     .wait_semaphores(&[render_finished])
     .swapchains(&[swapchain])
     .image_indices(&[image_index]);
@@ -238,6 +251,12 @@ finish the transition before the shader reads.
 **Solution:** A pipeline barrier with an image memory barrier.
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::structs::*;
+use vk::enums::*;
+use vk::bitmasks::*;
+use vk::constants::QUEUE_FAMILY_IGNORED;
+
 // Transition image from TRANSFER_DST to SHADER_READ_ONLY.
 //
 // This barrier says:
@@ -245,16 +264,16 @@ finish the transition before the shader reads.
 //    complete before any SHADER_READ operations in the
 //    FRAGMENT_SHADER stage can begin. Also, change the image
 //    layout."
-let barrier = vk::ImageMemoryBarrier::builder()
-    .src_access_mask(vk::AccessFlags::TRANSFER_WRITE)
-    .dst_access_mask(vk::AccessFlags::SHADER_READ)
-    .old_layout(vk::ImageLayout::TRANSFER_DST_OPTIMAL)
-    .new_layout(vk::ImageLayout::SHADER_READ_ONLY_OPTIMAL)
-    .src_queue_family_index(vk::QUEUE_FAMILY_IGNORED)
-    .dst_queue_family_index(vk::QUEUE_FAMILY_IGNORED)
+let barrier = ImageMemoryBarrier::builder()
+    .src_access_mask(AccessFlags::TRANSFER_WRITE)
+    .dst_access_mask(AccessFlags::SHADER_READ)
+    .old_layout(ImageLayout::TRANSFER_DST_OPTIMAL)
+    .new_layout(ImageLayout::SHADER_READ_ONLY_OPTIMAL)
+    .src_queue_family_index(QUEUE_FAMILY_IGNORED)
+    .dst_queue_family_index(QUEUE_FAMILY_IGNORED)
     .image(texture_image)
-    .subresource_range(vk::ImageSubresourceRange {
-        aspect_mask: vk::ImageAspectFlags::COLOR,
+    .subresource_range(ImageSubresourceRange {
+        aspect_mask: ImageAspectFlags::COLOR,
         base_mip_level: 0,
         level_count: 1,
         base_array_layer: 0,
@@ -264,9 +283,9 @@ let barrier = vk::ImageMemoryBarrier::builder()
 unsafe {
     device.cmd_pipeline_barrier(
         command_buffer,
-        vk::PipelineStageFlags::TRANSFER,          // src stage
-        vk::PipelineStageFlags::FRAGMENT_SHADER,    // dst stage
-        vk::DependencyFlags::empty(),
+        PipelineStageFlags::TRANSFER,          // src stage
+        PipelineStageFlags::FRAGMENT_SHADER,    // dst stage
+        DependencyFlags::empty(),
         &[],           // no memory barriers
         &[],           // no buffer memory barriers
         &[*barrier],   // one image memory barrier
@@ -364,12 +383,15 @@ point. This gives the GPU more room to reorder work between the signal
 and the wait.
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::structs::*;
+
 // Signal the event after the transfer completes.
 unsafe {
     device.cmd_set_event(
         command_buffer,
         event,
-        vk::PipelineStageFlags::TRANSFER,
+        PipelineStageFlags::TRANSFER,
     );
 };
 
@@ -380,8 +402,8 @@ unsafe {
     device.cmd_wait_events(
         command_buffer,
         &[event],
-        vk::PipelineStageFlags::TRANSFER,
-        vk::PipelineStageFlags::FRAGMENT_SHADER,
+        PipelineStageFlags::TRANSFER,
+        PipelineStageFlags::FRAGMENT_SHADER,
         &[], &[], &[*image_barrier],
     );
 };
