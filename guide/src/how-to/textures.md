@@ -30,7 +30,7 @@ let img = image::open("assets/texture.png")
 
 let (width, height) = img.dimensions();
 let pixels = img.as_raw();
-let image_size = (width * height * 4) as vk::DeviceSize; // 4 bytes per RGBA pixel
+let image_size = (width * height * 4) as u64; // 4 bytes per RGBA pixel
 ```
 
 ## Step 2: Create a staging buffer
@@ -39,12 +39,18 @@ The CPU cannot write directly to device-local memory on most hardware.
 Upload the pixels into a host-visible staging buffer first.
 
 ```rust,ignore
-let staging_info = vk::BufferCreateInfo::builder()
-    .size(image_size)
-    .usage(vk::BufferUsageFlags::TRANSFER_SRC)
-    .sharing_mode(vk::SharingMode::EXCLUSIVE);
+use vk_engine::vk;
+use vk::structs::*;
+use vk::enums::*;
+use vk::bitmasks::*;
 
-let staging_buffer = unsafe { device.create_buffer(&staging_info, None)? };
+let staging_info = BufferCreateInfo::builder()
+    .size(image_size)
+    .usage(BufferUsageFlags::TRANSFER_SRC)
+    .sharing_mode(SharingMode::EXCLUSIVE);
+
+let staging_buffer = unsafe { device.create_buffer(&staging_info, None) }
+    .expect("Failed to create staging buffer");
 let staging_reqs = unsafe { device.get_buffer_memory_requirements(staging_buffer) };
 
 let staging_memory = allocate_and_bind_buffer(
@@ -52,16 +58,17 @@ let staging_memory = allocate_and_bind_buffer(
     staging_buffer,
     &staging_reqs,
     &mem_properties,
-    vk::MemoryPropertyFlags::HOST_VISIBLE | vk::MemoryPropertyFlags::HOST_COHERENT,
-)?;
+    MemoryPropertyFlags::HOST_VISIBLE | MemoryPropertyFlags::HOST_COHERENT,
+);
 
 // Map, copy pixels, unmap.
 unsafe {
     let mut ptr: *mut core::ffi::c_void = core::ptr::null_mut();
     device.map_memory(
         staging_memory, 0, image_size,
-        vk::MemoryMapFlags::empty(), &mut ptr,
-    )?;
+        MemoryMapFlags::empty(), &mut ptr,
+    )
+    .expect("Failed to map memory");
     core::ptr::copy_nonoverlapping(
         pixels.as_ptr(), ptr as *mut u8, image_size as usize,
     );
@@ -78,29 +85,35 @@ The image needs `TRANSFER_DST` (we will copy into it) and `SAMPLED`
 (the fragment shader will sample it).
 
 ```rust,ignore
-let image_info = vk::ImageCreateInfo::builder()
-    .image_type(vk::ImageType::TYPE_2D)
-    .format(vk::Format::R8G8B8A8_SRGB)
-    .extent(vk::Extent3D { width, height, depth: 1 })
+use vk_engine::vk;
+use vk::structs::*;
+use vk::enums::*;
+use vk::bitmasks::*;
+
+let image_info = ImageCreateInfo::builder()
+    .image_type(ImageType::_2D)
+    .format(Format::R8G8B8A8_SRGB)
+    .extent(Extent3D { width, height, depth: 1 })
     .mip_levels(1)
     .array_layers(1)
-    .samples(vk::SampleCountFlags::TYPE_1)
-    .tiling(vk::ImageTiling::OPTIMAL)
+    .samples(SampleCountFlagBits::_1)
+    .tiling(ImageTiling::OPTIMAL)
     .usage(
-        vk::ImageUsageFlags::TRANSFER_DST
-        | vk::ImageUsageFlags::SAMPLED
+        ImageUsageFlags::TRANSFER_DST
+        | ImageUsageFlags::SAMPLED
     )
-    .sharing_mode(vk::SharingMode::EXCLUSIVE)
-    .initial_layout(vk::ImageLayout::UNDEFINED);
+    .sharing_mode(SharingMode::EXCLUSIVE)
+    .initial_layout(ImageLayout::UNDEFINED);
 
-let texture_image = unsafe { device.create_image(&image_info, None)? };
+let texture_image = unsafe { device.create_image(&image_info, None) }
+    .expect("Failed to create image");
 
 // Allocate DEVICE_LOCAL memory and bind it to the image.
 let img_reqs = unsafe { device.get_image_memory_requirements(texture_image) };
 let texture_memory = allocate_and_bind_image(
     device, texture_image, &img_reqs, &mem_properties,
-    vk::MemoryPropertyFlags::DEVICE_LOCAL,
-)?;
+    MemoryPropertyFlags::DEVICE_LOCAL,
+);
 ```
 
 ## Step 4: Transition layout UNDEFINED to TRANSFER_DST_OPTIMAL
@@ -112,33 +125,39 @@ engine can write to. This requires a pipeline barrier.
 > UNDEFINED layout? What does the layout tell the driver?*
 
 ```rust,ignore
-let barrier_to_transfer = vk::ImageMemoryBarrier::builder()
-    .old_layout(vk::ImageLayout::UNDEFINED)
-    .new_layout(vk::ImageLayout::TRANSFER_DST_OPTIMAL)
-    .src_queue_family_index(vk::QUEUE_FAMILY_IGNORED)
-    .dst_queue_family_index(vk::QUEUE_FAMILY_IGNORED)
+use vk_engine::vk;
+use vk::structs::*;
+use vk::enums::*;
+use vk::bitmasks::*;
+use vk::constants;
+
+let barrier_to_transfer = ImageMemoryBarrier::builder()
+    .old_layout(ImageLayout::UNDEFINED)
+    .new_layout(ImageLayout::TRANSFER_DST_OPTIMAL)
+    .src_queue_family_index(constants::QUEUE_FAMILY_IGNORED)
+    .dst_queue_family_index(constants::QUEUE_FAMILY_IGNORED)
     .image(texture_image)
-    .subresource_range(vk::ImageSubresourceRange {
-        aspect_mask: vk::ImageAspectFlags::COLOR,
+    .subresource_range(ImageSubresourceRange {
+        aspect_mask: ImageAspectFlags::COLOR,
         base_mip_level: 0,
         level_count: 1,
         base_array_layer: 0,
         layer_count: 1,
     })
     // No prior access to wait for (image was UNDEFINED).
-    .src_access_mask(vk::AccessFlags::empty())
+    .src_access_mask(AccessFlags::NONE)
     // The transfer write must wait until the transition completes.
-    .dst_access_mask(vk::AccessFlags::TRANSFER_WRITE);
+    .dst_access_mask(AccessFlags::TRANSFER_WRITE);
 
 unsafe {
     device.cmd_pipeline_barrier(
         cmd,
-        vk::PipelineStageFlags::TOP_OF_PIPE,   // src stage: nothing before
-        vk::PipelineStageFlags::TRANSFER,       // dst stage: transfer write
-        vk::DependencyFlags::empty(),
+        PipelineStageFlags::TOP_OF_PIPE,   // src stage: nothing before
+        PipelineStageFlags::TRANSFER,       // dst stage: transfer write
+        DependencyFlags::empty(),
         &[],             // memory barriers
         &[],             // buffer memory barriers
-        &[barrier_to_transfer],
+        &[*barrier_to_transfer],
     );
 }
 ```
@@ -149,19 +168,24 @@ unsafe {
 ## Step 5: Copy staging buffer to image
 
 ```rust,ignore
-let region = vk::BufferImageCopy {
+use vk_engine::vk;
+use vk::structs::*;
+use vk::enums::*;
+use vk::bitmasks::*;
+
+let region = BufferImageCopy {
     buffer_offset: 0,
     // 0 means tightly packed (no padding between rows).
     buffer_row_length: 0,
     buffer_image_height: 0,
-    image_subresource: vk::ImageSubresourceLayers {
-        aspect_mask: vk::ImageAspectFlags::COLOR,
+    image_subresource: ImageSubresourceLayers {
+        aspect_mask: ImageAspectFlags::COLOR,
         mip_level: 0,
         base_array_layer: 0,
         layer_count: 1,
     },
-    image_offset: vk::Offset3D { x: 0, y: 0, z: 0 },
-    image_extent: vk::Extent3D { width, height, depth: 1 },
+    image_offset: Offset3D { x: 0, y: 0, z: 0 },
+    image_extent: Extent3D { width, height, depth: 1 },
 };
 
 unsafe {
@@ -169,7 +193,7 @@ unsafe {
         cmd,
         staging_buffer,
         texture_image,
-        vk::ImageLayout::TRANSFER_DST_OPTIMAL,
+        ImageLayout::TRANSFER_DST_OPTIMAL,
         &[region],
     );
 }
@@ -180,30 +204,36 @@ unsafe {
 After the copy, transition the image to a layout the shader can read.
 
 ```rust,ignore
-let barrier_to_shader = vk::ImageMemoryBarrier::builder()
-    .old_layout(vk::ImageLayout::TRANSFER_DST_OPTIMAL)
-    .new_layout(vk::ImageLayout::SHADER_READ_ONLY_OPTIMAL)
-    .src_queue_family_index(vk::QUEUE_FAMILY_IGNORED)
-    .dst_queue_family_index(vk::QUEUE_FAMILY_IGNORED)
+use vk_engine::vk;
+use vk::structs::*;
+use vk::enums::*;
+use vk::bitmasks::*;
+use vk::constants;
+
+let barrier_to_shader = ImageMemoryBarrier::builder()
+    .old_layout(ImageLayout::TRANSFER_DST_OPTIMAL)
+    .new_layout(ImageLayout::SHADER_READ_ONLY_OPTIMAL)
+    .src_queue_family_index(constants::QUEUE_FAMILY_IGNORED)
+    .dst_queue_family_index(constants::QUEUE_FAMILY_IGNORED)
     .image(texture_image)
-    .subresource_range(vk::ImageSubresourceRange {
-        aspect_mask: vk::ImageAspectFlags::COLOR,
+    .subresource_range(ImageSubresourceRange {
+        aspect_mask: ImageAspectFlags::COLOR,
         base_mip_level: 0,
         level_count: 1,
         base_array_layer: 0,
         layer_count: 1,
     })
-    .src_access_mask(vk::AccessFlags::TRANSFER_WRITE)
-    .dst_access_mask(vk::AccessFlags::SHADER_READ);
+    .src_access_mask(AccessFlags::TRANSFER_WRITE)
+    .dst_access_mask(AccessFlags::SHADER_READ);
 
 unsafe {
     device.cmd_pipeline_barrier(
         cmd,
-        vk::PipelineStageFlags::TRANSFER,
-        vk::PipelineStageFlags::FRAGMENT_SHADER,
-        vk::DependencyFlags::empty(),
+        PipelineStageFlags::TRANSFER,
+        PipelineStageFlags::FRAGMENT_SHADER,
+        DependencyFlags::empty(),
         &[], &[],
-        &[barrier_to_shader],
+        &[*barrier_to_shader],
     );
 }
 ```
@@ -215,34 +245,43 @@ The shader does not access images directly. It reads through an
 **sampler** (which controls filtering and addressing).
 
 ```rust,ignore
-let view_info = vk::ImageViewCreateInfo::builder()
+use vk_engine::vk;
+use vk::structs::*;
+use vk::enums::*;
+use vk::bitmasks::*;
+
+let view_info = ImageViewCreateInfo::builder()
     .image(texture_image)
-    .view_type(vk::ImageViewType::TYPE_2D)
-    .format(vk::Format::R8G8B8A8_SRGB)
-    .subresource_range(vk::ImageSubresourceRange {
-        aspect_mask: vk::ImageAspectFlags::COLOR,
+    .view_type(ImageViewType::_2D)
+    .format(Format::R8G8B8A8_SRGB)
+    .subresource_range(ImageSubresourceRange {
+        aspect_mask: ImageAspectFlags::COLOR,
         base_mip_level: 0,
         level_count: 1,
         base_array_layer: 0,
         layer_count: 1,
     });
 
-let texture_view = unsafe { device.create_image_view(&view_info, None)? };
+let texture_view = unsafe { device.create_image_view(&view_info, None) }
+    .expect("Failed to create image view");
 
-let sampler_info = vk::SamplerCreateInfo::builder()
-    .mag_filter(vk::Filter::LINEAR)
-    .min_filter(vk::Filter::LINEAR)
-    .address_mode_u(vk::SamplerAddressMode::REPEAT)
-    .address_mode_v(vk::SamplerAddressMode::REPEAT)
-    .address_mode_w(vk::SamplerAddressMode::REPEAT)
-    .anisotropy_enable(true)
+let sampler_info = SamplerCreateInfo::builder()
+    .mag_filter(Filter::LINEAR)
+    .min_filter(Filter::LINEAR)
+    .address_mode_u(SamplerAddressMode::REPEAT)
+    .address_mode_v(SamplerAddressMode::REPEAT)
+    .address_mode_w(SamplerAddressMode::REPEAT)
+    // Requires the samplerAnisotropy device feature to be enabled.
+    // Set anisotropy_enable(0) if the feature is not available.
+    .anisotropy_enable(1)
     .max_anisotropy(16.0)
-    .border_color(vk::BorderColor::INT_OPAQUE_BLACK)
-    .mipmap_mode(vk::SamplerMipmapMode::LINEAR)
+    .border_color(BorderColor::INT_OPAQUE_BLACK)
+    .mipmap_mode(SamplerMipmapMode::LINEAR)
     .min_lod(0.0)
     .max_lod(0.0);
 
-let sampler = unsafe { device.create_sampler(&sampler_info, None)? };
+let sampler = unsafe { device.create_sampler(&sampler_info, None) }
+    .expect("Failed to create sampler");
 ```
 
 ## Step 8: Bind via descriptor set
@@ -251,20 +290,24 @@ Update a descriptor set so the shader can access the combined
 image/sampler pair at a binding point.
 
 ```rust,ignore
-let image_descriptor = vk::DescriptorImageInfo {
+use vk_engine::vk;
+use vk::structs::*;
+use vk::enums::*;
+
+let image_descriptor = DescriptorImageInfo {
     sampler,
     image_view: texture_view,
-    image_layout: vk::ImageLayout::SHADER_READ_ONLY_OPTIMAL,
+    image_layout: ImageLayout::SHADER_READ_ONLY_OPTIMAL,
 };
 
-let write = vk::WriteDescriptorSet::builder()
+let write = WriteDescriptorSet::builder()
     .dst_set(descriptor_set)
     .dst_binding(1) // must match the binding in the shader
     .dst_array_element(0)
-    .descriptor_type(vk::DescriptorType::COMBINED_IMAGE_SAMPLER)
+    .descriptor_type(DescriptorType::COMBINED_IMAGE_SAMPLER)
     .image_info(&[image_descriptor]);
 
-unsafe { device.update_descriptor_sets(&[write], &[]) };
+unsafe { device.update_descriptor_sets(&[*write], &[]) };
 ```
 
 In the fragment shader (GLSL):
@@ -288,7 +331,8 @@ resources manually when they are no longer needed.
 ```rust,ignore
 // Wait for the GPU to finish using these resources first.
 unsafe {
-    device.device_wait_idle()?;
+    device.device_wait_idle()
+        .expect("Failed to wait for device idle");
     device.destroy_sampler(sampler, None);
     device.destroy_image_view(texture_view, None);
     device.destroy_image(texture_image, None);

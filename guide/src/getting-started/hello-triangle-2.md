@@ -30,21 +30,49 @@ winit = "0.30"
 Before creating a Vulkan surface, we need a platform window.
 
 ```rust,ignore
-use winit::event_loop::EventLoop;
-use winit::window::WindowAttributes;
+use winit::application::ApplicationHandler;
+use winit::event::WindowEvent;
+use winit::event_loop::{ActiveEventLoop, EventLoop};
+use winit::window::{Window, WindowId};
+
+struct App {
+    window: Option<Window>,
+}
+
+impl ApplicationHandler for App {
+    fn resumed(&mut self, event_loop: &ActiveEventLoop) {
+        if self.window.is_some() {
+            return;
+        }
+
+        let attrs = Window::default_attributes()
+            .with_title("Hello Triangle")
+            .with_inner_size(winit::dpi::LogicalSize::new(800, 600));
+        let window = event_loop
+            .create_window(attrs)
+            .expect("Failed to create window");
+
+        // ... Vulkan initialization uses &window here ...
+
+        self.window = Some(window);
+    }
+
+    fn window_event(
+        &mut self,
+        event_loop: &ActiveEventLoop,
+        _id: WindowId,
+        event: WindowEvent,
+    ) {
+        if matches!(event, WindowEvent::CloseRequested) {
+            event_loop.exit();
+        }
+    }
+}
 
 fn main() {
     let event_loop = EventLoop::new().expect("Failed to create event loop");
-
-    let window = event_loop
-        .create_window(
-            WindowAttributes::default()
-                .with_title("Hello Triangle")
-                .with_inner_size(winit::dpi::LogicalSize::new(800, 600)),
-        )
-        .expect("Failed to create window");
-
-    // ... Vulkan initialization follows
+    let mut app = App { window: None };
+    event_loop.run_app(&mut app).expect("Event loop error");
 }
 ```
 
@@ -59,9 +87,10 @@ extensions for your platform.
 ```rust,ignore
 use vk_engine::{Entry, LibloadingLoader};
 use vk_engine::vk;
+use vk::structs::*;
 
 // ── Load Vulkan ────────────────────────────────────────────────
-let loader = unsafe { LibloadingLoader::new() }
+let loader = LibloadingLoader::new()
     .expect("Vulkan library not found");
 let entry = unsafe { Entry::new(loader) }
     .expect("Failed to load Vulkan");
@@ -86,17 +115,19 @@ let validation_layer = c"VK_LAYER_KHRONOS_validation";
 let layer_ptrs = [validation_layer.as_ptr()];
 
 // ── Create the instance ────────────────────────────────────────
-let app_info = vk::ApplicationInfo::builder()
-    .application_name(c"Hello Triangle")
+let app_info = ApplicationInfo::builder()
+    .p_application_name(c"Hello Triangle".as_ptr())
     .application_version(1)
-    .engine_name(c"No Engine")
+    .p_engine_name(c"No Engine".as_ptr())
     .engine_version(1)
-    .api_version(vk::make_api_version(0, 1, 0, 0));
+    .api_version(1 << 22);  // Vulkan 1.0
 
-let create_info = vk::InstanceCreateInfo::builder()
-    .application_info(&app_info)
-    .enabled_extension_names(&extension_ptrs)
-    .enabled_layer_names(&layer_ptrs);
+let create_info = InstanceCreateInfo::builder()
+    .p_application_info(&*app_info)
+    .enabled_extension_count(extension_ptrs.len() as u32)
+    .pp_enabled_extension_names(extension_ptrs.as_ptr())
+    .enabled_layer_count(layer_ptrs.len() as u32)
+    .pp_enabled_layer_names(layer_ptrs.as_ptr());
 
 let instance = unsafe { entry.create_instance(&create_info, None) }
     .expect("Failed to create instance");
@@ -144,7 +175,9 @@ let physical_devices = unsafe { instance.enumerate_physical_devices() }
 
 // ── Find a GPU with a queue family that supports both graphics
 //    and presentation to our surface ────────────────────────────
-let mut physical_device = vk::PhysicalDevice::null();
+use vk::handles::*;
+
+let mut physical_device = PhysicalDevice::null();
 let mut graphics_family_index = 0u32;
 
 'outer: for &pd in &physical_devices {
@@ -154,8 +187,8 @@ let mut graphics_family_index = 0u32;
 
     for (i, family) in queue_families.iter().enumerate() {
         let supports_graphics =
-            family.queue_flags & vk::QueueFlags::GRAPHICS
-            != vk::QueueFlags::empty();
+            family.queue_flags & QueueFlags::GRAPHICS
+            != QueueFlags::empty();
 
         // Check if this queue family can present to our surface.
         let supports_present = unsafe {
@@ -201,13 +234,14 @@ let swapchain_ext = c"VK_KHR_swapchain";
 let device_extensions = [swapchain_ext.as_ptr()];
 
 let queue_priority = 1.0_f32;
-let queue_info = vk::DeviceQueueCreateInfo::builder()
+let queue_info = DeviceQueueCreateInfo::builder()
     .queue_family_index(graphics_family_index)
     .queue_priorities(std::slice::from_ref(&queue_priority));
 
-let device_info = vk::DeviceCreateInfo::builder()
+let device_info = DeviceCreateInfo::builder()
     .queue_create_infos(std::slice::from_ref(&*queue_info))
-    .enabled_extension_names(&device_extensions);
+    .enabled_extension_count(device_extensions.len() as u32)
+    .pp_enabled_extension_names(device_extensions.as_ptr());
 
 let device = unsafe {
     instance.create_device(physical_device, &device_info, None)
@@ -258,6 +292,9 @@ We need to decide three things: the image format, the present mode,
 and the image extent (resolution).
 
 ```rust,ignore
+use vk::enums::*;
+use vk::bitmasks::*;
+
 // ── Choose format ──────────────────────────────────────────────
 //
 // Prefer B8G8R8A8_SRGB with SRGB_NONLINEAR color space.
@@ -265,8 +302,8 @@ and the image extent (resolution).
 let surface_format = formats
     .iter()
     .find(|f| {
-        f.format == vk::Format::B8G8R8A8_SRGB
-            && f.color_space == vk::ColorSpaceKHR::SRGB_NONLINEAR
+        f.format == Format::B8G8R8A8_SRGB
+            && f.color_space == ColorSpaceKHR::SRGB_NONLINEAR
     })
     .unwrap_or(&formats[0]);
 
@@ -274,10 +311,10 @@ let surface_format = formats
 //
 // MAILBOX = triple buffering (low latency, no tearing).
 // FIFO = vsync (guaranteed available).
-let present_mode = if present_modes.contains(&vk::PresentModeKHR::MAILBOX) {
-    vk::PresentModeKHR::MAILBOX
+let present_mode = if present_modes.contains(&PresentModeKHR::MAILBOX) {
+    PresentModeKHR::MAILBOX
 } else {
-    vk::PresentModeKHR::FIFO  // always available
+    PresentModeKHR::FIFO  // always available
 };
 
 // ── Choose extent (resolution) ─────────────────────────────────
@@ -288,7 +325,7 @@ let extent = if capabilities.current_extent.width != u32::MAX {
     capabilities.current_extent
 } else {
     let size = window.inner_size();
-    vk::Extent2D {
+    Extent2D {
         width: size.width.clamp(
             capabilities.min_image_extent.width,
             capabilities.max_image_extent.width,
@@ -317,20 +354,20 @@ let image_count = {
 ## Step 8: Create the swapchain
 
 ```rust,ignore
-let swapchain_info = vk::SwapchainCreateInfoKHR::builder()
+let swapchain_info = SwapchainCreateInfoKHR::builder()
     .surface(surface)
     .min_image_count(image_count)
     .image_format(surface_format.format)
     .image_color_space(surface_format.color_space)
     .image_extent(extent)
     .image_array_layers(1)
-    .image_usage(vk::ImageUsageFlags::COLOR_ATTACHMENT)
-    .image_sharing_mode(vk::SharingMode::EXCLUSIVE)
+    .image_usage(ImageUsageFlags::COLOR_ATTACHMENT)
+    .image_sharing_mode(SharingMode::EXCLUSIVE)
     .pre_transform(capabilities.current_transform)
-    .composite_alpha(vk::CompositeAlphaFlagsKHR::OPAQUE)
+    .composite_alpha(CompositeAlphaFlagBitsKHR::OPAQUE)
     .present_mode(present_mode)
     .clipped(1)       // discard pixels behind other windows
-    .old_swapchain(vk::SwapchainKHR::null());
+    .old_swapchain(SwapchainKHR::null());
 
 let swapchain = unsafe {
     device.create_swapchain_khr(&swapchain_info, None)
@@ -356,21 +393,21 @@ let swapchain_images = unsafe {
 println!("Swapchain has {} images", swapchain_images.len());
 
 // ── Create an image view for each swapchain image ──────────────
-let swapchain_image_views: Vec<vk::ImageView> = swapchain_images
+let swapchain_image_views: Vec<ImageView> = swapchain_images
     .iter()
     .map(|&image| {
-        let view_info = vk::ImageViewCreateInfo::builder()
+        let view_info = ImageViewCreateInfo::builder()
             .image(image)
-            .view_type(vk::ImageViewType::N2D)
+            .view_type(ImageViewType::_2D)
             .format(surface_format.format)
-            .components(vk::ComponentMapping {
-                r: vk::ComponentSwizzle::IDENTITY,
-                g: vk::ComponentSwizzle::IDENTITY,
-                b: vk::ComponentSwizzle::IDENTITY,
-                a: vk::ComponentSwizzle::IDENTITY,
+            .components(ComponentMapping {
+                r: ComponentSwizzle::IDENTITY,
+                g: ComponentSwizzle::IDENTITY,
+                b: ComponentSwizzle::IDENTITY,
+                a: ComponentSwizzle::IDENTITY,
             })
-            .subresource_range(vk::ImageSubresourceRange {
-                aspect_mask: vk::ImageAspectFlags::COLOR,
+            .subresource_range(ImageSubresourceRange {
+                aspect_mask: ImageAspectFlags::COLOR,
                 base_mip_level: 0,
                 level_count: 1,
                 base_array_layer: 0,

@@ -19,3 +19,6 @@ edit-url-template = "https://github.com/Hiddentale/vulkan_rs/edit/main/guide/{pa
 enable = true
 limit-results = 20
 boost-hierarchy = 2
+
+[rust]
+edition = "2021"

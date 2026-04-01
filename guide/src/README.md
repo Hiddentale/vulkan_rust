@@ -82,15 +82,16 @@ This guide covers the *why* and *how* that API docs cannot.
 Here is the minimum code to initialize Vulkan with `vulkan_rs`:
 
 ```rust,no_run
-use vk_engine::Entry;
+use vk_engine::{Entry, LibloadingLoader};
 
 fn main() {
     // Load the Vulkan loader library from the system.
-    let entry = unsafe { Entry::new() }.expect("Failed to load Vulkan");
+    let loader = unsafe { LibloadingLoader::new() }.expect("Failed to find Vulkan");
+    let entry = unsafe { Entry::new(loader) }.expect("Failed to load Vulkan");
 
     // Query the highest Vulkan version the driver supports.
     let version = entry.version().expect("Failed to query version");
-    println!("Vulkan {}.{}.{}", version.major(), version.minor(), version.patch());
+    println!("Vulkan {}.{}.{}", version.major, version.minor, version.patch);
 }
 ```
 

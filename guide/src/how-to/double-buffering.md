@@ -57,23 +57,30 @@ Each frame in flight needs its own set of sync primitives:
 > go wrong if all frames shared a single fence?*
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::structs::*;
+use vk::handles::*;
+
 struct FrameSync {
-    in_flight_fence: vk::Fence,
-    image_available: vk::Semaphore,
-    render_finished: vk::Semaphore,
+    in_flight_fence: Fence,
+    image_available: Semaphore,
+    render_finished: Semaphore,
 }
 
-let fence_info = vk::FenceCreateInfo::builder()
-    .flags(vk::FenceCreateFlags::SIGNALED); // start signaled so frame 0 doesn't deadlock
+let fence_info = FenceCreateInfo::builder()
+    .flags(FenceCreateFlags::SIGNALED); // start signaled so frame 0 doesn't deadlock
 
-let semaphore_info = vk::SemaphoreCreateInfo::builder();
+let semaphore_info = SemaphoreCreateInfo::builder();
 
 let mut frame_sync = Vec::with_capacity(MAX_FRAMES_IN_FLIGHT);
 for _ in 0..MAX_FRAMES_IN_FLIGHT {
     let sync = FrameSync {
-        in_flight_fence: unsafe { device.create_fence(&fence_info, None)? },
-        image_available: unsafe { device.create_semaphore(&semaphore_info, None)? },
-        render_finished: unsafe { device.create_semaphore(&semaphore_info, None)? },
+        in_flight_fence: unsafe { device.create_fence(&fence_info, None) }
+            .expect("Failed to create fence"),
+        image_available: unsafe { device.create_semaphore(&semaphore_info, None) }
+            .expect("Failed to create semaphore"),
+        render_finished: unsafe { device.create_semaphore(&semaphore_info, None) }
+            .expect("Failed to create semaphore"),
     };
     frame_sync.push(sync);
 }
@@ -89,12 +96,21 @@ Each frame in flight needs its own command buffer so the CPU can record
 into one while the GPU executes the other.
 
 ```rust,ignore
-let alloc_info = vk::CommandBufferAllocateInfo::builder()
+use vk_engine::vk;
+use vk::structs::*;
+use vk::enums::*;
+use vk::handles::*;
+
+let alloc_info = CommandBufferAllocateInfo::builder()
     .command_pool(command_pool)
-    .level(vk::CommandBufferLevel::PRIMARY)
+    .level(CommandBufferLevel::PRIMARY)
     .command_buffer_count(MAX_FRAMES_IN_FLIGHT as u32);
 
-let command_buffers = unsafe { device.allocate_command_buffers(&alloc_info)? };
+let mut command_buffers = vec![CommandBuffer::null(); MAX_FRAMES_IN_FLIGHT];
+unsafe {
+    device.allocate_command_buffers(&alloc_info, command_buffers.as_mut_ptr())
+}
+.expect("Failed to allocate command buffers");
 ```
 
 ## Step 4: The render loop
@@ -103,6 +119,10 @@ The frame index cycles through `0..MAX_FRAMES_IN_FLIGHT`. Each
 iteration uses only the resources belonging to that frame index.
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::structs::*;
+use vk::handles::*;
+
 let mut current_frame: usize = 0;
 
 loop {
@@ -112,66 +132,68 @@ loop {
     let sync = &frame_sync[current_frame];
     let cmd = command_buffers[current_frame];
 
-    // --- 1. Wait for this frame's previous submission to finish ---
     unsafe {
-        device.wait_for_fences(&[sync.in_flight_fence], true, u64::MAX)?;
-    }
+    // --- 1. Wait for this frame's previous submission to finish ---
+    device.wait_for_fences(&[sync.in_flight_fence], 1, u64::MAX)
+        .expect("Failed to wait for fence");
 
     // --- 2. Acquire the next swapchain image ---
-    let (image_index, _suboptimal) = unsafe {
-        device.acquire_next_image(
-            swapchain,
-            u64::MAX,
-            sync.image_available,  // signaled when image is ready
-            vk::Fence::null(),
-        )?
-    };
+    let image_index = device.acquire_next_image_khr(
+        swapchain,
+        u64::MAX,
+        sync.image_available,  // signaled when image is ready
+        Fence::null(),
+    )
+    .expect("Failed to acquire swapchain image");
 
     // --- 3. Reset the fence only after we know we will submit work ---
     // Resetting before acquire_next_image could deadlock if acquire fails.
-    unsafe { device.reset_fences(&[sync.in_flight_fence])? };
+    device.reset_fences(&[sync.in_flight_fence])
+        .expect("Failed to reset fence");
 
     // --- 4. Record commands ---
-    unsafe {
-        device.reset_command_buffer(cmd, vk::CommandBufferResetFlags::empty())?;
+    device.reset_command_buffer(cmd, CommandBufferResetFlags::empty())
+        .expect("Failed to reset command buffer");
 
-        let begin_info = vk::CommandBufferBeginInfo::builder();
-        device.begin_command_buffer(cmd, &begin_info)?;
+    let begin_info = CommandBufferBeginInfo::builder();
+    device.begin_command_buffer(cmd, &begin_info)
+        .expect("Failed to begin command buffer");
 
-        // ... record render pass, draw calls, etc. ...
+    // ... record render pass, draw calls, etc. ...
 
-        device.end_command_buffer(cmd)?;
-    }
+    device.end_command_buffer(cmd)
+        .expect("Failed to end command buffer");
 
     // --- 5. Submit ---
     let wait_semaphores = [sync.image_available];
-    let wait_stages = [vk::PipelineStageFlags::COLOR_ATTACHMENT_OUTPUT];
+    let wait_stages = [PipelineStageFlags::COLOR_ATTACHMENT_OUTPUT];
     let signal_semaphores = [sync.render_finished];
     let command_buffers_to_submit = [cmd];
 
-    let submit_info = vk::SubmitInfo::builder()
+    let submit_info = SubmitInfo::builder()
         .wait_semaphores(&wait_semaphores)
         .wait_dst_stage_mask(&wait_stages)
         .command_buffers(&command_buffers_to_submit)
         .signal_semaphores(&signal_semaphores);
 
-    unsafe {
-        device.queue_submit(
-            graphics_queue,
-            &[submit_info],
-            sync.in_flight_fence,  // signal this fence when done
-        )?;
-    }
+    device.queue_submit(
+        graphics_queue,
+        &[*submit_info],
+        sync.in_flight_fence,  // signal this fence when done
+    )
+    .expect("Failed to submit");
 
     // --- 6. Present ---
     let swapchains = [swapchain];
     let image_indices = [image_index];
-    let present_info = vk::PresentInfoKHR::builder()
+    let present_info = PresentInfoKHR::builder()
         .wait_semaphores(&signal_semaphores)
         .swapchains(&swapchains)
         .image_indices(&image_indices);
 
-    unsafe { device.queue_present(present_queue, &present_info)?; }
+    device.queue_present_khr(graphics_queue, &present_info)
+        .expect("Failed to present");
+    }
 
     // --- 7. Advance frame index ---
     current_frame = (current_frame + 1) % MAX_FRAMES_IN_FLIGHT;
@@ -183,10 +205,11 @@ loop {
 Before destroying anything, wait for all frames to finish.
 
 ```rust,ignore
-unsafe { device.device_wait_idle()?; }
+unsafe {
+    device.device_wait_idle()
+        .expect("Failed to wait for device idle");
 
-for sync in &frame_sync {
-    unsafe {
+    for sync in &frame_sync {
         device.destroy_fence(sync.in_flight_fence, None);
         device.destroy_semaphore(sync.image_available, None);
         device.destroy_semaphore(sync.render_finished, None);

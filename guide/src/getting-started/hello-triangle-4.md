@@ -22,8 +22,11 @@ We need fences and semaphores to coordinate CPU and GPU work. See
 [Synchronization](../concepts/synchronization.md) for the full concept.
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::structs::*;
+
 // ── Semaphores: GPU-to-GPU synchronization ─────────────────────
-let sem_info = vk::SemaphoreCreateInfo::builder();
+let sem_info = SemaphoreCreateInfo::builder();
 
 // "The swapchain image is ready to render into."
 let image_available = unsafe { device.create_semaphore(&sem_info, None) }
@@ -37,8 +40,8 @@ let render_finished = unsafe { device.create_semaphore(&sem_info, None) }
 //
 // SIGNALED so the first frame doesn't block forever waiting for
 // a "previous frame" that never existed.
-let fence_info = vk::FenceCreateInfo::builder()
-    .flags(vk::FenceCreateFlags::SIGNALED);
+let fence_info = FenceCreateInfo::builder()
+    .flags(FenceCreateFlags::SIGNALED);
 
 let in_flight_fence = unsafe { device.create_fence(&fence_info, None) }
     .expect("Failed to create fence");
@@ -55,21 +58,26 @@ let in_flight_fence = unsafe { device.create_fence(&fence_info, None) }
 ## Step 2: Create a command pool and command buffer
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::structs::*;
+use vk::enums::*;
+use vk::handles::*;
+
 // ── Command pool ───────────────────────────────────────────────
-let pool_info = vk::CommandPoolCreateInfo::builder()
-    .flags(vk::CommandPoolCreateFlags::RESET_COMMAND_BUFFER)
+let pool_info = CommandPoolCreateInfo::builder()
+    .flags(CommandPoolCreateFlags::RESET_COMMAND_BUFFER)
     .queue_family_index(graphics_family_index);
 
 let command_pool = unsafe { device.create_command_pool(&pool_info, None) }
     .expect("Failed to create command pool");
 
 // ── Allocate one command buffer ────────────────────────────────
-let alloc_info = vk::CommandBufferAllocateInfo::builder()
+let alloc_info = CommandBufferAllocateInfo::builder()
     .command_pool(command_pool)
-    .level(vk::CommandBufferLevel::PRIMARY)
+    .level(CommandBufferLevel::PRIMARY)
     .command_buffer_count(1);
 
-let mut command_buffer = vk::CommandBuffer::null();
+let mut command_buffer = CommandBuffer::null();
 unsafe {
     device.allocate_command_buffers(&alloc_info, &mut command_buffer)
 }
@@ -83,50 +91,57 @@ call it every frame with the correct framebuffer for the current
 swapchain image.
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::structs::*;
+use vk::enums::*;
+use vk::handles::*;
+
 unsafe fn record_commands(
     device: &vk_engine::Device,
-    command_buffer: vk::CommandBuffer,
-    render_pass: vk::RenderPass,
-    framebuffer: vk::Framebuffer,
-    pipeline: vk::Pipeline,
-    extent: vk::Extent2D,
+    command_buffer: CommandBuffer,
+    render_pass: RenderPass,
+    framebuffer: Framebuffer,
+    pipeline: Pipeline,
+    extent: Extent2D,
 ) {
+    unsafe {
     // ── Begin recording ────────────────────────────────────────
-    let begin_info = vk::CommandBufferBeginInfo::builder();
+    let begin_info = CommandBufferBeginInfo::builder();
     device.begin_command_buffer(command_buffer, &begin_info)
         .expect("Failed to begin command buffer");
 
     // ── Begin render pass ──────────────────────────────────────
-    let clear_value = vk::ClearValue {
-        color: vk::ClearColorValue {
+    let clear_value = ClearValue {
+        color: ClearColorValue {
             float32: [0.0, 0.0, 0.0, 1.0],  // black
         },
     };
 
-    let rp_begin = vk::RenderPassBeginInfo::builder()
+    let clear_values = [clear_value];
+    let rp_begin = RenderPassBeginInfo::builder()
         .render_pass(render_pass)
         .framebuffer(framebuffer)
-        .render_area(vk::Rect2D {
-            offset: vk::Offset2D { x: 0, y: 0 },
+        .render_area(Rect2D {
+            offset: Offset2D { x: 0, y: 0 },
             extent,
         })
-        .clear_values(&[clear_value]);
+        .clear_values(&clear_values);
 
     device.cmd_begin_render_pass(
         command_buffer,
         &rp_begin,
-        vk::SubpassContents::INLINE,
+        SubpassContents::INLINE,
     );
 
     // ── Bind the pipeline ──────────────────────────────────────
     device.cmd_bind_pipeline(
         command_buffer,
-        vk::PipelineBindPoint::GRAPHICS,
+        PipelineBindPoint::GRAPHICS,
         pipeline,
     );
 
     // ── Set dynamic viewport and scissor ───────────────────────
-    let viewport = vk::Viewport {
+    let viewport = Viewport {
         x: 0.0,
         y: 0.0,
         width: extent.width as f32,
@@ -136,8 +151,8 @@ unsafe fn record_commands(
     };
     device.cmd_set_viewport(command_buffer, 0, &[viewport]);
 
-    let scissor = vk::Rect2D {
-        offset: vk::Offset2D { x: 0, y: 0 },
+    let scissor = Rect2D {
+        offset: Offset2D { x: 0, y: 0 },
         extent,
     };
     device.cmd_set_scissor(command_buffer, 0, &[scissor]);
@@ -152,6 +167,7 @@ unsafe fn record_commands(
     device.cmd_end_render_pass(command_buffer);
     device.end_command_buffer(command_buffer)
         .expect("Failed to end command buffer");
+    }
 }
 ```
 
@@ -170,52 +186,62 @@ Now we tie everything together in the event loop. Each frame:
 5. **Present** the image (waits on `render_finished`).
 
 ```rust,ignore
-use winit::event::{Event, WindowEvent};
-use winit::event_loop::ControlFlow;
+use winit::application::ApplicationHandler;
+use winit::event::WindowEvent;
+use winit::event_loop::{ActiveEventLoop, EventLoop};
+use winit::window::WindowId;
 
-event_loop.run(|event, elwt| {
-    match event {
-        Event::WindowEvent {
-            event: WindowEvent::CloseRequested,
-            ..
-        } => {
-            elwt.exit();
-        }
-
-        Event::AboutToWait => {
-            // Request a redraw every frame.
-            window.request_redraw();
-        }
-
-        Event::WindowEvent {
-            event: WindowEvent::RedrawRequested,
-            ..
-        } => {
-            unsafe { draw_frame() };
-        }
-
-        _ => {}
+impl ApplicationHandler for App {
+    fn resumed(&mut self, _event_loop: &ActiveEventLoop) {
+        // Window and Vulkan setup already done (see Part 2).
     }
-})
-.expect("Event loop error");
+
+    fn window_event(
+        &mut self,
+        event_loop: &ActiveEventLoop,
+        _id: WindowId,
+        event: WindowEvent,
+    ) {
+        match event {
+            WindowEvent::CloseRequested => {
+                event_loop.exit();
+            }
+            WindowEvent::RedrawRequested => {
+                unsafe { self.draw_frame() };
+                // Request the next frame immediately.
+                self.window.as_ref().unwrap().request_redraw();
+            }
+            _ => {}
+        }
+    }
+}
+
+// In main:
+let event_loop = EventLoop::new().expect("Failed to create event loop");
+event_loop.run_app(&mut app).expect("Event loop error");
 ```
 
 The `draw_frame` function:
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::structs::*;
+use vk::handles::*;
+
 unsafe fn draw_frame(
     device: &vk_engine::Device,
-    swapchain: vk::SwapchainKHR,
-    in_flight_fence: vk::Fence,
-    image_available: vk::Semaphore,
-    render_finished: vk::Semaphore,
-    command_buffer: vk::CommandBuffer,
-    framebuffers: &[vk::Framebuffer],
-    render_pass: vk::RenderPass,
-    pipeline: vk::Pipeline,
-    extent: vk::Extent2D,
-    graphics_queue: vk::Queue,
+    swapchain: SwapchainKHR,
+    in_flight_fence: Fence,
+    image_available: Semaphore,
+    render_finished: Semaphore,
+    command_buffer: CommandBuffer,
+    framebuffers: &[Framebuffer],
+    render_pass: RenderPass,
+    pipeline: Pipeline,
+    extent: Extent2D,
+    graphics_queue: Queue,
 ) {
+    unsafe {
     // ── 1. Wait for previous frame ─────────────────────────────
     device.wait_for_fences(&[in_flight_fence], 1, u64::MAX)
         .expect("Failed to wait for fence");
@@ -228,14 +254,14 @@ unsafe fn draw_frame(
             swapchain,
             u64::MAX,
             image_available,
-            vk::Fence::null(),
+            Fence::null(),
         )
         .expect("Failed to acquire swapchain image");
 
     // ── 3. Record commands ─────────────────────────────────────
     device.reset_command_buffer(
         command_buffer,
-        vk::CommandBufferResetFlags::empty(),
+        CommandBufferResetFlags::empty(),
     )
     .expect("Failed to reset command buffer");
 
@@ -249,25 +275,32 @@ unsafe fn draw_frame(
     );
 
     // ── 4. Submit ──────────────────────────────────────────────
-    let wait_stages = [vk::PipelineStageFlags::COLOR_ATTACHMENT_OUTPUT];
+    let wait_sems = [image_available];
+    let wait_stages = [PipelineStageFlags::COLOR_ATTACHMENT_OUTPUT];
+    let cmd_bufs = [command_buffer];
+    let signal_sems = [render_finished];
 
-    let submit_info = vk::SubmitInfo::builder()
-        .wait_semaphores(&[image_available])
+    let submit_info = SubmitInfo::builder()
+        .wait_semaphores(&wait_sems)
         .wait_dst_stage_mask(&wait_stages)
-        .command_buffers(&[command_buffer])
-        .signal_semaphores(&[render_finished]);
+        .command_buffers(&cmd_bufs)
+        .signal_semaphores(&signal_sems);
 
     device.queue_submit(graphics_queue, &[*submit_info], in_flight_fence)
         .expect("Failed to submit draw command buffer");
 
     // ── 5. Present ─────────────────────────────────────────────
-    let present_info = vk::PresentInfoKHR::builder()
-        .wait_semaphores(&[render_finished])
-        .swapchains(&[swapchain])
-        .image_indices(&[image_index]);
+    let present_wait = [render_finished];
+    let swapchains = [swapchain];
+    let indices = [image_index];
+    let present_info = PresentInfoKHR::builder()
+        .wait_semaphores(&present_wait)
+        .swapchains(&swapchains)
+        .image_indices(&indices);
 
     device.queue_present_khr(graphics_queue, &present_info)
         .expect("Failed to present");
+    }
 }
 ```
 

@@ -15,9 +15,9 @@ When the window is resized, the swapchain images no longer match the
 window dimensions. Vulkan tells you this has happened through two
 mechanisms:
 
-1. `acquire_next_image` or `queue_present` returns `ERROR_OUT_OF_DATE_KHR`,
+1. `acquire_next_image_khr` or `queue_present_khr` returns `ERROR_OUT_OF_DATE`,
    meaning the swapchain is no longer compatible with the surface.
-2. `queue_present` returns `SUBOPTIMAL_KHR`, meaning the swapchain still
+2. `queue_present_khr` returns `SUBOPTIMAL`, meaning the swapchain still
    works but no longer matches the surface properties perfectly.
 
 In either case, you must recreate the swapchain (and everything that
@@ -43,38 +43,44 @@ match event {
 In the render loop, check both the flag and the Vulkan result codes:
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::handles::*;
+use vk::enums::Result as VkError;
+
 let acquire_result = unsafe {
-    device.acquire_next_image(
-        swapchain, u64::MAX, image_available_semaphore, vk::Fence::null(),
+    device.acquire_next_image_khr(
+        swapchain, u64::MAX, image_available_semaphore, Fence::null(),
     )
 };
 
-let (image_index, _suboptimal) = match acquire_result {
-    Ok(result) => result,
-    Err(vk::Result::ERROR_OUT_OF_DATE_KHR) => {
-        recreate_swapchain(/* ... */)?;
+let image_index = match acquire_result {
+    Ok(index) => index,
+    Err(VkError::ERROR_OUT_OF_DATE) => {
+        recreate_swapchain(/* ... */);
         continue; // restart this loop iteration
     }
-    Err(e) => return Err(e.into()),
+    Err(e) => panic!("Failed to acquire swapchain image: {e:?}"),
 };
 
 // ... record and submit ...
 
-let present_result = unsafe { device.queue_present(present_queue, &present_info) };
+let present_result = unsafe {
+    device.queue_present_khr(graphics_queue, &present_info)
+};
 
 match present_result {
     Ok(_) => {}
-    Err(vk::Result::ERROR_OUT_OF_DATE_KHR | vk::Result::SUBOPTIMAL_KHR) => {
+    Err(VkError::ERROR_OUT_OF_DATE | VkError::SUBOPTIMAL) => {
         framebuffer_resized = false;
-        recreate_swapchain(/* ... */)?;
+        recreate_swapchain(/* ... */);
     }
-    Err(e) => return Err(e.into()),
+    Err(e) => panic!("Failed to present: {e:?}"),
 }
 
 // Also check the manual flag (some platforms don't always return OUT_OF_DATE).
 if framebuffer_resized {
     framebuffer_resized = false;
-    recreate_swapchain(/* ... */)?;
+    recreate_swapchain(/* ... */);
 }
 ```
 
@@ -91,7 +97,8 @@ Before destroying any swapchain-related resources, all in-flight work
 must finish.
 
 ```rust,ignore
-unsafe { device.device_wait_idle()?; }
+unsafe { device.device_wait_idle() }
+    .expect("Failed to wait for device idle");
 ```
 
 This is simple and correct. For higher performance you could track
@@ -126,9 +133,13 @@ destroyed.
 The surface extent may have changed, so re-query it.
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::structs::*;
+
 let surface_caps = unsafe {
-    instance.get_physical_device_surface_capabilities(physical_device, surface)?
-};
+    instance.get_physical_device_surface_capabilities_khr(physical_device, surface)
+}
+.expect("Failed to query surface capabilities");
 
 let new_extent = if surface_caps.current_extent.width != u32::MAX {
     // The surface has a defined size, use it.
@@ -136,7 +147,7 @@ let new_extent = if surface_caps.current_extent.width != u32::MAX {
 } else {
     // The surface size is undefined (e.g. Wayland), clamp to limits.
     let window_size = window.inner_size();
-    vk::Extent2D {
+    Extent2D {
         width: window_size.width.clamp(
             surface_caps.min_image_extent.width,
             surface_caps.max_image_extent.width,
@@ -169,27 +180,33 @@ Pass the old swapchain handle to `old_swapchain`. This lets the driver
 reuse internal resources and can make the transition smoother.
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::structs::*;
+use vk::enums::*;
+use vk::bitmasks::*;
+
 let old_swapchain = swapchain; // save the handle
 
-let swapchain_info = vk::SwapchainCreateInfoKHR::builder()
+let swapchain_info = SwapchainCreateInfoKHR::builder()
     .surface(surface)
     .min_image_count(desired_image_count)
     .image_format(surface_format.format)
     .image_color_space(surface_format.color_space)
     .image_extent(new_extent)
     .image_array_layers(1)
-    .image_usage(vk::ImageUsageFlags::COLOR_ATTACHMENT)
-    .image_sharing_mode(vk::SharingMode::EXCLUSIVE)
+    .image_usage(ImageUsageFlags::COLOR_ATTACHMENT)
+    .image_sharing_mode(SharingMode::EXCLUSIVE)
     .pre_transform(surface_caps.current_transform)
-    .composite_alpha(vk::CompositeAlphaFlagsKHR::OPAQUE)
+    .composite_alpha(CompositeAlphaFlagBitsKHR::OPAQUE)
     .present_mode(present_mode)
-    .clipped(true)
+    .clipped(1)
     .old_swapchain(old_swapchain); // <-- reuse hint
 
-swapchain = unsafe { device.create_swapchain(&swapchain_info, None)? };
+swapchain = unsafe { device.create_swapchain_khr(&swapchain_info, None) }
+    .expect("Failed to create swapchain");
 
 // Now destroy the old swapchain.
-unsafe { device.destroy_swapchain(old_swapchain, None); }
+unsafe { device.destroy_swapchain_khr(old_swapchain, None); }
 ```
 
 ## Step 7: Recreate image views and framebuffers
@@ -198,39 +215,47 @@ The new swapchain has new images, so create fresh image views and
 framebuffers.
 
 ```rust,ignore
-let swapchain_images = unsafe { device.get_swapchain_images(swapchain)? };
+use vk_engine::vk;
+use vk::structs::*;
+use vk::enums::*;
+use vk::bitmasks::*;
+
+let swapchain_images = unsafe { device.get_swapchain_images_khr(swapchain) }
+    .expect("Failed to get swapchain images");
 
 swapchain_image_views = swapchain_images
     .iter()
     .map(|&image| {
-        let view_info = vk::ImageViewCreateInfo::builder()
+        let view_info = ImageViewCreateInfo::builder()
             .image(image)
-            .view_type(vk::ImageViewType::TYPE_2D)
+            .view_type(ImageViewType::_2D)
             .format(surface_format.format)
-            .subresource_range(vk::ImageSubresourceRange {
-                aspect_mask: vk::ImageAspectFlags::COLOR,
+            .subresource_range(ImageSubresourceRange {
+                aspect_mask: ImageAspectFlags::COLOR,
                 base_mip_level: 0,
                 level_count: 1,
                 base_array_layer: 0,
                 layer_count: 1,
             });
         unsafe { device.create_image_view(&view_info, None) }
+            .expect("Failed to create image view")
     })
-    .collect::<Result<Vec<_>, _>>()?;
+    .collect();
 
 swapchain_framebuffers = swapchain_image_views
     .iter()
     .map(|&view| {
         let attachments = [view];
-        let fb_info = vk::FramebufferCreateInfo::builder()
+        let fb_info = FramebufferCreateInfo::builder()
             .render_pass(render_pass)
             .attachments(&attachments)
             .width(new_extent.width)
             .height(new_extent.height)
             .layers(1);
         unsafe { device.create_framebuffer(&fb_info, None) }
+            .expect("Failed to create framebuffer")
     })
-    .collect::<Result<Vec<_>, _>>()?;
+    .collect();
 ```
 
 ## Putting it all together
@@ -238,33 +263,41 @@ swapchain_framebuffers = swapchain_image_views
 A helper function that bundles the recreation logic:
 
 ```rust,ignore
-fn recreate_swapchain(
-    instance: &Instance,
-    device: &Device,
-    physical_device: vk::PhysicalDevice,
-    surface: vk::SurfaceKHR,
-    window: &Window,
-    render_pass: vk::RenderPass,
-    swapchain: &mut vk::SwapchainKHR,
-    swapchain_image_views: &mut Vec<vk::ImageView>,
-    swapchain_framebuffers: &mut Vec<vk::Framebuffer>,
-    surface_format: vk::SurfaceFormatKHR,
-    present_mode: vk::PresentModeKHR,
-) -> Result<vk::Extent2D, Box<dyn std::error::Error>> {
-    unsafe { device.device_wait_idle()?; }
+use vk_engine::vk;
+use vk::structs::*;
+use vk::enums::*;
+use vk::handles::*;
 
-    // Destroy old framebuffers and image views.
-    for &fb in swapchain_framebuffers.iter() {
-        unsafe { device.destroy_framebuffer(fb, None); }
-    }
-    for &view in swapchain_image_views.iter() {
-        unsafe { device.destroy_image_view(view, None); }
+fn recreate_swapchain(
+    instance: &vk_engine::Instance,
+    device: &vk_engine::Device,
+    physical_device: PhysicalDevice,
+    surface: SurfaceKHR,
+    window: &winit::window::Window,
+    render_pass: RenderPass,
+    swapchain: &mut SwapchainKHR,
+    swapchain_image_views: &mut Vec<ImageView>,
+    swapchain_framebuffers: &mut Vec<Framebuffer>,
+    surface_format: SurfaceFormatKHR,
+    present_mode: PresentModeKHR,
+) -> Extent2D {
+    unsafe {
+        device.device_wait_idle()
+            .expect("Failed to wait for device idle");
+
+        // Destroy old framebuffers and image views.
+        for &fb in swapchain_framebuffers.iter() {
+            device.destroy_framebuffer(fb, None);
+        }
+        for &view in swapchain_image_views.iter() {
+            device.destroy_image_view(view, None);
+        }
     }
 
     // Query new extent, create new swapchain, views, framebuffers.
     // ... (Steps 4 through 7 from above) ...
 
-    Ok(new_extent)
+    new_extent
 }
 ```
 
@@ -279,9 +312,9 @@ the pipeline too.
 matching `destroy_image_view`. If you overwrite the `Vec` without
 destroying the old views first, those handles leak.
 
-**Not handling SUBOPTIMAL.** `SUBOPTIMAL_KHR` from `queue_present` is
+**Not handling SUBOPTIMAL.** `SUBOPTIMAL` from `queue_present_khr` is
 not a fatal error, but ignoring it means you render at the wrong
-resolution until something else triggers an `OUT_OF_DATE_KHR`.
+resolution until something else triggers an `ERROR_OUT_OF_DATE`.
 
 ## Notes
 
@@ -291,6 +324,6 @@ resolution until something else triggers an `OUT_OF_DATE_KHR`.
 - **Render pass compatibility.** The render pass itself does not depend
   on the swapchain extent, only on the image format. You do not need to
   recreate it unless the surface format changes (which is extremely rare).
-- **Dynamic state.** Using `vk::DynamicState::VIEWPORT` and
-  `vk::DynamicState::SCISSOR` avoids having to recreate the pipeline on
+- **Dynamic state.** Using `DynamicState::VIEWPORT` and
+  `DynamicState::SCISSOR` avoids having to recreate the pipeline on
   resize. This is the recommended approach.

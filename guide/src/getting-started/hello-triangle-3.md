@@ -84,6 +84,7 @@ you prefer, adjust the path in the code below).
 ```rust,ignore
 use vk_engine::vk;
 use vk_engine::cast_to_u32;
+use vk::structs::*;
 
 // ── Load SPIR-V bytecode ───────────────────────────────────────
 let vert_bytes = include_bytes!("triangle.vert.spv");
@@ -96,8 +97,12 @@ let frag_code = cast_to_u32(frag_bytes)
     .expect("Fragment shader SPIR-V is not 4-byte aligned");
 
 // ── Create shader modules ──────────────────────────────────────
-let vert_info = vk::ShaderModuleCreateInfo::builder().code(vert_code);
-let frag_info = vk::ShaderModuleCreateInfo::builder().code(frag_code);
+let vert_info = ShaderModuleCreateInfo::builder()
+    .code_size(vert_code.len() * 4)
+    .p_code(vert_code.as_ptr());
+let frag_info = ShaderModuleCreateInfo::builder()
+    .code_size(frag_code.len() * 4)
+    .p_code(frag_code.as_ptr());
 
 let vert_module = unsafe { device.create_shader_module(&vert_info, None) }
     .expect("Failed to create vertex shader module");
@@ -115,28 +120,33 @@ are handled. See [Render Passes & Framebuffers](../concepts/render-passes.md)
 for the full concept.
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::structs::*;
+use vk::enums::*;
+use vk::bitmasks::*;
+
 // ── Color attachment: the swapchain image ──────────────────────
-let color_attachment = vk::AttachmentDescription {
-    flags: vk::AttachmentDescriptionFlags::empty(),
+let color_attachment = AttachmentDescription {
+    flags: AttachmentDescriptionFlags::empty(),
     format: surface_format.format,  // from Part 2
-    samples: vk::SampleCountFlagBits::N1,
-    load_op: vk::AttachmentLoadOp::CLEAR,       // clear to black
-    store_op: vk::AttachmentStoreOp::STORE,      // keep the result
-    stencil_load_op: vk::AttachmentLoadOp::DONT_CARE,
-    stencil_store_op: vk::AttachmentStoreOp::DONT_CARE,
-    initial_layout: vk::ImageLayout::UNDEFINED,
-    final_layout: vk::ImageLayout::PRESENT_SRC,  // ready for display
+    samples: SampleCountFlagBits::_1,
+    load_op: AttachmentLoadOp::CLEAR,       // clear to black
+    store_op: AttachmentStoreOp::STORE,      // keep the result
+    stencil_load_op: AttachmentLoadOp::DONT_CARE,
+    stencil_store_op: AttachmentStoreOp::DONT_CARE,
+    initial_layout: ImageLayout::UNDEFINED,
+    final_layout: ImageLayout::PRESENT_SRC,  // ready for display
 };
 
 // ── Subpass: use the color attachment ──────────────────────────
-let color_ref = vk::AttachmentReference {
+let color_ref = AttachmentReference {
     attachment: 0,
-    layout: vk::ImageLayout::COLOR_ATTACHMENT_OPTIMAL,
+    layout: ImageLayout::COLOR_ATTACHMENT_OPTIMAL,
 };
 
-let subpass = vk::SubpassDescription {
-    flags: vk::SubpassDescriptionFlags::empty(),
-    pipeline_bind_point: vk::PipelineBindPoint::GRAPHICS,
+let subpass = SubpassDescription {
+    flags: SubpassDescriptionFlags::empty(),
+    pipeline_bind_point: PipelineBindPoint::GRAPHICS,
     input_attachment_count: 0,
     p_input_attachments: core::ptr::null(),
     color_attachment_count: 1,
@@ -150,20 +160,20 @@ let subpass = vk::SubpassDescription {
 // ── Subpass dependency ─────────────────────────────────────────
 //
 // Ensure the image layout transition happens before we write color.
-let dependency = vk::SubpassDependency {
-    src_subpass: vk::SUBPASS_EXTERNAL,
+let dependency = SubpassDependency {
+    src_subpass: vk::constants::SUBPASS_EXTERNAL,
     dst_subpass: 0,
-    src_stage_mask: vk::PipelineStageFlags::COLOR_ATTACHMENT_OUTPUT,
-    dst_stage_mask: vk::PipelineStageFlags::COLOR_ATTACHMENT_OUTPUT,
-    src_access_mask: vk::AccessFlags::NONE,
-    dst_access_mask: vk::AccessFlags::COLOR_ATTACHMENT_WRITE,
-    dependency_flags: vk::DependencyFlags::empty(),
+    src_stage_mask: PipelineStageFlags::COLOR_ATTACHMENT_OUTPUT,
+    dst_stage_mask: PipelineStageFlags::COLOR_ATTACHMENT_OUTPUT,
+    src_access_mask: AccessFlags::NONE,
+    dst_access_mask: AccessFlags::COLOR_ATTACHMENT_WRITE,
+    dependency_flags: DependencyFlags::empty(),
 };
 
-let render_pass_info = vk::RenderPassCreateInfo::builder()
-    .attachments(&[color_attachment])
-    .subpasses(&[subpass])
-    .dependencies(&[dependency]);
+let render_pass_info = RenderPassCreateInfo::builder()
+    .attachments(std::slice::from_ref(&color_attachment))
+    .subpasses(std::slice::from_ref(&subpass))
+    .dependencies(std::slice::from_ref(&dependency));
 
 let render_pass = unsafe {
     device.create_render_pass(&render_pass_info, None)
@@ -177,7 +187,10 @@ Our shaders don't use any descriptors or push constants, so the layout
 is empty.
 
 ```rust,ignore
-let layout_info = vk::PipelineLayoutCreateInfo::builder();
+use vk_engine::vk;
+use vk::structs::*;
+
+let layout_info = PipelineLayoutCreateInfo::builder();
 let pipeline_layout = unsafe {
     device.create_pipeline_layout(&layout_info, None)
 }
@@ -190,78 +203,84 @@ This is the largest struct in the Vulkan API. Every piece of rendering
 state is specified here.
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::structs::*;
+use vk::enums::*;
+use vk::bitmasks::*;
+use vk::handles::*;
+
 // ── Shader stages ──────────────────────────────────────────────
 let entry_name = c"main";
 let stages = [
-    *vk::PipelineShaderStageCreateInfo::builder()
-        .stage(vk::ShaderStageFlags::VERTEX)
+    *PipelineShaderStageCreateInfo::builder()
+        .stage(ShaderStageFlags::VERTEX)
         .module(vert_module)
-        .name(entry_name),
-    *vk::PipelineShaderStageCreateInfo::builder()
-        .stage(vk::ShaderStageFlags::FRAGMENT)
+        .p_name(entry_name.as_ptr()),
+    *PipelineShaderStageCreateInfo::builder()
+        .stage(ShaderStageFlags::FRAGMENT)
         .module(frag_module)
-        .name(entry_name),
+        .p_name(entry_name.as_ptr()),
 ];
 
 // ── Vertex input: empty (positions are hard-coded in shader) ───
-let vertex_input = vk::PipelineVertexInputStateCreateInfo::builder();
+let vertex_input = PipelineVertexInputStateCreateInfo::builder();
 
 // ── Input assembly: triangle list ──────────────────────────────
-let input_assembly = vk::PipelineInputAssemblyStateCreateInfo::builder()
-    .topology(vk::PrimitiveTopology::TRIANGLE_LIST);
+let input_assembly = PipelineInputAssemblyStateCreateInfo::builder()
+    .topology(PrimitiveTopology::TRIANGLE_LIST);
 
 // ── Viewport and scissor: dynamic (set at draw time) ───────────
-let viewport_state = vk::PipelineViewportStateCreateInfo::builder()
-    .viewport_count(1)
-    .scissor_count(1);
+let mut viewport_state = PipelineViewportStateCreateInfo::builder();
+viewport_state.viewport_count = 1;
+viewport_state.scissor_count = 1;
 
 // ── Rasterization ──────────────────────────────────────────────
-let rasterizer = vk::PipelineRasterizationStateCreateInfo::builder()
-    .polygon_mode(vk::PolygonMode::FILL)
-    .cull_mode(vk::CullModeFlags::BACK)
-    .front_face(vk::FrontFace::CLOCKWISE)
+let rasterizer = PipelineRasterizationStateCreateInfo::builder()
+    .polygon_mode(PolygonMode::FILL)
+    .cull_mode(CullModeFlags::BACK)
+    .front_face(FrontFace::CLOCKWISE)
     .line_width(1.0);
 
 // ── Multisampling: off ─────────────────────────────────────────
-let multisampling = vk::PipelineMultisampleStateCreateInfo::builder()
-    .rasterization_samples(vk::SampleCountFlagBits::N1);
+let multisampling = PipelineMultisampleStateCreateInfo::builder()
+    .rasterization_samples(SampleCountFlagBits::_1);
 
 // ── Color blending: no blending, write all channels ────────────
-let blend_attachment = vk::PipelineColorBlendAttachmentState {
+let blend_attachment = PipelineColorBlendAttachmentState {
     blend_enable: 0,
-    color_write_mask: vk::ColorComponentFlags::R
-        | vk::ColorComponentFlags::G
-        | vk::ColorComponentFlags::B
-        | vk::ColorComponentFlags::A,
+    color_write_mask: ColorComponentFlags::R
+        | ColorComponentFlags::G
+        | ColorComponentFlags::B
+        | ColorComponentFlags::A,
     ..unsafe { core::mem::zeroed() }
 };
 
-let color_blending = vk::PipelineColorBlendStateCreateInfo::builder()
-    .attachments(&[blend_attachment]);
+let color_blending = PipelineColorBlendStateCreateInfo::builder()
+    .attachments(std::slice::from_ref(&blend_attachment));
 
 // ── Dynamic state ──────────────────────────────────────────────
-let dynamic_states = [vk::DynamicState::VIEWPORT, vk::DynamicState::SCISSOR];
-let dynamic_state = vk::PipelineDynamicStateCreateInfo::builder()
+let dynamic_states = [DynamicState::VIEWPORT, DynamicState::SCISSOR];
+let dynamic_state = PipelineDynamicStateCreateInfo::builder()
     .dynamic_states(&dynamic_states);
 
 // ── Assemble the pipeline ──────────────────────────────────────
-let pipeline_info = vk::GraphicsPipelineCreateInfo::builder()
+let pipeline_info = GraphicsPipelineCreateInfo::builder()
     .stages(&stages)
-    .vertex_input_state(&vertex_input)
-    .input_assembly_state(&input_assembly)
-    .viewport_state(&viewport_state)
-    .rasterization_state(&rasterizer)
-    .multisample_state(&multisampling)
-    .color_blend_state(&color_blending)
-    .dynamic_state(&dynamic_state)
+    .p_vertex_input_state(&*vertex_input)
+    .p_input_assembly_state(&*input_assembly)
+    .p_viewport_state(&*viewport_state)
+    .p_rasterization_state(&*rasterizer)
+    .p_multisample_state(&*multisampling)
+    .p_color_blend_state(&*color_blending)
+    .p_dynamic_state(&*dynamic_state)
     .layout(pipeline_layout)
     .render_pass(render_pass)
     .subpass(0);
 
-let mut pipeline = vk::Pipeline::null();
+let mut pipeline = Pipeline::null();
 unsafe {
     device.create_graphics_pipelines(
-        vk::PipelineCache::null(),
+        PipelineCache::null(),
         &[*pipeline_info],
         None,
         &mut pipeline,
@@ -292,12 +311,17 @@ A framebuffer binds specific image views to a render pass. We need one
 per swapchain image.
 
 ```rust,ignore
-let framebuffers: Vec<vk::Framebuffer> = swapchain_image_views
+use vk_engine::vk;
+use vk::structs::*;
+use vk::handles::*;
+
+let framebuffers: Vec<Framebuffer> = swapchain_image_views
     .iter()
     .map(|&view| {
-        let fb_info = vk::FramebufferCreateInfo::builder()
+        let views = [view];
+        let fb_info = FramebufferCreateInfo::builder()
             .render_pass(render_pass)
-            .attachments(&[view])
+            .attachments(&views)
             .width(extent.width)
             .height(extent.height)
             .layers(1);

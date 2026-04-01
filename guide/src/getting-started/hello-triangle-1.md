@@ -47,7 +47,7 @@ use vk_engine::{Entry, LibloadingLoader};
 fn main() {
     // Load the Vulkan shared library from the system.
     // This can fail if the Vulkan SDK is not installed.
-    let loader = unsafe { LibloadingLoader::new() }
+    let loader = LibloadingLoader::new()
         .expect("Failed to find Vulkan library");
 
     // Create the Entry, which resolves the bootstrap function pointers
@@ -81,24 +81,25 @@ Vulkan version Y, please give me access."
 
 ```rust,ignore
 use vk_engine::vk;
+use vk::structs::*;
 
 // ── Describe your application ──────────────────────────────────
 //
 // ApplicationInfo tells the driver who you are. This is optional
 // but helps driver vendors optimize for known applications.
-let app_info = vk::ApplicationInfo::builder()
-    .application_name(c"Hello Triangle")
+let app_info = ApplicationInfo::builder()
+    .p_application_name(c"Hello Triangle".as_ptr())
     .application_version(1)
-    .engine_name(c"No Engine")
+    .p_engine_name(c"No Engine".as_ptr())
     .engine_version(1)
-    .api_version(vk::make_api_version(0, 1, 0, 0));  // Vulkan 1.0
+    .api_version(1 << 22);  // Vulkan 1.0
 
 // ── Describe what you need ─────────────────────────────────────
 //
 // No layers or extensions yet. We will add validation layers and
 // surface extensions in later parts.
-let create_info = vk::InstanceCreateInfo::builder()
-    .application_info(&app_info);
+let create_info = InstanceCreateInfo::builder()
+    .p_application_info(&*app_info);
 
 // ── Create the instance ────────────────────────────────────────
 let instance = unsafe { entry.create_instance(&create_info, None) }
@@ -122,6 +123,8 @@ A system can have multiple GPUs: a discrete NVIDIA/AMD card, an
 integrated Intel GPU, or even a software renderer. You must choose one.
 
 ```rust,ignore
+use vk::enums::PhysicalDeviceType;
+
 // ── Enumerate GPUs ─────────────────────────────────────────────
 let physical_devices = unsafe { instance.enumerate_physical_devices() }
     .expect("Failed to enumerate GPUs");
@@ -141,10 +144,10 @@ for (i, &pd) in physical_devices.iter().enumerate() {
     let name = String::from_utf8_lossy(&name_bytes);
 
     let device_type = match props.device_type {
-        vk::PhysicalDeviceType::DISCRETE_GPU => "Discrete GPU",
-        vk::PhysicalDeviceType::INTEGRATED_GPU => "Integrated GPU",
-        vk::PhysicalDeviceType::VIRTUAL_GPU => "Virtual GPU",
-        vk::PhysicalDeviceType::CPU => "CPU (software)",
+        PhysicalDeviceType::DISCRETE_GPU => "Discrete GPU",
+        PhysicalDeviceType::INTEGRATED_GPU => "Integrated GPU",
+        PhysicalDeviceType::VIRTUAL_GPU => "Virtual GPU",
+        PhysicalDeviceType::CPU => "CPU (software)",
         _ => "Other",
     };
 
@@ -177,6 +180,8 @@ a specific set of operations (graphics, compute, transfer, etc.).
 We need a queue family that supports graphics operations.
 
 ```rust,ignore
+use vk::structs::QueueFlags;
+
 // ── Query queue families ───────────────────────────────────────
 let queue_families = unsafe {
     instance.get_physical_device_queue_family_properties(physical_device)
@@ -187,8 +192,8 @@ let graphics_family_index = queue_families
     .iter()
     .enumerate()
     .find(|(_, family)| {
-        family.queue_flags & vk::QueueFlags::GRAPHICS
-            != vk::QueueFlags::empty()
+        family.queue_flags & QueueFlags::GRAPHICS
+            != QueueFlags::empty()
     })
     .map(|(index, _)| index as u32)
     .expect("No graphics queue family found");
@@ -210,10 +215,12 @@ submitting work.
 Creating a Device also creates the queues you requested.
 
 ```rust,ignore
+use vk::structs::*;
+
 // ── Request one queue from the graphics family ─────────────────
 let queue_priority = 1.0_f32;
 
-let queue_info = vk::DeviceQueueCreateInfo::builder()
+let queue_info = DeviceQueueCreateInfo::builder()
     .queue_family_index(graphics_family_index)
     .queue_priorities(std::slice::from_ref(&queue_priority));
 
@@ -221,7 +228,7 @@ let queue_info = vk::DeviceQueueCreateInfo::builder()
 //
 // No extensions or features yet. We will add the swapchain
 // extension in Part 2.
-let device_info = vk::DeviceCreateInfo::builder()
+let device_info = DeviceCreateInfo::builder()
     .queue_create_infos(std::slice::from_ref(&*queue_info));
 
 let device = unsafe {
@@ -290,10 +297,11 @@ with `cargo run`.
 ```rust,no_run
 use vk_engine::{Entry, LibloadingLoader};
 use vk_engine::vk;
+use vk::structs::*;
 
 fn main() {
     // ── Step 1: Load Vulkan ────────────────────────────────────
-    let loader = unsafe { LibloadingLoader::new() }
+    let loader = LibloadingLoader::new()
         .expect("Vulkan library not found");
     let entry = unsafe { Entry::new(loader) }
         .expect("Failed to load Vulkan");
@@ -302,15 +310,15 @@ fn main() {
     println!("Vulkan {}.{}.{}", version.major, version.minor, version.patch);
 
     // ── Step 2: Create Instance ────────────────────────────────
-    let app_info = vk::ApplicationInfo::builder()
-        .application_name(c"Hello Triangle")
+    let app_info = ApplicationInfo::builder()
+        .p_application_name(c"Hello Triangle".as_ptr())
         .application_version(1)
-        .engine_name(c"No Engine")
+        .p_engine_name(c"No Engine".as_ptr())
         .engine_version(1)
-        .api_version(vk::make_api_version(0, 1, 0, 0));
+        .api_version(1 << 22);  // Vulkan 1.0
 
-    let create_info = vk::InstanceCreateInfo::builder()
-        .application_info(&app_info);
+    let create_info = InstanceCreateInfo::builder()
+        .p_application_info(&*app_info);
 
     let instance = unsafe { entry.create_instance(&create_info, None) }
         .expect("Failed to create instance");
@@ -340,19 +348,19 @@ fn main() {
         .iter()
         .enumerate()
         .find(|(_, family)| {
-            family.queue_flags & vk::QueueFlags::GRAPHICS
-                != vk::QueueFlags::empty()
+            family.queue_flags & QueueFlags::GRAPHICS
+                != QueueFlags::empty()
         })
         .map(|(index, _)| index as u32)
         .expect("No graphics queue family found");
 
     // ── Step 5: Create Device ──────────────────────────────────
     let queue_priority = 1.0_f32;
-    let queue_info = vk::DeviceQueueCreateInfo::builder()
+    let queue_info = DeviceQueueCreateInfo::builder()
         .queue_family_index(graphics_family_index)
         .queue_priorities(std::slice::from_ref(&queue_priority));
 
-    let device_info = vk::DeviceCreateInfo::builder()
+    let device_info = DeviceCreateInfo::builder()
         .queue_create_infos(std::slice::from_ref(&*queue_info));
 
     let device = unsafe {

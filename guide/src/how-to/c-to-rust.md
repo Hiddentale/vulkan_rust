@@ -26,14 +26,17 @@ but are still called on `Device`, not on the command buffer handle.
 
 ### Types
 
-Strip the `Vk` prefix and place in the `vk` module:
+Strip the `Vk` prefix. Types live in submodules of `vk`:
 
 | C | vulkan_rs |
 |---|-----------|
-| `VkBuffer` | `vk::Buffer` |
-| `VkBufferCreateInfo` | `vk::BufferCreateInfo` |
-| `VkPhysicalDeviceProperties` | `vk::PhysicalDeviceProperties` |
-| `VkInstance` | `vk::Instance` (the raw handle) |
+| `VkBuffer` | `vk::handles::Buffer` |
+| `VkBufferCreateInfo` | `vk::structs::BufferCreateInfo` |
+| `VkPhysicalDeviceProperties` | `vk::structs::PhysicalDeviceProperties` |
+| `VkInstance` | `vk::handles::Instance` (the raw handle) |
+
+Use `use vk::structs::*` or `use vk::handles::*` to bring them into
+scope without the module prefix.
 
 ### Enum variants
 
@@ -41,10 +44,10 @@ Strip the type prefix and keep `SCREAMING_CASE`:
 
 | C | vulkan_rs |
 |---|-----------|
-| `VK_FORMAT_R8G8B8A8_SRGB` | `vk::Format::R8G8B8A8_SRGB` |
-| `VK_IMAGE_LAYOUT_UNDEFINED` | `vk::ImageLayout::UNDEFINED` |
-| `VK_PRESENT_MODE_FIFO_KHR` | `vk::PresentModeKHR::FIFO` |
-| `VK_SUCCESS` | `vk::Result::SUCCESS` |
+| `VK_FORMAT_R8G8B8A8_SRGB` | `vk::enums::Format::R8G8B8A8_SRGB` |
+| `VK_IMAGE_LAYOUT_UNDEFINED` | `vk::enums::ImageLayout::UNDEFINED` |
+| `VK_PRESENT_MODE_FIFO_KHR` | `vk::enums::PresentModeKHR::FIFO` |
+| `VK_SUCCESS` | `vk::enums::Result::SUCCESS` |
 
 ### Bitmask flags
 
@@ -52,22 +55,26 @@ Strip the type prefix and the `_BIT` suffix:
 
 | C | vulkan_rs |
 |---|-----------|
-| `VK_BUFFER_USAGE_VERTEX_BUFFER_BIT` | `vk::BufferUsageFlags::VERTEX_BUFFER` |
-| `VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT` | `vk::ImageUsageFlags::COLOR_ATTACHMENT` |
-| `VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT` | `vk::PipelineStageFlags::FRAGMENT_SHADER` |
+| `VK_BUFFER_USAGE_VERTEX_BUFFER_BIT` | `vk::bitmasks::BufferUsageFlags::VERTEX_BUFFER` |
+| `VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT` | `vk::bitmasks::ImageUsageFlags::COLOR_ATTACHMENT` |
+| `VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT` | `vk::bitmasks::PipelineStageFlags::FRAGMENT_SHADER` |
 
 Combine flags with the `|` operator, just like in C:
 
 ```rust,ignore
-let usage = vk::BufferUsageFlags::VERTEX_BUFFER
-    | vk::BufferUsageFlags::TRANSFER_DST;
+use vk_engine::vk;
+use vk::bitmasks::*;
+
+let usage = BufferUsageFlags::VERTEX_BUFFER
+    | BufferUsageFlags::TRANSFER_DST;
 ```
 
 ### Extension names
 
 ```rust,ignore
 // C:    VK_KHR_SWAPCHAIN_EXTENSION_NAME
-// Rust: vk::KHR_SWAPCHAIN_EXTENSION_NAME
+// Rust: use a C string literal directly
+let device_extensions = [c"VK_KHR_swapchain".as_ptr()];
 ```
 
 ## Structural patterns
@@ -92,11 +99,17 @@ vkCreateBuffer(device, &info, NULL, &buffer);
 
 ```rust,ignore
 // vulkan_rs
-let info = vk::BufferCreateInfo::builder()
+use vk_engine::vk;
+use vk::structs::*;
+use vk::enums::*;
+use vk::bitmasks::*;
+
+let info = BufferCreateInfo::builder()
     .size(1024)
-    .usage(vk::BufferUsageFlags::VERTEX_BUFFER)
-    .sharing_mode(vk::SharingMode::EXCLUSIVE);
-let buffer = unsafe { device.create_buffer(&info, None)? };
+    .usage(BufferUsageFlags::VERTEX_BUFFER)
+    .sharing_mode(SharingMode::EXCLUSIVE);
+let buffer = unsafe { device.create_buffer(&info, None) }
+    .expect("Failed to create buffer");
 ```
 
 Key differences:
@@ -127,9 +140,12 @@ In `vulkan_rs`, use `push_next()`:
 
 ```rust,ignore
 // vulkan_rs
-let mut features12 = vk::PhysicalDeviceVulkan12Features::builder()
-    .buffer_device_address(true);
-let info = vk::DeviceCreateInfo::builder()
+use vk_engine::vk;
+use vk::structs::*;
+
+let mut features12 = *PhysicalDeviceVulkan12Features::builder()
+    .buffer_device_address(1);  // VkBool32: 1 = true
+let info = DeviceCreateInfo::builder()
     .push_next(&mut features12)
     .queue_create_infos(&queue_infos);
 ```
@@ -154,7 +170,8 @@ In `vulkan_rs`, these return a `Vec` directly:
 
 ```rust,ignore
 // vulkan_rs: one call, returns Vec
-let devices = unsafe { instance.enumerate_physical_devices()? };
+let devices = unsafe { instance.enumerate_physical_devices() }
+    .expect("Failed to enumerate devices");
 ```
 
 The crate handles the two-call pattern internally.
@@ -173,16 +190,25 @@ if (result != VK_SUCCESS) { /* handle error */ }
 
 ```rust,ignore
 // vulkan_rs
-let buffer: vk::Buffer = unsafe { device.create_buffer(&info, None)? };
+use vk_engine::vk;
+use vk::handles::*;
+
+let buffer: Buffer = unsafe { device.create_buffer(&info, None) }
+    .expect("Failed to create buffer");
 ```
 
-For functions that return multiple outputs (like `vkAllocateCommandBuffers`),
-the return type is `VkResult<Vec<T>>`:
+For functions that output multiple handles (like `vkAllocateCommandBuffers`),
+you pass a mutable pointer to pre-allocated storage:
 
 ```rust,ignore
-let cmd_buffers: Vec<vk::CommandBuffer> = unsafe {
-    device.allocate_command_buffers(&alloc_info)?
-};
+use vk_engine::vk;
+use vk::handles::*;
+
+let mut cmd_buffers = vec![CommandBuffer::null(); count as usize];
+unsafe {
+    device.allocate_command_buffers(&alloc_info, cmd_buffers.as_mut_ptr())
+}
+.expect("Failed to allocate command buffers");
 ```
 
 ## Search tip: `#[doc(alias)]`
@@ -209,15 +235,15 @@ and it will find the Rust equivalent. For example, searching for
 | `vkAllocateMemory` | `device.allocate_memory(&info, None)` | `VkResult<DeviceMemory>` |
 | `vkFreeMemory` | `device.free_memory(memory, None)` | `()` |
 | `vkBindBufferMemory` | `device.bind_buffer_memory(buffer, memory, offset)` | `VkResult<()>` |
-| `vkMapMemory` | `device.map_memory(memory, offset, size, flags)` | `VkResult<*mut c_void>` |
+| `vkMapMemory` | `device.map_memory(memory, offset, size, flags, pp_data)` | `VkResult<()>` |
 | `vkUnmapMemory` | `device.unmap_memory(memory)` | `()` |
 | `vkCreateImage` | `device.create_image(&info, None)` | `VkResult<Image>` |
 | `vkDestroyImage` | `device.destroy_image(image, None)` | `()` |
 | `vkCreateImageView` | `device.create_image_view(&info, None)` | `VkResult<ImageView>` |
 | `vkCreateRenderPass` | `device.create_render_pass(&info, None)` | `VkResult<RenderPass>` |
-| `vkCreateGraphicsPipelines` | `device.create_graphics_pipelines(cache, &infos, None)` | `VkResult<Vec<Pipeline>>` |
+| `vkCreateGraphicsPipelines` | `device.create_graphics_pipelines(cache, &infos, None, pipelines)` | `VkResult<()>` |
 | `vkCreateCommandPool` | `device.create_command_pool(&info, None)` | `VkResult<CommandPool>` |
-| `vkAllocateCommandBuffers` | `device.allocate_command_buffers(&info)` | `VkResult<Vec<CommandBuffer>>` |
+| `vkAllocateCommandBuffers` | `device.allocate_command_buffers(&info, buffers)` | `VkResult<()>` |
 | `vkBeginCommandBuffer` | `device.begin_command_buffer(cmd, &info)` | `VkResult<()>` |
 | `vkEndCommandBuffer` | `device.end_command_buffer(cmd)` | `VkResult<()>` |
 | `vkCmdBeginRenderPass` | `device.cmd_begin_render_pass(cmd, &info, contents)` | `()` |
@@ -233,7 +259,7 @@ and it will find the Rust equivalent. For example, searching for
 | `vkResetFences` | `device.reset_fences(&fences)` | `VkResult<()>` |
 | `vkCreateSemaphore` | `device.create_semaphore(&info, None)` | `VkResult<Semaphore>` |
 | `vkCreateDescriptorSetLayout` | `device.create_descriptor_set_layout(&info, None)` | `VkResult<DescriptorSetLayout>` |
-| `vkAllocateDescriptorSets` | `device.allocate_descriptor_sets(&info)` | `VkResult<Vec<DescriptorSet>>` |
+| `vkAllocateDescriptorSets` | `device.allocate_descriptor_sets(&info, sets)` | `VkResult<()>` |
 | `vkUpdateDescriptorSets` | `device.update_descriptor_sets(&writes, &copies)` | `()` |
 
 ## Worked example: full translation
@@ -275,33 +301,40 @@ vkUnmapMemory(device, memory);
 
 ```rust,ignore
 use vk_engine::vk;
-use std::ffi::c_void;
+use vk::structs::*;
+use vk::enums::*;
+use vk::bitmasks::*;
 
 unsafe {
-    let buf_info = vk::BufferCreateInfo::builder()
+    let buf_info = BufferCreateInfo::builder()
         .size(std::mem::size_of_val(&vertices) as u64)
-        .usage(vk::BufferUsageFlags::VERTEX_BUFFER)
-        .sharing_mode(vk::SharingMode::EXCLUSIVE);
-    let buffer = device.create_buffer(&buf_info, None)?;
+        .usage(BufferUsageFlags::VERTEX_BUFFER)
+        .sharing_mode(SharingMode::EXCLUSIVE);
+    let buffer = device.create_buffer(&buf_info, None)
+        .expect("Failed to create buffer");
 
     let mem_req = device.get_buffer_memory_requirements(buffer);
 
-    let alloc_info = vk::MemoryAllocateInfo::builder()
+    let alloc_info = MemoryAllocateInfo::builder()
         .allocation_size(mem_req.size)
         .memory_type_index(find_memory_type(
             mem_req.memory_type_bits,
-            vk::MemoryPropertyFlags::HOST_VISIBLE
-                | vk::MemoryPropertyFlags::HOST_COHERENT,
+            MemoryPropertyFlags::HOST_VISIBLE
+                | MemoryPropertyFlags::HOST_COHERENT,
         ));
-    let memory = device.allocate_memory(&alloc_info, None)?;
-    device.bind_buffer_memory(buffer, memory, 0)?;
+    let memory = device.allocate_memory(&alloc_info, None)
+        .expect("Failed to allocate memory");
+    device.bind_buffer_memory(buffer, memory, 0)
+        .expect("Failed to bind buffer memory");
 
-    let data = device.map_memory(
-        memory, 0, buf_info.size, vk::MemoryMapFlags::empty()
-    )?;
+    let mut data: *mut core::ffi::c_void = core::ptr::null_mut();
+    device.map_memory(
+        memory, 0, buf_info.size, MemoryMapFlags::empty(), &mut data,
+    )
+    .expect("Failed to map memory");
     std::ptr::copy_nonoverlapping(
-        vertices.as_ptr() as *const c_void,
-        data,
+        vertices.as_ptr() as *const u8,
+        data as *mut u8,
         std::mem::size_of_val(&vertices),
     );
     device.unmap_memory(memory);

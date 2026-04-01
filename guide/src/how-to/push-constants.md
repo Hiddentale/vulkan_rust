@@ -61,17 +61,25 @@ The push constant range tells Vulkan how many bytes of push constant
 data your shaders use and which stages access them.
 
 ```rust,ignore
-let push_constant_range = vk::PushConstantRange {
-    stage_flags: vk::ShaderStageFlags::VERTEX,
+use vk_engine::vk;
+use vk::structs::*;
+use vk::bitmasks::*;
+
+let push_constant_range = PushConstantRange {
+    stage_flags: ShaderStageFlags::VERTEX,
     offset: 0,
     size: std::mem::size_of::<PushConstants>() as u32,
 };
 
-let layout_info = vk::PipelineLayoutCreateInfo::builder()
+let push_ranges = [push_constant_range];
+let layout_info = PipelineLayoutCreateInfo::builder()
     .set_layouts(&descriptor_set_layouts) // can be empty if you have no descriptors
-    .push_constant_ranges(&[push_constant_range]);
+    .push_constant_ranges(&push_ranges);
 
-let pipeline_layout = unsafe { device.create_pipeline_layout(&layout_info, None)? };
+let pipeline_layout = unsafe {
+    device.create_pipeline_layout(&layout_info, None)
+}
+.expect("Failed to create pipeline layout");
 ```
 
 If both vertex and fragment shaders read push constants, you have two
@@ -82,15 +90,19 @@ options:
 - **Two ranges** at different offsets if each stage reads different data.
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::structs::*;
+use vk::bitmasks::*;
+
 // Example: vertex reads bytes 0..64, fragment reads bytes 64..80.
 let ranges = [
-    vk::PushConstantRange {
-        stage_flags: vk::ShaderStageFlags::VERTEX,
+    PushConstantRange {
+        stage_flags: ShaderStageFlags::VERTEX,
         offset: 0,
         size: 64,
     },
-    vk::PushConstantRange {
-        stage_flags: vk::ShaderStageFlags::FRAGMENT,
+    PushConstantRange {
+        stage_flags: ShaderStageFlags::FRAGMENT,
         offset: 64,
         size: 16,
     },
@@ -128,6 +140,9 @@ Use `cmd_push_constants` to write the data into the command buffer. This
 is typically called once per draw, right before the draw command.
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::bitmasks::*;
+
 let push_data = PushConstants {
     model: compute_model_matrix(entity),
     time: elapsed_seconds,
@@ -138,10 +153,10 @@ unsafe {
     device.cmd_push_constants(
         cmd,
         pipeline_layout,
-        vk::ShaderStageFlags::VERTEX,
+        ShaderStageFlags::VERTEX,
         0, // offset in bytes
         std::slice::from_raw_parts(
-            &push_data as *const PushConstants as *const u8,
+            &push_data as *const PushConstants as *const core::ffi::c_void,
             std::mem::size_of::<PushConstants>(),
         ),
     );
@@ -153,6 +168,9 @@ unsafe {
 For a scene with many objects, you push new constants before each draw:
 
 ```rust,ignore
+use vk_engine::vk;
+use vk::bitmasks::*;
+
 for entity in &scene.entities {
     let push_data = PushConstants {
         model: entity.transform,
@@ -163,10 +181,10 @@ for entity in &scene.entities {
     unsafe {
         device.cmd_push_constants(
             cmd, pipeline_layout,
-            vk::ShaderStageFlags::VERTEX,
+            ShaderStageFlags::VERTEX,
             0,
             std::slice::from_raw_parts(
-                &push_data as *const PushConstants as *const u8,
+                &push_data as *const PushConstants as *const core::ffi::c_void,
                 std::mem::size_of::<PushConstants>(),
             ),
         );
@@ -184,14 +202,18 @@ The `std::slice::from_raw_parts` pattern is error-prone. A small
 helper makes it clearer:
 
 ```rust,ignore
-/// Reinterpret a reference to a `Copy` type as a byte slice.
+use vk_engine::vk;
+use vk::bitmasks::*;
+
+/// Reinterpret a reference to a `Copy` type as a `&[c_void]` slice
+/// suitable for `cmd_push_constants`.
 ///
 /// # Safety
 /// The type must be `#[repr(C)]` with no padding that contains
 /// uninitialized bytes.
-unsafe fn as_bytes<T: Copy>(data: &T) -> &[u8] {
+unsafe fn as_push_bytes<T: Copy>(data: &T) -> &[core::ffi::c_void] {
     std::slice::from_raw_parts(
-        data as *const T as *const u8,
+        data as *const T as *const core::ffi::c_void,
         std::mem::size_of::<T>(),
     )
 }
@@ -200,9 +222,9 @@ unsafe fn as_bytes<T: Copy>(data: &T) -> &[u8] {
 unsafe {
     device.cmd_push_constants(
         cmd, pipeline_layout,
-        vk::ShaderStageFlags::VERTEX,
+        ShaderStageFlags::VERTEX,
         0,
-        as_bytes(&push_data),
+        as_push_bytes(&push_data),
     );
 }
 ```

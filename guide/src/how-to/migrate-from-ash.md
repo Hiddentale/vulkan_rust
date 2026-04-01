@@ -89,17 +89,28 @@ let create_info = vk::InstanceCreateInfo::builder()
 let instance = unsafe { entry.create_instance(&create_info, None)? };
 
 // ── vulkan_rs ───────────────────────────────────────────
-let entry = vk_engine::Entry::linked();
-let app_info = vk::ApplicationInfo::builder()
-    .api_version(vk::make_api_version(0, 1, 3, 0));
-let create_info = vk::InstanceCreateInfo::builder()
-    .application_info(&app_info);
-let instance = unsafe { entry.create_instance(&create_info, None)? };
+use vk_engine::vk;
+use vk::structs::*;
+
+let loader = vk_engine::LibloadingLoader::new()
+    .expect("Failed to load Vulkan");
+let entry = unsafe { vk_engine::Entry::new(loader) }
+    .expect("Failed to create entry");
+
+let app_info = ApplicationInfo::builder()
+    .api_version((1 << 22) | (3 << 12));  // Vulkan 1.3
+let create_info = InstanceCreateInfo::builder()
+    .p_application_info(&app_info);
+let instance = unsafe { entry.create_instance(&create_info, None) }
+    .expect("Failed to create instance");
 ```
 
-Notice the only change is removing `.build()` calls. The builder
-derefs to the inner struct, so you can pass `&create_info` directly
-where a `&InstanceCreateInfo` is expected.
+The main changes: `Entry` is loaded through `LibloadingLoader` instead
+of `linked()`, `make_api_version` is replaced with a raw `u32`
+expression, `.application_info()` becomes `.p_application_info()`, and
+`.build()` calls are removed. The builder derefs to the inner struct,
+so you can pass `&create_info` directly where a `&InstanceCreateInfo`
+is expected.
 
 ### Device
 
@@ -117,14 +128,18 @@ let device = unsafe {
 };
 
 // ── vulkan_rs ───────────────────────────────────────────
-let queue_info = vk::DeviceQueueCreateInfo::builder()
+use vk_engine::vk;
+use vk::structs::*;
+
+let queue_info = DeviceQueueCreateInfo::builder()
     .queue_family_index(0)
     .queue_priorities(&[1.0]);
-let device_info = vk::DeviceCreateInfo::builder()
-    .queue_create_infos(std::slice::from_ref(&queue_info));
+let device_info = DeviceCreateInfo::builder()
+    .queue_create_infos(std::slice::from_ref(&*queue_info));
 let device = unsafe {
-    instance.create_device(physical_device, &device_info, None)?
-};
+    instance.create_device(physical_device, &device_info, None)
+}
+.expect("Failed to create device");
 ```
 
 ## Step 4: Update builders (drop `.build()`)
@@ -142,10 +157,15 @@ let info = vk::BufferCreateInfo::builder()
     .build();  // <-- required in ash
 
 // ── vulkan_rs ───────────────────────────────────────────
-let info = vk::BufferCreateInfo::builder()
+use vk_engine::vk;
+use vk::structs::*;
+use vk::enums::*;
+use vk::bitmasks::*;
+
+let info = BufferCreateInfo::builder()
     .size(1024)
-    .usage(vk::BufferUsageFlags::VERTEX_BUFFER)
-    .sharing_mode(vk::SharingMode::EXCLUSIVE);
+    .usage(BufferUsageFlags::VERTEX_BUFFER)
+    .sharing_mode(SharingMode::EXCLUSIVE);
     // No .build(), pass &info directly to create_buffer()
 ```
 
@@ -171,13 +191,20 @@ unsafe {
 }
 
 // ── vulkan_rs ───────────────────────────────────────────
-let begin_info = vk::CommandBufferBeginInfo::builder()
-    .flags(vk::CommandBufferUsageFlags::ONE_TIME_SUBMIT);
+use vk_engine::vk;
+use vk::structs::*;
+use vk::enums::*;
+use vk::bitmasks::*;
+
+let begin_info = CommandBufferBeginInfo::builder()
+    .flags(CommandBufferUsageFlags::ONE_TIME_SUBMIT);
 unsafe {
-    device.begin_command_buffer(cmd, &begin_info)?;
-    device.cmd_bind_pipeline(cmd, vk::PipelineBindPoint::GRAPHICS, pipeline);
+    device.begin_command_buffer(cmd, &begin_info)
+        .expect("Failed to begin command buffer");
+    device.cmd_bind_pipeline(cmd, PipelineBindPoint::GRAPHICS, pipeline);
     device.cmd_draw(cmd, 3, 1, 0, 0);
-    device.end_command_buffer(cmd)?;
+    device.end_command_buffer(cmd)
+        .expect("Failed to end command buffer");
 }
 ```
 
@@ -194,12 +221,22 @@ let submit_info = vk::SubmitInfo::builder()
 unsafe { device.queue_submit(queue, &[submit_info.build()], fence)? };
 
 // ── vulkan_rs ───────────────────────────────────────────
-let submit_info = vk::SubmitInfo::builder()
-    .command_buffers(&[cmd])
-    .wait_semaphores(&[image_available])
-    .wait_dst_stage_mask(&[vk::PipelineStageFlags::COLOR_ATTACHMENT_OUTPUT])
-    .signal_semaphores(&[render_finished]);
-unsafe { device.queue_submit(queue, &[*submit_info], fence)? };
+use vk_engine::vk;
+use vk::structs::*;
+
+let wait_stages = [PipelineStageFlags::COLOR_ATTACHMENT_OUTPUT];
+let cmd_bufs = [cmd];
+let wait_sems = [image_available];
+let signal_sems = [render_finished];
+let submit_info = SubmitInfo::builder()
+    .command_buffers(&cmd_bufs)
+    .wait_semaphores(&wait_sems)
+    .wait_dst_stage_mask(&wait_stages)
+    .signal_semaphores(&signal_sems);
+unsafe {
+    device.queue_submit(queue, &[*submit_info], fence)
+        .expect("Failed to submit");
+};
 ```
 
 ## Step 7: Error handling
@@ -216,10 +253,13 @@ match unsafe { device.create_buffer(&info, None) } {
 }
 
 // ── vulkan_rs ───────────────────────────────────────────
+use vk_engine::vk;
+use vk::enums::Result as VkError;
+
 match unsafe { device.create_buffer(&info, None) } {
     Ok(buffer) => { /* ... */ }
-    Err(vk::Result::ERROR_OUT_OF_DEVICE_MEMORY) => { /* ... */ }
-    Err(e) => panic!("Unexpected: {:?}", e),
+    Err(VkError::ERROR_OUT_OF_DEVICE_MEMORY) => { /* ... */ }
+    Err(e) => panic!("Unexpected: {e:?}"),
 }
 ```
 
@@ -245,8 +285,9 @@ the `Device` or `Instance` is created. You call them as regular methods:
 ```rust,ignore
 // vulkan_rs: no loader, just call the method
 let swapchain = unsafe {
-    device.create_swapchain_khr(&create_info, None)?
-};
+    device.create_swapchain_khr(&create_info, None)
+}
+.expect("Failed to create swapchain");
 ```
 
 **Migration action:** Delete all extension loader struct construction.
