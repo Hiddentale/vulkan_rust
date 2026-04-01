@@ -311,6 +311,144 @@ mod tests {
         assert!(entry.get_device_proc_addr().is_none());
     }
 
+    // -- Rich mock loader that returns fake entry-level function pointers ----
+
+    /// Mock loader where `vkGetInstanceProcAddr` dispatches to fake
+    /// implementations of entry-level commands.
+    struct RichEntryLoader;
+
+    unsafe extern "system" fn rich_get_instance_proc_addr(
+        _instance: vk::handles::Instance,
+        name: *const c_char,
+    ) -> vk::structs::PFN_vkVoidFunction {
+        let name = unsafe { CStr::from_ptr(name) };
+        match name.to_bytes() {
+            b"vkEnumerateInstanceVersion" => Some(unsafe {
+                std::mem::transmute::<
+                    unsafe extern "system" fn(*mut u32) -> vk::enums::Result,
+                    unsafe extern "system" fn(),
+                >(mock_enumerate_instance_version)
+            }),
+            b"vkEnumerateInstanceLayerProperties" => Some(unsafe {
+                std::mem::transmute::<
+                    unsafe extern "system" fn(
+                        *mut u32,
+                        *mut vk::structs::LayerProperties,
+                    ) -> vk::enums::Result,
+                    unsafe extern "system" fn(),
+                >(mock_enumerate_instance_layer_properties)
+            }),
+            b"vkEnumerateInstanceExtensionProperties" => Some(unsafe {
+                std::mem::transmute::<
+                    unsafe extern "system" fn(
+                        *const c_char,
+                        *mut u32,
+                        *mut vk::structs::ExtensionProperties,
+                    ) -> vk::enums::Result,
+                    unsafe extern "system" fn(),
+                >(mock_enumerate_instance_extension_properties)
+            }),
+            b"vkCreateInstance" => Some(unsafe {
+                std::mem::transmute::<
+                    unsafe extern "system" fn(
+                        *const vk::structs::InstanceCreateInfo,
+                        *const vk::structs::AllocationCallbacks,
+                        *mut vk::handles::Instance,
+                    ) -> vk::enums::Result,
+                    unsafe extern "system" fn(),
+                >(mock_create_instance)
+            }),
+            _ => None,
+        }
+    }
+
+    unsafe extern "system" fn mock_enumerate_instance_version(
+        p_api_version: *mut u32,
+    ) -> vk::enums::Result {
+        // Return Vulkan 1.3.290
+        unsafe { *p_api_version = (1 << 22) | (3 << 12) | 290 };
+        vk::enums::Result::SUCCESS
+    }
+
+    unsafe extern "system" fn mock_enumerate_instance_layer_properties(
+        p_count: *mut u32,
+        _p_properties: *mut vk::structs::LayerProperties,
+    ) -> vk::enums::Result {
+        unsafe { *p_count = 0 };
+        vk::enums::Result::SUCCESS
+    }
+
+    unsafe extern "system" fn mock_enumerate_instance_extension_properties(
+        _p_layer_name: *const c_char,
+        p_count: *mut u32,
+        _p_properties: *mut vk::structs::ExtensionProperties,
+    ) -> vk::enums::Result {
+        unsafe { *p_count = 0 };
+        vk::enums::Result::SUCCESS
+    }
+
+    unsafe extern "system" fn mock_create_instance(
+        _p_create_info: *const vk::structs::InstanceCreateInfo,
+        _p_allocator: *const vk::structs::AllocationCallbacks,
+        p_instance: *mut vk::handles::Instance,
+    ) -> vk::enums::Result {
+        // Write a non-null sentinel handle.
+        unsafe { *p_instance = std::mem::transmute::<usize, vk::handles::Instance>(0x1234_usize) };
+        vk::enums::Result::SUCCESS
+    }
+
+    unsafe impl Loader for RichEntryLoader {
+        unsafe fn load(&self, name: &CStr) -> *const c_void {
+            match name.to_bytes() {
+                b"vkGetInstanceProcAddr" => rich_get_instance_proc_addr as *const c_void,
+                b"vkGetDeviceProcAddr" => std::ptr::null(),
+                _ => std::ptr::null(),
+            }
+        }
+    }
+
+    #[test]
+    fn version_returns_parsed_version_when_fp_available() {
+        let entry = unsafe { Entry::new(RichEntryLoader) }.expect("should create Entry");
+        let version = entry.version().expect("version should succeed");
+        assert_eq!(version.major, 1);
+        assert_eq!(version.minor, 3);
+        assert_eq!(version.patch, 290);
+    }
+
+    #[test]
+    fn enumerate_layer_properties_with_mock() {
+        let entry = unsafe { Entry::new(RichEntryLoader) }.expect("should create Entry");
+        let layers =
+            unsafe { entry.enumerate_instance_layer_properties() }.expect("should succeed");
+        assert!(layers.is_empty());
+    }
+
+    #[test]
+    fn enumerate_extension_properties_with_mock() {
+        let entry = unsafe { Entry::new(RichEntryLoader) }.expect("should create Entry");
+        let extensions =
+            unsafe { entry.enumerate_instance_extension_properties(None) }.expect("should succeed");
+        assert!(extensions.is_empty());
+    }
+
+    #[test]
+    fn enumerate_extension_properties_with_layer_name() {
+        let entry = unsafe { Entry::new(RichEntryLoader) }.expect("should create Entry");
+        let extensions =
+            unsafe { entry.enumerate_instance_extension_properties(Some(c"VK_LAYER_test")) }
+                .expect("should succeed");
+        assert!(extensions.is_empty());
+    }
+
+    #[test]
+    fn create_instance_raw_with_mock() {
+        let entry = unsafe { Entry::new(RichEntryLoader) }.expect("should create Entry");
+        let create_info: vk::structs::InstanceCreateInfo = unsafe { std::mem::zeroed() };
+        let raw = unsafe { entry.create_instance_raw(&create_info, None) }.expect("should succeed");
+        assert!(!raw.is_null());
+    }
+
     #[test]
     #[ignore] // requires Vulkan runtime
     fn new_succeeds_with_real_loader() {
