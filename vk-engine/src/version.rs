@@ -6,8 +6,11 @@ use core::fmt;
 /// patch (11–0). This type provides named fields and a `Display` impl.
 #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd, Hash)]
 pub struct Version {
+    /// Major version number (bits 31-22 of the packed `u32`).
     pub major: u32,
+    /// Minor version number (bits 21-12 of the packed `u32`).
     pub minor: u32,
+    /// Patch version number (bits 11-0 of the packed `u32`).
     pub patch: u32,
 }
 

@@ -1,3 +1,5 @@
+#![warn(missing_docs)]
+
 //! Ergonomic Vulkan wrapper built on generated FFI bindings.
 //!
 //! `vk-engine` provides safe-ish wrappers around the raw Vulkan API exposed by
