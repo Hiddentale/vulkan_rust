@@ -1120,6 +1120,330 @@ mod tests {
         assert!(total >= 650, "total methods too low: {total}");
     }
 
+    // -- Doc generation tests ------------------------------------------------
+
+    #[test]
+    fn docs_include_spec_link() {
+        let c = cmd(
+            "vkCmdDraw",
+            "void",
+            vec![
+                param("commandBuffer", "VkCommandBuffer"),
+                param("vertexCount", "uint32_t"),
+            ],
+            DispatchLevel::Device,
+        );
+        let roles = classify_params(&c, &empty_pnext());
+        let docs = stringify(emit_wrapper_docs(&c, &roles));
+
+        assert!(docs.contains("registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDraw.html"));
+    }
+
+    #[test]
+    fn docs_include_provided_by() {
+        let mut c = cmd(
+            "vkCmdDrawMeshTasksEXT",
+            "void",
+            vec![
+                param("commandBuffer", "VkCommandBuffer"),
+                param("groupCountX", "uint32_t"),
+                param("groupCountY", "uint32_t"),
+                param("groupCountZ", "uint32_t"),
+            ],
+            DispatchLevel::Device,
+        );
+        c.provided_by = Some("VK_EXT_mesh_shader".to_string());
+
+        let roles = classify_params(&c, &empty_pnext());
+        let docs = stringify(emit_wrapper_docs(&c, &roles));
+
+        assert!(docs.contains("VK_EXT_mesh_shader"));
+    }
+
+    #[test]
+    fn docs_include_error_codes() {
+        let mut c = cmd(
+            "vkCreateBuffer",
+            "VkResult",
+            vec![
+                param("device", "VkDevice"),
+                const_ptr("pCreateInfo", "VkBufferCreateInfo"),
+                optional_const_ptr("pAllocator", "VkAllocationCallbacks"),
+                mut_ptr("pBuffer", "VkBuffer"),
+            ],
+            DispatchLevel::Device,
+        );
+        c.error_codes = vec![
+            "VK_ERROR_OUT_OF_HOST_MEMORY".to_string(),
+            "VK_ERROR_OUT_OF_DEVICE_MEMORY".to_string(),
+        ];
+
+        let roles = classify_params(&c, &empty_pnext());
+        let docs = stringify(emit_wrapper_docs(&c, &roles));
+
+        assert!(docs.contains("# Errors"));
+        assert!(docs.contains("VK_ERROR_OUT_OF_HOST_MEMORY"));
+        assert!(docs.contains("VK_ERROR_OUT_OF_DEVICE_MEMORY"));
+    }
+
+    #[test]
+    fn docs_include_extern_sync() {
+        let mut fence_param = param("fence", "VkFence");
+        fence_param.extern_sync = Some("true".to_string());
+
+        let c = cmd(
+            "vkWaitForFences",
+            "VkResult",
+            vec![
+                param("device", "VkDevice"),
+                fence_param,
+                param("timeout", "uint64_t"),
+            ],
+            DispatchLevel::Device,
+        );
+        let roles = classify_params(&c, &empty_pnext());
+        let docs = stringify(emit_wrapper_docs(&c, &roles));
+
+        assert!(docs.contains("# Safety"));
+        assert!(docs.contains("fence"));
+        assert!(docs.contains("externally synchronized"));
+    }
+
+    // -- emit_file tests ------------------------------------------------------
+
+    #[test]
+    fn emit_file_wraps_in_impl_block() {
+        let methods = quote! {
+            pub unsafe fn foo(&self) {}
+        };
+        let file = stringify(emit_file("Device", methods));
+
+        assert!(file.contains("impl crate :: Device"));
+        assert!(file.contains("pub unsafe fn foo"));
+        assert!(file.contains("use crate :: error"));
+    }
+
+    #[test]
+    fn emit_file_entry() {
+        let file = stringify(emit_file("Entry", TokenStream::new()));
+        assert!(file.contains("impl crate :: Entry"));
+    }
+
+    #[test]
+    fn emit_file_instance() {
+        let file = stringify(emit_file("Instance", TokenStream::new()));
+        assert!(file.contains("impl crate :: Instance"));
+    }
+
+    // -- Return type completeness (patterns not yet covered) ------------------
+
+    #[test]
+    fn return_type_fill() {
+        let c = cmd(
+            "vkGetPhysicalDeviceQueueFamilyProperties",
+            "void",
+            vec![
+                param("physicalDevice", "VkPhysicalDevice"),
+                mut_ptr("pQueueFamilyPropertyCount", "uint32_t"),
+                mut_ptr_with_len(
+                    "pQueueFamilyProperties",
+                    "VkQueueFamilyProperties",
+                    "pQueueFamilyPropertyCount",
+                ),
+            ],
+            DispatchLevel::Instance,
+        );
+        let roles = classify_params(&c, &empty_pnext());
+        let pattern = classify_command(&c, &roles);
+        let ret = stringify(emit_return_type(&c, &roles, pattern));
+
+        assert!(ret.contains("Vec < QueueFamilyProperties >"));
+        assert!(!ret.contains("VkResult"), "Fill pattern should not wrap in VkResult");
+    }
+
+    #[test]
+    fn return_type_query() {
+        let c = cmd(
+            "vkGetPhysicalDeviceProperties",
+            "void",
+            vec![
+                param("physicalDevice", "VkPhysicalDevice"),
+                mut_ptr("pProperties", "VkPhysicalDeviceProperties"),
+            ],
+            DispatchLevel::Instance,
+        );
+        let roles = classify_params(&c, &empty_pnext());
+        let pattern = classify_command(&c, &roles);
+        let ret = stringify(emit_return_type(&c, &roles, pattern));
+
+        assert!(ret.contains("PhysicalDeviceProperties"));
+        assert!(!ret.contains("VkResult"));
+        assert!(!ret.contains("Vec"));
+    }
+
+    #[test]
+    fn return_type_result_only() {
+        let c = cmd(
+            "vkDeviceWaitIdle",
+            "VkResult",
+            vec![param("device", "VkDevice")],
+            DispatchLevel::Device,
+        );
+        let roles = classify_params(&c, &empty_pnext());
+        let pattern = classify_command(&c, &roles);
+        let ret = stringify(emit_return_type(&c, &roles, pattern));
+
+        assert_eq!(ret, "-> VkResult < () >");
+    }
+
+    #[test]
+    fn return_type_destroy_is_empty() {
+        let c = cmd(
+            "vkDestroyFence",
+            "void",
+            vec![
+                param("device", "VkDevice"),
+                param("fence", "VkFence"),
+                optional_const_ptr("pAllocator", "VkAllocationCallbacks"),
+            ],
+            DispatchLevel::Device,
+        );
+        let roles = classify_params(&c, &empty_pnext());
+        let pattern = classify_command(&c, &roles);
+        let ret = stringify(emit_return_type(&c, &roles, pattern));
+
+        assert!(ret.is_empty());
+    }
+
+    // -- Optional Vk const ptr (non-allocator) --------------------------------
+
+    #[test]
+    fn optional_vk_const_ptr_becomes_option_ref_in_signature() {
+        let c = cmd(
+            "vkCreateGraphicsPipelines",
+            "VkResult",
+            vec![
+                param("device", "VkDevice"),
+                optional_const_ptr("pipelineCache", "VkPipelineCache"),
+                const_ptr("pCreateInfo", "VkGraphicsPipelineCreateInfo"),
+                optional_const_ptr("pAllocator", "VkAllocationCallbacks"),
+                mut_ptr("pPipelines", "VkPipeline"),
+            ],
+            DispatchLevel::Device,
+        );
+        let roles = classify_params(&c, &empty_pnext());
+        let sig = stringify(emit_signature_params(&c, &roles));
+
+        // Optional Vk const ptr that isn't the allocator
+        assert!(sig.contains("pipeline_cache : Option < & PipelineCache >"));
+    }
+
+    #[test]
+    fn optional_vk_const_ptr_generates_ptr_binding() {
+        let c = cmd(
+            "vkCreateGraphicsPipelines",
+            "VkResult",
+            vec![
+                param("device", "VkDevice"),
+                optional_const_ptr("pipelineCache", "VkPipelineCache"),
+                const_ptr("pCreateInfo", "VkGraphicsPipelineCreateInfo"),
+                optional_const_ptr("pAllocator", "VkAllocationCallbacks"),
+                mut_ptr("pPipelines", "VkPipeline"),
+            ],
+            DispatchLevel::Device,
+        );
+        let roles = classify_params(&c, &empty_pnext());
+        let pattern = classify_command(&c, &roles);
+        let body = stringify(emit_body(&c, &roles, pattern));
+
+        assert!(body.contains("let pipeline_cache_ptr"));
+        assert!(body.contains("pipeline_cache_ptr"));
+    }
+
+    // -- Name helper tests ----------------------------------------------------
+
+    #[test]
+    fn command_field_name_strips_vk_prefix() {
+        assert_eq!(command_field_name("vkCreateBuffer"), "create_buffer");
+    }
+
+    #[test]
+    fn command_field_name_without_vk_prefix() {
+        assert_eq!(command_field_name("CreateBuffer"), "create_buffer");
+    }
+
+    #[test]
+    fn command_field_name_extension_suffix() {
+        assert_eq!(
+            command_field_name("vkCreateRayTracingPipelinesKHR"),
+            "create_ray_tracing_pipelines_khr"
+        );
+    }
+
+    #[test]
+    fn param_ident_plain() {
+        assert_eq!(param_ident("pCreateInfo").to_string(), "p_create_info");
+    }
+
+    #[test]
+    fn param_ident_escapes_rust_keyword() {
+        assert_eq!(param_ident("type").to_string(), "r#type");
+    }
+
+    // -- emit_methods filtering -----------------------------------------------
+
+    #[test]
+    fn emit_methods_filters_by_dispatch_level() {
+        let commands = vec![
+            cmd(
+                "vkDestroyInstance",
+                "void",
+                vec![
+                    param("instance", "VkInstance"),
+                    optional_const_ptr("pAllocator", "VkAllocationCallbacks"),
+                ],
+                DispatchLevel::Instance,
+            ),
+            cmd(
+                "vkDestroyDevice",
+                "void",
+                vec![
+                    param("device", "VkDevice"),
+                    optional_const_ptr("pAllocator", "VkAllocationCallbacks"),
+                ],
+                DispatchLevel::Device,
+            ),
+        ];
+
+        let (_, instance_count) = emit_methods(
+            DispatchLevel::Instance,
+            &commands,
+            &empty_pnext(),
+            &HashSet::new(),
+        );
+        let (_, device_count) = emit_methods(
+            DispatchLevel::Device,
+            &commands,
+            &empty_pnext(),
+            &HashSet::new(),
+        );
+
+        assert_eq!(instance_count, 1);
+        assert_eq!(device_count, 1);
+    }
+
+    #[test]
+    fn emit_methods_empty_commands() {
+        let (methods, count) = emit_methods(
+            DispatchLevel::Device,
+            &[],
+            &empty_pnext(),
+            &HashSet::new(),
+        );
+        assert_eq!(count, 0);
+        assert!(stringify(methods).is_empty());
+    }
+
     // -- Audit report -------------------------------------------------------
 
     /// Generates `docs/wrapper_audit.md` with every command's classification.
