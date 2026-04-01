@@ -1,7 +1,7 @@
 # Usage Notes
 
 A render pass describes the attachments, subpasses, and dependencies
-used during rendering. It does not reference actual images — those
+used during rendering. It does not reference actual images, those
 are bound later via a framebuffer.
 
 Key design points:

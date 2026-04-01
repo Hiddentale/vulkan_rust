@@ -5,7 +5,7 @@ creation time. The `queue_family_index` and `queue_index` must match
 a family and index that was included in the `DeviceCreateInfo`'s
 `queue_create_infos`.
 
-Queue handles are implicitly owned by the device — they do not need
+Queue handles are implicitly owned by the device, they do not need
 to be destroyed and become invalid when the device is destroyed.
 
 Queues retrieved this way have no special flags. If you created

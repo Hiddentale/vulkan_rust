@@ -6,7 +6,7 @@ performance and gather statistics without stalling the pipeline.
 **Query types**:
 
 - `OCCLUSION`: counts how many samples pass the depth test. Useful
-  for visibility culling — render a bounding box, check the count.
+  for visibility culling, render a bounding box, check the count.
 - `PIPELINE_STATISTICS`: counts shader invocations, primitives,
   clipping, etc. Must be enabled via
   `pipeline_statistics_query` device feature.

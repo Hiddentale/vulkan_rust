@@ -12,7 +12,7 @@ Must be called before the buffer is used in any command.
 4. `memory_offset + size` must not exceed the allocation size.
 
 **Sub-allocation**: multiple buffers can share one `DeviceMemory`
-allocation at different offsets. This is strongly recommended —
+allocation at different offsets. This is strongly recommended, 
 drivers have a per-allocation limit (`max_memory_allocation_count`,
 often 4096) and each allocation has overhead.
 

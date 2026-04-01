@@ -6,7 +6,7 @@ etc.) **must** be destroyed before calling this.
 
 A safe teardown order:
 
-1. `device_wait_idle` — ensure no GPU work is in flight.
+1. `device_wait_idle`, ensure no GPU work is in flight.
 2. Destroy all device-child objects (pipelines, buffers, images,
    views, descriptor pools, command pools, fences, semaphores, etc.).
 3. `free_memory` for all device memory allocations.

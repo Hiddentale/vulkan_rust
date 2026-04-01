@@ -12,6 +12,6 @@ The same alignment rules apply: `offset` and `size` must be
 multiples of `non_coherent_atom_size`, or use offset zero with
 `VK_WHOLE_SIZE`.
 
-If you are using host-coherent memory, this call is unnecessary —
+If you are using host-coherent memory, this call is unnecessary, 
 GPU writes are automatically visible to the CPU. Most desktop GPUs
 offer host-coherent memory types for host-visible heaps.

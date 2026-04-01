@@ -1,7 +1,7 @@
 # Usage Notes
 
 Destroys a buffer object. The buffer must not be in use by any
-pending GPU work — wait on the relevant fences or call
+pending GPU work, wait on the relevant fences or call
 `device_wait_idle` before destroying.
 
 Destroying a buffer does **not** free its backing memory. Call
@@ -9,5 +9,5 @@ Destroying a buffer does **not** free its backing memory. Call
 region).
 
 Destroy order: destroy the buffer first, then free the memory. Not
-the reverse — freeing memory while a buffer is still bound to it is
+the reverse, freeing memory while a buffer is still bound to it is
 undefined behaviour.

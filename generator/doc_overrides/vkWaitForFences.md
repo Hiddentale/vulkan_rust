@@ -12,7 +12,7 @@ indefinitely. A timeout of zero performs a non-blocking check
 (equivalent to polling `get_fence_status` on each fence).
 
 Returns `VK_TIMEOUT` if the timeout expires before the condition is
-met. This is not an error — check the return value and handle it
+met. This is not an error, check the return value and handle it
 (e.g. log a warning or retry).
 
 **Typical frame loop**:

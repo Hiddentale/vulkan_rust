@@ -1,7 +1,7 @@
 # Usage Notes
 
 Frees a device memory allocation. All buffers and images bound to
-this memory must already be destroyed — freeing memory while objects
+this memory must already be destroyed, freeing memory while objects
 are still bound is undefined behaviour.
 
 If the memory is currently mapped, it is implicitly unmapped before

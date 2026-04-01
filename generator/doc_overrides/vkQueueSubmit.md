@@ -10,7 +10,7 @@ to the GPU. Each `SubmitInfo` specifies:
 
 **Fence**: pass a fence to know when the *entire batch* of submissions
 completes on the CPU side. Passing `Fence::null()` means there is no
-CPU-visible signal — you must use semaphores or `queue_wait_idle`
+CPU-visible signal, you must use semaphores or `queue_wait_idle`
 instead.
 
 Minimize `queue_submit` calls. Each call has driver overhead; batching

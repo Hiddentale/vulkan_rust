@@ -1,7 +1,7 @@
 # Usage Notes
 
 Blocks the calling thread until **all** queues on this device are
-idle. This is the nuclear option for synchronization — it drains
+idle. This is the nuclear option for synchronization, it drains
 every queue completely.
 
 Typical uses:

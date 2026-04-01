@@ -1,7 +1,7 @@
 # Usage Notes
 
 Begins recording commands into a command buffer. The command buffer
-must be in the *initial* state — either freshly allocated, or reset
+must be in the *initial* state, either freshly allocated, or reset
 via `reset_command_buffer` / `reset_command_pool`.
 
 **Flags**:

@@ -1,6 +1,6 @@
 #![allow(unused_imports)]
 #![allow(clippy::too_many_arguments)]
-use crate::error::{VkResult, check, enumerate_two_call, fill_two_call};
+use crate::error::{check, enumerate_two_call, fill_two_call, VkResult};
 use crate::vk::bitmasks::*;
 use crate::vk::constants::*;
 use crate::vk::enums::*;
@@ -9,7 +9,7 @@ use crate::vk::structs::*;
 impl crate::Entry {
     ///Wraps [`vkGetExternalComputeQueueDataNV`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetExternalComputeQueueDataNV.html).
     /**
-    Provided by **VK_NV_external_compute_queue**.*/
+Provided by **VK_NV_external_compute_queue**.*/
     ///
     ///# Safety
     ///- `externalQueue` (self) must be valid and not destroyed.

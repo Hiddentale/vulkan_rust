@@ -2,7 +2,7 @@
 
 A framebuffer binds concrete image views to the attachment slots
 defined by a render pass. The number and format of attachments must
-match the render pass exactly — mismatches cause validation errors.
+match the render pass exactly, mismatches cause validation errors.
 
 **Dimensions**: `width`, `height`, and `layers` must be less than
 or equal to the corresponding dimensions of every attached image

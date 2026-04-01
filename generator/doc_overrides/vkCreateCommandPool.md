@@ -1,7 +1,7 @@
 # Usage Notes
 
 A command pool provides the memory backing for command buffers
-allocated from it. Pools are tied to a single queue family — command
+allocated from it. Pools are tied to a single queue family, command
 buffers allocated from the pool can only be submitted to queues of
 that family.
 

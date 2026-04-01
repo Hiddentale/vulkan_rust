@@ -5,7 +5,7 @@ device-specific equivalent of `get_instance_proc_addr` and returns
 pointers dispatched directly through the device's driver, bypassing
 the loader trampoline.
 
-In normal usage you do not need to call this yourself — `Device`
+In normal usage you do not need to call this yourself, `Device`
 loads all function pointers automatically at creation time. Use this
 only if you need a command that is not yet exposed as a wrapper
 method, or for raw interop scenarios.

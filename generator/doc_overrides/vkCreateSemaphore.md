@@ -2,7 +2,7 @@
 
 Creates a semaphore for GPU–GPU synchronization between queue
 submissions. Unlike fences (CPU–GPU), semaphores are invisible to
-the CPU — they are signaled and waited on entirely within
+the CPU, they are signaled and waited on entirely within
 `queue_submit` or `queue_present_khr`.
 
 **Binary semaphores** (the default) have two states: signaled and

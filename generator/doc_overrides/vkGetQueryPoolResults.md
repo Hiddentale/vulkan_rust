@@ -1,7 +1,7 @@
 # Usage Notes
 
 Reads query results from a query pool into a host buffer. This is
-the CPU-side retrieval path — for GPU-side copies into a device
+the CPU-side retrieval path, for GPU-side copies into a device
 buffer, use `cmd_copy_query_pool_results` instead.
 
 **Key flags**:

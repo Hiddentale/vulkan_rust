@@ -14,7 +14,7 @@ loop {
 ```
 
 For blocking waits, prefer `wait_for_fences` which is more efficient
-than a spin loop — it lets the CPU sleep until the driver signals.
+than a spin loop, it lets the CPU sleep until the driver signals.
 
 This call can also return device-lost errors, so check the result
 even in non-error paths.
