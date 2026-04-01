@@ -163,8 +163,54 @@ mod tests {
     #[ignore] // requires Vulkan runtime
     fn libloading_loader_new_succeeds() {
         let loader = LibloadingLoader::new().expect("failed to load Vulkan library");
-        // vkGetInstanceProcAddr should be resolvable
         let ptr = unsafe { loader.load(c"vkGetInstanceProcAddr") };
         assert!(!ptr.is_null(), "vkGetInstanceProcAddr should be non-null");
+    }
+
+    #[test]
+    #[ignore] // requires Vulkan runtime
+    fn libloading_loader_resolves_device_proc_addr() {
+        let loader = LibloadingLoader::new().expect("failed to load Vulkan library");
+        let ptr = unsafe { loader.load(c"vkGetDeviceProcAddr") };
+        assert!(!ptr.is_null(), "vkGetDeviceProcAddr should be non-null");
+    }
+
+    #[test]
+    #[ignore] // requires Vulkan runtime
+    fn libloading_loader_returns_null_for_unknown_symbol() {
+        let loader = LibloadingLoader::new().expect("failed to load Vulkan library");
+        let ptr = unsafe { loader.load(c"vkNotARealFunction_XYZ") };
+        assert!(ptr.is_null(), "unknown symbol should return null");
+    }
+
+    #[test]
+    #[ignore] // requires Vulkan runtime
+    fn libloading_loader_resolves_create_instance() {
+        let loader = LibloadingLoader::new().expect("failed to load Vulkan library");
+        let ptr = unsafe { loader.load(c"vkCreateInstance") };
+        assert!(!ptr.is_null(), "vkCreateInstance should be non-null");
+    }
+
+    #[test]
+    #[ignore] // requires Vulkan runtime
+    fn libloading_loader_distinct_pointers_for_different_symbols() {
+        let loader = LibloadingLoader::new().expect("failed to load Vulkan library");
+        let gipa = unsafe { loader.load(c"vkGetInstanceProcAddr") };
+        let gdpa = unsafe { loader.load(c"vkGetDeviceProcAddr") };
+        assert!(!gipa.is_null());
+        assert!(!gdpa.is_null());
+        assert_ne!(
+            gipa, gdpa,
+            "different symbols should return different pointers"
+        );
+    }
+
+    #[test]
+    #[ignore] // requires Vulkan runtime
+    fn libloading_loader_same_symbol_returns_same_pointer() {
+        let loader = LibloadingLoader::new().expect("failed to load Vulkan library");
+        let ptr1 = unsafe { loader.load(c"vkGetInstanceProcAddr") };
+        let ptr2 = unsafe { loader.load(c"vkGetInstanceProcAddr") };
+        assert_eq!(ptr1, ptr2, "same symbol should return the same pointer");
     }
 }
