@@ -1,4 +1,5 @@
 #![warn(missing_docs)]
+#![forbid(unsafe_op_in_unsafe_fn)]
 
 //! Ergonomic Vulkan wrapper built on generated FFI bindings.
 //!
