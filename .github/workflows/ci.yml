@@ -229,9 +229,9 @@ jobs:
       - name: Generate coverage (all tests including runtime)
         run: |
           export VK_ICD_FILENAMES="$LVP_ICD"
-          cargo llvm-cov --workspace --include-ignored --lcov --output-path lcov.info \
+          cargo llvm-cov --workspace --lcov --output-path lcov.info \
             --ignore-filename-regex '(vulkan-rs-sys/src/|vulkan-rs/src/generated/)' \
-            -- --test-threads=1
+            -- --include-ignored --test-threads=1
 
       - name: Print coverage summary
         run: |
