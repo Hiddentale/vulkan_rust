@@ -387,8 +387,8 @@ fn init_vulkan(window: Window) -> VulkanState {
         .subpass(0);
 
     let pipeline =
-        unsafe { device.create_graphics_pipelines(PipelineCache::null(), &[*pipeline_info], None) }
-            .expect("Failed to create graphics pipeline")[0];
+        unsafe { device.create_graphics_pipeline(PipelineCache::null(), &pipeline_info, None) }
+            .expect("Failed to create graphics pipeline");
 
     unsafe {
         device.destroy_shader_module(vert_module, None);
