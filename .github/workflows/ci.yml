@@ -45,17 +45,17 @@ jobs:
             exit 1
           fi
 
-  audit:
-    name: Dependency Audit
+  deny:
+    name: Dependency Check (licenses, advisories, bans, sources)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
 
-      - name: Install cargo-audit
-        uses: taiki-e/install-action@cargo-audit
+      - name: Install cargo-deny
+        uses: taiki-e/install-action@cargo-deny
 
-      - name: Audit dependencies
-        run: cargo audit
+      - name: Run cargo-deny
+        run: cargo deny check
 
   fmt:
     name: Format Check
