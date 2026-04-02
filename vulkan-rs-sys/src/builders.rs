@@ -168,16 +168,9 @@ impl<'a> DeviceCreateInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn enabled_layer_count(mut self, value: u32) -> Self {
-        self.inner.enabled_layer_count = value;
-        self
-    }
-    #[inline]
-    pub fn pp_enabled_layer_names(
-        mut self,
-        value: *const *const core::ffi::c_char,
-    ) -> Self {
-        self.inner.pp_enabled_layer_names = value;
+    pub fn enabled_layer_names(mut self, slice: &'a [*const core::ffi::c_char]) -> Self {
+        self.inner.enabled_layer_count = slice.len() as u32;
+        self.inner.pp_enabled_layer_names = slice.as_ptr();
         self
     }
     #[inline]
