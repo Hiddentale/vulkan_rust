@@ -77,11 +77,10 @@ let alloc_info = CommandBufferAllocateInfo::builder()
     .level(CommandBufferLevel::PRIMARY)
     .command_buffer_count(1);
 
-let mut command_buffer = CommandBuffer::null();
-unsafe {
-    device.allocate_command_buffers(&alloc_info, &mut command_buffer)
+let command_buffer = unsafe {
+    device.allocate_command_buffers(&alloc_info)
 }
-.expect("Failed to allocate command buffer");
+.expect("Failed to allocate command buffer")[0];
 ```
 
 ## Step 3: Record drawing commands
@@ -243,7 +242,7 @@ unsafe fn draw_frame(
 ) {
     unsafe {
     // ── 1. Wait for previous frame ─────────────────────────────
-    device.wait_for_fences(&[in_flight_fence], 1, u64::MAX)
+    device.wait_for_fences(&[in_flight_fence], true, u64::MAX)
         .expect("Failed to wait for fence");
     device.reset_fences(&[in_flight_fence])
         .expect("Failed to reset fence");

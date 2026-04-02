@@ -1,12 +1,13 @@
 // Hello Triangle Part 2: Instance & Device + Swapchain & Surface
 // Complete runnable program. Builds on Part 1.
+// <https://hiddentale.github.io/vulkan_rs/getting-started/hello-triangle-2.html>
 
 use vk::bitmasks::*;
 use vk::enums::*;
 use vk::handles::*;
 use vk::structs::*;
 use vulkan_rs::vk;
-use vulkan_rs::{Entry, LibloadingLoader};
+use vulkan_rs::{Entry, LibloadingLoader, Version};
 use winit::application::ApplicationHandler;
 use winit::event::WindowEvent;
 use winit::event_loop::{ActiveEventLoop, EventLoop};
@@ -67,18 +68,16 @@ fn run(window: &Window) {
     let layer_ptrs = [validation_layer.as_ptr()];
 
     let app_info = ApplicationInfo::builder()
-        .p_application_name(c"Hello Triangle".as_ptr())
+        .p_application_name(c"Hello Triangle")
         .application_version(1)
-        .p_engine_name(c"No Engine".as_ptr())
+        .p_engine_name(c"No Engine")
         .engine_version(1)
-        .api_version(1 << 22);
+        .api_version(Version::new(1, 0, 0).to_raw());
 
     let create_info = InstanceCreateInfo::builder()
         .p_application_info(&*app_info)
-        .enabled_extension_count(extension_ptrs.len() as u32)
-        .pp_enabled_extension_names(extension_ptrs.as_ptr())
-        .enabled_layer_count(layer_ptrs.len() as u32)
-        .pp_enabled_layer_names(layer_ptrs.as_ptr());
+        .enabled_extension_names(&extension_ptrs)
+        .enabled_layer_names(&layer_ptrs);
 
     let instance =
         unsafe { entry.create_instance(&create_info, None) }.expect("Failed to create instance");
@@ -121,15 +120,14 @@ fn run(window: &Window) {
     println!("GPU: {}", String::from_utf8_lossy(&name));
 
     // ── Create Device with swapchain extension ─────────────────
-    let device_extensions = [c"VK_KHR_swapchain".as_ptr()];
+    let device_extensions = [vk::extension_names::KHR_SWAPCHAIN_EXTENSION_NAME.as_ptr()];
     let queue_priority = 1.0_f32;
     let queue_info = DeviceQueueCreateInfo::builder()
         .queue_family_index(graphics_family_index)
         .queue_priorities(std::slice::from_ref(&queue_priority));
     let device_info = DeviceCreateInfo::builder()
         .queue_create_infos(std::slice::from_ref(&*queue_info))
-        .enabled_extension_count(device_extensions.len() as u32)
-        .pp_enabled_extension_names(device_extensions.as_ptr());
+        .enabled_extension_names(&device_extensions);
 
     let device = unsafe { instance.create_device(physical_device, &device_info, None) }
         .expect("Failed to create device");
@@ -193,7 +191,7 @@ fn run(window: &Window) {
         .pre_transform(caps.current_transform)
         .composite_alpha(CompositeAlphaFlagBitsKHR::OPAQUE)
         .present_mode(present_mode)
-        .clipped(1)
+        .clipped(true)
         .old_swapchain(SwapchainKHR::null());
 
     let swapchain = unsafe { device.create_swapchain_khr(&swapchain_info, None) }

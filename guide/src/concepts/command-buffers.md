@@ -133,11 +133,10 @@ let alloc_info = CommandBufferAllocateInfo::builder()
     .level(CommandBufferLevel::PRIMARY)
     .command_buffer_count(1);
 
-// allocate_command_buffers writes into a caller-provided buffer.
-let mut command_buffer = CommandBuffer::null();
-unsafe {
-    device.allocate_command_buffers(&alloc_info, &mut command_buffer)?;
-};
+// allocate_command_buffers returns a Vec of handles.
+let command_buffer = unsafe {
+    device.allocate_command_buffers(&alloc_info)?
+}[0];
 ```
 
 ### Step 3: Record commands
@@ -294,8 +293,7 @@ unsafe fn one_shot_submit(
         .command_pool(pool)
         .level(CommandBufferLevel::PRIMARY)
         .command_buffer_count(1);
-    let mut cmd = CommandBuffer::null();
-    unsafe { device.allocate_command_buffers(&alloc_info, &mut cmd)? };
+    let cmd = unsafe { device.allocate_command_buffers(&alloc_info)? }[0];
 
     // Record
     let begin = CommandBufferBeginInfo::builder()

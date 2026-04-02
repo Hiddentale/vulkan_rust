@@ -68,8 +68,9 @@ let validation_layer = c"VK_LAYER_KHRONOS_validation";
 let layer_names = [validation_layer.as_ptr()];
 
 // The debug utils extension lets us receive callbacks.
+use vk::extension_names::EXT_DEBUG_UTILS_EXTENSION_NAME;
 let extension_names = [
-    c"VK_EXT_debug_utils".as_ptr(),
+    EXT_DEBUG_UTILS_EXTENSION_NAME.as_ptr(),
 ];
 
 let instance_info = InstanceCreateInfo::builder()
@@ -292,7 +293,7 @@ let layer_names: Vec<*const i8> = if enable_validation {
 ### Required extension
 
 The debug messenger requires the `VK_EXT_debug_utils` instance
-extension. Enable it with `c"VK_EXT_debug_utils"` as a C string literal.
+extension. Enable it with `vk::extension_names::EXT_DEBUG_UTILS_EXTENSION_NAME`.
 
 ### Destruction order
 

@@ -124,10 +124,8 @@ let app_info = ApplicationInfo::builder()
 
 let create_info = InstanceCreateInfo::builder()
     .p_application_info(&*app_info)
-    .enabled_extension_count(extension_ptrs.len() as u32)
-    .pp_enabled_extension_names(extension_ptrs.as_ptr())
-    .enabled_layer_count(layer_ptrs.len() as u32)
-    .pp_enabled_layer_names(layer_ptrs.as_ptr());
+    .enabled_extension_names(&extension_ptrs)
+    .enabled_layer_names(&layer_ptrs);
 
 let instance = unsafe { entry.create_instance(&create_info, None) }
     .expect("Failed to create instance");
@@ -230,8 +228,8 @@ Now we add `VK_KHR_swapchain`, the extension that lets us create a
 swapchain.
 
 ```rust,ignore
-let swapchain_ext = c"VK_KHR_swapchain";
-let device_extensions = [swapchain_ext.as_ptr()];
+use vk::extension_names::KHR_SWAPCHAIN_EXTENSION_NAME;
+let device_extensions = [KHR_SWAPCHAIN_EXTENSION_NAME.as_ptr()];
 
 let queue_priority = 1.0_f32;
 let queue_info = DeviceQueueCreateInfo::builder()
@@ -240,8 +238,7 @@ let queue_info = DeviceQueueCreateInfo::builder()
 
 let device_info = DeviceCreateInfo::builder()
     .queue_create_infos(std::slice::from_ref(&*queue_info))
-    .enabled_extension_count(device_extensions.len() as u32)
-    .pp_enabled_extension_names(device_extensions.as_ptr());
+    .enabled_extension_names(&device_extensions);
 
 let device = unsafe {
     instance.create_device(physical_device, &device_info, None)
@@ -366,7 +363,7 @@ let swapchain_info = SwapchainCreateInfoKHR::builder()
     .pre_transform(capabilities.current_transform)
     .composite_alpha(CompositeAlphaFlagBitsKHR::OPAQUE)
     .present_mode(present_mode)
-    .clipped(1)       // discard pixels behind other windows
+    .clipped(true)       // discard pixels behind other windows
     .old_swapchain(SwapchainKHR::null());
 
 let swapchain = unsafe {

@@ -1,12 +1,13 @@
 // Hello Triangle Part 3: Parts 1+2 setup + Render Pass & Pipeline
 // Complete runnable program.
+// <https://hiddentale.github.io/vulkan_rs/getting-started/hello-triangle-3.html>
 
 use vk::bitmasks::*;
 use vk::enums::*;
 use vk::handles::*;
 use vk::structs::*;
 use vulkan_rs::vk;
-use vulkan_rs::{Entry, LibloadingLoader, cast_to_u32};
+use vulkan_rs::{Entry, LibloadingLoader, Version, cast_to_u32};
 use winit::application::ApplicationHandler;
 use winit::event::WindowEvent;
 use winit::event_loop::{ActiveEventLoop, EventLoop};
@@ -71,18 +72,16 @@ fn run(window: &Window) {
     let layer_ptrs = [validation_layer.as_ptr()];
 
     let app_info = ApplicationInfo::builder()
-        .p_application_name(c"Hello Triangle".as_ptr())
+        .p_application_name(c"Hello Triangle")
         .application_version(1)
-        .p_engine_name(c"No Engine".as_ptr())
+        .p_engine_name(c"No Engine")
         .engine_version(1)
-        .api_version(1 << 22);
+        .api_version(Version::new(1, 0, 0).to_raw());
 
     let create_info = InstanceCreateInfo::builder()
         .p_application_info(&*app_info)
-        .enabled_extension_count(extension_ptrs.len() as u32)
-        .pp_enabled_extension_names(extension_ptrs.as_ptr())
-        .enabled_layer_count(layer_ptrs.len() as u32)
-        .pp_enabled_layer_names(layer_ptrs.as_ptr());
+        .enabled_extension_names(&extension_ptrs)
+        .enabled_layer_names(&layer_ptrs);
 
     let instance =
         unsafe { entry.create_instance(&create_info, None) }.expect("Failed to create instance");
@@ -113,15 +112,14 @@ fn run(window: &Window) {
     }
     assert!(!physical_device.is_null(), "No suitable GPU found");
 
-    let device_extensions = [c"VK_KHR_swapchain".as_ptr()];
+    let device_extensions = [vk::extension_names::KHR_SWAPCHAIN_EXTENSION_NAME.as_ptr()];
     let queue_priority = 1.0_f32;
     let queue_info = DeviceQueueCreateInfo::builder()
         .queue_family_index(graphics_family_index)
         .queue_priorities(std::slice::from_ref(&queue_priority));
     let device_info = DeviceCreateInfo::builder()
         .queue_create_infos(std::slice::from_ref(&*queue_info))
-        .enabled_extension_count(device_extensions.len() as u32)
-        .pp_enabled_extension_names(device_extensions.as_ptr());
+        .enabled_extension_names(&device_extensions);
 
     let device = unsafe { instance.create_device(physical_device, &device_info, None) }
         .expect("Failed to create device");
@@ -182,7 +180,7 @@ fn run(window: &Window) {
         .pre_transform(caps.current_transform)
         .composite_alpha(CompositeAlphaFlagBitsKHR::OPAQUE)
         .present_mode(present_mode)
-        .clipped(1)
+        .clipped(true)
         .old_swapchain(SwapchainKHR::null());
 
     let swapchain = unsafe { device.create_swapchain_khr(&swapchain_info, None) }
@@ -305,11 +303,11 @@ fn run(window: &Window) {
         *PipelineShaderStageCreateInfo::builder()
             .stage(ShaderStageFlags::VERTEX)
             .module(vert_module)
-            .p_name(entry_name.as_ptr()),
+            .p_name(entry_name),
         *PipelineShaderStageCreateInfo::builder()
             .stage(ShaderStageFlags::FRAGMENT)
             .module(frag_module)
-            .p_name(entry_name.as_ptr()),
+            .p_name(entry_name),
     ];
 
     let vertex_input = PipelineVertexInputStateCreateInfo::builder();
@@ -357,16 +355,9 @@ fn run(window: &Window) {
         .render_pass(render_pass)
         .subpass(0);
 
-    let mut pipeline = Pipeline::null();
-    unsafe {
-        device.create_graphics_pipelines(
-            PipelineCache::null(),
-            &[*pipeline_info],
-            None,
-            &mut pipeline,
-        )
-    }
-    .expect("Failed to create graphics pipeline");
+    let pipeline =
+        unsafe { device.create_graphics_pipeline(PipelineCache::null(), &pipeline_info, None) }
+            .expect("Failed to create graphics pipeline");
 
     unsafe {
         device.destroy_shader_module(vert_module, None);

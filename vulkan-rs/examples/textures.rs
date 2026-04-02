@@ -1,14 +1,14 @@
 // How-To: Load and Sample Textures
 // Based on hello_triangle_4.rs, modified to load a texture from disk,
 // upload it to the GPU, and sample it in a fragment shader.
-// Uses code identical to guide/src/how-to/textures.md.
+// <https://hiddentale.github.io/vulkan_rs/how-to/textures.html>
 
 use vk::bitmasks::*;
 use vk::enums::*;
 use vk::handles::*;
 use vk::structs::*;
 use vulkan_rs::vk;
-use vulkan_rs::{Device, Entry, LibloadingLoader, cast_to_u32};
+use vulkan_rs::{Device, Entry, LibloadingLoader, Version, cast_to_u32};
 use winit::application::ApplicationHandler;
 use winit::event::WindowEvent;
 use winit::event_loop::{ActiveEventLoop, EventLoop};
@@ -131,18 +131,16 @@ fn init_vulkan(window: Window) -> VulkanState {
     let layer_ptrs = [validation_layer.as_ptr()];
 
     let app_info = ApplicationInfo::builder()
-        .p_application_name(c"Textures".as_ptr())
+        .p_application_name(c"Textures")
         .application_version(1)
-        .p_engine_name(c"No Engine".as_ptr())
+        .p_engine_name(c"No Engine")
         .engine_version(1)
-        .api_version(1 << 22);
+        .api_version(Version::new(1, 0, 0).to_raw());
 
     let create_info = InstanceCreateInfo::builder()
         .p_application_info(&*app_info)
-        .enabled_extension_count(extension_ptrs.len() as u32)
-        .pp_enabled_extension_names(extension_ptrs.as_ptr())
-        .enabled_layer_count(layer_ptrs.len() as u32)
-        .pp_enabled_layer_names(layer_ptrs.as_ptr());
+        .enabled_extension_names(&extension_ptrs)
+        .enabled_layer_names(&layer_ptrs);
 
     let instance =
         unsafe { entry.create_instance(&create_info, None) }.expect("Failed to create instance");
@@ -175,15 +173,14 @@ fn init_vulkan(window: Window) -> VulkanState {
 
     let mem_properties = unsafe { instance.get_physical_device_memory_properties(physical_device) };
 
-    let device_extensions = [c"VK_KHR_swapchain".as_ptr()];
+    let device_extensions = [vk::extension_names::KHR_SWAPCHAIN_EXTENSION_NAME.as_ptr()];
     let queue_priority = 1.0_f32;
     let queue_info = DeviceQueueCreateInfo::builder()
         .queue_family_index(graphics_family_index)
         .queue_priorities(std::slice::from_ref(&queue_priority));
     let device_info = DeviceCreateInfo::builder()
         .queue_create_infos(std::slice::from_ref(&*queue_info))
-        .enabled_extension_count(device_extensions.len() as u32)
-        .pp_enabled_extension_names(device_extensions.as_ptr());
+        .enabled_extension_names(&device_extensions);
 
     let device = unsafe { instance.create_device(physical_device, &device_info, None) }
         .expect("Failed to create device");
@@ -244,7 +241,7 @@ fn init_vulkan(window: Window) -> VulkanState {
         .pre_transform(caps.current_transform)
         .composite_alpha(CompositeAlphaFlagBitsKHR::OPAQUE)
         .present_mode(present_mode)
-        .clipped(1)
+        .clipped(true)
         .old_swapchain(SwapchainKHR::null());
 
     let swapchain = unsafe { device.create_swapchain_khr(&swapchain_info, None) }
@@ -375,9 +372,8 @@ fn init_vulkan(window: Window) -> VulkanState {
         .command_pool(command_pool)
         .level(CommandBufferLevel::PRIMARY)
         .command_buffer_count(1);
-    let mut upload_cmd = CommandBuffer::null();
-    unsafe { device.allocate_command_buffers(&alloc_info, &mut upload_cmd) }
-        .expect("Failed to allocate upload command buffer");
+    let upload_cmd = unsafe { device.allocate_command_buffers(&alloc_info) }
+        .expect("Failed to allocate upload command buffer")[0];
 
     unsafe {
         let begin_info =
@@ -504,7 +500,7 @@ fn init_vulkan(window: Window) -> VulkanState {
         .address_mode_u(SamplerAddressMode::REPEAT)
         .address_mode_v(SamplerAddressMode::REPEAT)
         .address_mode_w(SamplerAddressMode::REPEAT)
-        .anisotropy_enable(0)
+        .anisotropy_enable(false)
         .max_anisotropy(1.0)
         .border_color(BorderColor::INT_OPAQUE_BLACK)
         .mipmap_mode(SamplerMipmapMode::LINEAR)
@@ -544,9 +540,8 @@ fn init_vulkan(window: Window) -> VulkanState {
     let ds_alloc = DescriptorSetAllocateInfo::builder()
         .descriptor_pool(descriptor_pool)
         .set_layouts(&set_layouts);
-    let mut descriptor_set = DescriptorSet::null();
-    unsafe { device.allocate_descriptor_sets(&ds_alloc, &mut descriptor_set) }
-        .expect("Failed to allocate descriptor set");
+    let descriptor_set = unsafe { device.allocate_descriptor_sets(&ds_alloc) }
+        .expect("Failed to allocate descriptor set")[0];
 
     // Step 8: Update descriptor set
     let image_descriptor = DescriptorImageInfo {
@@ -639,11 +634,11 @@ fn init_vulkan(window: Window) -> VulkanState {
         *PipelineShaderStageCreateInfo::builder()
             .stage(ShaderStageFlags::VERTEX)
             .module(vert_module)
-            .p_name(entry_name.as_ptr()),
+            .p_name(entry_name),
         *PipelineShaderStageCreateInfo::builder()
             .stage(ShaderStageFlags::FRAGMENT)
             .module(frag_module)
-            .p_name(entry_name.as_ptr()),
+            .p_name(entry_name),
     ];
     let vertex_input = PipelineVertexInputStateCreateInfo::builder();
     let input_assembly =
@@ -684,16 +679,9 @@ fn init_vulkan(window: Window) -> VulkanState {
         .render_pass(render_pass)
         .subpass(0);
 
-    let mut pipeline = Pipeline::null();
-    unsafe {
-        device.create_graphics_pipelines(
-            PipelineCache::null(),
-            &[*pipeline_info],
-            None,
-            &mut pipeline,
-        )
-    }
-    .expect("Failed to create graphics pipeline");
+    let pipeline =
+        unsafe { device.create_graphics_pipeline(PipelineCache::null(), &pipeline_info, None) }
+            .expect("Failed to create graphics pipeline");
 
     unsafe {
         device.destroy_shader_module(vert_module, None);
@@ -728,9 +716,8 @@ fn init_vulkan(window: Window) -> VulkanState {
     let in_flight_fence =
         unsafe { device.create_fence(&fence_info, None) }.expect("Failed to create fence");
 
-    let mut command_buffer = CommandBuffer::null();
-    unsafe { device.allocate_command_buffers(&alloc_info, &mut command_buffer) }
-        .expect("Failed to allocate command buffer");
+    let command_buffer = unsafe { device.allocate_command_buffers(&alloc_info) }
+        .expect("Failed to allocate command buffer")[0];
 
     println!(
         "Texture example ready! Displaying {}x{} checkerboard.",
@@ -771,7 +758,7 @@ unsafe fn draw_frame(state: &VulkanState) {
     let d = &state.device;
 
     unsafe {
-        d.wait_for_fences(&[state.in_flight_fence], 1, u64::MAX)
+        d.wait_for_fences(&[state.in_flight_fence], true, u64::MAX)
             .expect("Failed to wait for fence");
         d.reset_fences(&[state.in_flight_fence])
             .expect("Failed to reset fence");

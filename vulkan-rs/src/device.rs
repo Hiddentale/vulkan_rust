@@ -116,6 +116,42 @@ impl Device {
     pub fn commands(&self) -> &vk::commands::DeviceCommands {
         &self.commands
     }
+
+    /// Create a single graphics pipeline.
+    ///
+    /// Convenience wrapper around [`create_graphics_pipelines`](Self::create_graphics_pipelines)
+    /// for the common single-pipeline case.
+    ///
+    /// # Safety
+    ///
+    /// Same requirements as `create_graphics_pipelines`.
+    pub unsafe fn create_graphics_pipeline(
+        &self,
+        pipeline_cache: vk::handles::PipelineCache,
+        create_info: &vk::structs::GraphicsPipelineCreateInfo,
+        allocator: Option<&vk::structs::AllocationCallbacks>,
+    ) -> crate::VkResult<vk::handles::Pipeline> {
+        unsafe { self.create_graphics_pipelines(pipeline_cache, &[*create_info], allocator) }
+            .map(|v| v[0])
+    }
+
+    /// Create a single compute pipeline.
+    ///
+    /// Convenience wrapper around [`create_compute_pipelines`](Self::create_compute_pipelines)
+    /// for the common single-pipeline case.
+    ///
+    /// # Safety
+    ///
+    /// Same requirements as `create_compute_pipelines`.
+    pub unsafe fn create_compute_pipeline(
+        &self,
+        pipeline_cache: vk::handles::PipelineCache,
+        create_info: &vk::structs::ComputePipelineCreateInfo,
+        allocator: Option<&vk::structs::AllocationCallbacks>,
+    ) -> crate::VkResult<vk::handles::Pipeline> {
+        unsafe { self.create_compute_pipelines(pipeline_cache, &[*create_info], allocator) }
+            .map(|v| v[0])
+    }
 }
 
 #[cfg(test)]

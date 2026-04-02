@@ -2,8 +2,8 @@ use std::fs;
 use std::path::Path;
 
 use vulkan_rs_codegen::{
-    emit_bitmasks, emit_builders, emit_commands, emit_constants, emit_enums, emit_handles,
-    emit_layout_check, emit_structs, emit_wrappers, parse, validate,
+    emit_bitmasks, emit_builders, emit_commands, emit_constants, emit_enums, emit_extension_names,
+    emit_handles, emit_layout_check, emit_structs, emit_wrappers, parse, validate,
 };
 
 fn main() {
@@ -30,6 +30,11 @@ fn main() {
         &out_dir,
         "constants.rs",
         emit_constants::emit_constants(&registry),
+    );
+    write_module(
+        &out_dir,
+        "extension_names.rs",
+        emit_extension_names::emit_extension_names(&registry),
     );
     write_module(
         &out_dir,
@@ -145,10 +150,17 @@ fn update_lib_rs(out_dir: &Path) {
 #![allow(non_camel_case_types)]
 #![allow(non_upper_case_globals)]
 
+mod string_array;
+pub use string_array::{
+    StringArray, ExtensionName, LayerName, DeviceName,
+    DescriptionName, DriverName, DriverInfo,
+};
+
 pub mod handles;
 pub mod enums;
 pub mod bitmasks;
 pub mod constants;
+pub mod extension_names;
 pub mod structs;
 pub mod builders;
 pub mod commands;
@@ -309,10 +321,14 @@ mod tests {
 
         let content = fs::read_to_string(dir.join("lib.rs")).unwrap();
         assert!(content.contains("#![no_std]"));
+        assert!(content.contains("pub use string_array::"));
+        assert!(content.contains("StringArray"));
+        assert!(content.contains("ExtensionName"));
         assert!(content.contains("pub mod handles;"));
         assert!(content.contains("pub mod enums;"));
         assert!(content.contains("pub mod bitmasks;"));
         assert!(content.contains("pub mod constants;"));
+        assert!(content.contains("pub mod extension_names;"));
         assert!(content.contains("pub mod structs;"));
         assert!(content.contains("pub mod builders;"));
         assert!(content.contains("pub mod commands;"));

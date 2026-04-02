@@ -27,7 +27,7 @@ impl crate::Entry {
     pub unsafe fn get_external_compute_queue_data_nv(
         &self,
         external_queue: ExternalComputeQueueNV,
-        params: *mut ExternalComputeQueueDataParamsNV,
+        params: &mut ExternalComputeQueueDataParamsNV,
     ) -> core::ffi::c_void {
         let fp = self
             .commands()

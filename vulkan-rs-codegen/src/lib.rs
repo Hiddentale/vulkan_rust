@@ -17,6 +17,8 @@ pub mod emit_constants;
 #[doc(hidden)]
 pub mod emit_enums;
 #[doc(hidden)]
+pub mod emit_extension_names;
+#[doc(hidden)]
 pub mod emit_handles;
 #[doc(hidden)]
 pub mod emit_layout_check;

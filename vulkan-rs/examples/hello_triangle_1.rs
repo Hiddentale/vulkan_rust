@@ -1,9 +1,9 @@
-// Exact copy of the "Putting it all together" block from
-// guide/src/getting-started/hello-triangle-1.md
+// Exact copy of the "Putting it all together" section from
+// <https://hiddentale.github.io/vulkan_rs/getting-started/hello-triangle-1.html>
 
 use vk::structs::*;
 use vulkan_rs::vk;
-use vulkan_rs::{Entry, LibloadingLoader};
+use vulkan_rs::{Entry, LibloadingLoader, Version};
 
 fn main() {
     // ── Step 1: Load Vulkan ────────────────────────────────────
@@ -18,11 +18,11 @@ fn main() {
 
     // ── Step 2: Create Instance ────────────────────────────────
     let app_info = ApplicationInfo::builder()
-        .p_application_name(c"Hello Triangle".as_ptr())
+        .p_application_name(c"Hello Triangle")
         .application_version(1)
-        .p_engine_name(c"No Engine".as_ptr())
+        .p_engine_name(c"No Engine")
         .engine_version(1)
-        .api_version(1 << 22); // Vulkan 1.0
+        .api_version(Version::new(1, 0, 0).to_raw());
 
     let create_info = InstanceCreateInfo::builder().p_application_info(&*app_info);
 

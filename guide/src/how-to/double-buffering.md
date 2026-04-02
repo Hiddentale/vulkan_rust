@@ -106,9 +106,8 @@ let alloc_info = CommandBufferAllocateInfo::builder()
     .level(CommandBufferLevel::PRIMARY)
     .command_buffer_count(MAX_FRAMES_IN_FLIGHT as u32);
 
-let mut command_buffers = vec![CommandBuffer::null(); MAX_FRAMES_IN_FLIGHT];
-unsafe {
-    device.allocate_command_buffers(&alloc_info, command_buffers.as_mut_ptr())
+let command_buffers = unsafe {
+    device.allocate_command_buffers(&alloc_info)
 }
 .expect("Failed to allocate command buffers");
 ```
@@ -134,7 +133,7 @@ loop {
 
     unsafe {
     // --- 1. Wait for this frame's previous submission to finish ---
-    device.wait_for_fences(&[sync.in_flight_fence], 1, u64::MAX)
+    device.wait_for_fences(&[sync.in_flight_fence], true, u64::MAX)
         .expect("Failed to wait for fence");
 
     // --- 2. Acquire the next swapchain image ---

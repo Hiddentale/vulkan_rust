@@ -73,8 +73,9 @@ let usage = BufferUsageFlags::VERTEX_BUFFER
 
 ```rust,ignore
 // C:    VK_KHR_SWAPCHAIN_EXTENSION_NAME
-// Rust: use a C string literal directly
-let device_extensions = [c"VK_KHR_swapchain".as_ptr()];
+// Rust: generated constants in vk::extension_names
+use vulkan_rs::vk::extension_names::KHR_SWAPCHAIN_EXTENSION_NAME;
+let device_extensions = [KHR_SWAPCHAIN_EXTENSION_NAME.as_ptr()];
 ```
 
 ## Structural patterns
@@ -197,16 +198,15 @@ let buffer: Buffer = unsafe { device.create_buffer(&info, None) }
     .expect("Failed to create buffer");
 ```
 
-For functions that output multiple handles (like `vkAllocateCommandBuffers`),
-you pass a mutable pointer to pre-allocated storage:
+Functions that output multiple handles (like `vkAllocateCommandBuffers`)
+return a `Vec` directly:
 
 ```rust,ignore
 use vulkan_rs::vk;
 use vk::handles::*;
 
-let mut cmd_buffers = vec![CommandBuffer::null(); count as usize];
-unsafe {
-    device.allocate_command_buffers(&alloc_info, cmd_buffers.as_mut_ptr())
+let cmd_buffers = unsafe {
+    device.allocate_command_buffers(&alloc_info)
 }
 .expect("Failed to allocate command buffers");
 ```
@@ -241,9 +241,9 @@ and it will find the Rust equivalent. For example, searching for
 | `vkDestroyImage` | `device.destroy_image(image, None)` | `()` |
 | `vkCreateImageView` | `device.create_image_view(&info, None)` | `VkResult<ImageView>` |
 | `vkCreateRenderPass` | `device.create_render_pass(&info, None)` | `VkResult<RenderPass>` |
-| `vkCreateGraphicsPipelines` | `device.create_graphics_pipelines(cache, &infos, None, pipelines)` | `VkResult<()>` |
+| `vkCreateGraphicsPipelines` | `device.create_graphics_pipelines(cache, &infos, None)` | `VkResult<Vec<Pipeline>>` |
 | `vkCreateCommandPool` | `device.create_command_pool(&info, None)` | `VkResult<CommandPool>` |
-| `vkAllocateCommandBuffers` | `device.allocate_command_buffers(&info, buffers)` | `VkResult<()>` |
+| `vkAllocateCommandBuffers` | `device.allocate_command_buffers(&info)` | `VkResult<Vec<CommandBuffer>>` |
 | `vkBeginCommandBuffer` | `device.begin_command_buffer(cmd, &info)` | `VkResult<()>` |
 | `vkEndCommandBuffer` | `device.end_command_buffer(cmd)` | `VkResult<()>` |
 | `vkCmdBeginRenderPass` | `device.cmd_begin_render_pass(cmd, &info, contents)` | `()` |
@@ -259,7 +259,7 @@ and it will find the Rust equivalent. For example, searching for
 | `vkResetFences` | `device.reset_fences(&fences)` | `VkResult<()>` |
 | `vkCreateSemaphore` | `device.create_semaphore(&info, None)` | `VkResult<Semaphore>` |
 | `vkCreateDescriptorSetLayout` | `device.create_descriptor_set_layout(&info, None)` | `VkResult<DescriptorSetLayout>` |
-| `vkAllocateDescriptorSets` | `device.allocate_descriptor_sets(&info, sets)` | `VkResult<()>` |
+| `vkAllocateDescriptorSets` | `device.allocate_descriptor_sets(&info)` | `VkResult<Vec<DescriptorSet>>` |
 | `vkUpdateDescriptorSets` | `device.update_descriptor_sets(&writes, &copies)` | `()` |
 
 ## Worked example: full translation

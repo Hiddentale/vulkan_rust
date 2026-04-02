@@ -277,16 +277,14 @@ let pipeline_info = GraphicsPipelineCreateInfo::builder()
     .render_pass(render_pass)
     .subpass(0);
 
-let mut pipeline = Pipeline::null();
-unsafe {
+let pipeline = unsafe {
     device.create_graphics_pipelines(
         PipelineCache::null(),
         &[*pipeline_info],
         None,
-        &mut pipeline,
     )
 }
-.expect("Failed to create graphics pipeline");
+.expect("Failed to create graphics pipeline")[0];
 
 // ── Shader modules are no longer needed ────────────────────────
 unsafe {

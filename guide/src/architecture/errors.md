@@ -141,13 +141,11 @@ unsafe fn create_pipeline(
     // ...
 ) -> VkResult<Pipeline> {
     let shader = device.create_shader_module(&shader_info, None)?;
-    let mut pipeline = Pipeline::null();
-    device.create_graphics_pipelines(
+    let pipeline = device.create_graphics_pipelines(
         PipelineCache::null(),
         &[pipeline_info],
         None,
-        &mut pipeline,
-    )?;
+    )?[0];
     device.destroy_shader_module(shader, None);
     Ok(pipeline)
 }

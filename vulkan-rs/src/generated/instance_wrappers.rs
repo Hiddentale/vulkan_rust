@@ -1726,7 +1726,7 @@ impl crate::Instance {
     pub unsafe fn get_physical_device_features2(
         &self,
         physical_device: PhysicalDevice,
-        p_features: *mut PhysicalDeviceFeatures2,
+        p_features: &mut PhysicalDeviceFeatures2,
     ) {
         let fp = self
             .commands()
@@ -1767,7 +1767,7 @@ impl crate::Instance {
     pub unsafe fn get_physical_device_properties2(
         &self,
         physical_device: PhysicalDevice,
-        p_properties: *mut PhysicalDeviceProperties2,
+        p_properties: &mut PhysicalDeviceProperties2,
     ) {
         let fp = self
             .commands()
@@ -1800,7 +1800,7 @@ impl crate::Instance {
         &self,
         physical_device: PhysicalDevice,
         format: Format,
-        p_format_properties: *mut FormatProperties2,
+        p_format_properties: &mut FormatProperties2,
     ) {
         let fp = self
             .commands()
@@ -1853,7 +1853,7 @@ impl crate::Instance {
         &self,
         physical_device: PhysicalDevice,
         p_image_format_info: &PhysicalDeviceImageFormatInfo2,
-        p_image_format_properties: *mut ImageFormatProperties2,
+        p_image_format_properties: &mut ImageFormatProperties2,
     ) -> VkResult<()> {
         let fp = self
             .commands()
@@ -1923,7 +1923,7 @@ impl crate::Instance {
     pub unsafe fn get_physical_device_memory_properties2(
         &self,
         physical_device: PhysicalDevice,
-        p_memory_properties: *mut PhysicalDeviceMemoryProperties2,
+        p_memory_properties: &mut PhysicalDeviceMemoryProperties2,
     ) {
         let fp = self
             .commands()
@@ -1989,7 +1989,7 @@ impl crate::Instance {
         &self,
         physical_device: PhysicalDevice,
         p_external_buffer_info: &PhysicalDeviceExternalBufferInfo,
-        p_external_buffer_properties: *mut ExternalBufferProperties,
+        p_external_buffer_properties: &mut ExternalBufferProperties,
     ) {
         let fp = self
             .commands()
@@ -2030,7 +2030,7 @@ impl crate::Instance {
         physical_device: PhysicalDevice,
         handle_type: ExternalMemoryHandleTypeFlagBits,
         handle: *const core::ffi::c_void,
-        p_memory_sci_buf_properties: *mut MemorySciBufPropertiesNV,
+        p_memory_sci_buf_properties: &mut MemorySciBufPropertiesNV,
     ) -> VkResult<()> {
         let fp = self
             .commands()
@@ -2108,7 +2108,7 @@ impl crate::Instance {
         &self,
         physical_device: PhysicalDevice,
         p_external_semaphore_info: &PhysicalDeviceExternalSemaphoreInfo,
-        p_external_semaphore_properties: *mut ExternalSemaphoreProperties,
+        p_external_semaphore_properties: &mut ExternalSemaphoreProperties,
     ) {
         let fp = self
             .commands()
@@ -2150,7 +2150,7 @@ impl crate::Instance {
         &self,
         physical_device: PhysicalDevice,
         p_external_fence_info: &PhysicalDeviceExternalFenceInfo,
-        p_external_fence_properties: *mut ExternalFenceProperties,
+        p_external_fence_properties: &mut ExternalFenceProperties,
     ) {
         let fp = self
             .commands()
@@ -2407,7 +2407,7 @@ impl crate::Instance {
         &self,
         physical_device: PhysicalDevice,
         surface: SurfaceKHR,
-        p_surface_capabilities: *mut SurfaceCapabilities2EXT,
+        p_surface_capabilities: &mut SurfaceCapabilities2EXT,
     ) -> VkResult<()> {
         let fp = self
             .commands()
@@ -2596,7 +2596,7 @@ impl crate::Instance {
         &self,
         physical_device: PhysicalDevice,
         samples: SampleCountFlagBits,
-        p_multisample_properties: *mut MultisamplePropertiesEXT,
+        p_multisample_properties: &mut MultisamplePropertiesEXT,
     ) {
         let fp = self
             .commands()
@@ -2638,7 +2638,7 @@ impl crate::Instance {
         &self,
         physical_device: PhysicalDevice,
         p_surface_info: &PhysicalDeviceSurfaceInfo2KHR,
-        p_surface_capabilities: *mut SurfaceCapabilities2KHR,
+        p_surface_capabilities: &mut SurfaceCapabilities2KHR,
     ) -> VkResult<()> {
         let fp = self
             .commands()
@@ -2820,7 +2820,7 @@ impl crate::Instance {
         &self,
         physical_device: PhysicalDevice,
         p_display_plane_info: &DisplayPlaneInfo2KHR,
-        p_capabilities: *mut DisplayPlaneCapabilities2KHR,
+        p_capabilities: &mut DisplayPlaneCapabilities2KHR,
     ) -> VkResult<()> {
         let fp = self
             .commands()
@@ -3364,7 +3364,7 @@ impl crate::Instance {
         &self,
         physical_device: PhysicalDevice,
         p_video_profile: &VideoProfileInfoKHR,
-        p_capabilities: *mut VideoCapabilitiesKHR,
+        p_capabilities: &mut VideoCapabilitiesKHR,
     ) -> VkResult<()> {
         let fp = self
             .commands()
@@ -3458,7 +3458,7 @@ impl crate::Instance {
         &self,
         physical_device: PhysicalDevice,
         p_quality_level_info: &PhysicalDeviceVideoEncodeQualityLevelInfoKHR,
-        p_quality_level_properties: *mut VideoEncodeQualityLevelPropertiesKHR,
+        p_quality_level_properties: &mut VideoEncodeQualityLevelPropertiesKHR,
     ) -> VkResult<()> {
         let fp = self
             .commands()
@@ -3750,7 +3750,7 @@ impl crate::Instance {
         &self,
         physical_device: PhysicalDevice,
         p_external_tensor_info: &PhysicalDeviceExternalTensorInfoARM,
-        p_external_tensor_properties: *mut ExternalTensorPropertiesARM,
+        p_external_tensor_properties: &mut ExternalTensorPropertiesARM,
     ) {
         let fp = self
             .commands()
@@ -3821,7 +3821,7 @@ impl crate::Instance {
         &self,
         physical_device: PhysicalDevice,
         p_queue_family_data_graph_processing_engine_info: &PhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARM,
-        p_queue_family_data_graph_processing_engine_properties: *mut QueueFamilyDataGraphProcessingEnginePropertiesARM,
+        p_queue_family_data_graph_processing_engine_properties: &mut QueueFamilyDataGraphProcessingEnginePropertiesARM,
     ) {
         let fp = self
             .commands()

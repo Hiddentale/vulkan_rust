@@ -145,7 +145,7 @@ unsafe fn check_extensions(device: &Device) {
             .pre_transform(SurfaceTransformFlagBitsKHR::IDENTITY)
             .composite_alpha(CompositeAlphaFlagBitsKHR::OPAQUE)
             .present_mode(PresentModeKHR::FIFO)
-            .clipped(1)
+            .clipped(true)
             .old_swapchain(SwapchainKHR::null());
 
         // This would fail at runtime (null surface) but type-checks correctly
@@ -156,7 +156,7 @@ unsafe fn check_extensions(device: &Device) {
 /// Verify pNext chain (c-to-rust.md)
 unsafe fn check_pnext(instance: &vulkan_rs::Instance, physical_device: PhysicalDevice) {
     unsafe {
-        let mut features12 = *PhysicalDeviceVulkan12Features::builder().buffer_device_address(1); // VkBool32
+        let mut features12 = *PhysicalDeviceVulkan12Features::builder().buffer_device_address(true); // VkBool32
         let queue_info = DeviceQueueCreateInfo::builder()
             .queue_family_index(0)
             .queue_priorities(&[1.0]);
@@ -177,7 +177,7 @@ unsafe fn check_enumerate(instance: &vulkan_rs::Instance) {
     }
 }
 
-/// Verify allocate_command_buffers with output pointer (c-to-rust.md)
+/// Verify allocate_command_buffers returns Vec (c-to-rust.md)
 unsafe fn check_allocate_cmd_buffers(device: &Device, command_pool: CommandPool) {
     unsafe {
         let alloc_info = CommandBufferAllocateInfo::builder()
@@ -185,10 +185,10 @@ unsafe fn check_allocate_cmd_buffers(device: &Device, command_pool: CommandPool)
             .level(CommandBufferLevel::PRIMARY)
             .command_buffer_count(2);
 
-        let mut cmd_buffers = vec![CommandBuffer::null(); 2];
-        device
-            .allocate_command_buffers(&alloc_info, cmd_buffers.as_mut_ptr())
+        let cmd_buffers = device
+            .allocate_command_buffers(&alloc_info)
             .expect("Failed to allocate");
+        assert_eq!(cmd_buffers.len(), 2);
     }
 }
 
@@ -237,7 +237,7 @@ unsafe fn check_table_calls(
         // wait_for_fences, reset_fences
         // (can't call without real fences, but verify signatures compile)
         let fences: &[Fence] = &[];
-        let _ = device.wait_for_fences(fences, 1, 0);
+        let _ = device.wait_for_fences(fences, true, 0);
         let _ = device.reset_fences(fences);
 
         // queue_present_khr

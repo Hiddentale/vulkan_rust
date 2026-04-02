@@ -193,8 +193,7 @@ unsafe {
         .command_pool(pool)
         .level(CommandBufferLevel::PRIMARY)
         .command_buffer_count(2);
-    let mut command_buffers = [CommandBuffer::null(); 2];
-    device.allocate_command_buffers(&alloc_info, command_buffers.as_mut_ptr())?;
+    let command_buffers = device.allocate_command_buffers(&alloc_info)?;
 
     // Use command_buffers[0], command_buffers[1], ...
 

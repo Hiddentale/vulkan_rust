@@ -143,10 +143,9 @@ let alloc_info = DescriptorSetAllocateInfo::builder()
     .descriptor_pool(descriptor_pool)
     .set_layouts(&[descriptor_layout]);
 
-let mut descriptor_set = DescriptorSet::null();
-unsafe {
-    device.allocate_descriptor_sets(&alloc_info, &mut descriptor_set)?;
-};
+let descriptor_set = unsafe {
+    device.allocate_descriptor_sets(&alloc_info)?
+}[0];
 ```
 
 ### Step 4: Write descriptors (point slots to actual resources)
