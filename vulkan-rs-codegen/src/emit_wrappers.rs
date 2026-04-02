@@ -223,6 +223,16 @@ fn emit_wrapper_docs(cmd: &CommandDef, roles: &[ParamRole]) -> TokenStream {
         doc_lines.push(quote! { #[doc = #line] });
     }
 
+    // Panics section: all wrappers call .expect() on the function pointer.
+    let panic_cmd = format!(
+        "Panics if `{}` was not loaded. This can happen if the required \
+         extension or Vulkan version is not enabled on the instance or device.",
+        &cmd.name,
+    );
+    doc_lines.push(quote! { #[doc = ""] });
+    doc_lines.push(quote! { #[doc = "# Panics"] });
+    doc_lines.push(quote! { #[doc = #panic_cmd] });
+
     // Doc overrides: append hand-written content from doc_overrides/{vkCommandName}.md.
     let overrides_dir = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("doc_overrides");
     let override_path = overrides_dir.join(format!("{}.md", &cmd.name));

@@ -14,6 +14,9 @@ impl crate::Entry {
     ///# Safety
     ///- `externalQueue` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetExternalComputeQueueDataNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Retrieves data from an external compute queue, allowing the

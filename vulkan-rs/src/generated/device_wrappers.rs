@@ -14,6 +14,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetDeviceProcAddr` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Returns a function pointer for a device-level command. This is the
@@ -43,6 +46,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///- `device` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkDestroyDevice` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -74,6 +80,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetDeviceQueue` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -115,6 +124,9 @@ impl crate::Device {
     ///- `queue` (self) must be valid and not destroyed.
     ///- `queue` must be externally synchronized.
     ///- `fence` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkQueueSubmit` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -164,6 +176,9 @@ impl crate::Device {
     ///- `queue` (self) must be valid and not destroyed.
     ///- `queue` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkQueueWaitIdle` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Blocks the calling thread until all commands submitted to this queue
@@ -198,6 +213,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkDeviceWaitIdle` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -237,6 +255,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkAllocateMemory` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Memory allocation in Vulkan is expensive. Prefer sub-allocating from
@@ -266,6 +287,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///- `memory` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkFreeMemory` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -308,6 +332,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `memory` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkMapMemory` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Maps device memory into the host address space so the CPU can read or
@@ -349,6 +376,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `memory` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkUnmapMemory` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Unmaps a previously mapped device memory region. After this call the
@@ -383,6 +413,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkFlushMappedMemoryRanges` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -433,6 +466,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkInvalidateMappedMemoryRanges` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Invalidates CPU caches for mapped non-coherent memory so the CPU
@@ -473,6 +509,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetDeviceMemoryCommitment` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Queries how many bytes of a lazily-allocated memory object are
@@ -502,6 +541,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetBufferMemoryRequirements` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -543,6 +585,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `buffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkBindBufferMemory` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Binds a `DeviceMemory` allocation (or a region of one) to a buffer.
@@ -582,6 +627,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetImageMemoryRequirements` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Returns the memory requirements (size, alignment, compatible memory
@@ -620,6 +668,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///- `image` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkBindImageMemory` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -665,6 +716,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetImageSparseMemoryRequirements` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Queries the sparse memory requirements for an image created with
@@ -705,6 +759,9 @@ impl crate::Device {
     ///- `queue` (self) must be valid and not destroyed.
     ///- `queue` must be externally synchronized.
     ///- `fence` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkQueueBindSparse` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -752,6 +809,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCreateFence` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Fences are the primary CPU–GPU synchronization primitive. The CPU
@@ -795,6 +855,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `fence` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkDestroyFence` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys a fence object. The fence must not be in use by any
@@ -824,6 +887,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///- `pFences` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkResetFences` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -860,6 +926,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetFenceStatus` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -901,6 +970,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkWaitForFences` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -963,6 +1035,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCreateSemaphore` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Creates a semaphore for GPU–GPU synchronization between queue
@@ -1007,6 +1082,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `semaphore` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkDestroySemaphore` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys a semaphore. The semaphore must not be referenced by any
@@ -1038,6 +1116,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkCreateEvent` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -1079,6 +1160,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `event` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkDestroyEvent` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys an event. The event must not be referenced by any pending
@@ -1105,6 +1189,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetEventStatus` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -1135,6 +1222,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `event` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkSetEvent` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Signals an event from the host (CPU). After this call,
@@ -1160,6 +1250,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///- `event` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkResetEvent` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -1187,6 +1280,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkCreateQueryPool` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -1229,6 +1325,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `queryPool` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkDestroyQueryPool` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys a query pool and frees its resources. All command buffers
@@ -1259,6 +1358,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetQueryPoolResults` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -1319,6 +1421,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkResetQueryPool` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Resets a range of queries in a pool from the host (CPU). This is the
@@ -1356,6 +1461,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkCreateBuffer` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Examples
     ///
@@ -1403,6 +1511,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `buffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkDestroyBuffer` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys a buffer object. The buffer must not be in use by any
@@ -1436,6 +1547,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkCreateBufferView` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -1477,6 +1591,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `bufferView` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkDestroyBufferView` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys a buffer view. The view must not be referenced by any
@@ -1509,6 +1626,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkCreateImage` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -1550,6 +1670,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `image` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkDestroyImage` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys an image object. The image must not be in use by any
@@ -1580,6 +1703,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetImageSubresourceLayout` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -1613,6 +1739,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkCreateImageView` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -1655,6 +1784,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `imageView` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkDestroyImageView` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys an image view. The view must not be referenced by any
@@ -1688,6 +1820,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkCreateShaderModule` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -1723,6 +1858,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `shaderModule` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkDestroyShaderModule` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys a shader module. The module must not be in use by any
@@ -1752,6 +1890,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkCreatePipelineCache` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -1796,6 +1937,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `pipelineCache` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkDestroyPipelineCache` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys a pipeline cache. Pipelines that were created using this
@@ -1828,6 +1972,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetPipelineCacheData` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -1872,6 +2019,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///- `dstCache` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkMergePipelineCaches` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -1918,6 +2068,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCreatePipelineBinariesKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Creates pipeline binary objects from either a pipeline create info
@@ -1962,6 +2115,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `pipelineBinary` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkDestroyPipelineBinaryKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys a pipeline binary handle. After destruction, the binary
@@ -1994,6 +2150,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetPipelineKeyKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -2036,6 +2195,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetPipelineBinaryDataKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -2088,6 +2250,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkReleaseCapturedPipelineDataKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Releases internal data captured during pipeline creation that was
@@ -2124,6 +2289,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///- `pipelineCache` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCreateGraphicsPipelines` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -2184,6 +2352,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `pipelineCache` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCreateComputePipelines` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Creates one or more compute pipelines. Compute pipelines are simpler
@@ -2241,6 +2412,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Queries the maximum workgroup size supported for subpass shading
@@ -2267,6 +2441,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///- `pipeline` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkDestroyPipeline` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -2305,6 +2482,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkCreatePipelineLayout` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -2353,6 +2533,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `pipelineLayout` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkDestroyPipelineLayout` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys a pipeline layout. All pipelines and descriptor sets that
@@ -2386,6 +2569,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkCreateSampler` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -2435,6 +2621,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `sampler` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkDestroySampler` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys a sampler. The sampler must not be referenced by any
@@ -2467,6 +2656,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkCreateDescriptorSetLayout` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -2512,6 +2704,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `descriptorSetLayout` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkDestroyDescriptorSetLayout` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys a descriptor set layout. The layout must not be referenced
@@ -2546,6 +2741,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkCreateDescriptorPool` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -2591,6 +2789,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `descriptorPool` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkDestroyDescriptorPool` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys a descriptor pool and implicitly frees all descriptor sets
@@ -2622,6 +2823,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///- `descriptorPool` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkResetDescriptorPool` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -2661,6 +2865,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkAllocateDescriptorSets` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -2708,6 +2915,9 @@ impl crate::Device {
     ///- `descriptorPool` must be externally synchronized.
     ///- `pDescriptorSets` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkFreeDescriptorSets` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Returns individual descriptor sets back to their parent pool. The
@@ -2745,6 +2955,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///- `pDescriptorWrites` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkUpdateDescriptorSets` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -2800,6 +3013,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCreateFramebuffer` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///A framebuffer binds concrete image views to the attachment slots
@@ -2841,6 +3057,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `framebuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkDestroyFramebuffer` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys a framebuffer. No render pass instance using this
@@ -2874,6 +3093,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkCreateRenderPass` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -2919,6 +3141,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `renderPass` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkDestroyRenderPass` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys a render pass. All framebuffers and pipelines created with
@@ -2946,6 +3171,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetRenderAreaGranularity` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -2977,6 +3205,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetRenderingAreaGranularity` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -3015,6 +3246,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkCreateCommandPool` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -3059,6 +3293,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `commandPool` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkDestroyCommandPool` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys a command pool and implicitly frees all command buffers
@@ -3092,6 +3329,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///- `commandPool` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkResetCommandPool` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -3135,6 +3375,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkAllocateCommandBuffers` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Allocates one or more command buffers from a command pool. The
@@ -3172,6 +3415,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `commandPool` must be externally synchronized.
     ///- `pCommandBuffers` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkFreeCommandBuffers` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -3216,6 +3462,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkBeginCommandBuffer` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -3267,6 +3516,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkEndCommandBuffer` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Finishes recording a command buffer. After this call the command
@@ -3299,6 +3551,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkResetCommandBuffer` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -3334,6 +3589,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdBindPipeline` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -3375,6 +3633,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetAttachmentFeedbackLoopEnableEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Dynamically enables or disables attachment feedback loops for
@@ -3404,6 +3665,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdSetViewport` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -3454,6 +3718,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetScissor` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Sets the scissor rectangle dynamically. Only takes effect if the
@@ -3502,6 +3769,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetLineWidth` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Sets the width of rasterised line primitives dynamically. Only takes
@@ -3532,6 +3802,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdSetDepthBias` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -3586,6 +3859,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetBlendConstants` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Sets the constant blend colour used when a blend factor references
@@ -3618,6 +3894,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdSetDepthBounds` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -3660,6 +3939,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetStencilCompareMask` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Sets the stencil compare mask dynamically for front-facing,
@@ -3694,6 +3976,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetStencilWriteMask` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Sets the stencil write mask dynamically for front-facing,
@@ -3725,6 +4010,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdSetStencilReference` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -3762,6 +4050,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdBindDescriptorSets` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -3817,6 +4108,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdBindIndexBuffer` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Binds an index buffer for subsequent indexed draw calls
@@ -3856,6 +4150,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdBindVertexBuffers` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -3906,6 +4203,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdDraw` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Records a non-indexed draw call. Vertices are generated sequentially
@@ -3952,6 +4252,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdDrawIndexed` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -4005,6 +4308,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdDrawMultiEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Draws multiple non-indexed draw calls from an array of
@@ -4043,6 +4349,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdDrawMultiIndexedEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -4087,6 +4396,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdDrawIndirect` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -4133,6 +4445,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdDrawIndexedIndirect` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Records one or more indexed draw calls whose parameters are read
@@ -4172,6 +4487,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdDispatch` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -4214,6 +4532,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdDispatchIndirect` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Launches a compute shader with workgroup counts read from a GPU
@@ -4248,6 +4569,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSubpassShadingHUAWEI` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Dispatches subpass shading work within the current subpass.
@@ -4270,6 +4594,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdDrawClusterHUAWEI` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -4299,6 +4626,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdDrawClusterIndirectHUAWEI` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Indirect variant of `cmd_draw_cluster_huawei`. Reads the cluster
@@ -4326,6 +4656,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdUpdatePipelineIndirectBufferNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Updates the indirect dispatch parameters for a compute pipeline
@@ -4352,6 +4685,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdCopyBuffer` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -4399,6 +4735,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdCopyImage` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -4449,6 +4788,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdBlitImage` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -4510,6 +4852,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdCopyBufferToImage` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Copies data from a buffer to an image, the primary way to upload
@@ -4562,6 +4907,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdCopyImageToBuffer` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -4616,6 +4964,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdCopyMemoryIndirectNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Copies memory regions using indirect parameters stored in a GPU
@@ -4645,6 +4996,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdCopyMemoryIndirectKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Copies memory regions using parameters read from a device-side
@@ -4670,6 +5024,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdCopyMemoryToImageIndirectNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -4711,6 +5068,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdCopyMemoryToImageIndirectKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Copies data from memory to an image using parameters read from a
@@ -4736,6 +5096,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdUpdateBuffer` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -4776,6 +5139,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdFillBuffer` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Fills a region of a buffer with a repeating 4-byte value. Useful
@@ -4814,6 +5180,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdClearColorImage` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -4859,6 +5228,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdClearDepthStencilImage` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -4906,6 +5278,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdClearAttachments` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Clears one or more attachment regions **inside** an active render
@@ -4952,6 +5327,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdResolveImage` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -5003,6 +5381,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetEvent` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Signals an event from the GPU at a specific pipeline stage. A later
@@ -5043,6 +5424,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdResetEvent` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Resets an event to the unsignaled state from the GPU at a specific
@@ -5072,6 +5456,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdWaitEvents` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -5129,6 +5516,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdPipelineBarrier` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -5198,6 +5588,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdBeginQuery` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Begins a query at the specified index in a query pool. All
@@ -5236,6 +5629,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdEndQuery` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Ends an active query at the specified index. The query results
@@ -5265,6 +5661,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdBeginConditionalRenderingEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -5298,6 +5697,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdEndConditionalRenderingEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Ends a conditional rendering block started with
@@ -5319,6 +5721,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdBeginCustomResolveEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -5351,6 +5756,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdResetQueryPool` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Resets a range of queries in a pool from the GPU command stream.
@@ -5382,6 +5790,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdWriteTimestamp` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -5430,6 +5841,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdCopyQueryPoolResults` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -5483,6 +5897,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdPushConstants` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Updates push constant values for the bound pipeline layout. Push
@@ -5534,6 +5951,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdBeginRenderPass` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Begins a render pass instance. All subsequent drawing commands are
@@ -5580,6 +6000,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdNextSubpass` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Advances to the next subpass within a render pass. Subpass
@@ -5615,6 +6038,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdEndRenderPass` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Ends the current render pass instance. After this call, the
@@ -5639,6 +6065,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdExecuteCommands` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -5695,6 +6124,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCreateSharedSwapchainsKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Creates one or more swapchains that share presentable images with
@@ -5741,6 +6173,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkCreateSwapchainKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -5790,6 +6225,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `swapchain` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkDestroySwapchainKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys a swapchain. All images obtained from
@@ -5827,6 +6265,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetSwapchainImagesKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -5870,6 +6311,9 @@ impl crate::Device {
     ///- `swapchain` must be externally synchronized.
     ///- `semaphore` must be externally synchronized.
     ///- `fence` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkAcquireNextImageKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -5944,6 +6388,9 @@ impl crate::Device {
     ///- `queue` (self) must be valid and not destroyed.
     ///- `queue` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkQueuePresentKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Presents a rendered swapchain image to the display. This is the
@@ -5992,6 +6439,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkDebugMarkerSetObjectNameEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Assigns a name to a Vulkan object for debugging. This is the
@@ -6026,6 +6476,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkDebugMarkerSetObjectTagEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Attaches arbitrary binary data to a Vulkan object. This is the
@@ -6051,6 +6504,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdDebugMarkerBeginEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -6082,6 +6538,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdDebugMarkerEndEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Closes the most recently opened debug marker region in the command
@@ -6104,6 +6563,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdDebugMarkerInsertEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -6140,6 +6602,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetMemoryWin32HandleNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Exports a Vulkan device memory allocation as a Win32 handle
@@ -6169,6 +6634,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdExecuteGeneratedCommandsNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Executes commands that were generated on the GPU. If
@@ -6195,6 +6663,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdPreprocessGeneratedCommandsNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -6223,6 +6694,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdBindPipelineShaderGroupNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Binds a shader group from a pipeline that was created with
@@ -6250,6 +6724,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetGeneratedCommandsMemoryRequirementsNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -6281,6 +6758,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkCreateIndirectCommandsLayoutNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -6314,6 +6794,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `indirectCommandsLayout` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkDestroyIndirectCommandsLayoutNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys an indirect commands layout created with
@@ -6339,6 +6822,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdExecuteGeneratedCommandsEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -6372,6 +6858,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///- `stateCommandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdPreprocessGeneratedCommandsEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -6409,6 +6898,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetGeneratedCommandsMemoryRequirementsEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Queries the memory requirements for preprocessing and executing
@@ -6444,6 +6936,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCreateIndirectCommandsLayoutEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Creates an indirect commands layout that defines the structure of
@@ -6478,6 +6973,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `indirectCommandsLayout` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkDestroyIndirectCommandsLayoutEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys an indirect commands layout created with
@@ -6508,6 +7006,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkCreateIndirectExecutionSetEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -6544,6 +7045,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `indirectExecutionSet` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkDestroyIndirectExecutionSetEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys an indirect execution set created with
@@ -6569,6 +7073,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///- `indirectExecutionSet` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkUpdateIndirectExecutionSetPipelineEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -6606,6 +7113,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `indirectExecutionSet` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkUpdateIndirectExecutionSetShaderEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Updates entries in an indirect execution set that holds shader
@@ -6641,6 +7151,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdPushDescriptorSet` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -6697,6 +7210,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `commandPool` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkTrimCommandPool` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Returns unused memory from a command pool back to the system. This
@@ -6731,6 +7247,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetMemoryWin32HandleKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -6770,6 +7289,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetMemoryWin32HandlePropertiesKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -6816,6 +7338,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetMemoryFdKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Exports a device memory allocation as a POSIX file descriptor.
@@ -6856,6 +7381,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetMemoryFdPropertiesKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Queries which memory types are compatible with an external file
@@ -6894,6 +7422,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetMemoryZirconHandleFUCHSIA` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Exports a Vulkan device memory allocation as a Fuchsia Zircon
@@ -6924,6 +7455,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetMemoryZirconHandlePropertiesFUCHSIA` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -6963,6 +7497,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetMemoryRemoteAddressNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Retrieves a remote device address for a Vulkan memory allocation,
@@ -6992,6 +7529,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetMemorySciBufNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -7023,6 +7563,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetSemaphoreWin32HandleKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -7064,6 +7607,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkImportSemaphoreWin32HandleKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Imports a synchronization payload from a Windows HANDLE into a
@@ -7100,6 +7646,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetSemaphoreFdKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -7143,6 +7692,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkImportSemaphoreFdKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Imports a synchronization payload from a POSIX file descriptor
@@ -7182,6 +7734,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetSemaphoreZirconHandleFUCHSIA` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Exports a Vulkan semaphore as a Fuchsia Zircon event handle for
@@ -7213,6 +7768,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkImportSemaphoreZirconHandleFUCHSIA` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Imports a Fuchsia Zircon event handle into an existing Vulkan
@@ -7241,6 +7799,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetFenceWin32HandleKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -7279,6 +7840,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkImportFenceWin32HandleKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Imports a synchronization payload from a Windows HANDLE into a
@@ -7314,6 +7878,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetFenceFdKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -7353,6 +7920,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkImportFenceFdKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Imports a synchronization payload from a POSIX file descriptor
@@ -7389,6 +7959,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetFenceSciSyncFenceNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Exports a Vulkan fence as a SciSync fence handle for
@@ -7418,6 +7991,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetFenceSciSyncObjNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -7449,6 +8025,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkImportFenceSciSyncFenceNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Imports a SciSync fence handle into an existing Vulkan fence for
@@ -7477,6 +8056,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkImportFenceSciSyncObjNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Imports a SciSync object handle into an existing Vulkan fence
@@ -7504,6 +8086,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetSemaphoreSciSyncObjNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -7536,6 +8121,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkImportSemaphoreSciSyncObjNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Imports a SciSync object handle into an existing Vulkan
@@ -7564,6 +8152,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCreateSemaphoreSciSyncPoolNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Creates a pool of SciSync-backed semaphores for efficient
@@ -7590,6 +8181,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///- `semaphorePool` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkDestroySemaphoreSciSyncPoolNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -7621,6 +8215,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkDisplayPowerControlEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Controls the power state of a display (e.g., standby, suspend,
@@ -7649,6 +8246,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkRegisterDeviceEventEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -7684,6 +8284,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkRegisterDisplayEventEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -7732,6 +8335,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetSwapchainCounterEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Queries a performance counter associated with a swapchain (e.g.,
@@ -7760,6 +8366,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetDeviceGroupPeerMemoryFeatures` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -7810,6 +8419,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkBindBufferMemory2` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Binds memory to one or more buffers in a single call. This is the
@@ -7851,6 +8463,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkBindImageMemory2` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Binds memory to one or more images in a single call. This is the
@@ -7883,6 +8498,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdSetDeviceMask` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -7919,6 +8537,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetDeviceGroupPresentCapabilitiesKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Queries the present capabilities of a device group, which physical
@@ -7952,6 +8573,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///- `surface` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkGetDeviceGroupSurfacePresentModesKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -7990,6 +8614,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkAcquireNextImage2KHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Extended version of `acquire_next_image_khr` that takes an
@@ -8020,6 +8647,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdDispatchBase` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -8075,6 +8705,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCreateDescriptorUpdateTemplate` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Creates a template that describes how to update a descriptor set
@@ -8118,6 +8751,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `descriptorUpdateTemplate` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkDestroyDescriptorUpdateTemplate` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys a descriptor update template. The template must not be in
@@ -8142,6 +8778,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///- `descriptorSet` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkUpdateDescriptorSetWithTemplate` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -8182,6 +8821,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdPushDescriptorSetWithTemplate` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -8226,6 +8868,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkSetHdrMetadataEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -8273,6 +8918,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `swapchain` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkGetSwapchainStatusKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Queries the current status of a shared presentable swapchain
@@ -8309,6 +8957,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `swapchain` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkGetRefreshCycleDurationGOOGLE` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Queries the duration of a single refresh cycle (vsync interval)
@@ -8344,6 +8995,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `swapchain` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkGetPastPresentationTimingGOOGLE` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Returns timing data for past presentations on a swapchain,
@@ -8370,6 +9024,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdSetViewportWScalingNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -8405,6 +9062,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdSetDiscardRectangleEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -8443,6 +9103,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetDiscardRectangleEnableEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Dynamically enables or disables discard rectangles for subsequent
@@ -8469,6 +9132,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetDiscardRectangleModeEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Dynamically sets whether fragments inside or outside the discard
@@ -8494,6 +9160,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdSetSampleLocationsEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -8526,6 +9195,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetBufferMemoryRequirements2` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Vulkan 1.1 version of `get_buffer_memory_requirements` that supports
@@ -8555,6 +9227,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetImageMemoryRequirements2` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -8589,6 +9264,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetImageSparseMemoryRequirements2` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Vulkan 1.1 version of `get_image_sparse_memory_requirements` that
@@ -8613,6 +9291,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetDeviceBufferMemoryRequirements` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -8644,6 +9325,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetDeviceImageMemoryRequirements` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -8678,6 +9362,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetDeviceImageSparseMemoryRequirements` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Vulkan 1.3 command that queries sparse memory requirements for an
@@ -8708,6 +9395,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkCreateSamplerYcbcrConversion` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -8751,6 +9441,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `ycbcrConversion` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkDestroySamplerYcbcrConversion` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys a sampler YCBCR conversion object. Any sampler that was
@@ -8777,6 +9470,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetDeviceQueue2` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -8808,6 +9504,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkCreateValidationCacheEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -8843,6 +9542,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `validationCache` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkDestroyValidationCacheEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys a validation cache created with
@@ -8873,6 +9575,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetValidationCacheDataEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -8911,6 +9616,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `dstCache` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkMergeValidationCachesEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Merges one or more source validation caches into a destination
@@ -8943,6 +9651,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetDescriptorSetLayoutSupport` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Queries whether a descriptor set layout with the given bindings can
@@ -8972,6 +9683,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetSwapchainGrallocUsageANDROID` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Queries the Android gralloc usage flags needed for swapchain
@@ -8996,6 +9710,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetSwapchainGrallocUsage2ANDROID` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -9033,6 +9750,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkAcquireImageANDROID` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Acquires ownership of a swapchain image on Android. Takes a
@@ -9057,6 +9777,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `queue` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkQueueSignalReleaseImageANDROID` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -9100,6 +9823,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetShaderInfoAMD` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Queries AMD-specific shader information such as compiled binary
@@ -9139,6 +9865,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkSetLocalDimmingAMD` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Enables or disables local dimming on an AMD display with native
@@ -9169,6 +9898,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetCalibratedTimestampsKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -9222,6 +9954,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `pNameInfo` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkSetDebugUtilsObjectNameEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Assigns a human-readable name to any Vulkan object. The name
@@ -9260,6 +9995,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkSetDebugUtilsObjectTagEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Attaches arbitrary binary data to a Vulkan object. Unlike
@@ -9290,6 +10028,9 @@ impl crate::Device {
     ///- `queue` (self) must be valid and not destroyed.
     ///- `queue` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkQueueBeginDebugUtilsLabelEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Opens a debug label region on a queue. All submissions between
@@ -9319,6 +10060,9 @@ impl crate::Device {
     ///- `queue` (self) must be valid and not destroyed.
     ///- `queue` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkQueueEndDebugUtilsLabelEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Closes the most recently opened debug label region on the queue.
@@ -9340,6 +10084,9 @@ impl crate::Device {
     ///# Safety
     ///- `queue` (self) must be valid and not destroyed.
     ///- `queue` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkQueueInsertDebugUtilsLabelEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -9366,6 +10113,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdBeginDebugUtilsLabelEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -9400,6 +10150,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdEndDebugUtilsLabelEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Closes the most recently opened debug label region in the command
@@ -9421,6 +10174,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdInsertDebugUtilsLabelEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -9456,6 +10212,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetMemoryHostPointerPropertiesEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Queries which memory types are compatible with importing a host
@@ -9490,6 +10249,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdWriteBufferMarkerAMD` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -9534,6 +10296,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCreateRenderPass2` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Vulkan 1.2 version of `create_render_pass` that uses extensible
@@ -9576,6 +10341,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdBeginRenderPass2` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Vulkan 1.2 version of `cmd_begin_render_pass` that takes an
@@ -9609,6 +10377,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdNextSubpass2` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Vulkan 1.2 version of `cmd_next_subpass` that takes extensible
@@ -9635,6 +10406,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdEndRenderPass2` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -9667,6 +10441,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetSemaphoreCounterValue` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -9710,6 +10487,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkWaitSemaphores` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -9761,6 +10541,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkSignalSemaphore` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Signals a timeline semaphore from the host (CPU), advancing its
@@ -9797,6 +10580,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetAndroidHardwareBufferPropertiesANDROID` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Queries the Vulkan memory properties (memory type bits, size)
@@ -9828,6 +10614,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetMemoryAndroidHardwareBufferANDROID` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Exports a Vulkan device memory allocation as an Android
@@ -9853,6 +10642,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdDrawIndirectCount` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -9900,6 +10692,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdDrawIndexedIndirectCount` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -9952,6 +10747,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetCheckpointNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Inserts a checkpoint marker into the command buffer for
@@ -9979,6 +10777,9 @@ impl crate::Device {
     ///# Safety
     ///- `queue` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetQueueCheckpointDataNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Retrieves the checkpoint markers that were most recently executed
@@ -10000,6 +10801,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdBindTransformFeedbackBuffersEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -10044,6 +10848,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdBeginTransformFeedbackEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -10090,6 +10897,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdEndTransformFeedbackEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Ends a transform feedback pass started with
@@ -10129,6 +10939,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdBeginQueryIndexedEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Begins an indexed query, like `cmd_begin_query` but with an
@@ -10163,6 +10976,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdEndQueryIndexedEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Ends an indexed query started with `cmd_begin_query_indexed_ext`.
@@ -10189,6 +11005,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdDrawIndirectByteCountEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -10234,6 +11053,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetExclusiveScissorNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Dynamically sets the exclusive scissor rectangles for one or
@@ -10267,6 +11089,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdSetExclusiveScissorEnableNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -10302,6 +11127,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdBindShadingRateImageNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Binds a shading rate image that controls per-region fragment
@@ -10328,6 +11156,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdSetViewportShadingRatePaletteNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -10362,6 +11193,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdSetCoarseSampleOrderNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -10398,6 +11232,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdDrawMeshTasksNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Dispatches mesh shader work using the NV mesh shader model.
@@ -10428,6 +11265,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdDrawMeshTasksIndirectNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Indirect variant of `cmd_draw_mesh_tasks_nv`. Reads draw
@@ -10456,6 +11296,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdDrawMeshTasksIndirectCountNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -10499,6 +11342,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdDrawMeshTasksEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Dispatches mesh shader work groups. `group_count_x/y/z` specify
@@ -10529,6 +11375,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdDrawMeshTasksIndirectEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -10561,6 +11410,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdDrawMeshTasksIndirectCountEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -10610,6 +11462,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCompileDeferredNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Triggers compilation of a deferred shader in an NV ray tracing
@@ -10638,6 +11493,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkCreateAccelerationStructureNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -10672,6 +11530,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdBindInvocationMaskHUAWEI` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Binds an image view as an invocation mask for ray tracing. The
@@ -10700,6 +11561,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `accelerationStructure` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkDestroyAccelerationStructureKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys an acceleration structure. The structure must not be
@@ -10727,6 +11591,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `accelerationStructure` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkDestroyAccelerationStructureNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys an NV acceleration structure created with
@@ -10752,6 +11619,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetAccelerationStructureMemoryRequirementsNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -10785,6 +11655,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkBindAccelerationStructureMemoryNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Binds device memory to one or more NV acceleration structures.
@@ -10816,6 +11689,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdCopyAccelerationStructureNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Copies or compacts an NV acceleration structure. Use `CLONE` mode
@@ -10843,6 +11719,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdCopyAccelerationStructureKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -10887,6 +11766,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCopyAccelerationStructureKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Host-side acceleration structure copy. The CPU counterpart to
@@ -10912,6 +11794,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdCopyAccelerationStructureToMemoryKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -10949,6 +11834,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCopyAccelerationStructureToMemoryKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Host-side acceleration structure serialization. The CPU counterpart
@@ -10973,6 +11861,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdCopyMemoryToAccelerationStructureKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -11009,6 +11900,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCopyMemoryToAccelerationStructureKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Host-side acceleration structure deserialization. The CPU counterpart
@@ -11033,6 +11927,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdWriteAccelerationStructuresPropertiesKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -11081,6 +11978,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdWriteAccelerationStructuresPropertiesNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Writes acceleration structure properties (such as compacted size)
@@ -11119,6 +12019,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdBuildAccelerationStructureNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -11173,6 +12076,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkWriteAccelerationStructuresPropertiesKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Host-side query of acceleration structure properties. The CPU
@@ -11214,6 +12120,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdTraceRaysKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -11274,6 +12183,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdTraceRaysNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -11341,6 +12253,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetRayTracingShaderGroupHandlesKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Retrieves opaque shader group handles from a ray tracing pipeline.
@@ -11396,6 +12311,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetRayTracingCaptureReplayShaderGroupHandlesKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -11453,6 +12371,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetAccelerationStructureHandleNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Retrieves an opaque handle for an NV acceleration structure. This
@@ -11486,6 +12407,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///- `pipelineCache` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCreateRayTracingPipelinesNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -11533,6 +12457,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///- `pipelineCache` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCreateRayTracingPipelinesKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -11594,6 +12521,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdTraceRaysIndirectKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Dispatches rays with launch dimensions read from a GPU buffer.
@@ -11644,6 +12574,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdTraceRaysIndirect2KHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Fully indirect ray dispatch, both the shader binding table
@@ -11681,6 +12614,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetClusterAccelerationStructureBuildSizesNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Queries the buffer sizes needed to build a cluster acceleration
@@ -11707,6 +12643,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdBuildClusterAccelerationStructureIndirectNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Builds a cluster acceleration structure using indirect parameters.
@@ -11731,6 +12670,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetDeviceAccelerationStructureCompatibilityKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -11763,6 +12705,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetRayTracingShaderGroupStackSizeKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -11806,6 +12751,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetRayTracingPipelineStackSizeKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Overrides the default ray tracing pipeline stack size for the
@@ -11844,6 +12792,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetImageViewHandleNVX` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Returns a 32-bit handle for an image view that can be used as a
@@ -11864,6 +12815,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetImageViewHandle64NVX` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -11891,6 +12845,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetImageViewAddressNVX` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Queries the device address and size of an image view's descriptor
@@ -11915,6 +12872,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetDeviceCombinedImageSamplerIndexNVX` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -11947,6 +12907,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetDeviceGroupSurfacePresentModes2EXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -11984,6 +12947,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkAcquireFullScreenExclusiveModeEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Acquires full-screen exclusive mode for a swapchain, giving the
@@ -12019,6 +12985,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkReleaseFullScreenExclusiveModeEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Releases full-screen exclusive mode previously acquired with
@@ -12048,6 +13017,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkAcquireProfilingLockKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -12080,6 +13052,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkReleaseProfilingLockKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Releases the device profiling lock previously acquired with
@@ -12105,6 +13080,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetImageDrmFormatModifierPropertiesEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -12132,6 +13110,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetBufferOpaqueCaptureAddress` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Returns an opaque capture address for a buffer that was created with
@@ -12156,6 +13137,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetBufferDeviceAddress` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -12200,6 +13184,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkInitializePerformanceApiINTEL` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Initializes the Intel performance query API on a device. Must be
@@ -12223,6 +13210,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkUninitializePerformanceApiINTEL` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -12251,6 +13241,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdSetPerformanceMarkerINTEL` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -12284,6 +13277,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetPerformanceStreamMarkerINTEL` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Sets a performance stream marker in the command buffer. Stream
@@ -12316,6 +13312,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetPerformanceOverrideINTEL` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Overrides hardware performance settings for the remainder of the
@@ -12346,6 +13345,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkAcquirePerformanceConfigurationINTEL` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -12381,6 +13383,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `configuration` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkReleasePerformanceConfigurationINTEL` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Releases a performance configuration acquired with
@@ -12410,6 +13415,9 @@ impl crate::Device {
     ///# Safety
     ///- `queue` (self) must be valid and not destroyed.
     ///- `queue` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkQueueSetPerformanceConfigurationINTEL` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -12442,6 +13450,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetPerformanceParameterINTEL` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Queries a performance parameter value from the Intel driver, such
@@ -12467,6 +13478,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetDeviceMemoryOpaqueCaptureAddress` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -12500,6 +13514,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetPipelineExecutablePropertiesKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -12539,6 +13556,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetPipelineExecutableStatisticsKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -12583,6 +13603,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetPipelineExecutableInternalRepresentationsKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Retrieves internal representations (IR) of a pipeline executable.
@@ -12620,6 +13643,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdSetLineStipple` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -12660,6 +13686,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetFaultData` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -12703,6 +13732,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCreateAccelerationStructureKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Creates an acceleration structure for hardware ray tracing. An
@@ -12744,6 +13776,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdBuildAccelerationStructuresKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -12793,6 +13828,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdBuildAccelerationStructuresIndirectKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///GPU-side acceleration structure build with indirect parameters. The
@@ -12840,6 +13878,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkBuildAccelerationStructuresKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Builds or updates acceleration structures on the **host** (CPU).
@@ -12878,6 +13919,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetAccelerationStructureDeviceAddressKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Returns the GPU device address of an acceleration structure. This
@@ -12907,6 +13951,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkCreateDeferredOperationKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -12950,6 +13997,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `operation` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkDestroyDeferredOperationKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys a deferred operation handle. The operation must have
@@ -12976,6 +14026,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetDeferredOperationMaxConcurrencyKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -13008,6 +14061,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetDeferredOperationResultKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -13043,6 +14099,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkDeferredOperationJoinKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -13082,6 +14141,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetPipelineIndirectMemoryRequirementsNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Queries the memory requirements for storing a compute pipeline's
@@ -13108,6 +14170,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetPipelineIndirectDeviceAddressNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Returns the device address of a compute pipeline's indirect
@@ -13132,6 +14197,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkAntiLagUpdateAMD` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Submits anti-lag timing data to reduce input-to-display latency.
@@ -13153,6 +14221,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdSetCullMode` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -13186,6 +14257,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetFrontFace` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Dynamically sets which triangle winding order is considered
@@ -13213,6 +14287,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdSetPrimitiveTopology` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -13247,6 +14324,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdSetViewportWithCount` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -13285,6 +14365,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetScissorWithCount` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Dynamically sets both the scissor rectangles and the scissor count.
@@ -13315,6 +14398,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdBindIndexBuffer2` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -13347,6 +14433,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdBindVertexBuffers2` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -13398,6 +14487,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetDepthTestEnable` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Dynamically enables or disables depth testing. Only takes effect if
@@ -13426,6 +14518,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdSetDepthWriteEnable` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -13463,6 +14558,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetDepthCompareOp` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Dynamically sets the depth comparison operator. Only takes effect if
@@ -13497,6 +14595,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetDepthBoundsTestEnable` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Dynamically enables or disables the depth bounds test. Only takes
@@ -13529,6 +14630,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetStencilTestEnable` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Dynamically enables or disables stencil testing. Only takes effect
@@ -13557,6 +14661,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdSetStencilOp` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -13607,6 +14714,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetPatchControlPointsEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Dynamically sets the number of control points per patch for
@@ -13636,6 +14746,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdSetRasterizerDiscardEnable` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -13675,6 +14788,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetDepthBiasEnable` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Dynamically enables or disables depth bias. Only takes effect if the
@@ -13706,6 +14822,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetLogicOpEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Dynamically sets the logic operation used for color blending.
@@ -13731,6 +14850,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdSetPrimitiveRestartEnable` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -13766,6 +14888,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetTessellationDomainOriginEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Dynamically sets the tessellation domain origin:
@@ -13794,6 +14919,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdSetDepthClampEnableEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -13826,6 +14954,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetPolygonModeEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Dynamically sets the polygon rasterization mode:
@@ -13855,6 +14986,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetRasterizationSamplesEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Dynamically sets the number of rasterization samples
@@ -13883,6 +15017,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdSetSampleMaskEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -13914,6 +15051,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetAlphaToCoverageEnableEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Dynamically enables or disables alpha-to-coverage multisample
@@ -13940,6 +15080,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdSetAlphaToOneEnableEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -13968,6 +15111,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdSetLogicOpEnableEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -13998,6 +15144,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdSetColorBlendEnableEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -14036,6 +15185,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetColorBlendEquationEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Dynamically sets the blend equation (src factor, dst factor,
@@ -14073,6 +15225,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetColorWriteMaskEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Dynamically sets the color write mask for each color attachment.
@@ -14107,6 +15262,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetRasterizationStreamEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Dynamically sets which vertex stream is used for rasterization
@@ -14135,6 +15293,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdSetConservativeRasterizationModeEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -14167,6 +15328,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetExtraPrimitiveOverestimationSizeEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Dynamically sets the extra overestimation size for conservative
@@ -14198,6 +15362,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetDepthClipEnableEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Dynamically enables or disables depth clipping. When disabled,
@@ -14227,6 +15394,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetSampleLocationsEnableEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Dynamically enables or disables custom sample locations. When
@@ -14255,6 +15425,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdSetColorBlendAdvancedEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -14294,6 +15467,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetProvokingVertexModeEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Dynamically sets which vertex in a primitive is the provoking
@@ -14323,6 +15499,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdSetLineRasterizationModeEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -14356,6 +15535,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetLineStippleEnableEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Dynamically enables or disables line stippling. When enabled,
@@ -14384,6 +15566,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdSetDepthClipNegativeOneToOneEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -14417,6 +15602,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetViewportWScalingEnableNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Dynamically enables or disables viewport W scaling. When enabled,
@@ -14445,6 +15633,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdSetViewportSwizzleNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -14485,6 +15676,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetCoverageToColorEnableNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Dynamically enables or disables coverage-to-color mode. When
@@ -14513,6 +15707,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdSetCoverageToColorLocationNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -14543,6 +15740,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetCoverageModulationModeNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Dynamically sets how the coverage mask is combined with the
@@ -14572,6 +15772,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetCoverageModulationTableEnableNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Dynamically enables or disables the coverage modulation lookup
@@ -14600,6 +15803,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdSetCoverageModulationTableNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -14637,6 +15843,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetShadingRateImageEnableNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Dynamically enables or disables the shading rate image. When
@@ -14664,6 +15873,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdSetCoverageReductionModeNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -14693,6 +15905,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdSetRepresentativeFragmentTestEnableNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -14728,6 +15943,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkCreatePrivateDataSlot` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -14770,6 +15988,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `privateDataSlot` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkDestroyPrivateDataSlot` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys a private data slot. Any data previously stored via
@@ -14798,6 +16019,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkSetPrivateData` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -14838,6 +16062,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetPrivateData` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Retrieves the `u64` value previously stored on a Vulkan object with
@@ -14876,6 +16103,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdCopyBuffer2` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Vulkan 1.3 version of `cmd_copy_buffer` that uses an extensible
@@ -14902,6 +16132,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdCopyImage2` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Vulkan 1.3 version of `cmd_copy_image` that uses an extensible
@@ -14927,6 +16160,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdBlitImage2` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -14957,6 +16193,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdCopyBufferToImage2` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Vulkan 1.3 version of `cmd_copy_buffer_to_image` that uses an
@@ -14982,6 +16221,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdCopyImageToBuffer2` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -15009,6 +16251,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdResolveImage2` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Vulkan 1.3 version of `cmd_resolve_image` that uses an extensible
@@ -15032,6 +16277,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdRefreshObjectsKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -15061,6 +16309,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdSetFragmentShadingRateKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -15099,6 +16350,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetFragmentShadingRateEnumNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Dynamically sets the fragment shading rate using the NV-specific
@@ -15124,6 +16378,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetAccelerationStructureBuildSizesKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -15168,6 +16425,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetVertexInputEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Dynamically sets the complete vertex input state: bindings
@@ -15207,6 +16467,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetColorWriteEnableEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Dynamically enables or disables color writing for each color
@@ -15244,6 +16507,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetEvent2` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Vulkan 1.3 version of `cmd_set_event` that takes a `DependencyInfo`
@@ -15275,6 +16541,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdResetEvent2` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Vulkan 1.3 version of `cmd_reset_event` that uses 64-bit pipeline
@@ -15301,6 +16570,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdWaitEvents2` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -15338,6 +16610,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdPipelineBarrier2` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -15382,6 +16657,9 @@ impl crate::Device {
     ///- `queue` must be externally synchronized.
     ///- `fence` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkQueueSubmit2` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Vulkan 1.3 version of `queue_submit` that uses `SubmitInfo2` with
@@ -15419,6 +16697,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdWriteTimestamp2` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Vulkan 1.3 version of `cmd_write_timestamp` that uses 64-bit
@@ -15451,6 +16732,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdWriteBufferMarker2AMD` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Extended version of `cmd_write_buffer_marker_amd` that uses
@@ -15478,6 +16762,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `queue` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetQueueCheckpointData2NV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -15508,6 +16795,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkCopyMemoryToImage` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -15547,6 +16837,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCopyImageToMemory` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Vulkan 1.4 host-side image readback. Copies texel data from an
@@ -15585,6 +16878,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCopyImageToImage` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Vulkan 1.4 host-side image-to-image copy. Copies texel data between
@@ -15621,6 +16917,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkTransitionImageLayout` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -15662,6 +16961,9 @@ impl crate::Device {
     ///- `commandPool` must be externally synchronized.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkGetCommandPoolMemoryConsumption` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Queries the memory consumption of a command pool or a specific
@@ -15697,6 +16999,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkCreateVideoSessionKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -15739,6 +17044,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `videoSession` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkDestroyVideoSessionKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys a video session and releases its internal resources.
@@ -15773,6 +17081,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkCreateVideoSessionParametersKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -15817,6 +17128,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkUpdateVideoSessionParametersKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Adds new codec-specific parameter sets to an existing video
@@ -15853,6 +17167,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetEncodedVideoSessionParametersKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -15900,6 +17217,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `videoSessionParameters` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkDestroyVideoSessionParametersKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys a video session parameters object. All command buffers
@@ -15930,6 +17250,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetVideoSessionMemoryRequirementsKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -15967,6 +17290,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///- `videoSession` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkBindVideoSessionMemoryKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -16007,6 +17333,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdDecodeVideoKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Decodes a single video frame from a compressed bitstream.
@@ -16045,6 +17374,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdBeginVideoCodingKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Begins a video coding scope within a command buffer. All video
@@ -16079,6 +17411,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdControlVideoCodingKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -16115,6 +17450,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdEndVideoCodingKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Ends a video coding scope previously started with
@@ -16142,6 +17480,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdEncodeVideoKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -16180,6 +17521,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdDecompressMemoryNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Decompresses one or more memory regions on the GPU. Each region
@@ -16210,6 +17554,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdDecompressMemoryIndirectCountNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -16245,6 +17592,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetPartitionedAccelerationStructuresBuildSizesNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Queries the buffer sizes needed to build a partitioned
@@ -16270,6 +17620,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdBuildPartitionedAccelerationStructuresNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -16298,6 +17651,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdDecompressMemoryEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Decompresses data from one memory region into another on the GPU.
@@ -16325,6 +17681,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdDecompressMemoryIndirectCountEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -16370,6 +17729,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCreateCuModuleNVX` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Creates a CUDA module from binary data using the legacy NVX
@@ -16405,6 +17767,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCreateCuFunctionNVX` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Creates a CUDA function handle from an NVX binary module. This
@@ -16435,6 +17800,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkDestroyCuModuleNVX` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys a CUDA module created with `create_cu_module_nvx`.
@@ -16458,6 +17826,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkDestroyCuFunctionNVX` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -16484,6 +17855,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCmdCuLaunchKernelNVX` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Launches a CUDA kernel from a Vulkan command buffer using the
@@ -16508,6 +17882,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetDescriptorSetLayoutSizeEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -16534,6 +17911,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetDescriptorSetLayoutBindingOffsetEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -16563,6 +17943,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetDescriptorEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -16598,6 +17981,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdBindDescriptorBuffersEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -16637,6 +18023,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdSetDescriptorBufferOffsetsEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -16684,6 +18073,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdBindDescriptorBufferEmbeddedSamplersEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Binds embedded immutable samplers from a descriptor set layout
@@ -16723,6 +18115,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetBufferOpaqueCaptureDescriptorDataEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Retrieves opaque capture data for a buffer descriptor. The
@@ -16758,6 +18153,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetImageOpaqueCaptureDescriptorDataEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -16795,6 +18193,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetImageViewOpaqueCaptureDescriptorDataEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Retrieves opaque capture data for an image view descriptor. The
@@ -16830,6 +18231,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetSamplerOpaqueCaptureDescriptorDataEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -16867,6 +18271,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Retrieves opaque capture data for an acceleration structure
@@ -16896,6 +18303,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkSetDeviceMemoryPriorityEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -16929,6 +18339,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///- `swapchain` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkWaitForPresent2KHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -16967,6 +18380,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///- `swapchain` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkWaitForPresentKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -17010,6 +18426,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCreateBufferCollectionFUCHSIA` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Creates a Fuchsia buffer collection that negotiates memory
@@ -17046,6 +18465,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkSetBufferCollectionBufferConstraintsFUCHSIA` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Sets buffer constraints on a Fuchsia buffer collection. The
@@ -17079,6 +18501,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkSetBufferCollectionImageConstraintsFUCHSIA` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Sets image constraints on a Fuchsia buffer collection. The
@@ -17104,6 +18529,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkDestroyBufferCollectionFUCHSIA` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -17136,6 +18564,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetBufferCollectionPropertiesFUCHSIA` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Queries the negotiated properties of a Fuchsia buffer
@@ -17167,6 +18598,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkCreateCudaModuleNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -17203,6 +18637,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetCudaModuleCacheNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Retrieves the compiled cache data from a CUDA module for
@@ -17238,6 +18675,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCreateCudaFunctionNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Creates a CUDA function handle from a CUDA module, identifying
@@ -17268,6 +18708,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkDestroyCudaModuleNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys a CUDA module created with `create_cuda_module_nv`.
@@ -17293,6 +18736,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkDestroyCudaFunctionNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys a CUDA function handle created with
@@ -17317,6 +18763,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdCudaLaunchKernelNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -17344,6 +18793,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdBeginRendering` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -17394,6 +18846,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdEndRendering` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Ends a dynamic rendering instance started by `cmd_begin_rendering`.
@@ -17416,6 +18871,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdEndRendering2KHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -17446,6 +18904,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetDescriptorSetLayoutHostMappingInfoVALVE` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Queries the host memory layout for a specific binding within a
@@ -17471,6 +18932,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetDescriptorSetHostMappingVALVE` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -17504,6 +18968,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkCreateMicromapEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -17541,6 +19008,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdBuildMicromapsEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Records a GPU-side micromap build into a command buffer. Each
@@ -17573,6 +19043,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkBuildMicromapsEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -17610,6 +19083,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `micromap` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkDestroyMicromapEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys a micromap created with `create_micromap_ext`. The
@@ -17636,6 +19112,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdCopyMicromapEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -17671,6 +19150,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCopyMicromapEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Host-side micromap copy or compaction. This is the CPU equivalent
@@ -17696,6 +19178,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdCopyMicromapToMemoryEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -17730,6 +19215,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCopyMicromapToMemoryEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Host-side serialization of a micromap into a buffer. This is the
@@ -17755,6 +19243,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdCopyMemoryToMicromapEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -17789,6 +19280,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCopyMemoryToMicromapEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Host-side deserialization of a micromap from a buffer. This is
@@ -17814,6 +19308,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdWriteMicromapsPropertiesEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -17858,6 +19355,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkWriteMicromapsPropertiesEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Host-side query of micromap properties. This is the CPU equivalent
@@ -17900,6 +19400,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetDeviceMicromapCompatibilityEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Checks whether a serialized micromap is compatible with the
@@ -17928,6 +19431,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetMicromapBuildSizesEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -17961,6 +19467,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetShaderModuleIdentifierEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Retrieves the identifier for an existing shader module. The
@@ -17988,6 +19497,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetShaderModuleCreateInfoIdentifierEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -18017,6 +19529,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetImageSubresourceLayout2` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -18055,6 +19570,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetPipelinePropertiesEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Queries properties of a pipeline, such as its pipeline identifier.
@@ -18079,6 +19597,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkExportMetalObjectsEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -18108,6 +19629,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdBindTileMemoryQCOM` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -18140,6 +19664,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetFramebufferTilePropertiesQCOM` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Queries tile properties (tile dimensions and extents) for a
@@ -18168,6 +19695,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetDynamicRenderingTilePropertiesQCOM` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -18201,6 +19731,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCreateOpticalFlowSessionNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Creates an optical flow session for GPU-accelerated motion
@@ -18230,6 +19763,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkDestroyOpticalFlowSessionNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -18262,6 +19798,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkBindOpticalFlowSessionImageNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Binds an image view to an optical flow session at a specific
@@ -18289,6 +19828,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdOpticalFlowExecuteNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -18320,6 +19862,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetDeviceFaultInfoEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -18353,6 +19898,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetDeviceFaultReportsKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -18391,6 +19939,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetDeviceFaultDebugInfoKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Retrieves debug information after a device fault (GPU crash or
@@ -18419,6 +19970,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdSetDepthBias2EXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -18451,6 +20005,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkReleaseSwapchainImagesKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Releases acquired swapchain images back to the swapchain without
@@ -18478,6 +20035,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetDeviceImageSubresourceLayout` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -18514,6 +20074,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkMapMemory2` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Vulkan 1.4 version of `map_memory` that uses an extensible
@@ -18549,6 +20112,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkUnmapMemory2` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Vulkan 1.4 version of `unmap_memory` that uses an extensible
@@ -18578,6 +20144,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkCreateShadersEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -18622,6 +20191,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `shader` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkDestroyShaderEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys a shader object created with `create_shaders_ext`.
@@ -18651,6 +20223,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetShaderBinaryDataEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -18684,6 +20259,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdBindShadersEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -18732,6 +20310,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `swapchain` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkSetSwapchainPresentTimingQueueSizeEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Sets the maximum number of present timing results the driver
@@ -18765,6 +20346,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///- `swapchain` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkGetSwapchainTimingPropertiesEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -18808,6 +20392,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `swapchain` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkGetSwapchainTimeDomainPropertiesEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Queries which time domains the swapchain supports for present
@@ -18849,6 +20436,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetPastPresentationTimingEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Retrieves presentation timing data for previously presented images.
@@ -18886,6 +20476,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetScreenBufferPropertiesQNX` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Queries Vulkan memory properties for a QNX Screen buffer. Use
@@ -18915,6 +20508,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetExecutionGraphPipelineScratchSizeAMDX` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -18946,6 +20542,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetExecutionGraphPipelineNodeIndexAMDX` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -18980,6 +20579,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///- `pipelineCache` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCreateExecutionGraphPipelinesAMDX` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -19019,6 +20621,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCmdInitializeGraphScratchMemoryAMDX` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Initializes the scratch memory buffer for an execution graph
@@ -19045,6 +20650,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdDispatchGraphAMDX` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -19073,6 +20681,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCmdDispatchGraphIndirectAMDX` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Indirect variant of `cmd_dispatch_graph_amdx`. Reads the graph
@@ -19099,6 +20710,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdDispatchGraphIndirectCountAMDX` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -19128,6 +20742,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdBindDescriptorSets2` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Vulkan 1.4 version of `cmd_bind_descriptor_sets` that uses an
@@ -19156,6 +20773,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdPushConstants2` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Vulkan 1.4 version of `cmd_push_constants` that uses an extensible
@@ -19181,6 +20801,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdPushDescriptorSet2` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -19208,6 +20831,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdPushDescriptorSetWithTemplate2` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Vulkan 1.4 version of `cmd_push_descriptor_set_with_template` that
@@ -19233,6 +20859,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdSetDescriptorBufferOffsets2EXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -19264,6 +20893,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdBindDescriptorBufferEmbeddedSamplers2EXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -19304,6 +20936,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkSetLatencySleepModeNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Configures the NVIDIA Reflex low-latency sleep mode for a
@@ -19334,6 +20969,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkLatencySleepNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Sleeps the calling thread until the optimal time to begin the
@@ -19359,6 +20997,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkSetLatencyMarkerNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -19386,6 +21027,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetLatencyTimingsNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Retrieves per-frame latency timing data for a swapchain. Returns
@@ -19410,6 +21054,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `queue` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkQueueNotifyOutOfBandNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -19436,6 +21083,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdSetRenderingAttachmentLocations` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -19468,6 +21118,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetRenderingInputAttachmentIndices` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Dynamically remaps input attachment indices within a dynamic
@@ -19498,6 +21151,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdSetDepthClampRangeEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -19536,6 +21192,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetMemoryMetalHandleEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Exports a Vulkan device memory allocation as a Metal resource
@@ -19565,6 +21224,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetMemoryMetalHandlePropertiesEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -19604,6 +21266,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkConvertCooperativeVectorMatrixNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Host-side conversion of cooperative vector matrix data between
@@ -19628,6 +21293,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdConvertCooperativeVectorMatrixNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -19655,6 +21323,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCmdDispatchTileQCOM` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Dispatches compute work within a per-tile execution region on
@@ -19681,6 +21352,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCmdBeginPerTileExecutionQCOM` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Begins a per-tile execution region within a render pass on
@@ -19706,6 +21380,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdEndPerTileExecutionQCOM` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -19738,6 +21415,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCreateExternalComputeQueueNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Creates an external compute queue that can be used to submit
@@ -19765,6 +21445,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkDestroyExternalComputeQueueNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -19797,6 +21480,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCreateShaderInstrumentationARM` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Creates a shader instrumentation object that configures which
@@ -19827,6 +21513,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `instrumentation` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkDestroyShaderInstrumentationARM` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys a shader instrumentation object. The object must not be
@@ -19854,6 +21543,9 @@ impl crate::Device {
     ///- `commandBuffer` must be externally synchronized.
     ///- `instrumentation` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdBeginShaderInstrumentationARM` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Begins shader instrumentation collection in a command buffer.
@@ -19880,6 +21572,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdEndShaderInstrumentationARM` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -19909,6 +21604,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetShaderInstrumentationValuesARM` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -19947,6 +21645,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkClearShaderInstrumentationMetricsARM` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Resets accumulated metrics for a shader instrumentation object.
@@ -19977,6 +21678,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCreateTensorARM` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Creates a tensor object for ARM's tensor extension. Tensors are
@@ -20006,6 +21710,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///- `tensor` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkDestroyTensorARM` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -20038,6 +21745,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCreateTensorViewARM` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Creates a view into a tensor, analogous to image views. A tensor
@@ -20067,6 +21777,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `tensorView` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkDestroyTensorViewARM` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys a tensor view. The view must not be in use by any
@@ -20091,6 +21804,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetTensorMemoryRequirementsARM` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -20123,6 +21839,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkBindTensorMemoryARM` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Binds device memory to one or more tensors. Each bind info
@@ -20154,6 +21873,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetDeviceTensorMemoryRequirementsARM` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Queries memory requirements for a tensor described by its create
@@ -20180,6 +21902,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdCopyTensorARM` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -20211,6 +21936,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetTensorOpaqueCaptureDescriptorDataARM` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -20244,6 +21972,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetTensorViewOpaqueCaptureDescriptorDataARM` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Retrieves opaque capture data for a tensor view's descriptor,
@@ -20276,6 +22007,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkCreateDataGraphPipelinesARM` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -20323,6 +22057,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCreateDataGraphPipelineSessionARM` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Creates a session for executing a data graph pipeline. A session
@@ -20357,6 +22094,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetDataGraphPipelineSessionBindPointRequirementsARM` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Queries the memory bind point requirements for a data graph
@@ -20381,6 +22121,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetDataGraphPipelineSessionMemoryRequirementsARM` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -20412,6 +22155,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkBindDataGraphPipelineSessionMemoryARM` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -20445,6 +22191,9 @@ impl crate::Device {
     ///- `device` (self) must be valid and not destroyed.
     ///- `session` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkDestroyDataGraphPipelineSessionARM` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys a data graph pipeline session and frees associated host
@@ -20470,6 +22219,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdDispatchDataGraphARM` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -20505,6 +22257,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetDataGraphPipelineAvailablePropertiesARM` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Enumerates the queryable properties for a data graph pipeline.
@@ -20534,6 +22289,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetDataGraphPipelinePropertiesARM` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -20575,6 +22333,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetNativeBufferPropertiesOHOS` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Queries Vulkan memory properties (memory type bits, size) for
@@ -20605,6 +22366,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetMemoryNativeBufferOHOS` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Exports a Vulkan device memory allocation as an OHOS native
@@ -20632,6 +22396,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetSwapchainGrallocUsageOHOS` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -20663,6 +22430,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkAcquireImageOHOS` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Acquires ownership of a swapchain image on OpenHarmony OS.
@@ -20692,6 +22462,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `queue` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkQueueSignalReleaseImageOHOS` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -20729,6 +22502,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCmdSetComputeOccupancyPriorityNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Sets the compute occupancy priority for subsequent dispatch
@@ -20760,6 +22536,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkWriteSamplerDescriptorsEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -20800,6 +22579,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkWriteResourceDescriptorsEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Writes resource descriptors (buffers, images, acceleration
@@ -20834,6 +22616,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdBindSamplerHeapEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Binds a sampler descriptor heap for use in subsequent draw and
@@ -20862,6 +22647,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdBindResourceHeapEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -20892,6 +22680,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdPushDataEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -20929,6 +22720,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkRegisterCustomBorderColorEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Registers a custom border color for use with samplers. Returns a
@@ -20962,6 +22756,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkUnregisterCustomBorderColorEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Unregisters a custom border color previously registered with
@@ -20990,6 +22787,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetImageOpaqueCaptureDataEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -21029,6 +22829,9 @@ impl crate::Device {
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetTensorOpaqueCaptureDataARM` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Retrieves opaque capture data for one or more ARM tensors. The
@@ -21062,6 +22865,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdCopyMemoryKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Copies data between two device address ranges on the GPU. This is
@@ -21093,6 +22899,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdCopyMemoryToImageKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -21128,6 +22937,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdCopyImageToMemoryKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Device-address variant of `cmd_copy_image_to_buffer`. Copies image
@@ -21160,6 +22972,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdUpdateMemoryKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -21195,6 +23010,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdFillMemoryKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Device-address variant of `cmd_fill_buffer`. Fills a device
@@ -21225,6 +23043,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdCopyQueryPoolResultsToMemoryKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -21274,6 +23095,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdBeginConditionalRendering2EXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Device-address variant of `cmd_begin_conditional_rendering_ext`.
@@ -21305,6 +23129,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdBindTransformFeedbackBuffers2EXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -21343,6 +23170,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdBeginTransformFeedback2EXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -21387,6 +23217,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdEndTransformFeedback2EXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Device-address variant of `cmd_end_transform_feedback_ext`.
@@ -21425,6 +23258,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdDrawIndirectByteCount2EXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -21471,6 +23307,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdWriteMarkerToMemoryAMD` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Device-address variant of the AMD buffer marker extension. Writes
@@ -21503,6 +23342,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdBindIndexBuffer3KHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Device-address variant of `cmd_bind_index_buffer`. Binds an index
@@ -21532,6 +23374,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdBindVertexBuffers3KHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -21572,6 +23417,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdDrawIndirect2KHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Device-address variant of `cmd_draw_indirect`. Reads non-indexed
@@ -21601,6 +23449,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdDrawIndexedIndirect2KHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Device-address variant of `cmd_draw_indexed_indirect`. Reads
@@ -21629,6 +23480,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdDrawIndirectCount2KHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -21660,6 +23514,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdDrawIndexedIndirectCount2KHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Device-address variant of `cmd_draw_indexed_indirect_count`. Reads
@@ -21689,6 +23546,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdDrawMeshTasksIndirect2EXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -21720,6 +23580,9 @@ impl crate::Device {
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkCmdDrawMeshTasksIndirectCount2EXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Device-address variant of `cmd_draw_mesh_tasks_indirect_count_ext`.
@@ -21750,6 +23613,9 @@ impl crate::Device {
     ///# Safety
     ///- `commandBuffer` (self) must be valid and not destroyed.
     ///- `commandBuffer` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCmdDispatchIndirect2KHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -21784,6 +23650,9 @@ impl crate::Device {
     ///
     ///# Safety
     ///- `device` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkCreateAccelerationStructure2KHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///

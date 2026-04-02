@@ -21,6 +21,16 @@
 //! # }
 //! ```
 //!
+//! # Panics
+//!
+//! Wrapper methods on [`Instance`] and [`Device`] panic if the underlying
+//! Vulkan function pointer was not loaded. This happens when calling a
+//! command from an extension or Vulkan version that was not enabled at
+//! instance or device creation time. The panic message names the missing
+//! command (e.g., `"vkCmdDrawMeshTasksEXT not loaded"`).
+//!
+//! Core Vulkan 1.0 commands are always loaded and will not panic.
+//!
 //! # Crate structure
 //!
 //! | Module | Purpose |

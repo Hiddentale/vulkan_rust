@@ -15,6 +15,9 @@ impl crate::Instance {
     ///- `instance` (self) must be valid and not destroyed.
     ///- `instance` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkDestroyInstance` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys a Vulkan instance and frees all instance-level resources.
@@ -52,6 +55,9 @@ impl crate::Instance {
     ///# Safety
     ///- `instance` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkEnumeratePhysicalDevices` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Returns a list of all physical devices (GPUs) available to the
@@ -84,6 +90,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `instance` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetInstanceProcAddr` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -119,6 +128,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceProperties` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -158,6 +170,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceQueueFamilyProperties` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -200,6 +215,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceMemoryProperties` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -248,6 +266,9 @@ impl crate::Instance {
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceFeatures` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Returns the optional features supported by a physical device. Each
@@ -289,6 +310,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceFormatProperties` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -339,6 +363,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceImageFormatProperties` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -405,6 +432,9 @@ impl crate::Instance {
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkEnumerateDeviceLayerProperties` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Enumerates the available device-level validation layers. In modern
@@ -438,6 +468,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkEnumerateDeviceExtensionProperties` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -477,6 +510,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceSparseImageFormatProperties` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -533,6 +569,9 @@ impl crate::Instance {
     ///# Safety
     ///- `instance` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCreateSurfaceOHOS` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Creates a Vulkan surface for an OpenHarmony OS native window.
@@ -566,6 +605,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceDisplayPropertiesKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -608,6 +650,9 @@ impl crate::Instance {
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceDisplayPlanePropertiesKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Enumerates display planes supported by a physical device. Each
@@ -644,6 +689,9 @@ impl crate::Instance {
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetDisplayPlaneSupportedDisplaysKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Returns the list of displays that a given display plane can be
@@ -679,6 +727,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetDisplayModePropertiesKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -718,6 +769,9 @@ impl crate::Instance {
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
     ///- `display` must be externally synchronized.
+    ///
+    ///# Panics
+    ///Panics if `vkCreateDisplayModeKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -762,6 +816,9 @@ impl crate::Instance {
     ///- `physicalDevice` (self) must be valid and not destroyed.
     ///- `mode` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkGetDisplayPlaneCapabilitiesKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Queries the capabilities of a display plane when used with a
@@ -803,6 +860,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `instance` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkCreateDisplayPlaneSurfaceKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -850,6 +910,9 @@ impl crate::Instance {
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceSurfaceSupportKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Checks whether a queue family on a physical device supports
@@ -889,6 +952,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceSurfaceCapabilitiesKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -936,6 +1002,9 @@ impl crate::Instance {
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceSurfaceFormatsKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Returns the list of supported format + colour space pairs for a
@@ -974,6 +1043,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceSurfacePresentModesKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -1017,6 +1089,9 @@ impl crate::Instance {
     ///# Safety
     ///- `instance` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCreateViSurfaceNN` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Creates a Vulkan surface for a Nintendo Vi layer. Nintendo
@@ -1043,6 +1118,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceWaylandPresentationSupportKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -1077,6 +1155,9 @@ impl crate::Instance {
     ///# Safety
     ///- `instance` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCreateUbmSurfaceSEC` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Creates a Vulkan surface for a Samsung UBM (Unified Buffer
@@ -1104,6 +1185,9 @@ impl crate::Instance {
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceUbmPresentationSupportSEC` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Queries whether a queue family supports presentation to a
@@ -1129,6 +1213,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceWin32PresentationSupportKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -1156,6 +1243,9 @@ impl crate::Instance {
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceXlibPresentationSupportKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Queries whether a queue family supports presentation to an X11
@@ -1182,6 +1272,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceXcbPresentationSupportKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -1216,6 +1309,9 @@ impl crate::Instance {
     ///# Safety
     ///- `instance` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCreateDirectFBSurfaceEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Creates a Vulkan surface for a DirectFB window. Linux/DirectFB
@@ -1243,6 +1339,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceDirectFBPresentationSupportEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -1275,6 +1374,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `instance` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkCreateImagePipeSurfaceFUCHSIA` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -1311,6 +1413,9 @@ impl crate::Instance {
     ///# Safety
     ///- `instance` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCreateStreamDescriptorSurfaceGGP` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Creates a Vulkan surface from a Google Games Platform (Stadia)
@@ -1344,6 +1449,9 @@ impl crate::Instance {
     ///# Safety
     ///- `instance` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCreateScreenSurfaceQNX` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Creates a Vulkan surface for a QNX Screen window. QNX only.
@@ -1370,6 +1478,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceScreenPresentationSupportQNX` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -1401,6 +1512,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `instance` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkCreateDebugReportCallbackEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -1437,6 +1551,9 @@ impl crate::Instance {
     ///- `instance` (self) must be valid and not destroyed.
     ///- `callback` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkDestroyDebugReportCallbackEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys a legacy debug report callback created with
@@ -1463,6 +1580,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `instance` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkDebugReportMessageEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -1517,6 +1637,9 @@ impl crate::Instance {
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceExternalImageFormatPropertiesNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Legacy NV path for querying external image format properties.
@@ -1562,6 +1685,9 @@ impl crate::Instance {
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceFeatures2` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Vulkan 1.1 version of `get_physical_device_features` that supports
@@ -1598,6 +1724,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceProperties2` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -1636,6 +1765,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceFormatProperties2` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -1678,6 +1810,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceImageFormatProperties2` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -1723,6 +1858,9 @@ impl crate::Instance {
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceQueueFamilyProperties2` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Vulkan 1.1 version of `get_physical_device_queue_family_properties`
@@ -1750,6 +1888,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceMemoryProperties2` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -1781,6 +1922,9 @@ impl crate::Instance {
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceSparseImageFormatProperties2` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Vulkan 1.1 version of
@@ -1806,6 +1950,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceExternalBufferProperties` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -1851,6 +1998,9 @@ impl crate::Instance {
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceExternalMemorySciBufPropertiesNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Queries compatibility of external NvSciBuf memory handles with
@@ -1890,6 +2040,9 @@ impl crate::Instance {
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceSciBufAttributesNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Fills an NvSciBuf attribute list with Vulkan's requirements for
@@ -1916,6 +2069,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceExternalSemaphoreProperties` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -1956,6 +2112,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceExternalFenceProperties` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -1999,6 +2158,9 @@ impl crate::Instance {
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceSciSyncAttributesNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Fills an NvSciSync attribute list with Vulkan's requirements for
@@ -2031,6 +2193,9 @@ impl crate::Instance {
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkReleaseDisplayEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Releases a previously acquired display, returning control to the
@@ -2061,6 +2226,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkAcquireXlibDisplayEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -2093,6 +2261,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetRandROutputDisplayEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -2129,6 +2300,9 @@ impl crate::Instance {
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkAcquireWinrtDisplayNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Acquires exclusive ownership of a display using the Windows
@@ -2160,6 +2334,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetWinrtDisplayNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -2194,6 +2371,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceSurfaceCapabilities2EXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -2232,6 +2412,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `instance` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkEnumeratePhysicalDeviceGroups` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -2272,6 +2455,9 @@ impl crate::Instance {
     ///- `physicalDevice` (self) must be valid and not destroyed.
     ///- `surface` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDevicePresentRectanglesKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Returns the set of rectangular regions that cover the presentable
@@ -2308,6 +2494,9 @@ impl crate::Instance {
     ///# Safety
     ///- `instance` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCreateIOSSurfaceMVK` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Creates a Vulkan surface for an iOS `UIView`. iOS only. Legacy
@@ -2343,6 +2532,9 @@ impl crate::Instance {
     ///# Safety
     ///- `instance` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCreateMacOSSurfaceMVK` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Creates a Vulkan surface for a macOS `NSView`. macOS only.
@@ -2370,6 +2562,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceMultisamplePropertiesEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -2406,6 +2601,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceSurfaceCapabilities2KHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -2446,6 +2644,9 @@ impl crate::Instance {
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceSurfaceFormats2KHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Extensible version of
@@ -2485,6 +2686,9 @@ impl crate::Instance {
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceDisplayProperties2KHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Extensible version of `get_physical_device_display_properties_khr`.
@@ -2515,6 +2719,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceDisplayPlaneProperties2KHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -2547,6 +2754,9 @@ impl crate::Instance {
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetDisplayModeProperties2KHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Extensible version of `get_display_mode_properties_khr`. Returns
@@ -2577,6 +2787,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetDisplayPlaneCapabilities2KHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -2611,6 +2824,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceCalibrateableTimeDomainsKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -2647,6 +2863,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `instance` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkCreateDebugUtilsMessengerEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -2687,6 +2906,9 @@ impl crate::Instance {
     ///- `instance` (self) must be valid and not destroyed.
     ///- `messenger` must be externally synchronized.
     ///
+    ///# Panics
+    ///Panics if `vkDestroyDebugUtilsMessengerEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Destroys a debug messenger created with
@@ -2714,6 +2936,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `instance` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkSubmitDebugUtilsMessageEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -2761,6 +2986,9 @@ impl crate::Instance {
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceCooperativeMatrixPropertiesNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Enumerates the cooperative matrix types and sizes supported by
@@ -2791,6 +3019,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceSurfacePresentModes2EXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -2827,6 +3058,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -2867,6 +3101,9 @@ impl crate::Instance {
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Returns the number of passes required to collect all the
@@ -2906,6 +3143,9 @@ impl crate::Instance {
     ///# Safety
     ///- `instance` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkCreateHeadlessSurfaceEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Creates a headless surface that is not associated with any window
@@ -2942,6 +3182,9 @@ impl crate::Instance {
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Enumerates the supported combinations of coverage reduction
@@ -2970,6 +3213,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceToolProperties` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -3003,6 +3249,9 @@ impl crate::Instance {
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceRefreshableObjectTypesKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Enumerates the Vulkan object types that can be refreshed on the
@@ -3032,6 +3281,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceFragmentShadingRatesKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -3071,6 +3323,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceVideoCapabilitiesKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -3119,6 +3374,9 @@ impl crate::Instance {
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceVideoFormatPropertiesKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Queries the image formats compatible with a video profile for
@@ -3161,6 +3419,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -3207,6 +3468,9 @@ impl crate::Instance {
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkAcquireDrmDisplayEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Acquires exclusive control of a DRM display for direct rendering.
@@ -3238,6 +3502,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetDrmDisplayEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -3274,6 +3541,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceOpticalFlowImageFormatsNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -3313,6 +3583,9 @@ impl crate::Instance {
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Enumerates the cooperative matrix types and configurations
@@ -3348,6 +3621,9 @@ impl crate::Instance {
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Enumerates the supported flexible-dimension cooperative matrix
@@ -3381,6 +3657,9 @@ impl crate::Instance {
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceCooperativeVectorPropertiesNV` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Queries the supported cooperative vector properties (data types,
@@ -3413,6 +3692,9 @@ impl crate::Instance {
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Enumerates the shader instrumentation metrics supported by a
@@ -3437,6 +3719,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceExternalTensorPropertiesARM` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -3476,6 +3761,9 @@ impl crate::Instance {
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Enumerates the data graph pipeline properties supported by a
@@ -3502,6 +3790,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
@@ -3544,6 +3835,9 @@ impl crate::Instance {
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
     ///
+    ///# Panics
+    ///Panics if `vkEnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
+    ///
     ///# Usage Notes
     ///
     ///Enumerates performance counters for a specific queue family on
@@ -3579,6 +3873,9 @@ impl crate::Instance {
     ///
     ///# Safety
     ///- `physicalDevice` (self) must be valid and not destroyed.
+    ///
+    ///# Panics
+    ///Panics if `vkGetPhysicalDeviceDescriptorSizeEXT` was not loaded. This can happen if the required extension or Vulkan version is not enabled on the instance or device.
     ///
     ///# Usage Notes
     ///
