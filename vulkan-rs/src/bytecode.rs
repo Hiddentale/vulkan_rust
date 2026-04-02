@@ -3,6 +3,18 @@
 use std::fmt;
 
 /// Error returned when SPIR-V bytecode has invalid alignment or size.
+///
+/// # Examples
+///
+/// ```
+/// use vulkan_rs::BytecodeError;
+///
+/// let err = BytecodeError::InvalidLength(7);
+/// assert_eq!(err.to_string(), "SPIR-V byte length 7 is not a multiple of 4");
+///
+/// let err = BytecodeError::MisalignedPointer;
+/// assert!(err.to_string().contains("not 4-byte aligned"));
+/// ```
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum BytecodeError {
     /// Length is not a multiple of 4.
