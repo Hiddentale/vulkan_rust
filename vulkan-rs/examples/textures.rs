@@ -375,9 +375,8 @@ fn init_vulkan(window: Window) -> VulkanState {
         .command_pool(command_pool)
         .level(CommandBufferLevel::PRIMARY)
         .command_buffer_count(1);
-    let mut upload_cmd = CommandBuffer::null();
-    unsafe { device.allocate_command_buffers(&alloc_info, &mut upload_cmd) }
-        .expect("Failed to allocate upload command buffer");
+    let upload_cmd = unsafe { device.allocate_command_buffers(&alloc_info) }
+        .expect("Failed to allocate upload command buffer")[0];
 
     unsafe {
         let begin_info =
@@ -544,9 +543,8 @@ fn init_vulkan(window: Window) -> VulkanState {
     let ds_alloc = DescriptorSetAllocateInfo::builder()
         .descriptor_pool(descriptor_pool)
         .set_layouts(&set_layouts);
-    let mut descriptor_set = DescriptorSet::null();
-    unsafe { device.allocate_descriptor_sets(&ds_alloc, &mut descriptor_set) }
-        .expect("Failed to allocate descriptor set");
+    let descriptor_set = unsafe { device.allocate_descriptor_sets(&ds_alloc) }
+        .expect("Failed to allocate descriptor set")[0];
 
     // Step 8: Update descriptor set
     let image_descriptor = DescriptorImageInfo {
@@ -684,16 +682,9 @@ fn init_vulkan(window: Window) -> VulkanState {
         .render_pass(render_pass)
         .subpass(0);
 
-    let mut pipeline = Pipeline::null();
-    unsafe {
-        device.create_graphics_pipelines(
-            PipelineCache::null(),
-            &[*pipeline_info],
-            None,
-            &mut pipeline,
-        )
-    }
-    .expect("Failed to create graphics pipeline");
+    let pipeline =
+        unsafe { device.create_graphics_pipelines(PipelineCache::null(), &[*pipeline_info], None) }
+            .expect("Failed to create graphics pipeline")[0];
 
     unsafe {
         device.destroy_shader_module(vert_module, None);
@@ -728,9 +719,8 @@ fn init_vulkan(window: Window) -> VulkanState {
     let in_flight_fence =
         unsafe { device.create_fence(&fence_info, None) }.expect("Failed to create fence");
 
-    let mut command_buffer = CommandBuffer::null();
-    unsafe { device.allocate_command_buffers(&alloc_info, &mut command_buffer) }
-        .expect("Failed to allocate command buffer");
+    let command_buffer = unsafe { device.allocate_command_buffers(&alloc_info) }
+        .expect("Failed to allocate command buffer")[0];
 
     println!(
         "Texture example ready! Displaying {}x{} checkerboard.",

@@ -2130,7 +2130,7 @@ impl crate::Device {
         &self,
         p_create_info: &PipelineBinaryCreateInfoKHR,
         allocator: Option<&AllocationCallbacks>,
-        p_binaries: *mut PipelineBinaryHandlesInfoKHR,
+        p_binaries: &mut PipelineBinaryHandlesInfoKHR,
     ) -> VkResult<()> {
         let fp = self
             .commands()
@@ -2204,7 +2204,7 @@ impl crate::Device {
     pub unsafe fn get_pipeline_key_khr(
         &self,
         p_pipeline_create_info: Option<&PipelineCreateInfoKHR>,
-        p_pipeline_key: *mut PipelineBinaryKeyKHR,
+        p_pipeline_key: &mut PipelineBinaryKeyKHR,
     ) -> VkResult<()> {
         let fp = self
             .commands()
@@ -2252,7 +2252,7 @@ impl crate::Device {
     pub unsafe fn get_pipeline_binary_data_khr(
         &self,
         p_info: &PipelineBinaryDataInfoKHR,
-        p_pipeline_binary_key: *mut PipelineBinaryKeyKHR,
+        p_pipeline_binary_key: &mut PipelineBinaryKeyKHR,
         p_pipeline_binary_data: *mut core::ffi::c_void,
     ) -> VkResult<usize> {
         let fp = self
@@ -2355,13 +2355,14 @@ impl crate::Device {
         pipeline_cache: PipelineCache,
         p_create_infos: &[GraphicsPipelineCreateInfo],
         allocator: Option<&AllocationCallbacks>,
-        p_pipelines: *mut Pipeline,
-    ) -> VkResult<()> {
+    ) -> VkResult<Vec<Pipeline>> {
         let fp = self
             .commands()
             .create_graphics_pipelines
             .expect("vkCreateGraphicsPipelines not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
+        let count = p_create_infos.len();
+        let mut out = vec![unsafe { core::mem::zeroed() }; count];
         check(unsafe {
             fp(
                 self.handle(),
@@ -2369,9 +2370,10 @@ impl crate::Device {
                 p_create_infos.len() as u32,
                 p_create_infos.as_ptr(),
                 alloc_ptr,
-                p_pipelines,
+                out.as_mut_ptr(),
             )
-        })
+        })?;
+        Ok(out)
     }
     ///Wraps [`vkCreateComputePipelines`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateComputePipelines.html).
     /**
@@ -2416,13 +2418,14 @@ impl crate::Device {
         pipeline_cache: PipelineCache,
         p_create_infos: &[ComputePipelineCreateInfo],
         allocator: Option<&AllocationCallbacks>,
-        p_pipelines: *mut Pipeline,
-    ) -> VkResult<()> {
+    ) -> VkResult<Vec<Pipeline>> {
         let fp = self
             .commands()
             .create_compute_pipelines
             .expect("vkCreateComputePipelines not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
+        let count = p_create_infos.len();
+        let mut out = vec![unsafe { core::mem::zeroed() }; count];
         check(unsafe {
             fp(
                 self.handle(),
@@ -2430,9 +2433,10 @@ impl crate::Device {
                 p_create_infos.len() as u32,
                 p_create_infos.as_ptr(),
                 alloc_ptr,
-                p_pipelines,
+                out.as_mut_ptr(),
             )
-        })
+        })?;
+        Ok(out)
     }
     ///Wraps [`vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI.html).
     /**
@@ -2934,13 +2938,15 @@ impl crate::Device {
     pub unsafe fn allocate_descriptor_sets(
         &self,
         p_allocate_info: &DescriptorSetAllocateInfo,
-        p_descriptor_sets: *mut DescriptorSet,
-    ) -> VkResult<()> {
+    ) -> VkResult<Vec<DescriptorSet>> {
         let fp = self
             .commands()
             .allocate_descriptor_sets
             .expect("vkAllocateDescriptorSets not loaded");
-        check(unsafe { fp(self.handle(), p_allocate_info, p_descriptor_sets) })
+        let count = p_allocate_info.descriptor_set_count as usize;
+        let mut out = vec![unsafe { core::mem::zeroed() }; count];
+        check(unsafe { fp(self.handle(), p_allocate_info, out.as_mut_ptr()) })?;
+        Ok(out)
     }
     ///Wraps [`vkFreeDescriptorSets`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkFreeDescriptorSets.html).
     /**
@@ -3455,13 +3461,15 @@ impl crate::Device {
     pub unsafe fn allocate_command_buffers(
         &self,
         p_allocate_info: &CommandBufferAllocateInfo,
-        p_command_buffers: *mut CommandBuffer,
-    ) -> VkResult<()> {
+    ) -> VkResult<Vec<CommandBuffer>> {
         let fp = self
             .commands()
             .allocate_command_buffers
             .expect("vkAllocateCommandBuffers not loaded");
-        check(unsafe { fp(self.handle(), p_allocate_info, p_command_buffers) })
+        let count = p_allocate_info.command_buffer_count as usize;
+        let mut out = vec![unsafe { core::mem::zeroed() }; count];
+        check(unsafe { fp(self.handle(), p_allocate_info, out.as_mut_ptr()) })?;
+        Ok(out)
     }
     ///Wraps [`vkFreeCommandBuffers`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkFreeCommandBuffers.html).
     /**
@@ -6215,22 +6223,24 @@ impl crate::Device {
         &self,
         p_create_infos: &[SwapchainCreateInfoKHR],
         allocator: Option<&AllocationCallbacks>,
-        p_swapchains: *mut SwapchainKHR,
-    ) -> VkResult<()> {
+    ) -> VkResult<Vec<SwapchainKHR>> {
         let fp = self
             .commands()
             .create_shared_swapchains_khr
             .expect("vkCreateSharedSwapchainsKHR not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
+        let count = p_create_infos.len();
+        let mut out = vec![unsafe { core::mem::zeroed() }; count];
         check(unsafe {
             fp(
                 self.handle(),
                 p_create_infos.len() as u32,
                 p_create_infos.as_ptr(),
                 alloc_ptr,
-                p_swapchains,
+                out.as_mut_ptr(),
             )
-        })
+        })?;
+        Ok(out)
     }
     ///Wraps [`vkCreateSwapchainKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateSwapchainKHR.html).
     /**
@@ -6834,7 +6844,7 @@ impl crate::Device {
     pub unsafe fn get_generated_commands_memory_requirements_nv(
         &self,
         p_info: &GeneratedCommandsMemoryRequirementsInfoNV,
-        p_memory_requirements: *mut MemoryRequirements2,
+        p_memory_requirements: &mut MemoryRequirements2,
     ) {
         let fp = self
             .commands()
@@ -7011,7 +7021,7 @@ impl crate::Device {
     pub unsafe fn get_generated_commands_memory_requirements_ext(
         &self,
         p_info: &GeneratedCommandsMemoryRequirementsInfoEXT,
-        p_memory_requirements: *mut MemoryRequirements2,
+        p_memory_requirements: &mut MemoryRequirements2,
     ) {
         let fp = self
             .commands()
@@ -7406,7 +7416,7 @@ impl crate::Device {
         &self,
         handle_type: ExternalMemoryHandleTypeFlagBits,
         handle: isize,
-        p_memory_win32_handle_properties: *mut MemoryWin32HandlePropertiesKHR,
+        p_memory_win32_handle_properties: &mut MemoryWin32HandlePropertiesKHR,
     ) -> VkResult<()> {
         let fp = self
             .commands()
@@ -7497,7 +7507,7 @@ impl crate::Device {
         &self,
         handle_type: ExternalMemoryHandleTypeFlagBits,
         fd: core::ffi::c_int,
-        p_memory_fd_properties: *mut MemoryFdPropertiesKHR,
+        p_memory_fd_properties: &mut MemoryFdPropertiesKHR,
     ) -> VkResult<()> {
         let fp = self
             .commands()
@@ -7566,7 +7576,7 @@ impl crate::Device {
         &self,
         handle_type: ExternalMemoryHandleTypeFlagBits,
         zircon_handle: u32,
-        p_memory_zircon_handle_properties: *mut MemoryZirconHandlePropertiesFUCHSIA,
+        p_memory_zircon_handle_properties: &mut MemoryZirconHandlePropertiesFUCHSIA,
     ) -> VkResult<()> {
         let fp = self
             .commands()
@@ -8647,7 +8657,7 @@ impl crate::Device {
     ///presents its own images).
     pub unsafe fn get_device_group_present_capabilities_khr(
         &self,
-        p_device_group_present_capabilities: *mut DeviceGroupPresentCapabilitiesKHR,
+        p_device_group_present_capabilities: &mut DeviceGroupPresentCapabilitiesKHR,
     ) -> VkResult<()> {
         let fp = self
             .commands()
@@ -9309,7 +9319,7 @@ impl crate::Device {
     pub unsafe fn get_buffer_memory_requirements2(
         &self,
         p_info: &BufferMemoryRequirementsInfo2,
-        p_memory_requirements: *mut MemoryRequirements2,
+        p_memory_requirements: &mut MemoryRequirements2,
     ) {
         let fp = self
             .commands()
@@ -9345,7 +9355,7 @@ impl crate::Device {
     pub unsafe fn get_image_memory_requirements2(
         &self,
         p_info: &ImageMemoryRequirementsInfo2,
-        p_memory_requirements: *mut MemoryRequirements2,
+        p_memory_requirements: &mut MemoryRequirements2,
     ) {
         let fp = self
             .commands()
@@ -9407,7 +9417,7 @@ impl crate::Device {
     pub unsafe fn get_device_buffer_memory_requirements(
         &self,
         p_info: &DeviceBufferMemoryRequirements,
-        p_memory_requirements: *mut MemoryRequirements2,
+        p_memory_requirements: &mut MemoryRequirements2,
     ) {
         let fp = self
             .commands()
@@ -9443,7 +9453,7 @@ impl crate::Device {
     pub unsafe fn get_device_image_memory_requirements(
         &self,
         p_info: &DeviceImageMemoryRequirements,
-        p_memory_requirements: *mut MemoryRequirements2,
+        p_memory_requirements: &mut MemoryRequirements2,
     ) {
         let fp = self
             .commands()
@@ -9766,7 +9776,7 @@ impl crate::Device {
     pub unsafe fn get_descriptor_set_layout_support(
         &self,
         p_create_info: &DescriptorSetLayoutCreateInfo,
-        p_support: *mut DescriptorSetLayoutSupport,
+        p_support: &mut DescriptorSetLayoutSupport,
     ) {
         let fp = self
             .commands()
@@ -10018,20 +10028,21 @@ impl crate::Device {
     pub unsafe fn get_calibrated_timestamps_khr(
         &self,
         p_timestamp_infos: &[CalibratedTimestampInfoKHR],
-        p_timestamps: *mut u64,
-    ) -> VkResult<u64> {
+        p_max_deviation: *mut u64,
+    ) -> VkResult<Vec<u64>> {
         let fp = self
             .commands()
             .get_calibrated_timestamps_khr
             .expect("vkGetCalibratedTimestampsKHR not loaded");
-        let mut out = unsafe { core::mem::zeroed() };
+        let count = p_timestamp_infos.len();
+        let mut out = vec![unsafe { core::mem::zeroed() }; count];
         check(unsafe {
             fp(
                 self.handle(),
                 p_timestamp_infos.len() as u32,
                 p_timestamp_infos.as_ptr(),
-                p_timestamps,
-                &mut out,
+                out.as_mut_ptr(),
+                p_max_deviation,
             )
         })?;
         Ok(out)
@@ -10323,7 +10334,7 @@ impl crate::Device {
         &self,
         handle_type: ExternalMemoryHandleTypeFlagBits,
         p_host_pointer: *const core::ffi::c_void,
-        p_memory_host_pointer_properties: *mut MemoryHostPointerPropertiesEXT,
+        p_memory_host_pointer_properties: &mut MemoryHostPointerPropertiesEXT,
     ) -> VkResult<()> {
         let fp = self
             .commands()
@@ -10689,7 +10700,7 @@ impl crate::Device {
     pub unsafe fn get_android_hardware_buffer_properties_android(
         &self,
         buffer: *const core::ffi::c_void,
-        p_properties: *mut AndroidHardwareBufferPropertiesANDROID,
+        p_properties: &mut AndroidHardwareBufferPropertiesANDROID,
     ) -> VkResult<()> {
         let fp = self
             .commands()
@@ -12521,13 +12532,14 @@ impl crate::Device {
         pipeline_cache: PipelineCache,
         p_create_infos: &[RayTracingPipelineCreateInfoNV],
         allocator: Option<&AllocationCallbacks>,
-        p_pipelines: *mut Pipeline,
-    ) -> VkResult<()> {
+    ) -> VkResult<Vec<Pipeline>> {
         let fp = self
             .commands()
             .create_ray_tracing_pipelines_nv
             .expect("vkCreateRayTracingPipelinesNV not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
+        let count = p_create_infos.len();
+        let mut out = vec![unsafe { core::mem::zeroed() }; count];
         check(unsafe {
             fp(
                 self.handle(),
@@ -12535,9 +12547,10 @@ impl crate::Device {
                 p_create_infos.len() as u32,
                 p_create_infos.as_ptr(),
                 alloc_ptr,
-                p_pipelines,
+                out.as_mut_ptr(),
             )
-        })
+        })?;
+        Ok(out)
     }
     ///Wraps [`vkCreateRayTracingPipelinesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateRayTracingPipelinesKHR.html).
     /**
@@ -12590,13 +12603,14 @@ impl crate::Device {
         pipeline_cache: PipelineCache,
         p_create_infos: &[RayTracingPipelineCreateInfoKHR],
         allocator: Option<&AllocationCallbacks>,
-        p_pipelines: *mut Pipeline,
-    ) -> VkResult<()> {
+    ) -> VkResult<Vec<Pipeline>> {
         let fp = self
             .commands()
             .create_ray_tracing_pipelines_khr
             .expect("vkCreateRayTracingPipelinesKHR not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
+        let count = p_create_infos.len();
+        let mut out = vec![unsafe { core::mem::zeroed() }; count];
         check(unsafe {
             fp(
                 self.handle(),
@@ -12605,9 +12619,10 @@ impl crate::Device {
                 p_create_infos.len() as u32,
                 p_create_infos.as_ptr(),
                 alloc_ptr,
-                p_pipelines,
+                out.as_mut_ptr(),
             )
-        })
+        })?;
+        Ok(out)
     }
     ///Wraps [`vkCmdTraceRaysIndirectKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdTraceRaysIndirectKHR.html).
     /**
@@ -12723,7 +12738,7 @@ impl crate::Device {
     pub unsafe fn get_cluster_acceleration_structure_build_sizes_nv(
         &self,
         p_info: &ClusterAccelerationStructureInputInfoNV,
-        p_size_info: *mut AccelerationStructureBuildSizesInfoKHR,
+        p_size_info: &mut AccelerationStructureBuildSizesInfoKHR,
     ) {
         let fp = self
             .commands()
@@ -12954,7 +12969,7 @@ impl crate::Device {
     pub unsafe fn get_image_view_address_nvx(
         &self,
         image_view: ImageView,
-        p_properties: *mut ImageViewAddressPropertiesNVX,
+        p_properties: &mut ImageViewAddressPropertiesNVX,
     ) -> VkResult<()> {
         let fp = self
             .commands()
@@ -13191,7 +13206,7 @@ impl crate::Device {
     pub unsafe fn get_image_drm_format_modifier_properties_ext(
         &self,
         image: Image,
-        p_properties: *mut ImageDrmFormatModifierPropertiesEXT,
+        p_properties: &mut ImageDrmFormatModifierPropertiesEXT,
     ) -> VkResult<()> {
         let fp = self
             .commands()
@@ -14251,7 +14266,7 @@ impl crate::Device {
     pub unsafe fn get_pipeline_indirect_memory_requirements_nv(
         &self,
         p_create_info: &ComputePipelineCreateInfo,
-        p_memory_requirements: *mut MemoryRequirements2,
+        p_memory_requirements: &mut MemoryRequirements2,
     ) {
         let fp = self
             .commands()
@@ -16497,7 +16512,7 @@ impl crate::Device {
         build_type: AccelerationStructureBuildTypeKHR,
         p_build_info: &AccelerationStructureBuildGeometryInfoKHR,
         p_max_primitive_counts: *const u32,
-        p_size_info: *mut AccelerationStructureBuildSizesInfoKHR,
+        p_size_info: &mut AccelerationStructureBuildSizesInfoKHR,
     ) {
         let fp = self
             .commands()
@@ -17072,7 +17087,7 @@ impl crate::Device {
         &self,
         command_pool: CommandPool,
         command_buffer: CommandBuffer,
-        p_consumption: *mut CommandPoolMemoryConsumption,
+        p_consumption: &mut CommandPoolMemoryConsumption,
     ) {
         let fp = self
             .commands()
@@ -17286,7 +17301,7 @@ impl crate::Device {
     pub unsafe fn get_encoded_video_session_parameters_khr(
         &self,
         p_video_session_parameters_info: &VideoEncodeSessionParametersGetInfoKHR,
-        p_feedback_info: *mut VideoEncodeSessionParametersFeedbackInfoKHR,
+        p_feedback_info: &mut VideoEncodeSessionParametersFeedbackInfoKHR,
         p_data: *mut core::ffi::c_void,
     ) -> VkResult<usize> {
         let fp = self
@@ -17701,7 +17716,7 @@ impl crate::Device {
     pub unsafe fn get_partitioned_acceleration_structures_build_sizes_nv(
         &self,
         p_info: &PartitionedAccelerationStructureInstancesInputNV,
-        p_size_info: *mut AccelerationStructureBuildSizesInfoKHR,
+        p_size_info: &mut AccelerationStructureBuildSizesInfoKHR,
     ) {
         let fp = self
             .commands()
@@ -18674,7 +18689,7 @@ impl crate::Device {
     pub unsafe fn get_buffer_collection_properties_fuchsia(
         &self,
         collection: BufferCollectionFUCHSIA,
-        p_properties: *mut BufferCollectionPropertiesFUCHSIA,
+        p_properties: &mut BufferCollectionPropertiesFUCHSIA,
     ) -> VkResult<()> {
         let fp = self
             .commands()
@@ -19014,7 +19029,7 @@ impl crate::Device {
     pub unsafe fn get_descriptor_set_layout_host_mapping_info_valve(
         &self,
         p_binding_reference: &DescriptorSetBindingReferenceVALVE,
-        p_host_mapping: *mut DescriptorSetLayoutHostMappingInfoVALVE,
+        p_host_mapping: &mut DescriptorSetLayoutHostMappingInfoVALVE,
     ) {
         let fp = self
             .commands()
@@ -19548,7 +19563,7 @@ impl crate::Device {
         &self,
         build_type: AccelerationStructureBuildTypeKHR,
         p_build_info: &MicromapBuildInfoEXT,
-        p_size_info: *mut MicromapBuildSizesInfoEXT,
+        p_size_info: &mut MicromapBuildSizesInfoEXT,
     ) {
         let fp = self
             .commands()
@@ -19579,7 +19594,7 @@ impl crate::Device {
     pub unsafe fn get_shader_module_identifier_ext(
         &self,
         shader_module: ShaderModule,
-        p_identifier: *mut ShaderModuleIdentifierEXT,
+        p_identifier: &mut ShaderModuleIdentifierEXT,
     ) {
         let fp = self
             .commands()
@@ -19611,7 +19626,7 @@ impl crate::Device {
     pub unsafe fn get_shader_module_create_info_identifier_ext(
         &self,
         p_create_info: &ShaderModuleCreateInfo,
-        p_identifier: *mut ShaderModuleIdentifierEXT,
+        p_identifier: &mut ShaderModuleIdentifierEXT,
     ) {
         let fp = self
             .commands()
@@ -19646,7 +19661,7 @@ impl crate::Device {
         &self,
         image: Image,
         p_subresource: &ImageSubresource2,
-        p_layout: *mut SubresourceLayout2,
+        p_layout: &mut SubresourceLayout2,
     ) {
         let fp = self
             .commands()
@@ -19679,7 +19694,7 @@ impl crate::Device {
     pub unsafe fn get_pipeline_properties_ext(
         &self,
         p_pipeline_info: &PipelineInfoEXT,
-        p_pipeline_properties: *mut BaseOutStructure,
+        p_pipeline_properties: &mut BaseOutStructure,
     ) -> VkResult<()> {
         let fp = self
             .commands()
@@ -19710,7 +19725,7 @@ impl crate::Device {
     ///Requires `VK_EXT_metal_objects`. macOS/iOS only.
     pub unsafe fn export_metal_objects_ext(
         &self,
-        p_metal_objects_info: *mut ExportMetalObjectsInfoEXT,
+        p_metal_objects_info: &mut ExportMetalObjectsInfoEXT,
     ) {
         let fp = self
             .commands()
@@ -19806,7 +19821,7 @@ impl crate::Device {
     pub unsafe fn get_dynamic_rendering_tile_properties_qcom(
         &self,
         p_rendering_info: &RenderingInfo,
-        p_properties: *mut TilePropertiesQCOM,
+        p_properties: &mut TilePropertiesQCOM,
     ) -> VkResult<()> {
         let fp = self
             .commands()
@@ -19974,8 +19989,8 @@ impl crate::Device {
     ///Requires `VK_EXT_device_fault`.
     pub unsafe fn get_device_fault_info_ext(
         &self,
-        p_fault_counts: *mut DeviceFaultCountsEXT,
-        p_fault_info: *mut DeviceFaultInfoEXT,
+        p_fault_counts: &mut DeviceFaultCountsEXT,
+        p_fault_info: &mut DeviceFaultInfoEXT,
     ) -> VkResult<()> {
         let fp = self
             .commands()
@@ -20051,7 +20066,7 @@ impl crate::Device {
     ///Requires `VK_KHR_device_fault`.
     pub unsafe fn get_device_fault_debug_info_khr(
         &self,
-        p_debug_info: *mut DeviceFaultDebugInfoKHR,
+        p_debug_info: &mut DeviceFaultDebugInfoKHR,
     ) -> VkResult<()> {
         let fp = self
             .commands()
@@ -20148,7 +20163,7 @@ impl crate::Device {
     pub unsafe fn get_device_image_subresource_layout(
         &self,
         p_info: &DeviceImageSubresourceInfo,
-        p_layout: *mut SubresourceLayout2,
+        p_layout: &mut SubresourceLayout2,
     ) {
         let fp = self
             .commands()
@@ -20262,22 +20277,24 @@ impl crate::Device {
         &self,
         p_create_infos: &[ShaderCreateInfoEXT],
         allocator: Option<&AllocationCallbacks>,
-        p_shaders: *mut ShaderEXT,
-    ) -> VkResult<()> {
+    ) -> VkResult<Vec<ShaderEXT>> {
         let fp = self
             .commands()
             .create_shaders_ext
             .expect("vkCreateShadersEXT not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
+        let count = p_create_infos.len();
+        let mut out = vec![unsafe { core::mem::zeroed() }; count];
         check(unsafe {
             fp(
                 self.handle(),
                 p_create_infos.len() as u32,
                 p_create_infos.as_ptr(),
                 alloc_ptr,
-                p_shaders,
+                out.as_mut_ptr(),
             )
-        })
+        })?;
+        Ok(out)
     }
     ///Wraps [`vkDestroyShaderEXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyShaderEXT.html).
     /**
@@ -20456,7 +20473,7 @@ impl crate::Device {
     pub unsafe fn get_swapchain_timing_properties_ext(
         &self,
         swapchain: SwapchainKHR,
-        p_swapchain_timing_properties: *mut SwapchainTimingPropertiesEXT,
+        p_swapchain_timing_properties: &mut SwapchainTimingPropertiesEXT,
     ) -> VkResult<u64> {
         let fp = self
             .commands()
@@ -20501,7 +20518,7 @@ impl crate::Device {
     pub unsafe fn get_swapchain_time_domain_properties_ext(
         &self,
         swapchain: SwapchainKHR,
-        p_swapchain_time_domain_properties: *mut SwapchainTimeDomainPropertiesEXT,
+        p_swapchain_time_domain_properties: &mut SwapchainTimeDomainPropertiesEXT,
     ) -> VkResult<u64> {
         let fp = self
             .commands()
@@ -20545,7 +20562,7 @@ impl crate::Device {
     pub unsafe fn get_past_presentation_timing_ext(
         &self,
         p_past_presentation_timing_info: &PastPresentationTimingInfoEXT,
-        p_past_presentation_timing_properties: *mut PastPresentationTimingPropertiesEXT,
+        p_past_presentation_timing_properties: &mut PastPresentationTimingPropertiesEXT,
     ) -> VkResult<()> {
         let fp = self
             .commands()
@@ -20585,7 +20602,7 @@ impl crate::Device {
     pub unsafe fn get_screen_buffer_properties_qnx(
         &self,
         buffer: *const core::ffi::c_void,
-        p_properties: *mut ScreenBufferPropertiesQNX,
+        p_properties: &mut ScreenBufferPropertiesQNX,
     ) -> VkResult<()> {
         let fp = self
             .commands()
@@ -20619,7 +20636,7 @@ impl crate::Device {
     pub unsafe fn get_execution_graph_pipeline_scratch_size_amdx(
         &self,
         execution_graph: Pipeline,
-        p_size_info: *mut ExecutionGraphPipelineScratchSizeAMDX,
+        p_size_info: &mut ExecutionGraphPipelineScratchSizeAMDX,
     ) -> VkResult<()> {
         let fp = self
             .commands()
@@ -20692,13 +20709,14 @@ impl crate::Device {
         pipeline_cache: PipelineCache,
         p_create_infos: &[ExecutionGraphPipelineCreateInfoAMDX],
         allocator: Option<&AllocationCallbacks>,
-        p_pipelines: *mut Pipeline,
-    ) -> VkResult<()> {
+    ) -> VkResult<Vec<Pipeline>> {
         let fp = self
             .commands()
             .create_execution_graph_pipelines_amdx
             .expect("vkCreateExecutionGraphPipelinesAMDX not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
+        let count = p_create_infos.len();
+        let mut out = vec![unsafe { core::mem::zeroed() }; count];
         check(unsafe {
             fp(
                 self.handle(),
@@ -20706,9 +20724,10 @@ impl crate::Device {
                 p_create_infos.len() as u32,
                 p_create_infos.as_ptr(),
                 alloc_ptr,
-                p_pipelines,
+                out.as_mut_ptr(),
             )
-        })
+        })?;
+        Ok(out)
     }
     ///Wraps [`vkCmdInitializeGraphScratchMemoryAMDX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdInitializeGraphScratchMemoryAMDX.html).
     /**
@@ -21136,7 +21155,7 @@ impl crate::Device {
     pub unsafe fn get_latency_timings_nv(
         &self,
         swapchain: SwapchainKHR,
-        p_latency_marker_info: *mut GetLatencyMarkerInfoNV,
+        p_latency_marker_info: &mut GetLatencyMarkerInfoNV,
     ) {
         let fp = self
             .commands()
@@ -21335,7 +21354,7 @@ impl crate::Device {
         &self,
         handle_type: ExternalMemoryHandleTypeFlagBits,
         p_handle: *const core::ffi::c_void,
-        p_memory_metal_handle_properties: *mut MemoryMetalHandlePropertiesEXT,
+        p_memory_metal_handle_properties: &mut MemoryMetalHandlePropertiesEXT,
     ) -> VkResult<()> {
         let fp = self
             .commands()
@@ -21914,7 +21933,7 @@ impl crate::Device {
     pub unsafe fn get_tensor_memory_requirements_arm(
         &self,
         p_info: &TensorMemoryRequirementsInfoARM,
-        p_memory_requirements: *mut MemoryRequirements2,
+        p_memory_requirements: &mut MemoryRequirements2,
     ) {
         let fp = self
             .commands()
@@ -21983,7 +22002,7 @@ impl crate::Device {
     pub unsafe fn get_device_tensor_memory_requirements_arm(
         &self,
         p_info: &DeviceTensorMemoryRequirementsARM,
-        p_memory_requirements: *mut MemoryRequirements2,
+        p_memory_requirements: &mut MemoryRequirements2,
     ) {
         let fp = self
             .commands()
@@ -22121,13 +22140,14 @@ impl crate::Device {
         pipeline_cache: PipelineCache,
         p_create_infos: &[DataGraphPipelineCreateInfoARM],
         allocator: Option<&AllocationCallbacks>,
-        p_pipelines: *mut Pipeline,
-    ) -> VkResult<()> {
+    ) -> VkResult<Vec<Pipeline>> {
         let fp = self
             .commands()
             .create_data_graph_pipelines_arm
             .expect("vkCreateDataGraphPipelinesARM not loaded");
         let alloc_ptr = allocator.map_or(core::ptr::null(), core::ptr::from_ref);
+        let count = p_create_infos.len();
+        let mut out = vec![unsafe { core::mem::zeroed() }; count];
         check(unsafe {
             fp(
                 self.handle(),
@@ -22136,9 +22156,10 @@ impl crate::Device {
                 p_create_infos.len() as u32,
                 p_create_infos.as_ptr(),
                 alloc_ptr,
-                p_pipelines,
+                out.as_mut_ptr(),
             )
-        })
+        })?;
+        Ok(out)
     }
     ///Wraps [`vkCreateDataGraphPipelineSessionARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateDataGraphPipelineSessionARM.html).
     /**
@@ -22231,7 +22252,7 @@ impl crate::Device {
     pub unsafe fn get_data_graph_pipeline_session_memory_requirements_arm(
         &self,
         p_info: &DataGraphPipelineSessionMemoryRequirementsInfoARM,
-        p_memory_requirements: *mut MemoryRequirements2,
+        p_memory_requirements: &mut MemoryRequirements2,
     ) {
         let fp = self
             .commands()
@@ -22442,7 +22463,7 @@ impl crate::Device {
     pub unsafe fn get_native_buffer_properties_ohos(
         &self,
         buffer: *const core::ffi::c_void,
-        p_properties: *mut NativeBufferPropertiesOHOS,
+        p_properties: &mut NativeBufferPropertiesOHOS,
     ) -> VkResult<()> {
         let fp = self
             .commands()
@@ -22897,20 +22918,22 @@ impl crate::Device {
     pub unsafe fn get_image_opaque_capture_data_ext(
         &self,
         p_images: &[Image],
-        p_datas: *mut HostAddressRangeEXT,
-    ) -> VkResult<()> {
+    ) -> VkResult<Vec<HostAddressRangeEXT>> {
         let fp = self
             .commands()
             .get_image_opaque_capture_data_ext
             .expect("vkGetImageOpaqueCaptureDataEXT not loaded");
+        let count = p_images.len();
+        let mut out = vec![unsafe { core::mem::zeroed() }; count];
         check(unsafe {
             fp(
                 self.handle(),
                 p_images.len() as u32,
                 p_images.as_ptr(),
-                p_datas,
+                out.as_mut_ptr(),
             )
-        })
+        })?;
+        Ok(out)
     }
     ///Wraps [`vkGetTensorOpaqueCaptureDataARM`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetTensorOpaqueCaptureDataARM.html).
     /**
@@ -22938,20 +22961,22 @@ impl crate::Device {
     pub unsafe fn get_tensor_opaque_capture_data_arm(
         &self,
         p_tensors: &[TensorARM],
-        p_datas: *mut HostAddressRangeEXT,
-    ) -> VkResult<()> {
+    ) -> VkResult<Vec<HostAddressRangeEXT>> {
         let fp = self
             .commands()
             .get_tensor_opaque_capture_data_arm
             .expect("vkGetTensorOpaqueCaptureDataARM not loaded");
+        let count = p_tensors.len();
+        let mut out = vec![unsafe { core::mem::zeroed() }; count];
         check(unsafe {
             fp(
                 self.handle(),
                 p_tensors.len() as u32,
                 p_tensors.as_ptr(),
-                p_datas,
+                out.as_mut_ptr(),
             )
-        })
+        })?;
+        Ok(out)
     }
     ///Wraps [`vkCmdCopyMemoryKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdCopyMemoryKHR.html).
     /**

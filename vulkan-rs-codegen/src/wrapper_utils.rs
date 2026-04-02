@@ -15,9 +15,9 @@ use crate::parse::{CommandDef, DispatchLevel, ParamDef, VkRegistry};
 /// Role of a parameter in a Vulkan command from the wrapper's perspective.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum ParamRole {
-    /// First dispatchable handle,becomes `&self`.
+    /// First dispatchable handle, becomes `&self`.
     SelfHandle,
-    /// Single output value,becomes the return value.
+    /// Single output value, becomes the return value.
     Output,
     /// Count param for an output array (enumerate/fill pair).
     /// `partner` is the index of the array param.
@@ -25,16 +25,34 @@ pub enum ParamRole {
     /// Array param of an output enumerate/fill pair.
     /// `count` is the index of the count param.
     OutputArray { count: usize },
-    /// Count param for an input slice,suppressed from the wrapper signature.
+    /// Output array whose length is known before the call.
+    /// Elided from the signature; the wrapper allocates a `Vec` and returns it.
+    AllocateArrayOutput { count_source: CountSource },
+    /// Count param for an input slice, suppressed from the wrapper signature.
     /// `partner` is the index of the array param.
     InputCount { partner: usize },
-    /// Input array param with associated count,becomes `&[T]`.
+    /// Input array param with associated count, becomes `&[T]`.
     /// `count` is the index of the count param.
     InputArray { count: usize },
+    /// Output param whose type has pNext, becomes `&mut T` in the signature.
+    /// The caller initializes the struct (and optional pNext chain) before calling.
+    PNextOutput,
     /// Optional allocator (`*const AllocationCallbacks`).
     Allocator,
-    /// Regular input parameter,passed through as its resolved C type.
+    /// Regular input parameter, passed through as its resolved C type.
     Regular,
+}
+
+/// How the array length is determined for an `AllocateArrayOutput`.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum CountSource {
+    /// Length comes from a field inside an input struct parameter.
+    /// Example: `pAllocateInfo->commandBufferCount` becomes
+    /// `StructField { param: "pAllocateInfo", field: "commandBufferCount" }`.
+    StructField { param: String, field: String },
+    /// Length equals an input slice's `.len()` (the count param is `InputCount`).
+    /// `partner` is the index of the `InputArray` param.
+    InputArrayLen { partner: usize },
 }
 
 // ---------------------------------------------------------------------------
@@ -45,6 +63,8 @@ pub enum ParamRole {
 /// template used during wrapper emission.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum CommandPattern {
+    /// VkResult + AllocateArrayOutput → `VkResult<Vec<T>>`
+    AllocateArray,
     /// VkResult + single Output param → `VkResult<T>`
     Create,
     /// void + name contains "Destroy"/"Free" + Allocator → `()`
@@ -210,12 +230,79 @@ pub fn classify_params(cmd: &CommandDef, pnext_structs: &HashSet<String>) -> Vec
         }
     }
 
-    // Step 5: If no output pair was found, check for a single output param.
+    // Step 5: Detect allocate-array output params.
+    // These are *mut T params with a `len` attribute that couldn't form a
+    // standard output pair, either because:
+    //   (a) len references a struct field ("pAllocateInfo->commandBufferCount")
+    //   (b) len references a count param already claimed as InputCount
     let has_output_pair = roles
         .iter()
         .any(|r| matches!(r, ParamRole::OutputArray { .. }));
-    if !has_output_pair && let Some(idx) = find_single_output(params, &roles, pnext_structs) {
+    if !has_output_pair {
+        for i in 0..params.len() {
+            if roles[i] != ParamRole::Regular {
+                continue;
+            }
+            let param = &params[i];
+            if !param.is_pointer || param.is_const || param.is_double_pointer {
+                continue;
+            }
+            let len = match param.len.as_deref() {
+                Some(l) => l,
+                None => continue,
+            };
+
+            if let Some((struct_param, field)) = len.split_once("->") {
+                // Pattern A: struct-internal count.
+                roles[i] = ParamRole::AllocateArrayOutput {
+                    count_source: CountSource::StructField {
+                        param: struct_param.to_string(),
+                        field: field.to_string(),
+                    },
+                };
+            } else if let Some(&count_idx) = name_to_idx.get(len)
+                && let ParamRole::InputCount { partner } = roles[count_idx]
+            {
+                // Pattern B: count shared with an input slice.
+                roles[i] = ParamRole::AllocateArrayOutput {
+                    count_source: CountSource::InputArrayLen { partner },
+                };
+            }
+        }
+    }
+
+    // Step 6: If no output pair or allocate-array was found, check for a single output param.
+    let has_any_output = roles.iter().any(|r| {
+        matches!(
+            r,
+            ParamRole::OutputArray { .. } | ParamRole::AllocateArrayOutput { .. }
+        )
+    });
+    if !has_any_output && let Some(idx) = find_single_output(params, &roles, pnext_structs) {
         roles[idx] = ParamRole::Output;
+    }
+
+    // Step 7: Mark pNext output params as PNextOutput (`&mut T` in signature).
+    // These are *mut T params whose type has sType/pNext, so the caller must
+    // initialize them before calling. They stay Regular through all prior steps.
+    for i in 0..params.len() {
+        if roles[i] != ParamRole::Regular {
+            continue;
+        }
+        let param = &params[i];
+        if !param.is_pointer || param.is_const || param.is_double_pointer {
+            continue;
+        }
+        if param.len.is_some() {
+            continue;
+        }
+        let stripped = param
+            .type_name
+            .strip_prefix("Vk")
+            .unwrap_or(&param.type_name);
+        if pnext_structs.contains(stripped) {
+            roles[i] = ParamRole::PNextOutput;
+        }
     }
 
     roles
@@ -275,16 +362,26 @@ pub fn classify_command(cmd: &CommandDef, roles: &[ParamRole]) -> CommandPattern
     let has_output_pair = roles
         .iter()
         .any(|r| matches!(r, ParamRole::OutputArray { .. }));
+    let has_allocate_array = roles
+        .iter()
+        .any(|r| matches!(r, ParamRole::AllocateArrayOutput { .. }));
     let is_destroy = cmd.name.contains("Destroy") || cmd.name.contains("Free");
 
-    match (has_vk_result, has_output_pair, has_output, is_destroy) {
-        (true, true, _, _) => CommandPattern::Enumerate,
-        (true, false, true, _) => CommandPattern::Create,
-        (true, false, false, _) => CommandPattern::ResultOnly,
-        (false, true, _, _) => CommandPattern::Fill,
-        (false, false, true, _) => CommandPattern::Query,
-        (false, false, false, true) => CommandPattern::Destroy,
-        (false, false, false, false) => CommandPattern::VoidForward,
+    match (
+        has_vk_result,
+        has_output_pair,
+        has_allocate_array,
+        has_output,
+        is_destroy,
+    ) {
+        (true, true, _, _, _) => CommandPattern::Enumerate,
+        (true, _, true, _, _) => CommandPattern::AllocateArray,
+        (true, false, false, true, _) => CommandPattern::Create,
+        (true, false, false, false, _) => CommandPattern::ResultOnly,
+        (false, true, _, _, _) => CommandPattern::Fill,
+        (false, false, _, true, _) => CommandPattern::Query,
+        (false, false, _, false, true) => CommandPattern::Destroy,
+        (false, false, _, false, false) => CommandPattern::VoidForward,
     }
 }
 
@@ -618,7 +715,7 @@ mod tests {
     }
 
     #[test]
-    fn allocate_command_buffers_struct_internal_len_stays_regular() {
+    fn allocate_command_buffers_struct_internal_len() {
         // vkAllocateCommandBuffers(VkDevice, *const VkCommandBufferAllocateInfo,
         //     *mut VkCommandBuffer) -> VkResult
         // len on pCommandBuffers = "pAllocateInfo->commandBufferCount"
@@ -637,20 +734,23 @@ mod tests {
             DispatchLevel::Device,
         );
         let roles = classify_params(&c, &empty_pnext());
-        // The len contains "->", so no output pair. The param has len.is_some(),
-        // so find_single_output skips it too. All stay Regular.
         assert_eq!(
             roles,
             vec![
                 ParamRole::SelfHandle,
                 ParamRole::Regular,
-                ParamRole::Regular,
+                ParamRole::AllocateArrayOutput {
+                    count_source: CountSource::StructField {
+                        param: "pAllocateInfo".to_string(),
+                        field: "commandBufferCount".to_string(),
+                    },
+                },
             ]
         );
     }
 
     #[test]
-    fn create_graphics_pipelines_array_output_stays_regular() {
+    fn create_graphics_pipelines_array_output_shared_count() {
         // vkCreateGraphicsPipelines(VkDevice, VkPipelineCache, uint32_t,
         //     *const VkGraphicsPipelineCreateInfo, *const VkAllocationCallbacks,
         //     *mut VkPipeline) -> VkResult
@@ -673,10 +773,6 @@ mod tests {
             DispatchLevel::Device,
         );
         let roles = classify_params(&c, &empty_pnext());
-        // createInfoCount becomes InputCount for pCreateInfos.
-        // pPipelines has len="createInfoCount" but createInfoCount is already
-        // InputCount (not Regular), so the output pair check skips it.
-        // pPipelines also has len.is_some(), so find_single_output skips it.
         assert_eq!(
             roles,
             vec![
@@ -685,16 +781,18 @@ mod tests {
                 ParamRole::InputCount { partner: 3 },
                 ParamRole::InputArray { count: 2 },
                 ParamRole::Allocator,
-                ParamRole::Regular,
+                ParamRole::AllocateArrayOutput {
+                    count_source: CountSource::InputArrayLen { partner: 3 },
+                },
             ]
         );
     }
 
     #[test]
-    fn get_physical_device_properties2_pnext_output_stays_regular() {
+    fn get_physical_device_properties2_pnext_output_becomes_pnext_output() {
         // vkGetPhysicalDeviceProperties2(VkPhysicalDevice,
         //     *mut VkPhysicalDeviceProperties2) -> void
-        // PhysicalDeviceProperties2 has sType/pNext, so it stays Regular.
+        // PhysicalDeviceProperties2 has sType/pNext → PNextOutput (&mut T).
         let pnext = pnext_with(&["PhysicalDeviceProperties2"]);
         let c = cmd(
             "vkGetPhysicalDeviceProperties2",
@@ -706,8 +804,7 @@ mod tests {
             DispatchLevel::Instance,
         );
         let roles = classify_params(&c, &pnext);
-        // Output type has pNext → stays Regular (caller must initialise sType/pNext).
-        assert_eq!(roles, vec![ParamRole::Regular, ParamRole::Regular,]);
+        assert_eq!(roles, vec![ParamRole::Regular, ParamRole::PNextOutput]);
     }
 
     #[test]
@@ -925,6 +1022,8 @@ mod tests {
 
     #[test]
     fn pattern_get_properties2_pnext_is_void_forward() {
+        // pNext output becomes PNextOutput role, but the command pattern is
+        // still VoidForward (void return, no Output/OutputArray).
         let pnext = pnext_with(&["PhysicalDeviceProperties2"]);
         let c = cmd(
             "vkGetPhysicalDeviceProperties2",
@@ -936,13 +1035,11 @@ mod tests {
             DispatchLevel::Instance,
         );
         let roles = classify_params(&c, &pnext);
-        // Output type has pNext → stays Regular → no output → VoidForward.
         assert_eq!(classify_command(&c, &roles), CommandPattern::VoidForward);
     }
 
     #[test]
-    fn pattern_create_graphics_pipelines_is_result_only() {
-        // Multi-create: output array shares count with input array → no output → ResultOnly.
+    fn pattern_create_graphics_pipelines_is_allocate_array() {
         let c = cmd(
             "vkCreateGraphicsPipelines",
             "VkResult",
@@ -961,7 +1058,27 @@ mod tests {
             DispatchLevel::Device,
         );
         let roles = classify_params(&c, &empty_pnext());
-        assert_eq!(classify_command(&c, &roles), CommandPattern::ResultOnly);
+        assert_eq!(classify_command(&c, &roles), CommandPattern::AllocateArray);
+    }
+
+    #[test]
+    fn pattern_allocate_command_buffers_is_allocate_array() {
+        let c = cmd(
+            "vkAllocateCommandBuffers",
+            "VkResult",
+            vec![
+                param("device", "VkDevice"),
+                const_ptr("pAllocateInfo", "VkCommandBufferAllocateInfo"),
+                mut_ptr_with_struct_len(
+                    "pCommandBuffers",
+                    "VkCommandBuffer",
+                    "pAllocateInfo->commandBufferCount",
+                ),
+            ],
+            DispatchLevel::Device,
+        );
+        let roles = classify_params(&c, &empty_pnext());
+        assert_eq!(classify_command(&c, &roles), CommandPattern::AllocateArray);
     }
 
     // -- build_pnext_struct_set test ----------------------------------------

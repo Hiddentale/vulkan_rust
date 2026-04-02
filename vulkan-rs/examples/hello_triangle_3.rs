@@ -358,16 +358,9 @@ fn run(window: &Window) {
         .render_pass(render_pass)
         .subpass(0);
 
-    let mut pipeline = Pipeline::null();
-    unsafe {
-        device.create_graphics_pipelines(
-            PipelineCache::null(),
-            &[*pipeline_info],
-            None,
-            &mut pipeline,
-        )
-    }
-    .expect("Failed to create graphics pipeline");
+    let pipeline =
+        unsafe { device.create_graphics_pipelines(PipelineCache::null(), &[*pipeline_info], None) }
+            .expect("Failed to create graphics pipeline")[0];
 
     unsafe {
         device.destroy_shader_module(vert_module, None);

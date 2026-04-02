@@ -776,6 +776,9 @@ fn wrapper_return_types_match_patterns() {
         };
 
         let ok = match pattern {
+            vulkan_rs_codegen::wrapper_utils::CommandPattern::AllocateArray => {
+                ret.starts_with("VkResult<Vec<")
+            }
             vulkan_rs_codegen::wrapper_utils::CommandPattern::Create => {
                 ret.starts_with("VkResult<") && !ret.contains("Vec")
             }

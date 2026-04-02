@@ -13,7 +13,8 @@ use quote::{format_ident, quote};
 use crate::parse::{CommandDef, DispatchLevel, ParamDef, VkRegistry};
 use crate::resolve_types::{is_rust_keyword, resolve_base_type, resolve_param_type};
 use crate::wrapper_utils::{
-    CommandPattern, ParamRole, build_pnext_struct_set, classify_command, classify_params,
+    CommandPattern, CountSource, ParamRole, build_pnext_struct_set, classify_command,
+    classify_params,
 };
 
 // ---------------------------------------------------------------------------
@@ -268,11 +269,18 @@ fn emit_signature_param(param: &ParamDef, role: &ParamRole) -> Option<TokenStrea
         | ParamRole::Output
         | ParamRole::OutputCount { .. }
         | ParamRole::OutputArray { .. }
+        | ParamRole::AllocateArrayOutput { .. }
         | ParamRole::InputCount { .. } => None,
 
         ParamRole::Allocator => Some(quote! {
             allocator: Option<&AllocationCallbacks>
         }),
+
+        ParamRole::PNextOutput => {
+            let name = param_ident(&param.name);
+            let ty = resolve_base_type(&param.type_name);
+            Some(quote! { #name: &mut #ty })
+        }
 
         ParamRole::InputArray { .. } => {
             let name = param_ident(&param.name);
@@ -319,6 +327,10 @@ fn is_vk_type(type_name: &str) -> bool {
 
 fn emit_return_type(cmd: &CommandDef, roles: &[ParamRole], pattern: CommandPattern) -> TokenStream {
     match pattern {
+        CommandPattern::AllocateArray => {
+            let ty = allocate_array_elem_type(cmd, roles);
+            quote! { -> VkResult<Vec<#ty>> }
+        }
         CommandPattern::Create => {
             let ty = output_base_type(cmd, roles);
             quote! { -> VkResult<#ty> }
@@ -348,6 +360,17 @@ fn output_base_type(cmd: &CommandDef, roles: &[ParamRole]) -> TokenStream {
         .expect("Create/Query pattern must have an Output role")
 }
 
+fn allocate_array_elem_type(cmd: &CommandDef, roles: &[ParamRole]) -> TokenStream {
+    cmd.params
+        .iter()
+        .zip(roles.iter())
+        .find_map(|(p, r)| {
+            matches!(r, ParamRole::AllocateArrayOutput { .. })
+                .then(|| resolve_base_type(&p.type_name))
+        })
+        .expect("AllocateArray pattern must have an AllocateArrayOutput role")
+}
+
 fn output_array_elem_type(cmd: &CommandDef, roles: &[ParamRole]) -> TokenStream {
     cmd.params
         .iter()
@@ -371,6 +394,18 @@ fn emit_body(cmd: &CommandDef, roles: &[ParamRole], pattern: CommandPattern) -> 
     let bindings = emit_bindings(cmd, roles);
 
     match pattern {
+        CommandPattern::AllocateArray => {
+            let args = emit_call_args(cmd, roles);
+            let count_expr = emit_allocate_array_count(cmd, roles);
+            quote! {
+                #fp_load
+                #bindings
+                let count = #count_expr;
+                let mut out = vec![unsafe { core::mem::zeroed() }; count];
+                check(unsafe { fp(#args) })?;
+                Ok(out)
+            }
+        }
         CommandPattern::Create => {
             let args = emit_call_args(cmd, roles);
             quote! {
@@ -466,6 +501,29 @@ fn is_optional_vk_const_ptr(param: &ParamDef) -> bool {
 // Call arguments
 // ---------------------------------------------------------------------------
 
+/// Build the count expression for `AllocateArray` patterns.
+fn emit_allocate_array_count(cmd: &CommandDef, roles: &[ParamRole]) -> TokenStream {
+    for role in roles {
+        if let ParamRole::AllocateArrayOutput { count_source } = role {
+            return match count_source {
+                CountSource::StructField {
+                    param: struct_param,
+                    field,
+                } => {
+                    let struct_name = param_ident(struct_param);
+                    let field_ident = format_ident!("{}", field.to_snake_case());
+                    quote! { #struct_name.#field_ident as usize }
+                }
+                CountSource::InputArrayLen { partner } => {
+                    let partner_name = param_ident(&cmd.params[*partner].name);
+                    quote! { #partner_name.len() }
+                }
+            };
+        }
+    }
+    unreachable!("AllocateArray pattern must have an AllocateArrayOutput role");
+}
+
 /// Build call args for direct patterns (Create, Destroy, Query, ResultOnly,
 /// VoidForward). Output params become `&mut out`.
 fn emit_call_args(cmd: &CommandDef, roles: &[ParamRole]) -> TokenStream {
@@ -497,6 +555,13 @@ fn emit_call_arg(
         ParamRole::SelfHandle => quote! { self.handle() },
 
         ParamRole::Output => quote! { &mut out },
+
+        ParamRole::AllocateArrayOutput { .. } => quote! { out.as_mut_ptr() },
+
+        ParamRole::PNextOutput => {
+            let name = param_ident(&param.name);
+            quote! { #name }
+        }
 
         ParamRole::OutputCount { .. } => {
             debug_assert!(two_call, "OutputCount in non-two-call context");
@@ -1503,6 +1568,7 @@ mod tests {
                 let roles = classify_params(cmd, &pnext);
                 let pattern = classify_command(cmd, &roles);
                 let pattern_name = match pattern {
+                    CommandPattern::AllocateArray => "AllocateArray",
                     CommandPattern::Create => "Create",
                     CommandPattern::Destroy => "Destroy",
                     CommandPattern::Enumerate => "Enumerate",
@@ -1530,6 +1596,12 @@ mod tests {
                         }
                         ParamRole::OutputArray { .. } => {
                             transforms.push(format!("{} → two-call data", param.name));
+                        }
+                        ParamRole::AllocateArrayOutput { .. } => {
+                            transforms.push(format!("{} → Vec<T> return", param.name));
+                        }
+                        ParamRole::PNextOutput => {
+                            transforms.push(format!("{} → &mut T", param.name));
                         }
                         ParamRole::InputCount { partner } => {
                             transforms.push(format!(

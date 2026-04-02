@@ -381,16 +381,9 @@ fn init_vulkan(window: Window) -> VulkanState {
         .render_pass(render_pass)
         .subpass(0);
 
-    let mut pipeline = Pipeline::null();
-    unsafe {
-        device.create_graphics_pipelines(
-            PipelineCache::null(),
-            &[*pipeline_info],
-            None,
-            &mut pipeline,
-        )
-    }
-    .expect("Failed to create graphics pipeline");
+    let pipeline =
+        unsafe { device.create_graphics_pipelines(PipelineCache::null(), &[*pipeline_info], None) }
+            .expect("Failed to create graphics pipeline")[0];
 
     unsafe {
         device.destroy_shader_module(vert_module, None);
@@ -442,8 +435,7 @@ fn init_vulkan(window: Window) -> VulkanState {
         .level(CommandBufferLevel::PRIMARY)
         .command_buffer_count(MAX_FRAMES_IN_FLIGHT as u32);
 
-    let mut command_buffers = vec![CommandBuffer::null(); MAX_FRAMES_IN_FLIGHT];
-    unsafe { device.allocate_command_buffers(&alloc_info, command_buffers.as_mut_ptr()) }
+    let command_buffers = unsafe { device.allocate_command_buffers(&alloc_info) }
         .expect("Failed to allocate command buffers");
 
     println!(

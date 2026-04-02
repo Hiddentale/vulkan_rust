@@ -236,15 +236,13 @@ let pipeline_info = GraphicsPipelineCreateInfo::builder()
     .subpass(0);
 
 // create_graphics_pipelines can create multiple pipelines at once.
-let mut pipeline = Pipeline::null();
-unsafe {
+let pipeline = unsafe {
     device.create_graphics_pipelines(
         PipelineCache::null(),  // no cache for now
         &[*pipeline_info],
         None,
-        &mut pipeline,
-    )?;
-};
+    )?
+}[0];
 
 // Shader modules can be destroyed after pipeline creation.
 // The compiled code is baked into the pipeline.
@@ -322,7 +320,7 @@ let cache = unsafe { device.create_pipeline_cache(&cache_info, None)? };
 
 // Pass the cache when creating pipelines.
 unsafe {
-    device.create_graphics_pipelines(cache, &[*pipeline_info], None, &mut pipeline)?;
+    let pipeline = device.create_graphics_pipelines(cache, &[*pipeline_info], None)?[0];
 };
 
 // At shutdown, retrieve cache data and save to disk for next run.

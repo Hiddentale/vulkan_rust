@@ -77,11 +77,10 @@ let alloc_info = CommandBufferAllocateInfo::builder()
     .level(CommandBufferLevel::PRIMARY)
     .command_buffer_count(1);
 
-let mut command_buffer = CommandBuffer::null();
-unsafe {
-    device.allocate_command_buffers(&alloc_info, &mut command_buffer)
+let command_buffer = unsafe {
+    device.allocate_command_buffers(&alloc_info)
 }
-.expect("Failed to allocate command buffer");
+.expect("Failed to allocate command buffer")[0];
 ```
 
 ## Step 3: Record drawing commands

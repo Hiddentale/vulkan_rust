@@ -177,7 +177,7 @@ unsafe fn check_enumerate(instance: &vulkan_rs::Instance) {
     }
 }
 
-/// Verify allocate_command_buffers with output pointer (c-to-rust.md)
+/// Verify allocate_command_buffers returns Vec (c-to-rust.md)
 unsafe fn check_allocate_cmd_buffers(device: &Device, command_pool: CommandPool) {
     unsafe {
         let alloc_info = CommandBufferAllocateInfo::builder()
@@ -185,10 +185,10 @@ unsafe fn check_allocate_cmd_buffers(device: &Device, command_pool: CommandPool)
             .level(CommandBufferLevel::PRIMARY)
             .command_buffer_count(2);
 
-        let mut cmd_buffers = vec![CommandBuffer::null(); 2];
-        device
-            .allocate_command_buffers(&alloc_info, cmd_buffers.as_mut_ptr())
+        let cmd_buffers = device
+            .allocate_command_buffers(&alloc_info)
             .expect("Failed to allocate");
+        assert_eq!(cmd_buffers.len(), 2);
     }
 }
 
