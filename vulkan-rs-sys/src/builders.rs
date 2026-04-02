@@ -23,8 +23,8 @@ impl ApplicationInfo {
 }
 impl<'a> ApplicationInfoBuilder<'a> {
     #[inline]
-    pub fn p_application_name(mut self, value: *const core::ffi::c_char) -> Self {
-        self.inner.p_application_name = value;
+    pub fn p_application_name(mut self, value: &'a core::ffi::CStr) -> Self {
+        self.inner.p_application_name = value.as_ptr();
         self
     }
     #[inline]
@@ -33,8 +33,8 @@ impl<'a> ApplicationInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_engine_name(mut self, value: *const core::ffi::c_char) -> Self {
-        self.inner.p_engine_name = value;
+    pub fn p_engine_name(mut self, value: &'a core::ffi::CStr) -> Self {
+        self.inner.p_engine_name = value.as_ptr();
         self
     }
     #[inline]
@@ -1663,8 +1663,8 @@ impl<'a> PipelineShaderStageCreateInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_name(mut self, value: *const core::ffi::c_char) -> Self {
-        self.inner.p_name = value;
+    pub fn p_name(mut self, value: &'a core::ffi::CStr) -> Self {
+        self.inner.p_name = value.as_ptr();
         self
     }
     #[inline]
@@ -5636,8 +5636,8 @@ impl<'a> DebugMarkerObjectNameInfoEXTBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_object_name(mut self, value: *const core::ffi::c_char) -> Self {
-        self.inner.p_object_name = value;
+    pub fn p_object_name(mut self, value: &'a core::ffi::CStr) -> Self {
+        self.inner.p_object_name = value.as_ptr();
         self
     }
     ///Prepend a struct to the pNext chain. See [`DebugMarkerObjectNameInfoEXT`]'s **Extended By** section for valid types.
@@ -5758,8 +5758,8 @@ impl DebugMarkerMarkerInfoEXT {
 }
 impl<'a> DebugMarkerMarkerInfoEXTBuilder<'a> {
     #[inline]
-    pub fn p_marker_name(mut self, value: *const core::ffi::c_char) -> Self {
-        self.inner.p_marker_name = value;
+    pub fn p_marker_name(mut self, value: &'a core::ffi::CStr) -> Self {
+        self.inner.p_marker_name = value.as_ptr();
         self
     }
     #[inline]
@@ -19834,8 +19834,8 @@ impl<'a> DebugUtilsObjectNameInfoEXTBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_object_name(mut self, value: *const core::ffi::c_char) -> Self {
-        self.inner.p_object_name = value;
+    pub fn p_object_name(mut self, value: &'a core::ffi::CStr) -> Self {
+        self.inner.p_object_name = value.as_ptr();
         self
     }
     ///Prepend a struct to the pNext chain. See [`DebugUtilsObjectNameInfoEXT`]'s **Extended By** section for valid types.
@@ -19956,8 +19956,8 @@ impl DebugUtilsLabelEXT {
 }
 impl<'a> DebugUtilsLabelEXTBuilder<'a> {
     #[inline]
-    pub fn p_label_name(mut self, value: *const core::ffi::c_char) -> Self {
-        self.inner.p_label_name = value;
+    pub fn p_label_name(mut self, value: &'a core::ffi::CStr) -> Self {
+        self.inner.p_label_name = value.as_ptr();
         self
     }
     #[inline]
@@ -20092,8 +20092,8 @@ impl<'a> DebugUtilsMessengerCallbackDataEXTBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_message_id_name(mut self, value: *const core::ffi::c_char) -> Self {
-        self.inner.p_message_id_name = value;
+    pub fn p_message_id_name(mut self, value: &'a core::ffi::CStr) -> Self {
+        self.inner.p_message_id_name = value.as_ptr();
         self
     }
     #[inline]
@@ -20102,8 +20102,8 @@ impl<'a> DebugUtilsMessengerCallbackDataEXTBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_message(mut self, value: *const core::ffi::c_char) -> Self {
-        self.inner.p_message = value;
+    pub fn p_message(mut self, value: &'a core::ffi::CStr) -> Self {
+        self.inner.p_message = value.as_ptr();
         self
     }
     #[inline]
@@ -50920,8 +50920,8 @@ impl<'a> CuFunctionCreateInfoNVXBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_name(mut self, value: *const core::ffi::c_char) -> Self {
-        self.inner.p_name = value;
+    pub fn p_name(mut self, value: &'a core::ffi::CStr) -> Self {
+        self.inner.p_name = value.as_ptr();
         self
     }
     ///Prepend a struct to the pNext chain. See [`CuFunctionCreateInfoNVX`]'s **Extended By** section for valid types.
@@ -53611,8 +53611,8 @@ impl<'a> CudaFunctionCreateInfoNVBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_name(mut self, value: *const core::ffi::c_char) -> Self {
-        self.inner.p_name = value;
+    pub fn p_name(mut self, value: &'a core::ffi::CStr) -> Self {
+        self.inner.p_name = value.as_ptr();
         self
     }
     ///Prepend a struct to the pNext chain. See [`CudaFunctionCreateInfoNV`]'s **Extended By** section for valid types.
@@ -62111,8 +62111,8 @@ impl<'a> ShaderCreateInfoEXTBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_name(mut self, value: *const core::ffi::c_char) -> Self {
-        self.inner.p_name = value;
+    pub fn p_name(mut self, value: &'a core::ffi::CStr) -> Self {
+        self.inner.p_name = value.as_ptr();
         self
     }
     #[inline]
@@ -63017,8 +63017,8 @@ impl PipelineShaderStageNodeCreateInfoAMDX {
 }
 impl<'a> PipelineShaderStageNodeCreateInfoAMDXBuilder<'a> {
     #[inline]
-    pub fn p_name(mut self, value: *const core::ffi::c_char) -> Self {
-        self.inner.p_name = value;
+    pub fn p_name(mut self, value: &'a core::ffi::CStr) -> Self {
+        self.inner.p_name = value.as_ptr();
         self
     }
     #[inline]
@@ -70769,8 +70769,8 @@ impl DataGraphPipelineCompilerControlCreateInfoARM {
 }
 impl<'a> DataGraphPipelineCompilerControlCreateInfoARMBuilder<'a> {
     #[inline]
-    pub fn p_vendor_options(mut self, value: *const core::ffi::c_char) -> Self {
-        self.inner.p_vendor_options = value;
+    pub fn p_vendor_options(mut self, value: &'a core::ffi::CStr) -> Self {
+        self.inner.p_vendor_options = value.as_ptr();
         self
     }
     ///Prepend a struct to the pNext chain. See [`DataGraphPipelineCompilerControlCreateInfoARM`]'s **Extended By** section for valid types.
@@ -70895,8 +70895,8 @@ impl<'a> DataGraphPipelineShaderModuleCreateInfoARMBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_name(mut self, value: *const core::ffi::c_char) -> Self {
-        self.inner.p_name = value;
+    pub fn p_name(mut self, value: &'a core::ffi::CStr) -> Self {
+        self.inner.p_name = value.as_ptr();
         self
     }
     #[inline]

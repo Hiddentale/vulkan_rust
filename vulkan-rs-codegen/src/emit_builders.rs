@@ -177,6 +177,21 @@ fn emit_simple_setter(member: &MemberDef) -> TokenStream {
         };
     }
 
+    // *const char fields accept &CStr and call .as_ptr() internally.
+    if member.type_name == "char"
+        && member.is_pointer
+        && member.is_const
+        && !member.is_double_pointer
+    {
+        return quote! {
+            #[inline]
+            pub fn #ident(mut self, value: &'a core::ffi::CStr) -> Self {
+                self.inner.#ident = value.as_ptr();
+                self
+            }
+        };
+    }
+
     let ty = resolve_member_type(member);
 
     quote! {

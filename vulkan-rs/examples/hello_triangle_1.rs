@@ -18,9 +18,9 @@ fn main() {
 
     // ── Step 2: Create Instance ────────────────────────────────
     let app_info = ApplicationInfo::builder()
-        .p_application_name(c"Hello Triangle".as_ptr())
+        .p_application_name(c"Hello Triangle")
         .application_version(1)
-        .p_engine_name(c"No Engine".as_ptr())
+        .p_engine_name(c"No Engine")
         .engine_version(1)
         .api_version(1 << 22); // Vulkan 1.0
 
