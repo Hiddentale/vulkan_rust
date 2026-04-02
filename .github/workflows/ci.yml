@@ -357,6 +357,26 @@ jobs:
       - name: Fuzz push_next (60s)
         run: cd vulkan-rs && cargo +nightly fuzz run fuzz_push_next -- -max_total_time=60
 
+  miri:
+    name: Miri (undefined behavior check)
+    needs: [fmt, clippy]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install system dependencies
+        run: sudo apt-get install -y libvulkan-dev libxcb1-dev libxkbcommon-dev
+
+      - name: Install Rust nightly with Miri
+        uses: dtolnay/rust-toolchain@nightly
+        with:
+          components: miri, rust-src
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Run Miri on vulkan-rs
+        run: cargo +nightly miri test --lib -p vulkan-rs
+
   guide-build:
     name: Guide Build (mdBook)
     runs-on: ubuntu-latest

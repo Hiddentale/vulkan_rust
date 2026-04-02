@@ -199,6 +199,7 @@ mod tests {
     }
 
     #[test]
+    #[cfg(not(miri))] // libloading calls FFI that Miri cannot interpret
     fn load_error_source_library_returns_some() {
         let lib_err =
             unsafe { libloading::Library::new("nonexistent_vulkan_lib.dll") }.unwrap_err();
@@ -228,6 +229,7 @@ mod tests {
     }
 
     #[test]
+    #[cfg(not(miri))] // libloading calls FFI that Miri cannot interpret
     fn load_error_display_library() {
         // Trigger a real libloading error by loading a nonexistent library.
         let lib_err =

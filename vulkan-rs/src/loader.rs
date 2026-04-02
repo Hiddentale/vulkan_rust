@@ -137,6 +137,7 @@ mod tests {
     }
 
     #[test]
+    #[cfg(not(miri))] // libloading calls FFI that Miri cannot interpret
     fn libloading_loader_new_returns_error_message_on_missing_lib() {
         // We can't easily force a missing library, but we can verify
         // the error path by trying to load a nonsense library name.
@@ -175,6 +176,7 @@ mod tests {
     }
 
     #[test]
+    #[cfg(not(miri))] // libloading calls FFI that Miri cannot interpret
     fn libloading_loader_new_error_is_load_error_library() {
         // On systems without Vulkan, new() should return LoadError::Library.
         // On systems WITH Vulkan, this test is still valid because it just
@@ -188,6 +190,7 @@ mod tests {
     }
 
     #[test]
+    #[cfg(not(miri))] // libloading calls FFI that Miri cannot interpret
     fn libloading_loader_new_exercises_load_path() {
         // Exercises LibloadingLoader::new() and load_vulkan_library() without
         // requiring a working ICD. On CI (libvulkan-dev installed) this succeeds;
