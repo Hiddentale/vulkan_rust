@@ -58,10 +58,8 @@ unsafe fn check_builder_and_buffer(device: &Device) {
             .bind_buffer_memory(buffer, memory, 0)
             .expect("Failed to bind");
 
-        // map_memory takes output pointer (not return value)
-        let mut data: *mut core::ffi::c_void = core::ptr::null_mut();
-        device
-            .map_memory(memory, 0, 1024, MemoryMapFlags::empty(), &mut data)
+        let _data = device
+            .map_memory(memory, 0, 1024, MemoryMapFlags::empty())
             .expect("Failed to map");
         device.unmap_memory(memory);
 
