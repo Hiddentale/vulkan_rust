@@ -4,6 +4,8 @@ vulkan-rs/fuzz/corpus
 vulkan-rs/fuzz/artifacts
 .claude
 CLAUDE.md
-docs
+docs/wrapper_audit.md
+docs/project_evaluation.md
+docs/custom_vulkan_bindings.md
 rust_out.*
 guide/book
