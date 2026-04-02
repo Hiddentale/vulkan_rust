@@ -354,6 +354,9 @@ jobs:
       - name: Fuzz entry_loader (60s)
         run: cd vulkan-rs && cargo +nightly fuzz run fuzz_entry_loader -- -max_total_time=60
 
+      - name: Fuzz push_next (60s)
+        run: cd vulkan-rs && cargo +nightly fuzz run fuzz_push_next -- -max_total_time=60
+
   guide-build:
     name: Guide Build (mdBook)
     runs-on: ubuntu-latest

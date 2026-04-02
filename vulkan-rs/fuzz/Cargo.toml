@@ -22,4 +22,9 @@ name = "fuzz_entry_loader"
 path = "fuzz_targets/fuzz_entry_loader.rs"
 doc = false
 
+[[bin]]
+name = "fuzz_push_next"
+path = "fuzz_targets/fuzz_push_next.rs"
+doc = false
+
 [workspace]
