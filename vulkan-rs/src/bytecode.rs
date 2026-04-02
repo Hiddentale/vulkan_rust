@@ -47,10 +47,10 @@ pub fn cast_to_u32(bytes: &[u8]) -> Result<&[u32], BytecodeError> {
     if bytes.is_empty() {
         return Ok(&[]);
     }
-    if !bytes.len().is_multiple_of(4) {
+    if bytes.len() % 4 != 0 {
         return Err(BytecodeError::InvalidLength(bytes.len()));
     }
-    if !(bytes.as_ptr() as usize).is_multiple_of(4) {
+    if (bytes.as_ptr() as usize) % 4 != 0 {
         return Err(BytecodeError::MisalignedPointer);
     }
     // SAFETY: length and alignment checked above, pointer is valid, aligned to u32, and in-bounds.

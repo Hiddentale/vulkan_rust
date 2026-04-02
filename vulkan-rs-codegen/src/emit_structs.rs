@@ -9,6 +9,7 @@ use crate::emit_aliases;
 use crate::parse::{MemberDef, StructDef, VkRegistry};
 use crate::resolve_types::{is_rust_keyword, member_name, resolve_member_type};
 use crate::stype;
+use crate::type_map;
 
 // ---------------------------------------------------------------------------
 // Public entry point
@@ -552,6 +553,24 @@ fn default_value_for(member: &MemberDef) -> TokenStream {
             return quote! { core::ptr::null() };
         } else {
             return quote! { core::ptr::null_mut() };
+        }
+    }
+
+    // Opaque platform types (NvSciBufAttrList, MTLDevice_id, etc.) resolve to
+    // *const c_void in resolve_type_fields even though is_pointer is false in
+    // the MemberDef. Similarly, LPCWSTR maps to *const u16 in type_map.
+    // Raw pointers didn't implement Default until Rust 1.88, so we must emit
+    // core::ptr::null() explicitly for MSRV compatibility.
+    if let Some(rust_type) = type_map::c_type_to_rust(&member.type_name) {
+        if rust_type.starts_with("*const") {
+            return quote! { core::ptr::null() };
+        }
+        if rust_type.starts_with("*mut") {
+            return quote! { core::ptr::null_mut() };
+        }
+        if rust_type == "core::ffi::c_void" && member.type_name != "void" {
+            // Opaque platform type, resolve_type_fields wraps as *const c_void.
+            return quote! { core::ptr::null() };
         }
     }
 

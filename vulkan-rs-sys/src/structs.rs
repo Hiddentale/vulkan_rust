@@ -5983,7 +5983,7 @@ impl Default for ExportMemorySciBufInfoNV {
         Self {
             s_type: Default::default(),
             p_next: core::ptr::null(),
-            p_attributes: Default::default(),
+            p_attributes: core::ptr::null(),
         }
     }
 }
@@ -6009,7 +6009,7 @@ impl Default for ImportMemorySciBufInfoNV {
             s_type: Default::default(),
             p_next: core::ptr::null(),
             handle_type: Default::default(),
-            handle: Default::default(),
+            handle: core::ptr::null(),
         }
     }
 }
@@ -8419,7 +8419,7 @@ impl Default for ImportMemoryWin32HandleInfoKHR {
             p_next: core::ptr::null(),
             handle_type: Default::default(),
             handle: Default::default(),
-            name: Default::default(),
+            name: core::ptr::null(),
         }
     }
 }
@@ -8450,7 +8450,7 @@ impl Default for ExportMemoryWin32HandleInfoKHR {
             p_next: core::ptr::null(),
             p_attributes: core::ptr::null(),
             dw_access: Default::default(),
-            name: Default::default(),
+            name: core::ptr::null(),
         }
     }
 }
@@ -8889,7 +8889,7 @@ impl Default for ImportSemaphoreWin32HandleInfoKHR {
             flags: Default::default(),
             handle_type: Default::default(),
             handle: Default::default(),
-            name: Default::default(),
+            name: core::ptr::null(),
         }
     }
 }
@@ -8920,7 +8920,7 @@ impl Default for ExportSemaphoreWin32HandleInfoKHR {
             p_next: core::ptr::null(),
             p_attributes: core::ptr::null(),
             dw_access: Default::default(),
-            name: Default::default(),
+            name: core::ptr::null(),
         }
     }
 }
@@ -9201,7 +9201,7 @@ impl Default for ImportFenceWin32HandleInfoKHR {
             flags: Default::default(),
             handle_type: Default::default(),
             handle: Default::default(),
-            name: Default::default(),
+            name: core::ptr::null(),
         }
     }
 }
@@ -9232,7 +9232,7 @@ impl Default for ExportFenceWin32HandleInfoKHR {
             p_next: core::ptr::null(),
             p_attributes: core::ptr::null(),
             dw_access: Default::default(),
-            name: Default::default(),
+            name: core::ptr::null(),
         }
     }
 }
@@ -9336,7 +9336,7 @@ impl Default for ExportFenceSciSyncInfoNV {
         Self {
             s_type: Default::default(),
             p_next: core::ptr::null(),
-            p_attributes: Default::default(),
+            p_attributes: core::ptr::null(),
         }
     }
 }
@@ -9409,7 +9409,7 @@ impl Default for ExportSemaphoreSciSyncInfoNV {
         Self {
             s_type: Default::default(),
             p_next: core::ptr::null(),
-            p_attributes: Default::default(),
+            p_attributes: core::ptr::null(),
         }
     }
 }
@@ -9564,7 +9564,7 @@ impl Default for SemaphoreSciSyncPoolCreateInfoNV {
         Self {
             s_type: Default::default(),
             p_next: core::ptr::null(),
-            handle: Default::default(),
+            handle: core::ptr::null(),
         }
     }
 }
@@ -34032,7 +34032,7 @@ impl Default for ExportMetalDeviceInfoEXT {
         Self {
             s_type: StructureType::from_raw(1000311002i32),
             p_next: core::ptr::null(),
-            mtl_device: Default::default(),
+            mtl_device: core::ptr::null(),
         }
     }
 }
@@ -34060,7 +34060,7 @@ impl Default for ExportMetalCommandQueueInfoEXT {
             s_type: StructureType::from_raw(1000311003i32),
             p_next: core::ptr::null(),
             queue: Default::default(),
-            mtl_command_queue: Default::default(),
+            mtl_command_queue: core::ptr::null(),
         }
     }
 }
@@ -34088,7 +34088,7 @@ impl Default for ExportMetalBufferInfoEXT {
             s_type: StructureType::from_raw(1000311004i32),
             p_next: core::ptr::null(),
             memory: Default::default(),
-            mtl_buffer: Default::default(),
+            mtl_buffer: core::ptr::null(),
         }
     }
 }
@@ -34114,7 +34114,7 @@ impl Default for ImportMetalBufferInfoEXT {
         Self {
             s_type: StructureType::from_raw(1000311005i32),
             p_next: core::ptr::null(),
-            mtl_buffer: Default::default(),
+            mtl_buffer: core::ptr::null(),
         }
     }
 }
@@ -34148,7 +34148,7 @@ impl Default for ExportMetalTextureInfoEXT {
             image_view: Default::default(),
             buffer_view: Default::default(),
             plane: Default::default(),
-            mtl_texture: Default::default(),
+            mtl_texture: core::ptr::null(),
         }
     }
 }
@@ -34176,7 +34176,7 @@ impl Default for ImportMetalTextureInfoEXT {
             s_type: StructureType::from_raw(1000311007i32),
             p_next: core::ptr::null(),
             plane: Default::default(),
-            mtl_texture: Default::default(),
+            mtl_texture: core::ptr::null(),
         }
     }
 }
@@ -34204,7 +34204,7 @@ impl Default for ExportMetalIOSurfaceInfoEXT {
             s_type: StructureType::from_raw(1000311008i32),
             p_next: core::ptr::null(),
             image: Default::default(),
-            io_surface: Default::default(),
+            io_surface: core::ptr::null(),
         }
     }
 }
@@ -34230,7 +34230,7 @@ impl Default for ImportMetalIOSurfaceInfoEXT {
         Self {
             s_type: StructureType::from_raw(1000311009i32),
             p_next: core::ptr::null(),
-            io_surface: Default::default(),
+            io_surface: core::ptr::null(),
         }
     }
 }
@@ -34260,7 +34260,7 @@ impl Default for ExportMetalSharedEventInfoEXT {
             p_next: core::ptr::null(),
             semaphore: Default::default(),
             event: Default::default(),
-            mtl_shared_event: Default::default(),
+            mtl_shared_event: core::ptr::null(),
         }
     }
 }
@@ -34287,7 +34287,7 @@ impl Default for ImportMetalSharedEventInfoEXT {
         Self {
             s_type: StructureType::from_raw(1000311011i32),
             p_next: core::ptr::null(),
-            mtl_shared_event: Default::default(),
+            mtl_shared_event: core::ptr::null(),
         }
     }
 }
