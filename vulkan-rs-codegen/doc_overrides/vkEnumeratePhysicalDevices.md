@@ -17,3 +17,7 @@ to be stable across runs. To pick the right GPU:
 On systems with multiple GPUs (e.g. a discrete + integrated), this
 returns all of them. Vulkan does not have a concept of a "default"
 GPU, your application must choose.
+
+# Guide
+
+See [Hello Triangle, Part 1](https://hiddentale.github.io/vulkan_rs/getting-started/hello-triangle-1.html) in the vulkan_rs guide.

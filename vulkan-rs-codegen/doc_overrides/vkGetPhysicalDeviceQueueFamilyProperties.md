@@ -23,3 +23,7 @@ Check `queue_flags` for `QUEUE_GRAPHICS`, `QUEUE_COMPUTE`,
 
 For extended properties (Vulkan 1.1+), use
 `get_physical_device_queue_family_properties2`.
+
+# Guide
+
+See [Hello Triangle, Part 1](https://hiddentale.github.io/vulkan_rs/getting-started/hello-triangle-1.html) in the vulkan_rs guide.

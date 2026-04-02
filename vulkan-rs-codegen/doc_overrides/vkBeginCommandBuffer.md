@@ -22,3 +22,7 @@ inheritance info is ignored.
 Calling `begin_command_buffer` on a buffer that is already recording
 is an error. Calling it on a buffer in the *executable* state
 implicitly resets it first (if the pool allows it).
+
+# Guide
+
+See [Command Buffers](https://hiddentale.github.io/vulkan_rs/concepts/command-buffers.html) in the vulkan_rs guide.

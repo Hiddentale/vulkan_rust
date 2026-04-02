@@ -18,3 +18,7 @@ For indexed geometry (the common case for meshes), use
 `cmd_draw_indexed` instead. `cmd_draw` is typically used for
 full-screen quads, procedural geometry, or particle systems where
 vertices are generated in the shader.
+
+# Guide
+
+See [Command Buffers](https://hiddentale.github.io/vulkan_rs/concepts/command-buffers.html) in the vulkan_rs guide.

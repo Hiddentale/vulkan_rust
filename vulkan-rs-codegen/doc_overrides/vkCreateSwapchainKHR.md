@@ -24,3 +24,7 @@ display.
 (window resize) or when `acquire_next_image_khr` returns
 `VK_ERROR_OUT_OF_DATE_KHR`. Destroy the old swapchain after
 creating the new one.
+
+# Guide
+
+See [Hello Triangle, Part 2](https://hiddentale.github.io/vulkan_rs/getting-started/hello-triangle-2.html) in the vulkan_rs guide.

@@ -20,3 +20,7 @@ Common uses:
 - Synchronize between a graphics queue submit and a present.
 - Order a transfer upload before a render pass that consumes it.
 - Coordinate work across different queue families.
+
+# Guide
+
+See [Synchronization](https://hiddentale.github.io/vulkan_rs/concepts/synchronization.html) in the vulkan_rs guide.

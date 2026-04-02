@@ -19,3 +19,7 @@ Submitting with a fence that is already pending is an error.
 
 For GPU–GPU synchronization (between queue submissions) use
 semaphores instead. Fences are strictly for CPU-visible signalling.
+
+# Guide
+
+See [Synchronization](https://hiddentale.github.io/vulkan_rs/concepts/synchronization.html) in the vulkan_rs guide.

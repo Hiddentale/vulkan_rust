@@ -19,3 +19,7 @@ command buffer lifetimes.
 
 Command pools are **not thread-safe**. If multiple threads record
 commands concurrently, each thread needs its own pool.
+
+# Guide
+
+See [Command Buffers](https://hiddentale.github.io/vulkan_rs/concepts/command-buffers.html) in the vulkan_rs guide.

@@ -11,3 +11,7 @@ not been presented.
 When recreating a swapchain (e.g. on resize), create the new one
 first (passing the old as `old_swapchain`), then destroy the old
 one.
+
+# Guide
+
+See [Hello Triangle, Part 2](https://hiddentale.github.io/vulkan_rs/getting-started/hello-triangle-2.html) in the vulkan_rs guide.

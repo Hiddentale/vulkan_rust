@@ -22,3 +22,7 @@ unsafe { device.destroy_buffer(buffer, None) };
 # unsafe { device.destroy_device(None) };
 # unsafe { instance.destroy_instance(None) };
 ```
+
+# Guide
+
+See [Memory Management](https://hiddentale.github.io/vulkan_rs/concepts/memory.html) in the vulkan_rs guide.

@@ -28,3 +28,7 @@ acquire_next_image_khr(swapchain, u64::MAX, image_available_sem, null)
 // signal render_finished_sem in queue_submit
 queue_present_khr(render_finished_sem, swapchain, index)
 ```
+
+# Guide
+
+See [Synchronization](https://hiddentale.github.io/vulkan_rs/concepts/synchronization.html) in the vulkan_rs guide.

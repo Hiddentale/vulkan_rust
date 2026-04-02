@@ -14,3 +14,7 @@ queues with `DeviceQueueCreateFlags` (e.g. protected queues), use
 
 It is common to retrieve queues once after device creation and store
 them for the lifetime of the device.
+
+# Guide
+
+See [Hello Triangle, Part 1](https://hiddentale.github.io/vulkan_rs/getting-started/hello-triangle-1.html) in the vulkan_rs guide.

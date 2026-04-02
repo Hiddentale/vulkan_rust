@@ -66,6 +66,10 @@ impl crate::Device {
     ///
     ///After this call the `Device` handle is invalid. Do not use it or any
     ///object created from it.
+    ///
+    ///# Guide
+    ///
+    ///See [The Vulkan Object Model](https://hiddentale.github.io/vulkan_rs/concepts/object-model.html) in the vulkan_rs guide.
     pub unsafe fn destroy_device(&self, allocator: Option<&AllocationCallbacks>) {
         let fp = self
             .commands()
@@ -100,6 +104,10 @@ impl crate::Device {
     ///
     ///It is common to retrieve queues once after device creation and store
     ///them for the lifetime of the device.
+    ///
+    ///# Guide
+    ///
+    ///See [Hello Triangle, Part 1](https://hiddentale.github.io/vulkan_rs/getting-started/hello-triangle-1.html) in the vulkan_rs guide.
     pub unsafe fn get_device_queue(&self, queue_family_index: u32, queue_index: u32) -> Queue {
         let fp = self
             .commands()
@@ -149,6 +157,10 @@ impl crate::Device {
     ///
     ///**Thread safety**: a `Queue` must be externally synchronized. If
     ///multiple threads submit to the same queue, you need a mutex.
+    ///
+    ///# Guide
+    ///
+    ///See [Synchronization](https://hiddentale.github.io/vulkan_rs/concepts/synchronization.html) in the vulkan_rs guide.
     pub unsafe fn queue_submit(
         &self,
         queue: Queue,
@@ -266,6 +278,10 @@ impl crate::Device {
     ///
     ///The returned `DeviceMemory` must be freed with `free_memory` when no
     ///longer needed. Vulkan does not garbage-collect device memory.
+    ///
+    ///# Guide
+    ///
+    ///See [Memory Management](https://hiddentale.github.io/vulkan_rs/concepts/memory.html) in the vulkan_rs guide.
     pub unsafe fn allocate_memory(
         &self,
         p_allocate_info: &MemoryAllocateInfo,
@@ -833,6 +849,10 @@ impl crate::Device {
     ///
     ///For GPU–GPU synchronization (between queue submissions) use
     ///semaphores instead. Fences are strictly for CPU-visible signalling.
+    ///
+    ///# Guide
+    ///
+    ///See [Synchronization](https://hiddentale.github.io/vulkan_rs/concepts/synchronization.html) in the vulkan_rs guide.
     pub unsafe fn create_fence(
         &self,
         p_create_info: &FenceCreateInfo,
@@ -1060,6 +1080,10 @@ impl crate::Device {
     ///- Synchronize between a graphics queue submit and a present.
     ///- Order a transfer upload before a render pass that consumes it.
     ///- Coordinate work across different queue families.
+    ///
+    ///# Guide
+    ///
+    ///See [Synchronization](https://hiddentale.github.io/vulkan_rs/concepts/synchronization.html) in the vulkan_rs guide.
     pub unsafe fn create_semaphore(
         &self,
         p_create_info: &SemaphoreCreateInfo,
@@ -1489,6 +1513,10 @@ impl crate::Device {
     ///# unsafe { device.destroy_device(None) };
     ///# unsafe { instance.destroy_instance(None) };
     ///```
+    ///
+    ///# Guide
+    ///
+    ///See [Memory Management](https://hiddentale.github.io/vulkan_rs/concepts/memory.html) in the vulkan_rs guide.
     pub unsafe fn create_buffer(
         &self,
         p_create_info: &BufferCreateInfo,
@@ -1836,6 +1864,10 @@ impl crate::Device {
     ///the driver copies what it needs during `create_graphics_pipelines` or
     ///`create_compute_pipelines`. Destroying early keeps the handle count
     ///low.
+    ///
+    ///# Guide
+    ///
+    ///See [Pipelines](https://hiddentale.github.io/vulkan_rs/concepts/pipelines.html) in the vulkan_rs guide.
     pub unsafe fn create_shader_module(
         &self,
         p_create_info: &ShaderModuleCreateInfo,
@@ -2314,6 +2346,10 @@ impl crate::Device {
     ///error but may still populate some output handles. Check
     ///`VK_PIPELINE_COMPILE_REQUIRED` when using
     ///`VK_PIPELINE_CREATE_FAIL_ON_PIPELINE_COMPILE_REQUIRED_BIT`.
+    ///
+    ///# Guide
+    ///
+    ///See [Pipelines](https://hiddentale.github.io/vulkan_rs/concepts/pipelines.html) in the vulkan_rs guide.
     pub unsafe fn create_graphics_pipelines(
         &self,
         pipeline_cache: PipelineCache,
@@ -2511,6 +2547,10 @@ impl crate::Device {
     ///Push constants are limited to `max_push_constants_size` bytes
     ///(guaranteed at least 128). Use them for small per-draw data like
     ///transform matrices or material indices.
+    ///
+    ///# Guide
+    ///
+    ///See [Pipelines](https://hiddentale.github.io/vulkan_rs/concepts/pipelines.html) in the vulkan_rs guide.
     pub unsafe fn create_pipeline_layout(
         &self,
         p_create_info: &PipelineLayoutCreateInfo,
@@ -3035,6 +3075,10 @@ impl crate::Device {
     ///image views are then supplied at `cmd_begin_render_pass` time via
     ///`RenderPassAttachmentBeginInfo`. This avoids recreating framebuffers
     ///on swapchain resize.
+    ///
+    ///# Guide
+    ///
+    ///See [Render Passes & Framebuffers](https://hiddentale.github.io/vulkan_rs/concepts/render-passes.html) in the vulkan_rs guide.
     pub unsafe fn create_framebuffer(
         &self,
         p_create_info: &FramebufferCreateInfo,
@@ -3119,6 +3163,10 @@ impl crate::Device {
     ///
     ///For dynamic rendering (Vulkan 1.3+), consider `cmd_begin_rendering`
     ///instead, which avoids the need for render pass and framebuffer objects.
+    ///
+    ///# Guide
+    ///
+    ///See [Render Passes & Framebuffers](https://hiddentale.github.io/vulkan_rs/concepts/render-passes.html) in the vulkan_rs guide.
     pub unsafe fn create_render_pass(
         &self,
         p_create_info: &RenderPassCreateInfo,
@@ -3271,6 +3319,10 @@ impl crate::Device {
     ///
     ///Command pools are **not thread-safe**. If multiple threads record
     ///commands concurrently, each thread needs its own pool.
+    ///
+    ///# Guide
+    ///
+    ///See [Command Buffers](https://hiddentale.github.io/vulkan_rs/concepts/command-buffers.html) in the vulkan_rs guide.
     pub unsafe fn create_command_pool(
         &self,
         p_create_info: &CommandPoolCreateInfo,
@@ -3396,6 +3448,10 @@ impl crate::Device {
     ///Command buffers are freed either individually with
     ///`free_command_buffers` or implicitly when the parent pool is
     ///destroyed or reset.
+    ///
+    ///# Guide
+    ///
+    ///See [Command Buffers](https://hiddentale.github.io/vulkan_rs/concepts/command-buffers.html) in the vulkan_rs guide.
     pub unsafe fn allocate_command_buffers(
         &self,
         p_allocate_info: &CommandBufferAllocateInfo,
@@ -3490,6 +3546,10 @@ impl crate::Device {
     ///Calling `begin_command_buffer` on a buffer that is already recording
     ///is an error. Calling it on a buffer in the *executable* state
     ///implicitly resets it first (if the pool allows it).
+    ///
+    ///# Guide
+    ///
+    ///See [Command Buffers](https://hiddentale.github.io/vulkan_rs/concepts/command-buffers.html) in the vulkan_rs guide.
     pub unsafe fn begin_command_buffer(
         &self,
         command_buffer: CommandBuffer,
@@ -3532,6 +3592,10 @@ impl crate::Device {
     ///
     ///A command buffer that is inside a render pass must end the render
     ///pass with `cmd_end_render_pass` before calling `end_command_buffer`.
+    ///
+    ///# Guide
+    ///
+    ///See [Command Buffers](https://hiddentale.github.io/vulkan_rs/concepts/command-buffers.html) in the vulkan_rs guide.
     pub unsafe fn end_command_buffer(&self, command_buffer: CommandBuffer) -> VkResult<()> {
         let fp = self
             .commands()
@@ -3613,6 +3677,10 @@ impl crate::Device {
     ///
     ///Graphics pipelines can only be bound inside a render pass (or
     ///dynamic rendering). Compute pipelines can be bound anywhere.
+    ///
+    ///# Guide
+    ///
+    ///See [Pipelines](https://hiddentale.github.io/vulkan_rs/concepts/pipelines.html) in the vulkan_rs guide.
     pub unsafe fn cmd_bind_pipeline(
         &self,
         command_buffer: CommandBuffer,
@@ -4226,6 +4294,10 @@ impl crate::Device {
     ///`cmd_draw_indexed` instead. `cmd_draw` is typically used for
     ///full-screen quads, procedural geometry, or particle systems where
     ///vertices are generated in the shader.
+    ///
+    ///# Guide
+    ///
+    ///See [Command Buffers](https://hiddentale.github.io/vulkan_rs/concepts/command-buffers.html) in the vulkan_rs guide.
     pub unsafe fn cmd_draw(
         &self,
         command_buffer: CommandBuffer,
@@ -5980,6 +6052,10 @@ impl crate::Device {
     ///For Vulkan 1.2+, `cmd_begin_render_pass2` accepts a `SubpassBeginInfo`.
     ///For Vulkan 1.3+, consider dynamic rendering (`cmd_begin_rendering`)
     ///which avoids render pass and framebuffer objects entirely.
+    ///
+    ///# Guide
+    ///
+    ///See [Render Passes & Framebuffers](https://hiddentale.github.io/vulkan_rs/concepts/render-passes.html) in the vulkan_rs guide.
     pub unsafe fn cmd_begin_render_pass(
         &self,
         command_buffer: CommandBuffer,
@@ -6203,6 +6279,10 @@ impl crate::Device {
     ///(window resize) or when `acquire_next_image_khr` returns
     ///`VK_ERROR_OUT_OF_DATE_KHR`. Destroy the old swapchain after
     ///creating the new one.
+    ///
+    ///# Guide
+    ///
+    ///See [Hello Triangle, Part 2](https://hiddentale.github.io/vulkan_rs/getting-started/hello-triangle-2.html) in the vulkan_rs guide.
     pub unsafe fn create_swapchain_khr(
         &self,
         p_create_info: &SwapchainCreateInfoKHR,
@@ -6241,6 +6321,10 @@ impl crate::Device {
     ///When recreating a swapchain (e.g. on resize), create the new one
     ///first (passing the old as `old_swapchain`), then destroy the old
     ///one.
+    ///
+    ///# Guide
+    ///
+    ///See [Hello Triangle, Part 2](https://hiddentale.github.io/vulkan_rs/getting-started/hello-triangle-2.html) in the vulkan_rs guide.
     pub unsafe fn destroy_swapchain_khr(
         &self,
         swapchain: SwapchainKHR,
@@ -6285,6 +6369,10 @@ impl crate::Device {
     ///The images start in an undefined layout. Transition them to the
     ///appropriate layout (e.g. `COLOR_ATTACHMENT_OPTIMAL`) during the
     ///first render pass or via a pipeline barrier.
+    ///
+    ///# Guide
+    ///
+    ///See [Hello Triangle, Part 2](https://hiddentale.github.io/vulkan_rs/getting-started/hello-triangle-2.html) in the vulkan_rs guide.
     pub unsafe fn get_swapchain_images_khr(&self, swapchain: SwapchainKHR) -> VkResult<Vec<Image>> {
         let fp = self
             .commands()
@@ -6345,6 +6433,10 @@ impl crate::Device {
     #[doc = "// signal render_finished_sem in queue_submit"]
     ///queue_present_khr(render_finished_sem, swapchain, index)
     ///```
+    ///
+    ///# Guide
+    ///
+    ///See [Synchronization](https://hiddentale.github.io/vulkan_rs/concepts/synchronization.html) in the vulkan_rs guide.
     pub unsafe fn acquire_next_image_khr(
         &self,
         swapchain: SwapchainKHR,
@@ -6415,6 +6507,10 @@ impl crate::Device {
     ///The present queue does not need to be the same as the graphics
     ///queue, but the semaphore synchronisation must be correct if they
     ///differ.
+    ///
+    ///# Guide
+    ///
+    ///See [Hello Triangle, Part 4](https://hiddentale.github.io/vulkan_rs/getting-started/hello-triangle-4.html) in the vulkan_rs guide.
     pub unsafe fn queue_present_khr(
         &self,
         queue: Queue,

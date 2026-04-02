@@ -677,8 +677,8 @@ fn result_returning_wrappers_have_error_docs() {
             continue;
         }
 
-        // Doc overrides can push the # Errors section further back.
-        let start = i.saturating_sub(50);
+        // Doc overrides + guide links can push the # Errors section further back.
+        let start = i.saturating_sub(80);
         let has_errors = lines[start..i].iter().any(|l| l.contains("# Errors"));
         if !has_errors {
             missing.push(name.to_string());

@@ -14,3 +14,7 @@ A safe teardown order:
 
 After this call the `Device` handle is invalid. Do not use it or any
 object created from it.
+
+# Guide
+
+See [The Vulkan Object Model](https://hiddentale.github.io/vulkan_rs/concepts/object-model.html) in the vulkan_rs guide.

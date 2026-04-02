@@ -16,3 +16,7 @@ be recorded with `begin_command_buffer` before submission.
 Command buffers are freed either individually with
 `free_command_buffers` or implicitly when the parent pool is
 destroyed or reset.
+
+# Guide
+
+See [Command Buffers](https://hiddentale.github.io/vulkan_rs/concepts/command-buffers.html) in the vulkan_rs guide.

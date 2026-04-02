@@ -22,3 +22,7 @@ multi-monitor rendering).
 The present queue does not need to be the same as the graphics
 queue, but the semaphore synchronisation must be correct if they
 differ.
+
+# Guide
+
+See [Hello Triangle, Part 4](https://hiddentale.github.io/vulkan_rs/getting-started/hello-triangle-4.html) in the vulkan_rs guide.

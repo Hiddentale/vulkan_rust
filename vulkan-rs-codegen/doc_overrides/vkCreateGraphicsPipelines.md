@@ -19,3 +19,7 @@ If creation fails for one pipeline in a batch, the call returns an
 error but may still populate some output handles. Check
 `VK_PIPELINE_COMPILE_REQUIRED` when using
 `VK_PIPELINE_CREATE_FAIL_ON_PIPELINE_COMPILE_REQUIRED_BIT`.
+
+# Guide
+
+See [Pipelines](https://hiddentale.github.io/vulkan_rs/concepts/pipelines.html) in the vulkan_rs guide.

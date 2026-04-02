@@ -17,3 +17,7 @@ with `FRAMEBUFFER_CREATE_IMAGELESS` and no attachments. Concrete
 image views are then supplied at `cmd_begin_render_pass` time via
 `RenderPassAttachmentBeginInfo`. This avoids recreating framebuffers
 on swapchain resize.
+
+# Guide
+
+See [Render Passes & Framebuffers](https://hiddentale.github.io/vulkan_rs/concepts/render-passes.html) in the vulkan_rs guide.

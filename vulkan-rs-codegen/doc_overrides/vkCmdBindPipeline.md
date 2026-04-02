@@ -18,3 +18,7 @@ clarity.
 
 Graphics pipelines can only be bound inside a render pass (or
 dynamic rendering). Compute pipelines can be bound anywhere.
+
+# Guide
+
+See [Pipelines](https://hiddentale.github.io/vulkan_rs/concepts/pipelines.html) in the vulkan_rs guide.

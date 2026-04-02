@@ -13,3 +13,7 @@ Safe teardown order:
 
 After this call the instance handle and all physical device handles
 obtained from it are invalid.
+
+# Guide
+
+See [The Vulkan Object Model](https://hiddentale.github.io/vulkan_rs/concepts/object-model.html) in the vulkan_rs guide.

@@ -14,3 +14,7 @@ be destroyed before the swapchain is destroyed.
 The images start in an undefined layout. Transition them to the
 appropriate layout (e.g. `COLOR_ATTACHMENT_OPTIMAL`) during the
 first render pass or via a pipeline barrier.
+
+# Guide
+
+See [Hello Triangle, Part 2](https://hiddentale.github.io/vulkan_rs/getting-started/hello-triangle-2.html) in the vulkan_rs guide.

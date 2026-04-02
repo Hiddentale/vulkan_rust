@@ -24,3 +24,7 @@ recorded within this render pass until `cmd_end_render_pass`.
 For Vulkan 1.2+, `cmd_begin_render_pass2` accepts a `SubpassBeginInfo`.
 For Vulkan 1.3+, consider dynamic rendering (`cmd_begin_rendering`)
 which avoids render pass and framebuffer objects entirely.
+
+# Guide
+
+See [Render Passes & Framebuffers](https://hiddentale.github.io/vulkan_rs/concepts/render-passes.html) in the vulkan_rs guide.

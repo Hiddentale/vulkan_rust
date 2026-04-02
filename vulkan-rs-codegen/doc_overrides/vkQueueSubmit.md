@@ -19,3 +19,7 @@ calls.
 
 **Thread safety**: a `Queue` must be externally synchronized. If
 multiple threads submit to the same queue, you need a mutex.
+
+# Guide
+
+See [Synchronization](https://hiddentale.github.io/vulkan_rs/concepts/synchronization.html) in the vulkan_rs guide.

@@ -20,3 +20,7 @@ Key design points:
 
 For dynamic rendering (Vulkan 1.3+), consider `cmd_begin_rendering`
 instead, which avoids the need for render pass and framebuffer objects.
+
+# Guide
+
+See [Render Passes & Framebuffers](https://hiddentale.github.io/vulkan_rs/concepts/render-passes.html) in the vulkan_rs guide.

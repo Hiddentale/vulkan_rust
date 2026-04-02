@@ -11,3 +11,7 @@ and must be reset before reuse.
 
 A command buffer that is inside a render pass must end the render
 pass with `cmd_end_render_pass` before calling `end_command_buffer`.
+
+# Guide
+
+See [Command Buffers](https://hiddentale.github.io/vulkan_rs/concepts/command-buffers.html) in the vulkan_rs guide.

@@ -18,3 +18,7 @@ Key fields to check during device selection:
 For extended properties (Vulkan 1.1+), use
 `get_physical_device_properties2` which supports chaining additional
 property structs like `PhysicalDeviceVulkan12Properties`.
+
+# Guide
+
+See [Hello Triangle, Part 1](https://hiddentale.github.io/vulkan_rs/getting-started/hello-triangle-1.html) in the vulkan_rs guide.

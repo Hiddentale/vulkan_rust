@@ -33,6 +33,10 @@ impl crate::Instance {
     ///
     ///After this call the instance handle and all physical device handles
     ///obtained from it are invalid.
+    ///
+    ///# Guide
+    ///
+    ///See [The Vulkan Object Model](https://hiddentale.github.io/vulkan_rs/concepts/object-model.html) in the vulkan_rs guide.
     pub unsafe fn destroy_instance(&self, allocator: Option<&AllocationCallbacks>) {
         let fp = self
             .commands()
@@ -77,6 +81,10 @@ impl crate::Instance {
     ///On systems with multiple GPUs (e.g. a discrete + integrated), this
     ///returns all of them. Vulkan does not have a concept of a "default"
     ///GPU, your application must choose.
+    ///
+    ///# Guide
+    ///
+    ///See [Hello Triangle, Part 1](https://hiddentale.github.io/vulkan_rs/getting-started/hello-triangle-1.html) in the vulkan_rs guide.
     pub unsafe fn enumerate_physical_devices(&self) -> VkResult<Vec<PhysicalDevice>> {
         let fp = self
             .commands()
@@ -152,6 +160,10 @@ impl crate::Instance {
     ///For extended properties (Vulkan 1.1+), use
     ///`get_physical_device_properties2` which supports chaining additional
     ///property structs like `PhysicalDeviceVulkan12Properties`.
+    ///
+    ///# Guide
+    ///
+    ///See [Hello Triangle, Part 1](https://hiddentale.github.io/vulkan_rs/getting-started/hello-triangle-1.html) in the vulkan_rs guide.
     pub unsafe fn get_physical_device_properties(
         &self,
         physical_device: PhysicalDevice,
@@ -199,6 +211,10 @@ impl crate::Instance {
     ///
     ///For extended properties (Vulkan 1.1+), use
     ///`get_physical_device_queue_family_properties2`.
+    ///
+    ///# Guide
+    ///
+    ///See [Hello Triangle, Part 1](https://hiddentale.github.io/vulkan_rs/getting-started/hello-triangle-1.html) in the vulkan_rs guide.
     pub unsafe fn get_physical_device_queue_family_properties(
         &self,
         physical_device: PhysicalDevice,

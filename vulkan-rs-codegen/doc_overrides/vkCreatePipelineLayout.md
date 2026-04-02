@@ -23,3 +23,7 @@ share the same layout can share descriptor sets without rebinding.
 Push constants are limited to `max_push_constants_size` bytes
 (guaranteed at least 128). Use them for small per-draw data like
 transform matrices or material indices.
+
+# Guide
+
+See [Pipelines](https://hiddentale.github.io/vulkan_rs/concepts/pipelines.html) in the vulkan_rs guide.
