@@ -192,43 +192,7 @@ jobs:
           fi
 
   test-coverage:
-    name: Test Coverage
-    needs: [fmt, clippy]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v5
-
-      - name: Install system dependencies
-        run: sudo apt-get install -y libvulkan-dev libxcb1-dev libxkbcommon-dev
-
-      - name: Install Rust
-        uses: dtolnay/rust-toolchain@stable
-        with:
-          components: llvm-tools-preview
-
-      - uses: Swatinem/rust-cache@v2
-
-      - name: Install cargo-llvm-cov
-        uses: taiki-e/install-action@cargo-llvm-cov
-
-      - name: Generate coverage report
-        run: |
-          cargo llvm-cov --workspace --lcov --output-path lcov.info \
-            --ignore-filename-regex '(vulkan-rs-sys/src/|vulkan-rs/src/generated/)'
-
-      - name: Print coverage summary
-        run: |
-          cargo llvm-cov --workspace --no-run \
-            --ignore-filename-regex '(vulkan-rs-sys/src/|vulkan-rs/src/generated/)'
-
-      - name: Upload coverage artifact
-        uses: actions/upload-artifact@v5
-        with:
-          name: coverage-report
-          path: lcov.info
-
-  vulkan-runtime-tests:
-    name: Vulkan Runtime Tests (lavapipe)
+    name: Test Coverage (lavapipe)
     needs: [fmt, clippy]
     runs-on: ubuntu-latest
     steps:
@@ -242,12 +206,16 @@ jobs:
 
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
+        with:
+          components: llvm-tools-preview
 
       - uses: Swatinem/rust-cache@v2
 
+      - name: Install cargo-llvm-cov
+        uses: taiki-e/install-action@cargo-llvm-cov
+
       - name: Find lavapipe ICD and verify
         run: |
-          # Find the actual ICD file path (varies by Ubuntu version)
           LVP_ICD=$(find /usr/share/vulkan /etc/vulkan -name '*lvp*' -o -name '*lavapipe*' 2>/dev/null | head -1)
           if [ -z "$LVP_ICD" ]; then
             echo "::warning::Lavapipe ICD not found, listing available ICDs:"
@@ -258,10 +226,23 @@ jobs:
           echo "LVP_ICD=$LVP_ICD" >> "$GITHUB_ENV"
           VK_ICD_FILENAMES="$LVP_ICD" vulkaninfo --summary
 
-      - name: Run ignored tests (requires Vulkan runtime)
+      - name: Generate coverage (all tests including runtime)
         run: |
           export VK_ICD_FILENAMES="$LVP_ICD"
-          cargo test --workspace -- --ignored --test-threads=1
+          cargo llvm-cov --workspace --include-ignored --lcov --output-path lcov.info \
+            --ignore-filename-regex '(vulkan-rs-sys/src/|vulkan-rs/src/generated/)' \
+            -- --test-threads=1
+
+      - name: Print coverage summary
+        run: |
+          cargo llvm-cov --workspace --no-run \
+            --ignore-filename-regex '(vulkan-rs-sys/src/|vulkan-rs/src/generated/)'
+
+      - name: Upload coverage artifact
+        uses: actions/upload-artifact@v5
+        with:
+          name: coverage-report
+          path: lcov.info
 
   layout-cross-validation:
     name: C ↔ Rust Layout Validation
