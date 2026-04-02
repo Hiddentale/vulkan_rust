@@ -230,8 +230,8 @@ Now we add `VK_KHR_swapchain`, the extension that lets us create a
 swapchain.
 
 ```rust,ignore
-let swapchain_ext = c"VK_KHR_swapchain";
-let device_extensions = [swapchain_ext.as_ptr()];
+use vk::extension_names::KHR_SWAPCHAIN_EXTENSION_NAME;
+let device_extensions = [KHR_SWAPCHAIN_EXTENSION_NAME.as_ptr()];
 
 let queue_priority = 1.0_f32;
 let queue_info = DeviceQueueCreateInfo::builder()

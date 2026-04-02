@@ -68,14 +68,16 @@ impl From<vk::enums::Result> for SurfaceError {
 ///
 /// ```
 /// use vulkan_rs::required_extensions;
+/// use vulkan_rs::vk::extension_names::KHR_SURFACE_EXTENSION_NAME;
 ///
 /// let exts = required_extensions();
-/// assert!(exts.iter().any(|e| *e == c"VK_KHR_surface"));
+/// assert!(exts.iter().any(|e| *e == KHR_SURFACE_EXTENSION_NAME));
 /// ```
 pub fn required_extensions() -> &'static [&'static CStr] {
+    use vk::extension_names::*;
     #[cfg(target_os = "windows")]
     {
-        &[c"VK_KHR_surface", c"VK_KHR_win32_surface"]
+        &[KHR_SURFACE_EXTENSION_NAME, KHR_WIN32_SURFACE_EXTENSION_NAME]
     }
     #[cfg(all(
         unix,
@@ -84,21 +86,24 @@ pub fn required_extensions() -> &'static [&'static CStr] {
         not(target_os = "ios"),
     ))]
     {
-        // Wayland and X11,return both; the loader ignores missing ones
+        // Wayland and X11, return both; the loader ignores missing ones
         // at enumerate time, and the user can filter to what's available.
         &[
-            c"VK_KHR_surface",
-            c"VK_KHR_xlib_surface",
-            c"VK_KHR_wayland_surface",
+            KHR_SURFACE_EXTENSION_NAME,
+            KHR_XLIB_SURFACE_EXTENSION_NAME,
+            KHR_WAYLAND_SURFACE_EXTENSION_NAME,
         ]
     }
     #[cfg(target_os = "macos")]
     {
-        &[c"VK_KHR_surface", c"VK_EXT_metal_surface"]
+        &[KHR_SURFACE_EXTENSION_NAME, EXT_METAL_SURFACE_EXTENSION_NAME]
     }
     #[cfg(target_os = "android")]
     {
-        &[c"VK_KHR_surface", c"VK_KHR_android_surface"]
+        &[
+            KHR_SURFACE_EXTENSION_NAME,
+            KHR_ANDROID_SURFACE_EXTENSION_NAME,
+        ]
     }
     #[cfg(not(any(
         target_os = "windows",
@@ -293,7 +298,10 @@ mod tests {
 
     #[test]
     fn first_extension_is_khr_surface() {
-        assert_eq!(required_extensions()[0], c"VK_KHR_surface");
+        assert_eq!(
+            required_extensions()[0],
+            vk::extension_names::KHR_SURFACE_EXTENSION_NAME
+        );
     }
 
     #[test]

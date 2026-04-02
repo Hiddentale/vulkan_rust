@@ -14,6 +14,7 @@ pub mod handles;
 pub mod enums;
 pub mod bitmasks;
 pub mod constants;
+pub mod extension_names;
 pub mod structs;
 pub mod builders;
 pub mod commands;

@@ -154,7 +154,7 @@ fn init_vulkan(window: Window) -> VulkanState {
     }
     assert!(!physical_device.is_null(), "No suitable GPU found");
 
-    let device_extensions = [c"VK_KHR_swapchain".as_ptr()];
+    let device_extensions = [vk::extension_names::KHR_SWAPCHAIN_EXTENSION_NAME.as_ptr()];
     let queue_priority = 1.0_f32;
     let queue_info = DeviceQueueCreateInfo::builder()
         .queue_family_index(graphics_family_index)

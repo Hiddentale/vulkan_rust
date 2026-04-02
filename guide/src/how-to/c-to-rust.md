@@ -73,8 +73,9 @@ let usage = BufferUsageFlags::VERTEX_BUFFER
 
 ```rust,ignore
 // C:    VK_KHR_SWAPCHAIN_EXTENSION_NAME
-// Rust: use a C string literal directly
-let device_extensions = [c"VK_KHR_swapchain".as_ptr()];
+// Rust: generated constants in vk::extension_names
+use vulkan_rs::vk::extension_names::KHR_SWAPCHAIN_EXTENSION_NAME;
+let device_extensions = [KHR_SWAPCHAIN_EXTENSION_NAME.as_ptr()];
 ```
 
 ## Structural patterns
