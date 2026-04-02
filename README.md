@@ -24,7 +24,7 @@ If you're new to Vulkan, start with the [Hello Triangle tutorial](https://hidden
 | | vulkan-rs | ash | vulkanalia |
 |---|---|---|---|
 | Command style | **Inherent methods** | Trait-based | Trait-based |
-| `from_raw_parts` | **First-class** | Yes | No |
+| `from_raw_parts` | **Yes, dedicated API** | Yes | No |
 | Documentation | **100% coverage, spec links, examples** | Spec links only | Spec links + tutorial |
 | Command loading | All enabled extensions | All enabled extensions | All enabled extensions |
 | `no_std` (sys crate) | Yes | Yes | Yes |
@@ -81,11 +81,13 @@ Run with `cargo run --example hello_triangle_4`.
 
 The companion [vulkan_rs Guide](https://hiddentale.github.io/vulkan_rs/) covers:
 
-- [Hello Triangle tutorial](https://hiddentale.github.io/vulkan_rs/getting-started/hello-triangle-1.html)
-- [Vulkan Object Model](https://hiddentale.github.io/vulkan_rs/concepts/object-model.html)
-- [Memory Management](https://hiddentale.github.io/vulkan_rs/concepts/memory.html)
-- [Synchronization](https://hiddentale.github.io/vulkan_rs/concepts/synchronization.html)
-- [Migration from ash](https://hiddentale.github.io/vulkan_rs/how-to/migrate-from-ash.html)
+**Getting Started** - [Installation](https://hiddentale.github.io/vulkan_rs/getting-started/installation.html) | [Hello Triangle 1-4](https://hiddentale.github.io/vulkan_rs/getting-started/hello-triangle-1.html)
+
+**Concepts** - [Object Model](https://hiddentale.github.io/vulkan_rs/concepts/object-model.html) | [Memory](https://hiddentale.github.io/vulkan_rs/concepts/memory.html) | [Synchronization](https://hiddentale.github.io/vulkan_rs/concepts/synchronization.html) | [Render Passes](https://hiddentale.github.io/vulkan_rs/concepts/render-passes.html) | [Pipelines](https://hiddentale.github.io/vulkan_rs/concepts/pipelines.html) | [Descriptors](https://hiddentale.github.io/vulkan_rs/concepts/descriptors.html) | [Command Buffers](https://hiddentale.github.io/vulkan_rs/concepts/command-buffers.html) | [pNext Chains](https://hiddentale.github.io/vulkan_rs/concepts/pnext.html) | [Validation](https://hiddentale.github.io/vulkan_rs/concepts/validation.html)
+
+**Architecture** - [Design Decisions](https://hiddentale.github.io/vulkan_rs/architecture/design.html) | [Error Handling](https://hiddentale.github.io/vulkan_rs/architecture/errors.html)
+
+**How-To** - [Migrate from ash](https://hiddentale.github.io/vulkan_rs/how-to/migrate-from-ash.html) | [C-to-Rust Reference](https://hiddentale.github.io/vulkan_rs/how-to/c-to-rust.html) | [Push Constants](https://hiddentale.github.io/vulkan_rs/how-to/push-constants.html) | [Double Buffering](https://hiddentale.github.io/vulkan_rs/how-to/double-buffering.html) | [Resize](https://hiddentale.github.io/vulkan_rs/how-to/resize.html) | [Textures](https://hiddentale.github.io/vulkan_rs/how-to/textures.html)
 
 ## Testing
 
