@@ -5,7 +5,13 @@
 //! validates that the generated wrappers correctly marshal arguments, dispatch
 //! through the right PFN, and return the expected type.
 //!
+//! Runs single-threaded because tests share global mock state (`MOCK_CALLED`).
+//!
 //! No Vulkan runtime required.
+
+use std::sync::Mutex;
+
+static TEST_MUTEX: Mutex<()> = Mutex::new(());
 
 use std::ffi::{CStr, c_char};
 use std::sync::atomic::{AtomicBool, AtomicU32, Ordering};
@@ -270,6 +276,7 @@ unsafe extern "system" fn mock_get_physical_device_memory_properties(
 /// writes the output handle, and wraps in Ok.
 #[test]
 fn pattern_create() {
+    let _lock = TEST_MUTEX.lock().expect("TEST_MUTEX poisoned");
     reset_mocks();
     let device = mock_device();
 
@@ -291,6 +298,7 @@ fn pattern_create() {
 /// and null allocator.
 #[test]
 fn pattern_destroy() {
+    let _lock = TEST_MUTEX.lock().expect("TEST_MUTEX poisoned");
     reset_mocks();
     let device = mock_device();
 
@@ -305,6 +313,7 @@ fn pattern_destroy() {
 /// and that the Vec is correctly populated.
 #[test]
 fn pattern_enumerate() {
+    let _lock = TEST_MUTEX.lock().expect("TEST_MUTEX poisoned");
     reset_mocks();
     let instance = mock_instance();
 
@@ -319,6 +328,7 @@ fn pattern_enumerate() {
 /// Verifies the void two-call protocol works without VkResult wrapping.
 #[test]
 fn pattern_fill() {
+    let _lock = TEST_MUTEX.lock().expect("TEST_MUTEX poisoned");
     reset_mocks();
     let instance = mock_instance();
     let physical_device = vk::handles::PhysicalDevice::from_raw(0xABCD);
@@ -339,6 +349,7 @@ fn pattern_fill() {
 /// Verifies the wrapper zeroes output, calls fp, and returns the struct.
 #[test]
 fn pattern_query() {
+    let _lock = TEST_MUTEX.lock().expect("TEST_MUTEX poisoned");
     reset_mocks();
     let instance = mock_instance();
     let physical_device = vk::handles::PhysicalDevice::from_raw(0xABCD);
@@ -354,6 +365,7 @@ fn pattern_query() {
 /// Verifies the wrapper calls check() and returns Ok(()).
 #[test]
 fn pattern_result_only() {
+    let _lock = TEST_MUTEX.lock().expect("TEST_MUTEX poisoned");
     reset_mocks();
     let device = mock_device();
 
@@ -367,6 +379,7 @@ fn pattern_result_only() {
 /// Verifies all arguments are forwarded correctly to the PFN.
 #[test]
 fn pattern_void_forward() {
+    let _lock = TEST_MUTEX.lock().expect("TEST_MUTEX poisoned");
     reset_mocks();
     let device = mock_device();
     let cmd_buf = vk::handles::CommandBuffer::from_raw(0xCB01);

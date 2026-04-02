@@ -54,7 +54,7 @@ Users depend on `vulkan-rs` and access raw types via `vulkan_rs::vk::*`.
 | macOS | `libvulkan.1.dylib` | Metal | Yes |
 | Android | `libvulkan.so` | Android | Build only |
 
-## Features
+## Feature Flags
 
 | Flag | Default | Description |
 |------|---------|-------------|
