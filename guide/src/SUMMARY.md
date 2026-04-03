@@ -35,8 +35,8 @@
 - [Implement Double Buffering](how-to/double-buffering.md)
 - [Handle Window Resize](how-to/resize.md)
 - [Use Push Constants](how-to/push-constants.md)
-- [Port from ash to vulkan_rs](how-to/migrate-from-ash.md)
-- [Map C Vulkan Calls to vulkan_rs](how-to/c-to-rust.md)
+- [Port from ash to vulkan_rust](how-to/migrate-from-ash.md)
+- [Map C Vulkan Calls to vulkan_rust](how-to/c-to-rust.md)
 
 ---
 

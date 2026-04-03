@@ -1,6 +1,6 @@
 # Error Handling Philosophy
 
-This page explains how `vulkan_rs` maps Vulkan's C-style error model into
+This page explains how `vulkan_rust` maps Vulkan's C-style error model into
 idiomatic Rust, and where the boundaries between error types lie.
 
 ## Vulkan's error model
@@ -18,22 +18,22 @@ return value after every call.
 
 ## The `VkResult<T>` type alias
 
-`vulkan-rs` defines a single result type for all Vulkan command wrappers:
+`vulkan-rust` defines a single result type for all Vulkan command wrappers:
 
 ```rust,ignore
-use vulkan_rs::vk;
+use vulkan_rust::vk;
 
 pub type VkResult<T> = std::result::Result<T, vk::enums::Result>;
 ```
 
-Here `vk::Result` is the `#[repr(transparent)]` i32 newtype from `vulkan-rs-sys`.
+Here `vk::Result` is the `#[repr(transparent)]` i32 newtype from `vulkan-rust-sys`.
 The `Err` variant holds any negative value. The `Ok` variant holds the
 command's output (a handle, a vector of properties, or just `()`).
 
 A helper function performs the conversion:
 
 ```rust,ignore
-use vulkan_rs::vk;
+use vulkan_rust::vk;
 
 pub(crate) fn check(result: vk::enums::Result) -> VkResult<()> {
     if result.as_raw() >= 0 {
@@ -52,7 +52,7 @@ are treated as success by default.
 Some Vulkan commands return positive success codes that carry meaning:
 
 - **`INCOMPLETE`** from enumeration commands means the output buffer was
-  too small. `vulkan-rs`'s two-call helpers handle this internally by
+  too small. `vulkan-rust`'s two-call helpers handle this internally by
   querying the count first, so callers rarely see it.
 - **`SUBOPTIMAL_KHR`** from `vkAcquireNextImageKHR` means the swapchain
   still works but no longer matches the surface optimally. You should
@@ -73,7 +73,7 @@ is not available at all.
 `LoadError` captures these:
 
 ```rust,ignore
-use vulkan_rs::vk;
+use vulkan_rust::vk;
 
 pub enum LoadError {
     /// The Vulkan shared library could not be found or opened.
@@ -92,7 +92,7 @@ Creating a window surface involves platform-specific logic and
 `raw-window-handle` integration. Three distinct failure modes exist:
 
 ```rust,ignore
-use vulkan_rs::vk;
+use vulkan_rust::vk;
 
 pub enum SurfaceError {
     /// The display/window handle combination is not supported.
@@ -108,7 +108,7 @@ pub enum SurfaceError {
 the underlying Vulkan error into one type, so callers of
 `Instance::create_surface` have a single `Result` to handle.
 
-## When vulkan_rs panics
+## When vulkan_rust panics
 
 Panics are reserved for **programmer mistakes**, never for runtime failures
 that a correct program could encounter:
@@ -130,8 +130,8 @@ Most application code follows the same pattern: call the command, propagate
 errors with `?`, handle them at the boundary.
 
 ```rust,ignore
-use vulkan_rs::vk;
-use vulkan_rs::Device;
+use vulkan_rust::vk;
+use vulkan_rust::Device;
 use vk::handles::*;
 
 unsafe fn create_pipeline(
@@ -175,6 +175,6 @@ Error codes are a production-time mechanism. They report conditions the
 application can respond to: allocate less memory, recreate the swapchain,
 or shut down gracefully.
 
-A well-structured `vulkan_rs` application uses both: validation layers to
+A well-structured `vulkan_rust` application uses both: validation layers to
 catch bugs during development, error propagation to handle failures in
 production.

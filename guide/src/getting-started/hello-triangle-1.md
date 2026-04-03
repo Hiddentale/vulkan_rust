@@ -16,7 +16,7 @@ with an explanation of *why* each step exists before the code.
 
 ## Prerequisites
 
-- [Install vulkan_rs and the Vulkan SDK](installation.md)
+- [Install vulkan_rust and the Vulkan SDK](installation.md)
 - A working Rust toolchain (`cargo build` succeeds)
 - A system with a Vulkan-capable GPU
 
@@ -27,11 +27,11 @@ cargo new hello-triangle
 cd hello-triangle
 ```
 
-Add `vulkan-rs` to your `Cargo.toml`:
+Add `vulkan-rust` to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-vulkan-rs = "0.1"
+vulkan-rust = "0.1"
 ```
 
 ## Step 1: Load the Vulkan library
@@ -42,7 +42,7 @@ library (`vulkan-1.dll` on Windows, `libvulkan.so` on Linux,
 entry point that routes your calls to the correct GPU driver.
 
 ```rust,no_run
-use vulkan_rs::{Entry, LibloadingLoader};
+use vulkan_rust::{Entry, LibloadingLoader};
 
 fn main() {
     // Load the Vulkan shared library from the system.
@@ -80,7 +80,7 @@ Think of it as opening a session: "I am application X, I want to use
 Vulkan version Y, please give me access."
 
 ```rust,ignore
-use vulkan_rs::vk;
+use vulkan_rust::vk;
 use vk::structs::*;
 
 // ── Describe your application ──────────────────────────────────
@@ -272,7 +272,7 @@ distinction between created, allocated, and enumerated objects.)
 ## Step 7: Clean up
 
 Vulkan requires explicit destruction in reverse creation order.
-`vulkan_rs` has no `Drop` implementations on purpose, so you must
+`vulkan_rust` has no `Drop` implementations on purpose, so you must
 call the destroy methods yourself.
 
 ```rust,ignore
@@ -295,8 +295,8 @@ Here is the complete program. Copy this into `src/main.rs` and run it
 with `cargo run`.
 
 ```rust,no_run
-use vulkan_rs::{Entry, LibloadingLoader};
-use vulkan_rs::vk;
+use vulkan_rust::{Entry, LibloadingLoader};
+use vulkan_rust::vk;
 use vk::structs::*;
 
 fn main() {

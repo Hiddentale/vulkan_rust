@@ -85,11 +85,11 @@ jobs:
 
       - uses: Swatinem/rust-cache@v2
 
-      - name: Check vulkan-rs-sys
-        run: cargo +1.85 check -p vulkan-rs-sys
+      - name: Check vulkan-rust-sys
+        run: cargo +1.85 check -p vulkan-rust-sys
 
-      - name: Check vulkan-rs
-        run: cargo +1.85 check -p vulkan-rs --all-features
+      - name: Check vulkan-rust
+        run: cargo +1.85 check -p vulkan-rust --all-features
 
   clippy:
     name: Clippy Lints
@@ -181,13 +181,13 @@ jobs:
 
       - name: Check doc coverage meets threshold
         run: |
-          RUSTDOCFLAGS="-Z unstable-options --show-coverage" cargo +nightly doc --no-deps -p vulkan-rs 2>&1 | tee coverage.txt
+          RUSTDOCFLAGS="-Z unstable-options --show-coverage" cargo +nightly doc --no-deps -p vulkan-rust 2>&1 | tee coverage.txt
           TOTAL_LINE=$(grep '| Total' coverage.txt | head -1)
           PERCENT=$(echo "$TOTAL_LINE" | awk -F'|' '{print $4}' | tr -d ' %')
-          echo "vulkan-rs doc coverage: ${PERCENT}%"
+          echo "vulkan-rust doc coverage: ${PERCENT}%"
           THRESHOLD=100
           if [ "$(echo "$PERCENT < $THRESHOLD" | bc)" -eq 1 ]; then
-            echo "::error::vulkan-rs doc coverage ${PERCENT}% is below ${THRESHOLD}% threshold"
+            echo "::error::vulkan-rust doc coverage ${PERCENT}% is below ${THRESHOLD}% threshold"
             exit 1
           fi
 
@@ -230,13 +230,13 @@ jobs:
         run: |
           export VK_ICD_FILENAMES="$LVP_ICD"
           cargo llvm-cov --workspace --lcov --output-path lcov.info \
-            --ignore-filename-regex '(vulkan-rs-sys/src/|vulkan-rs/src/generated/)' \
+            --ignore-filename-regex '(vulkan-rust-sys/src/|vulkan-rust/src/generated/)' \
             -- --include-ignored --test-threads=1
 
       - name: Print coverage summary
         run: |
           cargo llvm-cov --workspace --no-run \
-            --ignore-filename-regex '(vulkan-rs-sys/src/|vulkan-rs/src/generated/)'
+            --ignore-filename-regex '(vulkan-rust-sys/src/|vulkan-rust/src/generated/)'
 
       - name: Upload coverage artifact
         uses: actions/upload-artifact@v5
@@ -258,7 +258,7 @@ jobs:
         run: |
           # Extract the exact version from our vk.xml so we compile against
           # the same spec revision we generate from. Mismatch = false failures.
-          VK_PATCH=$(grep '<name>VK_HEADER_VERSION</name>' vulkan-rs-codegen/vk.xml \
+          VK_PATCH=$(grep '<name>VK_HEADER_VERSION</name>' vulkan-rust-codegen/vk.xml \
             | head -1 | grep -oP '\d+(?=</type>)')
           VK_TAG="v1.4.${VK_PATCH}"
           echo "Our vk.xml is version 1.4.${VK_PATCH}, checking out Vulkan-Headers at ${VK_TAG}"
@@ -284,7 +284,7 @@ jobs:
       - uses: Swatinem/rust-cache@v2
 
       - name: Compile C layout checker
-        run: cc -o c_layout_check vulkan-rs-sys/tests/c_layout_check.c -I/usr/include
+        run: cc -o c_layout_check vulkan-rust-sys/tests/c_layout_check.c -I/usr/include
 
       - name: Generate C layout output
         run: ./c_layout_check > c_layouts.txt
@@ -320,9 +320,9 @@ jobs:
 
       - name: Re-run generator and check for diffs
         run: |
-          cargo run -p vulkan-rs-codegen
+          cargo run -p vulkan-rust-codegen
           if ! git diff --quiet; then
-            echo "::error::Generated files are stale. Run 'cargo run -p vulkan-rs-codegen' and commit the output."
+            echo "::error::Generated files are stale. Run 'cargo run -p vulkan-rust-codegen' and commit the output."
             git diff --stat
             exit 1
           fi
@@ -343,19 +343,19 @@ jobs:
 
       - uses: Swatinem/rust-cache@v2
         with:
-          workspaces: vulkan-rs/fuzz
+          workspaces: vulkan-rust/fuzz
 
       - name: Install cargo-fuzz
         run: cargo install cargo-fuzz
 
       - name: Fuzz cast_to_u32 (60s)
-        run: cd vulkan-rs && cargo +nightly fuzz run fuzz_cast_to_u32 -- -max_total_time=60
+        run: cd vulkan-rust && cargo +nightly fuzz run fuzz_cast_to_u32 -- -max_total_time=60
 
       - name: Fuzz entry_loader (60s)
-        run: cd vulkan-rs && cargo +nightly fuzz run fuzz_entry_loader -- -max_total_time=60
+        run: cd vulkan-rust && cargo +nightly fuzz run fuzz_entry_loader -- -max_total_time=60
 
       - name: Fuzz push_next (60s)
-        run: cd vulkan-rs && cargo +nightly fuzz run fuzz_push_next -- -max_total_time=60
+        run: cd vulkan-rust && cargo +nightly fuzz run fuzz_push_next -- -max_total_time=60
 
   miri:
     name: Miri (undefined behavior check)
@@ -374,8 +374,8 @@ jobs:
 
       - uses: Swatinem/rust-cache@v2
 
-      - name: Run Miri on vulkan-rs
-        run: cargo +nightly miri test --lib -p vulkan-rs
+      - name: Run Miri on vulkan-rust
+        run: cargo +nightly miri test --lib -p vulkan-rust
 
   guide-build:
     name: Guide Build (mdBook)

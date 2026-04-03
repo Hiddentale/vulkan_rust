@@ -1,4 +1,4 @@
-# Testing in vulkan-rs
+# Testing in vulkan-rust
 
 ## Run All Tests
 
@@ -14,8 +14,8 @@ cargo test --workspace -- --ignored --test-threads=1
 
 ### Unit Tests (mock-based)
 
-- Located throughout `vulkan-rs/src/*.rs` in `#[cfg(test)]` modules.
-- Run with `cargo test -p vulkan-rs --lib`
+- Located throughout `vulkan-rust/src/*.rs` in `#[cfg(test)]` modules.
+- Run with `cargo test -p vulkan-rust --lib`
 - No Vulkan runtime required.
 
 These use mock loaders (`NullLoader`, `FakeEntryLoader`, `RichEntryLoader`,
@@ -30,8 +30,8 @@ the test's assumptions visible.
 
 ### Integration Tests
 
-- Located in `vulkan-rs/tests/`.
-- Run with `cargo test -p vulkan-rs --tests`
+- Located in `vulkan-rust/tests/`.
+- Run with `cargo test -p vulkan-rust --tests`
 
 | File | What it tests |
 |------|---------------|
@@ -43,7 +43,7 @@ the test's assumptions visible.
 
 ### Runtime Tests (requires Vulkan)
 
-- Marked with `#[ignore]` throughout `vulkan-rs/src/*.rs` and `vulkan-rs/tests/`.
+- Marked with `#[ignore]` throughout `vulkan-rust/src/*.rs` and `vulkan-rust/tests/`.
 - Run with `cargo test --workspace -- --ignored --test-threads=1`
 - CI uses lavapipe (Mesa software Vulkan driver) on Ubuntu.
 
@@ -71,8 +71,8 @@ cargo test --workspace -- --ignored --test-threads=1
 
 ### Fuzz Tests
 
-- Located in `vulkan-rs/fuzz/fuzz_targets/`.
-- Run with `cd vulkan-rs && cargo +nightly fuzz run <target>`
+- Located in `vulkan-rust/fuzz/fuzz_targets/`.
+- Run with `cd vulkan-rust && cargo +nightly fuzz run <target>`
 - CI runs each target for 60 seconds per PR.
 
 | Target | What it fuzzes |
@@ -83,8 +83,8 @@ cargo test --workspace -- --ignored --test-threads=1
 
 ### Layout Cross-Validation
 
-- C source: `vulkan-rs-sys/tests/c_layout_check.c`
-- Rust source: `vulkan-rs-sys/src/bin/rust_layout_check.rs`
+- C source: `vulkan-rust-sys/tests/c_layout_check.c`
+- Rust source: `vulkan-rust-sys/src/bin/rust_layout_check.rs`
 - Run in CI only (requires matching Vulkan headers).
 
 Compiles a C program and a Rust program that both print struct sizes and
@@ -94,16 +94,16 @@ Vulkan-Headers at the exact version tag matching our vendored `vk.xml`.
 
 ### Generator Determinism
 
-- Run with `cargo run -p vulkan-rs-codegen && git diff --quiet`
+- Run with `cargo run -p vulkan-rust-codegen && git diff --quiet`
 - CI fails if the generated output has changed.
 
 Re-runs the code generator and checks that the committed generated files
 are up to date. Prevents stale generated code from being merged.
 
-### vulkan-rs-sys Tests
+### vulkan-rust-sys Tests
 
-- Located in `vulkan-rs-sys/tests/`.
-- Run with `cargo test -p vulkan-rs-sys`
+- Located in `vulkan-rust-sys/tests/`.
+- Run with `cargo test -p vulkan-rust-sys`
 
 | File | What it tests |
 |------|---------------|

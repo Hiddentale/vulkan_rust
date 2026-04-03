@@ -1,4 +1,4 @@
-# The vulkan_rs Guide
+# The vulkan_rust Guide
 
 Vulkan is a powerful graphics and compute API, but its explicitness comes at
 a cost: there is a lot to learn before you can put a single triangle on screen.
@@ -38,7 +38,7 @@ framework, which separates content by *purpose*:
 | **[Getting Started](getting-started/installation.md)** | Step-by-step tutorials | You want to draw something *now* |
 | **[Concepts](concepts/how-to-read.md)** | Explanations of how Vulkan works | You want to understand *why* |
 | **[How-To Guides](how-to/textures.md)** | Recipes for specific tasks | You know what you need to do |
-| **[Architecture](architecture/design.md)** | Design decisions behind vulkan_rs | You want to contribute or evaluate |
+| **[Architecture](architecture/design.md)** | Design decisions behind vulkan_rust | You want to contribute or evaluate |
 
 ### Concept dependency map
 
@@ -72,17 +72,17 @@ something doesn't make sense.
 
 ## API documentation
 
-This guide is a companion to the [API reference](https://docs.rs/vulkan-rs).
+This guide is a companion to the [API reference](https://docs.rs/vulkan-rust).
 The API docs cover *every* type, method, and constant with spec links,
 error codes, safety requirements, and thread safety annotations.
 This guide covers the *why* and *how* that API docs cannot.
 
 ## Quick taste
 
-Here is the minimum code to initialize Vulkan with `vulkan_rs`:
+Here is the minimum code to initialize Vulkan with `vulkan_rust`:
 
 ```rust,no_run
-use vulkan_rs::{Entry, LibloadingLoader};
+use vulkan_rust::{Entry, LibloadingLoader};
 
 fn main() {
     // Load the Vulkan loader library from the system.

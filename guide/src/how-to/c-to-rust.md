@@ -1,7 +1,7 @@
-# Map C Vulkan Calls to vulkan_rs
+# Map C Vulkan Calls to vulkan_rust
 
 > **Task:** You have C Vulkan code (or you are reading the Vulkan spec)
-> and want to find the equivalent `vulkan_rs` API.
+> and want to find the equivalent `vulkan_rust` API.
 
 This page is a translation reference. It covers the naming rules, the
 structural patterns that differ between C and Rust, and a lookup table
@@ -14,7 +14,7 @@ for the most common API calls.
 Strip the `vk` prefix, convert to `snake_case`, and call as a method
 on the parent object (`Device` or `Instance`):
 
-| C | vulkan_rs |
+| C | vulkan_rust |
 |---|-----------|
 | `vkCreateBuffer(device, ...)` | `device.create_buffer(...)` |
 | `vkCmdDraw(commandBuffer, ...)` | `device.cmd_draw(command_buffer, ...)` |
@@ -28,7 +28,7 @@ but are still called on `Device`, not on the command buffer handle.
 
 Strip the `Vk` prefix. Types live in submodules of `vk`:
 
-| C | vulkan_rs |
+| C | vulkan_rust |
 |---|-----------|
 | `VkBuffer` | `vk::handles::Buffer` |
 | `VkBufferCreateInfo` | `vk::structs::BufferCreateInfo` |
@@ -42,7 +42,7 @@ scope without the module prefix.
 
 Strip the type prefix and keep `SCREAMING_CASE`:
 
-| C | vulkan_rs |
+| C | vulkan_rust |
 |---|-----------|
 | `VK_FORMAT_R8G8B8A8_SRGB` | `vk::enums::Format::R8G8B8A8_SRGB` |
 | `VK_IMAGE_LAYOUT_UNDEFINED` | `vk::enums::ImageLayout::UNDEFINED` |
@@ -53,7 +53,7 @@ Strip the type prefix and keep `SCREAMING_CASE`:
 
 Strip the type prefix and the `_BIT` suffix:
 
-| C | vulkan_rs |
+| C | vulkan_rust |
 |---|-----------|
 | `VK_BUFFER_USAGE_VERTEX_BUFFER_BIT` | `vk::bitmasks::BufferUsageFlags::VERTEX_BUFFER` |
 | `VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT` | `vk::bitmasks::ImageUsageFlags::COLOR_ATTACHMENT` |
@@ -62,7 +62,7 @@ Strip the type prefix and the `_BIT` suffix:
 Combine flags with the `|` operator, just like in C:
 
 ```rust,ignore
-use vulkan_rs::vk;
+use vulkan_rust::vk;
 use vk::bitmasks::*;
 
 let usage = BufferUsageFlags::VERTEX_BUFFER
@@ -74,7 +74,7 @@ let usage = BufferUsageFlags::VERTEX_BUFFER
 ```rust,ignore
 // C:    VK_KHR_SWAPCHAIN_EXTENSION_NAME
 // Rust: generated constants in vk::extension_names
-use vulkan_rs::vk::extension_names::KHR_SWAPCHAIN_EXTENSION_NAME;
+use vulkan_rust::vk::extension_names::KHR_SWAPCHAIN_EXTENSION_NAME;
 let device_extensions = [KHR_SWAPCHAIN_EXTENSION_NAME.as_ptr()];
 ```
 
@@ -82,7 +82,7 @@ let device_extensions = [KHR_SWAPCHAIN_EXTENSION_NAME.as_ptr()];
 
 ### Struct initialization
 
-C uses designated initializers. `vulkan_rs` uses the builder pattern,
+C uses designated initializers. `vulkan_rust` uses the builder pattern,
 which auto-fills `sType` and zeroes all other fields:
 
 ```c
@@ -99,8 +99,8 @@ vkCreateBuffer(device, &info, NULL, &buffer);
 ```
 
 ```rust,ignore
-// vulkan_rs
-use vulkan_rs::vk;
+// vulkan_rust
+use vulkan_rust::vk;
 use vk::structs::*;
 use vk::enums::*;
 use vk::bitmasks::*;
@@ -137,11 +137,11 @@ VkDeviceCreateInfo info = {
 };
 ```
 
-In `vulkan_rs`, use `push_next()`:
+In `vulkan_rust`, use `push_next()`:
 
 ```rust,ignore
-// vulkan_rs
-use vulkan_rs::vk;
+// vulkan_rust
+use vulkan_rust::vk;
 use vk::structs::*;
 
 let mut features12 = *PhysicalDeviceVulkan12Features::builder()
@@ -167,10 +167,10 @@ VkPhysicalDevice* devices = malloc(count * sizeof(VkPhysicalDevice));
 vkEnumeratePhysicalDevices(instance, &count, devices);
 ```
 
-In `vulkan_rs`, these return a `Vec` directly:
+In `vulkan_rust`, these return a `Vec` directly:
 
 ```rust,ignore
-// vulkan_rs: one call, returns Vec
+// vulkan_rust: one call, returns Vec
 let devices = unsafe { instance.enumerate_physical_devices() }
     .expect("Failed to enumerate devices");
 ```
@@ -179,7 +179,7 @@ The crate handles the two-call pattern internally.
 
 ### Output parameters
 
-C Vulkan uses pointer parameters for output values. `vulkan_rs`
+C Vulkan uses pointer parameters for output values. `vulkan_rust`
 returns them as `VkResult<T>` or plain `T`:
 
 ```c
@@ -190,8 +190,8 @@ if (result != VK_SUCCESS) { /* handle error */ }
 ```
 
 ```rust,ignore
-// vulkan_rs
-use vulkan_rs::vk;
+// vulkan_rust
+use vulkan_rust::vk;
 use vk::handles::*;
 
 let buffer: Buffer = unsafe { device.create_buffer(&info, None) }
@@ -202,7 +202,7 @@ Functions that output multiple handles (like `vkAllocateCommandBuffers`)
 return a `Vec` directly:
 
 ```rust,ignore
-use vulkan_rs::vk;
+use vulkan_rust::vk;
 use vk::handles::*;
 
 let cmd_buffers = unsafe {
@@ -213,14 +213,14 @@ let cmd_buffers = unsafe {
 
 ## Search tip: `#[doc(alias)]`
 
-All `vulkan_rs` types and functions carry `#[doc(alias = "vkOriginalName")]`
+All `vulkan_rust` types and functions carry `#[doc(alias = "vkOriginalName")]`
 attributes. If you know the C name, type it into the rustdoc search bar
 and it will find the Rust equivalent. For example, searching for
 `VkBufferCreateInfo` will find `vk::BufferCreateInfo`.
 
 ## Common API mapping table
 
-| C function | vulkan_rs method | Returns |
+| C function | vulkan_rust method | Returns |
 |------------|-----------------|---------|
 | `vkCreateInstance` | `entry.create_instance(&info, None)` | `VkResult<Instance>` |
 | `vkDestroyInstance` | `instance.destroy_instance(None)` | `()` |
@@ -297,10 +297,10 @@ memcpy(data, vertices, sizeof(vertices));
 vkUnmapMemory(device, memory);
 ```
 
-### vulkan_rs version
+### vulkan_rust version
 
 ```rust,ignore
-use vulkan_rs::vk;
+use vulkan_rust::vk;
 use vk::structs::*;
 use vk::enums::*;
 use vk::bitmasks::*;

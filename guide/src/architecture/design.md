@@ -1,31 +1,31 @@
 # Design Decisions & Safety Model
 
-This page explains the major design decisions in `vulkan_rs` and why they
+This page explains the major design decisions in `vulkan_rust` and why they
 were made. Each section addresses a common "why not do it the other way?"
 question.
 
 ## Why two crates?
 
-`vulkan_rs` is split into two crates with distinct roles:
+`vulkan_rust` is split into two crates with distinct roles:
 
-- **`vulkan-rs-sys`** is machine-generated from `vk.xml`. It contains ~40,000 lines
+- **`vulkan-rust-sys`** is machine-generated from `vk.xml`. It contains ~40,000 lines
   of `#[repr(C)]` structs, `#[repr(transparent)]` enum newtypes, bitmask
   types, handle types, and function pointer typedefs. It is `#![no_std]`.
-- **`vulkan-rs`** is hand-written. It provides `Entry`, `Instance`, `Device`,
+- **`vulkan-rust`** is hand-written. It provides `Entry`, `Instance`, `Device`,
   command loading, builders, surface helpers, and the error types.
 
-Users depend on `vulkan-rs` and access raw types via `vulkan_rs::vk::*`.
+Users depend on `vulkan-rust` and access raw types via `vulkan_rust::vk::*`.
 
 This separation exists for three reasons:
 
-1. **Build speed.** Regenerating `vulkan-rs-sys` only happens when a new Vulkan
-   spec version arrives. Day-to-day development in `vulkan-rs` does not
+1. **Build speed.** Regenerating `vulkan-rust-sys` only happens when a new Vulkan
+   spec version arrives. Day-to-day development in `vulkan-rust` does not
    trigger a rebuild of 40k lines of generated code.
 2. **Reviewability.** Generated code is validated by the generator's test
    suite, not by human review. Hand-written code gets normal review. Mixing
    them in one crate blurs that boundary.
-3. **`no_std` compatibility.** `vulkan-rs-sys` has zero dependencies and can be
-   used in environments without `std`. `vulkan-rs` requires `std` for
+3. **`no_std` compatibility.** `vulkan-rust-sys` has zero dependencies and can be
+   used in environments without `std`. `vulkan-rust` requires `std` for
    library loading and allocation.
 
 ## Why inherent methods instead of traits?
@@ -33,7 +33,7 @@ This separation exists for three reasons:
 All Vulkan commands are inherent methods on `Device` or `Instance`:
 
 ```rust,ignore
-use vulkan_rs::vk;
+use vulkan_rust::vk;
 
 // No trait import needed, just call the method.
 let buffer = unsafe { device.create_buffer(&info, None) }?;
@@ -49,7 +49,7 @@ immediately, and there is nothing to import.
 
 ## Why complete command loading?
 
-When `Device` or `Instance` is created, `vulkan_rs` loads **every** function
+When `Device` or `Instance` is created, `vulkan_rust` loads **every** function
 pointer from every enabled extension in a single pass. Some wrappers require
 callers to explicitly request which extension command tables to load.
 
@@ -63,7 +63,7 @@ Both `Instance` and `Device` provide an `unsafe fn from_raw_parts`
 constructor that wraps an externally-owned Vulkan handle:
 
 ```rust,ignore
-use vulkan_rs::Device;
+use vulkan_rust::Device;
 
 let device = unsafe {
     Device::from_raw_parts(raw_vk_device, Some(get_device_proc_addr_fn))
@@ -82,7 +82,7 @@ This exists for three use cases:
 `Instance` and `Device` do not implement `Drop`. Destruction is explicit:
 
 ```rust,ignore
-use vulkan_rs::vk;
+use vulkan_rust::vk;
 
 unsafe { device.destroy_device(None) };
 ```
@@ -108,7 +108,7 @@ own model.
 Every builder dereferences to its inner `vk::*` struct:
 
 ```rust,ignore
-use vulkan_rs::vk;
+use vulkan_rust::vk;
 use vk::structs::*;
 use vk::bitmasks::*;
 
@@ -131,11 +131,11 @@ Vulkan "enums" are integer constants, not closed sets. Drivers and extensions
 can return values that did not exist when your code was compiled. A Rust
 `enum` with unknown discriminants is instant undefined behavior.
 
-Instead, `vulkan-rs-sys` represents each Vulkan enum as a `#[repr(transparent)]`
+Instead, `vulkan-rust-sys` represents each Vulkan enum as a `#[repr(transparent)]`
 newtype around `i32`:
 
 ```rust,ignore
-use vulkan_rs::vk;
+use vulkan_rust::vk;
 use vk::enums::*;
 
 #[repr(transparent)]
@@ -158,7 +158,7 @@ assume the set is exhaustive.
 for meeting every precondition the Vulkan spec defines: valid handles,
 correct synchronization, matching lifetimes, and so on.
 
-`vulkan_rs` does not attempt to encode Vulkan's safety rules in the Rust
+`vulkan_rust` does not attempt to encode Vulkan's safety rules in the Rust
 type system. The spec is too large and too nuanced for compile-time
 enforcement to be practical without severe ergonomic cost.
 
@@ -178,7 +178,7 @@ Instead, the safety strategy is:
 
 ## What the generator handles vs what is hand-written
 
-| Generated (`vulkan-rs-sys`)                  | Hand-written (`vulkan-rs`)                |
+| Generated (`vulkan-rust-sys`)                  | Hand-written (`vulkan-rust`)                |
 |----------------------------------------|-------------------------------------------|
 | `#[repr(C)]` struct definitions        | `Entry`, `Instance`, `Device` wrappers    |
 | `#[repr(transparent)]` enum newtypes   | Command loading and dispatch tables       |

@@ -1,7 +1,7 @@
 /target
-vulkan-rs/fuzz/target
-vulkan-rs/fuzz/corpus
-vulkan-rs/fuzz/artifacts
+vulkan-rust/fuzz/target
+vulkan-rust/fuzz/corpus
+vulkan-rust/fuzz/artifacts
 .claude
 CLAUDE.md
 docs/wrapper_audit.md
