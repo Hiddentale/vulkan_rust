@@ -131,8 +131,8 @@ fn rustfmt_engine() {
         .status();
     match status {
         Ok(s) if s.success() => println!("  rustfmt vulkan-rust: ok"),
-        Ok(s) => eprintln!("  warning: cargo fmt exited with {s}"),
-        Err(e) => eprintln!("  warning: cargo fmt not available ({e}), skipping"),
+        Ok(s) => panic!("cargo fmt failed with {s}"),
+        Err(e) => panic!("cargo fmt not available: {e}"),
     }
 }
 
