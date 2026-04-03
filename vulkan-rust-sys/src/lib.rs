@@ -23,6 +23,7 @@ mod constants;
 pub mod extension_names;
 mod structs;
 mod builders;
+mod clear_value;
 pub mod commands;
 
 pub use handles::*;
