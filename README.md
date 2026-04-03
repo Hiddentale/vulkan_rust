@@ -1,6 +1,6 @@
 # vulkan-rust
 
-<img align="right" width="20%" src="logo.png">
+<img align="right" width="20%" src="https://raw.githubusercontent.com/Hiddentale/vulkan_rust/main/logo.png">
 
 [![CI](https://img.shields.io/github/actions/workflow/status/Hiddentale/vulkan_rust/ci.yml?branch=main&logo=github&label=CI)](https://github.com/Hiddentale/vulkan_rust/actions)
 [![docs.rs](https://img.shields.io/docsrs/vulkan-rust?logo=docs.rs&label=docs.rs)](https://docs.rs/vulkan-rust)
@@ -23,9 +23,9 @@ If you're new to Vulkan, start with the [Hello Triangle tutorial](https://hidden
 
 | | vulkan-rust | ash | vulkanalia |
 |---|---|---|---|
-| Command style | **Inherent methods** | Trait-based | Trait-based |
-| `from_raw_parts` | **Yes, dedicated API** | Yes | No |
-| Documentation | **100% coverage, spec links, examples** | Spec links only | Spec links + tutorial |
+| Command style | Inherent methods | Trait-based | Trait-based |
+| `from_raw_parts` | Yes, dedicated API | Yes | No |
+| Documentation | 100% coverage, spec links, examples | Spec links only | Spec links + tutorial |
 | Command loading | All enabled extensions | All enabled extensions | All enabled extensions |
 | `no_std` (sys crate) | Yes | Yes | Yes |
 

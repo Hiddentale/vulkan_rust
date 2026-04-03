@@ -66,6 +66,38 @@ pub(crate) fn check(result: vk::enums::Result) -> VkResult<()> {
     }
 }
 
+/// Wrapper around [`vk::enums::Result`] that implements [`std::error::Error`].
+///
+/// `vk::enums::Result` is a generated `#[repr(transparent)]` newtype without
+/// `Display` or `Error` impls. This wrapper bridges that gap so Vulkan error
+/// codes can participate in `Box<dyn Error>` chains.
+///
+/// # Examples
+///
+/// ```
+/// use vulkan_rust::VkError;
+/// use vulkan_rust::vk;
+///
+/// let err = VkError(vk::enums::Result::ERROR_OUT_OF_HOST_MEMORY);
+/// assert_eq!(err.to_string(), "ERROR_OUT_OF_HOST_MEMORY");
+/// ```
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct VkError(pub vk::enums::Result);
+
+impl std::fmt::Display for VkError {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{:?}", self.0)
+    }
+}
+
+impl std::error::Error for VkError {}
+
+impl From<vk::enums::Result> for VkError {
+    fn from(r: vk::enums::Result) -> Self {
+        Self(r)
+    }
+}
+
 /// Error returned when the Vulkan shared library cannot be loaded.
 ///
 /// This is distinct from `vk::enums::Result`, it represents a failure to reach

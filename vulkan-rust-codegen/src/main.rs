@@ -54,45 +54,8 @@ fn main() {
 
     update_lib_rs(&out_dir);
 
-    // Generate C ↔ Rust cross-validation programs.
-    let test_dir = Path::new(env!("CARGO_MANIFEST_DIR")).join("../vulkan-rust-sys/tests");
-    let c_check = emit_layout_check::emit_c_layout_check(&registry);
-    let c_path = test_dir.join("c_layout_check.c");
-    fs::write(&c_path, &c_check).unwrap_or_else(|e| {
-        panic!("failed to write {}: {e}", c_path.display());
-    });
-    println!(
-        "  wrote c_layout_check.c ({} lines)",
-        c_check.lines().count()
-    );
-
-    let rs_check = emit_layout_check::emit_rust_layout_check(&registry);
-    let bin_dir = Path::new(env!("CARGO_MANIFEST_DIR")).join("../vulkan-rust-sys/src/bin");
-    fs::create_dir_all(&bin_dir).unwrap_or_else(|e| {
-        panic!("failed to create {}: {e}", bin_dir.display());
-    });
-    let rs_path = bin_dir.join("rust_layout_check.rs");
-    fs::write(&rs_path, &rs_check).unwrap_or_else(|e| {
-        panic!("failed to write {}: {e}", rs_path.display());
-    });
-    println!(
-        "  wrote rust_layout_check.rs ({} lines)",
-        rs_check.lines().count()
-    );
-
-    // Generate ergonomic wrapper methods for vulkan-rust.
-    let engine_dir = Path::new(env!("CARGO_MANIFEST_DIR")).join("../vulkan-rust/src/generated");
-    fs::create_dir_all(&engine_dir).unwrap_or_else(|e| {
-        panic!("failed to create {}: {e}", engine_dir.display());
-    });
-
-    let (entry_wrappers, instance_wrappers, device_wrappers) =
-        emit_wrappers::emit_wrappers(&registry);
-
-    write_module(&engine_dir, "entry_wrappers.rs", entry_wrappers);
-    write_module(&engine_dir, "instance_wrappers.rs", instance_wrappers);
-    write_module(&engine_dir, "device_wrappers.rs", device_wrappers);
-    write_engine_mod_rs(&engine_dir);
+    generate_layout_checks(&registry);
+    generate_wrappers(&registry);
 
     // Run rustfmt on vulkan-rust generated files so the output matches
     // `cargo fmt` exactly. prettyplease and rustfmt disagree on import
@@ -102,7 +65,54 @@ fn main() {
 
     println!("\n=== generation complete ===");
     println!("  vulkan-rust-sys output:   {}", out_dir.display());
-    println!("  vulkan-rust output: {}", engine_dir.display());
+    println!(
+        "  vulkan-rust output: {}",
+        Path::new(env!("CARGO_MANIFEST_DIR"))
+            .join("../vulkan-rust/src/generated")
+            .display()
+    );
+}
+
+fn generate_layout_checks(registry: &parse::VkRegistry) {
+    let test_dir = Path::new(env!("CARGO_MANIFEST_DIR")).join("../vulkan-rust-sys/tests");
+    let c_check = emit_layout_check::emit_c_layout_check(registry);
+    write_file(&test_dir.join("c_layout_check.c"), &c_check);
+    println!(
+        "  wrote c_layout_check.c ({} lines)",
+        c_check.lines().count()
+    );
+
+    let bin_dir = Path::new(env!("CARGO_MANIFEST_DIR")).join("../vulkan-rust-sys/src/bin");
+    fs::create_dir_all(&bin_dir).unwrap_or_else(|e| {
+        panic!("failed to create {}: {e}", bin_dir.display());
+    });
+    let rs_check = emit_layout_check::emit_rust_layout_check(registry);
+    write_file(&bin_dir.join("rust_layout_check.rs"), &rs_check);
+    println!(
+        "  wrote rust_layout_check.rs ({} lines)",
+        rs_check.lines().count()
+    );
+}
+
+fn generate_wrappers(registry: &parse::VkRegistry) {
+    let engine_dir = Path::new(env!("CARGO_MANIFEST_DIR")).join("../vulkan-rust/src/generated");
+    fs::create_dir_all(&engine_dir).unwrap_or_else(|e| {
+        panic!("failed to create {}: {e}", engine_dir.display());
+    });
+
+    let (entry_wrappers, instance_wrappers, device_wrappers) =
+        emit_wrappers::emit_wrappers(registry);
+
+    write_module(&engine_dir, "entry_wrappers.rs", entry_wrappers);
+    write_module(&engine_dir, "instance_wrappers.rs", instance_wrappers);
+    write_module(&engine_dir, "device_wrappers.rs", device_wrappers);
+    write_engine_mod_rs(&engine_dir);
+}
+
+fn write_file(path: &Path, content: &str) {
+    fs::write(path, content).unwrap_or_else(|e| {
+        panic!("failed to write {}: {e}", path.display());
+    });
 }
 
 fn write_module(out_dir: &Path, filename: &str, tokens: proc_macro2::TokenStream) {
@@ -112,9 +122,7 @@ fn write_module(out_dir: &Path, filename: &str, tokens: proc_macro2::TokenStream
     let formatted = prettyplease::unparse(&file);
 
     let path = out_dir.join(filename);
-    fs::write(&path, &formatted).unwrap_or_else(|e| {
-        panic!("failed to write {}: {e}", path.display());
-    });
+    write_file(&path, &formatted);
 
     let lines = formatted.lines().count();
     println!("  wrote {filename} ({lines} lines)");
@@ -131,8 +139,8 @@ fn rustfmt_engine() {
         .status();
     match status {
         Ok(s) if s.success() => println!("  rustfmt vulkan-rust: ok"),
-        Ok(s) => eprintln!("  warning: cargo fmt exited with {s}"),
-        Err(e) => eprintln!("  warning: cargo fmt not available ({e}), skipping"),
+        Ok(s) => panic!("cargo fmt failed with {s}"),
+        Err(e) => panic!("cargo fmt not available: {e}"),
     }
 }
 
@@ -165,10 +173,7 @@ pub mod structs;
 pub mod builders;
 pub mod commands;
 ";
-    let path = out_dir.join("lib.rs");
-    fs::write(&path, content).unwrap_or_else(|e| {
-        panic!("failed to write {}: {e}", path.display());
-    });
+    write_file(&out_dir.join("lib.rs"), content);
 }
 
 fn write_engine_mod_rs(out_dir: &Path) {
@@ -187,10 +192,7 @@ mod entry_wrappers;
 mod instance_wrappers;
 mod device_wrappers;
 ";
-    let path = out_dir.join("mod.rs");
-    fs::write(&path, content).unwrap_or_else(|e| {
-        panic!("failed to write {}: {e}", path.display());
-    });
+    write_file(&out_dir.join("mod.rs"), content);
 }
 
 #[cfg(test)]

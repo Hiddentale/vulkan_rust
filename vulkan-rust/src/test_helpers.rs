@@ -30,7 +30,7 @@ pub fn create_test_instance() -> Result<(Entry, Instance), Box<dyn std::error::E
     let entry = create_test_entry()?;
     let create_info = vk::structs::InstanceCreateInfo::builder();
     let instance = unsafe { entry.create_instance(&create_info, None) }
-        .map_err(|e| -> Box<dyn std::error::Error> { format!("{e:?}").into() })?;
+        .map_err(|e| -> Box<dyn std::error::Error> { Box::new(crate::VkError(e)) })?;
     Ok((entry, instance))
 }
 
@@ -45,7 +45,7 @@ pub fn create_test_device() -> Result<(Entry, Instance, Device), Box<dyn std::er
     let (entry, instance) = create_test_instance()?;
 
     let physical_devices = unsafe { instance.enumerate_physical_devices() }
-        .map_err(|e| -> Box<dyn std::error::Error> { format!("{e:?}").into() })?;
+        .map_err(|e| -> Box<dyn std::error::Error> { Box::new(crate::VkError(e)) })?;
     let physical_device = *physical_devices
         .first()
         .ok_or("no Vulkan physical devices found")?;
@@ -58,7 +58,7 @@ pub fn create_test_device() -> Result<(Entry, Instance, Device), Box<dyn std::er
     let device_info = vk::structs::DeviceCreateInfo::builder().queue_create_infos(&queue_infos);
 
     let device = unsafe { instance.create_device(physical_device, &device_info, None) }
-        .map_err(|e| -> Box<dyn std::error::Error> { format!("{e:?}").into() })?;
+        .map_err(|e| -> Box<dyn std::error::Error> { Box::new(crate::VkError(e)) })?;
 
     Ok((entry, instance, device))
 }
