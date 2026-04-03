@@ -24,6 +24,10 @@ impl AccelerationStructureCreateFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(13u32)
+    }
     ///Bit 0.
     pub const DEVICE_ADDRESS_CAPTURE_REPLAY: Self = Self(1u32);
     ///Bit 3.
@@ -142,6 +146,10 @@ impl AccessFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(268042239u32)
     }
     ///Bit 0.
     pub const INDIRECT_COMMAND_READ: Self = Self(1u32);
@@ -493,6 +501,10 @@ impl AccessFlagBits2 {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(547679931907833855u64)
     }
     pub const _2_NONE: Self = Self(0u64);
     ///Bit 0.
@@ -1065,6 +1077,10 @@ impl AccessFlagBits3KHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(0u64)
+    }
     pub const ACCESS_3_NONE: Self = Self(0u64);
 }
 impl core::ops::BitOr for AccessFlagBits3KHR {
@@ -1155,6 +1171,10 @@ impl AcquireProfilingLockFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(0u32)
+    }
 }
 impl core::ops::BitOr for AcquireProfilingLockFlagBitsKHR {
     type Output = Self;
@@ -1243,6 +1263,10 @@ impl AddressCommandFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(63u32)
     }
     ///Bit 0.
     pub const PROTECTED: Self = Self(1u32);
@@ -1393,6 +1417,10 @@ impl AddressCopyFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
+    }
     ///Bit 0.
     pub const DEVICE_LOCAL: Self = Self(1u32);
     ///Bit 1.
@@ -1512,6 +1540,10 @@ impl AttachmentDescriptionFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
+    }
     ///Bit 0.
     pub const MAY_ALIAS: Self = Self(1u32);
     ///Bit 1.
@@ -1630,6 +1662,10 @@ impl BufferCreateFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(127u32)
     }
     ///Bit 0.
     pub const SPARSE_BINDING: Self = Self(1u32);
@@ -1789,6 +1825,10 @@ impl BufferUsageFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(536608767u32)
     }
     ///Bit 0.
     pub const TRANSFER_SRC: Self = Self(1u32);
@@ -2159,6 +2199,10 @@ impl BufferUsageFlagBits2 {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(16105865215u64)
     }
     ///Bit 0.
     pub const _2_TRANSFER_SRC: Self = Self(1u64);
@@ -2570,6 +2614,10 @@ impl BuildAccelerationStructureFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7167u32)
+    }
     ///Bit 0.
     pub const ALLOW_UPDATE: Self = Self(1u32);
     ///Bit 1.
@@ -2779,6 +2827,10 @@ impl BuildMicromapFlagBitsEXT {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
+    }
     ///Bit 0.
     pub const PREFER_FAST_TRACE: Self = Self(1u32);
     ///Bit 1.
@@ -2897,6 +2949,10 @@ impl ClusterAccelerationStructureAddressResolutionFlagBitsNV {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(63u32)
     }
     pub const NONE: Self = Self(0u32);
     ///Bit 0.
@@ -3050,6 +3106,10 @@ impl ClusterAccelerationStructureClusterFlagBitsNV {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
+    }
     ///Bit 0.
     pub const ALLOW_DISABLE_OPACITY_MICROMAPS: Self = Self(1u32);
 }
@@ -3148,6 +3208,10 @@ impl ClusterAccelerationStructureGeometryFlagBitsNV {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
     }
     ///Bit 0.
     pub const CULL_DISABLE: Self = Self(1u32);
@@ -3268,6 +3332,10 @@ impl ClusterAccelerationStructureIndexFormatFlagBitsNV {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
+    }
     ///Bit 0.
     pub const _8BIT: Self = Self(1u32);
     ///Bit 1.
@@ -3386,6 +3454,10 @@ impl ColorComponentFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
     }
     ///Bit 0.
     pub const R: Self = Self(1u32);
@@ -3516,6 +3588,10 @@ impl CommandBufferResetFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
+    }
     ///Bit 0.
     pub const RELEASE_RESOURCES: Self = Self(1u32);
 }
@@ -3614,6 +3690,10 @@ impl CommandBufferUsageFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
     }
     ///Bit 0.
     pub const ONE_TIME_SUBMIT: Self = Self(1u32);
@@ -3734,6 +3814,10 @@ impl CommandPoolCreateFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
+    }
     ///Bit 0.
     pub const TRANSIENT: Self = Self(1u32);
     ///Bit 1.
@@ -3853,6 +3937,10 @@ impl CommandPoolResetFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
+    }
     ///Bit 0.
     pub const RELEASE_RESOURCES: Self = Self(1u32);
 }
@@ -3951,6 +4039,10 @@ impl CompositeAlphaFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
     }
     ///Bit 0.
     pub const OPAQUE: Self = Self(1u32);
@@ -4081,6 +4173,10 @@ impl ConditionalRenderingFlagBitsEXT {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
+    }
     ///Bit 0.
     pub const INVERTED: Self = Self(1u32);
 }
@@ -4179,6 +4275,10 @@ impl CullModeFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(3u32)
     }
     pub const NONE: Self = Self(0u32);
     ///Bit 0.
@@ -4291,6 +4391,10 @@ impl DataGraphPipelineDispatchFlagBitsARM {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(0u64)
+    }
 }
 impl core::ops::BitOr for DataGraphPipelineDispatchFlagBitsARM {
     type Output = Self;
@@ -4379,6 +4483,10 @@ impl DataGraphPipelineSessionCreateFlagBitsARM {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u64)
     }
     ///Bit 0.
     pub const PROTECTED_BIT: Self = Self(1u64);
@@ -4478,6 +4586,10 @@ impl DebugReportFlagBitsEXT {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(31u32)
     }
     ///Bit 0.
     pub const INFORMATION: Self = Self(1u32);
@@ -4618,6 +4730,10 @@ impl DebugUtilsMessageSeverityFlagBitsEXT {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(4369u32)
+    }
     ///Bit 0.
     pub const VERBOSE: Self = Self(1u32);
     ///Bit 4.
@@ -4747,6 +4863,10 @@ impl DebugUtilsMessageTypeFlagBitsEXT {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
+    }
     ///Bit 0.
     pub const GENERAL: Self = Self(1u32);
     ///Bit 1.
@@ -4875,6 +4995,10 @@ impl DependencyFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(111u32)
     }
     ///Bit 0.
     pub const BY_REGION: Self = Self(1u32);
@@ -5025,6 +5149,10 @@ impl DescriptorBindingFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
+    }
     ///Bit 0.
     pub const UPDATE_AFTER_BIND: Self = Self(1u32);
     ///Bit 1.
@@ -5153,6 +5281,10 @@ impl DescriptorPoolCreateFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(31u32)
     }
     ///Bit 0.
     pub const FREE_DESCRIPTOR_SET: Self = Self(1u32);
@@ -5293,6 +5425,10 @@ impl DescriptorSetLayoutCreateFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(247u32)
     }
     ///Bit 1.
     pub const UPDATE_AFTER_BIND_POOL: Self = Self(2u32);
@@ -5454,6 +5590,10 @@ impl DeviceAddressBindingFlagBitsEXT {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
+    }
     ///Bit 0.
     pub const INTERNAL_OBJECT: Self = Self(1u32);
 }
@@ -5552,6 +5692,10 @@ impl DeviceDiagnosticsConfigFlagBitsNV {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
     }
     ///Bit 0.
     pub const ENABLE_SHADER_DEBUG_INFO: Self = Self(1u32);
@@ -5681,6 +5825,10 @@ impl DeviceFaultFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(63u32)
     }
     ///Bit 0.
     pub const FLAG_DEVICE_LOST: Self = Self(1u32);
@@ -5831,6 +5979,10 @@ impl DeviceGroupPresentModeFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
+    }
     ///Bit 0.
     pub const LOCAL: Self = Self(1u32);
     ///Bit 1.
@@ -5960,6 +6112,10 @@ impl DeviceQueueCreateFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(5u32)
+    }
     ///Bit 0.
     pub const PROTECTED: Self = Self(1u32);
     ///Bit 2.
@@ -6068,6 +6224,10 @@ impl DisplayPlaneAlphaFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
     }
     ///Bit 0.
     pub const OPAQUE: Self = Self(1u32);
@@ -6198,6 +6358,10 @@ impl EventCreateFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
+    }
     ///Bit 0.
     pub const DEVICE_ONLY: Self = Self(1u32);
 }
@@ -6296,6 +6460,10 @@ impl ExportMetalObjectTypeFlagBitsEXT {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(63u32)
     }
     ///Bit 0.
     pub const METAL_DEVICE: Self = Self(1u32);
@@ -6446,6 +6614,10 @@ impl ExternalFenceFeatureFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(3u32)
+    }
     ///Bit 0.
     pub const EXPORTABLE: Self = Self(1u32);
     ///Bit 1.
@@ -6554,6 +6726,10 @@ impl ExternalFenceHandleTypeFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
     }
     ///Bit 0.
     pub const OPAQUE_FD: Self = Self(1u32);
@@ -6684,6 +6860,10 @@ impl ExternalMemoryFeatureFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
+    }
     ///Bit 0.
     pub const DEDICATED_ONLY: Self = Self(1u32);
     ///Bit 1.
@@ -6803,6 +6983,10 @@ impl ExternalMemoryFeatureFlagBitsNV {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
+    }
     ///Bit 0.
     pub const DEDICATED_ONLY: Self = Self(1u32);
     ///Bit 1.
@@ -6921,6 +7105,10 @@ impl ExternalMemoryHandleTypeFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(516095u32)
     }
     ///Bit 0.
     pub const OPAQUE_FD: Self = Self(1u32);
@@ -7191,6 +7379,10 @@ impl ExternalMemoryHandleTypeFlagBitsNV {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
+    }
     ///Bit 0.
     pub const OPAQUE_WIN32: Self = Self(1u32);
     ///Bit 1.
@@ -7320,6 +7512,10 @@ impl ExternalSemaphoreFeatureFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(3u32)
+    }
     ///Bit 0.
     pub const EXPORTABLE: Self = Self(1u32);
     ///Bit 1.
@@ -7428,6 +7624,10 @@ impl ExternalSemaphoreHandleTypeFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(159u32)
     }
     ///Bit 0.
     pub const OPAQUE_FD: Self = Self(1u32);
@@ -7579,6 +7779,10 @@ impl FenceCreateFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
+    }
     ///Bit 0.
     pub const SIGNALED: Self = Self(1u32);
 }
@@ -7678,6 +7882,10 @@ impl FenceImportFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
+    }
     ///Bit 0.
     pub const TEMPORARY: Self = Self(1u32);
 }
@@ -7776,6 +7984,10 @@ impl FormatFeatureFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(2147483647u32)
     }
     ///Bit 0.
     pub const SAMPLED_IMAGE: Self = Self(1u32);
@@ -8201,6 +8413,10 @@ impl FormatFeatureFlagBits2 {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(648324832294862847u64)
     }
     ///Bit 0.
     pub const _2_SAMPLED_IMAGE: Self = Self(1u64);
@@ -8858,6 +9074,10 @@ impl FrameBoundaryFlagBitsEXT {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
+    }
     ///Bit 0.
     pub const FRAME_END: Self = Self(1u32);
 }
@@ -8957,6 +9177,10 @@ impl FramebufferCreateFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
+    }
     ///Bit 0.
     pub const IMAGELESS: Self = Self(1u32);
 }
@@ -9055,6 +9279,10 @@ impl GeometryFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(3u32)
     }
     ///Bit 0.
     pub const OPAQUE: Self = Self(1u32);
@@ -9164,6 +9392,10 @@ impl GeometryInstanceFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(63u32)
     }
     ///Bit 0.
     pub const TRIANGLE_FACING_CULL_DISABLE: Self = Self(1u32);
@@ -9316,6 +9548,10 @@ impl GraphicsPipelineLibraryFlagBitsEXT {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
+    }
     ///Bit 0.
     pub const VERTEX_INPUT_INTERFACE: Self = Self(1u32);
     ///Bit 1.
@@ -9445,6 +9681,10 @@ impl HostImageCopyFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
+    }
     ///Bit 0.
     pub const MEMCPY: Self = Self(1u32);
 }
@@ -9543,6 +9783,10 @@ impl ImageAspectFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(2047u32)
     }
     ///Bit 0.
     pub const COLOR: Self = Self(1u32);
@@ -9743,6 +9987,10 @@ impl ImageCompressionFixedRateFlagBitsEXT {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(16777215u32)
     }
     pub const NONE: Self = Self(0u32);
     ///Bit 0.
@@ -10074,6 +10322,10 @@ impl ImageCompressionFlagBitsEXT {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
+    }
     pub const DEFAULT: Self = Self(0u32);
     ///Bit 0.
     pub const FIXED_RATE_DEFAULT: Self = Self(1u32);
@@ -10193,6 +10445,10 @@ impl ImageConstraintsInfoFlagBitsFUCHSIA {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(31u32)
     }
     ///Bit 0.
     pub const CPU_READ_RARELY: Self = Self(1u32);
@@ -10332,6 +10588,10 @@ impl ImageCreateFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1572863u32)
     }
     ///Bit 0.
     pub const SPARSE_BINDING: Self = Self(1u32);
@@ -10624,6 +10884,10 @@ impl ImageFormatConstraintsFlagBitsFUCHSIA {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(0u32)
+    }
 }
 impl core::ops::BitOr for ImageFormatConstraintsFlagBitsFUCHSIA {
     type Output = Self;
@@ -10712,6 +10976,10 @@ impl ImageUsageFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(251461631u32)
     }
     ///Bit 0.
     pub const TRANSFER_SRC: Self = Self(1u32);
@@ -11053,6 +11321,10 @@ impl ImageViewCreateFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
+    }
     ///Bit 0.
     pub const FRAGMENT_DENSITY_MAP_DYNAMIC: Self = Self(1u32);
     ///Bit 2.
@@ -11172,6 +11444,10 @@ impl IndirectCommandsInputModeFlagBitsEXT {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(3u32)
+    }
     ///Bit 0.
     pub const VULKAN_INDEX_BUFFER: Self = Self(1u32);
     ///Bit 1.
@@ -11281,6 +11557,10 @@ impl IndirectCommandsLayoutUsageFlagBitsEXT {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(3u32)
+    }
     ///Bit 0.
     pub const EXPLICIT_PREPROCESS: Self = Self(1u32);
     ///Bit 1.
@@ -11389,6 +11669,10 @@ impl IndirectCommandsLayoutUsageFlagBitsNV {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
     }
     ///Bit 0.
     pub const EXPLICIT_PREPROCESS: Self = Self(1u32);
@@ -11509,6 +11793,10 @@ impl IndirectStateFlagBitsNV {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
+    }
     ///Bit 0.
     pub const FLAG_FRONTFACE: Self = Self(1u32);
 }
@@ -11608,6 +11896,10 @@ impl InstanceCreateFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
+    }
     ///Bit 0.
     pub const ENUMERATE_PORTABILITY: Self = Self(1u32);
 }
@@ -11706,6 +11998,10 @@ impl MemoryAllocateFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
     }
     ///Bit 0.
     pub const DEVICE_MASK: Self = Self(1u32);
@@ -11836,6 +12132,10 @@ impl MemoryDecompressionMethodFlagBitsEXT {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u64)
+    }
     ///Bit 0.
     pub const GDEFLATE_1_0: Self = Self(1u64);
 }
@@ -11934,6 +12234,10 @@ impl MemoryHeapFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
     }
     ///Bit 0.
     pub const DEVICE_LOCAL: Self = Self(1u32);
@@ -12064,6 +12368,10 @@ impl MemoryMapFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
+    }
     ///Bit 0.
     pub const PLACED: Self = Self(1u32);
 }
@@ -12162,6 +12470,10 @@ impl MemoryPropertyFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(511u32)
     }
     ///Bit 0.
     pub const DEVICE_LOCAL: Self = Self(1u32);
@@ -12342,6 +12654,10 @@ impl MemoryUnmapFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
+    }
     ///Bit 0.
     pub const RESERVE: Self = Self(1u32);
 }
@@ -12440,6 +12756,10 @@ impl MicromapCreateFlagBitsEXT {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
     }
     ///Bit 0.
     pub const DEVICE_ADDRESS_CAPTURE_REPLAY: Self = Self(1u32);
@@ -12540,6 +12860,10 @@ impl OpticalFlowExecuteFlagBitsNV {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
+    }
     ///Bit 0.
     pub const DISABLE_TEMPORAL_HINTS: Self = Self(1u32);
 }
@@ -12638,6 +12962,10 @@ impl OpticalFlowGridSizeFlagBitsNV {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
     }
     pub const UNKNOWN: Self = Self(0u32);
     ///Bit 0.
@@ -12768,6 +13096,10 @@ impl OpticalFlowSessionCreateFlagBitsNV {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(31u32)
     }
     ///Bit 0.
     pub const ENABLE_HINT: Self = Self(1u32);
@@ -12907,6 +13239,10 @@ impl OpticalFlowUsageFlagBitsNV {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(31u32)
     }
     pub const UNKNOWN: Self = Self(0u32);
     ///Bit 0.
@@ -13048,6 +13384,10 @@ impl PartitionedAccelerationStructureInstanceFlagBitsNV {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(31u32)
+    }
     ///Bit 0.
     pub const FLAG_TRIANGLE_FACING_CULL_DISABLE: Self = Self(1u32);
     ///Bit 1.
@@ -13187,6 +13527,10 @@ impl PastPresentationTimingFlagBitsEXT {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(3u32)
+    }
     ///Bit 0.
     pub const ALLOW_PARTIAL_RESULTS: Self = Self(1u32);
     ///Bit 1.
@@ -13295,6 +13639,10 @@ impl PeerMemoryFeatureFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
     }
     ///Bit 0.
     pub const COPY_SRC: Self = Self(1u32);
@@ -13425,6 +13773,10 @@ impl PerformanceCounterDescriptionFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(3u32)
+    }
     ///Bit 0.
     pub const PERFORMANCE_IMPACTING: Self = Self(1u32);
     ///Bit 1.
@@ -13534,6 +13886,10 @@ impl PhysicalDeviceSchedulingControlsFlagBitsARM {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u64)
+    }
     ///Bit 0.
     pub const SHADER_CORE_COUNT: Self = Self(1u64);
 }
@@ -13632,6 +13988,10 @@ impl PipelineCacheCreateFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
     }
     ///Bit 0.
     pub const EXTERNALLY_SYNCHRONIZED: Self = Self(1u32);
@@ -13762,6 +14122,10 @@ impl PipelineColorBlendStateCreateFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
+    }
     pub const RASTERIZATION_ORDER_ATTACHMENT_ACCESS_BIT: Self = Self::RASTERIZATION_ORDER_ATTACHMENT_ACCESS;
     ///Bit 0.
     pub const RASTERIZATION_ORDER_ATTACHMENT_ACCESS: Self = Self(1u32);
@@ -13862,6 +14226,10 @@ impl PipelineCompilerControlFlagBitsAMD {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(0u32)
+    }
 }
 impl core::ops::BitOr for PipelineCompilerControlFlagBitsAMD {
     type Output = Self;
@@ -13950,6 +14318,10 @@ impl PipelineCreateFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(2147483647u32)
     }
     ///Bit 0.
     pub const DISABLE_OPTIMIZATION: Self = Self(1u32);
@@ -14351,6 +14723,10 @@ impl PipelineCreateFlagBits2 {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(10685878632447u64)
     }
     ///Bit 0.
     pub const _2_DISABLE_OPTIMIZATION: Self = Self(1u64);
@@ -14845,6 +15221,10 @@ impl PipelineCreationFeedbackFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
+    }
     ///Bit 0.
     pub const VALID: Self = Self(1u32);
     ///Bit 1.
@@ -14964,6 +15344,10 @@ impl PipelineDepthStencilStateCreateFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(3u32)
+    }
     pub const RASTERIZATION_ORDER_ATTACHMENT_DEPTH_ACCESS_BIT: Self = Self::RASTERIZATION_ORDER_ATTACHMENT_DEPTH_ACCESS;
     pub const RASTERIZATION_ORDER_ATTACHMENT_STENCIL_ACCESS_BIT: Self = Self::RASTERIZATION_ORDER_ATTACHMENT_STENCIL_ACCESS;
     ///Bit 0.
@@ -15075,6 +15459,10 @@ impl PipelineLayoutCreateFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(2u32)
+    }
     ///Bit 1.
     pub const INDEPENDENT_SETS: Self = Self(2u32);
 }
@@ -15173,6 +15561,10 @@ impl PipelineShaderStageCreateFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(3u32)
     }
     ///Bit 0.
     pub const ALLOW_VARYING_SUBGROUP_SIZE: Self = Self(1u32);
@@ -15282,6 +15674,10 @@ impl PipelineStageFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(65404927u32)
     }
     ///Bit 0.
     pub const TOP_OF_PIPE: Self = Self(1u32);
@@ -15603,6 +15999,10 @@ impl PipelineStageFlagBits2 {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(131939246145535u64)
     }
     pub const _2_NONE: Self = Self(0u64);
     ///Bit 0.
@@ -16117,6 +16517,10 @@ impl PresentGravityFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
+    }
     ///Bit 0.
     pub const MIN: Self = Self(1u32);
     ///Bit 1.
@@ -16236,6 +16640,10 @@ impl PresentScalingFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
+    }
     ///Bit 0.
     pub const ONE_TO_ONE: Self = Self(1u32);
     ///Bit 1.
@@ -16354,6 +16762,10 @@ impl PresentStageFlagBitsEXT {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
     }
     ///Bit 0.
     pub const QUEUE_OPERATIONS_END: Self = Self(1u32);
@@ -16484,6 +16896,10 @@ impl PresentTimingInfoFlagBitsEXT {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(3u32)
+    }
     ///Bit 0.
     pub const PRESENT_AT_RELATIVE_TIME: Self = Self(1u32);
     ///Bit 1.
@@ -16593,6 +17009,10 @@ impl PrivateDataSlotCreateFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(0u32)
+    }
 }
 impl core::ops::BitOr for PrivateDataSlotCreateFlagBits {
     type Output = Self;
@@ -16681,6 +17101,10 @@ impl QueryControlFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
     }
     ///Bit 0.
     pub const PRECISE: Self = Self(1u32);
@@ -16780,6 +17204,10 @@ impl QueryPipelineStatisticFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(16383u32)
     }
     ///Bit 0.
     pub const INPUT_ASSEMBLY_VERTICES: Self = Self(1u32);
@@ -17010,6 +17438,10 @@ impl QueryPoolCreateFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
+    }
     ///Bit 0.
     pub const RESET: Self = Self(1u32);
 }
@@ -17108,6 +17540,10 @@ impl QueryResultFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(31u32)
     }
     ///Bit 0.
     pub const _64: Self = Self(1u32);
@@ -17247,6 +17683,10 @@ impl QueueFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1407u32)
     }
     ///Bit 0.
     pub const GRAPHICS: Self = Self(1u32);
@@ -17427,6 +17867,10 @@ impl RefreshObjectFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(0u32)
+    }
 }
 impl core::ops::BitOr for RefreshObjectFlagBitsKHR {
     type Output = Self;
@@ -17515,6 +17959,10 @@ impl RenderPassCreateFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(6u32)
     }
     ///Bit 1.
     pub const TRANSFORM_BIT: Self = Self(2u32);
@@ -17624,6 +18072,10 @@ impl RenderingAttachmentFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
     }
     ///Bit 0.
     pub const INPUT_ATTACHMENT_FEEDBACK: Self = Self(1u32);
@@ -17743,6 +18195,10 @@ impl RenderingFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(495u32)
     }
     ///Bit 0.
     pub const CONTENTS_SECONDARY_COMMAND_BUFFERS: Self = Self(1u32);
@@ -17913,6 +18369,10 @@ impl ResolveImageFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(3u32)
+    }
     ///Bit 0.
     pub const SKIP_TRANSFER_FUNCTION: Self = Self(1u32);
     ///Bit 1.
@@ -18021,6 +18481,10 @@ impl ResolveModeFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(63u32)
     }
     pub const NONE: Self = Self(0u32);
     ///Bit 0.
@@ -18172,6 +18636,10 @@ impl SampleCountFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(127u32)
     }
     ///Bit 0.
     pub const _1: Self = Self(1u32);
@@ -18332,6 +18800,10 @@ impl SamplerCreateFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(31u32)
+    }
     ///Bit 0.
     pub const SUBSAMPLED: Self = Self(1u32);
     ///Bit 1.
@@ -18471,6 +18943,10 @@ impl SemaphoreCreateFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(0u32)
+    }
 }
 impl core::ops::BitOr for SemaphoreCreateFlagBits {
     type Output = Self;
@@ -18559,6 +19035,10 @@ impl SemaphoreImportFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
     }
     ///Bit 0.
     pub const TEMPORARY: Self = Self(1u32);
@@ -18659,6 +19139,10 @@ impl SemaphoreWaitFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
+    }
     ///Bit 0.
     pub const ANY: Self = Self(1u32);
 }
@@ -18758,6 +19242,10 @@ impl ShaderCorePropertiesFlagBitsAMD {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(0u32)
+    }
 }
 impl core::ops::BitOr for ShaderCorePropertiesFlagBitsAMD {
     type Output = Self;
@@ -18846,6 +19334,10 @@ impl ShaderCreateFlagBitsEXT {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(36095u32)
     }
     ///Bit 0.
     pub const LINK_STAGE: Self = Self(1u32);
@@ -19046,6 +19538,10 @@ impl ShaderModuleCreateFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(0u32)
+    }
 }
 impl core::ops::BitOr for ShaderModuleCreateFlagBits {
     type Output = Self;
@@ -19134,6 +19630,10 @@ impl ShaderStageFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(2147483647u32)
     }
     ///Bit 0.
     pub const VERTEX: Self = Self(1u32);
@@ -19366,6 +19866,10 @@ impl SparseImageFormatFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
+    }
     ///Bit 0.
     pub const SINGLE_MIPTAIL: Self = Self(1u32);
     ///Bit 1.
@@ -19485,6 +19989,10 @@ impl SparseMemoryBindFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
+    }
     ///Bit 0.
     pub const METADATA: Self = Self(1u32);
 }
@@ -19583,6 +20091,10 @@ impl SpirvResourceTypeFlagBitsEXT {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(2147483647u32)
     }
     pub const ALL: Self = Self(2147483647u32);
     ///Bit 0.
@@ -19774,6 +20286,10 @@ impl StencilFaceFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(3u32)
+    }
     ///Bit 0.
     pub const FRONT: Self = Self(1u32);
     ///Bit 1.
@@ -19884,6 +20400,10 @@ impl SubgroupFeatureFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1791u32)
     }
     ///Bit 0.
     pub const BASIC: Self = Self(1u32);
@@ -20074,6 +20594,10 @@ impl SubmitFlagBits {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
+    }
     ///Bit 0.
     pub const PROTECTED: Self = Self(1u32);
 }
@@ -20172,6 +20696,10 @@ impl SubpassDescriptionFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(511u32)
     }
     ///Bit 0.
     pub const PER_VIEW_ATTRIBUTES_BIT: Self = Self(1u32);
@@ -20357,6 +20885,10 @@ impl SurfaceCounterFlagBitsEXT {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
+    }
     ///Bit 0.
     pub const VBLANK: Self = Self(1u32);
 }
@@ -20455,6 +20987,10 @@ impl SurfaceTransformFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(511u32)
     }
     ///Bit 0.
     pub const IDENTITY: Self = Self(1u32);
@@ -20635,6 +21171,10 @@ impl SwapchainCreateFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(711u32)
+    }
     ///Bit 0.
     pub const SPLIT_INSTANCE_BIND_REGIONS: Self = Self(1u32);
     ///Bit 1.
@@ -20784,6 +21324,10 @@ impl SwapchainImageUsageFlagBitsANDROID {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
+    }
     ///Bit 0.
     pub const SHARED_BIT: Self = Self(1u32);
 }
@@ -20883,6 +21427,10 @@ impl SwapchainImageUsageFlagBitsOHOS {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
+    }
     ///Bit 0.
     pub const SHARED_BIT: Self = Self(1u32);
 }
@@ -20981,6 +21529,10 @@ impl TensorCreateFlagBitsARM {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u64)
     }
     ///Bit 0.
     pub const MUTABLE_FORMAT_BIT: Self = Self(1u64);
@@ -21110,6 +21662,10 @@ impl TensorUsageFlagBitsARM {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(62u64)
     }
     ///Bit 1.
     pub const SHADER_BIT: Self = Self(2u64);
@@ -21250,6 +21806,10 @@ impl TensorViewCreateFlagBitsARM {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u64)
+    }
     ///Bit 0.
     pub const DESCRIPTOR_BUFFER_CAPTURE_REPLAY_BIT: Self = Self(1u64);
 }
@@ -21348,6 +21908,10 @@ impl TileShadingRenderPassFlagBitsQCOM {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(3u32)
     }
     ///Bit 0.
     pub const ENABLE_BIT: Self = Self(1u32);
@@ -21457,6 +22021,10 @@ impl ToolPurposeFlagBits {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(127u32)
     }
     ///Bit 0.
     pub const VALIDATION: Self = Self(1u32);
@@ -21617,6 +22185,10 @@ impl VideoCapabilityFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(3u32)
+    }
     ///Bit 0.
     pub const PROTECTED_CONTENT: Self = Self(1u32);
     ///Bit 1.
@@ -21725,6 +22297,10 @@ impl VideoChromaSubsamplingFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
     }
     pub const INVALID: Self = Self(0u32);
     ///Bit 0.
@@ -21855,6 +22431,10 @@ impl VideoCodecOperationFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(458767u32)
     }
     pub const NONE: Self = Self(0u32);
     ///Bit 16.
@@ -22016,6 +22596,10 @@ impl VideoCodingControlFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
+    }
     ///Bit 0.
     pub const RESET: Self = Self(1u32);
     ///Bit 1.
@@ -22134,6 +22718,10 @@ impl VideoComponentBitDepthFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(21u32)
     }
     pub const INVALID: Self = Self(0u32);
     ///Bit 0.
@@ -22255,6 +22843,10 @@ impl VideoDecodeCapabilityFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(3u32)
+    }
     ///Bit 0.
     pub const DPB_AND_OUTPUT_COINCIDE: Self = Self(1u32);
     ///Bit 1.
@@ -22363,6 +22955,10 @@ impl VideoDecodeH264PictureLayoutFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(3u32)
     }
     pub const PROGRESSIVE: Self = Self(0u32);
     ///Bit 0.
@@ -22473,6 +23069,10 @@ impl VideoDecodeUsageFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
     }
     pub const DEFAULT: Self = Self(0u32);
     ///Bit 0.
@@ -22593,6 +23193,10 @@ impl VideoEncodeAV1CapabilityFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(63u32)
     }
     ///Bit 0.
     pub const PER_RATE_CONTROL_GROUP_MIN_MAX_Q_INDEX: Self = Self(1u32);
@@ -22743,6 +23347,10 @@ impl VideoEncodeAV1RateControlFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
+    }
     ///Bit 0.
     pub const REGULAR_GOP: Self = Self(1u32);
     ///Bit 1.
@@ -22871,6 +23479,10 @@ impl VideoEncodeAV1StdFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
     }
     ///Bit 0.
     pub const UNIFORM_TILE_SPACING_FLAG_SET: Self = Self(1u32);
@@ -23001,6 +23613,10 @@ impl VideoEncodeAV1SuperblockSizeFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(3u32)
+    }
     ///Bit 0.
     pub const _64: Self = Self(1u32);
     ///Bit 1.
@@ -23109,6 +23725,10 @@ impl VideoEncodeCapabilityFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
     }
     ///Bit 0.
     pub const PRECEDING_EXTERNALLY_ENCODED_BYTES: Self = Self(1u32);
@@ -23239,6 +23859,10 @@ impl VideoEncodeContentFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
+    }
     pub const DEFAULT: Self = Self(0u32);
     ///Bit 0.
     pub const CAMERA: Self = Self(1u32);
@@ -23359,6 +23983,10 @@ impl VideoEncodeFeedbackFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
+    }
     ///Bit 0.
     pub const BITSTREAM_BUFFER_OFFSET: Self = Self(1u32);
     ///Bit 1.
@@ -23478,6 +24106,10 @@ impl VideoEncodeFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
+    }
     ///Bit 2.
     pub const INTRA_REFRESH: Self = Self(4u32);
     ///Bit 0.
@@ -23596,6 +24228,10 @@ impl VideoEncodeH264CapabilityFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(2047u32)
     }
     ///Bit 0.
     pub const HRD_COMPLIANCE: Self = Self(1u32);
@@ -23796,6 +24432,10 @@ impl VideoEncodeH264RateControlFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(31u32)
+    }
     ///Bit 0.
     pub const ATTEMPT_HRD_COMPLIANCE: Self = Self(1u32);
     ///Bit 1.
@@ -23934,6 +24574,10 @@ impl VideoEncodeH264StdFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1835007u32)
     }
     ///Bit 0.
     pub const SEPARATE_COLOR_PLANE_FLAG_SET: Self = Self(1u32);
@@ -24224,6 +24868,10 @@ impl VideoEncodeH265CapabilityFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(4095u32)
+    }
     ///Bit 0.
     pub const HRD_COMPLIANCE: Self = Self(1u32);
     ///Bit 1.
@@ -24433,6 +25081,10 @@ impl VideoEncodeH265CtbSizeFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
+    }
     ///Bit 0.
     pub const _16: Self = Self(1u32);
     ///Bit 1.
@@ -24551,6 +25203,10 @@ impl VideoEncodeH265RateControlFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(31u32)
     }
     ///Bit 0.
     pub const ATTEMPT_HRD_COMPLIANCE: Self = Self(1u32);
@@ -24690,6 +25346,10 @@ impl VideoEncodeH265StdFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(2097151u32)
     }
     ///Bit 0.
     pub const SEPARATE_COLOR_PLANE_FLAG_SET: Self = Self(1u32);
@@ -24990,6 +25650,10 @@ impl VideoEncodeH265TransformBlockSizeFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
+    }
     ///Bit 0.
     pub const _4: Self = Self(1u32);
     ///Bit 1.
@@ -25118,6 +25782,10 @@ impl VideoEncodeIntraRefreshModeFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
     }
     pub const NONE: Self = Self(0u32);
     ///Bit 0.
@@ -25249,6 +25917,10 @@ impl VideoEncodeRateControlModeFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(7u32)
+    }
     pub const DEFAULT: Self = Self(0u32);
     ///Bit 0.
     pub const DISABLED: Self = Self(1u32);
@@ -25369,6 +26041,10 @@ impl VideoEncodeRgbChromaOffsetFlagBitsVALVE {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(3u32)
+    }
     ///Bit 0.
     pub const COSITED_EVEN_BIT: Self = Self(1u32);
     ///Bit 1.
@@ -25477,6 +26153,10 @@ impl VideoEncodeRgbModelConversionFlagBitsVALVE {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(31u32)
     }
     ///Bit 0.
     pub const RGB_IDENTITY_BIT: Self = Self(1u32);
@@ -25617,6 +26297,10 @@ impl VideoEncodeRgbRangeCompressionFlagBitsVALVE {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(3u32)
+    }
     ///Bit 0.
     pub const FULL_RANGE_BIT: Self = Self(1u32);
     ///Bit 1.
@@ -25725,6 +26409,10 @@ impl VideoEncodeUsageFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(15u32)
     }
     pub const DEFAULT: Self = Self(0u32);
     ///Bit 0.
@@ -25855,6 +26543,10 @@ impl VideoSessionCreateFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(63u32)
     }
     ///Bit 0.
     pub const PROTECTED_CONTENT: Self = Self(1u32);
@@ -26005,6 +26697,10 @@ impl VideoSessionParametersCreateFlagBitsKHR {
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
     }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(1u32)
+    }
     ///Bit 0.
     pub const QUANTIZATION_MAP_COMPATIBLE: Self = Self(1u32);
 }
@@ -26103,6 +26799,10 @@ impl WaylandSurfaceCreateFlagBitsKHR {
     #[inline]
     pub const fn contains(self, other: Self) -> bool {
         (self.0 & other.0) == other.0
+    }
+    #[inline]
+    pub const fn all() -> Self {
+        Self(0u32)
     }
 }
 impl core::ops::BitOr for WaylandSurfaceCreateFlagBitsKHR {
