@@ -1,7 +1,7 @@
 [book]
-title = "vulkan_rs Guide"
+title = "vulkan_rust Guide"
 authors = ["Johan Voskamp"]
-description = "The definitive guide to Vulkan development with vulkan_rs"
+description = "The definitive guide to Vulkan development with vulkan_rust"
 language = "en"
 src = "src"
 
@@ -12,8 +12,8 @@ create-missing = false
 [output.html]
 default-theme = "navy"
 preferred-dark-theme = "navy"
-git-repository-url = "https://github.com/Hiddentale/vulkan_rs"
-edit-url-template = "https://github.com/Hiddentale/vulkan_rs/edit/main/guide/{path}"
+git-repository-url = "https://github.com/Hiddentale/vulkan_rust"
+edit-url-template = "https://github.com/Hiddentale/vulkan_rust/edit/main/guide/{path}"
 
 [output.html.search]
 enable = true

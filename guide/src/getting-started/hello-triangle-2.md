@@ -16,12 +16,12 @@ to receive rendered frames.
 
 ## New dependencies
 
-We need a windowing library. This tutorial uses `winit`, but `vulkan_rs`
+We need a windowing library. This tutorial uses `winit`, but `vulkan_rust`
 works with anything that implements `raw-window-handle`.
 
 ```toml
 [dependencies]
-vulkan-rs = "0.1"
+vulkan-rust = "0.1"
 winit = "0.30"
 ```
 
@@ -81,12 +81,12 @@ fn main() {
 In Part 1 we created an Instance with no extensions. Now we need the
 platform surface extensions so Vulkan can render to our window.
 
-`vulkan_rs` provides `required_extensions()` which returns the right
+`vulkan_rust` provides `required_extensions()` which returns the right
 extensions for your platform.
 
 ```rust,ignore
-use vulkan_rs::{Entry, LibloadingLoader};
-use vulkan_rs::vk;
+use vulkan_rust::{Entry, LibloadingLoader};
+use vulkan_rust::vk;
 use vk::structs::*;
 
 // ── Load Vulkan ────────────────────────────────────────────────
@@ -101,7 +101,7 @@ let entry = unsafe { Entry::new(loader) }
 //   Windows: VK_KHR_surface + VK_KHR_win32_surface
 //   Linux:   VK_KHR_surface + VK_KHR_xlib_surface + VK_KHR_wayland_surface
 //   macOS:   VK_KHR_surface + VK_EXT_metal_surface
-let surface_extensions = vulkan_rs::required_extensions();
+let surface_extensions = vulkan_rust::required_extensions();
 let extension_ptrs: Vec<*const i8> = surface_extensions
     .iter()
     .map(|ext| ext.as_ptr())
@@ -145,7 +145,7 @@ A Surface is Vulkan's abstraction over a platform window. It represents
 the thing you render to: a Win32 HWND, an X11 Window, a Wayland
 wl_surface, etc.
 
-`vulkan_rs` provides `instance.create_surface()` which handles the
+`vulkan_rust` provides `instance.create_surface()` which handles the
 platform dispatch for you via `raw-window-handle`.
 
 ```rust,ignore

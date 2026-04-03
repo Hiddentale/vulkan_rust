@@ -64,12 +64,12 @@ pointer to the correct type. This is the same pattern as COM's
 The most common use of pNext chains is enabling device features from
 newer Vulkan versions or extensions.
 
-### Without vulkan_rs builders (raw C-style)
+### Without vulkan_rust builders (raw C-style)
 
 ```rust,ignore
-use vulkan_rs::vk;
-use vulkan_rs::vk::structs::*;
-use vulkan_rs::vk::enums::*;
+use vulkan_rust::vk;
+use vulkan_rust::vk::structs::*;
+use vulkan_rust::vk::enums::*;
 
 // You would need to manually link the structs:
 let mut features_13 = PhysicalDeviceVulkan13Features {
@@ -96,13 +96,13 @@ let device_info = DeviceCreateInfo {
 ```
 
 This is error-prone: wrong `sType`, dangling pointers, forgetting to
-link the chain. vulkan_rs builders fix all of these problems.
+link the chain. vulkan_rust builders fix all of these problems.
 
-### With vulkan_rs builders (type-safe)
+### With vulkan_rust builders (type-safe)
 
 ```rust,ignore
-use vulkan_rs::vk;
-use vulkan_rs::vk::structs::*;
+use vulkan_rust::vk;
+use vulkan_rust::vk::structs::*;
 
 let mut features_12 = *PhysicalDeviceVulkan12Features::builder()
     .buffer_device_address(1)
@@ -169,7 +169,7 @@ entire chain regardless of order.
 
 ## The Extends marker traits
 
-For each extensible struct, `vulkan_rs` generates an `unsafe trait`:
+For each extensible struct, `vulkan_rust` generates an `unsafe trait`:
 
 ```rust,ignore
 pub unsafe trait ExtendsDeviceCreateInfo {}
@@ -191,8 +191,8 @@ These traits are generated from the `structextends` attribute in
 If you try to `push_next` a struct that doesn't implement the trait:
 
 ```rust,ignore
-use vulkan_rs::vk;
-use vulkan_rs::vk::structs::*;
+use vulkan_rust::vk;
+use vulkan_rust::vk::structs::*;
 
 // Compile error: PhysicalDeviceMemoryProperties does not implement
 // ExtendsDeviceCreateInfo
@@ -202,12 +202,12 @@ let info = DeviceCreateInfo::builder()
 
 ## The builder Deref pattern
 
-vulkan_rs builders implement `Deref<Target = InnerStruct>`, so you can
+vulkan_rust builders implement `Deref<Target = InnerStruct>`, so you can
 pass a builder anywhere a reference to the inner struct is expected:
 
 ```rust,ignore
-use vulkan_rs::vk;
-use vulkan_rs::vk::structs::*;
+use vulkan_rust::vk;
+use vulkan_rust::vk::structs::*;
 
 let info = DeviceCreateInfo::builder()
     .queue_create_infos(&queue_infos)
@@ -237,8 +237,8 @@ This means the builder and everything chained into it must live in
 the same scope. The compiler enforces this:
 
 ```rust,ignore
-use vulkan_rs::vk;
-use vulkan_rs::vk::structs::*;
+use vulkan_rust::vk;
+use vulkan_rust::vk::structs::*;
 
 let info = {
     let mut features = PhysicalDeviceVulkan12Features::builder();
@@ -256,8 +256,8 @@ Chain feature structs into `PhysicalDeviceFeatures2` and call
 `get_physical_device_features2`:
 
 ```rust,ignore
-use vulkan_rs::vk;
-use vulkan_rs::vk::structs::*;
+use vulkan_rust::vk;
+use vulkan_rust::vk::structs::*;
 
 let mut features_12 = *PhysicalDeviceVulkan12Features::builder();
 let mut features_13 = *PhysicalDeviceVulkan13Features::builder();
@@ -305,15 +305,15 @@ above.
 
 ### API reference links
 
-- [`BaseOutStructure`](https://docs.rs/vulkan-rs/latest/vulkan_rs/vk/struct.BaseOutStructure.html)
-- [`StructureType`](https://docs.rs/vulkan-rs/latest/vulkan_rs/vk/struct.StructureType.html)
+- [`BaseOutStructure`](https://docs.rs/vulkan-rust/latest/vulkan_rust/vk/struct.BaseOutStructure.html)
+- [`StructureType`](https://docs.rs/vulkan-rust/latest/vulkan_rust/vk/struct.StructureType.html)
 - [Vulkan spec: Extending Structures](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#fundamentals-validusage-pNext)
 
 ## Key takeaways
 
 - `pNext` is a linked list that lets extensions add data to existing
   structs without changing their layout.
-- `vulkan_rs` builders make pNext chains type-safe: `push_next` only
+- `vulkan_rust` builders make pNext chains type-safe: `push_next` only
   accepts types the spec allows, `sType` is set automatically, and
   lifetimes are enforced by the compiler.
 - The most common use case is enabling device features from Vulkan 1.2,

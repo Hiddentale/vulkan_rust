@@ -22,7 +22,7 @@ We need fences and semaphores to coordinate CPU and GPU work. See
 [Synchronization](../concepts/synchronization.md) for the full concept.
 
 ```rust,ignore
-use vulkan_rs::vk;
+use vulkan_rust::vk;
 use vk::structs::*;
 
 // ── Semaphores: GPU-to-GPU synchronization ─────────────────────
@@ -58,7 +58,7 @@ let in_flight_fence = unsafe { device.create_fence(&fence_info, None) }
 ## Step 2: Create a command pool and command buffer
 
 ```rust,ignore
-use vulkan_rs::vk;
+use vulkan_rust::vk;
 use vk::structs::*;
 use vk::enums::*;
 use vk::handles::*;
@@ -90,13 +90,13 @@ call it every frame with the correct framebuffer for the current
 swapchain image.
 
 ```rust,ignore
-use vulkan_rs::vk;
+use vulkan_rust::vk;
 use vk::structs::*;
 use vk::enums::*;
 use vk::handles::*;
 
 unsafe fn record_commands(
-    device: &vulkan_rs::Device,
+    device: &vulkan_rust::Device,
     command_buffer: CommandBuffer,
     render_pass: RenderPass,
     framebuffer: Framebuffer,
@@ -223,12 +223,12 @@ event_loop.run_app(&mut app).expect("Event loop error");
 The `draw_frame` function:
 
 ```rust,ignore
-use vulkan_rs::vk;
+use vulkan_rust::vk;
 use vk::structs::*;
 use vk::handles::*;
 
 unsafe fn draw_frame(
-    device: &vulkan_rs::Device,
+    device: &vulkan_rust::Device,
     swapchain: SwapchainKHR,
     in_flight_fence: Fence,
     image_available: Semaphore,
@@ -431,5 +431,5 @@ application would add:
   every Vulkan subsystem.
 - **[How-To Guides](../how-to/textures.md)**: recipes for specific
   tasks (textures, resize, push constants).
-- **[API reference](https://docs.rs/vulkan-rs)**: every type and method
+- **[API reference](https://docs.rs/vulkan-rust)**: every type and method
   with spec links and error codes.

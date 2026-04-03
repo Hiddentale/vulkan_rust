@@ -22,7 +22,7 @@ opaque number the driver gives you. You pass it back to the driver in
 later calls, and the driver uses it to look up the real resource internally.
 You never dereference a handle or read its fields.
 
-In `vulkan_rs`, every handle is a `#[repr(transparent)]` newtype over
+In `vulkan_rust`, every handle is a `#[repr(transparent)]` newtype over
 either `usize` or `u64`:
 
 ```rust,ignore
@@ -110,13 +110,13 @@ This example shows the full create-use-destroy lifecycle. Each step
 is labeled with its purpose.
 
 ```rust,ignore
-use vulkan_rs::vk;
-use vulkan_rs::vk::structs::*;
-use vulkan_rs::vk::enums::*;
-use vulkan_rs::vk::bitmasks::*;
-use vulkan_rs::vk::handles::*;
-use vulkan_rs::vk::Handle;
-use vulkan_rs::Device;
+use vulkan_rust::vk;
+use vulkan_rust::vk::structs::*;
+use vulkan_rust::vk::enums::*;
+use vulkan_rust::vk::bitmasks::*;
+use vulkan_rust::vk::handles::*;
+use vulkan_rust::vk::Handle;
+use vulkan_rust::Device;
 
 unsafe fn buffer_lifecycle(device: &Device) {
     // ── Step 1: Describe what you want ──────────────────────────
@@ -153,7 +153,7 @@ unsafe fn buffer_lifecycle(device: &Device) {
     // ── Step 4: Destroy the object ──────────────────────────────
     //
     // You must destroy the buffer before destroying the Device
-    // that created it. vulkan_rs does not track this for you.
+    // that created it. vulkan_rust does not track this for you.
     // There is no Drop implementation. You are responsible.
     device.destroy_buffer(buffer, None);
 
@@ -175,11 +175,11 @@ are *allocated in bulk* from a pool, and freed back to that pool (or
 the entire pool is reset/destroyed at once):
 
 ```rust,ignore
-use vulkan_rs::vk;
-use vulkan_rs::vk::structs::*;
-use vulkan_rs::vk::enums::*;
-use vulkan_rs::vk::handles::*;
-use vulkan_rs::vk::Handle;
+use vulkan_rust::vk;
+use vulkan_rust::vk::structs::*;
+use vulkan_rust::vk::enums::*;
+use vulkan_rust::vk::handles::*;
+use vulkan_rust::vk::Handle;
 
 // Pool-based lifecycle (simplified)
 unsafe {
@@ -234,7 +234,7 @@ lives as long as the Device).
 
 ### The Handle trait
 
-Every handle type in `vulkan_rs` implements the `Handle` trait:
+Every handle type in `vulkan_rust` implements the `Handle` trait:
 
 ```rust,ignore
 pub trait Handle: Copy + Eq + Hash {
@@ -258,7 +258,7 @@ All handles also derive `Copy`, `Clone`, `PartialEq`, `Eq`, `Hash`,
 
 ### Destruction rules
 
-1. **You must destroy what you create.** `vulkan_rs` has no `Drop`
+1. **You must destroy what you create.** `vulkan_rust` has no `Drop`
    implementations on handles. This is deliberate: automatic destruction
    would require tracking creation order, reference counting, and
    deferred destruction (the GPU might still be using the object). That
@@ -302,10 +302,10 @@ created through `Entry::create_instance`.
 
 ### API reference links
 
-- [`Handle` trait](https://docs.rs/vulkan-rs/latest/vulkan_rs/vk/trait.Handle.html)
-- [`Instance`](https://docs.rs/vulkan-rs/latest/vulkan_rs/struct.Instance.html)
-- [`Device`](https://docs.rs/vulkan-rs/latest/vulkan_rs/struct.Device.html)
-- [`Buffer`](https://docs.rs/vulkan-rs/latest/vulkan_rs/vk/struct.Buffer.html)
+- [`Handle` trait](https://docs.rs/vulkan-rust/latest/vulkan_rust/vk/trait.Handle.html)
+- [`Instance`](https://docs.rs/vulkan-rust/latest/vulkan_rust/struct.Instance.html)
+- [`Device`](https://docs.rs/vulkan-rust/latest/vulkan_rust/struct.Device.html)
+- [`Buffer`](https://docs.rs/vulkan-rust/latest/vulkan_rust/vk/struct.Buffer.html)
 - [Vulkan spec: Object Model](https://registry.khronos.org/vulkan/specs/latest/html/vkspec.html#fundamentals-objectmodel-overview)
 
 ## Key takeaways
@@ -314,5 +314,5 @@ created through `Entry::create_instance`.
 - Handles form a parent-child tree. Create bottom-up, destroy top-down.
 - Most objects follow create → use → destroy. Pools and enumerated objects
   are the two exceptions.
-- `vulkan_rs` gives you `Copy` handles with no `Drop`. You manage lifetimes.
+- `vulkan_rust` gives you `Copy` handles with no `Drop`. You manage lifetimes.
   Validation layers are your safety net during development.

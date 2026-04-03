@@ -1,9 +1,9 @@
-# Port from ash to vulkan_rs
+# Port from ash to vulkan_rust
 
-> **Task:** Migrate an existing `ash`-based project to `vulkan_rs`
-> (published as `vulkan-rs` on crates.io).
+> **Task:** Migrate an existing `ash`-based project to `vulkan_rust`
+> (published as `vulkan-rust` on crates.io).
 
-If you already have a working `ash` project, switching to `vulkan_rs`
+If you already have a working `ash` project, switching to `vulkan_rust`
 is mostly mechanical. The Vulkan concepts are identical, and the API
 surface maps one-to-one. This guide covers every difference you will
 encounter.
@@ -20,12 +20,12 @@ Before diving into differences, note what does *not* change:
 
 ## Key differences at a glance
 
-| Aspect | ash | vulkan_rs |
+| Aspect | ash | vulkan_rust |
 |--------|-----|-----------|
-| Crate name | `ash` | `vulkan-rs` |
+| Crate name | `ash` | `vulkan-rust` |
 | Command style | Trait methods (`DeviceV1_0`, `KhrSwapchainFn`) | Inherent methods on `Device` / `Instance` |
 | Trait imports | One per API version + one per extension | None needed |
-| Raw types | `ash::vk::*` | `vulkan_rs::vk::*` |
+| Raw types | `ash::vk::*` | `vulkan_rust::vk::*` |
 | Builders | `::builder()` returns `Builder`, call `.build()` | `::builder()` returns `Builder` that derefs to inner struct |
 | Extensions | Manual loader structs (`ash::khr::swapchain::Device`) | All loaded automatically, call methods on `Device` directly |
 | Interop | Limited `from_raw` on some types | `Instance::from_raw_parts` / `Device::from_raw_parts` |
@@ -38,9 +38,9 @@ Before diving into differences, note what does *not* change:
 [dependencies]
 ash = "0.38"
 
-# After (vulkan_rs)
+# After (vulkan_rust)
 [dependencies]
-vulkan-rs = "0.1"
+vulkan-rust = "0.1"
 ```
 
 ## Step 2: Remove trait imports
@@ -58,20 +58,20 @@ use ash::version::DeviceV1_0;
 use ash::khr::swapchain::Device as SwapchainDevice;
 ```
 
-In `vulkan_rs`, every command is an inherent method on `Device` or
+In `vulkan_rust`, every command is an inherent method on `Device` or
 `Instance`. No trait imports, no extension loader structs:
 
 ```rust,ignore
-// vulkan_rs: this is all you need
-use vulkan_rs::vk;
-use vulkan_rs::Device;
+// vulkan_rust: this is all you need
+use vulkan_rust::vk;
+use vulkan_rust::Device;
 // device.create_buffer() and device.create_swapchain_khr()
 // are both available immediately.
 ```
 
 **Migration action:** Delete all `use ash::version::*` and
 `use ash::extensions::*` imports. Replace `use ash::vk` with
-`use vulkan_rs::vk`.
+`use vulkan_rust::vk`.
 
 ## Step 3: Replace Entry, Instance, and Device creation
 
@@ -88,13 +88,13 @@ let create_info = vk::InstanceCreateInfo::builder()
     .build();
 let instance = unsafe { entry.create_instance(&create_info, None)? };
 
-// ── vulkan_rs ───────────────────────────────────────────
-use vulkan_rs::vk;
+// ── vulkan_rust ───────────────────────────────────────────
+use vulkan_rust::vk;
 use vk::structs::*;
 
-let loader = vulkan_rs::LibloadingLoader::new()
+let loader = vulkan_rust::LibloadingLoader::new()
     .expect("Failed to load Vulkan");
-let entry = unsafe { vulkan_rs::Entry::new(loader) }
+let entry = unsafe { vulkan_rust::Entry::new(loader) }
     .expect("Failed to create entry");
 
 let app_info = ApplicationInfo::builder()
@@ -127,8 +127,8 @@ let device = unsafe {
     instance.create_device(physical_device, &device_info, None)?
 };
 
-// ── vulkan_rs ───────────────────────────────────────────
-use vulkan_rs::vk;
+// ── vulkan_rust ───────────────────────────────────────────
+use vulkan_rust::vk;
 use vk::structs::*;
 
 let queue_info = DeviceQueueCreateInfo::builder()
@@ -145,7 +145,7 @@ let device = unsafe {
 ## Step 4: Update builders (drop `.build()`)
 
 In `ash`, builders require `.build()` to produce the final struct.
-In `vulkan_rs`, builders implement `Deref<Target = T>`, so the
+In `vulkan_rust`, builders implement `Deref<Target = T>`, so the
 conversion is implicit:
 
 ```rust,ignore
@@ -156,8 +156,8 @@ let info = vk::BufferCreateInfo::builder()
     .sharing_mode(vk::SharingMode::EXCLUSIVE)
     .build();  // <-- required in ash
 
-// ── vulkan_rs ───────────────────────────────────────────
-use vulkan_rs::vk;
+// ── vulkan_rust ───────────────────────────────────────────
+use vulkan_rust::vk;
 use vk::structs::*;
 use vk::enums::*;
 use vk::bitmasks::*;
@@ -190,8 +190,8 @@ unsafe {
     device.end_command_buffer(cmd)?;
 }
 
-// ── vulkan_rs ───────────────────────────────────────────
-use vulkan_rs::vk;
+// ── vulkan_rust ───────────────────────────────────────────
+use vulkan_rust::vk;
 use vk::structs::*;
 use vk::enums::*;
 use vk::bitmasks::*;
@@ -220,8 +220,8 @@ let submit_info = vk::SubmitInfo::builder()
     .build();
 unsafe { device.queue_submit(queue, &[submit_info.build()], fence)? };
 
-// ── vulkan_rs ───────────────────────────────────────────
-use vulkan_rs::vk;
+// ── vulkan_rust ───────────────────────────────────────────
+use vulkan_rust::vk;
 use vk::structs::*;
 
 let wait_stages = [PipelineStageFlags::COLOR_ATTACHMENT_OUTPUT];
@@ -242,7 +242,7 @@ unsafe {
 ## Step 7: Error handling
 
 `ash` splits Vulkan results into success codes and error codes.
-`vulkan_rs` uses a single `VkResult<T>` type:
+`vulkan_rust` uses a single `VkResult<T>` type:
 
 ```rust,ignore
 // ── ash ─────────────────────────────────────────────────
@@ -252,8 +252,8 @@ match unsafe { device.create_buffer(&info, None) } {
     Err(e) => panic!("Unexpected: {:?}", e),
 }
 
-// ── vulkan_rs ───────────────────────────────────────────
-use vulkan_rs::vk;
+// ── vulkan_rust ───────────────────────────────────────────
+use vulkan_rust::vk;
 use vk::enums::Result as VkError;
 
 match unsafe { device.create_buffer(&info, None) } {
@@ -279,11 +279,11 @@ let swapchain = unsafe {
 };
 ```
 
-In `vulkan_rs`, all extension functions are loaded automatically when
+In `vulkan_rust`, all extension functions are loaded automatically when
 the `Device` or `Instance` is created. You call them as regular methods:
 
 ```rust,ignore
-// vulkan_rs: no loader, just call the method
+// vulkan_rust: no loader, just call the method
 let swapchain = unsafe {
     device.create_swapchain_khr(&create_info, None)
 }
@@ -296,17 +296,17 @@ Replace `loader.method()` with `device.method()` or `instance.method()`.
 ## Step 9: Interop with `from_raw_parts`
 
 If another library (OpenXR, a C plugin, a test harness) gives you raw
-Vulkan handles, `vulkan_rs` provides `from_raw_parts` to wrap them:
+Vulkan handles, `vulkan_rust` provides `from_raw_parts` to wrap them:
 
 ```rust,ignore
 // Wrap an externally-created VkInstance
 let instance = unsafe {
-    vulkan_rs::Instance::from_raw_parts(raw_instance, get_instance_proc_addr)
+    vulkan_rust::Instance::from_raw_parts(raw_instance, get_instance_proc_addr)
 };
 
 // Wrap an externally-created VkDevice
 let device = unsafe {
-    vulkan_rs::Device::from_raw_parts(raw_device, get_device_proc_addr)
+    vulkan_rust::Device::from_raw_parts(raw_device, get_device_proc_addr)
 };
 ```
 
@@ -315,12 +315,12 @@ so the wrapped object works identically to one created through `Entry`.
 
 ## Quick-reference migration checklist
 
-- [ ] Replace `ash` with `vulkan-rs` in `Cargo.toml`
-- [ ] Replace `use ash::vk` with `use vulkan_rs::vk`
+- [ ] Replace `ash` with `vulkan-rust` in `Cargo.toml`
+- [ ] Replace `use ash::vk` with `use vulkan_rust::vk`
 - [ ] Delete all `use ash::version::*` trait imports
 - [ ] Delete all extension loader struct construction
 - [ ] Remove every `.build()` on Vulkan builder types
-- [ ] Replace `ash::Entry` / `ash::Instance` / `ash::Device` with `vulkan_rs::*`
+- [ ] Replace `ash::Entry` / `ash::Instance` / `ash::Device` with `vulkan_rust::*`
 - [ ] Replace extension loader method calls with direct `device.method()` calls
 - [ ] Update error handling if you matched on ash-specific error types
 - [ ] Compile and fix any remaining type mismatches

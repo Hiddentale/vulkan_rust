@@ -2,11 +2,11 @@
 
 <!-- Phase 6.2.1: Cargo.toml setup, feature flags, platform requirements -->
 
-## Add vulkan_rs to your project
+## Add vulkan_rust to your project
 
 ```toml
 [dependencies]
-vulkan-rs = "0.1"
+vulkan-rust = "0.1"
 ```
 
 ## Platform requirements

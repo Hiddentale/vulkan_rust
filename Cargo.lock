@@ -1972,19 +1972,19 @@ dependencies = [
 ]
 
 [[package]]
-name = "vulkan-rs"
-version = "1.0.0"
+name = "vulkan-rust"
+version = "0.9.0"
 dependencies = [
  "image",
  "libloading",
  "raw-window-handle",
- "vulkan-rs-sys",
+ "vulkan-rust-sys",
  "winit",
 ]
 
 [[package]]
-name = "vulkan-rs-codegen"
-version = "1.0.0"
+name = "vulkan-rust-codegen"
+version = "0.9.0"
 dependencies = [
  "heck",
  "nom",
@@ -1996,8 +1996,8 @@ dependencies = [
 ]
 
 [[package]]
-name = "vulkan-rs-sys"
-version = "1.0.0"
+name = "vulkan-rust-sys"
+version = "0.9.0"
 
 [[package]]
 name = "walkdir"

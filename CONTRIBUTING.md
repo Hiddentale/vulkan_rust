@@ -1,8 +1,8 @@
-# Contributing to vulkan_rs
+# Contributing to vulkan_rust
 
 ## Documentation Template
 
-All new public items in `vulkan-rs` must follow this section order:
+All new public items in `vulkan-rust` must follow this section order:
 
 ```rust
 /// One-line summary in imperative mood.
@@ -32,7 +32,7 @@ All new public items in `vulkan-rs` must follow this section order:
 /// # Examples
 ///
 /// ```no_run
-/// # use vulkan_rs::*;
+/// # use vulkan_rust::*;
 /// // example code here
 /// ```
 ```
@@ -41,10 +41,10 @@ Omit sections that don't apply (e.g., no `# Safety` on safe functions).
 
 ## Generated vs Hand-Written Code
 
-- `vulkan-rs-sys/src/`, fully generated. Do not edit by hand. Run `cargo run -p vulkan-rs-codegen`.
-- `vulkan-rs/src/generated/`, fully generated. Same as above.
-- `vulkan-rs/src/*.rs` (non-generated), hand-written, highest doc quality bar.
-- `vulkan-rs-codegen/doc_overrides/`, hand-written doc additions appended to generated wrappers.
+- `vulkan-rust-sys/src/`, fully generated. Do not edit by hand. Run `cargo run -p vulkan-rust-codegen`.
+- `vulkan-rust/src/generated/`, fully generated. Same as above.
+- `vulkan-rust/src/*.rs` (non-generated), hand-written, highest doc quality bar.
+- `vulkan-rust-codegen/doc_overrides/`, hand-written doc additions appended to generated wrappers.
 
 ## Deprecation Policy
 
@@ -70,4 +70,4 @@ This applies to all public functions, types, traits, re-exports, and feature fla
 - [ ] Examples compile: `cargo test --doc`
 - [ ] No broken doc links: `RUSTDOCFLAGS="-D warnings" cargo doc --no-deps`
 - [ ] All tests pass: `cargo test --workspace`
-- [ ] Generated output is up to date: `cargo run -p vulkan-rs-codegen` then check `git diff`
+- [ ] Generated output is up to date: `cargo run -p vulkan-rust-codegen` then check `git diff`
