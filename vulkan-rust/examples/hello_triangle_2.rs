@@ -65,14 +65,14 @@ fn run(window: &Window) {
     let layer_ptrs = [validation_layer.as_ptr()];
 
     let app_info = ApplicationInfo::builder()
-        .p_application_name(c"Hello Triangle")
+        .application_name(c"Hello Triangle")
         .application_version(1)
-        .p_engine_name(c"No Engine")
+        .engine_name(c"No Engine")
         .engine_version(1)
         .api_version(Version::new(1, 0, 0).to_raw());
 
     let create_info = InstanceCreateInfo::builder()
-        .p_application_info(&app_info)
+        .application_info(&app_info)
         .enabled_extension_names(&extension_ptrs)
         .enabled_layer_names(&layer_ptrs);
 

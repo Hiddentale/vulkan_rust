@@ -551,7 +551,7 @@ impl ApplicationInfo {
 }
 impl<'a> ApplicationInfoBuilder<'a> {
     #[inline]
-    pub fn p_application_name(mut self, value: &'a core::ffi::CStr) -> Self {
+    pub fn application_name(mut self, value: &'a core::ffi::CStr) -> Self {
         self.inner.p_application_name = value.as_ptr();
         self
     }
@@ -561,7 +561,7 @@ impl<'a> ApplicationInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_engine_name(mut self, value: &'a core::ffi::CStr) -> Self {
+    pub fn engine_name(mut self, value: &'a core::ffi::CStr) -> Self {
         self.inner.p_engine_name = value.as_ptr();
         self
     }
@@ -620,7 +620,7 @@ impl AllocationCallbacks {
 }
 impl<'a> AllocationCallbacksBuilder<'a> {
     #[inline]
-    pub fn p_user_data(mut self, value: *mut core::ffi::c_void) -> Self {
+    pub fn user_data(mut self, value: *mut core::ffi::c_void) -> Self {
         self.inner.p_user_data = value;
         self
     }
@@ -776,7 +776,7 @@ impl<'a> DeviceCreateInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_enabled_features(mut self, value: &'a PhysicalDeviceFeatures) -> Self {
+    pub fn enabled_features(mut self, value: &'a PhysicalDeviceFeatures) -> Self {
         self.inner.p_enabled_features = value;
         self
     }
@@ -831,7 +831,7 @@ impl<'a> InstanceCreateInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_application_info(mut self, value: &'a ApplicationInfo) -> Self {
+    pub fn application_info(mut self, value: &'a ApplicationInfo) -> Self {
         self.inner.p_application_info = value;
         self
     }
@@ -3807,12 +3807,12 @@ impl<'a> PipelineShaderStageCreateInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_name(mut self, value: &'a core::ffi::CStr) -> Self {
+    pub fn name(mut self, value: &'a core::ffi::CStr) -> Self {
         self.inner.p_name = value.as_ptr();
         self
     }
     #[inline]
-    pub fn p_specialization_info(mut self, value: &'a SpecializationInfo) -> Self {
+    pub fn specialization_info(mut self, value: &'a SpecializationInfo) -> Self {
         self.inner.p_specialization_info = value;
         self
     }
@@ -4539,7 +4539,7 @@ impl<'a> PipelineMultisampleStateCreateInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_sample_mask(mut self, value: &'a u32) -> Self {
+    pub fn sample_mask(mut self, value: &'a u32) -> Self {
         self.inner.p_sample_mask = value;
         self
     }
@@ -4987,7 +4987,7 @@ impl<'a> GraphicsPipelineCreateInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_vertex_input_state(
+    pub fn vertex_input_state(
         mut self,
         value: &'a PipelineVertexInputStateCreateInfo,
     ) -> Self {
@@ -4995,7 +4995,7 @@ impl<'a> GraphicsPipelineCreateInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_input_assembly_state(
+    pub fn input_assembly_state(
         mut self,
         value: &'a PipelineInputAssemblyStateCreateInfo,
     ) -> Self {
@@ -5003,7 +5003,7 @@ impl<'a> GraphicsPipelineCreateInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_tessellation_state(
+    pub fn tessellation_state(
         mut self,
         value: &'a PipelineTessellationStateCreateInfo,
     ) -> Self {
@@ -5011,15 +5011,12 @@ impl<'a> GraphicsPipelineCreateInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_viewport_state(
-        mut self,
-        value: &'a PipelineViewportStateCreateInfo,
-    ) -> Self {
+    pub fn viewport_state(mut self, value: &'a PipelineViewportStateCreateInfo) -> Self {
         self.inner.p_viewport_state = value;
         self
     }
     #[inline]
-    pub fn p_rasterization_state(
+    pub fn rasterization_state(
         mut self,
         value: &'a PipelineRasterizationStateCreateInfo,
     ) -> Self {
@@ -5027,7 +5024,7 @@ impl<'a> GraphicsPipelineCreateInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_multisample_state(
+    pub fn multisample_state(
         mut self,
         value: &'a PipelineMultisampleStateCreateInfo,
     ) -> Self {
@@ -5035,7 +5032,7 @@ impl<'a> GraphicsPipelineCreateInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_depth_stencil_state(
+    pub fn depth_stencil_state(
         mut self,
         value: &'a PipelineDepthStencilStateCreateInfo,
     ) -> Self {
@@ -5043,7 +5040,7 @@ impl<'a> GraphicsPipelineCreateInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_color_blend_state(
+    pub fn color_blend_state(
         mut self,
         value: &'a PipelineColorBlendStateCreateInfo,
     ) -> Self {
@@ -5051,7 +5048,7 @@ impl<'a> GraphicsPipelineCreateInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_dynamic_state(mut self, value: &'a PipelineDynamicStateCreateInfo) -> Self {
+    pub fn dynamic_state(mut self, value: &'a PipelineDynamicStateCreateInfo) -> Self {
         self.inner.p_dynamic_state = value;
         self
     }
@@ -5511,7 +5508,7 @@ impl PipelineBinaryCreateInfoKHR {
 }
 impl<'a> PipelineBinaryCreateInfoKHRBuilder<'a> {
     #[inline]
-    pub fn p_keys_and_data_info(
+    pub fn keys_and_data_info(
         mut self,
         value: &'a PipelineBinaryKeysAndDataKHR,
     ) -> Self {
@@ -5524,7 +5521,7 @@ impl<'a> PipelineBinaryCreateInfoKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_pipeline_create_info(mut self, value: &'a PipelineCreateInfoKHR) -> Self {
+    pub fn pipeline_create_info(mut self, value: &'a PipelineCreateInfoKHR) -> Self {
         self.inner.p_pipeline_create_info = value;
         self
     }
@@ -6383,10 +6380,7 @@ impl<'a> CommandBufferBeginInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_inheritance_info(
-        mut self,
-        value: &'a CommandBufferInheritanceInfo,
-    ) -> Self {
+    pub fn inheritance_info(mut self, value: &'a CommandBufferInheritanceInfo) -> Self {
         self.inner.p_inheritance_info = value;
         self
     }
@@ -6732,7 +6726,7 @@ impl<'a> SubpassDescriptionBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_depth_stencil_attachment(mut self, value: &'a AttachmentReference) -> Self {
+    pub fn depth_stencil_attachment(mut self, value: &'a AttachmentReference) -> Self {
         self.inner.p_depth_stencil_attachment = value;
         self
     }
@@ -9968,7 +9962,7 @@ impl<'a> DebugReportCallbackCreateInfoEXTBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_user_data(mut self, value: *mut core::ffi::c_void) -> Self {
+    pub fn user_data(mut self, value: *mut core::ffi::c_void) -> Self {
         self.inner.p_user_data = value;
         self
     }
@@ -10194,12 +10188,12 @@ impl LayerSettingEXT {
 }
 impl<'a> LayerSettingEXTBuilder<'a> {
     #[inline]
-    pub fn p_layer_name(mut self, value: &'a core::ffi::CStr) -> Self {
+    pub fn layer_name(mut self, value: &'a core::ffi::CStr) -> Self {
         self.inner.p_layer_name = value.as_ptr();
         self
     }
     #[inline]
-    pub fn p_setting_name(mut self, value: &'a core::ffi::CStr) -> Self {
+    pub fn setting_name(mut self, value: &'a core::ffi::CStr) -> Self {
         self.inner.p_setting_name = value.as_ptr();
         self
     }
@@ -10381,7 +10375,7 @@ impl<'a> DebugMarkerObjectNameInfoEXTBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_object_name(mut self, value: &'a core::ffi::CStr) -> Self {
+    pub fn object_name(mut self, value: &'a core::ffi::CStr) -> Self {
         self.inner.p_object_name = value.as_ptr();
         self
     }
@@ -10503,7 +10497,7 @@ impl DebugMarkerMarkerInfoEXT {
 }
 impl<'a> DebugMarkerMarkerInfoEXTBuilder<'a> {
     #[inline]
-    pub fn p_marker_name(mut self, value: &'a core::ffi::CStr) -> Self {
+    pub fn marker_name(mut self, value: &'a core::ffi::CStr) -> Self {
         self.inner.p_marker_name = value.as_ptr();
         self
     }
@@ -10948,7 +10942,7 @@ impl ExportMemoryWin32HandleInfoNV {
 }
 impl<'a> ExportMemoryWin32HandleInfoNVBuilder<'a> {
     #[inline]
-    pub fn p_attributes(mut self, value: *const core::ffi::c_void) -> Self {
+    pub fn attributes(mut self, value: *const core::ffi::c_void) -> Self {
         self.inner.p_attributes = value;
         self
     }
@@ -12661,7 +12655,7 @@ impl<'a> GraphicsShaderGroupCreateInfoNVBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_vertex_input_state(
+    pub fn vertex_input_state(
         mut self,
         value: &'a PipelineVertexInputStateCreateInfo,
     ) -> Self {
@@ -12669,7 +12663,7 @@ impl<'a> GraphicsShaderGroupCreateInfoNVBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_tessellation_state(
+    pub fn tessellation_state(
         mut self,
         value: &'a PipelineTessellationStateCreateInfo,
     ) -> Self {
@@ -14743,7 +14737,7 @@ impl ExportMemoryWin32HandleInfoKHR {
 }
 impl<'a> ExportMemoryWin32HandleInfoKHRBuilder<'a> {
     #[inline]
-    pub fn p_attributes(mut self, value: *const core::ffi::c_void) -> Self {
+    pub fn attributes(mut self, value: *const core::ffi::c_void) -> Self {
         self.inner.p_attributes = value;
         self
     }
@@ -15675,7 +15669,7 @@ impl ExportSemaphoreWin32HandleInfoKHR {
 }
 impl<'a> ExportSemaphoreWin32HandleInfoKHRBuilder<'a> {
     #[inline]
-    pub fn p_attributes(mut self, value: *const core::ffi::c_void) -> Self {
+    pub fn attributes(mut self, value: *const core::ffi::c_void) -> Self {
         self.inner.p_attributes = value;
         self
     }
@@ -16351,7 +16345,7 @@ impl ExportFenceWin32HandleInfoKHR {
 }
 impl<'a> ExportFenceWin32HandleInfoKHRBuilder<'a> {
     #[inline]
-    pub fn p_attributes(mut self, value: *const core::ffi::c_void) -> Self {
+    pub fn attributes(mut self, value: *const core::ffi::c_void) -> Self {
         self.inner.p_attributes = value;
         self
     }
@@ -17192,7 +17186,7 @@ impl<'a> SemaphoreSciSyncCreateInfoNVBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_fence(mut self, value: *const core::ffi::c_void) -> Self {
+    pub fn fence(mut self, value: *const core::ffi::c_void) -> Self {
         self.inner.p_fence = value;
         self
     }
@@ -20343,7 +20337,7 @@ impl<'a> IOSSurfaceCreateInfoMVKBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_view(mut self, value: *const core::ffi::c_void) -> Self {
+    pub fn view(mut self, value: *const core::ffi::c_void) -> Self {
         self.inner.p_view = value;
         self
     }
@@ -20401,7 +20395,7 @@ impl<'a> MacOSSurfaceCreateInfoMVKBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_view(mut self, value: *const core::ffi::c_void) -> Self {
+    pub fn view(mut self, value: *const core::ffi::c_void) -> Self {
         self.inner.p_view = value;
         self
     }
@@ -20459,7 +20453,7 @@ impl<'a> MetalSurfaceCreateInfoEXTBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_layer(mut self, value: *const core::ffi::c_void) -> Self {
+    pub fn layer(mut self, value: *const core::ffi::c_void) -> Self {
         self.inner.p_layer = value;
         self
     }
@@ -21617,7 +21611,7 @@ impl DeviceBufferMemoryRequirements {
 }
 impl<'a> DeviceBufferMemoryRequirementsBuilder<'a> {
     #[inline]
-    pub fn p_create_info(mut self, value: &'a BufferCreateInfo) -> Self {
+    pub fn create_info(mut self, value: &'a BufferCreateInfo) -> Self {
         self.inner.p_create_info = value;
         self
     }
@@ -21776,7 +21770,7 @@ impl DeviceImageMemoryRequirements {
 }
 impl<'a> DeviceImageMemoryRequirementsBuilder<'a> {
     #[inline]
-    pub fn p_create_info(mut self, value: &'a ImageCreateInfo) -> Self {
+    pub fn create_info(mut self, value: &'a ImageCreateInfo) -> Self {
         self.inner.p_create_info = value;
         self
     }
@@ -25961,7 +25955,7 @@ impl<'a> DebugUtilsObjectNameInfoEXTBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_object_name(mut self, value: &'a core::ffi::CStr) -> Self {
+    pub fn object_name(mut self, value: &'a core::ffi::CStr) -> Self {
         self.inner.p_object_name = value.as_ptr();
         self
     }
@@ -26083,7 +26077,7 @@ impl DebugUtilsLabelEXT {
 }
 impl<'a> DebugUtilsLabelEXTBuilder<'a> {
     #[inline]
-    pub fn p_label_name(mut self, value: &'a core::ffi::CStr) -> Self {
+    pub fn label_name(mut self, value: &'a core::ffi::CStr) -> Self {
         self.inner.p_label_name = value.as_ptr();
         self
     }
@@ -26161,7 +26155,7 @@ impl<'a> DebugUtilsMessengerCreateInfoEXTBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_user_data(mut self, value: *mut core::ffi::c_void) -> Self {
+    pub fn user_data(mut self, value: *mut core::ffi::c_void) -> Self {
         self.inner.p_user_data = value;
         self
     }
@@ -26219,7 +26213,7 @@ impl<'a> DebugUtilsMessengerCallbackDataEXTBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_message_id_name(mut self, value: &'a core::ffi::CStr) -> Self {
+    pub fn message_id_name(mut self, value: &'a core::ffi::CStr) -> Self {
         self.inner.p_message_id_name = value.as_ptr();
         self
     }
@@ -26229,7 +26223,7 @@ impl<'a> DebugUtilsMessengerCallbackDataEXTBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_message(mut self, value: &'a core::ffi::CStr) -> Self {
+    pub fn message(mut self, value: &'a core::ffi::CStr) -> Self {
         self.inner.p_message = value.as_ptr();
         self
     }
@@ -26366,7 +26360,7 @@ impl<'a> DeviceDeviceMemoryReportCreateInfoEXTBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_user_data(mut self, value: *mut core::ffi::c_void) -> Self {
+    pub fn user_data(mut self, value: *mut core::ffi::c_void) -> Self {
         self.inner.p_user_data = value;
         self
     }
@@ -26492,7 +26486,7 @@ impl<'a> ImportMemoryHostPointerInfoEXTBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_host_pointer(mut self, value: *mut core::ffi::c_void) -> Self {
+    pub fn host_pointer(mut self, value: *mut core::ffi::c_void) -> Self {
         self.inner.p_host_pointer = value;
         self
     }
@@ -27731,10 +27725,7 @@ impl<'a> SubpassDescription2Builder<'a> {
         self
     }
     #[inline]
-    pub fn p_depth_stencil_attachment(
-        mut self,
-        value: &'a AttachmentReference2,
-    ) -> Self {
+    pub fn depth_stencil_attachment(mut self, value: &'a AttachmentReference2) -> Self {
         self.inner.p_depth_stencil_attachment = value;
         self
     }
@@ -29557,7 +29548,7 @@ impl<'a> CheckpointDataNVBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_checkpoint_marker(mut self, value: *mut core::ffi::c_void) -> Self {
+    pub fn checkpoint_marker(mut self, value: *mut core::ffi::c_void) -> Self {
         self.inner.p_checkpoint_marker = value;
         self
     }
@@ -29658,7 +29649,7 @@ impl<'a> SubpassDescriptionDepthStencilResolveBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_depth_stencil_resolve_attachment(
+    pub fn depth_stencil_resolve_attachment(
         mut self,
         value: &'a AttachmentReference2,
     ) -> Self {
@@ -31778,7 +31769,7 @@ impl<'a> RayTracingShaderGroupCreateInfoKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_shader_group_capture_replay_handle(
+    pub fn shader_group_capture_replay_handle(
         mut self,
         value: *const core::ffi::c_void,
     ) -> Self {
@@ -31941,12 +31932,12 @@ impl<'a> RayTracingPipelineCreateInfoKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_library_info(mut self, value: &'a PipelineLibraryCreateInfoKHR) -> Self {
+    pub fn library_info(mut self, value: &'a PipelineLibraryCreateInfoKHR) -> Self {
         self.inner.p_library_info = value;
         self
     }
     #[inline]
-    pub fn p_library_interface(
+    pub fn library_interface(
         mut self,
         value: &'a RayTracingPipelineInterfaceCreateInfoKHR,
     ) -> Self {
@@ -31954,7 +31945,7 @@ impl<'a> RayTracingPipelineCreateInfoKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_dynamic_state(mut self, value: &'a PipelineDynamicStateCreateInfo) -> Self {
+    pub fn dynamic_state(mut self, value: &'a PipelineDynamicStateCreateInfo) -> Self {
         self.inner.p_dynamic_state = value;
         self
     }
@@ -35786,7 +35777,7 @@ impl PipelineCreationFeedbackCreateInfo {
 }
 impl<'a> PipelineCreationFeedbackCreateInfoBuilder<'a> {
     #[inline]
-    pub fn p_pipeline_creation_feedback(
+    pub fn pipeline_creation_feedback(
         mut self,
         value: *mut PipelineCreationFeedback,
     ) -> Self {
@@ -36888,7 +36879,7 @@ impl InitializePerformanceApiInfoINTEL {
 }
 impl<'a> InitializePerformanceApiInfoINTELBuilder<'a> {
     #[inline]
-    pub fn p_user_data(mut self, value: *mut core::ffi::c_void) -> Self {
+    pub fn user_data(mut self, value: *mut core::ffi::c_void) -> Self {
         self.inner.p_user_data = value;
         self
     }
@@ -42091,7 +42082,7 @@ impl AccelerationStructureVersionInfoKHR {
 }
 impl<'a> AccelerationStructureVersionInfoKHRBuilder<'a> {
     #[inline]
-    pub fn p_version_data(mut self, value: *const u8) -> Self {
+    pub fn version_data(mut self, value: *const u8) -> Self {
         self.inner.p_version_data = value;
         self
     }
@@ -45544,7 +45535,7 @@ impl FragmentShadingRateAttachmentInfoKHR {
 }
 impl<'a> FragmentShadingRateAttachmentInfoKHRBuilder<'a> {
     #[inline]
-    pub fn p_fragment_shading_rate_attachment(
+    pub fn fragment_shading_rate_attachment(
         mut self,
         value: &'a AttachmentReference2,
     ) -> Self {
@@ -48241,7 +48232,7 @@ impl<'a> PipelineViewportDepthClampControlCreateInfoEXTBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_depth_clamp_range(mut self, value: &'a DepthClampRangeEXT) -> Self {
+    pub fn depth_clamp_range(mut self, value: &'a DepthClampRangeEXT) -> Self {
         self.inner.p_depth_clamp_range = value;
         self
     }
@@ -49315,7 +49306,7 @@ impl<'a> CheckpointData2NVBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_checkpoint_marker(mut self, value: *mut core::ffi::c_void) -> Self {
+    pub fn checkpoint_marker(mut self, value: *mut core::ffi::c_void) -> Self {
         self.inner.p_checkpoint_marker = value;
         self
     }
@@ -49601,7 +49592,7 @@ impl MemoryToImageCopy {
 }
 impl<'a> MemoryToImageCopyBuilder<'a> {
     #[inline]
-    pub fn p_host_pointer(mut self, value: *const core::ffi::c_void) -> Self {
+    pub fn host_pointer(mut self, value: *const core::ffi::c_void) -> Self {
         self.inner.p_host_pointer = value;
         self
     }
@@ -49676,7 +49667,7 @@ impl ImageToMemoryCopy {
 }
 impl<'a> ImageToMemoryCopyBuilder<'a> {
     #[inline]
-    pub fn p_host_pointer(mut self, value: *mut core::ffi::c_void) -> Self {
+    pub fn host_pointer(mut self, value: *mut core::ffi::c_void) -> Self {
         self.inner.p_host_pointer = value;
         self
     }
@@ -52012,7 +52003,7 @@ impl<'a> VideoReferenceSlotInfoKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_picture_resource(mut self, value: &'a VideoPictureResourceInfoKHR) -> Self {
+    pub fn picture_resource(mut self, value: &'a VideoPictureResourceInfoKHR) -> Self {
         self.inner.p_picture_resource = value;
         self
     }
@@ -52181,10 +52172,7 @@ impl<'a> VideoDecodeInfoKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_setup_reference_slot(
-        mut self,
-        value: &'a VideoReferenceSlotInfoKHR,
-    ) -> Self {
+    pub fn setup_reference_slot(mut self, value: &'a VideoReferenceSlotInfoKHR) -> Self {
         self.inner.p_setup_reference_slot = value;
         self
     }
@@ -52583,7 +52571,7 @@ impl<'a> VideoDecodeH264SessionParametersCreateInfoKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_parameters_add_info(
+    pub fn parameters_add_info(
         mut self,
         value: &'a VideoDecodeH264SessionParametersAddInfoKHR,
     ) -> Self {
@@ -52640,12 +52628,12 @@ impl VideoDecodeH264InlineSessionParametersInfoKHR {
 }
 impl<'a> VideoDecodeH264InlineSessionParametersInfoKHRBuilder<'a> {
     #[inline]
-    pub fn p_std_sps(mut self, value: *const StdVideoH264SequenceParameterSet) -> Self {
+    pub fn std_sps(mut self, value: *const StdVideoH264SequenceParameterSet) -> Self {
         self.inner.p_std_sps = value;
         self
     }
     #[inline]
-    pub fn p_std_pps(mut self, value: *const StdVideoH264PictureParameterSet) -> Self {
+    pub fn std_pps(mut self, value: *const StdVideoH264PictureParameterSet) -> Self {
         self.inner.p_std_pps = value;
         self
     }
@@ -52699,7 +52687,7 @@ impl VideoDecodeH264PictureInfoKHR {
 }
 impl<'a> VideoDecodeH264PictureInfoKHRBuilder<'a> {
     #[inline]
-    pub fn p_std_picture_info(
+    pub fn std_picture_info(
         mut self,
         value: *const StdVideoDecodeH264PictureInfo,
     ) -> Self {
@@ -52761,7 +52749,7 @@ impl VideoDecodeH264DpbSlotInfoKHR {
 }
 impl<'a> VideoDecodeH264DpbSlotInfoKHRBuilder<'a> {
     #[inline]
-    pub fn p_std_reference_info(
+    pub fn std_reference_info(
         mut self,
         value: *const StdVideoDecodeH264ReferenceInfo,
     ) -> Self {
@@ -52989,7 +52977,7 @@ impl<'a> VideoDecodeH265SessionParametersCreateInfoKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_parameters_add_info(
+    pub fn parameters_add_info(
         mut self,
         value: &'a VideoDecodeH265SessionParametersAddInfoKHR,
     ) -> Self {
@@ -53046,17 +53034,17 @@ impl VideoDecodeH265InlineSessionParametersInfoKHR {
 }
 impl<'a> VideoDecodeH265InlineSessionParametersInfoKHRBuilder<'a> {
     #[inline]
-    pub fn p_std_vps(mut self, value: *const StdVideoH265VideoParameterSet) -> Self {
+    pub fn std_vps(mut self, value: *const StdVideoH265VideoParameterSet) -> Self {
         self.inner.p_std_vps = value;
         self
     }
     #[inline]
-    pub fn p_std_sps(mut self, value: *const StdVideoH265SequenceParameterSet) -> Self {
+    pub fn std_sps(mut self, value: *const StdVideoH265SequenceParameterSet) -> Self {
         self.inner.p_std_sps = value;
         self
     }
     #[inline]
-    pub fn p_std_pps(mut self, value: *const StdVideoH265PictureParameterSet) -> Self {
+    pub fn std_pps(mut self, value: *const StdVideoH265PictureParameterSet) -> Self {
         self.inner.p_std_pps = value;
         self
     }
@@ -53110,7 +53098,7 @@ impl VideoDecodeH265PictureInfoKHR {
 }
 impl<'a> VideoDecodeH265PictureInfoKHRBuilder<'a> {
     #[inline]
-    pub fn p_std_picture_info(
+    pub fn std_picture_info(
         mut self,
         value: *const StdVideoDecodeH265PictureInfo,
     ) -> Self {
@@ -53172,7 +53160,7 @@ impl VideoDecodeH265DpbSlotInfoKHR {
 }
 impl<'a> VideoDecodeH265DpbSlotInfoKHRBuilder<'a> {
     #[inline]
-    pub fn p_std_reference_info(
+    pub fn std_reference_info(
         mut self,
         value: *const StdVideoDecodeH265ReferenceInfo,
     ) -> Self {
@@ -53372,7 +53360,7 @@ impl VideoDecodeVP9PictureInfoKHR {
 }
 impl<'a> VideoDecodeVP9PictureInfoKHRBuilder<'a> {
     #[inline]
-    pub fn p_std_picture_info(
+    pub fn std_picture_info(
         mut self,
         value: *const StdVideoDecodeVP9PictureInfo,
     ) -> Self {
@@ -53547,7 +53535,7 @@ impl VideoDecodeAV1SessionParametersCreateInfoKHR {
 }
 impl<'a> VideoDecodeAV1SessionParametersCreateInfoKHRBuilder<'a> {
     #[inline]
-    pub fn p_std_sequence_header(
+    pub fn std_sequence_header(
         mut self,
         value: *const StdVideoAV1SequenceHeader,
     ) -> Self {
@@ -53604,7 +53592,7 @@ impl VideoDecodeAV1InlineSessionParametersInfoKHR {
 }
 impl<'a> VideoDecodeAV1InlineSessionParametersInfoKHRBuilder<'a> {
     #[inline]
-    pub fn p_std_sequence_header(
+    pub fn std_sequence_header(
         mut self,
         value: *const StdVideoAV1SequenceHeader,
     ) -> Self {
@@ -53661,7 +53649,7 @@ impl VideoDecodeAV1PictureInfoKHR {
 }
 impl<'a> VideoDecodeAV1PictureInfoKHRBuilder<'a> {
     #[inline]
-    pub fn p_std_picture_info(
+    pub fn std_picture_info(
         mut self,
         value: *const StdVideoDecodeAV1PictureInfo,
     ) -> Self {
@@ -53742,7 +53730,7 @@ impl VideoDecodeAV1DpbSlotInfoKHR {
 }
 impl<'a> VideoDecodeAV1DpbSlotInfoKHRBuilder<'a> {
     #[inline]
-    pub fn p_std_reference_info(
+    pub fn std_reference_info(
         mut self,
         value: *const StdVideoDecodeAV1ReferenceInfo,
     ) -> Self {
@@ -53808,7 +53796,7 @@ impl<'a> VideoSessionCreateInfoKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_video_profile(mut self, value: &'a VideoProfileInfoKHR) -> Self {
+    pub fn video_profile(mut self, value: &'a VideoProfileInfoKHR) -> Self {
         self.inner.p_video_profile = value;
         self
     }
@@ -53838,7 +53826,7 @@ impl<'a> VideoSessionCreateInfoKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_std_header_version(mut self, value: &'a ExtensionProperties) -> Self {
+    pub fn std_header_version(mut self, value: &'a ExtensionProperties) -> Self {
         self.inner.p_std_header_version = value;
         self
     }
@@ -54364,10 +54352,7 @@ impl<'a> VideoEncodeInfoKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_setup_reference_slot(
-        mut self,
-        value: &'a VideoReferenceSlotInfoKHR,
-    ) -> Self {
+    pub fn setup_reference_slot(mut self, value: &'a VideoReferenceSlotInfoKHR) -> Self {
         self.inner.p_setup_reference_slot = value;
         self
     }
@@ -54706,7 +54691,7 @@ impl PhysicalDeviceVideoEncodeQualityLevelInfoKHR {
 }
 impl<'a> PhysicalDeviceVideoEncodeQualityLevelInfoKHRBuilder<'a> {
     #[inline]
-    pub fn p_video_profile(mut self, value: &'a VideoProfileInfoKHR) -> Self {
+    pub fn video_profile(mut self, value: &'a VideoProfileInfoKHR) -> Self {
         self.inner.p_video_profile = value;
         self
     }
@@ -55347,7 +55332,7 @@ impl<'a> VideoEncodeH264SessionParametersCreateInfoKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_parameters_add_info(
+    pub fn parameters_add_info(
         mut self,
         value: &'a VideoEncodeH264SessionParametersAddInfoKHR,
     ) -> Self {
@@ -55517,7 +55502,7 @@ impl VideoEncodeH264DpbSlotInfoKHR {
 }
 impl<'a> VideoEncodeH264DpbSlotInfoKHRBuilder<'a> {
     #[inline]
-    pub fn p_std_reference_info(
+    pub fn std_reference_info(
         mut self,
         value: *const StdVideoEncodeH264ReferenceInfo,
     ) -> Self {
@@ -55582,7 +55567,7 @@ impl<'a> VideoEncodeH264PictureInfoKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_std_picture_info(
+    pub fn std_picture_info(
         mut self,
         value: *const StdVideoEncodeH264PictureInfo,
     ) -> Self {
@@ -55701,7 +55686,7 @@ impl<'a> VideoEncodeH264NaluSliceInfoKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_std_slice_header(
+    pub fn std_slice_header(
         mut self,
         value: *const StdVideoEncodeH264SliceHeader,
     ) -> Self {
@@ -56412,7 +56397,7 @@ impl<'a> VideoEncodeH265SessionParametersCreateInfoKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_parameters_add_info(
+    pub fn parameters_add_info(
         mut self,
         value: &'a VideoEncodeH265SessionParametersAddInfoKHR,
     ) -> Self {
@@ -56606,7 +56591,7 @@ impl<'a> VideoEncodeH265PictureInfoKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_std_picture_info(
+    pub fn std_picture_info(
         mut self,
         value: *const StdVideoEncodeH265PictureInfo,
     ) -> Self {
@@ -56667,7 +56652,7 @@ impl<'a> VideoEncodeH265NaluSliceSegmentInfoKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_std_slice_segment_header(
+    pub fn std_slice_segment_header(
         mut self,
         value: *const StdVideoEncodeH265SliceSegmentHeader,
     ) -> Self {
@@ -57085,7 +57070,7 @@ impl VideoEncodeH265DpbSlotInfoKHR {
 }
 impl<'a> VideoEncodeH265DpbSlotInfoKHRBuilder<'a> {
     #[inline]
-    pub fn p_std_reference_info(
+    pub fn std_reference_info(
         mut self,
         value: *const StdVideoEncodeH265ReferenceInfo,
     ) -> Self {
@@ -57549,7 +57534,7 @@ impl VideoEncodeAV1SessionParametersCreateInfoKHR {
 }
 impl<'a> VideoEncodeAV1SessionParametersCreateInfoKHRBuilder<'a> {
     #[inline]
-    pub fn p_std_sequence_header(
+    pub fn std_sequence_header(
         mut self,
         value: *const StdVideoAV1SequenceHeader,
     ) -> Self {
@@ -57557,7 +57542,7 @@ impl<'a> VideoEncodeAV1SessionParametersCreateInfoKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_std_decoder_model_info(
+    pub fn std_decoder_model_info(
         mut self,
         value: *const StdVideoEncodeAV1DecoderModelInfo,
     ) -> Self {
@@ -57628,7 +57613,7 @@ impl VideoEncodeAV1DpbSlotInfoKHR {
 }
 impl<'a> VideoEncodeAV1DpbSlotInfoKHRBuilder<'a> {
     #[inline]
-    pub fn p_std_reference_info(
+    pub fn std_reference_info(
         mut self,
         value: *const StdVideoEncodeAV1ReferenceInfo,
     ) -> Self {
@@ -57702,7 +57687,7 @@ impl<'a> VideoEncodeAV1PictureInfoKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_std_picture_info(
+    pub fn std_picture_info(
         mut self,
         value: *const StdVideoEncodeAV1PictureInfo,
     ) -> Self {
@@ -58203,7 +58188,7 @@ impl<'a> CommandBufferInheritanceViewportScissorInfoNVBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_viewport_depths(mut self, value: &'a Viewport) -> Self {
+    pub fn viewport_depths(mut self, value: &'a Viewport) -> Self {
         self.inner.p_viewport_depths = value;
         self
     }
@@ -58868,7 +58853,7 @@ impl<'a> CuFunctionCreateInfoNVXBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_name(mut self, value: &'a core::ffi::CStr) -> Self {
+    pub fn name(mut self, value: &'a core::ffi::CStr) -> Self {
         self.inner.p_name = value.as_ptr();
         self
     }
@@ -58966,7 +58951,7 @@ impl<'a> CuLaunchInfoNVXBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_params(mut self, value: *const *const core::ffi::c_void) -> Self {
+    pub fn params(mut self, value: *const *const core::ffi::c_void) -> Self {
         self.inner.p_params = value;
         self
     }
@@ -58976,7 +58961,7 @@ impl<'a> CuLaunchInfoNVXBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_extras(mut self, value: *const *const core::ffi::c_void) -> Self {
+    pub fn extras(mut self, value: *const *const core::ffi::c_void) -> Self {
         self.inner.p_extras = value;
         self
     }
@@ -61712,7 +61697,7 @@ impl<'a> CudaFunctionCreateInfoNVBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_name(mut self, value: &'a core::ffi::CStr) -> Self {
+    pub fn name(mut self, value: &'a core::ffi::CStr) -> Self {
         self.inner.p_name = value.as_ptr();
         self
     }
@@ -61810,7 +61795,7 @@ impl<'a> CudaLaunchInfoNVBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_params(mut self, value: *const *const core::ffi::c_void) -> Self {
+    pub fn params(mut self, value: *const *const core::ffi::c_void) -> Self {
         self.inner.p_params = value;
         self
     }
@@ -61820,7 +61805,7 @@ impl<'a> CudaLaunchInfoNVBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_extras(mut self, value: *const *const core::ffi::c_void) -> Self {
+    pub fn extras(mut self, value: *const *const core::ffi::c_void) -> Self {
         self.inner.p_extras = value;
         self
     }
@@ -62238,12 +62223,12 @@ impl<'a> RenderingInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_depth_attachment(mut self, value: &'a RenderingAttachmentInfo) -> Self {
+    pub fn depth_attachment(mut self, value: &'a RenderingAttachmentInfo) -> Self {
         self.inner.p_depth_attachment = value;
         self
     }
     #[inline]
-    pub fn p_stencil_attachment(mut self, value: &'a RenderingAttachmentInfo) -> Self {
+    pub fn stencil_attachment(mut self, value: &'a RenderingAttachmentInfo) -> Self {
         self.inner.p_stencil_attachment = value;
         self
     }
@@ -64223,7 +64208,7 @@ impl RenderPassCreationFeedbackCreateInfoEXT {
 }
 impl<'a> RenderPassCreationFeedbackCreateInfoEXTBuilder<'a> {
     #[inline]
-    pub fn p_render_pass_feedback(
+    pub fn render_pass_feedback(
         mut self,
         value: *mut RenderPassCreationFeedbackInfoEXT,
     ) -> Self {
@@ -64327,7 +64312,7 @@ impl RenderPassSubpassFeedbackCreateInfoEXT {
 }
 impl<'a> RenderPassSubpassFeedbackCreateInfoEXTBuilder<'a> {
     #[inline]
-    pub fn p_subpass_feedback(
+    pub fn subpass_feedback(
         mut self,
         value: *mut RenderPassSubpassFeedbackInfoEXT,
     ) -> Self {
@@ -64616,7 +64601,7 @@ impl MicromapVersionInfoEXT {
 }
 impl<'a> MicromapVersionInfoEXTBuilder<'a> {
     #[inline]
-    pub fn p_version_data(mut self, value: *const u8) -> Self {
+    pub fn version_data(mut self, value: *const u8) -> Self {
         self.inner.p_version_data = value;
         self
     }
@@ -67709,7 +67694,7 @@ impl<'a> OpticalFlowSessionCreatePrivateDataInfoNVBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_private_data(mut self, value: *const core::ffi::c_void) -> Self {
+    pub fn private_data(mut self, value: *const core::ffi::c_void) -> Self {
         self.inner.p_private_data = value;
         self
     }
@@ -68150,17 +68135,17 @@ impl<'a> DeviceFaultInfoEXTBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_address_infos(mut self, value: *mut DeviceFaultAddressInfoKHR) -> Self {
+    pub fn address_infos(mut self, value: *mut DeviceFaultAddressInfoKHR) -> Self {
         self.inner.p_address_infos = value;
         self
     }
     #[inline]
-    pub fn p_vendor_infos(mut self, value: *mut DeviceFaultVendorInfoKHR) -> Self {
+    pub fn vendor_infos(mut self, value: *mut DeviceFaultVendorInfoKHR) -> Self {
         self.inner.p_vendor_infos = value;
         self
     }
     #[inline]
-    pub fn p_vendor_binary_data(mut self, value: *mut core::ffi::c_void) -> Self {
+    pub fn vendor_binary_data(mut self, value: *mut core::ffi::c_void) -> Self {
         self.inner.p_vendor_binary_data = value;
         self
     }
@@ -70253,12 +70238,12 @@ impl DeviceImageSubresourceInfo {
 }
 impl<'a> DeviceImageSubresourceInfoBuilder<'a> {
     #[inline]
-    pub fn p_create_info(mut self, value: &'a ImageCreateInfo) -> Self {
+    pub fn create_info(mut self, value: &'a ImageCreateInfo) -> Self {
         self.inner.p_create_info = value;
         self
     }
     #[inline]
-    pub fn p_subresource(mut self, value: &'a ImageSubresource2) -> Self {
+    pub fn subresource(mut self, value: &'a ImageSubresource2) -> Self {
         self.inner.p_subresource = value;
         self
     }
@@ -70474,7 +70459,7 @@ impl QueryLowLatencySupportNV {
 }
 impl<'a> QueryLowLatencySupportNVBuilder<'a> {
     #[inline]
-    pub fn p_queried_low_latency_data(mut self, value: *mut core::ffi::c_void) -> Self {
+    pub fn queried_low_latency_data(mut self, value: *mut core::ffi::c_void) -> Self {
         self.inner.p_queried_low_latency_data = value;
         self
     }
@@ -70769,7 +70754,7 @@ impl<'a> ShaderCreateInfoEXTBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_name(mut self, value: &'a core::ffi::CStr) -> Self {
+    pub fn name(mut self, value: &'a core::ffi::CStr) -> Self {
         self.inner.p_name = value.as_ptr();
         self
     }
@@ -70796,7 +70781,7 @@ impl<'a> ShaderCreateInfoEXTBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_specialization_info(mut self, value: &'a SpecializationInfo) -> Self {
+    pub fn specialization_info(mut self, value: &'a SpecializationInfo) -> Self {
         self.inner.p_specialization_info = value;
         self
     }
@@ -71622,7 +71607,7 @@ impl<'a> ExecutionGraphPipelineCreateInfoAMDXBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_library_info(mut self, value: &'a PipelineLibraryCreateInfoKHR) -> Self {
+    pub fn library_info(mut self, value: &'a PipelineLibraryCreateInfoKHR) -> Self {
         self.inner.p_library_info = value;
         self
     }
@@ -71690,7 +71675,7 @@ impl PipelineShaderStageNodeCreateInfoAMDX {
 }
 impl<'a> PipelineShaderStageNodeCreateInfoAMDXBuilder<'a> {
     #[inline]
-    pub fn p_name(mut self, value: &'a core::ffi::CStr) -> Self {
+    pub fn name(mut self, value: &'a core::ffi::CStr) -> Self {
         self.inner.p_name = value.as_ptr();
         self
     }
@@ -71969,7 +71954,7 @@ impl<'a> AntiLagDataAMDBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_presentation_info(mut self, value: &'a AntiLagPresentationInfoAMD) -> Self {
+    pub fn presentation_info(mut self, value: &'a AntiLagPresentationInfoAMD) -> Self {
         self.inner.p_presentation_info = value;
         self
     }
@@ -72077,7 +72062,7 @@ impl BindMemoryStatus {
 }
 impl<'a> BindMemoryStatusBuilder<'a> {
     #[inline]
-    pub fn p_result(mut self, value: *mut Result) -> Self {
+    pub fn result(mut self, value: *mut Result) -> Self {
         self.inner.p_result = value;
         self
     }
@@ -72582,7 +72567,7 @@ impl<'a> PushDescriptorSetWithTemplateInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_data(mut self, value: *const core::ffi::c_void) -> Self {
+    pub fn data(mut self, value: *const core::ffi::c_void) -> Self {
         self.inner.p_data = value;
         self
     }
@@ -75076,12 +75061,12 @@ impl<'a> RenderingInputAttachmentIndexInfoBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_depth_input_attachment_index(mut self, value: *const u32) -> Self {
+    pub fn depth_input_attachment_index(mut self, value: *const u32) -> Self {
         self.inner.p_depth_input_attachment_index = value;
         self
     }
     #[inline]
-    pub fn p_stencil_input_attachment_index(mut self, value: *const u32) -> Self {
+    pub fn stencil_input_attachment_index(mut self, value: *const u32) -> Self {
         self.inner.p_stencil_input_attachment_index = value;
         self
     }
@@ -75345,7 +75330,7 @@ impl MemoryMapPlacedInfoEXT {
 }
 impl<'a> MemoryMapPlacedInfoEXTBuilder<'a> {
     #[inline]
-    pub fn p_placed_address(mut self, value: *mut core::ffi::c_void) -> Self {
+    pub fn placed_address(mut self, value: *mut core::ffi::c_void) -> Self {
         self.inner.p_placed_address = value;
         self
     }
@@ -76610,7 +76595,7 @@ impl<'a> ConvertCooperativeVectorMatrixInfoNVBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_dst_size(mut self, value: *mut usize) -> Self {
+    pub fn dst_size(mut self, value: *mut usize) -> Self {
         self.inner.p_dst_size = value;
         self
     }
@@ -77805,7 +77790,7 @@ impl<'a> TensorCreateInfoARMBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_description(mut self, value: &'a TensorDescriptionARM) -> Self {
+    pub fn description(mut self, value: &'a TensorDescriptionARM) -> Self {
         self.inner.p_description = value;
         self
     }
@@ -78343,10 +78328,7 @@ impl<'a> TensorDependencyInfoARMBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_tensor_memory_barriers(
-        mut self,
-        value: &'a TensorMemoryBarrierARM,
-    ) -> Self {
+    pub fn tensor_memory_barriers(mut self, value: &'a TensorMemoryBarrierARM) -> Self {
         self.inner.p_tensor_memory_barriers = value;
         self
     }
@@ -78483,7 +78465,7 @@ impl DeviceTensorMemoryRequirementsARM {
 }
 impl<'a> DeviceTensorMemoryRequirementsARMBuilder<'a> {
     #[inline]
-    pub fn p_create_info(mut self, value: &'a TensorCreateInfoARM) -> Self {
+    pub fn create_info(mut self, value: &'a TensorCreateInfoARM) -> Self {
         self.inner.p_create_info = value;
         self
     }
@@ -79061,7 +79043,7 @@ impl<'a> PhysicalDeviceExternalTensorInfoARMBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_description(mut self, value: &'a TensorDescriptionARM) -> Self {
+    pub fn description(mut self, value: &'a TensorDescriptionARM) -> Self {
         self.inner.p_description = value;
         self
     }
@@ -79488,7 +79470,7 @@ impl<'a> DataGraphPipelineConstantARMBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_constant_data(mut self, value: *const core::ffi::c_void) -> Self {
+    pub fn constant_data(mut self, value: *const core::ffi::c_void) -> Self {
         self.inner.p_constant_data = value;
         self
     }
@@ -79604,7 +79586,7 @@ impl DataGraphPipelineCompilerControlCreateInfoARM {
 }
 impl<'a> DataGraphPipelineCompilerControlCreateInfoARMBuilder<'a> {
     #[inline]
-    pub fn p_vendor_options(mut self, value: &'a core::ffi::CStr) -> Self {
+    pub fn vendor_options(mut self, value: &'a core::ffi::CStr) -> Self {
         self.inner.p_vendor_options = value.as_ptr();
         self
     }
@@ -79730,12 +79712,12 @@ impl<'a> DataGraphPipelineShaderModuleCreateInfoARMBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_name(mut self, value: &'a core::ffi::CStr) -> Self {
+    pub fn name(mut self, value: &'a core::ffi::CStr) -> Self {
         self.inner.p_name = value.as_ptr();
         self
     }
     #[inline]
-    pub fn p_specialization_info(mut self, value: &'a SpecializationInfo) -> Self {
+    pub fn specialization_info(mut self, value: &'a SpecializationInfo) -> Self {
         self.inner.p_specialization_info = value;
         self
     }
@@ -80709,7 +80691,7 @@ impl DataGraphPipelineBuiltinModelCreateInfoQCOM {
 }
 impl<'a> DataGraphPipelineBuiltinModelCreateInfoQCOMBuilder<'a> {
     #[inline]
-    pub fn p_operation(
+    pub fn operation(
         mut self,
         value: &'a PhysicalDeviceDataGraphOperationSupportARM,
     ) -> Self {
@@ -82357,7 +82339,7 @@ impl ImageDescriptorInfoEXT {
 }
 impl<'a> ImageDescriptorInfoEXTBuilder<'a> {
     #[inline]
-    pub fn p_view(mut self, value: &'a ImageViewCreateInfo) -> Self {
+    pub fn view(mut self, value: &'a ImageViewCreateInfo) -> Self {
         self.inner.p_view = value;
         self
     }
@@ -82597,7 +82579,7 @@ impl<'a> DescriptorMappingSourceConstantOffsetEXTBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_embedded_sampler(mut self, value: &'a SamplerCreateInfo) -> Self {
+    pub fn embedded_sampler(mut self, value: &'a SamplerCreateInfo) -> Self {
         self.inner.p_embedded_sampler = value;
         self
     }
@@ -82664,7 +82646,7 @@ impl<'a> DescriptorMappingSourcePushIndexEXTBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_embedded_sampler(mut self, value: &'a SamplerCreateInfo) -> Self {
+    pub fn embedded_sampler(mut self, value: &'a SamplerCreateInfo) -> Self {
         self.inner.p_embedded_sampler = value;
         self
     }
@@ -82751,7 +82733,7 @@ impl<'a> DescriptorMappingSourceIndirectIndexEXTBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_embedded_sampler(mut self, value: &'a SamplerCreateInfo) -> Self {
+    pub fn embedded_sampler(mut self, value: &'a SamplerCreateInfo) -> Self {
         self.inner.p_embedded_sampler = value;
         self
     }
@@ -82838,7 +82820,7 @@ impl<'a> DescriptorMappingSourceIndirectIndexArrayEXTBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_embedded_sampler(mut self, value: &'a SamplerCreateInfo) -> Self {
+    pub fn embedded_sampler(mut self, value: &'a SamplerCreateInfo) -> Self {
         self.inner.p_embedded_sampler = value;
         self
     }
@@ -82961,7 +82943,7 @@ impl<'a> DescriptorMappingSourceShaderRecordIndexEXTBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_embedded_sampler(mut self, value: &'a SamplerCreateInfo) -> Self {
+    pub fn embedded_sampler(mut self, value: &'a SamplerCreateInfo) -> Self {
         self.inner.p_embedded_sampler = value;
         self
     }
@@ -83249,7 +83231,7 @@ impl OpaqueCaptureDataCreateInfoEXT {
 }
 impl<'a> OpaqueCaptureDataCreateInfoEXTBuilder<'a> {
     #[inline]
-    pub fn p_data(mut self, value: &'a HostAddressRangeConstEXT) -> Self {
+    pub fn data(mut self, value: &'a HostAddressRangeConstEXT) -> Self {
         self.inner.p_data = value;
         self
     }
@@ -83599,12 +83581,12 @@ impl CommandBufferInheritanceDescriptorHeapInfoEXT {
 }
 impl<'a> CommandBufferInheritanceDescriptorHeapInfoEXTBuilder<'a> {
     #[inline]
-    pub fn p_sampler_heap_bind_info(mut self, value: &'a BindHeapInfoEXT) -> Self {
+    pub fn sampler_heap_bind_info(mut self, value: &'a BindHeapInfoEXT) -> Self {
         self.inner.p_sampler_heap_bind_info = value;
         self
     }
     #[inline]
-    pub fn p_resource_heap_bind_info(mut self, value: &'a BindHeapInfoEXT) -> Self {
+    pub fn resource_heap_bind_info(mut self, value: &'a BindHeapInfoEXT) -> Self {
         self.inner.p_resource_heap_bind_info = value;
         self
     }
@@ -85206,7 +85188,7 @@ impl<'a> DeviceFaultShaderAbortMessageInfoKHRBuilder<'a> {
         self
     }
     #[inline]
-    pub fn p_message_data(mut self, value: *mut core::ffi::c_void) -> Self {
+    pub fn message_data(mut self, value: *mut core::ffi::c_void) -> Self {
         self.inner.p_message_data = value;
         self
     }

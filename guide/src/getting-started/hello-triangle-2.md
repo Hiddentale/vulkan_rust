@@ -116,14 +116,14 @@ let layer_ptrs = [validation_layer.as_ptr()];
 
 // ── Create the instance ────────────────────────────────────────
 let app_info = ApplicationInfo::builder()
-    .p_application_name(c"Hello Triangle".as_ptr())
+    .application_name(c"Hello Triangle")
     .application_version(1)
-    .p_engine_name(c"No Engine".as_ptr())
+    .engine_name(c"No Engine")
     .engine_version(1)
     .api_version(1 << 22);  // Vulkan 1.0
 
 let create_info = InstanceCreateInfo::builder()
-    .p_application_info(&app_info)
+    .application_info(&app_info)
     .enabled_extension_names(&extension_ptrs)
     .enabled_layer_names(&layer_ptrs);
 

@@ -88,9 +88,9 @@ use vk::*;
 // ApplicationInfo tells the driver who you are. This is optional
 // but helps driver vendors optimize for known applications.
 let app_info = ApplicationInfo::builder()
-    .p_application_name(c"Hello Triangle".as_ptr())
+    .application_name(c"Hello Triangle")
     .application_version(1)
-    .p_engine_name(c"No Engine".as_ptr())
+    .engine_name(c"No Engine")
     .engine_version(1)
     .api_version(1 << 22);  // Vulkan 1.0
 
@@ -99,7 +99,7 @@ let app_info = ApplicationInfo::builder()
 // No layers or extensions yet. We will add validation layers and
 // surface extensions in later parts.
 let create_info = InstanceCreateInfo::builder()
-    .p_application_info(&app_info);
+    .application_info(&app_info);
 
 // ── Create the instance ────────────────────────────────────────
 let instance = unsafe { entry.create_instance(&create_info, None) }
@@ -311,14 +311,14 @@ fn main() {
 
     // ── Step 2: Create Instance ────────────────────────────────
     let app_info = ApplicationInfo::builder()
-        .p_application_name(c"Hello Triangle".as_ptr())
+        .application_name(c"Hello Triangle")
         .application_version(1)
-        .p_engine_name(c"No Engine".as_ptr())
+        .engine_name(c"No Engine")
         .engine_version(1)
         .api_version(1 << 22);  // Vulkan 1.0
 
     let create_info = InstanceCreateInfo::builder()
-        .p_application_info(&app_info);
+        .application_info(&app_info);
 
     let instance = unsafe { entry.create_instance(&create_info, None) }
         .expect("Failed to create instance");

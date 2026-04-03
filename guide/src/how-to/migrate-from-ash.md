@@ -100,14 +100,14 @@ let entry = unsafe { vulkan_rust::Entry::new(loader) }
 let app_info = ApplicationInfo::builder()
     .api_version((1 << 22) | (3 << 12));  // Vulkan 1.3
 let create_info = InstanceCreateInfo::builder()
-    .p_application_info(&app_info);
+    .application_info(&app_info);
 let instance = unsafe { entry.create_instance(&create_info, None) }
     .expect("Failed to create instance");
 ```
 
 The main changes: `Entry` is loaded through `LibloadingLoader` instead
 of `linked()`, `make_api_version` is replaced with a raw `u32`
-expression, `.application_info()` becomes `.p_application_info()`, and
+expression, `.application_info()` stays `.application_info()`, and
 `.build()` calls are removed. The builder derefs to the inner struct,
 so you can pass `&create_info` directly where a `&InstanceCreateInfo`
 is expected.

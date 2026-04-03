@@ -5,7 +5,8 @@
 [![CI](https://img.shields.io/github/actions/workflow/status/Hiddentale/vulkan_rust/ci.yml?branch=main&logo=github&label=CI)](https://github.com/Hiddentale/vulkan_rust/actions)
 [![docs.rs](https://img.shields.io/docsrs/vulkan-rust?logo=docs.rs&label=docs.rs)](https://docs.rs/vulkan-rust)
 [![crates.io](https://img.shields.io/crates/v/vulkan-rust?logo=rust)](https://crates.io/crates/vulkan-rust)
-[![License](https://img.shields.io/crates/l/vulkan-rust)](LICENSE-MIT)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE-MIT)
+[![License: Apache 2.0](https://img.shields.io/badge/license-Apache_2.0-blue.svg)](LICENSE-APACHE)
 
 Ergonomic, minimal Vulkan bindings for Rust, generated from `vk.xml`.
 

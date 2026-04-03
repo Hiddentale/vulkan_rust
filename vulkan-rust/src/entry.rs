@@ -162,7 +162,7 @@ impl Entry {
     /// let app_info = ApplicationInfo::builder()
     ///     .api_version(Version::new(1, 0, 0).to_raw());
     /// let create_info = InstanceCreateInfo::builder()
-    ///     .p_application_info(&*app_info);
+    ///     .application_info(&*app_info);
     /// let instance = unsafe { entry.create_instance(&create_info, None) }
     ///     .expect("instance creation failed");
     /// // Use instance...

@@ -14,7 +14,7 @@ fn check_entry_creation() {
 
     let app_info =
         ApplicationInfo::builder().api_version(vulkan_rust::Version::new(1, 3, 0).to_raw());
-    let create_info = InstanceCreateInfo::builder().p_application_info(&app_info);
+    let create_info = InstanceCreateInfo::builder().application_info(&app_info);
     let _instance =
         unsafe { entry.create_instance(&create_info, None) }.expect("Failed to create instance");
 }

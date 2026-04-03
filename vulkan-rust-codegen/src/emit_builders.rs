@@ -263,18 +263,31 @@ fn emit_setter(member: &MemberDef, parent: &StructDef) -> TokenStream {
 
 fn emit_simple_setter(member: &MemberDef) -> TokenStream {
     let rust_name = member_name(&member.name);
-    let ident = if is_rust_keyword(&rust_name) {
+    let field_ident = if is_rust_keyword(&rust_name) {
         format_ident!("r#{}", rust_name)
     } else {
         format_ident!("{}", rust_name)
+    };
+
+    // Strip p_ prefix for setter name when the setter takes a reference,
+    // matching how slice setters already strip it.
+    let setter_name = if member.is_pointer {
+        rust_name.strip_prefix("p_").unwrap_or(&rust_name)
+    } else {
+        &rust_name
+    };
+    let setter_ident = if is_rust_keyword(setter_name) {
+        format_ident!("r#{}", setter_name)
+    } else {
+        format_ident!("{}", setter_name)
     };
 
     // VkBool32 fields accept `bool` and cast to u32 internally.
     if member.type_name == "VkBool32" && !member.is_pointer {
         return quote! {
             #[inline]
-            pub fn #ident(mut self, value: bool) -> Self {
-                self.inner.#ident = value as u32;
+            pub fn #setter_ident(mut self, value: bool) -> Self {
+                self.inner.#field_ident = value as u32;
                 self
             }
         };
@@ -288,8 +301,8 @@ fn emit_simple_setter(member: &MemberDef) -> TokenStream {
     {
         return quote! {
             #[inline]
-            pub fn #ident(mut self, value: &'a core::ffi::CStr) -> Self {
-                self.inner.#ident = value.as_ptr();
+            pub fn #setter_ident(mut self, value: &'a core::ffi::CStr) -> Self {
+                self.inner.#field_ident = value.as_ptr();
                 self
             }
         };
@@ -304,8 +317,8 @@ fn emit_simple_setter(member: &MemberDef) -> TokenStream {
         let base = resolve_base_type(&member.type_name);
         return quote! {
             #[inline]
-            pub fn #ident(mut self, value: &'a #base) -> Self {
-                self.inner.#ident = value;
+            pub fn #setter_ident(mut self, value: &'a #base) -> Self {
+                self.inner.#field_ident = value;
                 self
             }
         };
@@ -315,8 +328,8 @@ fn emit_simple_setter(member: &MemberDef) -> TokenStream {
 
     quote! {
         #[inline]
-        pub fn #ident(mut self, value: #ty) -> Self {
-            self.inner.#ident = value;
+        pub fn #setter_ident(mut self, value: #ty) -> Self {
+            self.inner.#field_ident = value;
             self
         }
     }

@@ -98,11 +98,9 @@ let frag_code = cast_to_u32(frag_bytes)
 
 // ── Create shader modules ──────────────────────────────────────
 let vert_info = ShaderModuleCreateInfo::builder()
-    .code_size(vert_code.len() * 4)
-    .p_code(vert_code.as_ptr());
+    .code(vert_code);
 let frag_info = ShaderModuleCreateInfo::builder()
-    .code_size(frag_code.len() * 4)
-    .p_code(frag_code.as_ptr());
+    .code(frag_code);
 
 let vert_module = unsafe { device.create_shader_module(&vert_info, None) }
     .expect("Failed to create vertex shader module");
@@ -210,11 +208,11 @@ let stages = [
     *PipelineShaderStageCreateInfo::builder()
         .stage(ShaderStageFlags::VERTEX)
         .module(vert_module)
-        .p_name(entry_name.as_ptr()),
+        .name(entry_name),
     *PipelineShaderStageCreateInfo::builder()
         .stage(ShaderStageFlags::FRAGMENT)
         .module(frag_module)
-        .p_name(entry_name.as_ptr()),
+        .name(entry_name),
 ];
 
 // ── Vertex input: empty (positions are hard-coded in shader) ───
@@ -261,13 +259,13 @@ let dynamic_state = PipelineDynamicStateCreateInfo::builder()
 // ── Assemble the pipeline ──────────────────────────────────────
 let pipeline_info = GraphicsPipelineCreateInfo::builder()
     .stages(&stages)
-    .p_vertex_input_state(&vertex_input)
-    .p_input_assembly_state(&input_assembly)
-    .p_viewport_state(&viewport_state)
-    .p_rasterization_state(&rasterizer)
-    .p_multisample_state(&multisampling)
-    .p_color_blend_state(&color_blending)
-    .p_dynamic_state(&dynamic_state)
+    .vertex_input_state(&vertex_input)
+    .input_assembly_state(&input_assembly)
+    .viewport_state(&viewport_state)
+    .rasterization_state(&rasterizer)
+    .multisample_state(&multisampling)
+    .color_blend_state(&color_blending)
+    .dynamic_state(&dynamic_state)
     .layout(pipeline_layout)
     .render_pass(render_pass)
     .subpass(0);

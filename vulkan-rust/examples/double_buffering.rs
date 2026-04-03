@@ -109,14 +109,14 @@ fn init_vulkan(window: Window) -> VulkanState {
     let layer_ptrs = [validation_layer.as_ptr()];
 
     let app_info = ApplicationInfo::builder()
-        .p_application_name(c"Double Buffering")
+        .application_name(c"Double Buffering")
         .application_version(1)
-        .p_engine_name(c"No Engine")
+        .engine_name(c"No Engine")
         .engine_version(1)
         .api_version(Version::new(1, 0, 0).to_raw());
 
     let create_info = InstanceCreateInfo::builder()
-        .p_application_info(&app_info)
+        .application_info(&app_info)
         .enabled_extension_names(&extension_ptrs)
         .enabled_layer_names(&layer_ptrs);
 
@@ -325,11 +325,11 @@ fn init_vulkan(window: Window) -> VulkanState {
         *PipelineShaderStageCreateInfo::builder()
             .stage(ShaderStageFlags::VERTEX)
             .module(vert_module)
-            .p_name(entry_name),
+            .name(entry_name),
         *PipelineShaderStageCreateInfo::builder()
             .stage(ShaderStageFlags::FRAGMENT)
             .module(frag_module)
-            .p_name(entry_name),
+            .name(entry_name),
     ];
     let vertex_input = PipelineVertexInputStateCreateInfo::builder();
     let input_assembly =
@@ -359,13 +359,13 @@ fn init_vulkan(window: Window) -> VulkanState {
 
     let pipeline_info = GraphicsPipelineCreateInfo::builder()
         .stages(&stages)
-        .p_vertex_input_state(&vertex_input)
-        .p_input_assembly_state(&input_assembly)
-        .p_viewport_state(&viewport_state)
-        .p_rasterization_state(&rasterizer)
-        .p_multisample_state(&multisampling)
-        .p_color_blend_state(&color_blending)
-        .p_dynamic_state(&dynamic_state)
+        .vertex_input_state(&vertex_input)
+        .input_assembly_state(&input_assembly)
+        .viewport_state(&viewport_state)
+        .rasterization_state(&rasterizer)
+        .multisample_state(&multisampling)
+        .color_blend_state(&color_blending)
+        .dynamic_state(&dynamic_state)
         .layout(pipeline_layout)
         .render_pass(render_pass)
         .subpass(0);
