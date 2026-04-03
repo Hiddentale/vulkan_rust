@@ -113,63 +113,75 @@ fn self_handle_type(level: DispatchLevel) -> Option<&'static str> {
 
 /// Classify every parameter of a command into a [`ParamRole`].
 ///
-/// `pnext_structs` is the set returned by [`build_pnext_struct_set`],struct
+/// `pnext_structs` is the set returned by [`build_pnext_struct_set`], struct
 /// names (Vk-prefix stripped) whose instances have `sType`/`pNext` and therefore
 /// cannot be used as simple output values.
 pub fn classify_params(cmd: &CommandDef, pnext_structs: &HashSet<String>) -> Vec<ParamRole> {
     let params = &cmd.params;
     let mut roles = vec![ParamRole::Regular; params.len()];
 
-    // Step 1: Mark self-handle (only if the first param is an exact match for
-    // the dispatch level's handle type, and is passed by value).
-    if let Some(handle_type) = self_handle_type(cmd.dispatch_level)
-        && let Some(first) = params.first()
-        && first.type_name == handle_type
-        && !first.is_pointer
-    {
-        roles[0] = ParamRole::SelfHandle;
-    }
-
-    // Build name → index map for resolving `len` references.
     let name_to_idx: HashMap<&str, usize> = params
         .iter()
         .enumerate()
         .map(|(i, p)| (p.name.as_str(), i))
         .collect();
 
-    // Step 2: Identify output count/array pairs.
-    // Array param: *mut T (non-const, non-double-pointer) with `len` pointing
-    // to a *mut uint32_t count param.
+    mark_self_handle(params, cmd.dispatch_level, &mut roles);
+    mark_output_pairs(params, &name_to_idx, &mut roles);
+    mark_input_pairs(params, &name_to_idx, &mut roles);
+    mark_allocators(params, &mut roles);
+    mark_allocate_array_outputs(params, &name_to_idx, &mut roles);
+    mark_single_output(params, pnext_structs, &mut roles);
+    mark_pnext_outputs(params, pnext_structs, &mut roles);
+
+    roles
+}
+
+/// Mark the first parameter as `SelfHandle` if it matches the dispatch
+/// level's handle type and is passed by value.
+fn mark_self_handle(params: &[ParamDef], level: DispatchLevel, roles: &mut [ParamRole]) {
+    if let Some(handle_type) = self_handle_type(level)
+        && let Some(first) = params.first()
+        && first.type_name == handle_type
+        && !first.is_pointer
+    {
+        roles[0] = ParamRole::SelfHandle;
+    }
+}
+
+/// Resolve a `len` attribute to a parameter index, skipping struct-internal
+/// references and null-terminated strings.
+fn resolve_len<'a>(
+    len: Option<&'a str>,
+    name_to_idx: &HashMap<&str, usize>,
+) -> Option<(&'a str, usize)> {
+    let len = len?;
+    if len.contains("->") || len == "null-terminated" {
+        return None;
+    }
+    let &idx = name_to_idx.get(len)?;
+    Some((len, idx))
+}
+
+/// Identify output count/array pairs: a `*mut uint32_t` count paired with
+/// a `*mut T` array whose `len` references the count.
+fn mark_output_pairs(
+    params: &[ParamDef],
+    name_to_idx: &HashMap<&str, usize>,
+    roles: &mut [ParamRole],
+) {
     for (i, param) in params.iter().enumerate() {
         if roles[i] != ParamRole::Regular {
             continue;
         }
-
-        let len = match param.len.as_deref() {
-            Some(l) => l,
-            None => continue,
-        };
-
-        // Skip struct-internal references ("pAllocateInfo->commandBufferCount")
-        // and null-terminated strings.
-        if len.contains("->") || len == "null-terminated" {
+        let Some((_, count_idx)) = resolve_len(param.len.as_deref(), name_to_idx) else {
             continue;
-        }
-
-        let count_idx = match name_to_idx.get(len) {
-            Some(&idx) => idx,
-            None => continue,
         };
-
-        // If the count param is already classified (e.g., another array already
-        // claimed it), skip,dual-output-array commands fall to raw forward.
         if roles[count_idx] != ParamRole::Regular {
             continue;
         }
-
         let count_param = &params[count_idx];
 
-        // Output pair: count is *mut uint32_t, array is *mut T (non-const).
         if param.is_pointer
             && !param.is_const
             && !param.is_double_pointer
@@ -181,35 +193,27 @@ pub fn classify_params(cmd: &CommandDef, pnext_structs: &HashSet<String>) -> Vec
             roles[i] = ParamRole::OutputArray { count: count_idx };
         }
     }
+}
 
-    // Step 3: Identify input count/array pairs.
-    // Array param: *const T with `len` pointing to a plain uint32_t count param.
+/// Identify input count/array pairs: a plain `uint32_t` count paired with
+/// a `*const T` array whose `len` references the count.
+fn mark_input_pairs(
+    params: &[ParamDef],
+    name_to_idx: &HashMap<&str, usize>,
+    roles: &mut [ParamRole],
+) {
     for (i, param) in params.iter().enumerate() {
         if roles[i] != ParamRole::Regular {
             continue;
         }
-
-        let len = match param.len.as_deref() {
-            Some(l) => l,
-            None => continue,
-        };
-
-        if len.contains("->") || len == "null-terminated" {
+        let Some((_, count_idx)) = resolve_len(param.len.as_deref(), name_to_idx) else {
             continue;
-        }
-
-        let count_idx = match name_to_idx.get(len) {
-            Some(&idx) => idx,
-            None => continue,
         };
-
         if roles[count_idx] != ParamRole::Regular {
             continue;
         }
-
         let count_param = &params[count_idx];
 
-        // Input pair: count is u32 (not a pointer), array is *const T.
         if param.is_pointer
             && param.is_const
             && !param.is_double_pointer
@@ -220,8 +224,10 @@ pub fn classify_params(cmd: &CommandDef, pnext_structs: &HashSet<String>) -> Vec
             roles[i] = ParamRole::InputArray { count: count_idx };
         }
     }
+}
 
-    // Step 4: Mark allocator params.
+/// Mark `*const VkAllocationCallbacks` parameters as `Allocator`.
+fn mark_allocators(params: &[ParamDef], roles: &mut [ParamRole]) {
     for (i, param) in params.iter().enumerate() {
         if roles[i] != ParamRole::Regular {
             continue;
@@ -230,62 +236,78 @@ pub fn classify_params(cmd: &CommandDef, pnext_structs: &HashSet<String>) -> Vec
             roles[i] = ParamRole::Allocator;
         }
     }
+}
 
-    // Step 5: Detect allocate-array output params.
-    // These are *mut T params with a `len` attribute that couldn't form a
-    // standard output pair, either because:
-    //   (a) len references a struct field ("pAllocateInfo->commandBufferCount")
-    //   (b) len references a count param already claimed as InputCount
+/// Detect allocate-array outputs: `*mut T` params whose length couldn't form
+/// a standard output pair, either because the length references a struct field
+/// or a count param already claimed as `InputCount`.
+fn mark_allocate_array_outputs(
+    params: &[ParamDef],
+    name_to_idx: &HashMap<&str, usize>,
+    roles: &mut [ParamRole],
+) {
     let has_output_pair = roles
         .iter()
         .any(|r| matches!(r, ParamRole::OutputArray { .. }));
-    if !has_output_pair {
-        for i in 0..params.len() {
-            if roles[i] != ParamRole::Regular {
-                continue;
-            }
-            let param = &params[i];
-            if !param.is_pointer || param.is_const || param.is_double_pointer {
-                continue;
-            }
-            let len = match param.len.as_deref() {
-                Some(l) => l,
-                None => continue,
-            };
-
-            if let Some((struct_param, field)) = len.split_once("->") {
-                // Pattern A: struct-internal count.
-                roles[i] = ParamRole::AllocateArrayOutput {
-                    count_source: CountSource::StructField {
-                        param: struct_param.to_string(),
-                        field: field.to_string(),
-                    },
-                };
-            } else if let Some(&count_idx) = name_to_idx.get(len)
-                && let ParamRole::InputCount { partner } = roles[count_idx]
-            {
-                // Pattern B: count shared with an input slice.
-                roles[i] = ParamRole::AllocateArrayOutput {
-                    count_source: CountSource::InputArrayLen { partner },
-                };
-            }
-        }
+    if has_output_pair {
+        return;
     }
 
-    // Step 6: If no output pair or allocate-array was found, check for a single output param.
+    for i in 0..params.len() {
+        if roles[i] != ParamRole::Regular {
+            continue;
+        }
+        let param = &params[i];
+        if !param.is_pointer || param.is_const || param.is_double_pointer {
+            continue;
+        }
+        let len = match param.len.as_deref() {
+            Some(l) => l,
+            None => continue,
+        };
+
+        if let Some((struct_param, field)) = len.split_once("->") {
+            roles[i] = ParamRole::AllocateArrayOutput {
+                count_source: CountSource::StructField {
+                    param: struct_param.to_string(),
+                    field: field.to_string(),
+                },
+            };
+        } else if let Some(&count_idx) = name_to_idx.get(len)
+            && let ParamRole::InputCount { partner } = roles[count_idx]
+        {
+            roles[i] = ParamRole::AllocateArrayOutput {
+                count_source: CountSource::InputArrayLen { partner },
+            };
+        }
+    }
+}
+
+/// If no array output was found, check for a single `*mut T` output param
+/// (the last non-pNext, non-double-pointer mutable param).
+fn mark_single_output(
+    params: &[ParamDef],
+    pnext_structs: &HashSet<String>,
+    roles: &mut [ParamRole],
+) {
     let has_any_output = roles.iter().any(|r| {
         matches!(
             r,
             ParamRole::OutputArray { .. } | ParamRole::AllocateArrayOutput { .. }
         )
     });
-    if !has_any_output && let Some(idx) = find_single_output(params, &roles, pnext_structs) {
+    if !has_any_output && let Some(idx) = find_single_output(params, roles, pnext_structs) {
         roles[idx] = ParamRole::Output;
     }
+}
 
-    // Step 7: Mark pNext output params as PNextOutput (`&mut T` in signature).
-    // These are *mut T params whose type has sType/pNext, so the caller must
-    // initialize them before calling. They stay Regular through all prior steps.
+/// Mark `*mut T` params whose type has sType/pNext as `PNextOutput`. The
+/// caller must initialize the struct (and optional pNext chain) before calling.
+fn mark_pnext_outputs(
+    params: &[ParamDef],
+    pnext_structs: &HashSet<String>,
+    roles: &mut [ParamRole],
+) {
     for i in 0..params.len() {
         if roles[i] != ParamRole::Regular {
             continue;
@@ -305,8 +327,6 @@ pub fn classify_params(cmd: &CommandDef, pnext_structs: &HashSet<String>) -> Vec
             roles[i] = ParamRole::PNextOutput;
         }
     }
-
-    roles
 }
 
 /// Scan backwards for the last `*mut T` param that qualifies as a single output.
