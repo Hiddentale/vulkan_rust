@@ -62,8 +62,7 @@ data your shaders use and which stages access them.
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::bitmasks::*;
+use vk::*;
 
 let push_constant_range = PushConstantRange {
     stage_flags: ShaderStageFlags::VERTEX,
@@ -91,8 +90,7 @@ options:
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::bitmasks::*;
+use vk::*;
 
 // Example: vertex reads bytes 0..64, fragment reads bytes 64..80.
 let ranges = [
@@ -141,7 +139,7 @@ is typically called once per draw, right before the draw command.
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::bitmasks::*;
+use vk::*;
 
 let push_data = PushConstants {
     model: compute_model_matrix(entity),
@@ -169,7 +167,7 @@ For a scene with many objects, you push new constants before each draw:
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::bitmasks::*;
+use vk::*;
 
 for entity in &scene.entities {
     let push_data = PushConstants {
@@ -203,7 +201,7 @@ helper makes it clearer:
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::bitmasks::*;
+use vk::*;
 
 /// Reinterpret a reference to a `Copy` type as a `&[c_void]` slice
 /// suitable for `cmd_push_constants`.

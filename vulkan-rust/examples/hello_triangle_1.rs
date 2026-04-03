@@ -1,7 +1,7 @@
 // Exact copy of the "Putting it all together" section from
 // <https://hiddentale.github.io/vulkan_rust/getting-started/hello-triangle-1.html>
 
-use vk::structs::*;
+use vk::*;
 use vulkan_rust::vk;
 use vulkan_rust::{Entry, LibloadingLoader, Version};
 

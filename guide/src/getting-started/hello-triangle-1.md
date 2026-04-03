@@ -81,7 +81,7 @@ Vulkan version Y, please give me access."
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
+use vk::*;
 
 // ── Describe your application ──────────────────────────────────
 //
@@ -123,7 +123,7 @@ A system can have multiple GPUs: a discrete NVIDIA/AMD card, an
 integrated Intel GPU, or even a software renderer. You must choose one.
 
 ```rust,ignore
-use vk::enums::PhysicalDeviceType;
+use vk::PhysicalDeviceType;
 
 // ── Enumerate GPUs ─────────────────────────────────────────────
 let physical_devices = unsafe { instance.enumerate_physical_devices() }
@@ -180,7 +180,7 @@ a specific set of operations (graphics, compute, transfer, etc.).
 We need a queue family that supports graphics operations.
 
 ```rust,ignore
-use vk::structs::QueueFlags;
+use vk::QueueFlags;
 
 // ── Query queue families ───────────────────────────────────────
 let queue_families = unsafe {
@@ -215,7 +215,7 @@ submitting work.
 Creating a Device also creates the queues you requested.
 
 ```rust,ignore
-use vk::structs::*;
+use vk::*;
 
 // ── Request one queue from the graphics family ─────────────────
 let queue_priority = 1.0_f32;
@@ -297,7 +297,7 @@ with `cargo run`.
 ```rust,no_run
 use vulkan_rust::{Entry, LibloadingLoader};
 use vulkan_rust::vk;
-use vk::structs::*;
+use vk::*;
 
 fn main() {
     // ── Step 1: Load Vulkan ────────────────────────────────────

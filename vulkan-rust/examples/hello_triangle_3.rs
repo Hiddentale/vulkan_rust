@@ -2,10 +2,7 @@
 // Complete runnable program.
 // <https://hiddentale.github.io/vulkan_rust/getting-started/hello-triangle-3.html>
 
-use vk::bitmasks::*;
-use vk::enums::*;
-use vk::handles::*;
-use vk::structs::*;
+use vk::*;
 use vulkan_rust::vk;
 use vulkan_rust::{Entry, LibloadingLoader, Version, cast_to_u32};
 use winit::application::ApplicationHandler;
@@ -275,7 +272,7 @@ fn run(window: &Window) {
     };
 
     let dependency = SubpassDependency {
-        src_subpass: vk::constants::SUBPASS_EXTERNAL,
+        src_subpass: vk::SUBPASS_EXTERNAL,
         dst_subpass: 0,
         src_stage_mask: PipelineStageFlags::COLOR_ATTACHMENT_OUTPUT,
         dst_stage_mask: PipelineStageFlags::COLOR_ATTACHMENT_OUTPUT,

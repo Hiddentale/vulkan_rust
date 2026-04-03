@@ -3,10 +3,7 @@
 // upload it to the GPU, and sample it in a fragment shader.
 // <https://hiddentale.github.io/vulkan_rust/how-to/textures.html>
 
-use vk::bitmasks::*;
-use vk::enums::*;
-use vk::handles::*;
-use vk::structs::*;
+use vk::*;
 use vulkan_rust::vk;
 use vulkan_rust::{Device, Entry, LibloadingLoader, Version, cast_to_u32};
 use winit::application::ApplicationHandler;
@@ -379,8 +376,8 @@ fn init_vulkan(window: Window) -> VulkanState {
         let barrier_to_transfer = ImageMemoryBarrier::builder()
             .old_layout(ImageLayout::UNDEFINED)
             .new_layout(ImageLayout::TRANSFER_DST_OPTIMAL)
-            .src_queue_family_index(vk::constants::QUEUE_FAMILY_IGNORED)
-            .dst_queue_family_index(vk::constants::QUEUE_FAMILY_IGNORED)
+            .src_queue_family_index(vk::QUEUE_FAMILY_IGNORED)
+            .dst_queue_family_index(vk::QUEUE_FAMILY_IGNORED)
             .image(texture_image)
             .subresource_range(ImageSubresourceRange {
                 aspect_mask: ImageAspectFlags::COLOR,
@@ -433,8 +430,8 @@ fn init_vulkan(window: Window) -> VulkanState {
         let barrier_to_shader = ImageMemoryBarrier::builder()
             .old_layout(ImageLayout::TRANSFER_DST_OPTIMAL)
             .new_layout(ImageLayout::SHADER_READ_ONLY_OPTIMAL)
-            .src_queue_family_index(vk::constants::QUEUE_FAMILY_IGNORED)
-            .dst_queue_family_index(vk::constants::QUEUE_FAMILY_IGNORED)
+            .src_queue_family_index(vk::QUEUE_FAMILY_IGNORED)
+            .dst_queue_family_index(vk::QUEUE_FAMILY_IGNORED)
             .image(texture_image)
             .subresource_range(ImageSubresourceRange {
                 aspect_mask: ImageAspectFlags::COLOR,
@@ -601,7 +598,7 @@ fn init_vulkan(window: Window) -> VulkanState {
         p_preserve_attachments: core::ptr::null(),
     };
     let dependency = SubpassDependency {
-        src_subpass: vk::constants::SUBPASS_EXTERNAL,
+        src_subpass: vk::SUBPASS_EXTERNAL,
         dst_subpass: 0,
         src_stage_mask: PipelineStageFlags::COLOR_ATTACHMENT_OUTPUT,
         dst_stage_mask: PipelineStageFlags::COLOR_ATTACHMENT_OUTPUT,

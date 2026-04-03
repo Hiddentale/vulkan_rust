@@ -2,10 +2,7 @@
 // Based on hello_triangle_4.rs, modified to recreate the swapchain on resize.
 // <https://hiddentale.github.io/vulkan_rust/how-to/resize.html>
 
-use vk::bitmasks::*;
-use vk::enums::*;
-use vk::handles::*;
-use vk::structs::*;
+use vk::*;
 use vulkan_rust::vk;
 use vulkan_rust::{Device, Entry, LibloadingLoader, Version, cast_to_u32};
 use winit::application::ApplicationHandler;
@@ -246,7 +243,7 @@ fn init_vulkan(window: Window) -> VulkanState {
         p_preserve_attachments: core::ptr::null(),
     };
     let dependency = SubpassDependency {
-        src_subpass: vk::constants::SUBPASS_EXTERNAL,
+        src_subpass: vk::SUBPASS_EXTERNAL,
         dst_subpass: 0,
         src_stage_mask: PipelineStageFlags::COLOR_ATTACHMENT_OUTPUT,
         dst_stage_mask: PipelineStageFlags::COLOR_ATTACHMENT_OUTPUT,
@@ -552,7 +549,7 @@ unsafe fn draw_frame(state: &mut VulkanState, framebuffer_resized: &mut bool) {
 
         let image_index = match acquire_result {
             Ok(index) => index,
-            Err(vk::enums::Result::ERROR_OUT_OF_DATE) => {
+            Err(vk::Result::ERROR_OUT_OF_DATE) => {
                 recreate_swapchain(state);
                 return;
             }
@@ -592,7 +589,7 @@ unsafe fn draw_frame(state: &mut VulkanState, framebuffer_resized: &mut bool) {
 
         match present_result {
             Ok(_) => {}
-            Err(vk::enums::Result::ERROR_OUT_OF_DATE | vk::enums::Result::SUBOPTIMAL) => {
+            Err(vk::Result::ERROR_OUT_OF_DATE | vk::Result::SUBOPTIMAL) => {
                 *framebuffer_resized = false;
                 recreate_swapchain(state);
                 return;

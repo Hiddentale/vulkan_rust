@@ -87,7 +87,7 @@ extensions for your platform.
 ```rust,ignore
 use vulkan_rust::{Entry, LibloadingLoader};
 use vulkan_rust::vk;
-use vk::structs::*;
+use vk::*;
 
 // ── Load Vulkan ────────────────────────────────────────────────
 let loader = LibloadingLoader::new()
@@ -173,7 +173,7 @@ let physical_devices = unsafe { instance.enumerate_physical_devices() }
 
 // ── Find a GPU with a queue family that supports both graphics
 //    and presentation to our surface ────────────────────────────
-use vk::handles::*;
+use vk::*;
 
 let mut physical_device = PhysicalDevice::null();
 let mut graphics_family_index = 0u32;
@@ -289,8 +289,7 @@ We need to decide three things: the image format, the present mode,
 and the image extent (resolution).
 
 ```rust,ignore
-use vk::enums::*;
-use vk::bitmasks::*;
+use vk::*;
 
 // ── Choose format ──────────────────────────────────────────────
 //

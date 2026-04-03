@@ -2,10 +2,7 @@
 // Complete runnable program. Builds on Part 1.
 // <https://hiddentale.github.io/vulkan_rust/getting-started/hello-triangle-2.html>
 
-use vk::bitmasks::*;
-use vk::enums::*;
-use vk::handles::*;
-use vk::structs::*;
+use vk::*;
 use vulkan_rust::vk;
 use vulkan_rust::{Entry, LibloadingLoader, Version};
 use winit::application::ApplicationHandler;

@@ -84,7 +84,7 @@ you prefer, adjust the path in the code below).
 ```rust,ignore
 use vulkan_rust::vk;
 use vulkan_rust::cast_to_u32;
-use vk::structs::*;
+use vk::*;
 
 // ── Load SPIR-V bytecode ───────────────────────────────────────
 let vert_bytes = include_bytes!("triangle.vert.spv");
@@ -121,9 +121,7 @@ for the full concept.
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::enums::*;
-use vk::bitmasks::*;
+use vk::*;
 
 // ── Color attachment: the swapchain image ──────────────────────
 let color_attachment = AttachmentDescription {
@@ -161,7 +159,7 @@ let subpass = SubpassDescription {
 //
 // Ensure the image layout transition happens before we write color.
 let dependency = SubpassDependency {
-    src_subpass: vk::constants::SUBPASS_EXTERNAL,
+    src_subpass: vk::SUBPASS_EXTERNAL,
     dst_subpass: 0,
     src_stage_mask: PipelineStageFlags::COLOR_ATTACHMENT_OUTPUT,
     dst_stage_mask: PipelineStageFlags::COLOR_ATTACHMENT_OUTPUT,
@@ -188,7 +186,7 @@ is empty.
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
+use vk::*;
 
 let layout_info = PipelineLayoutCreateInfo::builder();
 let pipeline_layout = unsafe {
@@ -204,10 +202,7 @@ state is specified here.
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::enums::*;
-use vk::bitmasks::*;
-use vk::handles::*;
+use vk::*;
 
 // ── Shader stages ──────────────────────────────────────────────
 let entry_name = c"main";
@@ -310,8 +305,7 @@ per swapchain image.
 
 ```rust,ignore
 use vulkan_rust::vk;
-use vk::structs::*;
-use vk::handles::*;
+use vk::*;
 
 let framebuffers: Vec<Framebuffer> = swapchain_image_views
     .iter()

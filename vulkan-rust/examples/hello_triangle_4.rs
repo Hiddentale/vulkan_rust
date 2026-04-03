@@ -2,10 +2,7 @@
 // Parts 1+2+3 setup + sync objects, command recording, drawing.
 // <https://hiddentale.github.io/vulkan_rust/getting-started/hello-triangle-4.html>
 
-use vk::bitmasks::*;
-use vk::enums::*;
-use vk::handles::*;
-use vk::structs::*;
+use vk::*;
 use vulkan_rust::vk;
 use vulkan_rust::{Device, Entry, LibloadingLoader, Version, cast_to_u32};
 use winit::application::ApplicationHandler;
@@ -302,7 +299,7 @@ fn init_vulkan(window: Window) -> VulkanState {
         p_preserve_attachments: core::ptr::null(),
     };
     let dependency = SubpassDependency {
-        src_subpass: vk::constants::SUBPASS_EXTERNAL,
+        src_subpass: vk::SUBPASS_EXTERNAL,
         dst_subpass: 0,
         src_stage_mask: PipelineStageFlags::COLOR_ATTACHMENT_OUTPUT,
         dst_stage_mask: PipelineStageFlags::COLOR_ATTACHMENT_OUTPUT,

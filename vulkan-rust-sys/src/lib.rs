@@ -16,11 +16,18 @@ pub use string_array::{
     DescriptionName, DriverName, DriverInfo,
 };
 
-pub mod handles;
-pub mod enums;
-pub mod bitmasks;
-pub mod constants;
+mod handles;
+mod enums;
+mod bitmasks;
+mod constants;
 pub mod extension_names;
-pub mod structs;
-pub mod builders;
+mod structs;
+mod builders;
 pub mod commands;
+
+pub use handles::*;
+pub use enums::*;
+pub use bitmasks::*;
+pub use constants::*;
+pub use structs::*;
+pub use builders::*;

@@ -124,11 +124,7 @@ fn emit_file(wrapper_type: &str, methods: TokenStream) -> TokenStream {
         // Safety docs are now generated from vk.xml metadata.
 
         use crate::error::{check, enumerate_two_call, fill_two_call, VkResult};
-        use crate::vk::bitmasks::*;
-        use crate::vk::constants::*;
-        use crate::vk::enums::*;
-        use crate::vk::handles::*;
-        use crate::vk::structs::*;
+        use crate::vk::*;
 
         impl crate::#wrapper {
             #methods
