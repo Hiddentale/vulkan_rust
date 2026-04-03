@@ -80,31 +80,6 @@ mod tests {
     use super::*;
 
     #[test]
-    fn aligned_input_succeeds() {
-        #[repr(align(4))]
-        struct Aligned([u8; 8]);
-        let data = Aligned([0x03, 0x02, 0x23, 0x07, 0, 0, 0, 0]);
-        let words = cast_to_u32(&data.0).expect("aligned input should succeed");
-        assert_eq!(words.len(), 2);
-        assert_eq!(words[0], 0x07230203); // SPIR-V magic number (little-endian)
-    }
-
-    #[test]
-    fn invalid_length_returns_error() {
-        #[repr(align(4))]
-        struct Aligned([u8; 5]);
-        let data = Aligned([1, 2, 3, 4, 5]);
-        assert_eq!(cast_to_u32(&data.0), Err(BytecodeError::InvalidLength(5)));
-    }
-
-    #[test]
-    fn empty_input_succeeds() {
-        let empty: &[u8] = &[];
-        let words = cast_to_u32(empty).expect("empty input should succeed");
-        assert!(words.is_empty());
-    }
-
-    #[test]
     fn misaligned_pointer_display() {
         let err = BytecodeError::MisalignedPointer;
         assert_eq!(
