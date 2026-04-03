@@ -2,6 +2,10 @@
 
 use std::fmt;
 
+/// SPIR-V instructions are 32-bit words, so both length and alignment
+/// must be multiples of this value.
+const SPIRV_WORD_SIZE: usize = 4;
+
 /// Error returned when SPIR-V bytecode has invalid alignment or size.
 ///
 /// # Examples
@@ -59,14 +63,16 @@ pub fn cast_to_u32(bytes: &[u8]) -> Result<&[u32], BytecodeError> {
     if bytes.is_empty() {
         return Ok(&[]);
     }
-    if bytes.len() % 4 != 0 {
+    if bytes.len() % SPIRV_WORD_SIZE != 0 {
         return Err(BytecodeError::InvalidLength(bytes.len()));
     }
-    if (bytes.as_ptr() as usize) % 4 != 0 {
+    if (bytes.as_ptr() as usize) % SPIRV_WORD_SIZE != 0 {
         return Err(BytecodeError::MisalignedPointer);
     }
     // SAFETY: length and alignment checked above, pointer is valid, aligned to u32, and in-bounds.
-    Ok(unsafe { std::slice::from_raw_parts(bytes.as_ptr() as *const u32, bytes.len() / 4) })
+    Ok(unsafe {
+        std::slice::from_raw_parts(bytes.as_ptr() as *const u32, bytes.len() / SPIRV_WORD_SIZE)
+    })
 }
 
 #[cfg(test)]
