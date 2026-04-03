@@ -1,4 +1,7 @@
-//! Emits builder patterns for extensible Vulkan structs (those with sType/pNext).
+//! Emits builder patterns for Vulkan structs.
+//!
+//! Extensible structs (with sType/pNext) get lifetime-tied builders with
+//! `push_next` support. Plain structs get simple builders without lifetimes.
 
 use std::collections::HashSet;
 
@@ -10,14 +13,20 @@ use crate::parse::{MemberDef, StructDef, VkRegistry};
 use crate::resolve_types::{is_rust_keyword, member_name, resolve_base_type, resolve_member_type};
 use crate::stype;
 
-/// Emit builders for all extensible structs.
+/// Emit builders for all structs.
 pub fn emit_builders(registry: &VkRegistry) -> TokenStream {
     let stype_raw = stype::build_raw_map(registry);
     let builders: Vec<TokenStream> = registry
         .structs
         .iter()
-        .filter(|s| has_stype_pnext(s) && !is_base_pnext_struct(&s.name))
-        .map(|s| emit_builder(s, &stype_raw))
+        .filter(|s| !s.is_union && !is_base_pnext_struct(&s.name) && !has_bitfield_members(s))
+        .map(|s| {
+            if has_stype_pnext(s) {
+                emit_builder(s, &stype_raw)
+            } else {
+                emit_plain_builder(s)
+            }
+        })
         .collect();
 
     quote! {
@@ -126,6 +135,93 @@ fn emit_builder(
         impl<'a> core::ops::DerefMut for #builder_name<'a> {
             #[inline]
             fn deref_mut(&mut self) -> &mut Self::Target { &mut self.inner }
+        }
+    }
+}
+
+/// Emit a simple builder for a plain struct (no sType/pNext).
+fn emit_plain_builder(def: &StructDef) -> TokenStream {
+    let struct_name = format_ident!("{}", &def.name);
+    let builder_name = format_ident!("{}Builder", &def.name);
+
+    let count_fields = collect_count_fields(def);
+    let needs_lifetime = def.members.iter().any(|m| m.is_pointer);
+
+    let mut seen_setters = std::collections::HashSet::new();
+    let setters: Vec<TokenStream> = def
+        .members
+        .iter()
+        .filter(|m| !count_fields.contains(&m.name) && seen_setters.insert(m.name.clone()))
+        .map(|m| emit_setter(m, def))
+        .collect();
+
+    let builder_doc = format!("Builder for [`{}`].", &def.name);
+
+    if needs_lifetime {
+        quote! {
+            #[doc = #builder_doc]
+            pub struct #builder_name<'a> {
+                inner: #struct_name,
+                _marker: core::marker::PhantomData<&'a ()>,
+            }
+
+            impl #struct_name {
+                /// Start building this struct.
+                #[inline]
+                pub fn builder<'a>() -> #builder_name<'a> {
+                    #builder_name {
+                        inner: #struct_name { ..Default::default() },
+                        _marker: core::marker::PhantomData,
+                    }
+                }
+            }
+
+            impl<'a> #builder_name<'a> {
+                #(#setters)*
+            }
+
+            impl<'a> core::ops::Deref for #builder_name<'a> {
+                type Target = #struct_name;
+                #[inline]
+                fn deref(&self) -> &Self::Target { &self.inner }
+            }
+
+            impl<'a> core::ops::DerefMut for #builder_name<'a> {
+                #[inline]
+                fn deref_mut(&mut self) -> &mut Self::Target { &mut self.inner }
+            }
+        }
+    } else {
+        quote! {
+            #[doc = #builder_doc]
+            pub struct #builder_name {
+                inner: #struct_name,
+            }
+
+            impl #struct_name {
+                /// Start building this struct.
+                #[inline]
+                pub fn builder() -> #builder_name {
+                    #builder_name {
+                        inner: #struct_name { ..Default::default() },
+                    }
+                }
+            }
+
+            impl #builder_name {
+                #(#setters)*
+            }
+
+            impl core::ops::Deref for #builder_name {
+                type Target = #struct_name;
+                #[inline]
+                fn deref(&self) -> &Self::Target { &self.inner }
+            }
+
+            impl core::ops::DerefMut for #builder_name {
+                #[inline]
+                fn deref_mut(&mut self) -> &mut Self::Target { &mut self.inner }
+            }
         }
     }
 }
@@ -289,6 +385,10 @@ fn emit_cstr_ptr_slice_setter(ptr_member: &MemberDef, count_member: &MemberDef) 
             self
         }
     }
+}
+
+fn has_bitfield_members(def: &StructDef) -> bool {
+    def.members.iter().any(|m| m.is_bitfield)
 }
 
 // ---------------------------------------------------------------------------

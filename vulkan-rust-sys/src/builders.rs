@@ -3,6 +3,534 @@ use super::enums::*;
 use super::handles::*;
 use super::bitmasks::*;
 use super::constants::*;
+///Builder for [`Offset2D`].
+pub struct Offset2DBuilder {
+    inner: Offset2D,
+}
+impl Offset2D {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> Offset2DBuilder {
+        Offset2DBuilder {
+            inner: Offset2D { ..Default::default() },
+        }
+    }
+}
+impl Offset2DBuilder {
+    #[inline]
+    pub fn x(mut self, value: i32) -> Self {
+        self.inner.x = value;
+        self
+    }
+    #[inline]
+    pub fn y(mut self, value: i32) -> Self {
+        self.inner.y = value;
+        self
+    }
+}
+impl core::ops::Deref for Offset2DBuilder {
+    type Target = Offset2D;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for Offset2DBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`Offset3D`].
+pub struct Offset3DBuilder {
+    inner: Offset3D,
+}
+impl Offset3D {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> Offset3DBuilder {
+        Offset3DBuilder {
+            inner: Offset3D { ..Default::default() },
+        }
+    }
+}
+impl Offset3DBuilder {
+    #[inline]
+    pub fn x(mut self, value: i32) -> Self {
+        self.inner.x = value;
+        self
+    }
+    #[inline]
+    pub fn y(mut self, value: i32) -> Self {
+        self.inner.y = value;
+        self
+    }
+    #[inline]
+    pub fn z(mut self, value: i32) -> Self {
+        self.inner.z = value;
+        self
+    }
+}
+impl core::ops::Deref for Offset3DBuilder {
+    type Target = Offset3D;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for Offset3DBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`Extent2D`].
+pub struct Extent2DBuilder {
+    inner: Extent2D,
+}
+impl Extent2D {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> Extent2DBuilder {
+        Extent2DBuilder {
+            inner: Extent2D { ..Default::default() },
+        }
+    }
+}
+impl Extent2DBuilder {
+    #[inline]
+    pub fn width(mut self, value: u32) -> Self {
+        self.inner.width = value;
+        self
+    }
+    #[inline]
+    pub fn height(mut self, value: u32) -> Self {
+        self.inner.height = value;
+        self
+    }
+}
+impl core::ops::Deref for Extent2DBuilder {
+    type Target = Extent2D;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for Extent2DBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`Extent3D`].
+pub struct Extent3DBuilder {
+    inner: Extent3D,
+}
+impl Extent3D {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> Extent3DBuilder {
+        Extent3DBuilder {
+            inner: Extent3D { ..Default::default() },
+        }
+    }
+}
+impl Extent3DBuilder {
+    #[inline]
+    pub fn width(mut self, value: u32) -> Self {
+        self.inner.width = value;
+        self
+    }
+    #[inline]
+    pub fn height(mut self, value: u32) -> Self {
+        self.inner.height = value;
+        self
+    }
+    #[inline]
+    pub fn depth(mut self, value: u32) -> Self {
+        self.inner.depth = value;
+        self
+    }
+}
+impl core::ops::Deref for Extent3DBuilder {
+    type Target = Extent3D;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for Extent3DBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`Viewport`].
+pub struct ViewportBuilder {
+    inner: Viewport,
+}
+impl Viewport {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> ViewportBuilder {
+        ViewportBuilder {
+            inner: Viewport { ..Default::default() },
+        }
+    }
+}
+impl ViewportBuilder {
+    #[inline]
+    pub fn x(mut self, value: f32) -> Self {
+        self.inner.x = value;
+        self
+    }
+    #[inline]
+    pub fn y(mut self, value: f32) -> Self {
+        self.inner.y = value;
+        self
+    }
+    #[inline]
+    pub fn width(mut self, value: f32) -> Self {
+        self.inner.width = value;
+        self
+    }
+    #[inline]
+    pub fn height(mut self, value: f32) -> Self {
+        self.inner.height = value;
+        self
+    }
+    #[inline]
+    pub fn min_depth(mut self, value: f32) -> Self {
+        self.inner.min_depth = value;
+        self
+    }
+    #[inline]
+    pub fn max_depth(mut self, value: f32) -> Self {
+        self.inner.max_depth = value;
+        self
+    }
+}
+impl core::ops::Deref for ViewportBuilder {
+    type Target = Viewport;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for ViewportBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`Rect2D`].
+pub struct Rect2DBuilder {
+    inner: Rect2D,
+}
+impl Rect2D {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> Rect2DBuilder {
+        Rect2DBuilder {
+            inner: Rect2D { ..Default::default() },
+        }
+    }
+}
+impl Rect2DBuilder {
+    #[inline]
+    pub fn offset(mut self, value: Offset2D) -> Self {
+        self.inner.offset = value;
+        self
+    }
+    #[inline]
+    pub fn extent(mut self, value: Extent2D) -> Self {
+        self.inner.extent = value;
+        self
+    }
+}
+impl core::ops::Deref for Rect2DBuilder {
+    type Target = Rect2D;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for Rect2DBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`ClearRect`].
+pub struct ClearRectBuilder {
+    inner: ClearRect,
+}
+impl ClearRect {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> ClearRectBuilder {
+        ClearRectBuilder {
+            inner: ClearRect { ..Default::default() },
+        }
+    }
+}
+impl ClearRectBuilder {
+    #[inline]
+    pub fn rect(mut self, value: Rect2D) -> Self {
+        self.inner.rect = value;
+        self
+    }
+    #[inline]
+    pub fn base_array_layer(mut self, value: u32) -> Self {
+        self.inner.base_array_layer = value;
+        self
+    }
+    #[inline]
+    pub fn layer_count(mut self, value: u32) -> Self {
+        self.inner.layer_count = value;
+        self
+    }
+}
+impl core::ops::Deref for ClearRectBuilder {
+    type Target = ClearRect;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for ClearRectBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`ComponentMapping`].
+pub struct ComponentMappingBuilder {
+    inner: ComponentMapping,
+}
+impl ComponentMapping {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> ComponentMappingBuilder {
+        ComponentMappingBuilder {
+            inner: ComponentMapping {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl ComponentMappingBuilder {
+    #[inline]
+    pub fn r(mut self, value: ComponentSwizzle) -> Self {
+        self.inner.r = value;
+        self
+    }
+    #[inline]
+    pub fn g(mut self, value: ComponentSwizzle) -> Self {
+        self.inner.g = value;
+        self
+    }
+    #[inline]
+    pub fn b(mut self, value: ComponentSwizzle) -> Self {
+        self.inner.b = value;
+        self
+    }
+    #[inline]
+    pub fn a(mut self, value: ComponentSwizzle) -> Self {
+        self.inner.a = value;
+        self
+    }
+}
+impl core::ops::Deref for ComponentMappingBuilder {
+    type Target = ComponentMapping;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for ComponentMappingBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`PhysicalDeviceProperties`].
+pub struct PhysicalDevicePropertiesBuilder {
+    inner: PhysicalDeviceProperties,
+}
+impl PhysicalDeviceProperties {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> PhysicalDevicePropertiesBuilder {
+        PhysicalDevicePropertiesBuilder {
+            inner: PhysicalDeviceProperties {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl PhysicalDevicePropertiesBuilder {
+    #[inline]
+    pub fn api_version(mut self, value: u32) -> Self {
+        self.inner.api_version = value;
+        self
+    }
+    #[inline]
+    pub fn driver_version(mut self, value: u32) -> Self {
+        self.inner.driver_version = value;
+        self
+    }
+    #[inline]
+    pub fn vendor_id(mut self, value: u32) -> Self {
+        self.inner.vendor_id = value;
+        self
+    }
+    #[inline]
+    pub fn device_id(mut self, value: u32) -> Self {
+        self.inner.device_id = value;
+        self
+    }
+    #[inline]
+    pub fn device_type(mut self, value: PhysicalDeviceType) -> Self {
+        self.inner.device_type = value;
+        self
+    }
+    #[inline]
+    pub fn device_name(
+        mut self,
+        value: crate::StringArray<{ MAX_PHYSICAL_DEVICE_NAME_SIZE as usize }>,
+    ) -> Self {
+        self.inner.device_name = value;
+        self
+    }
+    #[inline]
+    pub fn pipeline_cache_uuid(mut self, value: [u8; UUID_SIZE as usize]) -> Self {
+        self.inner.pipeline_cache_uuid = value;
+        self
+    }
+    #[inline]
+    pub fn limits(mut self, value: PhysicalDeviceLimits) -> Self {
+        self.inner.limits = value;
+        self
+    }
+    #[inline]
+    pub fn sparse_properties(mut self, value: PhysicalDeviceSparseProperties) -> Self {
+        self.inner.sparse_properties = value;
+        self
+    }
+}
+impl core::ops::Deref for PhysicalDevicePropertiesBuilder {
+    type Target = PhysicalDeviceProperties;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for PhysicalDevicePropertiesBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`ExtensionProperties`].
+pub struct ExtensionPropertiesBuilder {
+    inner: ExtensionProperties,
+}
+impl ExtensionProperties {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> ExtensionPropertiesBuilder {
+        ExtensionPropertiesBuilder {
+            inner: ExtensionProperties {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl ExtensionPropertiesBuilder {
+    #[inline]
+    pub fn extension_name(
+        mut self,
+        value: crate::StringArray<{ MAX_EXTENSION_NAME_SIZE as usize }>,
+    ) -> Self {
+        self.inner.extension_name = value;
+        self
+    }
+    #[inline]
+    pub fn spec_version(mut self, value: u32) -> Self {
+        self.inner.spec_version = value;
+        self
+    }
+}
+impl core::ops::Deref for ExtensionPropertiesBuilder {
+    type Target = ExtensionProperties;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for ExtensionPropertiesBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`LayerProperties`].
+pub struct LayerPropertiesBuilder {
+    inner: LayerProperties,
+}
+impl LayerProperties {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> LayerPropertiesBuilder {
+        LayerPropertiesBuilder {
+            inner: LayerProperties {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl LayerPropertiesBuilder {
+    #[inline]
+    pub fn layer_name(
+        mut self,
+        value: crate::StringArray<{ MAX_EXTENSION_NAME_SIZE as usize }>,
+    ) -> Self {
+        self.inner.layer_name = value;
+        self
+    }
+    #[inline]
+    pub fn spec_version(mut self, value: u32) -> Self {
+        self.inner.spec_version = value;
+        self
+    }
+    #[inline]
+    pub fn implementation_version(mut self, value: u32) -> Self {
+        self.inner.implementation_version = value;
+        self
+    }
+    #[inline]
+    pub fn description(
+        mut self,
+        value: crate::StringArray<{ MAX_DESCRIPTION_SIZE as usize }>,
+    ) -> Self {
+        self.inner.description = value;
+        self
+    }
+}
+impl core::ops::Deref for LayerPropertiesBuilder {
+    type Target = LayerProperties;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for LayerPropertiesBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
 ///Builder for [`ApplicationInfo`] with lifetime-tied pNext safety.
 pub struct ApplicationInfoBuilder<'a> {
     inner: ApplicationInfo,
@@ -68,6 +596,71 @@ impl<'a> core::ops::Deref for ApplicationInfoBuilder<'a> {
     }
 }
 impl<'a> core::ops::DerefMut for ApplicationInfoBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`AllocationCallbacks`].
+pub struct AllocationCallbacksBuilder<'a> {
+    inner: AllocationCallbacks,
+    _marker: core::marker::PhantomData<&'a ()>,
+}
+impl AllocationCallbacks {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder<'a>() -> AllocationCallbacksBuilder<'a> {
+        AllocationCallbacksBuilder {
+            inner: AllocationCallbacks {
+                ..Default::default()
+            },
+            _marker: core::marker::PhantomData,
+        }
+    }
+}
+impl<'a> AllocationCallbacksBuilder<'a> {
+    #[inline]
+    pub fn p_user_data(mut self, value: *mut core::ffi::c_void) -> Self {
+        self.inner.p_user_data = value;
+        self
+    }
+    #[inline]
+    pub fn pfn_allocation(mut self, value: PFN_vkAllocationFunction) -> Self {
+        self.inner.pfn_allocation = value;
+        self
+    }
+    #[inline]
+    pub fn pfn_reallocation(mut self, value: PFN_vkReallocationFunction) -> Self {
+        self.inner.pfn_reallocation = value;
+        self
+    }
+    #[inline]
+    pub fn pfn_free(mut self, value: PFN_vkFreeFunction) -> Self {
+        self.inner.pfn_free = value;
+        self
+    }
+    #[inline]
+    pub fn pfn_internal_allocation(
+        mut self,
+        value: PFN_vkInternalAllocationNotification,
+    ) -> Self {
+        self.inner.pfn_internal_allocation = value;
+        self
+    }
+    #[inline]
+    pub fn pfn_internal_free(mut self, value: PFN_vkInternalFreeNotification) -> Self {
+        self.inner.pfn_internal_free = value;
+        self
+    }
+}
+impl<'a> core::ops::Deref for AllocationCallbacksBuilder<'a> {
+    type Target = AllocationCallbacks;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl<'a> core::ops::DerefMut for AllocationCallbacksBuilder<'a> {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -283,6 +876,112 @@ impl<'a> core::ops::DerefMut for InstanceCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`QueueFamilyProperties`].
+pub struct QueueFamilyPropertiesBuilder {
+    inner: QueueFamilyProperties,
+}
+impl QueueFamilyProperties {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> QueueFamilyPropertiesBuilder {
+        QueueFamilyPropertiesBuilder {
+            inner: QueueFamilyProperties {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl QueueFamilyPropertiesBuilder {
+    #[inline]
+    pub fn queue_flags(mut self, value: QueueFlags) -> Self {
+        self.inner.queue_flags = value;
+        self
+    }
+    #[inline]
+    pub fn queue_count(mut self, value: u32) -> Self {
+        self.inner.queue_count = value;
+        self
+    }
+    #[inline]
+    pub fn timestamp_valid_bits(mut self, value: u32) -> Self {
+        self.inner.timestamp_valid_bits = value;
+        self
+    }
+    #[inline]
+    pub fn min_image_transfer_granularity(mut self, value: Extent3D) -> Self {
+        self.inner.min_image_transfer_granularity = value;
+        self
+    }
+}
+impl core::ops::Deref for QueueFamilyPropertiesBuilder {
+    type Target = QueueFamilyProperties;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for QueueFamilyPropertiesBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`PhysicalDeviceMemoryProperties`].
+pub struct PhysicalDeviceMemoryPropertiesBuilder {
+    inner: PhysicalDeviceMemoryProperties,
+}
+impl PhysicalDeviceMemoryProperties {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> PhysicalDeviceMemoryPropertiesBuilder {
+        PhysicalDeviceMemoryPropertiesBuilder {
+            inner: PhysicalDeviceMemoryProperties {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl PhysicalDeviceMemoryPropertiesBuilder {
+    #[inline]
+    pub fn memory_type_count(mut self, value: u32) -> Self {
+        self.inner.memory_type_count = value;
+        self
+    }
+    #[inline]
+    pub fn memory_types(
+        mut self,
+        value: [MemoryType; MAX_MEMORY_TYPES as usize],
+    ) -> Self {
+        self.inner.memory_types = value;
+        self
+    }
+    #[inline]
+    pub fn memory_heap_count(mut self, value: u32) -> Self {
+        self.inner.memory_heap_count = value;
+        self
+    }
+    #[inline]
+    pub fn memory_heaps(
+        mut self,
+        value: [MemoryHeap; MAX_MEMORY_HEAPS as usize],
+    ) -> Self {
+        self.inner.memory_heaps = value;
+        self
+    }
+}
+impl core::ops::Deref for PhysicalDeviceMemoryPropertiesBuilder {
+    type Target = PhysicalDeviceMemoryProperties;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for PhysicalDeviceMemoryPropertiesBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
 ///Builder for [`MemoryAllocateInfo`] with lifetime-tied pNext safety.
 pub struct MemoryAllocateInfoBuilder<'a> {
     inner: MemoryAllocateInfo,
@@ -333,6 +1032,227 @@ impl<'a> core::ops::Deref for MemoryAllocateInfoBuilder<'a> {
     }
 }
 impl<'a> core::ops::DerefMut for MemoryAllocateInfoBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`MemoryRequirements`].
+pub struct MemoryRequirementsBuilder {
+    inner: MemoryRequirements,
+}
+impl MemoryRequirements {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> MemoryRequirementsBuilder {
+        MemoryRequirementsBuilder {
+            inner: MemoryRequirements {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl MemoryRequirementsBuilder {
+    #[inline]
+    pub fn size(mut self, value: u64) -> Self {
+        self.inner.size = value;
+        self
+    }
+    #[inline]
+    pub fn alignment(mut self, value: u64) -> Self {
+        self.inner.alignment = value;
+        self
+    }
+    #[inline]
+    pub fn memory_type_bits(mut self, value: u32) -> Self {
+        self.inner.memory_type_bits = value;
+        self
+    }
+}
+impl core::ops::Deref for MemoryRequirementsBuilder {
+    type Target = MemoryRequirements;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for MemoryRequirementsBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`SparseImageFormatProperties`].
+pub struct SparseImageFormatPropertiesBuilder {
+    inner: SparseImageFormatProperties,
+}
+impl SparseImageFormatProperties {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> SparseImageFormatPropertiesBuilder {
+        SparseImageFormatPropertiesBuilder {
+            inner: SparseImageFormatProperties {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl SparseImageFormatPropertiesBuilder {
+    #[inline]
+    pub fn aspect_mask(mut self, value: ImageAspectFlags) -> Self {
+        self.inner.aspect_mask = value;
+        self
+    }
+    #[inline]
+    pub fn image_granularity(mut self, value: Extent3D) -> Self {
+        self.inner.image_granularity = value;
+        self
+    }
+    #[inline]
+    pub fn flags(mut self, value: SparseImageFormatFlags) -> Self {
+        self.inner.flags = value;
+        self
+    }
+}
+impl core::ops::Deref for SparseImageFormatPropertiesBuilder {
+    type Target = SparseImageFormatProperties;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for SparseImageFormatPropertiesBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`SparseImageMemoryRequirements`].
+pub struct SparseImageMemoryRequirementsBuilder {
+    inner: SparseImageMemoryRequirements,
+}
+impl SparseImageMemoryRequirements {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> SparseImageMemoryRequirementsBuilder {
+        SparseImageMemoryRequirementsBuilder {
+            inner: SparseImageMemoryRequirements {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl SparseImageMemoryRequirementsBuilder {
+    #[inline]
+    pub fn format_properties(mut self, value: SparseImageFormatProperties) -> Self {
+        self.inner.format_properties = value;
+        self
+    }
+    #[inline]
+    pub fn image_mip_tail_first_lod(mut self, value: u32) -> Self {
+        self.inner.image_mip_tail_first_lod = value;
+        self
+    }
+    #[inline]
+    pub fn image_mip_tail_size(mut self, value: u64) -> Self {
+        self.inner.image_mip_tail_size = value;
+        self
+    }
+    #[inline]
+    pub fn image_mip_tail_offset(mut self, value: u64) -> Self {
+        self.inner.image_mip_tail_offset = value;
+        self
+    }
+    #[inline]
+    pub fn image_mip_tail_stride(mut self, value: u64) -> Self {
+        self.inner.image_mip_tail_stride = value;
+        self
+    }
+}
+impl core::ops::Deref for SparseImageMemoryRequirementsBuilder {
+    type Target = SparseImageMemoryRequirements;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for SparseImageMemoryRequirementsBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`MemoryType`].
+pub struct MemoryTypeBuilder {
+    inner: MemoryType,
+}
+impl MemoryType {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> MemoryTypeBuilder {
+        MemoryTypeBuilder {
+            inner: MemoryType { ..Default::default() },
+        }
+    }
+}
+impl MemoryTypeBuilder {
+    #[inline]
+    pub fn property_flags(mut self, value: MemoryPropertyFlags) -> Self {
+        self.inner.property_flags = value;
+        self
+    }
+    #[inline]
+    pub fn heap_index(mut self, value: u32) -> Self {
+        self.inner.heap_index = value;
+        self
+    }
+}
+impl core::ops::Deref for MemoryTypeBuilder {
+    type Target = MemoryType;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for MemoryTypeBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`MemoryHeap`].
+pub struct MemoryHeapBuilder {
+    inner: MemoryHeap,
+}
+impl MemoryHeap {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> MemoryHeapBuilder {
+        MemoryHeapBuilder {
+            inner: MemoryHeap { ..Default::default() },
+        }
+    }
+}
+impl MemoryHeapBuilder {
+    #[inline]
+    pub fn size(mut self, value: u64) -> Self {
+        self.inner.size = value;
+        self
+    }
+    #[inline]
+    pub fn flags(mut self, value: MemoryHeapFlags) -> Self {
+        self.inner.flags = value;
+        self
+    }
+}
+impl core::ops::Deref for MemoryHeapBuilder {
+    type Target = MemoryHeap;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for MemoryHeapBuilder {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -393,6 +1313,196 @@ impl<'a> core::ops::Deref for MappedMemoryRangeBuilder<'a> {
     }
 }
 impl<'a> core::ops::DerefMut for MappedMemoryRangeBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`FormatProperties`].
+pub struct FormatPropertiesBuilder {
+    inner: FormatProperties,
+}
+impl FormatProperties {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> FormatPropertiesBuilder {
+        FormatPropertiesBuilder {
+            inner: FormatProperties {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl FormatPropertiesBuilder {
+    #[inline]
+    pub fn linear_tiling_features(mut self, value: FormatFeatureFlags) -> Self {
+        self.inner.linear_tiling_features = value;
+        self
+    }
+    #[inline]
+    pub fn optimal_tiling_features(mut self, value: FormatFeatureFlags) -> Self {
+        self.inner.optimal_tiling_features = value;
+        self
+    }
+    #[inline]
+    pub fn buffer_features(mut self, value: FormatFeatureFlags) -> Self {
+        self.inner.buffer_features = value;
+        self
+    }
+}
+impl core::ops::Deref for FormatPropertiesBuilder {
+    type Target = FormatProperties;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for FormatPropertiesBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`ImageFormatProperties`].
+pub struct ImageFormatPropertiesBuilder {
+    inner: ImageFormatProperties,
+}
+impl ImageFormatProperties {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> ImageFormatPropertiesBuilder {
+        ImageFormatPropertiesBuilder {
+            inner: ImageFormatProperties {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl ImageFormatPropertiesBuilder {
+    #[inline]
+    pub fn max_extent(mut self, value: Extent3D) -> Self {
+        self.inner.max_extent = value;
+        self
+    }
+    #[inline]
+    pub fn max_mip_levels(mut self, value: u32) -> Self {
+        self.inner.max_mip_levels = value;
+        self
+    }
+    #[inline]
+    pub fn max_array_layers(mut self, value: u32) -> Self {
+        self.inner.max_array_layers = value;
+        self
+    }
+    #[inline]
+    pub fn sample_counts(mut self, value: SampleCountFlags) -> Self {
+        self.inner.sample_counts = value;
+        self
+    }
+    #[inline]
+    pub fn max_resource_size(mut self, value: u64) -> Self {
+        self.inner.max_resource_size = value;
+        self
+    }
+}
+impl core::ops::Deref for ImageFormatPropertiesBuilder {
+    type Target = ImageFormatProperties;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for ImageFormatPropertiesBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`DescriptorBufferInfo`].
+pub struct DescriptorBufferInfoBuilder {
+    inner: DescriptorBufferInfo,
+}
+impl DescriptorBufferInfo {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> DescriptorBufferInfoBuilder {
+        DescriptorBufferInfoBuilder {
+            inner: DescriptorBufferInfo {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl DescriptorBufferInfoBuilder {
+    #[inline]
+    pub fn buffer(mut self, value: Buffer) -> Self {
+        self.inner.buffer = value;
+        self
+    }
+    #[inline]
+    pub fn offset(mut self, value: u64) -> Self {
+        self.inner.offset = value;
+        self
+    }
+    #[inline]
+    pub fn range(mut self, value: u64) -> Self {
+        self.inner.range = value;
+        self
+    }
+}
+impl core::ops::Deref for DescriptorBufferInfoBuilder {
+    type Target = DescriptorBufferInfo;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for DescriptorBufferInfoBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`DescriptorImageInfo`].
+pub struct DescriptorImageInfoBuilder {
+    inner: DescriptorImageInfo,
+}
+impl DescriptorImageInfo {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> DescriptorImageInfoBuilder {
+        DescriptorImageInfoBuilder {
+            inner: DescriptorImageInfo {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl DescriptorImageInfoBuilder {
+    #[inline]
+    pub fn sampler(mut self, value: Sampler) -> Self {
+        self.inner.sampler = value;
+        self
+    }
+    #[inline]
+    pub fn image_view(mut self, value: ImageView) -> Self {
+        self.inner.image_view = value;
+        self
+    }
+    #[inline]
+    pub fn image_layout(mut self, value: ImageLayout) -> Self {
+        self.inner.image_layout = value;
+        self
+    }
+}
+impl core::ops::Deref for DescriptorImageInfoBuilder {
+    type Target = DescriptorImageInfo;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for DescriptorImageInfoBuilder {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -755,6 +1865,156 @@ impl<'a> core::ops::DerefMut for BufferViewCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImageSubresource`].
+pub struct ImageSubresourceBuilder {
+    inner: ImageSubresource,
+}
+impl ImageSubresource {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> ImageSubresourceBuilder {
+        ImageSubresourceBuilder {
+            inner: ImageSubresource {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl ImageSubresourceBuilder {
+    #[inline]
+    pub fn aspect_mask(mut self, value: ImageAspectFlags) -> Self {
+        self.inner.aspect_mask = value;
+        self
+    }
+    #[inline]
+    pub fn mip_level(mut self, value: u32) -> Self {
+        self.inner.mip_level = value;
+        self
+    }
+    #[inline]
+    pub fn array_layer(mut self, value: u32) -> Self {
+        self.inner.array_layer = value;
+        self
+    }
+}
+impl core::ops::Deref for ImageSubresourceBuilder {
+    type Target = ImageSubresource;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for ImageSubresourceBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`ImageSubresourceLayers`].
+pub struct ImageSubresourceLayersBuilder {
+    inner: ImageSubresourceLayers,
+}
+impl ImageSubresourceLayers {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> ImageSubresourceLayersBuilder {
+        ImageSubresourceLayersBuilder {
+            inner: ImageSubresourceLayers {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl ImageSubresourceLayersBuilder {
+    #[inline]
+    pub fn aspect_mask(mut self, value: ImageAspectFlags) -> Self {
+        self.inner.aspect_mask = value;
+        self
+    }
+    #[inline]
+    pub fn mip_level(mut self, value: u32) -> Self {
+        self.inner.mip_level = value;
+        self
+    }
+    #[inline]
+    pub fn base_array_layer(mut self, value: u32) -> Self {
+        self.inner.base_array_layer = value;
+        self
+    }
+    #[inline]
+    pub fn layer_count(mut self, value: u32) -> Self {
+        self.inner.layer_count = value;
+        self
+    }
+}
+impl core::ops::Deref for ImageSubresourceLayersBuilder {
+    type Target = ImageSubresourceLayers;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for ImageSubresourceLayersBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`ImageSubresourceRange`].
+pub struct ImageSubresourceRangeBuilder {
+    inner: ImageSubresourceRange,
+}
+impl ImageSubresourceRange {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> ImageSubresourceRangeBuilder {
+        ImageSubresourceRangeBuilder {
+            inner: ImageSubresourceRange {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl ImageSubresourceRangeBuilder {
+    #[inline]
+    pub fn aspect_mask(mut self, value: ImageAspectFlags) -> Self {
+        self.inner.aspect_mask = value;
+        self
+    }
+    #[inline]
+    pub fn base_mip_level(mut self, value: u32) -> Self {
+        self.inner.base_mip_level = value;
+        self
+    }
+    #[inline]
+    pub fn level_count(mut self, value: u32) -> Self {
+        self.inner.level_count = value;
+        self
+    }
+    #[inline]
+    pub fn base_array_layer(mut self, value: u32) -> Self {
+        self.inner.base_array_layer = value;
+        self
+    }
+    #[inline]
+    pub fn layer_count(mut self, value: u32) -> Self {
+        self.inner.layer_count = value;
+        self
+    }
+}
+impl core::ops::Deref for ImageSubresourceRangeBuilder {
+    type Target = ImageSubresourceRange;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for ImageSubresourceRangeBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
 ///Builder for [`MemoryBarrier`] with lifetime-tied pNext safety.
 pub struct MemoryBarrierBuilder<'a> {
     inner: MemoryBarrier,
@@ -1081,6 +2341,61 @@ impl<'a> core::ops::DerefMut for ImageCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SubresourceLayout`].
+pub struct SubresourceLayoutBuilder {
+    inner: SubresourceLayout,
+}
+impl SubresourceLayout {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> SubresourceLayoutBuilder {
+        SubresourceLayoutBuilder {
+            inner: SubresourceLayout {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl SubresourceLayoutBuilder {
+    #[inline]
+    pub fn offset(mut self, value: u64) -> Self {
+        self.inner.offset = value;
+        self
+    }
+    #[inline]
+    pub fn size(mut self, value: u64) -> Self {
+        self.inner.size = value;
+        self
+    }
+    #[inline]
+    pub fn row_pitch(mut self, value: u64) -> Self {
+        self.inner.row_pitch = value;
+        self
+    }
+    #[inline]
+    pub fn array_pitch(mut self, value: u64) -> Self {
+        self.inner.array_pitch = value;
+        self
+    }
+    #[inline]
+    pub fn depth_pitch(mut self, value: u64) -> Self {
+        self.inner.depth_pitch = value;
+        self
+    }
+}
+impl core::ops::Deref for SubresourceLayoutBuilder {
+    type Target = SubresourceLayout;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for SubresourceLayoutBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
 ///Builder for [`ImageViewCreateInfo`] with lifetime-tied pNext safety.
 pub struct ImageViewCreateInfoBuilder<'a> {
     inner: ImageViewCreateInfo,
@@ -1151,6 +2466,293 @@ impl<'a> core::ops::Deref for ImageViewCreateInfoBuilder<'a> {
     }
 }
 impl<'a> core::ops::DerefMut for ImageViewCreateInfoBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`BufferCopy`].
+pub struct BufferCopyBuilder {
+    inner: BufferCopy,
+}
+impl BufferCopy {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> BufferCopyBuilder {
+        BufferCopyBuilder {
+            inner: BufferCopy { ..Default::default() },
+        }
+    }
+}
+impl BufferCopyBuilder {
+    #[inline]
+    pub fn src_offset(mut self, value: u64) -> Self {
+        self.inner.src_offset = value;
+        self
+    }
+    #[inline]
+    pub fn dst_offset(mut self, value: u64) -> Self {
+        self.inner.dst_offset = value;
+        self
+    }
+    #[inline]
+    pub fn size(mut self, value: u64) -> Self {
+        self.inner.size = value;
+        self
+    }
+}
+impl core::ops::Deref for BufferCopyBuilder {
+    type Target = BufferCopy;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for BufferCopyBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`SparseMemoryBind`].
+pub struct SparseMemoryBindBuilder {
+    inner: SparseMemoryBind,
+}
+impl SparseMemoryBind {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> SparseMemoryBindBuilder {
+        SparseMemoryBindBuilder {
+            inner: SparseMemoryBind {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl SparseMemoryBindBuilder {
+    #[inline]
+    pub fn resource_offset(mut self, value: u64) -> Self {
+        self.inner.resource_offset = value;
+        self
+    }
+    #[inline]
+    pub fn size(mut self, value: u64) -> Self {
+        self.inner.size = value;
+        self
+    }
+    #[inline]
+    pub fn memory(mut self, value: DeviceMemory) -> Self {
+        self.inner.memory = value;
+        self
+    }
+    #[inline]
+    pub fn memory_offset(mut self, value: u64) -> Self {
+        self.inner.memory_offset = value;
+        self
+    }
+    #[inline]
+    pub fn flags(mut self, value: SparseMemoryBindFlags) -> Self {
+        self.inner.flags = value;
+        self
+    }
+}
+impl core::ops::Deref for SparseMemoryBindBuilder {
+    type Target = SparseMemoryBind;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for SparseMemoryBindBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`SparseImageMemoryBind`].
+pub struct SparseImageMemoryBindBuilder {
+    inner: SparseImageMemoryBind,
+}
+impl SparseImageMemoryBind {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> SparseImageMemoryBindBuilder {
+        SparseImageMemoryBindBuilder {
+            inner: SparseImageMemoryBind {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl SparseImageMemoryBindBuilder {
+    #[inline]
+    pub fn subresource(mut self, value: ImageSubresource) -> Self {
+        self.inner.subresource = value;
+        self
+    }
+    #[inline]
+    pub fn offset(mut self, value: Offset3D) -> Self {
+        self.inner.offset = value;
+        self
+    }
+    #[inline]
+    pub fn extent(mut self, value: Extent3D) -> Self {
+        self.inner.extent = value;
+        self
+    }
+    #[inline]
+    pub fn memory(mut self, value: DeviceMemory) -> Self {
+        self.inner.memory = value;
+        self
+    }
+    #[inline]
+    pub fn memory_offset(mut self, value: u64) -> Self {
+        self.inner.memory_offset = value;
+        self
+    }
+    #[inline]
+    pub fn flags(mut self, value: SparseMemoryBindFlags) -> Self {
+        self.inner.flags = value;
+        self
+    }
+}
+impl core::ops::Deref for SparseImageMemoryBindBuilder {
+    type Target = SparseImageMemoryBind;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for SparseImageMemoryBindBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`SparseBufferMemoryBindInfo`].
+pub struct SparseBufferMemoryBindInfoBuilder<'a> {
+    inner: SparseBufferMemoryBindInfo,
+    _marker: core::marker::PhantomData<&'a ()>,
+}
+impl SparseBufferMemoryBindInfo {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder<'a>() -> SparseBufferMemoryBindInfoBuilder<'a> {
+        SparseBufferMemoryBindInfoBuilder {
+            inner: SparseBufferMemoryBindInfo {
+                ..Default::default()
+            },
+            _marker: core::marker::PhantomData,
+        }
+    }
+}
+impl<'a> SparseBufferMemoryBindInfoBuilder<'a> {
+    #[inline]
+    pub fn buffer(mut self, value: Buffer) -> Self {
+        self.inner.buffer = value;
+        self
+    }
+    #[inline]
+    pub fn binds(mut self, slice: &'a [SparseMemoryBind]) -> Self {
+        self.inner.bind_count = slice.len() as u32;
+        self.inner.p_binds = slice.as_ptr();
+        self
+    }
+}
+impl<'a> core::ops::Deref for SparseBufferMemoryBindInfoBuilder<'a> {
+    type Target = SparseBufferMemoryBindInfo;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl<'a> core::ops::DerefMut for SparseBufferMemoryBindInfoBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`SparseImageOpaqueMemoryBindInfo`].
+pub struct SparseImageOpaqueMemoryBindInfoBuilder<'a> {
+    inner: SparseImageOpaqueMemoryBindInfo,
+    _marker: core::marker::PhantomData<&'a ()>,
+}
+impl SparseImageOpaqueMemoryBindInfo {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder<'a>() -> SparseImageOpaqueMemoryBindInfoBuilder<'a> {
+        SparseImageOpaqueMemoryBindInfoBuilder {
+            inner: SparseImageOpaqueMemoryBindInfo {
+                ..Default::default()
+            },
+            _marker: core::marker::PhantomData,
+        }
+    }
+}
+impl<'a> SparseImageOpaqueMemoryBindInfoBuilder<'a> {
+    #[inline]
+    pub fn image(mut self, value: Image) -> Self {
+        self.inner.image = value;
+        self
+    }
+    #[inline]
+    pub fn binds(mut self, slice: &'a [SparseMemoryBind]) -> Self {
+        self.inner.bind_count = slice.len() as u32;
+        self.inner.p_binds = slice.as_ptr();
+        self
+    }
+}
+impl<'a> core::ops::Deref for SparseImageOpaqueMemoryBindInfoBuilder<'a> {
+    type Target = SparseImageOpaqueMemoryBindInfo;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl<'a> core::ops::DerefMut for SparseImageOpaqueMemoryBindInfoBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`SparseImageMemoryBindInfo`].
+pub struct SparseImageMemoryBindInfoBuilder<'a> {
+    inner: SparseImageMemoryBindInfo,
+    _marker: core::marker::PhantomData<&'a ()>,
+}
+impl SparseImageMemoryBindInfo {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder<'a>() -> SparseImageMemoryBindInfoBuilder<'a> {
+        SparseImageMemoryBindInfoBuilder {
+            inner: SparseImageMemoryBindInfo {
+                ..Default::default()
+            },
+            _marker: core::marker::PhantomData,
+        }
+    }
+}
+impl<'a> SparseImageMemoryBindInfoBuilder<'a> {
+    #[inline]
+    pub fn image(mut self, value: Image) -> Self {
+        self.inner.image = value;
+        self
+    }
+    #[inline]
+    pub fn binds(mut self, slice: &'a [SparseImageMemoryBind]) -> Self {
+        self.inner.bind_count = slice.len() as u32;
+        self.inner.p_binds = slice.as_ptr();
+        self
+    }
+}
+impl<'a> core::ops::Deref for SparseImageMemoryBindInfoBuilder<'a> {
+    type Target = SparseImageMemoryBindInfo;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl<'a> core::ops::DerefMut for SparseImageMemoryBindInfoBuilder<'a> {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -1234,6 +2836,257 @@ impl<'a> core::ops::DerefMut for BindSparseInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImageCopy`].
+pub struct ImageCopyBuilder {
+    inner: ImageCopy,
+}
+impl ImageCopy {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> ImageCopyBuilder {
+        ImageCopyBuilder {
+            inner: ImageCopy { ..Default::default() },
+        }
+    }
+}
+impl ImageCopyBuilder {
+    #[inline]
+    pub fn src_subresource(mut self, value: ImageSubresourceLayers) -> Self {
+        self.inner.src_subresource = value;
+        self
+    }
+    #[inline]
+    pub fn src_offset(mut self, value: Offset3D) -> Self {
+        self.inner.src_offset = value;
+        self
+    }
+    #[inline]
+    pub fn dst_subresource(mut self, value: ImageSubresourceLayers) -> Self {
+        self.inner.dst_subresource = value;
+        self
+    }
+    #[inline]
+    pub fn dst_offset(mut self, value: Offset3D) -> Self {
+        self.inner.dst_offset = value;
+        self
+    }
+    #[inline]
+    pub fn extent(mut self, value: Extent3D) -> Self {
+        self.inner.extent = value;
+        self
+    }
+}
+impl core::ops::Deref for ImageCopyBuilder {
+    type Target = ImageCopy;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for ImageCopyBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`ImageBlit`].
+pub struct ImageBlitBuilder {
+    inner: ImageBlit,
+}
+impl ImageBlit {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> ImageBlitBuilder {
+        ImageBlitBuilder {
+            inner: ImageBlit { ..Default::default() },
+        }
+    }
+}
+impl ImageBlitBuilder {
+    #[inline]
+    pub fn src_subresource(mut self, value: ImageSubresourceLayers) -> Self {
+        self.inner.src_subresource = value;
+        self
+    }
+    #[inline]
+    pub fn src_offsets(mut self, value: [Offset3D; 2usize]) -> Self {
+        self.inner.src_offsets = value;
+        self
+    }
+    #[inline]
+    pub fn dst_subresource(mut self, value: ImageSubresourceLayers) -> Self {
+        self.inner.dst_subresource = value;
+        self
+    }
+    #[inline]
+    pub fn dst_offsets(mut self, value: [Offset3D; 2usize]) -> Self {
+        self.inner.dst_offsets = value;
+        self
+    }
+}
+impl core::ops::Deref for ImageBlitBuilder {
+    type Target = ImageBlit;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for ImageBlitBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`BufferImageCopy`].
+pub struct BufferImageCopyBuilder {
+    inner: BufferImageCopy,
+}
+impl BufferImageCopy {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> BufferImageCopyBuilder {
+        BufferImageCopyBuilder {
+            inner: BufferImageCopy {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl BufferImageCopyBuilder {
+    #[inline]
+    pub fn buffer_offset(mut self, value: u64) -> Self {
+        self.inner.buffer_offset = value;
+        self
+    }
+    #[inline]
+    pub fn buffer_row_length(mut self, value: u32) -> Self {
+        self.inner.buffer_row_length = value;
+        self
+    }
+    #[inline]
+    pub fn buffer_image_height(mut self, value: u32) -> Self {
+        self.inner.buffer_image_height = value;
+        self
+    }
+    #[inline]
+    pub fn image_subresource(mut self, value: ImageSubresourceLayers) -> Self {
+        self.inner.image_subresource = value;
+        self
+    }
+    #[inline]
+    pub fn image_offset(mut self, value: Offset3D) -> Self {
+        self.inner.image_offset = value;
+        self
+    }
+    #[inline]
+    pub fn image_extent(mut self, value: Extent3D) -> Self {
+        self.inner.image_extent = value;
+        self
+    }
+}
+impl core::ops::Deref for BufferImageCopyBuilder {
+    type Target = BufferImageCopy;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for BufferImageCopyBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`StridedDeviceAddressRangeKHR`].
+pub struct StridedDeviceAddressRangeKHRBuilder {
+    inner: StridedDeviceAddressRangeKHR,
+}
+impl StridedDeviceAddressRangeKHR {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> StridedDeviceAddressRangeKHRBuilder {
+        StridedDeviceAddressRangeKHRBuilder {
+            inner: StridedDeviceAddressRangeKHR {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl StridedDeviceAddressRangeKHRBuilder {
+    #[inline]
+    pub fn address(mut self, value: u64) -> Self {
+        self.inner.address = value;
+        self
+    }
+    #[inline]
+    pub fn size(mut self, value: u64) -> Self {
+        self.inner.size = value;
+        self
+    }
+    #[inline]
+    pub fn stride(mut self, value: u64) -> Self {
+        self.inner.stride = value;
+        self
+    }
+}
+impl core::ops::Deref for StridedDeviceAddressRangeKHRBuilder {
+    type Target = StridedDeviceAddressRangeKHR;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for StridedDeviceAddressRangeKHRBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`CopyMemoryIndirectCommandKHR`].
+pub struct CopyMemoryIndirectCommandKHRBuilder {
+    inner: CopyMemoryIndirectCommandKHR,
+}
+impl CopyMemoryIndirectCommandKHR {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> CopyMemoryIndirectCommandKHRBuilder {
+        CopyMemoryIndirectCommandKHRBuilder {
+            inner: CopyMemoryIndirectCommandKHR {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl CopyMemoryIndirectCommandKHRBuilder {
+    #[inline]
+    pub fn src_address(mut self, value: u64) -> Self {
+        self.inner.src_address = value;
+        self
+    }
+    #[inline]
+    pub fn dst_address(mut self, value: u64) -> Self {
+        self.inner.dst_address = value;
+        self
+    }
+    #[inline]
+    pub fn size(mut self, value: u64) -> Self {
+        self.inner.size = value;
+        self
+    }
+}
+impl core::ops::Deref for CopyMemoryIndirectCommandKHRBuilder {
+    type Target = CopyMemoryIndirectCommandKHR;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for CopyMemoryIndirectCommandKHRBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
 ///Builder for [`CopyMemoryIndirectInfoKHR`] with lifetime-tied pNext safety.
 pub struct CopyMemoryIndirectInfoKHRBuilder<'a> {
     inner: CopyMemoryIndirectInfoKHR,
@@ -1297,6 +3150,66 @@ impl<'a> core::ops::Deref for CopyMemoryIndirectInfoKHRBuilder<'a> {
     }
 }
 impl<'a> core::ops::DerefMut for CopyMemoryIndirectInfoKHRBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`CopyMemoryToImageIndirectCommandKHR`].
+pub struct CopyMemoryToImageIndirectCommandKHRBuilder {
+    inner: CopyMemoryToImageIndirectCommandKHR,
+}
+impl CopyMemoryToImageIndirectCommandKHR {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> CopyMemoryToImageIndirectCommandKHRBuilder {
+        CopyMemoryToImageIndirectCommandKHRBuilder {
+            inner: CopyMemoryToImageIndirectCommandKHR {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl CopyMemoryToImageIndirectCommandKHRBuilder {
+    #[inline]
+    pub fn src_address(mut self, value: u64) -> Self {
+        self.inner.src_address = value;
+        self
+    }
+    #[inline]
+    pub fn buffer_row_length(mut self, value: u32) -> Self {
+        self.inner.buffer_row_length = value;
+        self
+    }
+    #[inline]
+    pub fn buffer_image_height(mut self, value: u32) -> Self {
+        self.inner.buffer_image_height = value;
+        self
+    }
+    #[inline]
+    pub fn image_subresource(mut self, value: ImageSubresourceLayers) -> Self {
+        self.inner.image_subresource = value;
+        self
+    }
+    #[inline]
+    pub fn image_offset(mut self, value: Offset3D) -> Self {
+        self.inner.image_offset = value;
+        self
+    }
+    #[inline]
+    pub fn image_extent(mut self, value: Extent3D) -> Self {
+        self.inner.image_extent = value;
+        self
+    }
+}
+impl core::ops::Deref for CopyMemoryToImageIndirectCommandKHRBuilder {
+    type Target = CopyMemoryToImageIndirectCommandKHR;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for CopyMemoryToImageIndirectCommandKHRBuilder {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -1376,6 +3289,61 @@ impl<'a> core::ops::DerefMut for CopyMemoryToImageIndirectInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ImageResolve`].
+pub struct ImageResolveBuilder {
+    inner: ImageResolve,
+}
+impl ImageResolve {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> ImageResolveBuilder {
+        ImageResolveBuilder {
+            inner: ImageResolve {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl ImageResolveBuilder {
+    #[inline]
+    pub fn src_subresource(mut self, value: ImageSubresourceLayers) -> Self {
+        self.inner.src_subresource = value;
+        self
+    }
+    #[inline]
+    pub fn src_offset(mut self, value: Offset3D) -> Self {
+        self.inner.src_offset = value;
+        self
+    }
+    #[inline]
+    pub fn dst_subresource(mut self, value: ImageSubresourceLayers) -> Self {
+        self.inner.dst_subresource = value;
+        self
+    }
+    #[inline]
+    pub fn dst_offset(mut self, value: Offset3D) -> Self {
+        self.inner.dst_offset = value;
+        self
+    }
+    #[inline]
+    pub fn extent(mut self, value: Extent3D) -> Self {
+        self.inner.extent = value;
+        self
+    }
+}
+impl core::ops::Deref for ImageResolveBuilder {
+    type Target = ImageResolve;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for ImageResolveBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
 ///Builder for [`ShaderModuleCreateInfo`] with lifetime-tied pNext safety.
 pub struct ShaderModuleCreateInfoBuilder<'a> {
     inner: ShaderModuleCreateInfo,
@@ -1439,6 +3407,59 @@ impl<'a> core::ops::DerefMut for ShaderModuleCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DescriptorSetLayoutBinding`].
+pub struct DescriptorSetLayoutBindingBuilder<'a> {
+    inner: DescriptorSetLayoutBinding,
+    _marker: core::marker::PhantomData<&'a ()>,
+}
+impl DescriptorSetLayoutBinding {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder<'a>() -> DescriptorSetLayoutBindingBuilder<'a> {
+        DescriptorSetLayoutBindingBuilder {
+            inner: DescriptorSetLayoutBinding {
+                ..Default::default()
+            },
+            _marker: core::marker::PhantomData,
+        }
+    }
+}
+impl<'a> DescriptorSetLayoutBindingBuilder<'a> {
+    #[inline]
+    pub fn binding(mut self, value: u32) -> Self {
+        self.inner.binding = value;
+        self
+    }
+    #[inline]
+    pub fn descriptor_type(mut self, value: DescriptorType) -> Self {
+        self.inner.descriptor_type = value;
+        self
+    }
+    #[inline]
+    pub fn stage_flags(mut self, value: ShaderStageFlags) -> Self {
+        self.inner.stage_flags = value;
+        self
+    }
+    #[inline]
+    pub fn immutable_samplers(mut self, slice: &'a [Sampler]) -> Self {
+        self.inner.descriptor_count = slice.len() as u32;
+        self.inner.p_immutable_samplers = slice.as_ptr();
+        self
+    }
+}
+impl<'a> core::ops::Deref for DescriptorSetLayoutBindingBuilder<'a> {
+    type Target = DescriptorSetLayoutBinding;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl<'a> core::ops::DerefMut for DescriptorSetLayoutBindingBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
 ///Builder for [`DescriptorSetLayoutCreateInfo`] with lifetime-tied pNext safety.
 pub struct DescriptorSetLayoutCreateInfoBuilder<'a> {
     inner: DescriptorSetLayoutCreateInfo,
@@ -1493,6 +3514,46 @@ impl<'a> core::ops::Deref for DescriptorSetLayoutCreateInfoBuilder<'a> {
     }
 }
 impl<'a> core::ops::DerefMut for DescriptorSetLayoutCreateInfoBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`DescriptorPoolSize`].
+pub struct DescriptorPoolSizeBuilder {
+    inner: DescriptorPoolSize,
+}
+impl DescriptorPoolSize {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> DescriptorPoolSizeBuilder {
+        DescriptorPoolSizeBuilder {
+            inner: DescriptorPoolSize {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl DescriptorPoolSizeBuilder {
+    #[inline]
+    pub fn r#type(mut self, value: DescriptorType) -> Self {
+        self.inner.r#type = value;
+        self
+    }
+    #[inline]
+    pub fn descriptor_count(mut self, value: u32) -> Self {
+        self.inner.descriptor_count = value;
+        self
+    }
+}
+impl core::ops::Deref for DescriptorPoolSizeBuilder {
+    type Target = DescriptorPoolSize;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for DescriptorPoolSizeBuilder {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -1616,6 +3677,95 @@ impl<'a> core::ops::Deref for DescriptorSetAllocateInfoBuilder<'a> {
     }
 }
 impl<'a> core::ops::DerefMut for DescriptorSetAllocateInfoBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`SpecializationMapEntry`].
+pub struct SpecializationMapEntryBuilder {
+    inner: SpecializationMapEntry,
+}
+impl SpecializationMapEntry {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> SpecializationMapEntryBuilder {
+        SpecializationMapEntryBuilder {
+            inner: SpecializationMapEntry {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl SpecializationMapEntryBuilder {
+    #[inline]
+    pub fn constant_id(mut self, value: u32) -> Self {
+        self.inner.constant_id = value;
+        self
+    }
+    #[inline]
+    pub fn offset(mut self, value: u32) -> Self {
+        self.inner.offset = value;
+        self
+    }
+    #[inline]
+    pub fn size(mut self, value: usize) -> Self {
+        self.inner.size = value;
+        self
+    }
+}
+impl core::ops::Deref for SpecializationMapEntryBuilder {
+    type Target = SpecializationMapEntry;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for SpecializationMapEntryBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`SpecializationInfo`].
+pub struct SpecializationInfoBuilder<'a> {
+    inner: SpecializationInfo,
+    _marker: core::marker::PhantomData<&'a ()>,
+}
+impl SpecializationInfo {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder<'a>() -> SpecializationInfoBuilder<'a> {
+        SpecializationInfoBuilder {
+            inner: SpecializationInfo {
+                ..Default::default()
+            },
+            _marker: core::marker::PhantomData,
+        }
+    }
+}
+impl<'a> SpecializationInfoBuilder<'a> {
+    #[inline]
+    pub fn map_entries(mut self, slice: &'a [SpecializationMapEntry]) -> Self {
+        self.inner.map_entry_count = slice.len() as u32;
+        self.inner.p_map_entries = slice.as_ptr();
+        self
+    }
+    #[inline]
+    pub fn data(mut self, slice: &'a [core::ffi::c_void]) -> Self {
+        self.inner.data_size = slice.len();
+        self.inner.p_data = slice.as_ptr();
+        self
+    }
+}
+impl<'a> core::ops::Deref for SpecializationInfoBuilder<'a> {
+    type Target = SpecializationInfo;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl<'a> core::ops::DerefMut for SpecializationInfoBuilder<'a> {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -1878,6 +4028,101 @@ impl<'a> core::ops::Deref for PipelineCreateFlags2CreateInfoBuilder<'a> {
     }
 }
 impl<'a> core::ops::DerefMut for PipelineCreateFlags2CreateInfoBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`VertexInputBindingDescription`].
+pub struct VertexInputBindingDescriptionBuilder {
+    inner: VertexInputBindingDescription,
+}
+impl VertexInputBindingDescription {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> VertexInputBindingDescriptionBuilder {
+        VertexInputBindingDescriptionBuilder {
+            inner: VertexInputBindingDescription {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl VertexInputBindingDescriptionBuilder {
+    #[inline]
+    pub fn binding(mut self, value: u32) -> Self {
+        self.inner.binding = value;
+        self
+    }
+    #[inline]
+    pub fn stride(mut self, value: u32) -> Self {
+        self.inner.stride = value;
+        self
+    }
+    #[inline]
+    pub fn input_rate(mut self, value: VertexInputRate) -> Self {
+        self.inner.input_rate = value;
+        self
+    }
+}
+impl core::ops::Deref for VertexInputBindingDescriptionBuilder {
+    type Target = VertexInputBindingDescription;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for VertexInputBindingDescriptionBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`VertexInputAttributeDescription`].
+pub struct VertexInputAttributeDescriptionBuilder {
+    inner: VertexInputAttributeDescription,
+}
+impl VertexInputAttributeDescription {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> VertexInputAttributeDescriptionBuilder {
+        VertexInputAttributeDescriptionBuilder {
+            inner: VertexInputAttributeDescription {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl VertexInputAttributeDescriptionBuilder {
+    #[inline]
+    pub fn location(mut self, value: u32) -> Self {
+        self.inner.location = value;
+        self
+    }
+    #[inline]
+    pub fn binding(mut self, value: u32) -> Self {
+        self.inner.binding = value;
+        self
+    }
+    #[inline]
+    pub fn format(mut self, value: Format) -> Self {
+        self.inner.format = value;
+        self
+    }
+    #[inline]
+    pub fn offset(mut self, value: u32) -> Self {
+        self.inner.offset = value;
+        self
+    }
+}
+impl core::ops::Deref for VertexInputAttributeDescriptionBuilder {
+    type Target = VertexInputAttributeDescription;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for VertexInputAttributeDescriptionBuilder {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -2326,6 +4571,76 @@ impl<'a> core::ops::DerefMut for PipelineMultisampleStateCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelineColorBlendAttachmentState`].
+pub struct PipelineColorBlendAttachmentStateBuilder {
+    inner: PipelineColorBlendAttachmentState,
+}
+impl PipelineColorBlendAttachmentState {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> PipelineColorBlendAttachmentStateBuilder {
+        PipelineColorBlendAttachmentStateBuilder {
+            inner: PipelineColorBlendAttachmentState {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl PipelineColorBlendAttachmentStateBuilder {
+    #[inline]
+    pub fn blend_enable(mut self, value: bool) -> Self {
+        self.inner.blend_enable = value as u32;
+        self
+    }
+    #[inline]
+    pub fn src_color_blend_factor(mut self, value: BlendFactor) -> Self {
+        self.inner.src_color_blend_factor = value;
+        self
+    }
+    #[inline]
+    pub fn dst_color_blend_factor(mut self, value: BlendFactor) -> Self {
+        self.inner.dst_color_blend_factor = value;
+        self
+    }
+    #[inline]
+    pub fn color_blend_op(mut self, value: BlendOp) -> Self {
+        self.inner.color_blend_op = value;
+        self
+    }
+    #[inline]
+    pub fn src_alpha_blend_factor(mut self, value: BlendFactor) -> Self {
+        self.inner.src_alpha_blend_factor = value;
+        self
+    }
+    #[inline]
+    pub fn dst_alpha_blend_factor(mut self, value: BlendFactor) -> Self {
+        self.inner.dst_alpha_blend_factor = value;
+        self
+    }
+    #[inline]
+    pub fn alpha_blend_op(mut self, value: BlendOp) -> Self {
+        self.inner.alpha_blend_op = value;
+        self
+    }
+    #[inline]
+    pub fn color_write_mask(mut self, value: ColorComponentFlags) -> Self {
+        self.inner.color_write_mask = value;
+        self
+    }
+}
+impl core::ops::Deref for PipelineColorBlendAttachmentStateBuilder {
+    type Target = PipelineColorBlendAttachmentState;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for PipelineColorBlendAttachmentStateBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
 ///Builder for [`PipelineColorBlendStateCreateInfo`] with lifetime-tied pNext safety.
 pub struct PipelineColorBlendStateCreateInfoBuilder<'a> {
     inner: PipelineColorBlendStateCreateInfo,
@@ -2457,6 +4772,71 @@ impl<'a> core::ops::Deref for PipelineDynamicStateCreateInfoBuilder<'a> {
     }
 }
 impl<'a> core::ops::DerefMut for PipelineDynamicStateCreateInfoBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`StencilOpState`].
+pub struct StencilOpStateBuilder {
+    inner: StencilOpState,
+}
+impl StencilOpState {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> StencilOpStateBuilder {
+        StencilOpStateBuilder {
+            inner: StencilOpState {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl StencilOpStateBuilder {
+    #[inline]
+    pub fn fail_op(mut self, value: StencilOp) -> Self {
+        self.inner.fail_op = value;
+        self
+    }
+    #[inline]
+    pub fn pass_op(mut self, value: StencilOp) -> Self {
+        self.inner.pass_op = value;
+        self
+    }
+    #[inline]
+    pub fn depth_fail_op(mut self, value: StencilOp) -> Self {
+        self.inner.depth_fail_op = value;
+        self
+    }
+    #[inline]
+    pub fn compare_op(mut self, value: CompareOp) -> Self {
+        self.inner.compare_op = value;
+        self
+    }
+    #[inline]
+    pub fn compare_mask(mut self, value: u32) -> Self {
+        self.inner.compare_mask = value;
+        self
+    }
+    #[inline]
+    pub fn write_mask(mut self, value: u32) -> Self {
+        self.inner.write_mask = value;
+        self
+    }
+    #[inline]
+    pub fn reference(mut self, value: u32) -> Self {
+        self.inner.reference = value;
+        self
+    }
+}
+impl core::ops::Deref for StencilOpStateBuilder {
+    type Target = StencilOpState;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for StencilOpStateBuilder {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -2772,6 +5152,329 @@ impl<'a> core::ops::DerefMut for PipelineCacheCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelineCacheHeaderVersionOne`].
+pub struct PipelineCacheHeaderVersionOneBuilder {
+    inner: PipelineCacheHeaderVersionOne,
+}
+impl PipelineCacheHeaderVersionOne {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> PipelineCacheHeaderVersionOneBuilder {
+        PipelineCacheHeaderVersionOneBuilder {
+            inner: PipelineCacheHeaderVersionOne {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl PipelineCacheHeaderVersionOneBuilder {
+    #[inline]
+    pub fn header_size(mut self, value: u32) -> Self {
+        self.inner.header_size = value;
+        self
+    }
+    #[inline]
+    pub fn header_version(mut self, value: PipelineCacheHeaderVersion) -> Self {
+        self.inner.header_version = value;
+        self
+    }
+    #[inline]
+    pub fn vendor_id(mut self, value: u32) -> Self {
+        self.inner.vendor_id = value;
+        self
+    }
+    #[inline]
+    pub fn device_id(mut self, value: u32) -> Self {
+        self.inner.device_id = value;
+        self
+    }
+    #[inline]
+    pub fn pipeline_cache_uuid(mut self, value: [u8; UUID_SIZE as usize]) -> Self {
+        self.inner.pipeline_cache_uuid = value;
+        self
+    }
+}
+impl core::ops::Deref for PipelineCacheHeaderVersionOneBuilder {
+    type Target = PipelineCacheHeaderVersionOne;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for PipelineCacheHeaderVersionOneBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`PipelineCacheStageValidationIndexEntry`].
+pub struct PipelineCacheStageValidationIndexEntryBuilder {
+    inner: PipelineCacheStageValidationIndexEntry,
+}
+impl PipelineCacheStageValidationIndexEntry {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> PipelineCacheStageValidationIndexEntryBuilder {
+        PipelineCacheStageValidationIndexEntryBuilder {
+            inner: PipelineCacheStageValidationIndexEntry {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl PipelineCacheStageValidationIndexEntryBuilder {
+    #[inline]
+    pub fn code_size(mut self, value: u64) -> Self {
+        self.inner.code_size = value;
+        self
+    }
+    #[inline]
+    pub fn code_offset(mut self, value: u64) -> Self {
+        self.inner.code_offset = value;
+        self
+    }
+}
+impl core::ops::Deref for PipelineCacheStageValidationIndexEntryBuilder {
+    type Target = PipelineCacheStageValidationIndexEntry;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for PipelineCacheStageValidationIndexEntryBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`PipelineCacheSafetyCriticalIndexEntry`].
+pub struct PipelineCacheSafetyCriticalIndexEntryBuilder {
+    inner: PipelineCacheSafetyCriticalIndexEntry,
+}
+impl PipelineCacheSafetyCriticalIndexEntry {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> PipelineCacheSafetyCriticalIndexEntryBuilder {
+        PipelineCacheSafetyCriticalIndexEntryBuilder {
+            inner: PipelineCacheSafetyCriticalIndexEntry {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl PipelineCacheSafetyCriticalIndexEntryBuilder {
+    #[inline]
+    pub fn pipeline_identifier(mut self, value: [u8; UUID_SIZE as usize]) -> Self {
+        self.inner.pipeline_identifier = value;
+        self
+    }
+    #[inline]
+    pub fn pipeline_memory_size(mut self, value: u64) -> Self {
+        self.inner.pipeline_memory_size = value;
+        self
+    }
+    #[inline]
+    pub fn json_size(mut self, value: u64) -> Self {
+        self.inner.json_size = value;
+        self
+    }
+    #[inline]
+    pub fn json_offset(mut self, value: u64) -> Self {
+        self.inner.json_offset = value;
+        self
+    }
+    #[inline]
+    pub fn stage_index_count(mut self, value: u32) -> Self {
+        self.inner.stage_index_count = value;
+        self
+    }
+    #[inline]
+    pub fn stage_index_stride(mut self, value: u32) -> Self {
+        self.inner.stage_index_stride = value;
+        self
+    }
+    #[inline]
+    pub fn stage_index_offset(mut self, value: u64) -> Self {
+        self.inner.stage_index_offset = value;
+        self
+    }
+}
+impl core::ops::Deref for PipelineCacheSafetyCriticalIndexEntryBuilder {
+    type Target = PipelineCacheSafetyCriticalIndexEntry;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for PipelineCacheSafetyCriticalIndexEntryBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`PipelineCacheHeaderVersionSafetyCriticalOne`].
+pub struct PipelineCacheHeaderVersionSafetyCriticalOneBuilder {
+    inner: PipelineCacheHeaderVersionSafetyCriticalOne,
+}
+impl PipelineCacheHeaderVersionSafetyCriticalOne {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> PipelineCacheHeaderVersionSafetyCriticalOneBuilder {
+        PipelineCacheHeaderVersionSafetyCriticalOneBuilder {
+            inner: PipelineCacheHeaderVersionSafetyCriticalOne {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl PipelineCacheHeaderVersionSafetyCriticalOneBuilder {
+    #[inline]
+    pub fn header_version_one(mut self, value: PipelineCacheHeaderVersionOne) -> Self {
+        self.inner.header_version_one = value;
+        self
+    }
+    #[inline]
+    pub fn validation_version(mut self, value: PipelineCacheValidationVersion) -> Self {
+        self.inner.validation_version = value;
+        self
+    }
+    #[inline]
+    pub fn implementation_data(mut self, value: u32) -> Self {
+        self.inner.implementation_data = value;
+        self
+    }
+    #[inline]
+    pub fn pipeline_index_count(mut self, value: u32) -> Self {
+        self.inner.pipeline_index_count = value;
+        self
+    }
+    #[inline]
+    pub fn pipeline_index_stride(mut self, value: u32) -> Self {
+        self.inner.pipeline_index_stride = value;
+        self
+    }
+    #[inline]
+    pub fn pipeline_index_offset(mut self, value: u64) -> Self {
+        self.inner.pipeline_index_offset = value;
+        self
+    }
+}
+impl core::ops::Deref for PipelineCacheHeaderVersionSafetyCriticalOneBuilder {
+    type Target = PipelineCacheHeaderVersionSafetyCriticalOne;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for PipelineCacheHeaderVersionSafetyCriticalOneBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`PipelineCacheHeaderVersionDataGraphQCOM`].
+pub struct PipelineCacheHeaderVersionDataGraphQCOMBuilder {
+    inner: PipelineCacheHeaderVersionDataGraphQCOM,
+}
+impl PipelineCacheHeaderVersionDataGraphQCOM {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> PipelineCacheHeaderVersionDataGraphQCOMBuilder {
+        PipelineCacheHeaderVersionDataGraphQCOMBuilder {
+            inner: PipelineCacheHeaderVersionDataGraphQCOM {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl PipelineCacheHeaderVersionDataGraphQCOMBuilder {
+    #[inline]
+    pub fn header_size(mut self, value: u32) -> Self {
+        self.inner.header_size = value;
+        self
+    }
+    #[inline]
+    pub fn header_version(mut self, value: PipelineCacheHeaderVersion) -> Self {
+        self.inner.header_version = value;
+        self
+    }
+    #[inline]
+    pub fn cache_type(mut self, value: DataGraphModelCacheTypeQCOM) -> Self {
+        self.inner.cache_type = value;
+        self
+    }
+    #[inline]
+    pub fn cache_version(mut self, value: u32) -> Self {
+        self.inner.cache_version = value;
+        self
+    }
+    #[inline]
+    pub fn toolchain_version(
+        mut self,
+        value: [u32; DATA_GRAPH_MODEL_TOOLCHAIN_VERSION_LENGTH_QCOM as usize],
+    ) -> Self {
+        self.inner.toolchain_version = value;
+        self
+    }
+}
+impl core::ops::Deref for PipelineCacheHeaderVersionDataGraphQCOMBuilder {
+    type Target = PipelineCacheHeaderVersionDataGraphQCOM;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for PipelineCacheHeaderVersionDataGraphQCOMBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`PushConstantRange`].
+pub struct PushConstantRangeBuilder {
+    inner: PushConstantRange,
+}
+impl PushConstantRange {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> PushConstantRangeBuilder {
+        PushConstantRangeBuilder {
+            inner: PushConstantRange {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl PushConstantRangeBuilder {
+    #[inline]
+    pub fn stage_flags(mut self, value: ShaderStageFlags) -> Self {
+        self.inner.stage_flags = value;
+        self
+    }
+    #[inline]
+    pub fn offset(mut self, value: u32) -> Self {
+        self.inner.offset = value;
+        self
+    }
+    #[inline]
+    pub fn size(mut self, value: u32) -> Self {
+        self.inner.size = value;
+        self
+    }
+}
+impl core::ops::Deref for PushConstantRangeBuilder {
+    type Target = PushConstantRange;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for PushConstantRangeBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
 ///Builder for [`PipelineBinaryCreateInfoKHR`] with lifetime-tied pNext safety.
 pub struct PipelineBinaryCreateInfoKHRBuilder<'a> {
     inner: PipelineBinaryCreateInfoKHR,
@@ -2887,6 +5590,88 @@ impl<'a> core::ops::Deref for PipelineBinaryHandlesInfoKHRBuilder<'a> {
     }
 }
 impl<'a> core::ops::DerefMut for PipelineBinaryHandlesInfoKHRBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`PipelineBinaryDataKHR`].
+pub struct PipelineBinaryDataKHRBuilder<'a> {
+    inner: PipelineBinaryDataKHR,
+    _marker: core::marker::PhantomData<&'a ()>,
+}
+impl PipelineBinaryDataKHR {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder<'a>() -> PipelineBinaryDataKHRBuilder<'a> {
+        PipelineBinaryDataKHRBuilder {
+            inner: PipelineBinaryDataKHR {
+                ..Default::default()
+            },
+            _marker: core::marker::PhantomData,
+        }
+    }
+}
+impl<'a> PipelineBinaryDataKHRBuilder<'a> {
+    #[inline]
+    pub fn data(mut self, slice: &'a mut [core::ffi::c_void]) -> Self {
+        self.inner.data_size = slice.len();
+        self.inner.p_data = slice.as_mut_ptr();
+        self
+    }
+}
+impl<'a> core::ops::Deref for PipelineBinaryDataKHRBuilder<'a> {
+    type Target = PipelineBinaryDataKHR;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl<'a> core::ops::DerefMut for PipelineBinaryDataKHRBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`PipelineBinaryKeysAndDataKHR`].
+pub struct PipelineBinaryKeysAndDataKHRBuilder<'a> {
+    inner: PipelineBinaryKeysAndDataKHR,
+    _marker: core::marker::PhantomData<&'a ()>,
+}
+impl PipelineBinaryKeysAndDataKHR {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder<'a>() -> PipelineBinaryKeysAndDataKHRBuilder<'a> {
+        PipelineBinaryKeysAndDataKHRBuilder {
+            inner: PipelineBinaryKeysAndDataKHR {
+                ..Default::default()
+            },
+            _marker: core::marker::PhantomData,
+        }
+    }
+}
+impl<'a> PipelineBinaryKeysAndDataKHRBuilder<'a> {
+    #[inline]
+    pub fn pipeline_binary_keys(mut self, slice: &'a [PipelineBinaryKeyKHR]) -> Self {
+        self.inner.binary_count = slice.len() as u32;
+        self.inner.p_pipeline_binary_keys = slice.as_ptr();
+        self
+    }
+    #[inline]
+    pub fn pipeline_binary_data(mut self, slice: &'a [PipelineBinaryDataKHR]) -> Self {
+        self.inner.binary_count = slice.len() as u32;
+        self.inner.p_pipeline_binary_data = slice.as_ptr();
+        self
+    }
+}
+impl<'a> core::ops::Deref for PipelineBinaryKeysAndDataKHRBuilder<'a> {
+    type Target = PipelineBinaryKeysAndDataKHR;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl<'a> core::ops::DerefMut for PipelineBinaryKeysAndDataKHRBuilder<'a> {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -3674,6 +6459,342 @@ impl<'a> core::ops::DerefMut for RenderPassBeginInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ClearDepthStencilValue`].
+pub struct ClearDepthStencilValueBuilder {
+    inner: ClearDepthStencilValue,
+}
+impl ClearDepthStencilValue {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> ClearDepthStencilValueBuilder {
+        ClearDepthStencilValueBuilder {
+            inner: ClearDepthStencilValue {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl ClearDepthStencilValueBuilder {
+    #[inline]
+    pub fn depth(mut self, value: f32) -> Self {
+        self.inner.depth = value;
+        self
+    }
+    #[inline]
+    pub fn stencil(mut self, value: u32) -> Self {
+        self.inner.stencil = value;
+        self
+    }
+}
+impl core::ops::Deref for ClearDepthStencilValueBuilder {
+    type Target = ClearDepthStencilValue;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for ClearDepthStencilValueBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`ClearAttachment`].
+pub struct ClearAttachmentBuilder {
+    inner: ClearAttachment,
+}
+impl ClearAttachment {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> ClearAttachmentBuilder {
+        ClearAttachmentBuilder {
+            inner: ClearAttachment {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl ClearAttachmentBuilder {
+    #[inline]
+    pub fn aspect_mask(mut self, value: ImageAspectFlags) -> Self {
+        self.inner.aspect_mask = value;
+        self
+    }
+    #[inline]
+    pub fn color_attachment(mut self, value: u32) -> Self {
+        self.inner.color_attachment = value;
+        self
+    }
+    #[inline]
+    pub fn clear_value(mut self, value: ClearValue) -> Self {
+        self.inner.clear_value = value;
+        self
+    }
+}
+impl core::ops::Deref for ClearAttachmentBuilder {
+    type Target = ClearAttachment;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for ClearAttachmentBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`AttachmentDescription`].
+pub struct AttachmentDescriptionBuilder {
+    inner: AttachmentDescription,
+}
+impl AttachmentDescription {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> AttachmentDescriptionBuilder {
+        AttachmentDescriptionBuilder {
+            inner: AttachmentDescription {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl AttachmentDescriptionBuilder {
+    #[inline]
+    pub fn flags(mut self, value: AttachmentDescriptionFlags) -> Self {
+        self.inner.flags = value;
+        self
+    }
+    #[inline]
+    pub fn format(mut self, value: Format) -> Self {
+        self.inner.format = value;
+        self
+    }
+    #[inline]
+    pub fn samples(mut self, value: SampleCountFlagBits) -> Self {
+        self.inner.samples = value;
+        self
+    }
+    #[inline]
+    pub fn load_op(mut self, value: AttachmentLoadOp) -> Self {
+        self.inner.load_op = value;
+        self
+    }
+    #[inline]
+    pub fn store_op(mut self, value: AttachmentStoreOp) -> Self {
+        self.inner.store_op = value;
+        self
+    }
+    #[inline]
+    pub fn stencil_load_op(mut self, value: AttachmentLoadOp) -> Self {
+        self.inner.stencil_load_op = value;
+        self
+    }
+    #[inline]
+    pub fn stencil_store_op(mut self, value: AttachmentStoreOp) -> Self {
+        self.inner.stencil_store_op = value;
+        self
+    }
+    #[inline]
+    pub fn initial_layout(mut self, value: ImageLayout) -> Self {
+        self.inner.initial_layout = value;
+        self
+    }
+    #[inline]
+    pub fn final_layout(mut self, value: ImageLayout) -> Self {
+        self.inner.final_layout = value;
+        self
+    }
+}
+impl core::ops::Deref for AttachmentDescriptionBuilder {
+    type Target = AttachmentDescription;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for AttachmentDescriptionBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`AttachmentReference`].
+pub struct AttachmentReferenceBuilder {
+    inner: AttachmentReference,
+}
+impl AttachmentReference {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> AttachmentReferenceBuilder {
+        AttachmentReferenceBuilder {
+            inner: AttachmentReference {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl AttachmentReferenceBuilder {
+    #[inline]
+    pub fn attachment(mut self, value: u32) -> Self {
+        self.inner.attachment = value;
+        self
+    }
+    #[inline]
+    pub fn layout(mut self, value: ImageLayout) -> Self {
+        self.inner.layout = value;
+        self
+    }
+}
+impl core::ops::Deref for AttachmentReferenceBuilder {
+    type Target = AttachmentReference;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for AttachmentReferenceBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`SubpassDescription`].
+pub struct SubpassDescriptionBuilder<'a> {
+    inner: SubpassDescription,
+    _marker: core::marker::PhantomData<&'a ()>,
+}
+impl SubpassDescription {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder<'a>() -> SubpassDescriptionBuilder<'a> {
+        SubpassDescriptionBuilder {
+            inner: SubpassDescription {
+                ..Default::default()
+            },
+            _marker: core::marker::PhantomData,
+        }
+    }
+}
+impl<'a> SubpassDescriptionBuilder<'a> {
+    #[inline]
+    pub fn flags(mut self, value: SubpassDescriptionFlags) -> Self {
+        self.inner.flags = value;
+        self
+    }
+    #[inline]
+    pub fn pipeline_bind_point(mut self, value: PipelineBindPoint) -> Self {
+        self.inner.pipeline_bind_point = value;
+        self
+    }
+    #[inline]
+    pub fn input_attachments(mut self, slice: &'a [AttachmentReference]) -> Self {
+        self.inner.input_attachment_count = slice.len() as u32;
+        self.inner.p_input_attachments = slice.as_ptr();
+        self
+    }
+    #[inline]
+    pub fn color_attachments(mut self, slice: &'a [AttachmentReference]) -> Self {
+        self.inner.color_attachment_count = slice.len() as u32;
+        self.inner.p_color_attachments = slice.as_ptr();
+        self
+    }
+    #[inline]
+    pub fn resolve_attachments(mut self, slice: &'a [AttachmentReference]) -> Self {
+        self.inner.color_attachment_count = slice.len() as u32;
+        self.inner.p_resolve_attachments = slice.as_ptr();
+        self
+    }
+    #[inline]
+    pub fn p_depth_stencil_attachment(mut self, value: &'a AttachmentReference) -> Self {
+        self.inner.p_depth_stencil_attachment = value;
+        self
+    }
+    #[inline]
+    pub fn preserve_attachments(mut self, slice: &'a [u32]) -> Self {
+        self.inner.preserve_attachment_count = slice.len() as u32;
+        self.inner.p_preserve_attachments = slice.as_ptr();
+        self
+    }
+}
+impl<'a> core::ops::Deref for SubpassDescriptionBuilder<'a> {
+    type Target = SubpassDescription;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl<'a> core::ops::DerefMut for SubpassDescriptionBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`SubpassDependency`].
+pub struct SubpassDependencyBuilder {
+    inner: SubpassDependency,
+}
+impl SubpassDependency {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> SubpassDependencyBuilder {
+        SubpassDependencyBuilder {
+            inner: SubpassDependency {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl SubpassDependencyBuilder {
+    #[inline]
+    pub fn src_subpass(mut self, value: u32) -> Self {
+        self.inner.src_subpass = value;
+        self
+    }
+    #[inline]
+    pub fn dst_subpass(mut self, value: u32) -> Self {
+        self.inner.dst_subpass = value;
+        self
+    }
+    #[inline]
+    pub fn src_stage_mask(mut self, value: PipelineStageFlags) -> Self {
+        self.inner.src_stage_mask = value;
+        self
+    }
+    #[inline]
+    pub fn dst_stage_mask(mut self, value: PipelineStageFlags) -> Self {
+        self.inner.dst_stage_mask = value;
+        self
+    }
+    #[inline]
+    pub fn src_access_mask(mut self, value: AccessFlags) -> Self {
+        self.inner.src_access_mask = value;
+        self
+    }
+    #[inline]
+    pub fn dst_access_mask(mut self, value: AccessFlags) -> Self {
+        self.inner.dst_access_mask = value;
+        self
+    }
+    #[inline]
+    pub fn dependency_flags(mut self, value: DependencyFlags) -> Self {
+        self.inner.dependency_flags = value;
+        self
+    }
+}
+impl core::ops::Deref for SubpassDependencyBuilder {
+    type Target = SubpassDependency;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for SubpassDependencyBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
 ///Builder for [`RenderPassCreateInfo`] with lifetime-tied pNext safety.
 pub struct RenderPassCreateInfoBuilder<'a> {
     inner: RenderPassCreateInfo,
@@ -3837,6 +6958,947 @@ impl<'a> core::ops::Deref for FenceCreateInfoBuilder<'a> {
     }
 }
 impl<'a> core::ops::DerefMut for FenceCreateInfoBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`PhysicalDeviceFeatures`].
+pub struct PhysicalDeviceFeaturesBuilder {
+    inner: PhysicalDeviceFeatures,
+}
+impl PhysicalDeviceFeatures {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> PhysicalDeviceFeaturesBuilder {
+        PhysicalDeviceFeaturesBuilder {
+            inner: PhysicalDeviceFeatures {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl PhysicalDeviceFeaturesBuilder {
+    #[inline]
+    pub fn robust_buffer_access(mut self, value: bool) -> Self {
+        self.inner.robust_buffer_access = value as u32;
+        self
+    }
+    #[inline]
+    pub fn full_draw_index_uint32(mut self, value: bool) -> Self {
+        self.inner.full_draw_index_uint32 = value as u32;
+        self
+    }
+    #[inline]
+    pub fn image_cube_array(mut self, value: bool) -> Self {
+        self.inner.image_cube_array = value as u32;
+        self
+    }
+    #[inline]
+    pub fn independent_blend(mut self, value: bool) -> Self {
+        self.inner.independent_blend = value as u32;
+        self
+    }
+    #[inline]
+    pub fn geometry_shader(mut self, value: bool) -> Self {
+        self.inner.geometry_shader = value as u32;
+        self
+    }
+    #[inline]
+    pub fn tessellation_shader(mut self, value: bool) -> Self {
+        self.inner.tessellation_shader = value as u32;
+        self
+    }
+    #[inline]
+    pub fn sample_rate_shading(mut self, value: bool) -> Self {
+        self.inner.sample_rate_shading = value as u32;
+        self
+    }
+    #[inline]
+    pub fn dual_src_blend(mut self, value: bool) -> Self {
+        self.inner.dual_src_blend = value as u32;
+        self
+    }
+    #[inline]
+    pub fn logic_op(mut self, value: bool) -> Self {
+        self.inner.logic_op = value as u32;
+        self
+    }
+    #[inline]
+    pub fn multi_draw_indirect(mut self, value: bool) -> Self {
+        self.inner.multi_draw_indirect = value as u32;
+        self
+    }
+    #[inline]
+    pub fn draw_indirect_first_instance(mut self, value: bool) -> Self {
+        self.inner.draw_indirect_first_instance = value as u32;
+        self
+    }
+    #[inline]
+    pub fn depth_clamp(mut self, value: bool) -> Self {
+        self.inner.depth_clamp = value as u32;
+        self
+    }
+    #[inline]
+    pub fn depth_bias_clamp(mut self, value: bool) -> Self {
+        self.inner.depth_bias_clamp = value as u32;
+        self
+    }
+    #[inline]
+    pub fn fill_mode_non_solid(mut self, value: bool) -> Self {
+        self.inner.fill_mode_non_solid = value as u32;
+        self
+    }
+    #[inline]
+    pub fn depth_bounds(mut self, value: bool) -> Self {
+        self.inner.depth_bounds = value as u32;
+        self
+    }
+    #[inline]
+    pub fn wide_lines(mut self, value: bool) -> Self {
+        self.inner.wide_lines = value as u32;
+        self
+    }
+    #[inline]
+    pub fn large_points(mut self, value: bool) -> Self {
+        self.inner.large_points = value as u32;
+        self
+    }
+    #[inline]
+    pub fn alpha_to_one(mut self, value: bool) -> Self {
+        self.inner.alpha_to_one = value as u32;
+        self
+    }
+    #[inline]
+    pub fn multi_viewport(mut self, value: bool) -> Self {
+        self.inner.multi_viewport = value as u32;
+        self
+    }
+    #[inline]
+    pub fn sampler_anisotropy(mut self, value: bool) -> Self {
+        self.inner.sampler_anisotropy = value as u32;
+        self
+    }
+    #[inline]
+    pub fn texture_compression_etc2(mut self, value: bool) -> Self {
+        self.inner.texture_compression_etc2 = value as u32;
+        self
+    }
+    #[inline]
+    pub fn texture_compression_astc_ldr(mut self, value: bool) -> Self {
+        self.inner.texture_compression_astc_ldr = value as u32;
+        self
+    }
+    #[inline]
+    pub fn texture_compression_bc(mut self, value: bool) -> Self {
+        self.inner.texture_compression_bc = value as u32;
+        self
+    }
+    #[inline]
+    pub fn occlusion_query_precise(mut self, value: bool) -> Self {
+        self.inner.occlusion_query_precise = value as u32;
+        self
+    }
+    #[inline]
+    pub fn pipeline_statistics_query(mut self, value: bool) -> Self {
+        self.inner.pipeline_statistics_query = value as u32;
+        self
+    }
+    #[inline]
+    pub fn vertex_pipeline_stores_and_atomics(mut self, value: bool) -> Self {
+        self.inner.vertex_pipeline_stores_and_atomics = value as u32;
+        self
+    }
+    #[inline]
+    pub fn fragment_stores_and_atomics(mut self, value: bool) -> Self {
+        self.inner.fragment_stores_and_atomics = value as u32;
+        self
+    }
+    #[inline]
+    pub fn shader_tessellation_and_geometry_point_size(mut self, value: bool) -> Self {
+        self.inner.shader_tessellation_and_geometry_point_size = value as u32;
+        self
+    }
+    #[inline]
+    pub fn shader_image_gather_extended(mut self, value: bool) -> Self {
+        self.inner.shader_image_gather_extended = value as u32;
+        self
+    }
+    #[inline]
+    pub fn shader_storage_image_extended_formats(mut self, value: bool) -> Self {
+        self.inner.shader_storage_image_extended_formats = value as u32;
+        self
+    }
+    #[inline]
+    pub fn shader_storage_image_multisample(mut self, value: bool) -> Self {
+        self.inner.shader_storage_image_multisample = value as u32;
+        self
+    }
+    #[inline]
+    pub fn shader_storage_image_read_without_format(mut self, value: bool) -> Self {
+        self.inner.shader_storage_image_read_without_format = value as u32;
+        self
+    }
+    #[inline]
+    pub fn shader_storage_image_write_without_format(mut self, value: bool) -> Self {
+        self.inner.shader_storage_image_write_without_format = value as u32;
+        self
+    }
+    #[inline]
+    pub fn shader_uniform_buffer_array_dynamic_indexing(mut self, value: bool) -> Self {
+        self.inner.shader_uniform_buffer_array_dynamic_indexing = value as u32;
+        self
+    }
+    #[inline]
+    pub fn shader_sampled_image_array_dynamic_indexing(mut self, value: bool) -> Self {
+        self.inner.shader_sampled_image_array_dynamic_indexing = value as u32;
+        self
+    }
+    #[inline]
+    pub fn shader_storage_buffer_array_dynamic_indexing(mut self, value: bool) -> Self {
+        self.inner.shader_storage_buffer_array_dynamic_indexing = value as u32;
+        self
+    }
+    #[inline]
+    pub fn shader_storage_image_array_dynamic_indexing(mut self, value: bool) -> Self {
+        self.inner.shader_storage_image_array_dynamic_indexing = value as u32;
+        self
+    }
+    #[inline]
+    pub fn shader_clip_distance(mut self, value: bool) -> Self {
+        self.inner.shader_clip_distance = value as u32;
+        self
+    }
+    #[inline]
+    pub fn shader_cull_distance(mut self, value: bool) -> Self {
+        self.inner.shader_cull_distance = value as u32;
+        self
+    }
+    #[inline]
+    pub fn shader_float64(mut self, value: bool) -> Self {
+        self.inner.shader_float64 = value as u32;
+        self
+    }
+    #[inline]
+    pub fn shader_int64(mut self, value: bool) -> Self {
+        self.inner.shader_int64 = value as u32;
+        self
+    }
+    #[inline]
+    pub fn shader_int16(mut self, value: bool) -> Self {
+        self.inner.shader_int16 = value as u32;
+        self
+    }
+    #[inline]
+    pub fn shader_resource_residency(mut self, value: bool) -> Self {
+        self.inner.shader_resource_residency = value as u32;
+        self
+    }
+    #[inline]
+    pub fn shader_resource_min_lod(mut self, value: bool) -> Self {
+        self.inner.shader_resource_min_lod = value as u32;
+        self
+    }
+    #[inline]
+    pub fn sparse_binding(mut self, value: bool) -> Self {
+        self.inner.sparse_binding = value as u32;
+        self
+    }
+    #[inline]
+    pub fn sparse_residency_buffer(mut self, value: bool) -> Self {
+        self.inner.sparse_residency_buffer = value as u32;
+        self
+    }
+    #[inline]
+    pub fn sparse_residency_image2_d(mut self, value: bool) -> Self {
+        self.inner.sparse_residency_image2_d = value as u32;
+        self
+    }
+    #[inline]
+    pub fn sparse_residency_image3_d(mut self, value: bool) -> Self {
+        self.inner.sparse_residency_image3_d = value as u32;
+        self
+    }
+    #[inline]
+    pub fn sparse_residency2_samples(mut self, value: bool) -> Self {
+        self.inner.sparse_residency2_samples = value as u32;
+        self
+    }
+    #[inline]
+    pub fn sparse_residency4_samples(mut self, value: bool) -> Self {
+        self.inner.sparse_residency4_samples = value as u32;
+        self
+    }
+    #[inline]
+    pub fn sparse_residency8_samples(mut self, value: bool) -> Self {
+        self.inner.sparse_residency8_samples = value as u32;
+        self
+    }
+    #[inline]
+    pub fn sparse_residency16_samples(mut self, value: bool) -> Self {
+        self.inner.sparse_residency16_samples = value as u32;
+        self
+    }
+    #[inline]
+    pub fn sparse_residency_aliased(mut self, value: bool) -> Self {
+        self.inner.sparse_residency_aliased = value as u32;
+        self
+    }
+    #[inline]
+    pub fn variable_multisample_rate(mut self, value: bool) -> Self {
+        self.inner.variable_multisample_rate = value as u32;
+        self
+    }
+    #[inline]
+    pub fn inherited_queries(mut self, value: bool) -> Self {
+        self.inner.inherited_queries = value as u32;
+        self
+    }
+}
+impl core::ops::Deref for PhysicalDeviceFeaturesBuilder {
+    type Target = PhysicalDeviceFeatures;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for PhysicalDeviceFeaturesBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`PhysicalDeviceSparseProperties`].
+pub struct PhysicalDeviceSparsePropertiesBuilder {
+    inner: PhysicalDeviceSparseProperties,
+}
+impl PhysicalDeviceSparseProperties {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> PhysicalDeviceSparsePropertiesBuilder {
+        PhysicalDeviceSparsePropertiesBuilder {
+            inner: PhysicalDeviceSparseProperties {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl PhysicalDeviceSparsePropertiesBuilder {
+    #[inline]
+    pub fn residency_standard2_d_block_shape(mut self, value: bool) -> Self {
+        self.inner.residency_standard2_d_block_shape = value as u32;
+        self
+    }
+    #[inline]
+    pub fn residency_standard2_d_multisample_block_shape(mut self, value: bool) -> Self {
+        self.inner.residency_standard2_d_multisample_block_shape = value as u32;
+        self
+    }
+    #[inline]
+    pub fn residency_standard3_d_block_shape(mut self, value: bool) -> Self {
+        self.inner.residency_standard3_d_block_shape = value as u32;
+        self
+    }
+    #[inline]
+    pub fn residency_aligned_mip_size(mut self, value: bool) -> Self {
+        self.inner.residency_aligned_mip_size = value as u32;
+        self
+    }
+    #[inline]
+    pub fn residency_non_resident_strict(mut self, value: bool) -> Self {
+        self.inner.residency_non_resident_strict = value as u32;
+        self
+    }
+}
+impl core::ops::Deref for PhysicalDeviceSparsePropertiesBuilder {
+    type Target = PhysicalDeviceSparseProperties;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for PhysicalDeviceSparsePropertiesBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`PhysicalDeviceLimits`].
+pub struct PhysicalDeviceLimitsBuilder {
+    inner: PhysicalDeviceLimits,
+}
+impl PhysicalDeviceLimits {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> PhysicalDeviceLimitsBuilder {
+        PhysicalDeviceLimitsBuilder {
+            inner: PhysicalDeviceLimits {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl PhysicalDeviceLimitsBuilder {
+    #[inline]
+    pub fn max_image_dimension1_d(mut self, value: u32) -> Self {
+        self.inner.max_image_dimension1_d = value;
+        self
+    }
+    #[inline]
+    pub fn max_image_dimension2_d(mut self, value: u32) -> Self {
+        self.inner.max_image_dimension2_d = value;
+        self
+    }
+    #[inline]
+    pub fn max_image_dimension3_d(mut self, value: u32) -> Self {
+        self.inner.max_image_dimension3_d = value;
+        self
+    }
+    #[inline]
+    pub fn max_image_dimension_cube(mut self, value: u32) -> Self {
+        self.inner.max_image_dimension_cube = value;
+        self
+    }
+    #[inline]
+    pub fn max_image_array_layers(mut self, value: u32) -> Self {
+        self.inner.max_image_array_layers = value;
+        self
+    }
+    #[inline]
+    pub fn max_texel_buffer_elements(mut self, value: u32) -> Self {
+        self.inner.max_texel_buffer_elements = value;
+        self
+    }
+    #[inline]
+    pub fn max_uniform_buffer_range(mut self, value: u32) -> Self {
+        self.inner.max_uniform_buffer_range = value;
+        self
+    }
+    #[inline]
+    pub fn max_storage_buffer_range(mut self, value: u32) -> Self {
+        self.inner.max_storage_buffer_range = value;
+        self
+    }
+    #[inline]
+    pub fn max_push_constants_size(mut self, value: u32) -> Self {
+        self.inner.max_push_constants_size = value;
+        self
+    }
+    #[inline]
+    pub fn max_memory_allocation_count(mut self, value: u32) -> Self {
+        self.inner.max_memory_allocation_count = value;
+        self
+    }
+    #[inline]
+    pub fn max_sampler_allocation_count(mut self, value: u32) -> Self {
+        self.inner.max_sampler_allocation_count = value;
+        self
+    }
+    #[inline]
+    pub fn buffer_image_granularity(mut self, value: u64) -> Self {
+        self.inner.buffer_image_granularity = value;
+        self
+    }
+    #[inline]
+    pub fn sparse_address_space_size(mut self, value: u64) -> Self {
+        self.inner.sparse_address_space_size = value;
+        self
+    }
+    #[inline]
+    pub fn max_bound_descriptor_sets(mut self, value: u32) -> Self {
+        self.inner.max_bound_descriptor_sets = value;
+        self
+    }
+    #[inline]
+    pub fn max_per_stage_descriptor_samplers(mut self, value: u32) -> Self {
+        self.inner.max_per_stage_descriptor_samplers = value;
+        self
+    }
+    #[inline]
+    pub fn max_per_stage_descriptor_uniform_buffers(mut self, value: u32) -> Self {
+        self.inner.max_per_stage_descriptor_uniform_buffers = value;
+        self
+    }
+    #[inline]
+    pub fn max_per_stage_descriptor_storage_buffers(mut self, value: u32) -> Self {
+        self.inner.max_per_stage_descriptor_storage_buffers = value;
+        self
+    }
+    #[inline]
+    pub fn max_per_stage_descriptor_sampled_images(mut self, value: u32) -> Self {
+        self.inner.max_per_stage_descriptor_sampled_images = value;
+        self
+    }
+    #[inline]
+    pub fn max_per_stage_descriptor_storage_images(mut self, value: u32) -> Self {
+        self.inner.max_per_stage_descriptor_storage_images = value;
+        self
+    }
+    #[inline]
+    pub fn max_per_stage_descriptor_input_attachments(mut self, value: u32) -> Self {
+        self.inner.max_per_stage_descriptor_input_attachments = value;
+        self
+    }
+    #[inline]
+    pub fn max_per_stage_resources(mut self, value: u32) -> Self {
+        self.inner.max_per_stage_resources = value;
+        self
+    }
+    #[inline]
+    pub fn max_descriptor_set_samplers(mut self, value: u32) -> Self {
+        self.inner.max_descriptor_set_samplers = value;
+        self
+    }
+    #[inline]
+    pub fn max_descriptor_set_uniform_buffers(mut self, value: u32) -> Self {
+        self.inner.max_descriptor_set_uniform_buffers = value;
+        self
+    }
+    #[inline]
+    pub fn max_descriptor_set_uniform_buffers_dynamic(mut self, value: u32) -> Self {
+        self.inner.max_descriptor_set_uniform_buffers_dynamic = value;
+        self
+    }
+    #[inline]
+    pub fn max_descriptor_set_storage_buffers(mut self, value: u32) -> Self {
+        self.inner.max_descriptor_set_storage_buffers = value;
+        self
+    }
+    #[inline]
+    pub fn max_descriptor_set_storage_buffers_dynamic(mut self, value: u32) -> Self {
+        self.inner.max_descriptor_set_storage_buffers_dynamic = value;
+        self
+    }
+    #[inline]
+    pub fn max_descriptor_set_sampled_images(mut self, value: u32) -> Self {
+        self.inner.max_descriptor_set_sampled_images = value;
+        self
+    }
+    #[inline]
+    pub fn max_descriptor_set_storage_images(mut self, value: u32) -> Self {
+        self.inner.max_descriptor_set_storage_images = value;
+        self
+    }
+    #[inline]
+    pub fn max_descriptor_set_input_attachments(mut self, value: u32) -> Self {
+        self.inner.max_descriptor_set_input_attachments = value;
+        self
+    }
+    #[inline]
+    pub fn max_vertex_input_attributes(mut self, value: u32) -> Self {
+        self.inner.max_vertex_input_attributes = value;
+        self
+    }
+    #[inline]
+    pub fn max_vertex_input_bindings(mut self, value: u32) -> Self {
+        self.inner.max_vertex_input_bindings = value;
+        self
+    }
+    #[inline]
+    pub fn max_vertex_input_attribute_offset(mut self, value: u32) -> Self {
+        self.inner.max_vertex_input_attribute_offset = value;
+        self
+    }
+    #[inline]
+    pub fn max_vertex_input_binding_stride(mut self, value: u32) -> Self {
+        self.inner.max_vertex_input_binding_stride = value;
+        self
+    }
+    #[inline]
+    pub fn max_vertex_output_components(mut self, value: u32) -> Self {
+        self.inner.max_vertex_output_components = value;
+        self
+    }
+    #[inline]
+    pub fn max_tessellation_generation_level(mut self, value: u32) -> Self {
+        self.inner.max_tessellation_generation_level = value;
+        self
+    }
+    #[inline]
+    pub fn max_tessellation_patch_size(mut self, value: u32) -> Self {
+        self.inner.max_tessellation_patch_size = value;
+        self
+    }
+    #[inline]
+    pub fn max_tessellation_control_per_vertex_input_components(
+        mut self,
+        value: u32,
+    ) -> Self {
+        self.inner.max_tessellation_control_per_vertex_input_components = value;
+        self
+    }
+    #[inline]
+    pub fn max_tessellation_control_per_vertex_output_components(
+        mut self,
+        value: u32,
+    ) -> Self {
+        self.inner.max_tessellation_control_per_vertex_output_components = value;
+        self
+    }
+    #[inline]
+    pub fn max_tessellation_control_per_patch_output_components(
+        mut self,
+        value: u32,
+    ) -> Self {
+        self.inner.max_tessellation_control_per_patch_output_components = value;
+        self
+    }
+    #[inline]
+    pub fn max_tessellation_control_total_output_components(
+        mut self,
+        value: u32,
+    ) -> Self {
+        self.inner.max_tessellation_control_total_output_components = value;
+        self
+    }
+    #[inline]
+    pub fn max_tessellation_evaluation_input_components(mut self, value: u32) -> Self {
+        self.inner.max_tessellation_evaluation_input_components = value;
+        self
+    }
+    #[inline]
+    pub fn max_tessellation_evaluation_output_components(mut self, value: u32) -> Self {
+        self.inner.max_tessellation_evaluation_output_components = value;
+        self
+    }
+    #[inline]
+    pub fn max_geometry_shader_invocations(mut self, value: u32) -> Self {
+        self.inner.max_geometry_shader_invocations = value;
+        self
+    }
+    #[inline]
+    pub fn max_geometry_input_components(mut self, value: u32) -> Self {
+        self.inner.max_geometry_input_components = value;
+        self
+    }
+    #[inline]
+    pub fn max_geometry_output_components(mut self, value: u32) -> Self {
+        self.inner.max_geometry_output_components = value;
+        self
+    }
+    #[inline]
+    pub fn max_geometry_output_vertices(mut self, value: u32) -> Self {
+        self.inner.max_geometry_output_vertices = value;
+        self
+    }
+    #[inline]
+    pub fn max_geometry_total_output_components(mut self, value: u32) -> Self {
+        self.inner.max_geometry_total_output_components = value;
+        self
+    }
+    #[inline]
+    pub fn max_fragment_input_components(mut self, value: u32) -> Self {
+        self.inner.max_fragment_input_components = value;
+        self
+    }
+    #[inline]
+    pub fn max_fragment_output_attachments(mut self, value: u32) -> Self {
+        self.inner.max_fragment_output_attachments = value;
+        self
+    }
+    #[inline]
+    pub fn max_fragment_dual_src_attachments(mut self, value: u32) -> Self {
+        self.inner.max_fragment_dual_src_attachments = value;
+        self
+    }
+    #[inline]
+    pub fn max_fragment_combined_output_resources(mut self, value: u32) -> Self {
+        self.inner.max_fragment_combined_output_resources = value;
+        self
+    }
+    #[inline]
+    pub fn max_compute_shared_memory_size(mut self, value: u32) -> Self {
+        self.inner.max_compute_shared_memory_size = value;
+        self
+    }
+    #[inline]
+    pub fn max_compute_work_group_count(mut self, value: [u32; 3usize]) -> Self {
+        self.inner.max_compute_work_group_count = value;
+        self
+    }
+    #[inline]
+    pub fn max_compute_work_group_invocations(mut self, value: u32) -> Self {
+        self.inner.max_compute_work_group_invocations = value;
+        self
+    }
+    #[inline]
+    pub fn max_compute_work_group_size(mut self, value: [u32; 3usize]) -> Self {
+        self.inner.max_compute_work_group_size = value;
+        self
+    }
+    #[inline]
+    pub fn sub_pixel_precision_bits(mut self, value: u32) -> Self {
+        self.inner.sub_pixel_precision_bits = value;
+        self
+    }
+    #[inline]
+    pub fn sub_texel_precision_bits(mut self, value: u32) -> Self {
+        self.inner.sub_texel_precision_bits = value;
+        self
+    }
+    #[inline]
+    pub fn mipmap_precision_bits(mut self, value: u32) -> Self {
+        self.inner.mipmap_precision_bits = value;
+        self
+    }
+    #[inline]
+    pub fn max_draw_indexed_index_value(mut self, value: u32) -> Self {
+        self.inner.max_draw_indexed_index_value = value;
+        self
+    }
+    #[inline]
+    pub fn max_draw_indirect_count(mut self, value: u32) -> Self {
+        self.inner.max_draw_indirect_count = value;
+        self
+    }
+    #[inline]
+    pub fn max_sampler_lod_bias(mut self, value: f32) -> Self {
+        self.inner.max_sampler_lod_bias = value;
+        self
+    }
+    #[inline]
+    pub fn max_sampler_anisotropy(mut self, value: f32) -> Self {
+        self.inner.max_sampler_anisotropy = value;
+        self
+    }
+    #[inline]
+    pub fn max_viewports(mut self, value: u32) -> Self {
+        self.inner.max_viewports = value;
+        self
+    }
+    #[inline]
+    pub fn max_viewport_dimensions(mut self, value: [u32; 2usize]) -> Self {
+        self.inner.max_viewport_dimensions = value;
+        self
+    }
+    #[inline]
+    pub fn viewport_bounds_range(mut self, value: [f32; 2usize]) -> Self {
+        self.inner.viewport_bounds_range = value;
+        self
+    }
+    #[inline]
+    pub fn viewport_sub_pixel_bits(mut self, value: u32) -> Self {
+        self.inner.viewport_sub_pixel_bits = value;
+        self
+    }
+    #[inline]
+    pub fn min_memory_map_alignment(mut self, value: usize) -> Self {
+        self.inner.min_memory_map_alignment = value;
+        self
+    }
+    #[inline]
+    pub fn min_texel_buffer_offset_alignment(mut self, value: u64) -> Self {
+        self.inner.min_texel_buffer_offset_alignment = value;
+        self
+    }
+    #[inline]
+    pub fn min_uniform_buffer_offset_alignment(mut self, value: u64) -> Self {
+        self.inner.min_uniform_buffer_offset_alignment = value;
+        self
+    }
+    #[inline]
+    pub fn min_storage_buffer_offset_alignment(mut self, value: u64) -> Self {
+        self.inner.min_storage_buffer_offset_alignment = value;
+        self
+    }
+    #[inline]
+    pub fn min_texel_offset(mut self, value: i32) -> Self {
+        self.inner.min_texel_offset = value;
+        self
+    }
+    #[inline]
+    pub fn max_texel_offset(mut self, value: u32) -> Self {
+        self.inner.max_texel_offset = value;
+        self
+    }
+    #[inline]
+    pub fn min_texel_gather_offset(mut self, value: i32) -> Self {
+        self.inner.min_texel_gather_offset = value;
+        self
+    }
+    #[inline]
+    pub fn max_texel_gather_offset(mut self, value: u32) -> Self {
+        self.inner.max_texel_gather_offset = value;
+        self
+    }
+    #[inline]
+    pub fn min_interpolation_offset(mut self, value: f32) -> Self {
+        self.inner.min_interpolation_offset = value;
+        self
+    }
+    #[inline]
+    pub fn max_interpolation_offset(mut self, value: f32) -> Self {
+        self.inner.max_interpolation_offset = value;
+        self
+    }
+    #[inline]
+    pub fn sub_pixel_interpolation_offset_bits(mut self, value: u32) -> Self {
+        self.inner.sub_pixel_interpolation_offset_bits = value;
+        self
+    }
+    #[inline]
+    pub fn max_framebuffer_width(mut self, value: u32) -> Self {
+        self.inner.max_framebuffer_width = value;
+        self
+    }
+    #[inline]
+    pub fn max_framebuffer_height(mut self, value: u32) -> Self {
+        self.inner.max_framebuffer_height = value;
+        self
+    }
+    #[inline]
+    pub fn max_framebuffer_layers(mut self, value: u32) -> Self {
+        self.inner.max_framebuffer_layers = value;
+        self
+    }
+    #[inline]
+    pub fn framebuffer_color_sample_counts(mut self, value: SampleCountFlags) -> Self {
+        self.inner.framebuffer_color_sample_counts = value;
+        self
+    }
+    #[inline]
+    pub fn framebuffer_depth_sample_counts(mut self, value: SampleCountFlags) -> Self {
+        self.inner.framebuffer_depth_sample_counts = value;
+        self
+    }
+    #[inline]
+    pub fn framebuffer_stencil_sample_counts(mut self, value: SampleCountFlags) -> Self {
+        self.inner.framebuffer_stencil_sample_counts = value;
+        self
+    }
+    #[inline]
+    pub fn framebuffer_no_attachments_sample_counts(
+        mut self,
+        value: SampleCountFlags,
+    ) -> Self {
+        self.inner.framebuffer_no_attachments_sample_counts = value;
+        self
+    }
+    #[inline]
+    pub fn max_color_attachments(mut self, value: u32) -> Self {
+        self.inner.max_color_attachments = value;
+        self
+    }
+    #[inline]
+    pub fn sampled_image_color_sample_counts(mut self, value: SampleCountFlags) -> Self {
+        self.inner.sampled_image_color_sample_counts = value;
+        self
+    }
+    #[inline]
+    pub fn sampled_image_integer_sample_counts(
+        mut self,
+        value: SampleCountFlags,
+    ) -> Self {
+        self.inner.sampled_image_integer_sample_counts = value;
+        self
+    }
+    #[inline]
+    pub fn sampled_image_depth_sample_counts(mut self, value: SampleCountFlags) -> Self {
+        self.inner.sampled_image_depth_sample_counts = value;
+        self
+    }
+    #[inline]
+    pub fn sampled_image_stencil_sample_counts(
+        mut self,
+        value: SampleCountFlags,
+    ) -> Self {
+        self.inner.sampled_image_stencil_sample_counts = value;
+        self
+    }
+    #[inline]
+    pub fn storage_image_sample_counts(mut self, value: SampleCountFlags) -> Self {
+        self.inner.storage_image_sample_counts = value;
+        self
+    }
+    #[inline]
+    pub fn max_sample_mask_words(mut self, value: u32) -> Self {
+        self.inner.max_sample_mask_words = value;
+        self
+    }
+    #[inline]
+    pub fn timestamp_compute_and_graphics(mut self, value: bool) -> Self {
+        self.inner.timestamp_compute_and_graphics = value as u32;
+        self
+    }
+    #[inline]
+    pub fn timestamp_period(mut self, value: f32) -> Self {
+        self.inner.timestamp_period = value;
+        self
+    }
+    #[inline]
+    pub fn max_clip_distances(mut self, value: u32) -> Self {
+        self.inner.max_clip_distances = value;
+        self
+    }
+    #[inline]
+    pub fn max_cull_distances(mut self, value: u32) -> Self {
+        self.inner.max_cull_distances = value;
+        self
+    }
+    #[inline]
+    pub fn max_combined_clip_and_cull_distances(mut self, value: u32) -> Self {
+        self.inner.max_combined_clip_and_cull_distances = value;
+        self
+    }
+    #[inline]
+    pub fn discrete_queue_priorities(mut self, value: u32) -> Self {
+        self.inner.discrete_queue_priorities = value;
+        self
+    }
+    #[inline]
+    pub fn point_size_range(mut self, value: [f32; 2usize]) -> Self {
+        self.inner.point_size_range = value;
+        self
+    }
+    #[inline]
+    pub fn line_width_range(mut self, value: [f32; 2usize]) -> Self {
+        self.inner.line_width_range = value;
+        self
+    }
+    #[inline]
+    pub fn point_size_granularity(mut self, value: f32) -> Self {
+        self.inner.point_size_granularity = value;
+        self
+    }
+    #[inline]
+    pub fn line_width_granularity(mut self, value: f32) -> Self {
+        self.inner.line_width_granularity = value;
+        self
+    }
+    #[inline]
+    pub fn strict_lines(mut self, value: bool) -> Self {
+        self.inner.strict_lines = value as u32;
+        self
+    }
+    #[inline]
+    pub fn standard_sample_locations(mut self, value: bool) -> Self {
+        self.inner.standard_sample_locations = value as u32;
+        self
+    }
+    #[inline]
+    pub fn optimal_buffer_copy_offset_alignment(mut self, value: u64) -> Self {
+        self.inner.optimal_buffer_copy_offset_alignment = value;
+        self
+    }
+    #[inline]
+    pub fn optimal_buffer_copy_row_pitch_alignment(mut self, value: u64) -> Self {
+        self.inner.optimal_buffer_copy_row_pitch_alignment = value;
+        self
+    }
+    #[inline]
+    pub fn non_coherent_atom_size(mut self, value: u64) -> Self {
+        self.inner.non_coherent_atom_size = value;
+        self
+    }
+}
+impl core::ops::Deref for PhysicalDeviceLimitsBuilder {
+    type Target = PhysicalDeviceLimits;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for PhysicalDeviceLimitsBuilder {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -4036,6 +8098,241 @@ impl<'a> core::ops::DerefMut for FramebufferCreateInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DrawIndirectCommand`].
+pub struct DrawIndirectCommandBuilder {
+    inner: DrawIndirectCommand,
+}
+impl DrawIndirectCommand {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> DrawIndirectCommandBuilder {
+        DrawIndirectCommandBuilder {
+            inner: DrawIndirectCommand {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl DrawIndirectCommandBuilder {
+    #[inline]
+    pub fn vertex_count(mut self, value: u32) -> Self {
+        self.inner.vertex_count = value;
+        self
+    }
+    #[inline]
+    pub fn instance_count(mut self, value: u32) -> Self {
+        self.inner.instance_count = value;
+        self
+    }
+    #[inline]
+    pub fn first_vertex(mut self, value: u32) -> Self {
+        self.inner.first_vertex = value;
+        self
+    }
+    #[inline]
+    pub fn first_instance(mut self, value: u32) -> Self {
+        self.inner.first_instance = value;
+        self
+    }
+}
+impl core::ops::Deref for DrawIndirectCommandBuilder {
+    type Target = DrawIndirectCommand;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for DrawIndirectCommandBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`DrawIndexedIndirectCommand`].
+pub struct DrawIndexedIndirectCommandBuilder {
+    inner: DrawIndexedIndirectCommand,
+}
+impl DrawIndexedIndirectCommand {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> DrawIndexedIndirectCommandBuilder {
+        DrawIndexedIndirectCommandBuilder {
+            inner: DrawIndexedIndirectCommand {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl DrawIndexedIndirectCommandBuilder {
+    #[inline]
+    pub fn index_count(mut self, value: u32) -> Self {
+        self.inner.index_count = value;
+        self
+    }
+    #[inline]
+    pub fn instance_count(mut self, value: u32) -> Self {
+        self.inner.instance_count = value;
+        self
+    }
+    #[inline]
+    pub fn first_index(mut self, value: u32) -> Self {
+        self.inner.first_index = value;
+        self
+    }
+    #[inline]
+    pub fn vertex_offset(mut self, value: i32) -> Self {
+        self.inner.vertex_offset = value;
+        self
+    }
+    #[inline]
+    pub fn first_instance(mut self, value: u32) -> Self {
+        self.inner.first_instance = value;
+        self
+    }
+}
+impl core::ops::Deref for DrawIndexedIndirectCommandBuilder {
+    type Target = DrawIndexedIndirectCommand;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for DrawIndexedIndirectCommandBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`DispatchIndirectCommand`].
+pub struct DispatchIndirectCommandBuilder {
+    inner: DispatchIndirectCommand,
+}
+impl DispatchIndirectCommand {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> DispatchIndirectCommandBuilder {
+        DispatchIndirectCommandBuilder {
+            inner: DispatchIndirectCommand {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl DispatchIndirectCommandBuilder {
+    #[inline]
+    pub fn x(mut self, value: u32) -> Self {
+        self.inner.x = value;
+        self
+    }
+    #[inline]
+    pub fn y(mut self, value: u32) -> Self {
+        self.inner.y = value;
+        self
+    }
+    #[inline]
+    pub fn z(mut self, value: u32) -> Self {
+        self.inner.z = value;
+        self
+    }
+}
+impl core::ops::Deref for DispatchIndirectCommandBuilder {
+    type Target = DispatchIndirectCommand;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for DispatchIndirectCommandBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`MultiDrawInfoEXT`].
+pub struct MultiDrawInfoEXTBuilder {
+    inner: MultiDrawInfoEXT,
+}
+impl MultiDrawInfoEXT {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> MultiDrawInfoEXTBuilder {
+        MultiDrawInfoEXTBuilder {
+            inner: MultiDrawInfoEXT {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl MultiDrawInfoEXTBuilder {
+    #[inline]
+    pub fn first_vertex(mut self, value: u32) -> Self {
+        self.inner.first_vertex = value;
+        self
+    }
+    #[inline]
+    pub fn vertex_count(mut self, value: u32) -> Self {
+        self.inner.vertex_count = value;
+        self
+    }
+}
+impl core::ops::Deref for MultiDrawInfoEXTBuilder {
+    type Target = MultiDrawInfoEXT;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for MultiDrawInfoEXTBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`MultiDrawIndexedInfoEXT`].
+pub struct MultiDrawIndexedInfoEXTBuilder {
+    inner: MultiDrawIndexedInfoEXT,
+}
+impl MultiDrawIndexedInfoEXT {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> MultiDrawIndexedInfoEXTBuilder {
+        MultiDrawIndexedInfoEXTBuilder {
+            inner: MultiDrawIndexedInfoEXT {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl MultiDrawIndexedInfoEXTBuilder {
+    #[inline]
+    pub fn first_index(mut self, value: u32) -> Self {
+        self.inner.first_index = value;
+        self
+    }
+    #[inline]
+    pub fn index_count(mut self, value: u32) -> Self {
+        self.inner.index_count = value;
+        self
+    }
+    #[inline]
+    pub fn vertex_offset(mut self, value: i32) -> Self {
+        self.inner.vertex_offset = value;
+        self
+    }
+}
+impl core::ops::Deref for MultiDrawIndexedInfoEXTBuilder {
+    type Target = MultiDrawIndexedInfoEXT;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for MultiDrawIndexedInfoEXTBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
 ///Builder for [`SubmitInfo`] with lifetime-tied pNext safety.
 pub struct SubmitInfoBuilder<'a> {
     inner: SubmitInfo,
@@ -4105,6 +8402,193 @@ impl<'a> core::ops::DerefMut for SubmitInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DisplayPropertiesKHR`].
+pub struct DisplayPropertiesKHRBuilder<'a> {
+    inner: DisplayPropertiesKHR,
+    _marker: core::marker::PhantomData<&'a ()>,
+}
+impl DisplayPropertiesKHR {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder<'a>() -> DisplayPropertiesKHRBuilder<'a> {
+        DisplayPropertiesKHRBuilder {
+            inner: DisplayPropertiesKHR {
+                ..Default::default()
+            },
+            _marker: core::marker::PhantomData,
+        }
+    }
+}
+impl<'a> DisplayPropertiesKHRBuilder<'a> {
+    #[inline]
+    pub fn display(mut self, value: DisplayKHR) -> Self {
+        self.inner.display = value;
+        self
+    }
+    #[inline]
+    pub fn display_name(mut self, value: &'a core::ffi::CStr) -> Self {
+        self.inner.display_name = value.as_ptr();
+        self
+    }
+    #[inline]
+    pub fn physical_dimensions(mut self, value: Extent2D) -> Self {
+        self.inner.physical_dimensions = value;
+        self
+    }
+    #[inline]
+    pub fn physical_resolution(mut self, value: Extent2D) -> Self {
+        self.inner.physical_resolution = value;
+        self
+    }
+    #[inline]
+    pub fn supported_transforms(mut self, value: SurfaceTransformFlagsKHR) -> Self {
+        self.inner.supported_transforms = value;
+        self
+    }
+    #[inline]
+    pub fn plane_reorder_possible(mut self, value: bool) -> Self {
+        self.inner.plane_reorder_possible = value as u32;
+        self
+    }
+    #[inline]
+    pub fn persistent_content(mut self, value: bool) -> Self {
+        self.inner.persistent_content = value as u32;
+        self
+    }
+}
+impl<'a> core::ops::Deref for DisplayPropertiesKHRBuilder<'a> {
+    type Target = DisplayPropertiesKHR;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl<'a> core::ops::DerefMut for DisplayPropertiesKHRBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`DisplayPlanePropertiesKHR`].
+pub struct DisplayPlanePropertiesKHRBuilder {
+    inner: DisplayPlanePropertiesKHR,
+}
+impl DisplayPlanePropertiesKHR {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> DisplayPlanePropertiesKHRBuilder {
+        DisplayPlanePropertiesKHRBuilder {
+            inner: DisplayPlanePropertiesKHR {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl DisplayPlanePropertiesKHRBuilder {
+    #[inline]
+    pub fn current_display(mut self, value: DisplayKHR) -> Self {
+        self.inner.current_display = value;
+        self
+    }
+    #[inline]
+    pub fn current_stack_index(mut self, value: u32) -> Self {
+        self.inner.current_stack_index = value;
+        self
+    }
+}
+impl core::ops::Deref for DisplayPlanePropertiesKHRBuilder {
+    type Target = DisplayPlanePropertiesKHR;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for DisplayPlanePropertiesKHRBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`DisplayModeParametersKHR`].
+pub struct DisplayModeParametersKHRBuilder {
+    inner: DisplayModeParametersKHR,
+}
+impl DisplayModeParametersKHR {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> DisplayModeParametersKHRBuilder {
+        DisplayModeParametersKHRBuilder {
+            inner: DisplayModeParametersKHR {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl DisplayModeParametersKHRBuilder {
+    #[inline]
+    pub fn visible_region(mut self, value: Extent2D) -> Self {
+        self.inner.visible_region = value;
+        self
+    }
+    #[inline]
+    pub fn refresh_rate(mut self, value: u32) -> Self {
+        self.inner.refresh_rate = value;
+        self
+    }
+}
+impl core::ops::Deref for DisplayModeParametersKHRBuilder {
+    type Target = DisplayModeParametersKHR;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for DisplayModeParametersKHRBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`DisplayModePropertiesKHR`].
+pub struct DisplayModePropertiesKHRBuilder {
+    inner: DisplayModePropertiesKHR,
+}
+impl DisplayModePropertiesKHR {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> DisplayModePropertiesKHRBuilder {
+        DisplayModePropertiesKHRBuilder {
+            inner: DisplayModePropertiesKHR {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl DisplayModePropertiesKHRBuilder {
+    #[inline]
+    pub fn display_mode(mut self, value: DisplayModeKHR) -> Self {
+        self.inner.display_mode = value;
+        self
+    }
+    #[inline]
+    pub fn parameters(mut self, value: DisplayModeParametersKHR) -> Self {
+        self.inner.parameters = value;
+        self
+    }
+}
+impl core::ops::Deref for DisplayModePropertiesKHRBuilder {
+    type Target = DisplayModePropertiesKHR;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for DisplayModePropertiesKHRBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
 ///Builder for [`DisplayModeCreateInfoKHR`] with lifetime-tied pNext safety.
 pub struct DisplayModeCreateInfoKHRBuilder<'a> {
     inner: DisplayModeCreateInfoKHR,
@@ -4158,6 +8642,81 @@ impl<'a> core::ops::Deref for DisplayModeCreateInfoKHRBuilder<'a> {
     }
 }
 impl<'a> core::ops::DerefMut for DisplayModeCreateInfoKHRBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`DisplayPlaneCapabilitiesKHR`].
+pub struct DisplayPlaneCapabilitiesKHRBuilder {
+    inner: DisplayPlaneCapabilitiesKHR,
+}
+impl DisplayPlaneCapabilitiesKHR {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> DisplayPlaneCapabilitiesKHRBuilder {
+        DisplayPlaneCapabilitiesKHRBuilder {
+            inner: DisplayPlaneCapabilitiesKHR {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl DisplayPlaneCapabilitiesKHRBuilder {
+    #[inline]
+    pub fn supported_alpha(mut self, value: DisplayPlaneAlphaFlagsKHR) -> Self {
+        self.inner.supported_alpha = value;
+        self
+    }
+    #[inline]
+    pub fn min_src_position(mut self, value: Offset2D) -> Self {
+        self.inner.min_src_position = value;
+        self
+    }
+    #[inline]
+    pub fn max_src_position(mut self, value: Offset2D) -> Self {
+        self.inner.max_src_position = value;
+        self
+    }
+    #[inline]
+    pub fn min_src_extent(mut self, value: Extent2D) -> Self {
+        self.inner.min_src_extent = value;
+        self
+    }
+    #[inline]
+    pub fn max_src_extent(mut self, value: Extent2D) -> Self {
+        self.inner.max_src_extent = value;
+        self
+    }
+    #[inline]
+    pub fn min_dst_position(mut self, value: Offset2D) -> Self {
+        self.inner.min_dst_position = value;
+        self
+    }
+    #[inline]
+    pub fn max_dst_position(mut self, value: Offset2D) -> Self {
+        self.inner.max_dst_position = value;
+        self
+    }
+    #[inline]
+    pub fn min_dst_extent(mut self, value: Extent2D) -> Self {
+        self.inner.min_dst_extent = value;
+        self
+    }
+    #[inline]
+    pub fn max_dst_extent(mut self, value: Extent2D) -> Self {
+        self.inner.max_dst_extent = value;
+        self
+    }
+}
+impl core::ops::Deref for DisplayPlaneCapabilitiesKHRBuilder {
+    type Target = DisplayPlaneCapabilitiesKHR;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for DisplayPlaneCapabilitiesKHRBuilder {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -4362,6 +8921,86 @@ impl<'a> core::ops::Deref for DisplayPresentInfoKHRBuilder<'a> {
     }
 }
 impl<'a> core::ops::DerefMut for DisplayPresentInfoKHRBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`SurfaceCapabilitiesKHR`].
+pub struct SurfaceCapabilitiesKHRBuilder {
+    inner: SurfaceCapabilitiesKHR,
+}
+impl SurfaceCapabilitiesKHR {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> SurfaceCapabilitiesKHRBuilder {
+        SurfaceCapabilitiesKHRBuilder {
+            inner: SurfaceCapabilitiesKHR {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl SurfaceCapabilitiesKHRBuilder {
+    #[inline]
+    pub fn min_image_count(mut self, value: u32) -> Self {
+        self.inner.min_image_count = value;
+        self
+    }
+    #[inline]
+    pub fn max_image_count(mut self, value: u32) -> Self {
+        self.inner.max_image_count = value;
+        self
+    }
+    #[inline]
+    pub fn current_extent(mut self, value: Extent2D) -> Self {
+        self.inner.current_extent = value;
+        self
+    }
+    #[inline]
+    pub fn min_image_extent(mut self, value: Extent2D) -> Self {
+        self.inner.min_image_extent = value;
+        self
+    }
+    #[inline]
+    pub fn max_image_extent(mut self, value: Extent2D) -> Self {
+        self.inner.max_image_extent = value;
+        self
+    }
+    #[inline]
+    pub fn max_image_array_layers(mut self, value: u32) -> Self {
+        self.inner.max_image_array_layers = value;
+        self
+    }
+    #[inline]
+    pub fn supported_transforms(mut self, value: SurfaceTransformFlagsKHR) -> Self {
+        self.inner.supported_transforms = value;
+        self
+    }
+    #[inline]
+    pub fn current_transform(mut self, value: SurfaceTransformFlagBitsKHR) -> Self {
+        self.inner.current_transform = value;
+        self
+    }
+    #[inline]
+    pub fn supported_composite_alpha(mut self, value: CompositeAlphaFlagsKHR) -> Self {
+        self.inner.supported_composite_alpha = value;
+        self
+    }
+    #[inline]
+    pub fn supported_usage_flags(mut self, value: ImageUsageFlags) -> Self {
+        self.inner.supported_usage_flags = value;
+        self
+    }
+}
+impl core::ops::Deref for SurfaceCapabilitiesKHRBuilder {
+    type Target = SurfaceCapabilitiesKHR;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for SurfaceCapabilitiesKHRBuilder {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -5040,6 +9679,46 @@ impl<'a> core::ops::DerefMut for ScreenSurfaceCreateInfoQNXBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SurfaceFormatKHR`].
+pub struct SurfaceFormatKHRBuilder {
+    inner: SurfaceFormatKHR,
+}
+impl SurfaceFormatKHR {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> SurfaceFormatKHRBuilder {
+        SurfaceFormatKHRBuilder {
+            inner: SurfaceFormatKHR {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl SurfaceFormatKHRBuilder {
+    #[inline]
+    pub fn format(mut self, value: Format) -> Self {
+        self.inner.format = value;
+        self
+    }
+    #[inline]
+    pub fn color_space(mut self, value: ColorSpaceKHR) -> Self {
+        self.inner.color_space = value;
+        self
+    }
+}
+impl core::ops::Deref for SurfaceFormatKHRBuilder {
+    type Target = SurfaceFormatKHR;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for SurfaceFormatKHRBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
 ///Builder for [`SwapchainCreateInfoKHR`] with lifetime-tied pNext safety.
 pub struct SwapchainCreateInfoKHRBuilder<'a> {
     inner: SwapchainCreateInfoKHR,
@@ -5465,6 +10144,59 @@ impl<'a> core::ops::Deref for LayerSettingsCreateInfoEXTBuilder<'a> {
     }
 }
 impl<'a> core::ops::DerefMut for LayerSettingsCreateInfoEXTBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`LayerSettingEXT`].
+pub struct LayerSettingEXTBuilder<'a> {
+    inner: LayerSettingEXT,
+    _marker: core::marker::PhantomData<&'a ()>,
+}
+impl LayerSettingEXT {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder<'a>() -> LayerSettingEXTBuilder<'a> {
+        LayerSettingEXTBuilder {
+            inner: LayerSettingEXT {
+                ..Default::default()
+            },
+            _marker: core::marker::PhantomData,
+        }
+    }
+}
+impl<'a> LayerSettingEXTBuilder<'a> {
+    #[inline]
+    pub fn p_layer_name(mut self, value: &'a core::ffi::CStr) -> Self {
+        self.inner.p_layer_name = value.as_ptr();
+        self
+    }
+    #[inline]
+    pub fn p_setting_name(mut self, value: &'a core::ffi::CStr) -> Self {
+        self.inner.p_setting_name = value.as_ptr();
+        self
+    }
+    #[inline]
+    pub fn r#type(mut self, value: LayerSettingTypeEXT) -> Self {
+        self.inner.r#type = value;
+        self
+    }
+    #[inline]
+    pub fn values(mut self, slice: &'a [core::ffi::c_void]) -> Self {
+        self.inner.value_count = slice.len() as u32;
+        self.inner.p_values = slice.as_ptr();
+        self
+    }
+}
+impl<'a> core::ops::Deref for LayerSettingEXTBuilder<'a> {
+    type Target = LayerSettingEXT;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl<'a> core::ops::DerefMut for LayerSettingEXTBuilder<'a> {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -5942,6 +10674,65 @@ impl<'a> core::ops::Deref for DedicatedAllocationMemoryAllocateInfoNVBuilder<'a>
     }
 }
 impl<'a> core::ops::DerefMut for DedicatedAllocationMemoryAllocateInfoNVBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`ExternalImageFormatPropertiesNV`].
+pub struct ExternalImageFormatPropertiesNVBuilder {
+    inner: ExternalImageFormatPropertiesNV,
+}
+impl ExternalImageFormatPropertiesNV {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> ExternalImageFormatPropertiesNVBuilder {
+        ExternalImageFormatPropertiesNVBuilder {
+            inner: ExternalImageFormatPropertiesNV {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl ExternalImageFormatPropertiesNVBuilder {
+    #[inline]
+    pub fn image_format_properties(mut self, value: ImageFormatProperties) -> Self {
+        self.inner.image_format_properties = value;
+        self
+    }
+    #[inline]
+    pub fn external_memory_features(
+        mut self,
+        value: ExternalMemoryFeatureFlagsNV,
+    ) -> Self {
+        self.inner.external_memory_features = value;
+        self
+    }
+    #[inline]
+    pub fn export_from_imported_handle_types(
+        mut self,
+        value: ExternalMemoryHandleTypeFlagsNV,
+    ) -> Self {
+        self.inner.export_from_imported_handle_types = value;
+        self
+    }
+    #[inline]
+    pub fn compatible_handle_types(
+        mut self,
+        value: ExternalMemoryHandleTypeFlagsNV,
+    ) -> Self {
+        self.inner.compatible_handle_types = value;
+        self
+    }
+}
+impl core::ops::Deref for ExternalImageFormatPropertiesNVBuilder {
+    type Target = ExternalImageFormatPropertiesNV;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for ExternalImageFormatPropertiesNVBuilder {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -7184,6 +11975,46 @@ for PhysicalDeviceClusterAccelerationStructurePropertiesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`StridedDeviceAddressNV`].
+pub struct StridedDeviceAddressNVBuilder {
+    inner: StridedDeviceAddressNV,
+}
+impl StridedDeviceAddressNV {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> StridedDeviceAddressNVBuilder {
+        StridedDeviceAddressNVBuilder {
+            inner: StridedDeviceAddressNV {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl StridedDeviceAddressNVBuilder {
+    #[inline]
+    pub fn start_address(mut self, value: u64) -> Self {
+        self.inner.start_address = value;
+        self
+    }
+    #[inline]
+    pub fn stride_in_bytes(mut self, value: u64) -> Self {
+        self.inner.stride_in_bytes = value;
+        self
+    }
+}
+impl core::ops::Deref for StridedDeviceAddressNVBuilder {
+    type Target = StridedDeviceAddressNV;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for StridedDeviceAddressNVBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
 ///Builder for [`RayTracingPipelineClusterAccelerationStructureCreateInfoNV`] with lifetime-tied pNext safety.
 pub struct RayTracingPipelineClusterAccelerationStructureCreateInfoNVBuilder<'a> {
     inner: RayTracingPipelineClusterAccelerationStructureCreateInfoNV,
@@ -7235,6 +12066,124 @@ for RayTracingPipelineClusterAccelerationStructureCreateInfoNVBuilder<'a> {
 }
 impl<'a> core::ops::DerefMut
 for RayTracingPipelineClusterAccelerationStructureCreateInfoNVBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`ClusterAccelerationStructureMoveObjectsInfoNV`].
+pub struct ClusterAccelerationStructureMoveObjectsInfoNVBuilder {
+    inner: ClusterAccelerationStructureMoveObjectsInfoNV,
+}
+impl ClusterAccelerationStructureMoveObjectsInfoNV {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> ClusterAccelerationStructureMoveObjectsInfoNVBuilder {
+        ClusterAccelerationStructureMoveObjectsInfoNVBuilder {
+            inner: ClusterAccelerationStructureMoveObjectsInfoNV {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl ClusterAccelerationStructureMoveObjectsInfoNVBuilder {
+    #[inline]
+    pub fn src_acceleration_structure(mut self, value: u64) -> Self {
+        self.inner.src_acceleration_structure = value;
+        self
+    }
+}
+impl core::ops::Deref for ClusterAccelerationStructureMoveObjectsInfoNVBuilder {
+    type Target = ClusterAccelerationStructureMoveObjectsInfoNV;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for ClusterAccelerationStructureMoveObjectsInfoNVBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`ClusterAccelerationStructureBuildClustersBottomLevelInfoNV`].
+pub struct ClusterAccelerationStructureBuildClustersBottomLevelInfoNVBuilder {
+    inner: ClusterAccelerationStructureBuildClustersBottomLevelInfoNV,
+}
+impl ClusterAccelerationStructureBuildClustersBottomLevelInfoNV {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> ClusterAccelerationStructureBuildClustersBottomLevelInfoNVBuilder {
+        ClusterAccelerationStructureBuildClustersBottomLevelInfoNVBuilder {
+            inner: ClusterAccelerationStructureBuildClustersBottomLevelInfoNV {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl ClusterAccelerationStructureBuildClustersBottomLevelInfoNVBuilder {
+    #[inline]
+    pub fn cluster_references_count(mut self, value: u32) -> Self {
+        self.inner.cluster_references_count = value;
+        self
+    }
+    #[inline]
+    pub fn cluster_references_stride(mut self, value: u32) -> Self {
+        self.inner.cluster_references_stride = value;
+        self
+    }
+    #[inline]
+    pub fn cluster_references(mut self, value: u64) -> Self {
+        self.inner.cluster_references = value;
+        self
+    }
+}
+impl core::ops::Deref
+for ClusterAccelerationStructureBuildClustersBottomLevelInfoNVBuilder {
+    type Target = ClusterAccelerationStructureBuildClustersBottomLevelInfoNV;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut
+for ClusterAccelerationStructureBuildClustersBottomLevelInfoNVBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`ClusterAccelerationStructureGetTemplateIndicesInfoNV`].
+pub struct ClusterAccelerationStructureGetTemplateIndicesInfoNVBuilder {
+    inner: ClusterAccelerationStructureGetTemplateIndicesInfoNV,
+}
+impl ClusterAccelerationStructureGetTemplateIndicesInfoNV {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> ClusterAccelerationStructureGetTemplateIndicesInfoNVBuilder {
+        ClusterAccelerationStructureGetTemplateIndicesInfoNVBuilder {
+            inner: ClusterAccelerationStructureGetTemplateIndicesInfoNV {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl ClusterAccelerationStructureGetTemplateIndicesInfoNVBuilder {
+    #[inline]
+    pub fn cluster_template_address(mut self, value: u64) -> Self {
+        self.inner.cluster_template_address = value;
+        self
+    }
+}
+impl core::ops::Deref for ClusterAccelerationStructureGetTemplateIndicesInfoNVBuilder {
+    type Target = ClusterAccelerationStructureGetTemplateIndicesInfoNV;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut
+for ClusterAccelerationStructureGetTemplateIndicesInfoNVBuilder {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -7790,6 +12739,206 @@ impl<'a> core::ops::DerefMut for GraphicsPipelineShaderGroupsCreateInfoNVBuilder
         &mut self.inner
     }
 }
+///Builder for [`BindShaderGroupIndirectCommandNV`].
+pub struct BindShaderGroupIndirectCommandNVBuilder {
+    inner: BindShaderGroupIndirectCommandNV,
+}
+impl BindShaderGroupIndirectCommandNV {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> BindShaderGroupIndirectCommandNVBuilder {
+        BindShaderGroupIndirectCommandNVBuilder {
+            inner: BindShaderGroupIndirectCommandNV {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl BindShaderGroupIndirectCommandNVBuilder {
+    #[inline]
+    pub fn group_index(mut self, value: u32) -> Self {
+        self.inner.group_index = value;
+        self
+    }
+}
+impl core::ops::Deref for BindShaderGroupIndirectCommandNVBuilder {
+    type Target = BindShaderGroupIndirectCommandNV;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for BindShaderGroupIndirectCommandNVBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`BindIndexBufferIndirectCommandNV`].
+pub struct BindIndexBufferIndirectCommandNVBuilder {
+    inner: BindIndexBufferIndirectCommandNV,
+}
+impl BindIndexBufferIndirectCommandNV {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> BindIndexBufferIndirectCommandNVBuilder {
+        BindIndexBufferIndirectCommandNVBuilder {
+            inner: BindIndexBufferIndirectCommandNV {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl BindIndexBufferIndirectCommandNVBuilder {
+    #[inline]
+    pub fn buffer_address(mut self, value: u64) -> Self {
+        self.inner.buffer_address = value;
+        self
+    }
+    #[inline]
+    pub fn size(mut self, value: u32) -> Self {
+        self.inner.size = value;
+        self
+    }
+    #[inline]
+    pub fn index_type(mut self, value: IndexType) -> Self {
+        self.inner.index_type = value;
+        self
+    }
+}
+impl core::ops::Deref for BindIndexBufferIndirectCommandNVBuilder {
+    type Target = BindIndexBufferIndirectCommandNV;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for BindIndexBufferIndirectCommandNVBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`BindVertexBufferIndirectCommandNV`].
+pub struct BindVertexBufferIndirectCommandNVBuilder {
+    inner: BindVertexBufferIndirectCommandNV,
+}
+impl BindVertexBufferIndirectCommandNV {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> BindVertexBufferIndirectCommandNVBuilder {
+        BindVertexBufferIndirectCommandNVBuilder {
+            inner: BindVertexBufferIndirectCommandNV {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl BindVertexBufferIndirectCommandNVBuilder {
+    #[inline]
+    pub fn buffer_address(mut self, value: u64) -> Self {
+        self.inner.buffer_address = value;
+        self
+    }
+    #[inline]
+    pub fn size(mut self, value: u32) -> Self {
+        self.inner.size = value;
+        self
+    }
+    #[inline]
+    pub fn stride(mut self, value: u32) -> Self {
+        self.inner.stride = value;
+        self
+    }
+}
+impl core::ops::Deref for BindVertexBufferIndirectCommandNVBuilder {
+    type Target = BindVertexBufferIndirectCommandNV;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for BindVertexBufferIndirectCommandNVBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`SetStateFlagsIndirectCommandNV`].
+pub struct SetStateFlagsIndirectCommandNVBuilder {
+    inner: SetStateFlagsIndirectCommandNV,
+}
+impl SetStateFlagsIndirectCommandNV {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> SetStateFlagsIndirectCommandNVBuilder {
+        SetStateFlagsIndirectCommandNVBuilder {
+            inner: SetStateFlagsIndirectCommandNV {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl SetStateFlagsIndirectCommandNVBuilder {
+    #[inline]
+    pub fn data(mut self, value: u32) -> Self {
+        self.inner.data = value;
+        self
+    }
+}
+impl core::ops::Deref for SetStateFlagsIndirectCommandNVBuilder {
+    type Target = SetStateFlagsIndirectCommandNV;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for SetStateFlagsIndirectCommandNVBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`IndirectCommandsStreamNV`].
+pub struct IndirectCommandsStreamNVBuilder {
+    inner: IndirectCommandsStreamNV,
+}
+impl IndirectCommandsStreamNV {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> IndirectCommandsStreamNVBuilder {
+        IndirectCommandsStreamNVBuilder {
+            inner: IndirectCommandsStreamNV {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl IndirectCommandsStreamNVBuilder {
+    #[inline]
+    pub fn buffer(mut self, value: Buffer) -> Self {
+        self.inner.buffer = value;
+        self
+    }
+    #[inline]
+    pub fn offset(mut self, value: u64) -> Self {
+        self.inner.offset = value;
+        self
+    }
+}
+impl core::ops::Deref for IndirectCommandsStreamNVBuilder {
+    type Target = IndirectCommandsStreamNV;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for IndirectCommandsStreamNVBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
 ///Builder for [`IndirectCommandsLayoutTokenNV`] with lifetime-tied pNext safety.
 pub struct IndirectCommandsLayoutTokenNVBuilder<'a> {
     inner: IndirectCommandsLayoutTokenNV,
@@ -8200,6 +13349,41 @@ impl<'a> core::ops::Deref for PipelineIndirectDeviceAddressInfoNVBuilder<'a> {
     }
 }
 impl<'a> core::ops::DerefMut for PipelineIndirectDeviceAddressInfoNVBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`BindPipelineIndirectCommandNV`].
+pub struct BindPipelineIndirectCommandNVBuilder {
+    inner: BindPipelineIndirectCommandNV,
+}
+impl BindPipelineIndirectCommandNV {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> BindPipelineIndirectCommandNVBuilder {
+        BindPipelineIndirectCommandNVBuilder {
+            inner: BindPipelineIndirectCommandNV {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl BindPipelineIndirectCommandNVBuilder {
+    #[inline]
+    pub fn pipeline_address(mut self, value: u64) -> Self {
+        self.inner.pipeline_address = value;
+        self
+    }
+}
+impl core::ops::Deref for BindPipelineIndirectCommandNVBuilder {
+    type Target = BindPipelineIndirectCommandNV;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for BindPipelineIndirectCommandNVBuilder {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -8670,6 +13854,56 @@ impl<'a> core::ops::DerefMut for PhysicalDevicePushDescriptorPropertiesBuilder<'
         &mut self.inner
     }
 }
+///Builder for [`ConformanceVersion`].
+pub struct ConformanceVersionBuilder {
+    inner: ConformanceVersion,
+}
+impl ConformanceVersion {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> ConformanceVersionBuilder {
+        ConformanceVersionBuilder {
+            inner: ConformanceVersion {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl ConformanceVersionBuilder {
+    #[inline]
+    pub fn major(mut self, value: u8) -> Self {
+        self.inner.major = value;
+        self
+    }
+    #[inline]
+    pub fn minor(mut self, value: u8) -> Self {
+        self.inner.minor = value;
+        self
+    }
+    #[inline]
+    pub fn subminor(mut self, value: u8) -> Self {
+        self.inner.subminor = value;
+        self
+    }
+    #[inline]
+    pub fn patch(mut self, value: u8) -> Self {
+        self.inner.patch = value;
+        self
+    }
+}
+impl core::ops::Deref for ConformanceVersionBuilder {
+    type Target = ConformanceVersion;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for ConformanceVersionBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
 ///Builder for [`PhysicalDeviceDriverProperties`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceDriverPropertiesBuilder<'a> {
     inner: PhysicalDeviceDriverProperties,
@@ -8780,6 +14014,89 @@ impl<'a> core::ops::DerefMut for PresentRegionsKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PresentRegionKHR`].
+pub struct PresentRegionKHRBuilder<'a> {
+    inner: PresentRegionKHR,
+    _marker: core::marker::PhantomData<&'a ()>,
+}
+impl PresentRegionKHR {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder<'a>() -> PresentRegionKHRBuilder<'a> {
+        PresentRegionKHRBuilder {
+            inner: PresentRegionKHR {
+                ..Default::default()
+            },
+            _marker: core::marker::PhantomData,
+        }
+    }
+}
+impl<'a> PresentRegionKHRBuilder<'a> {
+    #[inline]
+    pub fn rectangles(mut self, slice: &'a [RectLayerKHR]) -> Self {
+        self.inner.rectangle_count = slice.len() as u32;
+        self.inner.p_rectangles = slice.as_ptr();
+        self
+    }
+}
+impl<'a> core::ops::Deref for PresentRegionKHRBuilder<'a> {
+    type Target = PresentRegionKHR;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl<'a> core::ops::DerefMut for PresentRegionKHRBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`RectLayerKHR`].
+pub struct RectLayerKHRBuilder {
+    inner: RectLayerKHR,
+}
+impl RectLayerKHR {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> RectLayerKHRBuilder {
+        RectLayerKHRBuilder {
+            inner: RectLayerKHR {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl RectLayerKHRBuilder {
+    #[inline]
+    pub fn offset(mut self, value: Offset2D) -> Self {
+        self.inner.offset = value;
+        self
+    }
+    #[inline]
+    pub fn extent(mut self, value: Extent2D) -> Self {
+        self.inner.extent = value;
+        self
+    }
+    #[inline]
+    pub fn layer(mut self, value: u32) -> Self {
+        self.inner.layer = value;
+        self
+    }
+}
+impl core::ops::Deref for RectLayerKHRBuilder {
+    type Target = RectLayerKHR;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for RectLayerKHRBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
 ///Builder for [`PhysicalDeviceVariablePointersFeatures`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceVariablePointersFeaturesBuilder<'a> {
     inner: PhysicalDeviceVariablePointersFeatures,
@@ -8833,6 +14150,60 @@ impl<'a> core::ops::Deref for PhysicalDeviceVariablePointersFeaturesBuilder<'a> 
     }
 }
 impl<'a> core::ops::DerefMut for PhysicalDeviceVariablePointersFeaturesBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`ExternalMemoryProperties`].
+pub struct ExternalMemoryPropertiesBuilder {
+    inner: ExternalMemoryProperties,
+}
+impl ExternalMemoryProperties {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> ExternalMemoryPropertiesBuilder {
+        ExternalMemoryPropertiesBuilder {
+            inner: ExternalMemoryProperties {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl ExternalMemoryPropertiesBuilder {
+    #[inline]
+    pub fn external_memory_features(
+        mut self,
+        value: ExternalMemoryFeatureFlags,
+    ) -> Self {
+        self.inner.external_memory_features = value;
+        self
+    }
+    #[inline]
+    pub fn export_from_imported_handle_types(
+        mut self,
+        value: ExternalMemoryHandleTypeFlags,
+    ) -> Self {
+        self.inner.export_from_imported_handle_types = value;
+        self
+    }
+    #[inline]
+    pub fn compatible_handle_types(
+        mut self,
+        value: ExternalMemoryHandleTypeFlags,
+    ) -> Self {
+        self.inner.compatible_handle_types = value;
+        self
+    }
+}
+impl core::ops::Deref for ExternalMemoryPropertiesBuilder {
+    type Target = ExternalMemoryProperties;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for ExternalMemoryPropertiesBuilder {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -13300,6 +18671,66 @@ impl<'a> core::ops::DerefMut for DeviceGroupSwapchainCreateInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DescriptorUpdateTemplateEntry`].
+pub struct DescriptorUpdateTemplateEntryBuilder {
+    inner: DescriptorUpdateTemplateEntry,
+}
+impl DescriptorUpdateTemplateEntry {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> DescriptorUpdateTemplateEntryBuilder {
+        DescriptorUpdateTemplateEntryBuilder {
+            inner: DescriptorUpdateTemplateEntry {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl DescriptorUpdateTemplateEntryBuilder {
+    #[inline]
+    pub fn dst_binding(mut self, value: u32) -> Self {
+        self.inner.dst_binding = value;
+        self
+    }
+    #[inline]
+    pub fn dst_array_element(mut self, value: u32) -> Self {
+        self.inner.dst_array_element = value;
+        self
+    }
+    #[inline]
+    pub fn descriptor_count(mut self, value: u32) -> Self {
+        self.inner.descriptor_count = value;
+        self
+    }
+    #[inline]
+    pub fn descriptor_type(mut self, value: DescriptorType) -> Self {
+        self.inner.descriptor_type = value;
+        self
+    }
+    #[inline]
+    pub fn offset(mut self, value: usize) -> Self {
+        self.inner.offset = value;
+        self
+    }
+    #[inline]
+    pub fn stride(mut self, value: usize) -> Self {
+        self.inner.stride = value;
+        self
+    }
+}
+impl core::ops::Deref for DescriptorUpdateTemplateEntryBuilder {
+    type Target = DescriptorUpdateTemplateEntry;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for DescriptorUpdateTemplateEntryBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
 ///Builder for [`DescriptorUpdateTemplateCreateInfo`] with lifetime-tied pNext safety.
 pub struct DescriptorUpdateTemplateCreateInfoBuilder<'a> {
     inner: DescriptorUpdateTemplateCreateInfo,
@@ -13382,6 +18813,44 @@ impl<'a> core::ops::Deref for DescriptorUpdateTemplateCreateInfoBuilder<'a> {
     }
 }
 impl<'a> core::ops::DerefMut for DescriptorUpdateTemplateCreateInfoBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`XYColorEXT`].
+pub struct XYColorEXTBuilder {
+    inner: XYColorEXT,
+}
+impl XYColorEXT {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> XYColorEXTBuilder {
+        XYColorEXTBuilder {
+            inner: XYColorEXT { ..Default::default() },
+        }
+    }
+}
+impl XYColorEXTBuilder {
+    #[inline]
+    pub fn x(mut self, value: f32) -> Self {
+        self.inner.x = value;
+        self
+    }
+    #[inline]
+    pub fn y(mut self, value: f32) -> Self {
+        self.inner.y = value;
+        self
+    }
+}
+impl core::ops::Deref for XYColorEXTBuilder {
+    type Target = XYColorEXT;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for XYColorEXTBuilder {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -13955,6 +19424,46 @@ impl<'a> core::ops::Deref for SwapchainTimeDomainPropertiesEXTBuilder<'a> {
     }
 }
 impl<'a> core::ops::DerefMut for SwapchainTimeDomainPropertiesEXTBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`PresentStageTimeEXT`].
+pub struct PresentStageTimeEXTBuilder {
+    inner: PresentStageTimeEXT,
+}
+impl PresentStageTimeEXT {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> PresentStageTimeEXTBuilder {
+        PresentStageTimeEXTBuilder {
+            inner: PresentStageTimeEXT {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl PresentStageTimeEXTBuilder {
+    #[inline]
+    pub fn stage(mut self, value: PresentStageFlagsEXT) -> Self {
+        self.inner.stage = value;
+        self
+    }
+    #[inline]
+    pub fn time(mut self, value: u64) -> Self {
+        self.inner.time = value;
+        self
+    }
+}
+impl core::ops::Deref for PresentStageTimeEXTBuilder {
+    type Target = PresentStageTimeEXT;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for PresentStageTimeEXTBuilder {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -14554,6 +20063,96 @@ impl<'a> core::ops::DerefMut for SwapchainDisplayNativeHdrCreateInfoAMDBuilder<'
         &mut self.inner
     }
 }
+///Builder for [`RefreshCycleDurationGOOGLE`].
+pub struct RefreshCycleDurationGOOGLEBuilder {
+    inner: RefreshCycleDurationGOOGLE,
+}
+impl RefreshCycleDurationGOOGLE {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> RefreshCycleDurationGOOGLEBuilder {
+        RefreshCycleDurationGOOGLEBuilder {
+            inner: RefreshCycleDurationGOOGLE {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl RefreshCycleDurationGOOGLEBuilder {
+    #[inline]
+    pub fn refresh_duration(mut self, value: u64) -> Self {
+        self.inner.refresh_duration = value;
+        self
+    }
+}
+impl core::ops::Deref for RefreshCycleDurationGOOGLEBuilder {
+    type Target = RefreshCycleDurationGOOGLE;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for RefreshCycleDurationGOOGLEBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`PastPresentationTimingGOOGLE`].
+pub struct PastPresentationTimingGOOGLEBuilder {
+    inner: PastPresentationTimingGOOGLE,
+}
+impl PastPresentationTimingGOOGLE {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> PastPresentationTimingGOOGLEBuilder {
+        PastPresentationTimingGOOGLEBuilder {
+            inner: PastPresentationTimingGOOGLE {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl PastPresentationTimingGOOGLEBuilder {
+    #[inline]
+    pub fn present_id(mut self, value: u32) -> Self {
+        self.inner.present_id = value;
+        self
+    }
+    #[inline]
+    pub fn desired_present_time(mut self, value: u64) -> Self {
+        self.inner.desired_present_time = value;
+        self
+    }
+    #[inline]
+    pub fn actual_present_time(mut self, value: u64) -> Self {
+        self.inner.actual_present_time = value;
+        self
+    }
+    #[inline]
+    pub fn earliest_present_time(mut self, value: u64) -> Self {
+        self.inner.earliest_present_time = value;
+        self
+    }
+    #[inline]
+    pub fn present_margin(mut self, value: u64) -> Self {
+        self.inner.present_margin = value;
+        self
+    }
+}
+impl core::ops::Deref for PastPresentationTimingGOOGLEBuilder {
+    type Target = PastPresentationTimingGOOGLE;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for PastPresentationTimingGOOGLEBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
 ///Builder for [`PresentTimesInfoGOOGLE`] with lifetime-tied pNext safety.
 pub struct PresentTimesInfoGOOGLEBuilder<'a> {
     inner: PresentTimesInfoGOOGLE,
@@ -14603,6 +20202,46 @@ impl<'a> core::ops::Deref for PresentTimesInfoGOOGLEBuilder<'a> {
     }
 }
 impl<'a> core::ops::DerefMut for PresentTimesInfoGOOGLEBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`PresentTimeGOOGLE`].
+pub struct PresentTimeGOOGLEBuilder {
+    inner: PresentTimeGOOGLE,
+}
+impl PresentTimeGOOGLE {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> PresentTimeGOOGLEBuilder {
+        PresentTimeGOOGLEBuilder {
+            inner: PresentTimeGOOGLE {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl PresentTimeGOOGLEBuilder {
+    #[inline]
+    pub fn present_id(mut self, value: u32) -> Self {
+        self.inner.present_id = value;
+        self
+    }
+    #[inline]
+    pub fn desired_present_time(mut self, value: u64) -> Self {
+        self.inner.desired_present_time = value;
+        self
+    }
+}
+impl core::ops::Deref for PresentTimeGOOGLEBuilder {
+    type Target = PresentTimeGOOGLE;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for PresentTimeGOOGLEBuilder {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -14782,6 +20421,46 @@ impl<'a> core::ops::DerefMut for MetalSurfaceCreateInfoEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ViewportWScalingNV`].
+pub struct ViewportWScalingNVBuilder {
+    inner: ViewportWScalingNV,
+}
+impl ViewportWScalingNV {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> ViewportWScalingNVBuilder {
+        ViewportWScalingNVBuilder {
+            inner: ViewportWScalingNV {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl ViewportWScalingNVBuilder {
+    #[inline]
+    pub fn xcoeff(mut self, value: f32) -> Self {
+        self.inner.xcoeff = value;
+        self
+    }
+    #[inline]
+    pub fn ycoeff(mut self, value: f32) -> Self {
+        self.inner.ycoeff = value;
+        self
+    }
+}
+impl core::ops::Deref for ViewportWScalingNVBuilder {
+    type Target = ViewportWScalingNV;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for ViewportWScalingNVBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
 ///Builder for [`PipelineViewportWScalingStateCreateInfoNV`] with lifetime-tied pNext safety.
 pub struct PipelineViewportWScalingStateCreateInfoNVBuilder<'a> {
     inner: PipelineViewportWScalingStateCreateInfoNV,
@@ -14836,6 +20515,56 @@ impl<'a> core::ops::Deref for PipelineViewportWScalingStateCreateInfoNVBuilder<'
     }
 }
 impl<'a> core::ops::DerefMut for PipelineViewportWScalingStateCreateInfoNVBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`ViewportSwizzleNV`].
+pub struct ViewportSwizzleNVBuilder {
+    inner: ViewportSwizzleNV,
+}
+impl ViewportSwizzleNV {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> ViewportSwizzleNVBuilder {
+        ViewportSwizzleNVBuilder {
+            inner: ViewportSwizzleNV {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl ViewportSwizzleNVBuilder {
+    #[inline]
+    pub fn x(mut self, value: ViewportCoordinateSwizzleNV) -> Self {
+        self.inner.x = value;
+        self
+    }
+    #[inline]
+    pub fn y(mut self, value: ViewportCoordinateSwizzleNV) -> Self {
+        self.inner.y = value;
+        self
+    }
+    #[inline]
+    pub fn z(mut self, value: ViewportCoordinateSwizzleNV) -> Self {
+        self.inner.z = value;
+        self
+    }
+    #[inline]
+    pub fn w(mut self, value: ViewportCoordinateSwizzleNV) -> Self {
+        self.inner.w = value;
+        self
+    }
+}
+impl core::ops::Deref for ViewportSwizzleNVBuilder {
+    type Target = ViewportSwizzleNV;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for ViewportSwizzleNVBuilder {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -15039,6 +20768,51 @@ for PhysicalDeviceMultiviewPerViewAttributesPropertiesNVXBuilder<'a> {
 }
 impl<'a> core::ops::DerefMut
 for PhysicalDeviceMultiviewPerViewAttributesPropertiesNVXBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`InputAttachmentAspectReference`].
+pub struct InputAttachmentAspectReferenceBuilder {
+    inner: InputAttachmentAspectReference,
+}
+impl InputAttachmentAspectReference {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> InputAttachmentAspectReferenceBuilder {
+        InputAttachmentAspectReferenceBuilder {
+            inner: InputAttachmentAspectReference {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl InputAttachmentAspectReferenceBuilder {
+    #[inline]
+    pub fn subpass(mut self, value: u32) -> Self {
+        self.inner.subpass = value;
+        self
+    }
+    #[inline]
+    pub fn input_attachment_index(mut self, value: u32) -> Self {
+        self.inner.input_attachment_index = value;
+        self
+    }
+    #[inline]
+    pub fn aspect_mask(mut self, value: ImageAspectFlags) -> Self {
+        self.inner.aspect_mask = value;
+        self
+    }
+}
+impl core::ops::Deref for InputAttachmentAspectReferenceBuilder {
+    type Target = InputAttachmentAspectReference;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for InputAttachmentAspectReferenceBuilder {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -17092,6 +22866,46 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceSamplerFilterMinmaxPropertiesBuil
         &mut self.inner
     }
 }
+///Builder for [`SampleLocationEXT`].
+pub struct SampleLocationEXTBuilder {
+    inner: SampleLocationEXT,
+}
+impl SampleLocationEXT {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> SampleLocationEXTBuilder {
+        SampleLocationEXTBuilder {
+            inner: SampleLocationEXT {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl SampleLocationEXTBuilder {
+    #[inline]
+    pub fn x(mut self, value: f32) -> Self {
+        self.inner.x = value;
+        self
+    }
+    #[inline]
+    pub fn y(mut self, value: f32) -> Self {
+        self.inner.y = value;
+        self
+    }
+}
+impl core::ops::Deref for SampleLocationEXTBuilder {
+    type Target = SampleLocationEXT;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for SampleLocationEXTBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
 ///Builder for [`SampleLocationsInfoEXT`] with lifetime-tied pNext safety.
 pub struct SampleLocationsInfoEXTBuilder<'a> {
     inner: SampleLocationsInfoEXT,
@@ -17151,6 +22965,86 @@ impl<'a> core::ops::Deref for SampleLocationsInfoEXTBuilder<'a> {
     }
 }
 impl<'a> core::ops::DerefMut for SampleLocationsInfoEXTBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`AttachmentSampleLocationsEXT`].
+pub struct AttachmentSampleLocationsEXTBuilder {
+    inner: AttachmentSampleLocationsEXT,
+}
+impl AttachmentSampleLocationsEXT {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> AttachmentSampleLocationsEXTBuilder {
+        AttachmentSampleLocationsEXTBuilder {
+            inner: AttachmentSampleLocationsEXT {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl AttachmentSampleLocationsEXTBuilder {
+    #[inline]
+    pub fn attachment_index(mut self, value: u32) -> Self {
+        self.inner.attachment_index = value;
+        self
+    }
+    #[inline]
+    pub fn sample_locations_info(mut self, value: SampleLocationsInfoEXT) -> Self {
+        self.inner.sample_locations_info = value;
+        self
+    }
+}
+impl core::ops::Deref for AttachmentSampleLocationsEXTBuilder {
+    type Target = AttachmentSampleLocationsEXT;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for AttachmentSampleLocationsEXTBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`SubpassSampleLocationsEXT`].
+pub struct SubpassSampleLocationsEXTBuilder {
+    inner: SubpassSampleLocationsEXT,
+}
+impl SubpassSampleLocationsEXT {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> SubpassSampleLocationsEXTBuilder {
+        SubpassSampleLocationsEXTBuilder {
+            inner: SubpassSampleLocationsEXT {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl SubpassSampleLocationsEXTBuilder {
+    #[inline]
+    pub fn subpass_index(mut self, value: u32) -> Self {
+        self.inner.subpass_index = value;
+        self
+    }
+    #[inline]
+    pub fn sample_locations_info(mut self, value: SampleLocationsInfoEXT) -> Self {
+        self.inner.sample_locations_info = value;
+        self
+    }
+}
+impl core::ops::Deref for SubpassSampleLocationsEXTBuilder {
+    type Target = SubpassSampleLocationsEXT;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for SubpassSampleLocationsEXTBuilder {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -19478,6 +25372,46 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceHostQueryResetFeaturesBuilder<'a>
         &mut self.inner
     }
 }
+///Builder for [`NativeBufferUsage2ANDROID`].
+pub struct NativeBufferUsage2ANDROIDBuilder {
+    inner: NativeBufferUsage2ANDROID,
+}
+impl NativeBufferUsage2ANDROID {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> NativeBufferUsage2ANDROIDBuilder {
+        NativeBufferUsage2ANDROIDBuilder {
+            inner: NativeBufferUsage2ANDROID {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl NativeBufferUsage2ANDROIDBuilder {
+    #[inline]
+    pub fn consumer(mut self, value: u64) -> Self {
+        self.inner.consumer = value;
+        self
+    }
+    #[inline]
+    pub fn producer(mut self, value: u64) -> Self {
+        self.inner.producer = value;
+        self
+    }
+}
+impl core::ops::Deref for NativeBufferUsage2ANDROIDBuilder {
+    type Target = NativeBufferUsage2ANDROID;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for NativeBufferUsage2ANDROIDBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
 ///Builder for [`NativeBufferANDROID`] with lifetime-tied pNext safety.
 pub struct NativeBufferANDROIDBuilder<'a> {
     inner: NativeBufferANDROID,
@@ -19634,6 +25568,126 @@ impl<'a> core::ops::Deref for PhysicalDevicePresentationPropertiesANDROIDBuilder
     }
 }
 impl<'a> core::ops::DerefMut for PhysicalDevicePresentationPropertiesANDROIDBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`ShaderResourceUsageAMD`].
+pub struct ShaderResourceUsageAMDBuilder {
+    inner: ShaderResourceUsageAMD,
+}
+impl ShaderResourceUsageAMD {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> ShaderResourceUsageAMDBuilder {
+        ShaderResourceUsageAMDBuilder {
+            inner: ShaderResourceUsageAMD {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl ShaderResourceUsageAMDBuilder {
+    #[inline]
+    pub fn num_used_vgprs(mut self, value: u32) -> Self {
+        self.inner.num_used_vgprs = value;
+        self
+    }
+    #[inline]
+    pub fn num_used_sgprs(mut self, value: u32) -> Self {
+        self.inner.num_used_sgprs = value;
+        self
+    }
+    #[inline]
+    pub fn lds_size_per_local_work_group(mut self, value: u32) -> Self {
+        self.inner.lds_size_per_local_work_group = value;
+        self
+    }
+    #[inline]
+    pub fn lds_usage_size_in_bytes(mut self, value: usize) -> Self {
+        self.inner.lds_usage_size_in_bytes = value;
+        self
+    }
+    #[inline]
+    pub fn scratch_mem_usage_in_bytes(mut self, value: usize) -> Self {
+        self.inner.scratch_mem_usage_in_bytes = value;
+        self
+    }
+}
+impl core::ops::Deref for ShaderResourceUsageAMDBuilder {
+    type Target = ShaderResourceUsageAMD;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for ShaderResourceUsageAMDBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`ShaderStatisticsInfoAMD`].
+pub struct ShaderStatisticsInfoAMDBuilder {
+    inner: ShaderStatisticsInfoAMD,
+}
+impl ShaderStatisticsInfoAMD {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> ShaderStatisticsInfoAMDBuilder {
+        ShaderStatisticsInfoAMDBuilder {
+            inner: ShaderStatisticsInfoAMD {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl ShaderStatisticsInfoAMDBuilder {
+    #[inline]
+    pub fn shader_stage_mask(mut self, value: ShaderStageFlags) -> Self {
+        self.inner.shader_stage_mask = value;
+        self
+    }
+    #[inline]
+    pub fn resource_usage(mut self, value: ShaderResourceUsageAMD) -> Self {
+        self.inner.resource_usage = value;
+        self
+    }
+    #[inline]
+    pub fn num_physical_vgprs(mut self, value: u32) -> Self {
+        self.inner.num_physical_vgprs = value;
+        self
+    }
+    #[inline]
+    pub fn num_physical_sgprs(mut self, value: u32) -> Self {
+        self.inner.num_physical_sgprs = value;
+        self
+    }
+    #[inline]
+    pub fn num_available_vgprs(mut self, value: u32) -> Self {
+        self.inner.num_available_vgprs = value;
+        self
+    }
+    #[inline]
+    pub fn num_available_sgprs(mut self, value: u32) -> Self {
+        self.inner.num_available_sgprs = value;
+        self
+    }
+    #[inline]
+    pub fn compute_work_group_size(mut self, value: [u32; 3usize]) -> Self {
+        self.inner.compute_work_group_size = value;
+        self
+    }
+}
+impl core::ops::Deref for ShaderStatisticsInfoAMDBuilder {
+    type Target = ShaderStatisticsInfoAMD;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for ShaderStatisticsInfoAMDBuilder {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -22208,6 +28262,46 @@ impl<'a> core::ops::DerefMut for SemaphoreSignalInfoBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VertexInputBindingDivisorDescription`].
+pub struct VertexInputBindingDivisorDescriptionBuilder {
+    inner: VertexInputBindingDivisorDescription,
+}
+impl VertexInputBindingDivisorDescription {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> VertexInputBindingDivisorDescriptionBuilder {
+        VertexInputBindingDivisorDescriptionBuilder {
+            inner: VertexInputBindingDivisorDescription {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl VertexInputBindingDivisorDescriptionBuilder {
+    #[inline]
+    pub fn binding(mut self, value: u32) -> Self {
+        self.inner.binding = value;
+        self
+    }
+    #[inline]
+    pub fn divisor(mut self, value: u32) -> Self {
+        self.inner.divisor = value;
+        self
+    }
+}
+impl core::ops::Deref for VertexInputBindingDivisorDescriptionBuilder {
+    type Target = VertexInputBindingDivisorDescription;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for VertexInputBindingDivisorDescriptionBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
 ///Builder for [`PipelineVertexInputDivisorStateCreateInfo`] with lifetime-tied pNext safety.
 pub struct PipelineVertexInputDivisorStateCreateInfoBuilder<'a> {
     inner: PipelineVertexInputDivisorStateCreateInfo,
@@ -24556,6 +30650,47 @@ for PhysicalDeviceMemoryDecompressionPropertiesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ShadingRatePaletteNV`].
+pub struct ShadingRatePaletteNVBuilder<'a> {
+    inner: ShadingRatePaletteNV,
+    _marker: core::marker::PhantomData<&'a ()>,
+}
+impl ShadingRatePaletteNV {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder<'a>() -> ShadingRatePaletteNVBuilder<'a> {
+        ShadingRatePaletteNVBuilder {
+            inner: ShadingRatePaletteNV {
+                ..Default::default()
+            },
+            _marker: core::marker::PhantomData,
+        }
+    }
+}
+impl<'a> ShadingRatePaletteNVBuilder<'a> {
+    #[inline]
+    pub fn shading_rate_palette_entries(
+        mut self,
+        slice: &'a [ShadingRatePaletteEntryNV],
+    ) -> Self {
+        self.inner.shading_rate_palette_entry_count = slice.len() as u32;
+        self.inner.p_shading_rate_palette_entries = slice.as_ptr();
+        self
+    }
+}
+impl<'a> core::ops::Deref for ShadingRatePaletteNVBuilder<'a> {
+    type Target = ShadingRatePaletteNV;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl<'a> core::ops::DerefMut for ShadingRatePaletteNVBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
 ///Builder for [`PipelineViewportShadingRateImageStateCreateInfoNV`] with lifetime-tied pNext safety.
 pub struct PipelineViewportShadingRateImageStateCreateInfoNVBuilder<'a> {
     inner: PipelineViewportShadingRateImageStateCreateInfoNV,
@@ -24778,6 +30913,99 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceInvocationMaskFeaturesHUAWEIBuild
         &mut self.inner
     }
 }
+///Builder for [`CoarseSampleLocationNV`].
+pub struct CoarseSampleLocationNVBuilder {
+    inner: CoarseSampleLocationNV,
+}
+impl CoarseSampleLocationNV {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> CoarseSampleLocationNVBuilder {
+        CoarseSampleLocationNVBuilder {
+            inner: CoarseSampleLocationNV {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl CoarseSampleLocationNVBuilder {
+    #[inline]
+    pub fn pixel_x(mut self, value: u32) -> Self {
+        self.inner.pixel_x = value;
+        self
+    }
+    #[inline]
+    pub fn pixel_y(mut self, value: u32) -> Self {
+        self.inner.pixel_y = value;
+        self
+    }
+    #[inline]
+    pub fn sample(mut self, value: u32) -> Self {
+        self.inner.sample = value;
+        self
+    }
+}
+impl core::ops::Deref for CoarseSampleLocationNVBuilder {
+    type Target = CoarseSampleLocationNV;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for CoarseSampleLocationNVBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`CoarseSampleOrderCustomNV`].
+pub struct CoarseSampleOrderCustomNVBuilder<'a> {
+    inner: CoarseSampleOrderCustomNV,
+    _marker: core::marker::PhantomData<&'a ()>,
+}
+impl CoarseSampleOrderCustomNV {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder<'a>() -> CoarseSampleOrderCustomNVBuilder<'a> {
+        CoarseSampleOrderCustomNVBuilder {
+            inner: CoarseSampleOrderCustomNV {
+                ..Default::default()
+            },
+            _marker: core::marker::PhantomData,
+        }
+    }
+}
+impl<'a> CoarseSampleOrderCustomNVBuilder<'a> {
+    #[inline]
+    pub fn shading_rate(mut self, value: ShadingRatePaletteEntryNV) -> Self {
+        self.inner.shading_rate = value;
+        self
+    }
+    #[inline]
+    pub fn sample_count(mut self, value: u32) -> Self {
+        self.inner.sample_count = value;
+        self
+    }
+    #[inline]
+    pub fn sample_locations(mut self, slice: &'a [CoarseSampleLocationNV]) -> Self {
+        self.inner.sample_location_count = slice.len() as u32;
+        self.inner.p_sample_locations = slice.as_ptr();
+        self
+    }
+}
+impl<'a> core::ops::Deref for CoarseSampleOrderCustomNVBuilder<'a> {
+    type Target = CoarseSampleOrderCustomNV;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl<'a> core::ops::DerefMut for CoarseSampleOrderCustomNVBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
 ///Builder for [`PipelineViewportCoarseSampleOrderStateCreateInfoNV`] with lifetime-tied pNext safety.
 pub struct PipelineViewportCoarseSampleOrderStateCreateInfoNVBuilder<'a> {
     inner: PipelineViewportCoarseSampleOrderStateCreateInfoNV,
@@ -24995,6 +31223,46 @@ impl<'a> core::ops::Deref for PhysicalDeviceMeshShaderPropertiesNVBuilder<'a> {
     }
 }
 impl<'a> core::ops::DerefMut for PhysicalDeviceMeshShaderPropertiesNVBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`DrawMeshTasksIndirectCommandNV`].
+pub struct DrawMeshTasksIndirectCommandNVBuilder {
+    inner: DrawMeshTasksIndirectCommandNV,
+}
+impl DrawMeshTasksIndirectCommandNV {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> DrawMeshTasksIndirectCommandNVBuilder {
+        DrawMeshTasksIndirectCommandNVBuilder {
+            inner: DrawMeshTasksIndirectCommandNV {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl DrawMeshTasksIndirectCommandNVBuilder {
+    #[inline]
+    pub fn task_count(mut self, value: u32) -> Self {
+        self.inner.task_count = value;
+        self
+    }
+    #[inline]
+    pub fn first_task(mut self, value: u32) -> Self {
+        self.inner.first_task = value;
+        self
+    }
+}
+impl core::ops::Deref for DrawMeshTasksIndirectCommandNVBuilder {
+    type Target = DrawMeshTasksIndirectCommandNV;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for DrawMeshTasksIndirectCommandNVBuilder {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -25241,6 +31509,51 @@ impl<'a> core::ops::Deref for PhysicalDeviceMeshShaderPropertiesEXTBuilder<'a> {
     }
 }
 impl<'a> core::ops::DerefMut for PhysicalDeviceMeshShaderPropertiesEXTBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`DrawMeshTasksIndirectCommandEXT`].
+pub struct DrawMeshTasksIndirectCommandEXTBuilder {
+    inner: DrawMeshTasksIndirectCommandEXT,
+}
+impl DrawMeshTasksIndirectCommandEXT {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> DrawMeshTasksIndirectCommandEXTBuilder {
+        DrawMeshTasksIndirectCommandEXTBuilder {
+            inner: DrawMeshTasksIndirectCommandEXT {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl DrawMeshTasksIndirectCommandEXTBuilder {
+    #[inline]
+    pub fn group_count_x(mut self, value: u32) -> Self {
+        self.inner.group_count_x = value;
+        self
+    }
+    #[inline]
+    pub fn group_count_y(mut self, value: u32) -> Self {
+        self.inner.group_count_y = value;
+        self
+    }
+    #[inline]
+    pub fn group_count_z(mut self, value: u32) -> Self {
+        self.inner.group_count_z = value;
+        self
+    }
+}
+impl core::ops::Deref for DrawMeshTasksIndirectCommandEXTBuilder {
+    type Target = DrawMeshTasksIndirectCommandEXT;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for DrawMeshTasksIndirectCommandEXTBuilder {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -25748,6 +32061,46 @@ impl<'a> core::ops::Deref for GeometryAABBNVBuilder<'a> {
     }
 }
 impl<'a> core::ops::DerefMut for GeometryAABBNVBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`GeometryDataNV`].
+pub struct GeometryDataNVBuilder {
+    inner: GeometryDataNV,
+}
+impl GeometryDataNV {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> GeometryDataNVBuilder {
+        GeometryDataNVBuilder {
+            inner: GeometryDataNV {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl GeometryDataNVBuilder {
+    #[inline]
+    pub fn triangles(mut self, value: GeometryTrianglesNV) -> Self {
+        self.inner.triangles = value;
+        self
+    }
+    #[inline]
+    pub fn aabbs(mut self, value: GeometryAABBNV) -> Self {
+        self.inner.aabbs = value;
+        self
+    }
+}
+impl core::ops::Deref for GeometryDataNVBuilder {
+    type Target = GeometryDataNV;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for GeometryDataNVBuilder {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -26631,6 +32984,196 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceRayTracingPropertiesNVBuilder<'a>
         &mut self.inner
     }
 }
+///Builder for [`StridedDeviceAddressRegionKHR`].
+pub struct StridedDeviceAddressRegionKHRBuilder {
+    inner: StridedDeviceAddressRegionKHR,
+}
+impl StridedDeviceAddressRegionKHR {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> StridedDeviceAddressRegionKHRBuilder {
+        StridedDeviceAddressRegionKHRBuilder {
+            inner: StridedDeviceAddressRegionKHR {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl StridedDeviceAddressRegionKHRBuilder {
+    #[inline]
+    pub fn device_address(mut self, value: u64) -> Self {
+        self.inner.device_address = value;
+        self
+    }
+    #[inline]
+    pub fn stride(mut self, value: u64) -> Self {
+        self.inner.stride = value;
+        self
+    }
+    #[inline]
+    pub fn size(mut self, value: u64) -> Self {
+        self.inner.size = value;
+        self
+    }
+}
+impl core::ops::Deref for StridedDeviceAddressRegionKHRBuilder {
+    type Target = StridedDeviceAddressRegionKHR;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for StridedDeviceAddressRegionKHRBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`TraceRaysIndirectCommandKHR`].
+pub struct TraceRaysIndirectCommandKHRBuilder {
+    inner: TraceRaysIndirectCommandKHR,
+}
+impl TraceRaysIndirectCommandKHR {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> TraceRaysIndirectCommandKHRBuilder {
+        TraceRaysIndirectCommandKHRBuilder {
+            inner: TraceRaysIndirectCommandKHR {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl TraceRaysIndirectCommandKHRBuilder {
+    #[inline]
+    pub fn width(mut self, value: u32) -> Self {
+        self.inner.width = value;
+        self
+    }
+    #[inline]
+    pub fn height(mut self, value: u32) -> Self {
+        self.inner.height = value;
+        self
+    }
+    #[inline]
+    pub fn depth(mut self, value: u32) -> Self {
+        self.inner.depth = value;
+        self
+    }
+}
+impl core::ops::Deref for TraceRaysIndirectCommandKHRBuilder {
+    type Target = TraceRaysIndirectCommandKHR;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for TraceRaysIndirectCommandKHRBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`TraceRaysIndirectCommand2KHR`].
+pub struct TraceRaysIndirectCommand2KHRBuilder {
+    inner: TraceRaysIndirectCommand2KHR,
+}
+impl TraceRaysIndirectCommand2KHR {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> TraceRaysIndirectCommand2KHRBuilder {
+        TraceRaysIndirectCommand2KHRBuilder {
+            inner: TraceRaysIndirectCommand2KHR {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl TraceRaysIndirectCommand2KHRBuilder {
+    #[inline]
+    pub fn raygen_shader_record_address(mut self, value: u64) -> Self {
+        self.inner.raygen_shader_record_address = value;
+        self
+    }
+    #[inline]
+    pub fn raygen_shader_record_size(mut self, value: u64) -> Self {
+        self.inner.raygen_shader_record_size = value;
+        self
+    }
+    #[inline]
+    pub fn miss_shader_binding_table_address(mut self, value: u64) -> Self {
+        self.inner.miss_shader_binding_table_address = value;
+        self
+    }
+    #[inline]
+    pub fn miss_shader_binding_table_size(mut self, value: u64) -> Self {
+        self.inner.miss_shader_binding_table_size = value;
+        self
+    }
+    #[inline]
+    pub fn miss_shader_binding_table_stride(mut self, value: u64) -> Self {
+        self.inner.miss_shader_binding_table_stride = value;
+        self
+    }
+    #[inline]
+    pub fn hit_shader_binding_table_address(mut self, value: u64) -> Self {
+        self.inner.hit_shader_binding_table_address = value;
+        self
+    }
+    #[inline]
+    pub fn hit_shader_binding_table_size(mut self, value: u64) -> Self {
+        self.inner.hit_shader_binding_table_size = value;
+        self
+    }
+    #[inline]
+    pub fn hit_shader_binding_table_stride(mut self, value: u64) -> Self {
+        self.inner.hit_shader_binding_table_stride = value;
+        self
+    }
+    #[inline]
+    pub fn callable_shader_binding_table_address(mut self, value: u64) -> Self {
+        self.inner.callable_shader_binding_table_address = value;
+        self
+    }
+    #[inline]
+    pub fn callable_shader_binding_table_size(mut self, value: u64) -> Self {
+        self.inner.callable_shader_binding_table_size = value;
+        self
+    }
+    #[inline]
+    pub fn callable_shader_binding_table_stride(mut self, value: u64) -> Self {
+        self.inner.callable_shader_binding_table_stride = value;
+        self
+    }
+    #[inline]
+    pub fn width(mut self, value: u32) -> Self {
+        self.inner.width = value;
+        self
+    }
+    #[inline]
+    pub fn height(mut self, value: u32) -> Self {
+        self.inner.height = value;
+        self
+    }
+    #[inline]
+    pub fn depth(mut self, value: u32) -> Self {
+        self.inner.depth = value;
+        self
+    }
+}
+impl core::ops::Deref for TraceRaysIndirectCommand2KHRBuilder {
+    type Target = TraceRaysIndirectCommand2KHR;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for TraceRaysIndirectCommand2KHRBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
 ///Builder for [`PhysicalDeviceRayTracingMaintenance1FeaturesKHR`] with lifetime-tied pNext safety.
 pub struct PhysicalDeviceRayTracingMaintenance1FeaturesKHRBuilder<'a> {
     inner: PhysicalDeviceRayTracingMaintenance1FeaturesKHR,
@@ -26728,6 +33271,54 @@ impl<'a> core::ops::Deref for DrmFormatModifierPropertiesListEXTBuilder<'a> {
     }
 }
 impl<'a> core::ops::DerefMut for DrmFormatModifierPropertiesListEXTBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`DrmFormatModifierPropertiesEXT`].
+pub struct DrmFormatModifierPropertiesEXTBuilder {
+    inner: DrmFormatModifierPropertiesEXT,
+}
+impl DrmFormatModifierPropertiesEXT {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> DrmFormatModifierPropertiesEXTBuilder {
+        DrmFormatModifierPropertiesEXTBuilder {
+            inner: DrmFormatModifierPropertiesEXT {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl DrmFormatModifierPropertiesEXTBuilder {
+    #[inline]
+    pub fn drm_format_modifier(mut self, value: u64) -> Self {
+        self.inner.drm_format_modifier = value;
+        self
+    }
+    #[inline]
+    pub fn drm_format_modifier_plane_count(mut self, value: u32) -> Self {
+        self.inner.drm_format_modifier_plane_count = value;
+        self
+    }
+    #[inline]
+    pub fn drm_format_modifier_tiling_features(
+        mut self,
+        value: FormatFeatureFlags,
+    ) -> Self {
+        self.inner.drm_format_modifier_tiling_features = value;
+        self
+    }
+}
+impl core::ops::Deref for DrmFormatModifierPropertiesEXTBuilder {
+    type Target = DrmFormatModifierPropertiesEXT;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for DrmFormatModifierPropertiesEXTBuilder {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -29019,6 +35610,46 @@ impl<'a> core::ops::DerefMut for PresentFrameTokenGGPBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PipelineCreationFeedback`].
+pub struct PipelineCreationFeedbackBuilder {
+    inner: PipelineCreationFeedback,
+}
+impl PipelineCreationFeedback {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> PipelineCreationFeedbackBuilder {
+        PipelineCreationFeedbackBuilder {
+            inner: PipelineCreationFeedback {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl PipelineCreationFeedbackBuilder {
+    #[inline]
+    pub fn flags(mut self, value: PipelineCreationFeedbackFlags) -> Self {
+        self.inner.flags = value;
+        self
+    }
+    #[inline]
+    pub fn duration(mut self, value: u64) -> Self {
+        self.inner.duration = value;
+        self
+    }
+}
+impl core::ops::Deref for PipelineCreationFeedbackBuilder {
+    type Target = PipelineCreationFeedback;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for PipelineCreationFeedbackBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
 ///Builder for [`PipelineCreationFeedbackCreateInfo`] with lifetime-tied pNext safety.
 pub struct PipelineCreationFeedbackCreateInfoBuilder<'a> {
     inner: PipelineCreationFeedbackCreateInfo,
@@ -30076,6 +36707,46 @@ for PhysicalDeviceShaderIntegerFunctions2FeaturesINTELBuilder<'a> {
 }
 impl<'a> core::ops::DerefMut
 for PhysicalDeviceShaderIntegerFunctions2FeaturesINTELBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`PerformanceValueINTEL`].
+pub struct PerformanceValueINTELBuilder {
+    inner: PerformanceValueINTEL,
+}
+impl PerformanceValueINTEL {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> PerformanceValueINTELBuilder {
+        PerformanceValueINTELBuilder {
+            inner: PerformanceValueINTEL {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl PerformanceValueINTELBuilder {
+    #[inline]
+    pub fn r#type(mut self, value: PerformanceValueTypeINTEL) -> Self {
+        self.inner.r#type = value;
+        self
+    }
+    #[inline]
+    pub fn data(mut self, value: PerformanceValueDataINTEL) -> Self {
+        self.inner.data = value;
+        self
+    }
+}
+impl core::ops::Deref for PerformanceValueINTELBuilder {
+    type Target = PerformanceValueINTEL;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for PerformanceValueINTELBuilder {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -34983,6 +41654,56 @@ impl<'a> core::ops::DerefMut for AccelerationStructureBuildGeometryInfoKHRBuilde
         &mut self.inner
     }
 }
+///Builder for [`AccelerationStructureBuildRangeInfoKHR`].
+pub struct AccelerationStructureBuildRangeInfoKHRBuilder {
+    inner: AccelerationStructureBuildRangeInfoKHR,
+}
+impl AccelerationStructureBuildRangeInfoKHR {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> AccelerationStructureBuildRangeInfoKHRBuilder {
+        AccelerationStructureBuildRangeInfoKHRBuilder {
+            inner: AccelerationStructureBuildRangeInfoKHR {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl AccelerationStructureBuildRangeInfoKHRBuilder {
+    #[inline]
+    pub fn primitive_count(mut self, value: u32) -> Self {
+        self.inner.primitive_count = value;
+        self
+    }
+    #[inline]
+    pub fn primitive_offset(mut self, value: u32) -> Self {
+        self.inner.primitive_offset = value;
+        self
+    }
+    #[inline]
+    pub fn first_vertex(mut self, value: u32) -> Self {
+        self.inner.first_vertex = value;
+        self
+    }
+    #[inline]
+    pub fn transform_offset(mut self, value: u32) -> Self {
+        self.inner.transform_offset = value;
+        self
+    }
+}
+impl core::ops::Deref for AccelerationStructureBuildRangeInfoKHRBuilder {
+    type Target = AccelerationStructureBuildRangeInfoKHR;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for AccelerationStructureBuildRangeInfoKHRBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
 ///Builder for [`AccelerationStructureCreateInfoKHR`] with lifetime-tied pNext safety.
 pub struct AccelerationStructureCreateInfoKHRBuilder<'a> {
     inner: AccelerationStructureCreateInfoKHR,
@@ -35056,6 +41777,101 @@ impl<'a> core::ops::Deref for AccelerationStructureCreateInfoKHRBuilder<'a> {
     }
 }
 impl<'a> core::ops::DerefMut for AccelerationStructureCreateInfoKHRBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`AabbPositionsKHR`].
+pub struct AabbPositionsKHRBuilder {
+    inner: AabbPositionsKHR,
+}
+impl AabbPositionsKHR {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> AabbPositionsKHRBuilder {
+        AabbPositionsKHRBuilder {
+            inner: AabbPositionsKHR {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl AabbPositionsKHRBuilder {
+    #[inline]
+    pub fn min_x(mut self, value: f32) -> Self {
+        self.inner.min_x = value;
+        self
+    }
+    #[inline]
+    pub fn min_y(mut self, value: f32) -> Self {
+        self.inner.min_y = value;
+        self
+    }
+    #[inline]
+    pub fn min_z(mut self, value: f32) -> Self {
+        self.inner.min_z = value;
+        self
+    }
+    #[inline]
+    pub fn max_x(mut self, value: f32) -> Self {
+        self.inner.max_x = value;
+        self
+    }
+    #[inline]
+    pub fn max_y(mut self, value: f32) -> Self {
+        self.inner.max_y = value;
+        self
+    }
+    #[inline]
+    pub fn max_z(mut self, value: f32) -> Self {
+        self.inner.max_z = value;
+        self
+    }
+}
+impl core::ops::Deref for AabbPositionsKHRBuilder {
+    type Target = AabbPositionsKHR;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for AabbPositionsKHRBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`TransformMatrixKHR`].
+pub struct TransformMatrixKHRBuilder {
+    inner: TransformMatrixKHR,
+}
+impl TransformMatrixKHR {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> TransformMatrixKHRBuilder {
+        TransformMatrixKHRBuilder {
+            inner: TransformMatrixKHR {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl TransformMatrixKHRBuilder {
+    #[inline]
+    pub fn matrix(mut self, value: [[f32; 4usize]; 3usize]) -> Self {
+        self.inner.matrix = value;
+        self
+    }
+}
+impl core::ops::Deref for TransformMatrixKHRBuilder {
+    type Target = TransformMatrixKHR;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for TransformMatrixKHRBuilder {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -35463,6 +42279,51 @@ impl<'a> core::ops::Deref for PipelineLibraryCreateInfoKHRBuilder<'a> {
     }
 }
 impl<'a> core::ops::DerefMut for PipelineLibraryCreateInfoKHRBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`RefreshObjectKHR`].
+pub struct RefreshObjectKHRBuilder {
+    inner: RefreshObjectKHR,
+}
+impl RefreshObjectKHR {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> RefreshObjectKHRBuilder {
+        RefreshObjectKHRBuilder {
+            inner: RefreshObjectKHR {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl RefreshObjectKHRBuilder {
+    #[inline]
+    pub fn object_type(mut self, value: ObjectType) -> Self {
+        self.inner.object_type = value;
+        self
+    }
+    #[inline]
+    pub fn object_handle(mut self, value: u64) -> Self {
+        self.inner.object_handle = value;
+        self
+    }
+    #[inline]
+    pub fn flags(mut self, value: RefreshObjectFlagsKHR) -> Self {
+        self.inner.flags = value;
+        self
+    }
+}
+impl core::ops::Deref for RefreshObjectKHRBuilder {
+    type Target = RefreshObjectKHR;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for RefreshObjectKHRBuilder {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -35933,6 +42794,121 @@ for PhysicalDeviceExtendedDynamicState3PropertiesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`ColorBlendEquationEXT`].
+pub struct ColorBlendEquationEXTBuilder {
+    inner: ColorBlendEquationEXT,
+}
+impl ColorBlendEquationEXT {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> ColorBlendEquationEXTBuilder {
+        ColorBlendEquationEXTBuilder {
+            inner: ColorBlendEquationEXT {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl ColorBlendEquationEXTBuilder {
+    #[inline]
+    pub fn src_color_blend_factor(mut self, value: BlendFactor) -> Self {
+        self.inner.src_color_blend_factor = value;
+        self
+    }
+    #[inline]
+    pub fn dst_color_blend_factor(mut self, value: BlendFactor) -> Self {
+        self.inner.dst_color_blend_factor = value;
+        self
+    }
+    #[inline]
+    pub fn color_blend_op(mut self, value: BlendOp) -> Self {
+        self.inner.color_blend_op = value;
+        self
+    }
+    #[inline]
+    pub fn src_alpha_blend_factor(mut self, value: BlendFactor) -> Self {
+        self.inner.src_alpha_blend_factor = value;
+        self
+    }
+    #[inline]
+    pub fn dst_alpha_blend_factor(mut self, value: BlendFactor) -> Self {
+        self.inner.dst_alpha_blend_factor = value;
+        self
+    }
+    #[inline]
+    pub fn alpha_blend_op(mut self, value: BlendOp) -> Self {
+        self.inner.alpha_blend_op = value;
+        self
+    }
+}
+impl core::ops::Deref for ColorBlendEquationEXTBuilder {
+    type Target = ColorBlendEquationEXT;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for ColorBlendEquationEXTBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`ColorBlendAdvancedEXT`].
+pub struct ColorBlendAdvancedEXTBuilder {
+    inner: ColorBlendAdvancedEXT,
+}
+impl ColorBlendAdvancedEXT {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> ColorBlendAdvancedEXTBuilder {
+        ColorBlendAdvancedEXTBuilder {
+            inner: ColorBlendAdvancedEXT {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl ColorBlendAdvancedEXTBuilder {
+    #[inline]
+    pub fn advanced_blend_op(mut self, value: BlendOp) -> Self {
+        self.inner.advanced_blend_op = value;
+        self
+    }
+    #[inline]
+    pub fn src_premultiplied(mut self, value: bool) -> Self {
+        self.inner.src_premultiplied = value as u32;
+        self
+    }
+    #[inline]
+    pub fn dst_premultiplied(mut self, value: bool) -> Self {
+        self.inner.dst_premultiplied = value as u32;
+        self
+    }
+    #[inline]
+    pub fn blend_overlap(mut self, value: BlendOverlapEXT) -> Self {
+        self.inner.blend_overlap = value;
+        self
+    }
+    #[inline]
+    pub fn clamp_results(mut self, value: bool) -> Self {
+        self.inner.clamp_results = value as u32;
+        self
+    }
+}
+impl core::ops::Deref for ColorBlendAdvancedEXTBuilder {
+    type Target = ColorBlendAdvancedEXT;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for ColorBlendAdvancedEXTBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
 ///Builder for [`RenderPassTransformBeginInfoQCOM`] with lifetime-tied pNext safety.
 pub struct RenderPassTransformBeginInfoQCOMBuilder<'a> {
     inner: RenderPassTransformBeginInfoQCOM,
@@ -36200,6 +43176,52 @@ for PhysicalDevicePartitionedAccelerationStructurePropertiesNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`BuildPartitionedAccelerationStructureIndirectCommandNV`].
+pub struct BuildPartitionedAccelerationStructureIndirectCommandNVBuilder {
+    inner: BuildPartitionedAccelerationStructureIndirectCommandNV,
+}
+impl BuildPartitionedAccelerationStructureIndirectCommandNV {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> BuildPartitionedAccelerationStructureIndirectCommandNVBuilder {
+        BuildPartitionedAccelerationStructureIndirectCommandNVBuilder {
+            inner: BuildPartitionedAccelerationStructureIndirectCommandNV {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl BuildPartitionedAccelerationStructureIndirectCommandNVBuilder {
+    #[inline]
+    pub fn op_type(mut self, value: PartitionedAccelerationStructureOpTypeNV) -> Self {
+        self.inner.op_type = value;
+        self
+    }
+    #[inline]
+    pub fn arg_count(mut self, value: u32) -> Self {
+        self.inner.arg_count = value;
+        self
+    }
+    #[inline]
+    pub fn arg_data(mut self, value: StridedDeviceAddressNV) -> Self {
+        self.inner.arg_data = value;
+        self
+    }
+}
+impl core::ops::Deref for BuildPartitionedAccelerationStructureIndirectCommandNVBuilder {
+    type Target = BuildPartitionedAccelerationStructureIndirectCommandNV;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut
+for BuildPartitionedAccelerationStructureIndirectCommandNVBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
 ///Builder for [`PartitionedAccelerationStructureFlagsNV`] with lifetime-tied pNext safety.
 pub struct PartitionedAccelerationStructureFlagsNVBuilder<'a> {
     inner: PartitionedAccelerationStructureFlagsNV,
@@ -36248,6 +43270,172 @@ impl<'a> core::ops::Deref for PartitionedAccelerationStructureFlagsNVBuilder<'a>
     }
 }
 impl<'a> core::ops::DerefMut for PartitionedAccelerationStructureFlagsNVBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`PartitionedAccelerationStructureWriteInstanceDataNV`].
+pub struct PartitionedAccelerationStructureWriteInstanceDataNVBuilder {
+    inner: PartitionedAccelerationStructureWriteInstanceDataNV,
+}
+impl PartitionedAccelerationStructureWriteInstanceDataNV {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> PartitionedAccelerationStructureWriteInstanceDataNVBuilder {
+        PartitionedAccelerationStructureWriteInstanceDataNVBuilder {
+            inner: PartitionedAccelerationStructureWriteInstanceDataNV {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl PartitionedAccelerationStructureWriteInstanceDataNVBuilder {
+    #[inline]
+    pub fn transform(mut self, value: TransformMatrixKHR) -> Self {
+        self.inner.transform = value;
+        self
+    }
+    #[inline]
+    pub fn explicit_aabb(mut self, value: [f32; 6usize]) -> Self {
+        self.inner.explicit_aabb = value;
+        self
+    }
+    #[inline]
+    pub fn instance_id(mut self, value: u32) -> Self {
+        self.inner.instance_id = value;
+        self
+    }
+    #[inline]
+    pub fn instance_mask(mut self, value: u32) -> Self {
+        self.inner.instance_mask = value;
+        self
+    }
+    #[inline]
+    pub fn instance_contribution_to_hit_group_index(mut self, value: u32) -> Self {
+        self.inner.instance_contribution_to_hit_group_index = value;
+        self
+    }
+    #[inline]
+    pub fn instance_flags(
+        mut self,
+        value: PartitionedAccelerationStructureInstanceFlagsNV,
+    ) -> Self {
+        self.inner.instance_flags = value;
+        self
+    }
+    #[inline]
+    pub fn instance_index(mut self, value: u32) -> Self {
+        self.inner.instance_index = value;
+        self
+    }
+    #[inline]
+    pub fn partition_index(mut self, value: u32) -> Self {
+        self.inner.partition_index = value;
+        self
+    }
+    #[inline]
+    pub fn acceleration_structure(mut self, value: u64) -> Self {
+        self.inner.acceleration_structure = value;
+        self
+    }
+}
+impl core::ops::Deref for PartitionedAccelerationStructureWriteInstanceDataNVBuilder {
+    type Target = PartitionedAccelerationStructureWriteInstanceDataNV;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for PartitionedAccelerationStructureWriteInstanceDataNVBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`PartitionedAccelerationStructureUpdateInstanceDataNV`].
+pub struct PartitionedAccelerationStructureUpdateInstanceDataNVBuilder {
+    inner: PartitionedAccelerationStructureUpdateInstanceDataNV,
+}
+impl PartitionedAccelerationStructureUpdateInstanceDataNV {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> PartitionedAccelerationStructureUpdateInstanceDataNVBuilder {
+        PartitionedAccelerationStructureUpdateInstanceDataNVBuilder {
+            inner: PartitionedAccelerationStructureUpdateInstanceDataNV {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl PartitionedAccelerationStructureUpdateInstanceDataNVBuilder {
+    #[inline]
+    pub fn instance_index(mut self, value: u32) -> Self {
+        self.inner.instance_index = value;
+        self
+    }
+    #[inline]
+    pub fn instance_contribution_to_hit_group_index(mut self, value: u32) -> Self {
+        self.inner.instance_contribution_to_hit_group_index = value;
+        self
+    }
+    #[inline]
+    pub fn acceleration_structure(mut self, value: u64) -> Self {
+        self.inner.acceleration_structure = value;
+        self
+    }
+}
+impl core::ops::Deref for PartitionedAccelerationStructureUpdateInstanceDataNVBuilder {
+    type Target = PartitionedAccelerationStructureUpdateInstanceDataNV;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut
+for PartitionedAccelerationStructureUpdateInstanceDataNVBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`PartitionedAccelerationStructureWritePartitionTranslationDataNV`].
+pub struct PartitionedAccelerationStructureWritePartitionTranslationDataNVBuilder {
+    inner: PartitionedAccelerationStructureWritePartitionTranslationDataNV,
+}
+impl PartitionedAccelerationStructureWritePartitionTranslationDataNV {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> PartitionedAccelerationStructureWritePartitionTranslationDataNVBuilder {
+        PartitionedAccelerationStructureWritePartitionTranslationDataNVBuilder {
+            inner: PartitionedAccelerationStructureWritePartitionTranslationDataNV {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl PartitionedAccelerationStructureWritePartitionTranslationDataNVBuilder {
+    #[inline]
+    pub fn partition_index(mut self, value: u32) -> Self {
+        self.inner.partition_index = value;
+        self
+    }
+    #[inline]
+    pub fn partition_translation(mut self, value: [f32; 3usize]) -> Self {
+        self.inner.partition_translation = value;
+        self
+    }
+}
+impl core::ops::Deref
+for PartitionedAccelerationStructureWritePartitionTranslationDataNVBuilder {
+    type Target = PartitionedAccelerationStructureWritePartitionTranslationDataNV;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut
+for PartitionedAccelerationStructureWritePartitionTranslationDataNVBuilder {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -39173,6 +46361,44 @@ for PhysicalDeviceMutableDescriptorTypeFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`MutableDescriptorTypeListEXT`].
+pub struct MutableDescriptorTypeListEXTBuilder<'a> {
+    inner: MutableDescriptorTypeListEXT,
+    _marker: core::marker::PhantomData<&'a ()>,
+}
+impl MutableDescriptorTypeListEXT {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder<'a>() -> MutableDescriptorTypeListEXTBuilder<'a> {
+        MutableDescriptorTypeListEXTBuilder {
+            inner: MutableDescriptorTypeListEXT {
+                ..Default::default()
+            },
+            _marker: core::marker::PhantomData,
+        }
+    }
+}
+impl<'a> MutableDescriptorTypeListEXTBuilder<'a> {
+    #[inline]
+    pub fn descriptor_types(mut self, slice: &'a [DescriptorType]) -> Self {
+        self.inner.descriptor_type_count = slice.len() as u32;
+        self.inner.p_descriptor_types = slice.as_ptr();
+        self
+    }
+}
+impl<'a> core::ops::Deref for MutableDescriptorTypeListEXTBuilder<'a> {
+    type Target = MutableDescriptorTypeListEXT;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl<'a> core::ops::DerefMut for MutableDescriptorTypeListEXTBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
 ///Builder for [`MutableDescriptorTypeCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct MutableDescriptorTypeCreateInfoEXTBuilder<'a> {
     inner: MutableDescriptorTypeCreateInfoEXT,
@@ -40447,6 +47673,286 @@ impl<'a> core::ops::Deref for IndirectCommandsLayoutTokenEXTBuilder<'a> {
     }
 }
 impl<'a> core::ops::DerefMut for IndirectCommandsLayoutTokenEXTBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`DrawIndirectCountIndirectCommandEXT`].
+pub struct DrawIndirectCountIndirectCommandEXTBuilder {
+    inner: DrawIndirectCountIndirectCommandEXT,
+}
+impl DrawIndirectCountIndirectCommandEXT {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> DrawIndirectCountIndirectCommandEXTBuilder {
+        DrawIndirectCountIndirectCommandEXTBuilder {
+            inner: DrawIndirectCountIndirectCommandEXT {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl DrawIndirectCountIndirectCommandEXTBuilder {
+    #[inline]
+    pub fn buffer_address(mut self, value: u64) -> Self {
+        self.inner.buffer_address = value;
+        self
+    }
+    #[inline]
+    pub fn stride(mut self, value: u32) -> Self {
+        self.inner.stride = value;
+        self
+    }
+    #[inline]
+    pub fn command_count(mut self, value: u32) -> Self {
+        self.inner.command_count = value;
+        self
+    }
+}
+impl core::ops::Deref for DrawIndirectCountIndirectCommandEXTBuilder {
+    type Target = DrawIndirectCountIndirectCommandEXT;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for DrawIndirectCountIndirectCommandEXTBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`IndirectCommandsVertexBufferTokenEXT`].
+pub struct IndirectCommandsVertexBufferTokenEXTBuilder {
+    inner: IndirectCommandsVertexBufferTokenEXT,
+}
+impl IndirectCommandsVertexBufferTokenEXT {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> IndirectCommandsVertexBufferTokenEXTBuilder {
+        IndirectCommandsVertexBufferTokenEXTBuilder {
+            inner: IndirectCommandsVertexBufferTokenEXT {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl IndirectCommandsVertexBufferTokenEXTBuilder {
+    #[inline]
+    pub fn vertex_binding_unit(mut self, value: u32) -> Self {
+        self.inner.vertex_binding_unit = value;
+        self
+    }
+}
+impl core::ops::Deref for IndirectCommandsVertexBufferTokenEXTBuilder {
+    type Target = IndirectCommandsVertexBufferTokenEXT;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for IndirectCommandsVertexBufferTokenEXTBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`BindVertexBufferIndirectCommandEXT`].
+pub struct BindVertexBufferIndirectCommandEXTBuilder {
+    inner: BindVertexBufferIndirectCommandEXT,
+}
+impl BindVertexBufferIndirectCommandEXT {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> BindVertexBufferIndirectCommandEXTBuilder {
+        BindVertexBufferIndirectCommandEXTBuilder {
+            inner: BindVertexBufferIndirectCommandEXT {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl BindVertexBufferIndirectCommandEXTBuilder {
+    #[inline]
+    pub fn buffer_address(mut self, value: u64) -> Self {
+        self.inner.buffer_address = value;
+        self
+    }
+    #[inline]
+    pub fn size(mut self, value: u32) -> Self {
+        self.inner.size = value;
+        self
+    }
+    #[inline]
+    pub fn stride(mut self, value: u32) -> Self {
+        self.inner.stride = value;
+        self
+    }
+}
+impl core::ops::Deref for BindVertexBufferIndirectCommandEXTBuilder {
+    type Target = BindVertexBufferIndirectCommandEXT;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for BindVertexBufferIndirectCommandEXTBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`IndirectCommandsIndexBufferTokenEXT`].
+pub struct IndirectCommandsIndexBufferTokenEXTBuilder {
+    inner: IndirectCommandsIndexBufferTokenEXT,
+}
+impl IndirectCommandsIndexBufferTokenEXT {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> IndirectCommandsIndexBufferTokenEXTBuilder {
+        IndirectCommandsIndexBufferTokenEXTBuilder {
+            inner: IndirectCommandsIndexBufferTokenEXT {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl IndirectCommandsIndexBufferTokenEXTBuilder {
+    #[inline]
+    pub fn mode(mut self, value: IndirectCommandsInputModeFlagBitsEXT) -> Self {
+        self.inner.mode = value;
+        self
+    }
+}
+impl core::ops::Deref for IndirectCommandsIndexBufferTokenEXTBuilder {
+    type Target = IndirectCommandsIndexBufferTokenEXT;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for IndirectCommandsIndexBufferTokenEXTBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`BindIndexBufferIndirectCommandEXT`].
+pub struct BindIndexBufferIndirectCommandEXTBuilder {
+    inner: BindIndexBufferIndirectCommandEXT,
+}
+impl BindIndexBufferIndirectCommandEXT {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> BindIndexBufferIndirectCommandEXTBuilder {
+        BindIndexBufferIndirectCommandEXTBuilder {
+            inner: BindIndexBufferIndirectCommandEXT {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl BindIndexBufferIndirectCommandEXTBuilder {
+    #[inline]
+    pub fn buffer_address(mut self, value: u64) -> Self {
+        self.inner.buffer_address = value;
+        self
+    }
+    #[inline]
+    pub fn size(mut self, value: u32) -> Self {
+        self.inner.size = value;
+        self
+    }
+    #[inline]
+    pub fn index_type(mut self, value: IndexType) -> Self {
+        self.inner.index_type = value;
+        self
+    }
+}
+impl core::ops::Deref for BindIndexBufferIndirectCommandEXTBuilder {
+    type Target = BindIndexBufferIndirectCommandEXT;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for BindIndexBufferIndirectCommandEXTBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`IndirectCommandsPushConstantTokenEXT`].
+pub struct IndirectCommandsPushConstantTokenEXTBuilder {
+    inner: IndirectCommandsPushConstantTokenEXT,
+}
+impl IndirectCommandsPushConstantTokenEXT {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> IndirectCommandsPushConstantTokenEXTBuilder {
+        IndirectCommandsPushConstantTokenEXTBuilder {
+            inner: IndirectCommandsPushConstantTokenEXT {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl IndirectCommandsPushConstantTokenEXTBuilder {
+    #[inline]
+    pub fn update_range(mut self, value: PushConstantRange) -> Self {
+        self.inner.update_range = value;
+        self
+    }
+}
+impl core::ops::Deref for IndirectCommandsPushConstantTokenEXTBuilder {
+    type Target = IndirectCommandsPushConstantTokenEXT;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for IndirectCommandsPushConstantTokenEXTBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`IndirectCommandsExecutionSetTokenEXT`].
+pub struct IndirectCommandsExecutionSetTokenEXTBuilder {
+    inner: IndirectCommandsExecutionSetTokenEXT,
+}
+impl IndirectCommandsExecutionSetTokenEXT {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> IndirectCommandsExecutionSetTokenEXTBuilder {
+        IndirectCommandsExecutionSetTokenEXTBuilder {
+            inner: IndirectCommandsExecutionSetTokenEXT {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl IndirectCommandsExecutionSetTokenEXTBuilder {
+    #[inline]
+    pub fn r#type(mut self, value: IndirectExecutionSetInfoTypeEXT) -> Self {
+        self.inner.r#type = value;
+        self
+    }
+    #[inline]
+    pub fn shader_stages(mut self, value: ShaderStageFlags) -> Self {
+        self.inner.shader_stages = value;
+        self
+    }
+}
+impl core::ops::Deref for IndirectCommandsExecutionSetTokenEXTBuilder {
+    type Target = IndirectCommandsExecutionSetTokenEXT;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for IndirectCommandsExecutionSetTokenEXTBuilder {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -48133,6 +55639,96 @@ impl<'a> core::ops::DerefMut for VideoEncodeH264RateControlInfoKHRBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`VideoEncodeH264QpKHR`].
+pub struct VideoEncodeH264QpKHRBuilder {
+    inner: VideoEncodeH264QpKHR,
+}
+impl VideoEncodeH264QpKHR {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> VideoEncodeH264QpKHRBuilder {
+        VideoEncodeH264QpKHRBuilder {
+            inner: VideoEncodeH264QpKHR {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl VideoEncodeH264QpKHRBuilder {
+    #[inline]
+    pub fn qp_i(mut self, value: i32) -> Self {
+        self.inner.qp_i = value;
+        self
+    }
+    #[inline]
+    pub fn qp_p(mut self, value: i32) -> Self {
+        self.inner.qp_p = value;
+        self
+    }
+    #[inline]
+    pub fn qp_b(mut self, value: i32) -> Self {
+        self.inner.qp_b = value;
+        self
+    }
+}
+impl core::ops::Deref for VideoEncodeH264QpKHRBuilder {
+    type Target = VideoEncodeH264QpKHR;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for VideoEncodeH264QpKHRBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`VideoEncodeH264FrameSizeKHR`].
+pub struct VideoEncodeH264FrameSizeKHRBuilder {
+    inner: VideoEncodeH264FrameSizeKHR,
+}
+impl VideoEncodeH264FrameSizeKHR {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> VideoEncodeH264FrameSizeKHRBuilder {
+        VideoEncodeH264FrameSizeKHRBuilder {
+            inner: VideoEncodeH264FrameSizeKHR {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl VideoEncodeH264FrameSizeKHRBuilder {
+    #[inline]
+    pub fn frame_i_size(mut self, value: u32) -> Self {
+        self.inner.frame_i_size = value;
+        self
+    }
+    #[inline]
+    pub fn frame_p_size(mut self, value: u32) -> Self {
+        self.inner.frame_p_size = value;
+        self
+    }
+    #[inline]
+    pub fn frame_b_size(mut self, value: u32) -> Self {
+        self.inner.frame_b_size = value;
+        self
+    }
+}
+impl core::ops::Deref for VideoEncodeH264FrameSizeKHRBuilder {
+    type Target = VideoEncodeH264FrameSizeKHR;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for VideoEncodeH264FrameSizeKHRBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
 ///Builder for [`VideoEncodeH264GopRemainingFrameInfoKHR`] with lifetime-tied pNext safety.
 pub struct VideoEncodeH264GopRemainingFrameInfoKHRBuilder<'a> {
     inner: VideoEncodeH264GopRemainingFrameInfoKHR,
@@ -48989,6 +56585,96 @@ impl<'a> core::ops::Deref for VideoEncodeH265RateControlInfoKHRBuilder<'a> {
     }
 }
 impl<'a> core::ops::DerefMut for VideoEncodeH265RateControlInfoKHRBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`VideoEncodeH265QpKHR`].
+pub struct VideoEncodeH265QpKHRBuilder {
+    inner: VideoEncodeH265QpKHR,
+}
+impl VideoEncodeH265QpKHR {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> VideoEncodeH265QpKHRBuilder {
+        VideoEncodeH265QpKHRBuilder {
+            inner: VideoEncodeH265QpKHR {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl VideoEncodeH265QpKHRBuilder {
+    #[inline]
+    pub fn qp_i(mut self, value: i32) -> Self {
+        self.inner.qp_i = value;
+        self
+    }
+    #[inline]
+    pub fn qp_p(mut self, value: i32) -> Self {
+        self.inner.qp_p = value;
+        self
+    }
+    #[inline]
+    pub fn qp_b(mut self, value: i32) -> Self {
+        self.inner.qp_b = value;
+        self
+    }
+}
+impl core::ops::Deref for VideoEncodeH265QpKHRBuilder {
+    type Target = VideoEncodeH265QpKHR;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for VideoEncodeH265QpKHRBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`VideoEncodeH265FrameSizeKHR`].
+pub struct VideoEncodeH265FrameSizeKHRBuilder {
+    inner: VideoEncodeH265FrameSizeKHR,
+}
+impl VideoEncodeH265FrameSizeKHR {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> VideoEncodeH265FrameSizeKHRBuilder {
+        VideoEncodeH265FrameSizeKHRBuilder {
+            inner: VideoEncodeH265FrameSizeKHR {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl VideoEncodeH265FrameSizeKHRBuilder {
+    #[inline]
+    pub fn frame_i_size(mut self, value: u32) -> Self {
+        self.inner.frame_i_size = value;
+        self
+    }
+    #[inline]
+    pub fn frame_p_size(mut self, value: u32) -> Self {
+        self.inner.frame_p_size = value;
+        self
+    }
+    #[inline]
+    pub fn frame_b_size(mut self, value: u32) -> Self {
+        self.inner.frame_b_size = value;
+        self
+    }
+}
+impl core::ops::Deref for VideoEncodeH265FrameSizeKHRBuilder {
+    type Target = VideoEncodeH265FrameSizeKHR;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for VideoEncodeH265FrameSizeKHRBuilder {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -50000,6 +57686,96 @@ impl<'a> core::ops::Deref for VideoEncodeAV1RateControlInfoKHRBuilder<'a> {
     }
 }
 impl<'a> core::ops::DerefMut for VideoEncodeAV1RateControlInfoKHRBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`VideoEncodeAV1QIndexKHR`].
+pub struct VideoEncodeAV1QIndexKHRBuilder {
+    inner: VideoEncodeAV1QIndexKHR,
+}
+impl VideoEncodeAV1QIndexKHR {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> VideoEncodeAV1QIndexKHRBuilder {
+        VideoEncodeAV1QIndexKHRBuilder {
+            inner: VideoEncodeAV1QIndexKHR {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl VideoEncodeAV1QIndexKHRBuilder {
+    #[inline]
+    pub fn intra_q_index(mut self, value: u32) -> Self {
+        self.inner.intra_q_index = value;
+        self
+    }
+    #[inline]
+    pub fn predictive_q_index(mut self, value: u32) -> Self {
+        self.inner.predictive_q_index = value;
+        self
+    }
+    #[inline]
+    pub fn bipredictive_q_index(mut self, value: u32) -> Self {
+        self.inner.bipredictive_q_index = value;
+        self
+    }
+}
+impl core::ops::Deref for VideoEncodeAV1QIndexKHRBuilder {
+    type Target = VideoEncodeAV1QIndexKHR;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for VideoEncodeAV1QIndexKHRBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`VideoEncodeAV1FrameSizeKHR`].
+pub struct VideoEncodeAV1FrameSizeKHRBuilder {
+    inner: VideoEncodeAV1FrameSizeKHR,
+}
+impl VideoEncodeAV1FrameSizeKHR {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> VideoEncodeAV1FrameSizeKHRBuilder {
+        VideoEncodeAV1FrameSizeKHRBuilder {
+            inner: VideoEncodeAV1FrameSizeKHR {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl VideoEncodeAV1FrameSizeKHRBuilder {
+    #[inline]
+    pub fn intra_frame_size(mut self, value: u32) -> Self {
+        self.inner.intra_frame_size = value;
+        self
+    }
+    #[inline]
+    pub fn predictive_frame_size(mut self, value: u32) -> Self {
+        self.inner.predictive_frame_size = value;
+        self
+    }
+    #[inline]
+    pub fn bipredictive_frame_size(mut self, value: u32) -> Self {
+        self.inner.bipredictive_frame_size = value;
+        self
+    }
+}
+impl core::ops::Deref for VideoEncodeAV1FrameSizeKHRBuilder {
+    type Target = VideoEncodeAV1FrameSizeKHR;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for VideoEncodeAV1FrameSizeKHRBuilder {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -52801,6 +60577,159 @@ impl<'a> core::ops::DerefMut for AccelerationStructureMotionInfoNVBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`SRTDataNV`].
+pub struct SRTDataNVBuilder {
+    inner: SRTDataNV,
+}
+impl SRTDataNV {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> SRTDataNVBuilder {
+        SRTDataNVBuilder {
+            inner: SRTDataNV { ..Default::default() },
+        }
+    }
+}
+impl SRTDataNVBuilder {
+    #[inline]
+    pub fn sx(mut self, value: f32) -> Self {
+        self.inner.sx = value;
+        self
+    }
+    #[inline]
+    pub fn a(mut self, value: f32) -> Self {
+        self.inner.a = value;
+        self
+    }
+    #[inline]
+    pub fn b(mut self, value: f32) -> Self {
+        self.inner.b = value;
+        self
+    }
+    #[inline]
+    pub fn pvx(mut self, value: f32) -> Self {
+        self.inner.pvx = value;
+        self
+    }
+    #[inline]
+    pub fn sy(mut self, value: f32) -> Self {
+        self.inner.sy = value;
+        self
+    }
+    #[inline]
+    pub fn c(mut self, value: f32) -> Self {
+        self.inner.c = value;
+        self
+    }
+    #[inline]
+    pub fn pvy(mut self, value: f32) -> Self {
+        self.inner.pvy = value;
+        self
+    }
+    #[inline]
+    pub fn sz(mut self, value: f32) -> Self {
+        self.inner.sz = value;
+        self
+    }
+    #[inline]
+    pub fn pvz(mut self, value: f32) -> Self {
+        self.inner.pvz = value;
+        self
+    }
+    #[inline]
+    pub fn qx(mut self, value: f32) -> Self {
+        self.inner.qx = value;
+        self
+    }
+    #[inline]
+    pub fn qy(mut self, value: f32) -> Self {
+        self.inner.qy = value;
+        self
+    }
+    #[inline]
+    pub fn qz(mut self, value: f32) -> Self {
+        self.inner.qz = value;
+        self
+    }
+    #[inline]
+    pub fn qw(mut self, value: f32) -> Self {
+        self.inner.qw = value;
+        self
+    }
+    #[inline]
+    pub fn tx(mut self, value: f32) -> Self {
+        self.inner.tx = value;
+        self
+    }
+    #[inline]
+    pub fn ty(mut self, value: f32) -> Self {
+        self.inner.ty = value;
+        self
+    }
+    #[inline]
+    pub fn tz(mut self, value: f32) -> Self {
+        self.inner.tz = value;
+        self
+    }
+}
+impl core::ops::Deref for SRTDataNVBuilder {
+    type Target = SRTDataNV;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for SRTDataNVBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`AccelerationStructureMotionInstanceNV`].
+pub struct AccelerationStructureMotionInstanceNVBuilder {
+    inner: AccelerationStructureMotionInstanceNV,
+}
+impl AccelerationStructureMotionInstanceNV {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> AccelerationStructureMotionInstanceNVBuilder {
+        AccelerationStructureMotionInstanceNVBuilder {
+            inner: AccelerationStructureMotionInstanceNV {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl AccelerationStructureMotionInstanceNVBuilder {
+    #[inline]
+    pub fn r#type(mut self, value: AccelerationStructureMotionInstanceTypeNV) -> Self {
+        self.inner.r#type = value;
+        self
+    }
+    #[inline]
+    pub fn flags(mut self, value: AccelerationStructureMotionInstanceFlagsNV) -> Self {
+        self.inner.flags = value;
+        self
+    }
+    #[inline]
+    pub fn data(mut self, value: AccelerationStructureMotionInstanceDataNV) -> Self {
+        self.inner.data = value;
+        self
+    }
+}
+impl core::ops::Deref for AccelerationStructureMotionInstanceNVBuilder {
+    type Target = AccelerationStructureMotionInstanceNV;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for AccelerationStructureMotionInstanceNVBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
 ///Builder for [`MemoryGetRemoteAddressInfoNV`] with lifetime-tied pNext safety.
 pub struct MemoryGetRemoteAddressInfoNVBuilder<'a> {
     inner: MemoryGetRemoteAddressInfoNV,
@@ -53868,6 +61797,54 @@ impl<'a> core::ops::Deref for DrmFormatModifierPropertiesList2EXTBuilder<'a> {
     }
 }
 impl<'a> core::ops::DerefMut for DrmFormatModifierPropertiesList2EXTBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`DrmFormatModifierProperties2EXT`].
+pub struct DrmFormatModifierProperties2EXTBuilder {
+    inner: DrmFormatModifierProperties2EXT,
+}
+impl DrmFormatModifierProperties2EXT {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> DrmFormatModifierProperties2EXTBuilder {
+        DrmFormatModifierProperties2EXTBuilder {
+            inner: DrmFormatModifierProperties2EXT {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl DrmFormatModifierProperties2EXTBuilder {
+    #[inline]
+    pub fn drm_format_modifier(mut self, value: u64) -> Self {
+        self.inner.drm_format_modifier = value;
+        self
+    }
+    #[inline]
+    pub fn drm_format_modifier_plane_count(mut self, value: u32) -> Self {
+        self.inner.drm_format_modifier_plane_count = value;
+        self
+    }
+    #[inline]
+    pub fn drm_format_modifier_tiling_features(
+        mut self,
+        value: FormatFeatureFlags2,
+    ) -> Self {
+        self.inner.drm_format_modifier_tiling_features = value;
+        self
+    }
+}
+impl core::ops::Deref for DrmFormatModifierProperties2EXTBuilder {
+    type Target = DrmFormatModifierProperties2EXT;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for DrmFormatModifierProperties2EXTBuilder {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -55995,6 +63972,41 @@ impl<'a> core::ops::DerefMut for RenderPassCreationControlEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`RenderPassCreationFeedbackInfoEXT`].
+pub struct RenderPassCreationFeedbackInfoEXTBuilder {
+    inner: RenderPassCreationFeedbackInfoEXT,
+}
+impl RenderPassCreationFeedbackInfoEXT {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> RenderPassCreationFeedbackInfoEXTBuilder {
+        RenderPassCreationFeedbackInfoEXTBuilder {
+            inner: RenderPassCreationFeedbackInfoEXT {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl RenderPassCreationFeedbackInfoEXTBuilder {
+    #[inline]
+    pub fn post_merge_subpass_count(mut self, value: u32) -> Self {
+        self.inner.post_merge_subpass_count = value;
+        self
+    }
+}
+impl core::ops::Deref for RenderPassCreationFeedbackInfoEXTBuilder {
+    type Target = RenderPassCreationFeedbackInfoEXT;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for RenderPassCreationFeedbackInfoEXTBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
 ///Builder for [`RenderPassCreationFeedbackCreateInfoEXT`] with lifetime-tied pNext safety.
 pub struct RenderPassCreationFeedbackCreateInfoEXTBuilder<'a> {
     inner: RenderPassCreationFeedbackCreateInfoEXT,
@@ -56046,6 +64058,54 @@ impl<'a> core::ops::Deref for RenderPassCreationFeedbackCreateInfoEXTBuilder<'a>
     }
 }
 impl<'a> core::ops::DerefMut for RenderPassCreationFeedbackCreateInfoEXTBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`RenderPassSubpassFeedbackInfoEXT`].
+pub struct RenderPassSubpassFeedbackInfoEXTBuilder {
+    inner: RenderPassSubpassFeedbackInfoEXT,
+}
+impl RenderPassSubpassFeedbackInfoEXT {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> RenderPassSubpassFeedbackInfoEXTBuilder {
+        RenderPassSubpassFeedbackInfoEXTBuilder {
+            inner: RenderPassSubpassFeedbackInfoEXT {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl RenderPassSubpassFeedbackInfoEXTBuilder {
+    #[inline]
+    pub fn subpass_merge_status(mut self, value: SubpassMergeStatusEXT) -> Self {
+        self.inner.subpass_merge_status = value;
+        self
+    }
+    #[inline]
+    pub fn description(
+        mut self,
+        value: crate::StringArray<{ MAX_DESCRIPTION_SIZE as usize }>,
+    ) -> Self {
+        self.inner.description = value;
+        self
+    }
+    #[inline]
+    pub fn post_merge_index(mut self, value: u32) -> Self {
+        self.inner.post_merge_index = value;
+        self
+    }
+}
+impl core::ops::Deref for RenderPassSubpassFeedbackInfoEXTBuilder {
+    type Target = RenderPassSubpassFeedbackInfoEXT;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for RenderPassSubpassFeedbackInfoEXTBuilder {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -56632,6 +64692,96 @@ impl<'a> core::ops::Deref for MicromapBuildSizesInfoEXTBuilder<'a> {
     }
 }
 impl<'a> core::ops::DerefMut for MicromapBuildSizesInfoEXTBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`MicromapUsageEXT`].
+pub struct MicromapUsageEXTBuilder {
+    inner: MicromapUsageEXT,
+}
+impl MicromapUsageEXT {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> MicromapUsageEXTBuilder {
+        MicromapUsageEXTBuilder {
+            inner: MicromapUsageEXT {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl MicromapUsageEXTBuilder {
+    #[inline]
+    pub fn count(mut self, value: u32) -> Self {
+        self.inner.count = value;
+        self
+    }
+    #[inline]
+    pub fn subdivision_level(mut self, value: u32) -> Self {
+        self.inner.subdivision_level = value;
+        self
+    }
+    #[inline]
+    pub fn format(mut self, value: u32) -> Self {
+        self.inner.format = value;
+        self
+    }
+}
+impl core::ops::Deref for MicromapUsageEXTBuilder {
+    type Target = MicromapUsageEXT;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for MicromapUsageEXTBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`MicromapTriangleEXT`].
+pub struct MicromapTriangleEXTBuilder {
+    inner: MicromapTriangleEXT,
+}
+impl MicromapTriangleEXT {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> MicromapTriangleEXTBuilder {
+        MicromapTriangleEXTBuilder {
+            inner: MicromapTriangleEXT {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl MicromapTriangleEXTBuilder {
+    #[inline]
+    pub fn data_offset(mut self, value: u32) -> Self {
+        self.inner.data_offset = value;
+        self
+    }
+    #[inline]
+    pub fn subdivision_level(mut self, value: u16) -> Self {
+        self.inner.subdivision_level = value;
+        self
+    }
+    #[inline]
+    pub fn format(mut self, value: u16) -> Self {
+        self.inner.format = value;
+        self
+    }
+}
+impl core::ops::Deref for MicromapTriangleEXTBuilder {
+    type Target = MicromapTriangleEXT;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for MicromapTriangleEXTBuilder {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -59498,6 +67648,99 @@ impl<'a> core::ops::DerefMut for PhysicalDeviceFaultFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`DeviceFaultAddressInfoKHR`].
+pub struct DeviceFaultAddressInfoKHRBuilder {
+    inner: DeviceFaultAddressInfoKHR,
+}
+impl DeviceFaultAddressInfoKHR {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> DeviceFaultAddressInfoKHRBuilder {
+        DeviceFaultAddressInfoKHRBuilder {
+            inner: DeviceFaultAddressInfoKHR {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl DeviceFaultAddressInfoKHRBuilder {
+    #[inline]
+    pub fn address_type(mut self, value: DeviceFaultAddressTypeKHR) -> Self {
+        self.inner.address_type = value;
+        self
+    }
+    #[inline]
+    pub fn reported_address(mut self, value: u64) -> Self {
+        self.inner.reported_address = value;
+        self
+    }
+    #[inline]
+    pub fn address_precision(mut self, value: u64) -> Self {
+        self.inner.address_precision = value;
+        self
+    }
+}
+impl core::ops::Deref for DeviceFaultAddressInfoKHRBuilder {
+    type Target = DeviceFaultAddressInfoKHR;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for DeviceFaultAddressInfoKHRBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`DeviceFaultVendorInfoKHR`].
+pub struct DeviceFaultVendorInfoKHRBuilder {
+    inner: DeviceFaultVendorInfoKHR,
+}
+impl DeviceFaultVendorInfoKHR {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> DeviceFaultVendorInfoKHRBuilder {
+        DeviceFaultVendorInfoKHRBuilder {
+            inner: DeviceFaultVendorInfoKHR {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl DeviceFaultVendorInfoKHRBuilder {
+    #[inline]
+    pub fn description(
+        mut self,
+        value: crate::StringArray<{ MAX_DESCRIPTION_SIZE as usize }>,
+    ) -> Self {
+        self.inner.description = value;
+        self
+    }
+    #[inline]
+    pub fn vendor_fault_code(mut self, value: u64) -> Self {
+        self.inner.vendor_fault_code = value;
+        self
+    }
+    #[inline]
+    pub fn vendor_fault_data(mut self, value: u64) -> Self {
+        self.inner.vendor_fault_data = value;
+        self
+    }
+}
+impl core::ops::Deref for DeviceFaultVendorInfoKHRBuilder {
+    type Target = DeviceFaultVendorInfoKHR;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for DeviceFaultVendorInfoKHRBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
 ///Builder for [`DeviceFaultInfoKHR`] with lifetime-tied pNext safety.
 pub struct DeviceFaultInfoKHRBuilder<'a> {
     inner: DeviceFaultInfoKHR,
@@ -59714,6 +67957,94 @@ impl<'a> core::ops::Deref for DeviceFaultInfoEXTBuilder<'a> {
     }
 }
 impl<'a> core::ops::DerefMut for DeviceFaultInfoEXTBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`DeviceFaultVendorBinaryHeaderVersionOneKHR`].
+pub struct DeviceFaultVendorBinaryHeaderVersionOneKHRBuilder {
+    inner: DeviceFaultVendorBinaryHeaderVersionOneKHR,
+}
+impl DeviceFaultVendorBinaryHeaderVersionOneKHR {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> DeviceFaultVendorBinaryHeaderVersionOneKHRBuilder {
+        DeviceFaultVendorBinaryHeaderVersionOneKHRBuilder {
+            inner: DeviceFaultVendorBinaryHeaderVersionOneKHR {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl DeviceFaultVendorBinaryHeaderVersionOneKHRBuilder {
+    #[inline]
+    pub fn header_size(mut self, value: u32) -> Self {
+        self.inner.header_size = value;
+        self
+    }
+    #[inline]
+    pub fn header_version(
+        mut self,
+        value: DeviceFaultVendorBinaryHeaderVersionKHR,
+    ) -> Self {
+        self.inner.header_version = value;
+        self
+    }
+    #[inline]
+    pub fn vendor_id(mut self, value: u32) -> Self {
+        self.inner.vendor_id = value;
+        self
+    }
+    #[inline]
+    pub fn device_id(mut self, value: u32) -> Self {
+        self.inner.device_id = value;
+        self
+    }
+    #[inline]
+    pub fn driver_version(mut self, value: u32) -> Self {
+        self.inner.driver_version = value;
+        self
+    }
+    #[inline]
+    pub fn pipeline_cache_uuid(mut self, value: [u8; UUID_SIZE as usize]) -> Self {
+        self.inner.pipeline_cache_uuid = value;
+        self
+    }
+    #[inline]
+    pub fn application_name_offset(mut self, value: u32) -> Self {
+        self.inner.application_name_offset = value;
+        self
+    }
+    #[inline]
+    pub fn application_version(mut self, value: u32) -> Self {
+        self.inner.application_version = value;
+        self
+    }
+    #[inline]
+    pub fn engine_name_offset(mut self, value: u32) -> Self {
+        self.inner.engine_name_offset = value;
+        self
+    }
+    #[inline]
+    pub fn engine_version(mut self, value: u32) -> Self {
+        self.inner.engine_version = value;
+        self
+    }
+    #[inline]
+    pub fn api_version(mut self, value: u32) -> Self {
+        self.inner.api_version = value;
+        self
+    }
+}
+impl core::ops::Deref for DeviceFaultVendorBinaryHeaderVersionOneKHRBuilder {
+    type Target = DeviceFaultVendorBinaryHeaderVersionOneKHR;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for DeviceFaultVendorBinaryHeaderVersionOneKHRBuilder {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -59998,6 +68329,114 @@ impl<'a> core::ops::Deref for DepthBiasRepresentationInfoEXTBuilder<'a> {
     }
 }
 impl<'a> core::ops::DerefMut for DepthBiasRepresentationInfoEXTBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`DecompressMemoryRegionNV`].
+pub struct DecompressMemoryRegionNVBuilder {
+    inner: DecompressMemoryRegionNV,
+}
+impl DecompressMemoryRegionNV {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> DecompressMemoryRegionNVBuilder {
+        DecompressMemoryRegionNVBuilder {
+            inner: DecompressMemoryRegionNV {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl DecompressMemoryRegionNVBuilder {
+    #[inline]
+    pub fn src_address(mut self, value: u64) -> Self {
+        self.inner.src_address = value;
+        self
+    }
+    #[inline]
+    pub fn dst_address(mut self, value: u64) -> Self {
+        self.inner.dst_address = value;
+        self
+    }
+    #[inline]
+    pub fn compressed_size(mut self, value: u64) -> Self {
+        self.inner.compressed_size = value;
+        self
+    }
+    #[inline]
+    pub fn decompressed_size(mut self, value: u64) -> Self {
+        self.inner.decompressed_size = value;
+        self
+    }
+    #[inline]
+    pub fn decompression_method(
+        mut self,
+        value: MemoryDecompressionMethodFlagsNV,
+    ) -> Self {
+        self.inner.decompression_method = value;
+        self
+    }
+}
+impl core::ops::Deref for DecompressMemoryRegionNVBuilder {
+    type Target = DecompressMemoryRegionNV;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for DecompressMemoryRegionNVBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`DecompressMemoryRegionEXT`].
+pub struct DecompressMemoryRegionEXTBuilder {
+    inner: DecompressMemoryRegionEXT,
+}
+impl DecompressMemoryRegionEXT {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> DecompressMemoryRegionEXTBuilder {
+        DecompressMemoryRegionEXTBuilder {
+            inner: DecompressMemoryRegionEXT {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl DecompressMemoryRegionEXTBuilder {
+    #[inline]
+    pub fn src_address(mut self, value: u64) -> Self {
+        self.inner.src_address = value;
+        self
+    }
+    #[inline]
+    pub fn dst_address(mut self, value: u64) -> Self {
+        self.inner.dst_address = value;
+        self
+    }
+    #[inline]
+    pub fn compressed_size(mut self, value: u64) -> Self {
+        self.inner.compressed_size = value;
+        self
+    }
+    #[inline]
+    pub fn decompressed_size(mut self, value: u64) -> Self {
+        self.inner.decompressed_size = value;
+        self
+    }
+}
+impl core::ops::Deref for DecompressMemoryRegionEXTBuilder {
+    type Target = DecompressMemoryRegionEXT;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for DecompressMemoryRegionEXTBuilder {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -63091,6 +71530,101 @@ impl<'a> core::ops::Deref for ExecutionGraphPipelineScratchSizeAMDXBuilder<'a> {
     }
 }
 impl<'a> core::ops::DerefMut for ExecutionGraphPipelineScratchSizeAMDXBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`DispatchGraphInfoAMDX`].
+pub struct DispatchGraphInfoAMDXBuilder {
+    inner: DispatchGraphInfoAMDX,
+}
+impl DispatchGraphInfoAMDX {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> DispatchGraphInfoAMDXBuilder {
+        DispatchGraphInfoAMDXBuilder {
+            inner: DispatchGraphInfoAMDX {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl DispatchGraphInfoAMDXBuilder {
+    #[inline]
+    pub fn node_index(mut self, value: u32) -> Self {
+        self.inner.node_index = value;
+        self
+    }
+    #[inline]
+    pub fn payload_count(mut self, value: u32) -> Self {
+        self.inner.payload_count = value;
+        self
+    }
+    #[inline]
+    pub fn payloads(mut self, value: DeviceOrHostAddressConstAMDX) -> Self {
+        self.inner.payloads = value;
+        self
+    }
+    #[inline]
+    pub fn payload_stride(mut self, value: u64) -> Self {
+        self.inner.payload_stride = value;
+        self
+    }
+}
+impl core::ops::Deref for DispatchGraphInfoAMDXBuilder {
+    type Target = DispatchGraphInfoAMDX;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for DispatchGraphInfoAMDXBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`DispatchGraphCountInfoAMDX`].
+pub struct DispatchGraphCountInfoAMDXBuilder {
+    inner: DispatchGraphCountInfoAMDX,
+}
+impl DispatchGraphCountInfoAMDX {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> DispatchGraphCountInfoAMDXBuilder {
+        DispatchGraphCountInfoAMDXBuilder {
+            inner: DispatchGraphCountInfoAMDX {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl DispatchGraphCountInfoAMDXBuilder {
+    #[inline]
+    pub fn count(mut self, value: u32) -> Self {
+        self.inner.count = value;
+        self
+    }
+    #[inline]
+    pub fn infos(mut self, value: DeviceOrHostAddressConstAMDX) -> Self {
+        self.inner.infos = value;
+        self
+    }
+    #[inline]
+    pub fn stride(mut self, value: u64) -> Self {
+        self.inner.stride = value;
+        self
+    }
+}
+impl core::ops::Deref for DispatchGraphCountInfoAMDXBuilder {
+    type Target = DispatchGraphCountInfoAMDX;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for DispatchGraphCountInfoAMDXBuilder {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -66998,6 +75532,46 @@ for PhysicalDevicePresentModeFifoLatestReadyFeaturesKHRBuilder<'a> {
 }
 impl<'a> core::ops::DerefMut
 for PhysicalDevicePresentModeFifoLatestReadyFeaturesKHRBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`DepthClampRangeEXT`].
+pub struct DepthClampRangeEXTBuilder {
+    inner: DepthClampRangeEXT,
+}
+impl DepthClampRangeEXT {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> DepthClampRangeEXTBuilder {
+        DepthClampRangeEXTBuilder {
+            inner: DepthClampRangeEXT {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl DepthClampRangeEXTBuilder {
+    #[inline]
+    pub fn min_depth_clamp(mut self, value: f32) -> Self {
+        self.inner.min_depth_clamp = value;
+        self
+    }
+    #[inline]
+    pub fn max_depth_clamp(mut self, value: f32) -> Self {
+        self.inner.max_depth_clamp = value;
+        self
+    }
+}
+impl core::ops::Deref for DepthClampRangeEXTBuilder {
+    type Target = DepthClampRangeEXT;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for DepthClampRangeEXTBuilder {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -71446,6 +80020,102 @@ impl<'a> core::ops::DerefMut for DataGraphPipelineDispatchInfoARMBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`PhysicalDeviceDataGraphProcessingEngineARM`].
+pub struct PhysicalDeviceDataGraphProcessingEngineARMBuilder {
+    inner: PhysicalDeviceDataGraphProcessingEngineARM,
+}
+impl PhysicalDeviceDataGraphProcessingEngineARM {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> PhysicalDeviceDataGraphProcessingEngineARMBuilder {
+        PhysicalDeviceDataGraphProcessingEngineARMBuilder {
+            inner: PhysicalDeviceDataGraphProcessingEngineARM {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl PhysicalDeviceDataGraphProcessingEngineARMBuilder {
+    #[inline]
+    pub fn r#type(
+        mut self,
+        value: PhysicalDeviceDataGraphProcessingEngineTypeARM,
+    ) -> Self {
+        self.inner.r#type = value;
+        self
+    }
+    #[inline]
+    pub fn is_foreign(mut self, value: bool) -> Self {
+        self.inner.is_foreign = value as u32;
+        self
+    }
+}
+impl core::ops::Deref for PhysicalDeviceDataGraphProcessingEngineARMBuilder {
+    type Target = PhysicalDeviceDataGraphProcessingEngineARM;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for PhysicalDeviceDataGraphProcessingEngineARMBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`PhysicalDeviceDataGraphOperationSupportARM`].
+pub struct PhysicalDeviceDataGraphOperationSupportARMBuilder {
+    inner: PhysicalDeviceDataGraphOperationSupportARM,
+}
+impl PhysicalDeviceDataGraphOperationSupportARM {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> PhysicalDeviceDataGraphOperationSupportARMBuilder {
+        PhysicalDeviceDataGraphOperationSupportARMBuilder {
+            inner: PhysicalDeviceDataGraphOperationSupportARM {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl PhysicalDeviceDataGraphOperationSupportARMBuilder {
+    #[inline]
+    pub fn operation_type(
+        mut self,
+        value: PhysicalDeviceDataGraphOperationTypeARM,
+    ) -> Self {
+        self.inner.operation_type = value;
+        self
+    }
+    #[inline]
+    pub fn name(
+        mut self,
+        value: crate::StringArray<
+            { MAX_PHYSICAL_DEVICE_DATA_GRAPH_OPERATION_SET_NAME_SIZE_ARM as usize },
+        >,
+    ) -> Self {
+        self.inner.name = value;
+        self
+    }
+    #[inline]
+    pub fn version(mut self, value: u32) -> Self {
+        self.inner.version = value;
+        self
+    }
+}
+impl core::ops::Deref for PhysicalDeviceDataGraphOperationSupportARMBuilder {
+    type Target = PhysicalDeviceDataGraphOperationSupportARM;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for PhysicalDeviceDataGraphOperationSupportARMBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
 ///Builder for [`QueueFamilyDataGraphPropertiesARM`] with lifetime-tied pNext safety.
 pub struct QueueFamilyDataGraphPropertiesARMBuilder<'a> {
     inner: QueueFamilyDataGraphPropertiesARM,
@@ -73237,6 +81907,82 @@ for PhysicalDeviceShaderSubgroupPartitionedFeaturesEXTBuilder<'a> {
         &mut self.inner
     }
 }
+///Builder for [`HostAddressRangeEXT`].
+pub struct HostAddressRangeEXTBuilder<'a> {
+    inner: HostAddressRangeEXT,
+    _marker: core::marker::PhantomData<&'a ()>,
+}
+impl HostAddressRangeEXT {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder<'a>() -> HostAddressRangeEXTBuilder<'a> {
+        HostAddressRangeEXTBuilder {
+            inner: HostAddressRangeEXT {
+                ..Default::default()
+            },
+            _marker: core::marker::PhantomData,
+        }
+    }
+}
+impl<'a> HostAddressRangeEXTBuilder<'a> {
+    #[inline]
+    pub fn address(mut self, slice: &'a mut [core::ffi::c_void]) -> Self {
+        self.inner.size = slice.len();
+        self.inner.address = slice.as_mut_ptr();
+        self
+    }
+}
+impl<'a> core::ops::Deref for HostAddressRangeEXTBuilder<'a> {
+    type Target = HostAddressRangeEXT;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl<'a> core::ops::DerefMut for HostAddressRangeEXTBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`HostAddressRangeConstEXT`].
+pub struct HostAddressRangeConstEXTBuilder<'a> {
+    inner: HostAddressRangeConstEXT,
+    _marker: core::marker::PhantomData<&'a ()>,
+}
+impl HostAddressRangeConstEXT {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder<'a>() -> HostAddressRangeConstEXTBuilder<'a> {
+        HostAddressRangeConstEXTBuilder {
+            inner: HostAddressRangeConstEXT {
+                ..Default::default()
+            },
+            _marker: core::marker::PhantomData,
+        }
+    }
+}
+impl<'a> HostAddressRangeConstEXTBuilder<'a> {
+    #[inline]
+    pub fn address(mut self, slice: &'a [core::ffi::c_void]) -> Self {
+        self.inner.size = slice.len();
+        self.inner.address = slice.as_ptr();
+        self
+    }
+}
+impl<'a> core::ops::Deref for HostAddressRangeConstEXTBuilder<'a> {
+    type Target = HostAddressRangeConstEXT;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl<'a> core::ops::DerefMut for HostAddressRangeConstEXTBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
 ///Builder for [`TexelBufferDescriptorInfoEXT`] with lifetime-tied pNext safety.
 pub struct TexelBufferDescriptorInfoEXTBuilder<'a> {
     inner: TexelBufferDescriptorInfoEXT,
@@ -73521,6 +82267,482 @@ impl<'a> core::ops::Deref for PushDataInfoEXTBuilder<'a> {
     }
 }
 impl<'a> core::ops::DerefMut for PushDataInfoEXTBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`DescriptorMappingSourceConstantOffsetEXT`].
+pub struct DescriptorMappingSourceConstantOffsetEXTBuilder<'a> {
+    inner: DescriptorMappingSourceConstantOffsetEXT,
+    _marker: core::marker::PhantomData<&'a ()>,
+}
+impl DescriptorMappingSourceConstantOffsetEXT {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder<'a>() -> DescriptorMappingSourceConstantOffsetEXTBuilder<'a> {
+        DescriptorMappingSourceConstantOffsetEXTBuilder {
+            inner: DescriptorMappingSourceConstantOffsetEXT {
+                ..Default::default()
+            },
+            _marker: core::marker::PhantomData,
+        }
+    }
+}
+impl<'a> DescriptorMappingSourceConstantOffsetEXTBuilder<'a> {
+    #[inline]
+    pub fn heap_offset(mut self, value: u32) -> Self {
+        self.inner.heap_offset = value;
+        self
+    }
+    #[inline]
+    pub fn heap_array_stride(mut self, value: u32) -> Self {
+        self.inner.heap_array_stride = value;
+        self
+    }
+    #[inline]
+    pub fn p_embedded_sampler(mut self, value: &'a SamplerCreateInfo) -> Self {
+        self.inner.p_embedded_sampler = value;
+        self
+    }
+    #[inline]
+    pub fn sampler_heap_offset(mut self, value: u32) -> Self {
+        self.inner.sampler_heap_offset = value;
+        self
+    }
+    #[inline]
+    pub fn sampler_heap_array_stride(mut self, value: u32) -> Self {
+        self.inner.sampler_heap_array_stride = value;
+        self
+    }
+}
+impl<'a> core::ops::Deref for DescriptorMappingSourceConstantOffsetEXTBuilder<'a> {
+    type Target = DescriptorMappingSourceConstantOffsetEXT;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl<'a> core::ops::DerefMut for DescriptorMappingSourceConstantOffsetEXTBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`DescriptorMappingSourcePushIndexEXT`].
+pub struct DescriptorMappingSourcePushIndexEXTBuilder<'a> {
+    inner: DescriptorMappingSourcePushIndexEXT,
+    _marker: core::marker::PhantomData<&'a ()>,
+}
+impl DescriptorMappingSourcePushIndexEXT {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder<'a>() -> DescriptorMappingSourcePushIndexEXTBuilder<'a> {
+        DescriptorMappingSourcePushIndexEXTBuilder {
+            inner: DescriptorMappingSourcePushIndexEXT {
+                ..Default::default()
+            },
+            _marker: core::marker::PhantomData,
+        }
+    }
+}
+impl<'a> DescriptorMappingSourcePushIndexEXTBuilder<'a> {
+    #[inline]
+    pub fn heap_offset(mut self, value: u32) -> Self {
+        self.inner.heap_offset = value;
+        self
+    }
+    #[inline]
+    pub fn push_offset(mut self, value: u32) -> Self {
+        self.inner.push_offset = value;
+        self
+    }
+    #[inline]
+    pub fn heap_index_stride(mut self, value: u32) -> Self {
+        self.inner.heap_index_stride = value;
+        self
+    }
+    #[inline]
+    pub fn heap_array_stride(mut self, value: u32) -> Self {
+        self.inner.heap_array_stride = value;
+        self
+    }
+    #[inline]
+    pub fn p_embedded_sampler(mut self, value: &'a SamplerCreateInfo) -> Self {
+        self.inner.p_embedded_sampler = value;
+        self
+    }
+    #[inline]
+    pub fn use_combined_image_sampler_index(mut self, value: bool) -> Self {
+        self.inner.use_combined_image_sampler_index = value as u32;
+        self
+    }
+    #[inline]
+    pub fn sampler_heap_offset(mut self, value: u32) -> Self {
+        self.inner.sampler_heap_offset = value;
+        self
+    }
+    #[inline]
+    pub fn sampler_push_offset(mut self, value: u32) -> Self {
+        self.inner.sampler_push_offset = value;
+        self
+    }
+    #[inline]
+    pub fn sampler_heap_index_stride(mut self, value: u32) -> Self {
+        self.inner.sampler_heap_index_stride = value;
+        self
+    }
+    #[inline]
+    pub fn sampler_heap_array_stride(mut self, value: u32) -> Self {
+        self.inner.sampler_heap_array_stride = value;
+        self
+    }
+}
+impl<'a> core::ops::Deref for DescriptorMappingSourcePushIndexEXTBuilder<'a> {
+    type Target = DescriptorMappingSourcePushIndexEXT;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl<'a> core::ops::DerefMut for DescriptorMappingSourcePushIndexEXTBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`DescriptorMappingSourceIndirectIndexEXT`].
+pub struct DescriptorMappingSourceIndirectIndexEXTBuilder<'a> {
+    inner: DescriptorMappingSourceIndirectIndexEXT,
+    _marker: core::marker::PhantomData<&'a ()>,
+}
+impl DescriptorMappingSourceIndirectIndexEXT {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder<'a>() -> DescriptorMappingSourceIndirectIndexEXTBuilder<'a> {
+        DescriptorMappingSourceIndirectIndexEXTBuilder {
+            inner: DescriptorMappingSourceIndirectIndexEXT {
+                ..Default::default()
+            },
+            _marker: core::marker::PhantomData,
+        }
+    }
+}
+impl<'a> DescriptorMappingSourceIndirectIndexEXTBuilder<'a> {
+    #[inline]
+    pub fn heap_offset(mut self, value: u32) -> Self {
+        self.inner.heap_offset = value;
+        self
+    }
+    #[inline]
+    pub fn push_offset(mut self, value: u32) -> Self {
+        self.inner.push_offset = value;
+        self
+    }
+    #[inline]
+    pub fn address_offset(mut self, value: u32) -> Self {
+        self.inner.address_offset = value;
+        self
+    }
+    #[inline]
+    pub fn heap_index_stride(mut self, value: u32) -> Self {
+        self.inner.heap_index_stride = value;
+        self
+    }
+    #[inline]
+    pub fn heap_array_stride(mut self, value: u32) -> Self {
+        self.inner.heap_array_stride = value;
+        self
+    }
+    #[inline]
+    pub fn p_embedded_sampler(mut self, value: &'a SamplerCreateInfo) -> Self {
+        self.inner.p_embedded_sampler = value;
+        self
+    }
+    #[inline]
+    pub fn use_combined_image_sampler_index(mut self, value: bool) -> Self {
+        self.inner.use_combined_image_sampler_index = value as u32;
+        self
+    }
+    #[inline]
+    pub fn sampler_heap_offset(mut self, value: u32) -> Self {
+        self.inner.sampler_heap_offset = value;
+        self
+    }
+    #[inline]
+    pub fn sampler_push_offset(mut self, value: u32) -> Self {
+        self.inner.sampler_push_offset = value;
+        self
+    }
+    #[inline]
+    pub fn sampler_address_offset(mut self, value: u32) -> Self {
+        self.inner.sampler_address_offset = value;
+        self
+    }
+    #[inline]
+    pub fn sampler_heap_index_stride(mut self, value: u32) -> Self {
+        self.inner.sampler_heap_index_stride = value;
+        self
+    }
+    #[inline]
+    pub fn sampler_heap_array_stride(mut self, value: u32) -> Self {
+        self.inner.sampler_heap_array_stride = value;
+        self
+    }
+}
+impl<'a> core::ops::Deref for DescriptorMappingSourceIndirectIndexEXTBuilder<'a> {
+    type Target = DescriptorMappingSourceIndirectIndexEXT;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl<'a> core::ops::DerefMut for DescriptorMappingSourceIndirectIndexEXTBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`DescriptorMappingSourceIndirectIndexArrayEXT`].
+pub struct DescriptorMappingSourceIndirectIndexArrayEXTBuilder<'a> {
+    inner: DescriptorMappingSourceIndirectIndexArrayEXT,
+    _marker: core::marker::PhantomData<&'a ()>,
+}
+impl DescriptorMappingSourceIndirectIndexArrayEXT {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder<'a>() -> DescriptorMappingSourceIndirectIndexArrayEXTBuilder<'a> {
+        DescriptorMappingSourceIndirectIndexArrayEXTBuilder {
+            inner: DescriptorMappingSourceIndirectIndexArrayEXT {
+                ..Default::default()
+            },
+            _marker: core::marker::PhantomData,
+        }
+    }
+}
+impl<'a> DescriptorMappingSourceIndirectIndexArrayEXTBuilder<'a> {
+    #[inline]
+    pub fn heap_offset(mut self, value: u32) -> Self {
+        self.inner.heap_offset = value;
+        self
+    }
+    #[inline]
+    pub fn push_offset(mut self, value: u32) -> Self {
+        self.inner.push_offset = value;
+        self
+    }
+    #[inline]
+    pub fn address_offset(mut self, value: u32) -> Self {
+        self.inner.address_offset = value;
+        self
+    }
+    #[inline]
+    pub fn heap_index_stride(mut self, value: u32) -> Self {
+        self.inner.heap_index_stride = value;
+        self
+    }
+    #[inline]
+    pub fn p_embedded_sampler(mut self, value: &'a SamplerCreateInfo) -> Self {
+        self.inner.p_embedded_sampler = value;
+        self
+    }
+    #[inline]
+    pub fn use_combined_image_sampler_index(mut self, value: bool) -> Self {
+        self.inner.use_combined_image_sampler_index = value as u32;
+        self
+    }
+    #[inline]
+    pub fn sampler_heap_offset(mut self, value: u32) -> Self {
+        self.inner.sampler_heap_offset = value;
+        self
+    }
+    #[inline]
+    pub fn sampler_push_offset(mut self, value: u32) -> Self {
+        self.inner.sampler_push_offset = value;
+        self
+    }
+    #[inline]
+    pub fn sampler_address_offset(mut self, value: u32) -> Self {
+        self.inner.sampler_address_offset = value;
+        self
+    }
+    #[inline]
+    pub fn sampler_heap_index_stride(mut self, value: u32) -> Self {
+        self.inner.sampler_heap_index_stride = value;
+        self
+    }
+}
+impl<'a> core::ops::Deref for DescriptorMappingSourceIndirectIndexArrayEXTBuilder<'a> {
+    type Target = DescriptorMappingSourceIndirectIndexArrayEXT;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl<'a> core::ops::DerefMut
+for DescriptorMappingSourceIndirectIndexArrayEXTBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`DescriptorMappingSourceHeapDataEXT`].
+pub struct DescriptorMappingSourceHeapDataEXTBuilder {
+    inner: DescriptorMappingSourceHeapDataEXT,
+}
+impl DescriptorMappingSourceHeapDataEXT {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> DescriptorMappingSourceHeapDataEXTBuilder {
+        DescriptorMappingSourceHeapDataEXTBuilder {
+            inner: DescriptorMappingSourceHeapDataEXT {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl DescriptorMappingSourceHeapDataEXTBuilder {
+    #[inline]
+    pub fn heap_offset(mut self, value: u32) -> Self {
+        self.inner.heap_offset = value;
+        self
+    }
+    #[inline]
+    pub fn push_offset(mut self, value: u32) -> Self {
+        self.inner.push_offset = value;
+        self
+    }
+}
+impl core::ops::Deref for DescriptorMappingSourceHeapDataEXTBuilder {
+    type Target = DescriptorMappingSourceHeapDataEXT;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for DescriptorMappingSourceHeapDataEXTBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`DescriptorMappingSourceShaderRecordIndexEXT`].
+pub struct DescriptorMappingSourceShaderRecordIndexEXTBuilder<'a> {
+    inner: DescriptorMappingSourceShaderRecordIndexEXT,
+    _marker: core::marker::PhantomData<&'a ()>,
+}
+impl DescriptorMappingSourceShaderRecordIndexEXT {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder<'a>() -> DescriptorMappingSourceShaderRecordIndexEXTBuilder<'a> {
+        DescriptorMappingSourceShaderRecordIndexEXTBuilder {
+            inner: DescriptorMappingSourceShaderRecordIndexEXT {
+                ..Default::default()
+            },
+            _marker: core::marker::PhantomData,
+        }
+    }
+}
+impl<'a> DescriptorMappingSourceShaderRecordIndexEXTBuilder<'a> {
+    #[inline]
+    pub fn heap_offset(mut self, value: u32) -> Self {
+        self.inner.heap_offset = value;
+        self
+    }
+    #[inline]
+    pub fn shader_record_offset(mut self, value: u32) -> Self {
+        self.inner.shader_record_offset = value;
+        self
+    }
+    #[inline]
+    pub fn heap_index_stride(mut self, value: u32) -> Self {
+        self.inner.heap_index_stride = value;
+        self
+    }
+    #[inline]
+    pub fn heap_array_stride(mut self, value: u32) -> Self {
+        self.inner.heap_array_stride = value;
+        self
+    }
+    #[inline]
+    pub fn p_embedded_sampler(mut self, value: &'a SamplerCreateInfo) -> Self {
+        self.inner.p_embedded_sampler = value;
+        self
+    }
+    #[inline]
+    pub fn use_combined_image_sampler_index(mut self, value: bool) -> Self {
+        self.inner.use_combined_image_sampler_index = value as u32;
+        self
+    }
+    #[inline]
+    pub fn sampler_heap_offset(mut self, value: u32) -> Self {
+        self.inner.sampler_heap_offset = value;
+        self
+    }
+    #[inline]
+    pub fn sampler_shader_record_offset(mut self, value: u32) -> Self {
+        self.inner.sampler_shader_record_offset = value;
+        self
+    }
+    #[inline]
+    pub fn sampler_heap_index_stride(mut self, value: u32) -> Self {
+        self.inner.sampler_heap_index_stride = value;
+        self
+    }
+    #[inline]
+    pub fn sampler_heap_array_stride(mut self, value: u32) -> Self {
+        self.inner.sampler_heap_array_stride = value;
+        self
+    }
+}
+impl<'a> core::ops::Deref for DescriptorMappingSourceShaderRecordIndexEXTBuilder<'a> {
+    type Target = DescriptorMappingSourceShaderRecordIndexEXT;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl<'a> core::ops::DerefMut for DescriptorMappingSourceShaderRecordIndexEXTBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`DescriptorMappingSourceIndirectAddressEXT`].
+pub struct DescriptorMappingSourceIndirectAddressEXTBuilder {
+    inner: DescriptorMappingSourceIndirectAddressEXT,
+}
+impl DescriptorMappingSourceIndirectAddressEXT {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> DescriptorMappingSourceIndirectAddressEXTBuilder {
+        DescriptorMappingSourceIndirectAddressEXTBuilder {
+            inner: DescriptorMappingSourceIndirectAddressEXT {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl DescriptorMappingSourceIndirectAddressEXTBuilder {
+    #[inline]
+    pub fn push_offset(mut self, value: u32) -> Self {
+        self.inner.push_offset = value;
+        self
+    }
+    #[inline]
+    pub fn address_offset(mut self, value: u32) -> Self {
+        self.inner.address_offset = value;
+        self
+    }
+}
+impl core::ops::Deref for DescriptorMappingSourceIndirectAddressEXTBuilder {
+    type Target = DescriptorMappingSourceIndirectAddressEXT;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for DescriptorMappingSourceIndirectAddressEXTBuilder {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
@@ -74376,6 +83598,96 @@ impl<'a> core::ops::Deref for ShaderInstrumentationMetricDescriptionARMBuilder<'
     }
 }
 impl<'a> core::ops::DerefMut for ShaderInstrumentationMetricDescriptionARMBuilder<'a> {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`ShaderInstrumentationMetricDataHeaderARM`].
+pub struct ShaderInstrumentationMetricDataHeaderARMBuilder {
+    inner: ShaderInstrumentationMetricDataHeaderARM,
+}
+impl ShaderInstrumentationMetricDataHeaderARM {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> ShaderInstrumentationMetricDataHeaderARMBuilder {
+        ShaderInstrumentationMetricDataHeaderARMBuilder {
+            inner: ShaderInstrumentationMetricDataHeaderARM {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl ShaderInstrumentationMetricDataHeaderARMBuilder {
+    #[inline]
+    pub fn result_index(mut self, value: u32) -> Self {
+        self.inner.result_index = value;
+        self
+    }
+    #[inline]
+    pub fn result_sub_index(mut self, value: u32) -> Self {
+        self.inner.result_sub_index = value;
+        self
+    }
+    #[inline]
+    pub fn stages(mut self, value: ShaderStageFlags) -> Self {
+        self.inner.stages = value;
+        self
+    }
+    #[inline]
+    pub fn basic_block_index(mut self, value: u32) -> Self {
+        self.inner.basic_block_index = value;
+        self
+    }
+}
+impl core::ops::Deref for ShaderInstrumentationMetricDataHeaderARMBuilder {
+    type Target = ShaderInstrumentationMetricDataHeaderARM;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for ShaderInstrumentationMetricDataHeaderARMBuilder {
+    #[inline]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.inner
+    }
+}
+///Builder for [`DeviceAddressRangeKHR`].
+pub struct DeviceAddressRangeKHRBuilder {
+    inner: DeviceAddressRangeKHR,
+}
+impl DeviceAddressRangeKHR {
+    /// Start building this struct.
+    #[inline]
+    pub fn builder() -> DeviceAddressRangeKHRBuilder {
+        DeviceAddressRangeKHRBuilder {
+            inner: DeviceAddressRangeKHR {
+                ..Default::default()
+            },
+        }
+    }
+}
+impl DeviceAddressRangeKHRBuilder {
+    #[inline]
+    pub fn address(mut self, value: u64) -> Self {
+        self.inner.address = value;
+        self
+    }
+    #[inline]
+    pub fn size(mut self, value: u64) -> Self {
+        self.inner.size = value;
+        self
+    }
+}
+impl core::ops::Deref for DeviceAddressRangeKHRBuilder {
+    type Target = DeviceAddressRangeKHR;
+    #[inline]
+    fn deref(&self) -> &Self::Target {
+        &self.inner
+    }
+}
+impl core::ops::DerefMut for DeviceAddressRangeKHRBuilder {
     #[inline]
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.inner
