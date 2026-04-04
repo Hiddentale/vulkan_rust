@@ -149,7 +149,7 @@ impl AccessFlagBits {
     }
     #[inline]
     pub const fn all() -> Self {
-        Self(268042239u32)
+        Self(268435455u32)
     }
     ///Bit 0.
     pub const INDIRECT_COMMAND_READ: Self = Self(1u32);
@@ -205,6 +205,10 @@ impl AccessFlagBits {
     pub const FRAGMENT_DENSITY_MAP_READ: Self = Self(16777216u32);
     ///Bit 23.
     pub const FRAGMENT_SHADING_RATE_ATTACHMENT_READ: Self = Self(8388608u32);
+    ///Bit 17.
+    pub const COMMAND_PREPROCESS_READ: Self = Self(131072u32);
+    ///Bit 18.
+    pub const COMMAND_PREPROCESS_WRITE: Self = Self(262144u32);
 }
 impl core::ops::BitOr for AccessFlagBits {
     type Output = Self;
@@ -465,6 +469,22 @@ impl core::fmt::Debug for AccessFlagBits {
             remaining &= !Self::FRAGMENT_SHADING_RATE_ATTACHMENT_READ.0;
             first = false;
         }
+        if remaining & Self::COMMAND_PREPROCESS_READ.0 != 0 {
+            if !first {
+                f.write_str(" | ")?;
+            }
+            f.write_str("COMMAND_PREPROCESS_READ")?;
+            remaining &= !Self::COMMAND_PREPROCESS_READ.0;
+            first = false;
+        }
+        if remaining & Self::COMMAND_PREPROCESS_WRITE.0 != 0 {
+            if !first {
+                f.write_str(" | ")?;
+            }
+            f.write_str("COMMAND_PREPROCESS_WRITE")?;
+            remaining &= !Self::COMMAND_PREPROCESS_WRITE.0;
+            first = false;
+        }
         if remaining != 0u32 {
             if !first {
                 f.write_str(" | ")?;
@@ -504,7 +524,7 @@ impl AccessFlagBits2 {
     }
     #[inline]
     pub const fn all() -> Self {
-        Self(547679931907833855u64)
+        Self(547679931908227071u64)
     }
     pub const _2_NONE: Self = Self(0u64);
     ///Bit 0.
@@ -571,6 +591,10 @@ impl AccessFlagBits2 {
     pub const _2_TRANSFORM_FEEDBACK_COUNTER_WRITE: Self = Self(134217728u64);
     ///Bit 20.
     pub const _2_CONDITIONAL_RENDERING_READ: Self = Self(1048576u64);
+    ///Bit 17.
+    pub const _2_COMMAND_PREPROCESS_READ: Self = Self(131072u64);
+    ///Bit 18.
+    pub const _2_COMMAND_PREPROCESS_WRITE: Self = Self(262144u64);
     ///Bit 23.
     pub const _2_FRAGMENT_SHADING_RATE_ATTACHMENT_READ: Self = Self(8388608u64);
     pub const _2_SHADING_RATE_IMAGE_READ: Self = Self::_2_FRAGMENT_SHADING_RATE_ATTACHMENT_READ;
@@ -910,6 +934,22 @@ impl core::fmt::Debug for AccessFlagBits2 {
             }
             f.write_str("_2_CONDITIONAL_RENDERING_READ")?;
             remaining &= !Self::_2_CONDITIONAL_RENDERING_READ.0;
+            first = false;
+        }
+        if remaining & Self::_2_COMMAND_PREPROCESS_READ.0 != 0 {
+            if !first {
+                f.write_str(" | ")?;
+            }
+            f.write_str("_2_COMMAND_PREPROCESS_READ")?;
+            remaining &= !Self::_2_COMMAND_PREPROCESS_READ.0;
+            first = false;
+        }
+        if remaining & Self::_2_COMMAND_PREPROCESS_WRITE.0 != 0 {
+            if !first {
+                f.write_str(" | ")?;
+            }
+            f.write_str("_2_COMMAND_PREPROCESS_WRITE")?;
+            remaining &= !Self::_2_COMMAND_PREPROCESS_WRITE.0;
             first = false;
         }
         if remaining & Self::_2_FRAGMENT_SHADING_RATE_ATTACHMENT_READ.0 != 0 {
@@ -15677,7 +15717,7 @@ impl PipelineStageFlagBits {
     }
     #[inline]
     pub const fn all() -> Self {
-        Self(65404927u32)
+        Self(67108863u32)
     }
     ///Bit 0.
     pub const TOP_OF_PIPE: Self = Self(1u32);
@@ -15727,6 +15767,12 @@ impl PipelineStageFlagBits {
     pub const FRAGMENT_DENSITY_PROCESS: Self = Self(8388608u32);
     ///Bit 22.
     pub const FRAGMENT_SHADING_RATE_ATTACHMENT: Self = Self(4194304u32);
+    ///Bit 19.
+    pub const TASK_SHADER: Self = Self(524288u32);
+    ///Bit 20.
+    pub const MESH_SHADER: Self = Self(1048576u32);
+    ///Bit 17.
+    pub const COMMAND_PREPROCESS: Self = Self(131072u32);
 }
 impl core::ops::BitOr for PipelineStageFlagBits {
     type Output = Self;
@@ -15963,6 +16009,30 @@ impl core::fmt::Debug for PipelineStageFlagBits {
             remaining &= !Self::FRAGMENT_SHADING_RATE_ATTACHMENT.0;
             first = false;
         }
+        if remaining & Self::TASK_SHADER.0 != 0 {
+            if !first {
+                f.write_str(" | ")?;
+            }
+            f.write_str("TASK_SHADER")?;
+            remaining &= !Self::TASK_SHADER.0;
+            first = false;
+        }
+        if remaining & Self::MESH_SHADER.0 != 0 {
+            if !first {
+                f.write_str(" | ")?;
+            }
+            f.write_str("MESH_SHADER")?;
+            remaining &= !Self::MESH_SHADER.0;
+            first = false;
+        }
+        if remaining & Self::COMMAND_PREPROCESS.0 != 0 {
+            if !first {
+                f.write_str(" | ")?;
+            }
+            f.write_str("COMMAND_PREPROCESS")?;
+            remaining &= !Self::COMMAND_PREPROCESS.0;
+            first = false;
+        }
         if remaining != 0u32 {
             if !first {
                 f.write_str(" | ")?;
@@ -16002,7 +16072,7 @@ impl PipelineStageFlagBits2 {
     }
     #[inline]
     pub const fn all() -> Self {
-        Self(131939246145535u64)
+        Self(131939247849471u64)
     }
     pub const _2_NONE: Self = Self(0u64);
     ///Bit 0.
@@ -16062,6 +16132,8 @@ impl PipelineStageFlagBits2 {
     pub const _2_TRANSFORM_FEEDBACK: Self = Self(16777216u64);
     ///Bit 18.
     pub const _2_CONDITIONAL_RENDERING: Self = Self(262144u64);
+    ///Bit 17.
+    pub const _2_COMMAND_PREPROCESS: Self = Self(131072u64);
     ///Bit 22.
     pub const _2_FRAGMENT_SHADING_RATE_ATTACHMENT: Self = Self(4194304u64);
     pub const _2_SHADING_RATE_IMAGE: Self = Self::_2_FRAGMENT_SHADING_RATE_ATTACHMENT;
@@ -16071,6 +16143,10 @@ impl PipelineStageFlagBits2 {
     pub const _2_RAY_TRACING_SHADER: Self = Self(2097152u64);
     ///Bit 23.
     pub const _2_FRAGMENT_DENSITY_PROCESS: Self = Self(8388608u64);
+    ///Bit 19.
+    pub const _2_TASK_SHADER: Self = Self(524288u64);
+    ///Bit 20.
+    pub const _2_MESH_SHADER: Self = Self(1048576u64);
     ///Bit 39.
     pub const _2_SUBPASS_SHADER_BIT: Self = Self(549755813888u64);
     pub const _2_SUBPASS_SHADING_BIT: Self = Self::_2_SUBPASS_SHADER_BIT;
@@ -16368,6 +16444,14 @@ impl core::fmt::Debug for PipelineStageFlagBits2 {
             remaining &= !Self::_2_CONDITIONAL_RENDERING.0;
             first = false;
         }
+        if remaining & Self::_2_COMMAND_PREPROCESS.0 != 0 {
+            if !first {
+                f.write_str(" | ")?;
+            }
+            f.write_str("_2_COMMAND_PREPROCESS")?;
+            remaining &= !Self::_2_COMMAND_PREPROCESS.0;
+            first = false;
+        }
         if remaining & Self::_2_FRAGMENT_SHADING_RATE_ATTACHMENT.0 != 0 {
             if !first {
                 f.write_str(" | ")?;
@@ -16398,6 +16482,22 @@ impl core::fmt::Debug for PipelineStageFlagBits2 {
             }
             f.write_str("_2_FRAGMENT_DENSITY_PROCESS")?;
             remaining &= !Self::_2_FRAGMENT_DENSITY_PROCESS.0;
+            first = false;
+        }
+        if remaining & Self::_2_TASK_SHADER.0 != 0 {
+            if !first {
+                f.write_str(" | ")?;
+            }
+            f.write_str("_2_TASK_SHADER")?;
+            remaining &= !Self::_2_TASK_SHADER.0;
+            first = false;
+        }
+        if remaining & Self::_2_MESH_SHADER.0 != 0 {
+            if !first {
+                f.write_str(" | ")?;
+            }
+            f.write_str("_2_MESH_SHADER")?;
+            remaining &= !Self::_2_MESH_SHADER.0;
             first = false;
         }
         if remaining & Self::_2_SUBPASS_SHADER_BIT.0 != 0 {
@@ -18198,7 +18298,7 @@ impl RenderingFlagBits {
     }
     #[inline]
     pub const fn all() -> Self {
-        Self(495u32)
+        Self(511u32)
     }
     ///Bit 0.
     pub const CONTENTS_SECONDARY_COMMAND_BUFFERS: Self = Self(1u32);
@@ -18208,6 +18308,8 @@ impl RenderingFlagBits {
     pub const RESUMING: Self = Self(4u32);
     ///Bit 3.
     pub const ENABLE_LEGACY_DITHERING: Self = Self(8u32);
+    ///Bit 4.
+    pub const CONTENTS_INLINE: Self = Self(16u32);
     ///Bit 5.
     pub const PER_LAYER_FRAGMENT_DENSITY_BIT: Self = Self(32u32);
     ///Bit 6.
@@ -18298,6 +18400,14 @@ impl core::fmt::Debug for RenderingFlagBits {
             }
             f.write_str("ENABLE_LEGACY_DITHERING")?;
             remaining &= !Self::ENABLE_LEGACY_DITHERING.0;
+            first = false;
+        }
+        if remaining & Self::CONTENTS_INLINE.0 != 0 {
+            if !first {
+                f.write_str(" | ")?;
+            }
+            f.write_str("CONTENTS_INLINE")?;
+            remaining &= !Self::CONTENTS_INLINE.0;
             first = false;
         }
         if remaining & Self::PER_LAYER_FRAGMENT_DENSITY_BIT.0 != 0 {
@@ -19661,6 +19771,10 @@ impl ShaderStageFlagBits {
     pub const INTERSECTION: Self = Self(4096u32);
     ///Bit 13.
     pub const CALLABLE: Self = Self(8192u32);
+    ///Bit 6.
+    pub const TASK: Self = Self(64u32);
+    ///Bit 7.
+    pub const MESH: Self = Self(128u32);
     ///Bit 14.
     pub const SUBPASS_SHADING_BIT: Self = Self(16384u32);
     ///Bit 19.
@@ -19811,6 +19925,22 @@ impl core::fmt::Debug for ShaderStageFlagBits {
             }
             f.write_str("CALLABLE")?;
             remaining &= !Self::CALLABLE.0;
+            first = false;
+        }
+        if remaining & Self::TASK.0 != 0 {
+            if !first {
+                f.write_str(" | ")?;
+            }
+            f.write_str("TASK")?;
+            remaining &= !Self::TASK.0;
+            first = false;
+        }
+        if remaining & Self::MESH.0 != 0 {
+            if !first {
+                f.write_str(" | ")?;
+            }
+            f.write_str("MESH")?;
+            remaining &= !Self::MESH.0;
             first = false;
         }
         if remaining & Self::SUBPASS_SHADING_BIT.0 != 0 {
@@ -20403,7 +20533,7 @@ impl SubgroupFeatureFlagBits {
     }
     #[inline]
     pub const fn all() -> Self {
-        Self(1791u32)
+        Self(2047u32)
     }
     ///Bit 0.
     pub const BASIC: Self = Self(1u32);
@@ -20425,6 +20555,8 @@ impl SubgroupFeatureFlagBits {
     pub const ROTATE: Self = Self(512u32);
     ///Bit 10.
     pub const ROTATE_CLUSTERED: Self = Self(1024u32);
+    ///Bit 8.
+    pub const PARTITIONED: Self = Self(256u32);
 }
 impl core::ops::BitOr for SubgroupFeatureFlagBits {
     type Output = Self;
@@ -20555,6 +20687,14 @@ impl core::fmt::Debug for SubgroupFeatureFlagBits {
             }
             f.write_str("ROTATE_CLUSTERED")?;
             remaining &= !Self::ROTATE_CLUSTERED.0;
+            first = false;
+        }
+        if remaining & Self::PARTITIONED.0 != 0 {
+            if !first {
+                f.write_str(" | ")?;
+            }
+            f.write_str("PARTITIONED")?;
+            remaining &= !Self::PARTITIONED.0;
             first = false;
         }
         if remaining != 0u32 {
@@ -21173,7 +21313,7 @@ impl SwapchainCreateFlagBitsKHR {
     }
     #[inline]
     pub const fn all() -> Self {
-        Self(711u32)
+        Self(719u32)
     }
     ///Bit 0.
     pub const SPLIT_INSTANCE_BIND_REGIONS: Self = Self(1u32);
@@ -21187,6 +21327,8 @@ impl SwapchainCreateFlagBitsKHR {
     pub const PRESENT_ID_2: Self = Self(64u32);
     ///Bit 7.
     pub const PRESENT_WAIT_2: Self = Self(128u32);
+    ///Bit 3.
+    pub const DEFERRED_MEMORY_ALLOCATION: Self = Self(8u32);
 }
 impl core::ops::BitOr for SwapchainCreateFlagBitsKHR {
     type Output = Self;
@@ -21285,6 +21427,14 @@ impl core::fmt::Debug for SwapchainCreateFlagBitsKHR {
             }
             f.write_str("PRESENT_WAIT_2")?;
             remaining &= !Self::PRESENT_WAIT_2.0;
+            first = false;
+        }
+        if remaining & Self::DEFERRED_MEMORY_ALLOCATION.0 != 0 {
+            if !first {
+                f.write_str(" | ")?;
+            }
+            f.write_str("DEFERRED_MEMORY_ALLOCATION")?;
+            remaining &= !Self::DEFERRED_MEMORY_ALLOCATION.0;
             first = false;
         }
         if remaining != 0u32 {
