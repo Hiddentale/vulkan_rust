@@ -11,6 +11,15 @@ ignore = [
     # only as a transitive dev-dependency (winit -> sctk-adwaita -> ab_glyph ->
     # owned_ttf_parser). No safe fix; not a vulnerability.
     "RUSTSEC-2026-0192",
+    # core2 is unmaintained with all versions yanked and no safe upgrade. Reaches
+    # us only as a transitive dev-dependency (image -> ravif -> rav1e ->
+    # bitstream-io -> core2), same chain as the paste advisory above.
+    "RUSTSEC-2026-0105",
+    # quick-xml quadratic-runtime and unbounded-allocation DoS advisories. No fixed
+    # release resolves them for us; reaches us only as a transitive dev-dependency
+    # (winit -> ... -> wayland-scanner -> quick-xml).
+    "RUSTSEC-2026-0194",
+    "RUSTSEC-2026-0195",
 ]
 
 [licenses]
