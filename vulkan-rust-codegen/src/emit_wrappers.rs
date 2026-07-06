@@ -357,8 +357,22 @@ fn emit_return_type(cmd: &CommandDef, roles: &[ParamRole], pattern: CommandPatte
             let ty = output_base_type(cmd, roles);
             quote! { -> #ty }
         }
+        CommandPattern::Scalar => {
+            let ty = scalar_return_type(cmd);
+            quote! { -> #ty }
+        }
         CommandPattern::ResultOnly => quote! { -> VkResult<()> },
         CommandPattern::Destroy | CommandPattern::VoidForward => TokenStream::new(),
+    }
+}
+
+/// Resolve a `Scalar` command's return type. `VkBool32` is surfaced as `bool`
+/// for consistency with bool output params; all other scalars resolve directly.
+fn scalar_return_type(cmd: &CommandDef) -> TokenStream {
+    if cmd.return_type == "VkBool32" {
+        quote! { bool }
+    } else {
+        resolve_base_type(&cmd.return_type)
     }
 }
 
@@ -479,6 +493,23 @@ fn emit_body(cmd: &CommandDef, roles: &[ParamRole], pattern: CommandPattern) -> 
                 let mut out = unsafe { core::mem::zeroed() };
                 unsafe { fp(#args) };
                 #out_expr
+            }
+        }
+        CommandPattern::Scalar => {
+            let args = emit_call_args(cmd, roles);
+            let call = quote! { unsafe { fp(#args) } };
+            // Parenthesize the call: a bare `unsafe { .. }` block in statement
+            // position followed by `!= 0` is parsed as a statement, not an
+            // expression, which is a syntax error.
+            let ret_expr = if cmd.return_type == "VkBool32" {
+                quote! { (#call) != 0 }
+            } else {
+                call
+            };
+            quote! {
+                #fp_load
+                #bindings
+                #ret_expr
             }
         }
         CommandPattern::Enumerate => {
@@ -911,6 +942,42 @@ mod tests {
     }
 
     #[test]
+    fn return_type_scalar_device_address() {
+        let c = cmd(
+            "vkGetBufferDeviceAddress",
+            "VkDeviceAddress",
+            vec![
+                param("device", "VkDevice"),
+                const_ptr("pInfo", "VkBufferDeviceAddressInfo"),
+            ],
+            DispatchLevel::Device,
+        );
+        let roles = assign_param_roles(&c, &empty_pnext());
+        let pattern = classify_command(&c, &roles);
+        let ret = stringify(emit_return_type(&c, &roles, pattern));
+
+        assert_eq!(ret, "-> u64");
+    }
+
+    #[test]
+    fn return_type_scalar_bool32_becomes_bool() {
+        let c = cmd(
+            "vkGetPhysicalDeviceWin32PresentationSupportKHR",
+            "VkBool32",
+            vec![
+                param("physicalDevice", "VkPhysicalDevice"),
+                param("queueFamilyIndex", "uint32_t"),
+            ],
+            DispatchLevel::Instance,
+        );
+        let roles = assign_param_roles(&c, &empty_pnext());
+        let pattern = classify_command(&c, &roles);
+        let ret = stringify(emit_return_type(&c, &roles, pattern));
+
+        assert_eq!(ret, "-> bool");
+    }
+
+    #[test]
     fn return_type_void_forward_is_empty() {
         let c = cmd(
             "vkCmdDraw",
@@ -1044,6 +1111,46 @@ mod tests {
         assert!(!body.contains("check"));
         // Last expression is `out`
         assert!(body.ends_with("out }") || body.contains("; out"));
+    }
+
+    #[test]
+    fn body_scalar_returns_call_result() {
+        let c = cmd(
+            "vkGetBufferDeviceAddress",
+            "VkDeviceAddress",
+            vec![
+                param("device", "VkDevice"),
+                const_ptr("pInfo", "VkBufferDeviceAddressInfo"),
+            ],
+            DispatchLevel::Device,
+        );
+        let roles = assign_param_roles(&c, &empty_pnext());
+        let pattern = classify_command(&c, &roles);
+        let body = stringify(emit_body(&c, &roles, pattern));
+
+        // No zeroed output; the call itself is the tail expression.
+        assert!(!body.contains("core :: mem :: zeroed"));
+        assert!(body.contains("self . commands () . get_buffer_device_address . expect"));
+        assert!(body.contains("unsafe { fp (self . handle () , p_info) }"));
+        assert!(!body.contains("!= 0"));
+    }
+
+    #[test]
+    fn body_scalar_bool32_compares_to_zero() {
+        let c = cmd(
+            "vkGetPhysicalDeviceWin32PresentationSupportKHR",
+            "VkBool32",
+            vec![
+                param("physicalDevice", "VkPhysicalDevice"),
+                param("queueFamilyIndex", "uint32_t"),
+            ],
+            DispatchLevel::Instance,
+        );
+        let roles = assign_param_roles(&c, &empty_pnext());
+        let pattern = classify_command(&c, &roles);
+        let body = stringify(emit_body(&c, &roles, pattern));
+
+        assert!(body.contains("(unsafe { fp (physical_device , queue_family_index) }) != 0"));
     }
 
     #[test]
@@ -1639,6 +1746,7 @@ mod tests {
                     CommandPattern::Enumerate => "Enumerate",
                     CommandPattern::Fill => "Fill",
                     CommandPattern::Query => "Query",
+                    CommandPattern::Scalar => "Scalar",
                     CommandPattern::ResultOnly => "ResultOnly",
                     CommandPattern::VoidForward => "VoidForward",
                 };

@@ -119,12 +119,15 @@ impl crate::Instance {
     ///The returned pointer may go through a loader trampoline. For
     ///device-level commands, `get_device_proc_addr` returns a
     ///driver-direct pointer that is slightly faster.
-    pub unsafe fn get_instance_proc_addr(&self, p_name: *const core::ffi::c_char) {
+    pub unsafe fn get_instance_proc_addr(
+        &self,
+        p_name: *const core::ffi::c_char,
+    ) -> PFN_vkVoidFunction {
         let fp = self
             .commands()
             .get_instance_proc_addr
             .expect("vkGetInstanceProcAddr not loaded");
-        unsafe { fp(self.handle(), p_name) };
+        unsafe { fp(self.handle(), p_name) }
     }
     ///Wraps [`vkGetPhysicalDeviceProperties`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceProperties.html).
     /**
@@ -1244,12 +1247,12 @@ impl crate::Instance {
         &self,
         physical_device: PhysicalDevice,
         queue_family_index: u32,
-    ) {
+    ) -> bool {
         let fp = self
             .commands()
             .get_physical_device_win32_presentation_support_khr
             .expect("vkGetPhysicalDeviceWin32PresentationSupportKHR not loaded");
-        unsafe { fp(physical_device, queue_family_index) };
+        (unsafe { fp(physical_device, queue_family_index) }) != 0
     }
     ///Wraps [`vkGetPhysicalDeviceXlibPresentationSupportKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPhysicalDeviceXlibPresentationSupportKHR.html).
     /**
@@ -3905,11 +3908,11 @@ impl crate::Instance {
         &self,
         physical_device: PhysicalDevice,
         descriptor_type: DescriptorType,
-    ) {
+    ) -> u64 {
         let fp = self
             .commands()
             .get_physical_device_descriptor_size_ext
             .expect("vkGetPhysicalDeviceDescriptorSizeEXT not loaded");
-        unsafe { fp(physical_device, descriptor_type) };
+        unsafe { fp(physical_device, descriptor_type) }
     }
 }
