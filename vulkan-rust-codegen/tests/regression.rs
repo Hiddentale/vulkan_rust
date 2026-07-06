@@ -151,7 +151,10 @@ fn two_call_return_type_consistency() {
             vulkan_rust_codegen::wrapper_utils::CommandPattern::Fill
                 if cmd.return_type != "void" =>
             {
-                mismatches.push(format!("{}: Fill but returns '{}'", cmd.name, cmd.return_type));
+                mismatches.push(format!(
+                    "{}: Fill but returns '{}'",
+                    cmd.name, cmd.return_type
+                ));
             }
             _ => {}
         }

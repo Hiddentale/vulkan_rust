@@ -7,7 +7,6 @@ ignore = [
     # paste is unmaintained but only reaches us as a transitive dev-dependency
     # (image -> ravif -> rav1e -> paste). No action needed.
     "RUSTSEC-2024-0436",
-    [advisories]
     # ttf-parser is unmaintained with no maintained upgrade available. Reaches us
     # only as a transitive dev-dependency (winit -> sctk-adwaita -> ab_glyph ->
     # owned_ttf_parser). No safe fix; not a vulnerability.
