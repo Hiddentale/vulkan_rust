@@ -140,21 +140,21 @@ fn two_call_return_type_consistency() {
         let pattern = vulkan_rust_codegen::wrapper_utils::classify_command(cmd, &roles);
 
         match pattern {
-            vulkan_rust_codegen::wrapper_utils::CommandPattern::Enumerate => {
-                if cmd.return_type != "VkResult" {
-                    mismatches.push(format!(
-                        "{}: Enumerate but returns '{}'",
-                        cmd.name, cmd.return_type
-                    ));
-                }
+            vulkan_rust_codegen::wrapper_utils::CommandPattern::Enumerate
+                if cmd.return_type != "VkResult" =>
+            {
+                mismatches.push(format!(
+                    "{}: Enumerate but returns '{}'",
+                    cmd.name, cmd.return_type
+                ));
             }
-            vulkan_rust_codegen::wrapper_utils::CommandPattern::Fill => {
-                if cmd.return_type != "void" {
-                    mismatches.push(format!(
-                        "{}: Fill but returns '{}'",
-                        cmd.name, cmd.return_type
-                    ));
-                }
+            vulkan_rust_codegen::wrapper_utils::CommandPattern::Fill
+                if cmd.return_type != "void" =>
+            {
+                mismatches.push(format!(
+                    "{}: Fill but returns '{}'",
+                    cmd.name, cmd.return_type
+                ));
             }
             _ => {}
         }
