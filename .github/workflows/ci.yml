@@ -91,6 +91,23 @@ jobs:
       - name: Check vulkan-rust
         run: cargo +1.85 check -p vulkan-rust --all-features
 
+  semver:
+    name: SemVer Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install system dependencies
+        run: sudo apt-get install -y libvulkan-dev libxcb1-dev libxkbcommon-dev
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Check public API against the last published release
+        uses: obi1kenobi/cargo-semver-checks-action@v2
+
   clippy:
     name: Clippy Lints
     runs-on: ubuntu-latest
