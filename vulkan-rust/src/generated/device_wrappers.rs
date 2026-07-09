@@ -28,12 +28,15 @@ impl crate::Device {
     ///The returned pointer is only valid for the device it was queried
     ///from. Passing a command name that the device does not support
     ///returns a null pointer.
-    pub unsafe fn get_device_proc_addr(&self, p_name: *const core::ffi::c_char) {
+    pub unsafe fn get_device_proc_addr(
+        &self,
+        p_name: *const core::ffi::c_char,
+    ) -> PFN_vkVoidFunction {
         let fp = self
             .commands()
             .get_device_proc_addr
             .expect("vkGetDeviceProcAddr not loaded");
-        unsafe { fp(self.handle(), p_name) };
+        unsafe { fp(self.handle(), p_name) }
     }
     ///Wraps [`vkDestroyDevice`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkDestroyDevice.html).
     /**
@@ -12798,12 +12801,12 @@ impl crate::Device {
         pipeline: Pipeline,
         group: u32,
         group_shader: ShaderGroupShaderKHR,
-    ) {
+    ) -> u64 {
         let fp = self
             .commands()
             .get_ray_tracing_shader_group_stack_size_khr
             .expect("vkGetRayTracingShaderGroupStackSizeKHR not loaded");
-        unsafe { fp(self.handle(), pipeline, group, group_shader) };
+        unsafe { fp(self.handle(), pipeline, group, group_shader) }
     }
     ///Wraps [`vkCmdSetRayTracingPipelineStackSizeKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdSetRayTracingPipelineStackSizeKHR.html).
     /**
@@ -12864,12 +12867,12 @@ impl crate::Device {
     ///for fully bindless texture access.
     ///
     ///Requires `VK_NVX_image_view_handle`.
-    pub unsafe fn get_image_view_handle_nvx(&self, p_info: &ImageViewHandleInfoNVX) {
+    pub unsafe fn get_image_view_handle_nvx(&self, p_info: &ImageViewHandleInfoNVX) -> u32 {
         let fp = self
             .commands()
             .get_image_view_handle_nvx
             .expect("vkGetImageViewHandleNVX not loaded");
-        unsafe { fp(self.handle(), p_info) };
+        unsafe { fp(self.handle(), p_info) }
     }
     ///Wraps [`vkGetImageViewHandle64NVX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetImageViewHandle64NVX.html).
     /**
@@ -12888,12 +12891,12 @@ impl crate::Device {
     ///`get_image_view_handle_nvx`.
     ///
     ///Requires `VK_NVX_image_view_handle`.
-    pub unsafe fn get_image_view_handle64_nvx(&self, p_info: &ImageViewHandleInfoNVX) {
+    pub unsafe fn get_image_view_handle64_nvx(&self, p_info: &ImageViewHandleInfoNVX) -> u64 {
         let fp = self
             .commands()
             .get_image_view_handle64_nvx
             .expect("vkGetImageViewHandle64NVX not loaded");
-        unsafe { fp(self.handle(), p_info) };
+        unsafe { fp(self.handle(), p_info) }
     }
     ///Wraps [`vkGetImageViewAddressNVX`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetImageViewAddressNVX.html).
     /**
@@ -12949,12 +12952,12 @@ impl crate::Device {
         &self,
         image_view_index: u64,
         sampler_index: u64,
-    ) {
+    ) -> u64 {
         let fp = self
             .commands()
             .get_device_combined_image_sampler_index_nvx
             .expect("vkGetDeviceCombinedImageSamplerIndexNVX not loaded");
-        unsafe { fp(self.handle(), image_view_index, sampler_index) };
+        unsafe { fp(self.handle(), image_view_index, sampler_index) }
     }
     ///Wraps [`vkGetDeviceGroupSurfacePresentModes2EXT`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeviceGroupSurfacePresentModes2EXT.html).
     /**
@@ -13186,12 +13189,15 @@ impl crate::Device {
     ///Most applications do not need this, it is primarily for debugging
     ///and profiling tools. Use `get_buffer_device_address` for runtime
     ///buffer address access.
-    pub unsafe fn get_buffer_opaque_capture_address(&self, p_info: &BufferDeviceAddressInfo) {
+    pub unsafe fn get_buffer_opaque_capture_address(
+        &self,
+        p_info: &BufferDeviceAddressInfo,
+    ) -> u64 {
         let fp = self
             .commands()
             .get_buffer_opaque_capture_address
             .expect("vkGetBufferOpaqueCaptureAddress not loaded");
-        unsafe { fp(self.handle(), p_info) };
+        unsafe { fp(self.handle(), p_info) }
     }
     ///Wraps [`vkGetBufferDeviceAddress`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetBufferDeviceAddress.html).
     /**
@@ -13226,12 +13232,12 @@ impl crate::Device {
     ///buffer was created with
     ///`BUFFER_CREATE_DEVICE_ADDRESS_CAPTURE_REPLAY`, the address can be
     ///captured and replayed across sessions.
-    pub unsafe fn get_buffer_device_address(&self, p_info: &BufferDeviceAddressInfo) {
+    pub unsafe fn get_buffer_device_address(&self, p_info: &BufferDeviceAddressInfo) -> u64 {
         let fp = self
             .commands()
             .get_buffer_device_address
             .expect("vkGetBufferDeviceAddress not loaded");
-        unsafe { fp(self.handle(), p_info) };
+        unsafe { fp(self.handle(), p_info) }
     }
     ///Wraps [`vkInitializePerformanceApiINTEL`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkInitializePerformanceApiINTEL.html).
     /**
@@ -13557,12 +13563,12 @@ impl crate::Device {
     pub unsafe fn get_device_memory_opaque_capture_address(
         &self,
         p_info: &DeviceMemoryOpaqueCaptureAddressInfo,
-    ) {
+    ) -> u64 {
         let fp = self
             .commands()
             .get_device_memory_opaque_capture_address
             .expect("vkGetDeviceMemoryOpaqueCaptureAddress not loaded");
-        unsafe { fp(self.handle(), p_info) };
+        unsafe { fp(self.handle(), p_info) }
     }
     ///Wraps [`vkGetPipelineExecutablePropertiesKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetPipelineExecutablePropertiesKHR.html).
     /**
@@ -13995,12 +14001,12 @@ impl crate::Device {
     pub unsafe fn get_acceleration_structure_device_address_khr(
         &self,
         p_info: &AccelerationStructureDeviceAddressInfoKHR,
-    ) {
+    ) -> u64 {
         let fp = self
             .commands()
             .get_acceleration_structure_device_address_khr
             .expect("vkGetAccelerationStructureDeviceAddressKHR not loaded");
-        unsafe { fp(self.handle(), p_info) };
+        unsafe { fp(self.handle(), p_info) }
     }
     ///Wraps [`vkCreateDeferredOperationKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCreateDeferredOperationKHR.html).
     /**
@@ -14106,12 +14112,12 @@ impl crate::Device {
     pub unsafe fn get_deferred_operation_max_concurrency_khr(
         &self,
         operation: DeferredOperationKHR,
-    ) {
+    ) -> u32 {
         let fp = self
             .commands()
             .get_deferred_operation_max_concurrency_khr
             .expect("vkGetDeferredOperationMaxConcurrencyKHR not loaded");
-        unsafe { fp(self.handle(), operation) };
+        unsafe { fp(self.handle(), operation) }
     }
     ///Wraps [`vkGetDeferredOperationResultKHR`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkGetDeferredOperationResultKHR.html).
     /**
@@ -14245,12 +14251,12 @@ impl crate::Device {
     pub unsafe fn get_pipeline_indirect_device_address_nv(
         &self,
         p_info: &PipelineIndirectDeviceAddressInfoNV,
-    ) {
+    ) -> u64 {
         let fp = self
             .commands()
             .get_pipeline_indirect_device_address_nv
             .expect("vkGetPipelineIndirectDeviceAddressNV not loaded");
-        unsafe { fp(self.handle(), p_info) };
+        unsafe { fp(self.handle(), p_info) }
     }
     ///Wraps [`vkAntiLagUpdateAMD`](https://registry.khronos.org/vulkan/specs/latest/man/html/vkAntiLagUpdateAMD.html).
     /**

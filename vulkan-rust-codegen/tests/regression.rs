@@ -788,7 +788,8 @@ fn wrapper_return_types_match_patterns() {
             vulkan_rust_codegen::wrapper_utils::CommandPattern::Fill => {
                 ret.starts_with("Vec<") && !ret.contains("VkResult")
             }
-            vulkan_rust_codegen::wrapper_utils::CommandPattern::Query => {
+            vulkan_rust_codegen::wrapper_utils::CommandPattern::Query
+            | vulkan_rust_codegen::wrapper_utils::CommandPattern::Scalar => {
                 !ret.is_empty() && !ret.contains("VkResult") && !ret.contains("Vec")
             }
             vulkan_rust_codegen::wrapper_utils::CommandPattern::ResultOnly => ret == "VkResult<()>",

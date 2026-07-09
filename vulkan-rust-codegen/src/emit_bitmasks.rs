@@ -34,10 +34,11 @@ fn emit_bitmask(def: &BitmaskDef) -> TokenStream {
         .iter()
         .filter_map(|b| {
             let rust_name = strip_bit_prefix(&b.name, &prefix)?;
+            let tokens = emit_bit_constant(b, &prefix, is_64)?;
             if !seen.insert(rust_name) {
                 return None;
             }
-            emit_bit_constant(b, &prefix, is_64)
+            Some(tokens)
         })
         .collect();
 
@@ -54,10 +55,11 @@ fn emit_bitmask(def: &BitmaskDef) -> TokenStream {
         .iter()
         .filter_map(|b| {
             let rust_name = strip_bit_prefix(&b.name, &prefix)?;
+            let tokens = emit_debug_check(b, &prefix)?;
             if !seen_debug.insert(rust_name) {
                 return None;
             }
-            emit_debug_check(b, &prefix)
+            Some(tokens)
         })
         .collect();
 
@@ -220,14 +222,15 @@ fn compute_all_value(def: &BitmaskDef, prefix: &str) -> u64 {
         let Some(rust_name) = strip_bit_prefix(&bit.name, prefix) else {
             continue;
         };
+        let val = match &bit.value {
+            BitmaskValue::Bitpos(pos) => 1u64 << pos,
+            BitmaskValue::Value(val) => *val,
+            BitmaskValue::Alias(_) => continue,
+        };
         if !seen.insert(rust_name) {
             continue;
         }
-        match &bit.value {
-            BitmaskValue::Bitpos(pos) => result |= 1u64 << pos,
-            BitmaskValue::Value(val) => result |= val,
-            BitmaskValue::Alias(_) => {}
-        }
+        result |= val;
     }
     result
 }
@@ -411,6 +414,33 @@ mod tests {
             1,
             "expected exactly one SHADER_READ constant"
         );
+    }
+
+    #[test]
+    fn alias_before_real_value_does_not_suppress_constant() {
+        let def = BitmaskDef {
+            name: "ShaderStageFlagBits".to_string(),
+            flags_name: "ShaderStageFlags".to_string(),
+            bitwidth: 32,
+            bits: vec![
+                BitmaskBit {
+                    name: "VK_SHADER_STAGE_TASK_BIT_NV".to_string(),
+                    value: BitmaskValue::Alias("VK_SHADER_STAGE_TASK_BIT_EXT".to_string()),
+                },
+                BitmaskBit {
+                    name: "VK_SHADER_STAGE_TASK_BIT_EXT".to_string(),
+                    value: BitmaskValue::Bitpos(6),
+                },
+            ],
+        };
+        let tokens = emit_bitmask(&def);
+        assert_valid_rust(&tokens);
+        let code = tokens.to_string();
+        assert!(
+            code.contains("pub const TASK"),
+            "TASK constant must be emitted even when alias appears first"
+        );
+        assert!(code.contains("64u32"), "TASK should have value 1<<6 = 64");
     }
 
     #[test]

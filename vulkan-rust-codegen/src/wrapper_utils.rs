@@ -79,6 +79,9 @@ pub enum CommandPattern {
     ResultOnly,
     /// void + no output params → `()`
     VoidForward,
+    /// Non-void, non-VkResult scalar return + no output params → `T`
+    /// (e.g. `vkGetBufferDeviceAddress` returning `VkDeviceAddress`).
+    Scalar,
 }
 
 // ---------------------------------------------------------------------------
@@ -384,6 +387,7 @@ fn find_single_output(
 /// type and the roles assigned to its parameters.
 pub fn classify_command(cmd: &CommandDef, roles: &[ParamRole]) -> CommandPattern {
     let has_vk_result = cmd.return_type == "VkResult";
+    let is_void = cmd.return_type == "void";
     let has_output = roles.iter().any(|r| matches!(r, ParamRole::Output));
     let has_output_pair = roles
         .iter()
@@ -407,7 +411,8 @@ pub fn classify_command(cmd: &CommandDef, roles: &[ParamRole]) -> CommandPattern
         (false, true, _, _, _) => CommandPattern::Fill,
         (false, false, _, true, _) => CommandPattern::Query,
         (false, false, _, false, true) => CommandPattern::Destroy,
-        (false, false, _, false, false) => CommandPattern::VoidForward,
+        (false, false, _, false, false) if is_void => CommandPattern::VoidForward,
+        (false, false, _, false, false) => CommandPattern::Scalar,
     }
 }
 
@@ -986,6 +991,54 @@ mod tests {
         );
         let roles = assign_param_roles(&c, &empty_pnext());
         assert_eq!(classify_command(&c, &roles), CommandPattern::ResultOnly);
+    }
+
+    #[test]
+    fn pattern_get_buffer_device_address_is_scalar() {
+        // vkGetBufferDeviceAddress(VkDevice, *const VkBufferDeviceAddressInfo)
+        //     -> VkDeviceAddress
+        let c = cmd(
+            "vkGetBufferDeviceAddress",
+            "VkDeviceAddress",
+            vec![
+                param("device", "VkDevice"),
+                const_ptr("pInfo", "VkBufferDeviceAddressInfo"),
+            ],
+            DispatchLevel::Device,
+        );
+        let roles = assign_param_roles(&c, &empty_pnext());
+        // pInfo is a const pointer → Regular, not an output. Scalar return.
+        assert_eq!(classify_command(&c, &roles), CommandPattern::Scalar);
+    }
+
+    #[test]
+    fn pattern_bool32_return_is_scalar() {
+        // vkGetPhysicalDeviceWin32PresentationSupportKHR(VkPhysicalDevice, uint32_t)
+        //     -> VkBool32
+        let c = cmd(
+            "vkGetPhysicalDeviceWin32PresentationSupportKHR",
+            "VkBool32",
+            vec![
+                param("physicalDevice", "VkPhysicalDevice"),
+                param("queueFamilyIndex", "uint32_t"),
+            ],
+            DispatchLevel::Instance,
+        );
+        let roles = assign_param_roles(&c, &empty_pnext());
+        assert_eq!(classify_command(&c, &roles), CommandPattern::Scalar);
+    }
+
+    #[test]
+    fn pattern_void_return_stays_void_forward() {
+        // A genuine void command with no output must remain VoidForward, not Scalar.
+        let c = cmd(
+            "vkCmdEndRendering",
+            "void",
+            vec![param("commandBuffer", "VkCommandBuffer")],
+            DispatchLevel::Device,
+        );
+        let roles = assign_param_roles(&c, &empty_pnext());
+        assert_eq!(classify_command(&c, &roles), CommandPattern::VoidForward);
     }
 
     #[test]
