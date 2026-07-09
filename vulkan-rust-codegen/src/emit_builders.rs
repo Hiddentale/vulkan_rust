@@ -77,7 +77,7 @@ fn emit_builder(
         };
         let push_next_doc = format!(
             "Prepend a struct to the pNext chain. See [`{}`]'s **Extended By** section for valid types.",
-            &def.name,
+            def.name,
         );
         quote! {
             #[doc = #push_next_doc]
@@ -97,7 +97,7 @@ fn emit_builder(
 
     let builder_doc = format!(
         "Builder for [`{}`] with lifetime-tied pNext safety.",
-        &def.name
+        def.name
     );
 
     quote! {
@@ -155,7 +155,7 @@ fn emit_plain_builder(def: &StructDef) -> TokenStream {
         .map(|m| emit_setter(m, def))
         .collect();
 
-    let builder_doc = format!("Builder for [`{}`].", &def.name);
+    let builder_doc = format!("Builder for [`{}`].", def.name);
 
     if needs_lifetime {
         quote! {

@@ -160,7 +160,7 @@ fn emit_struct_or_union(
 
 /// Build doc comment lines for a struct or union from vk.xml metadata.
 fn emit_struct_docs(def: &StructDef, extended_by: &HashMap<String, Vec<String>>) -> TokenStream {
-    let vk_name = format!("Vk{}", &def.name);
+    let vk_name = format!("Vk{}", def.name);
     let spec_link = format!(
         "[`{vk_name}`](https://registry.khronos.org/vulkan/specs/latest/man/html/{vk_name}.html)"
     );
@@ -208,7 +208,7 @@ fn emit_struct(
     extended_by: &HashMap<String, Vec<String>>,
 ) -> TokenStream {
     let name = format_ident!("{}", &def.name);
-    let vk_name = format!("Vk{}", &def.name);
+    let vk_name = format!("Vk{}", def.name);
     let docs = emit_struct_docs(def, extended_by);
     let fields = emit_fields_with_docs(&def.members);
     let default_impl = emit_default(def, stype_raw);
@@ -230,7 +230,7 @@ fn emit_struct(
 
 fn emit_union(def: &StructDef, extended_by: &HashMap<String, Vec<String>>) -> TokenStream {
     let name = format_ident!("{}", &def.name);
-    let vk_name = format!("Vk{}", &def.name);
+    let vk_name = format!("Vk{}", def.name);
     let docs = emit_struct_docs(def, extended_by);
     let fields = emit_fields(&def.members);
 

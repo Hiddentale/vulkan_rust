@@ -18,7 +18,7 @@ pub fn emit_bitmasks(registry: &VkRegistry) -> TokenStream {
 
 fn emit_bitmask(def: &BitmaskDef) -> TokenStream {
     let name = format_ident!("{}", &def.name);
-    let vk_name = format!("Vk{}", &def.name);
+    let vk_name = format!("Vk{}", def.name);
     let is_64 = def.bitwidth == 64;
     let prefix = bitmask_bit_prefix(&def.name);
 

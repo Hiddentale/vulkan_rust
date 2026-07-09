@@ -91,7 +91,7 @@ fn emit_pfn_typedef(cmd: &CommandDef) -> TokenStream {
 fn emit_command_docs(cmd: &CommandDef) -> TokenStream {
     let spec_link = format!(
         "[`{name}`](https://registry.khronos.org/vulkan/specs/latest/man/html/{name}.html)",
-        name = &cmd.name,
+        name = cmd.name,
     );
 
     let mut doc_lines: Vec<TokenStream> = vec![quote! { #[doc = #spec_link] }];
