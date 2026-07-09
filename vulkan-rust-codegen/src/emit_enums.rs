@@ -16,7 +16,7 @@ pub fn emit_enums(registry: &VkRegistry) -> TokenStream {
 
 fn emit_enum(def: &EnumDef) -> TokenStream {
     let name = format_ident!("{}", &def.name);
-    let vk_name = format!("Vk{}", &def.name);
+    let vk_name = format!("Vk{}", def.name);
     let prefix = enum_variant_prefix(&def.name);
 
     let mut seen = HashSet::new();

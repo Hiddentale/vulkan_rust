@@ -47,7 +47,7 @@ fn emit_handle_trait() -> TokenStream {
 
 fn emit_handle(handle: &HandleDef) -> TokenStream {
     let name = format_ident!("{}", &handle.name);
-    let vk_name = format!("Vk{}", &handle.name);
+    let vk_name = format!("Vk{}", handle.name);
 
     let (repr_type, zero_literal) = if handle.dispatchable {
         (quote! { usize }, quote! { 0usize })

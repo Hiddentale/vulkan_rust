@@ -185,7 +185,7 @@ fn emit_method(cmd: &CommandDef, roles: &[ParamRole], pattern: CommandPattern) -
 fn emit_wrapper_docs(cmd: &CommandDef, roles: &[ParamRole]) -> TokenStream {
     let spec_link = format!(
         "Wraps [`{name}`](https://registry.khronos.org/vulkan/specs/latest/man/html/{name}.html).",
-        name = &cmd.name,
+        name = cmd.name,
     );
 
     let mut doc_lines: Vec<TokenStream> = vec![quote! { #[doc = #spec_link] }];
@@ -228,7 +228,7 @@ fn emit_wrapper_docs(cmd: &CommandDef, roles: &[ParamRole]) -> TokenStream {
     let panic_cmd = format!(
         "Panics if `{}` was not loaded. This can happen if the required \
          extension or Vulkan version is not enabled on the instance or device.",
-        &cmd.name,
+        cmd.name,
     );
     doc_lines.push(quote! { #[doc = ""] });
     doc_lines.push(quote! { #[doc = "# Panics"] });
@@ -236,7 +236,7 @@ fn emit_wrapper_docs(cmd: &CommandDef, roles: &[ParamRole]) -> TokenStream {
 
     // Doc overrides: append hand-written content from doc_overrides/{vkCommandName}.md.
     let overrides_dir = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("doc_overrides");
-    let override_path = overrides_dir.join(format!("{}.md", &cmd.name));
+    let override_path = overrides_dir.join(format!("{}.md", cmd.name));
     if override_path.exists()
         && let Ok(content) = std::fs::read_to_string(&override_path)
     {
